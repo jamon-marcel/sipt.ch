@@ -1,0 +1,85 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: layout/header
+ * -----------------------------------------------------------------------------
+ */
+
+header.site-header {
+  background-color: $color-white;
+  @include responsive-prop('height', $header-height);
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 200;
+
+  > div {
+    @extend %inner-block;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: $space-xs;
+    padding-top: $space-xs;
+
+    @include bp-md() {
+      padding-bottom: 0;
+      padding-top: $space-xl;
+    }
+  }
+
+  &.is-tiny {
+    background-color: transparent;
+    height: 45px;
+
+    .logo {
+      opacity: 0;
+    }
+
+    @include bp-md() {
+      background-color: $color-white;
+      height: 90px;
+      transform: translateY(0);
+      transition: transform .36s .24s ease-out;
+    }
+  }
+
+  &.is-hidden {
+    @include bp-md() {
+      transform: translateY(-100%);
+      transition: transform .24s ease-out;
+    }
+  }
+
+}
+
+header.page-header {
+  display: none;
+  
+  @include bp-md() {
+    display: block;
+    margin-bottom: $space-sm;
+  }
+
+  h1, h2 {
+    line-height: 1 !important;
+  }
+
+  h2 {
+    border: none;
+    @include font-size($fs-md);
+    @include font-regular();
+    padding: 0;
+    margin: 0;
+  }
+
+  &.has-nav {
+    display: block;
+    margin-bottom: $space-gigantic;
+
+    h1 {
+      display: none;
+      @include bp-md() {
+        display: block;
+      }
+    }
+  }
+}

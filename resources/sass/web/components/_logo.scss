@@ -1,0 +1,22 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/logo
+ * -----------------------------------------------------------------------------
+ */
+
+.logo {
+  display: block;
+  height: 88px;
+  width: 245px;
+
+  @include bp-md() {
+    height: 145px;
+    width: 405px;
+  }
+
+  svg {
+    display: block;
+    height: auto;
+    width: 100%;
+  }
+}

@@ -1,0 +1,23 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/typo/webfonts
+ * -----------------------------------------------------------------------------
+ *
+ * Typography - Webfonts
+ *
+ */
+
+@font-face {
+  font-family: "LetteraTextLLWeb-Light";
+  src: url("fonts/LetteraTextLLWeb-Light.woff2") format("woff2"), url("fonts/LetteraTextLLWeb-Light.woff") format("woff");
+}
+
+@font-face {
+  font-family: "LetteraTextLLWeb-Regular";
+  src: url("fonts/LetteraTextLLWeb-Regular.woff2") format("woff2"), url("fonts/LetteraTextLLWeb-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "LetteraTextLLWeb-Medium";
+  src: url("fonts/LetteraTextLLWeb-Medium.woff2") format("woff2"), url("fonts/LetteraTextLLWeb-Medium.woff") format("woff");
+}

@@ -1,0 +1,36 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/icons/chevron
+ * -----------------------------------------------------------------------------
+ */
+
+.icon-document {
+  @extend %icon;
+  margin-left: 15px;
+  position: relative;
+
+  @include bp-md() {
+    margin-left: 21px;
+  }
+
+  &:before {
+    background-image: url($url-images + 'document.svg');
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: contain;
+    content: '';
+    display: block;
+    height: 14px;
+    left: -15px;
+    position: absolute;
+    top: 3px;
+    width: 10px;
+
+    @include bp-md() {
+      height: 16px;
+      left: -21px;
+      top: 6px;
+      width: 12px;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/icons/chevron
+ * -----------------------------------------------------------------------------
+ */
+
+.icon-chevron {
+  @extend %icon-ib;
+  position: relative;
+
+  &:after {
+    background-image: url($url-images + 'chevron-down.svg');
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    bottom: 6px;
+    content: '';
+    display: block;
+    position: absolute;
+    height: 9px;
+    right: -20px;
+    width: 15px;
+
+    @include bp-md() {
+      bottom: 7px;
+      height: 8px;
+      right: -19px;
+      width: 13px;
+    }
+  }
+}

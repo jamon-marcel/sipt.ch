@@ -1,0 +1,70 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: vendor/cropper
+ * Package: vue-advanced-cropper
+ * -----------------------------------------------------------------------------
+ *
+ */
+
+.cropper {
+  max-height: 700px;
+  background: transparent;
+  padding-top: 80px;
+}
+
+.cropper-actions {
+  display: flex;
+}
+
+.cropper-info {
+  background-color: rgba(255,255,255,.6);
+  color: $color-black;
+  top: 50px;
+  padding: 5px;
+  position: absolute;
+  z-index: 100;
+}
+
+.cropper-formats {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.btn-cropper-format {
+  align-items: center;
+  border: 1px dashed $color-green;
+  color: $color-green;
+  display: flex;
+  @include font-size($fs-xxs);
+  @include font-mono();
+  justify-content: center;
+  margin-right: 10px;
+  text-decoration: none;
+  height: 35px;
+  width: 45px;
+
+  &.is-3-4 {
+    width: 30px;
+  }
+
+  &.is-16-9 {
+    width: 60px;
+  }
+}
+
+.is-p {
+  max-width: 700px !important;
+}
+
+.line {
+  border-style: dashed;
+  border-color: $color-green;
+}
+
+.handler {
+  background-color: $color-green;
+}
+
+.vue-advanced-cropper__image {
+  opacity: 0.5 !important;
+}

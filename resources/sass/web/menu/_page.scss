@@ -1,0 +1,71 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: layout/menu/page
+ * -----------------------------------------------------------------------------
+ */
+
+nav.page-menu {
+  border-top: 1px solid $color-black;
+  display: flex;
+  padding-top: $space-xs;
+  @include bp-md() {
+    margin-top: $space-sm;
+    padding-top: $space-lg;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: $space-xs;
+    @include bp-md() {
+      margin-right: $space-lg;
+    }
+  }
+
+  a {
+    @extend %anchor-underline;
+    color: $color-black;
+    display: inline-block;
+    @include font-size($fs-xl);
+    @include font-light();
+  }
+
+  &.is-works {
+    display: flex;
+    justify-content: space-between;
+
+    @include bp-md() {
+      justify-content: flex-start;
+    }
+
+    ul.filter {
+      align-items: flex-end;
+      display: flex;
+  
+      @include bp-md() {
+        margin-left: $space-xl;
+      }
+  
+      li {
+        &[data-type="images"] {
+          display: none;
+        }
+
+        @include bp-md() {
+          margin-right: $space-sm;
+          &[data-type] {
+            display: block !important;
+          }
+          &:last-of-type {
+            margin-right: 0;
+          }
+        }
+      }
+  
+      a {
+        @include font-size($fs-sm);
+      }
+    }
+  }
+
+
+}

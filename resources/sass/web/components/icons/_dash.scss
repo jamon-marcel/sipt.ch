@@ -1,0 +1,32 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/icons/dash
+ * -----------------------------------------------------------------------------
+ */
+
+.icon-dash {
+  @extend %icon-ib;
+  margin-left: 15px;
+  position: relative;
+
+  @include bp-md() {
+    margin-left: 20px;
+  }
+
+  &:before {
+    content: '\2013';
+    display: block;
+    height: 9px;
+    left: -15px;
+    position: absolute;
+    top: -1px;
+    width: 9px;
+
+    @include bp-md() {
+      height: 12px;
+      left: -20px;
+      top: 0;
+      width: 12px;
+    }
+  }
+}

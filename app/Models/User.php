@@ -1,0 +1,64 @@
+<?php
+namespace App\Models;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use GoldSpecDigital\LaravelEloquentUUID\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+
+class User extends Authenticatable
+{
+  use Notifiable;
+
+  /**
+   * The attributes that are mass assignable.
+   *
+   * @var array
+   */
+  protected $fillable = [
+    'email', 'password', 'role'
+  ];
+
+  /**
+   * The attributes that should be hidden for arrays.
+   *
+   * @var array
+   */
+  protected $hidden = [
+    'password', 'remember_token'
+  ];
+
+  /**
+   * The attributes that should be cast to native types.
+   *
+   * @var array
+   */
+  protected $casts = [
+    'email_verified_at' => 'datetime',
+  ];
+
+  /**
+   * Role helper for admins
+   */
+
+  public function isAdmin()
+  {
+    return $this->role == 'admin' ? TRUE : FALSE;
+  }
+
+  /**
+   * Role helper for students
+   */
+
+  public function isStudent()
+  {
+    return $this->role == 'student' ? TRUE : FALSE;
+  }
+
+  /**
+   * Role helper for tutors
+   */
+
+  public function isTutor()
+  {
+    return $this->role == 'tutor' ? TRUE : FALSE;
+  }
+}

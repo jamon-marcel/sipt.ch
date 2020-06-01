@@ -1,0 +1,17 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: layout/main
+ * -----------------------------------------------------------------------------
+ */
+
+main.site {
+  @include responsive-prop('padding-top', $header-height);
+
+  > div {
+    @extend %inner-block;
+    // padding-bottom: $space-sm;
+    // @include bp-md() {
+    //   padding-bottom: $space-huge;
+    // }
+  }
+}

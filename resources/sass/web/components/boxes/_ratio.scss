@@ -1,0 +1,201 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: component/boxes/ratio
+ * -----------------------------------------------------------------------------
+ */
+
+.ratio-boxes {
+  position: relative;
+  width: 100%;
+
+  @include bp-md() {
+    width: calc(100% + #{$space-sm});
+  }
+
+  [class^='box__'] {
+    margin-bottom: $space-xs;
+
+    img {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+
+    .caption {
+      background-color: $color-white;
+      color: $color-black;
+      @include font-light();
+      @include font-size($fs-lg);
+      opacity: 1;
+      padding-top: $space-tiny;
+    }
+
+  }
+
+  .box__a {
+    img {
+      width: 70%;
+    }
+  }
+
+  &.is-home {
+    .box__a {
+      img {
+        width: 100%;
+      }
+    }
+  }
+
+  @include bp-md() {
+    [class^='box__'] {
+      height: 0;
+      margin-bottom: 0;
+      overflow: hidden;
+      background: white;
+      position: relative;
+  
+      > div {
+        background-color: $color-white;
+        height: calc(100% - #{$space-sm});
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: calc(100% - #{$space-sm});
+              
+        img {
+          display: block;
+          height: 100%;
+          -o-object-fit: cover;
+          object-fit: cover;
+          width: 100%;        
+        }
+
+        .caption {
+          bottom: 0;
+          left: 0;
+          opacity: 0;
+          padding: $space-tiny 0;
+          position: absolute;
+          text-align: center;
+          transition: all .1s ease-in;
+          transform: translateY(100%);
+          width: 100%;
+        }
+
+        &:hover {
+          .caption {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+  
+        article {
+          height: 100%;
+          position: absolute;
+          top: 0;
+          width: 100%;
+       }
+      }
+    }
+  
+    .box__a {
+      padding-top: 140%;
+    }
+  
+    .box__b {
+      padding-top: 70%;
+    }
+  
+    .box__c {
+      padding-top: 70%;
+    }
+  
+    .box__d {
+      padding-top: 70%;
+    }
+  
+    .box__e {
+      padding-top: 46.25%;
+    }
+  }
+
+}
+
+.cssgrid {
+  
+  [class^='box-'] {
+    @include bp-md() {
+      display: grid;
+    }
+  }
+  
+  .box-1 {
+    @include bp-md() {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .box-1-1 {
+    @include bp-md() {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .box-1-2 {
+    @include bp-md() {
+      grid-template-columns: 1fr 2fr;
+    }
+  }
+
+  .box-2-1 {
+    @include bp-md() {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
+
+  .box-1-1-1 {
+    @include bp-md() {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+}
+
+// .no-cssgrid {
+//   .ratio-boxes {
+  
+//     // grids
+//     [class^='box-'] {
+//       @extend %clearfix;
+//       > div {
+//         float: left;
+//         width: 100%;
+//       }
+//     }
+
+//     [class^='box__'] {
+//       margin-bottom: $space-sm;
+//       @include bp-md() {
+//         margin-bottom: 0;
+//       }
+//     }
+  
+//     .box-1fr {
+//       > div {
+//         width: 100%;
+//       }
+//     }
+
+//     .box-2x1fr {
+//       @include bp-md() {
+//         > div {
+//           width: 50%;
+//         }
+//         .box__b,
+//         .box__e {
+//           padding-top: 65.1162790697674%;
+//         }
+//       }
+//     }
+//   }
+// }

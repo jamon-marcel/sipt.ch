@@ -1,0 +1,102 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: component/lists/global
+ * -----------------------------------------------------------------------------
+ *
+ */
+
+.listing {
+  border-bottom: 2px solid $color-light-grey;
+}
+
+.listing__item {
+  border-top: 2px solid $color-light-grey;
+  display: grid;
+  grid-template-columns: auto 102px;
+  @include responsive-prop('padding-top', $space-xs);
+  @include responsive-prop('margin-bottom', $space-xs);
+
+  &[data-icons="2"] {
+    grid-template-columns: auto 46px;
+  }
+
+  &[data-icons="3"] {
+    grid-template-columns: auto 74px;
+  }
+
+  &[data-icons="5"] {
+    grid-template-columns: auto 130px;
+  }
+
+  &[data-icons="6"] {
+    grid-template-columns: auto 158px;
+  }
+
+  &.is-disabled {
+    * {
+      opacity: .7;
+    }
+  }
+
+  &.is-draggable {
+    cursor: move;
+    margin-bottom: 0 !important;
+    @include responsive-prop('padding-bottom', $space-xs);
+  }
+}
+
+.listing__item-body {
+  @include responsive-prop('padding-right', $space-sm);
+
+  span {
+    display: block;
+  }
+
+  p {
+    margin-bottom: 10px !important;
+    &:last-of-type {
+      margin-bottom: 0 !important;
+    }
+  }
+
+  .item-tag {
+    background-color: $color-light-grey;
+    border-radius: 2px;
+    color: $color-dark;
+    display: inline-block;
+    @include font-mono();
+    @include font-size($fs-xxs);
+    line-height: 1 !important;
+    padding: 5px;
+    width: auto;
+  }
+}
+
+.listing__item-action {
+  display: grid;
+  grid-template-columns: repeat(4, 18px);
+  grid-gap: 10px;
+  align-items: center;
+  text-align: right;
+
+  &[data-icons="1"] {
+    grid-template-columns: 1fr;
+    justify-items: flex-end;
+  }
+
+  &[data-icons="2"] {
+    grid-template-columns: repeat(2, 18px);
+  }
+
+  &[data-icons="3"] {
+    grid-template-columns: repeat(3, 18px);
+  }
+
+  &[data-icons="5"] {
+    grid-template-columns: repeat(5, 18px);
+  }
+
+  &[data-icons="6"] {
+    grid-template-columns: repeat(6, 18px);
+  }
+}

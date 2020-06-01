@@ -1,0 +1,37 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: layout/base
+ * -----------------------------------------------------------------------------
+ */
+
+html {
+	overflow-y: scroll;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	color: $color-black;
+	@include font-smoothing();
+	@include font-size($fs-md);
+	@include font-regular();
+	position: relative;
+
+	// @include bp-xs() {
+	// 	margin-left: auto;
+	// 	margin-right: auto;
+	// 	max-width: calc(100% - 15%);
+	// }
+
+	// @include bp-md() {
+	// 	margin-left: auto;
+	// 	margin-right: auto;
+	// 	max-width: none;
+	// }
+}
+
+// Scrollbars
+@include scrollbar(8px, #ccc);

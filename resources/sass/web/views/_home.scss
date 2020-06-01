@@ -1,0 +1,73 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: views/home
+ * -----------------------------------------------------------------------------
+ */
+
+.content-home {
+  @extend %content;
+
+  .home-grid {
+    margin-top: $space-md;
+    @include bp-md() {
+      margin-top: $space-xl;
+    }
+  }
+
+  .news-article {
+    text-align: center;
+    padding: $space-sm;
+
+    @include bp-md() {
+      padding: $space-md $space-lg;
+    }
+
+    > div {
+      position: relative;
+    }
+
+    header {
+      border-bottom: 1px solid $color-black;
+      margin-bottom: $space-xs;
+      padding-bottom: $space-xs;
+      @include bp-md() {
+        margin-bottom: $space-sm;
+        padding-bottom: $space-sm;
+      }
+    }
+
+    footer {
+      border-top: 1px solid $color-black;
+      @include font-size($fs-md);
+      margin-top: $space-xs;
+      padding-top: $space-xs;
+      @include bp-md() {
+        margin-top: $space-sm;
+        padding-top: $space-sm;
+      }
+
+      a {
+        @include font-size($fs-md);
+      }
+    }
+
+    h2 {
+      border-bottom: none;
+      @include font-size($fs-xl);
+      margin-bottom: 0;
+    }
+
+    a {
+      text-shadow: none;
+      box-shadow: none;
+    }
+
+    &.is-outline {
+      border: 1px solid $color-black;
+    }
+
+    &.is-colored {
+      background-color: $color-yellow;
+    }
+  }
+}
