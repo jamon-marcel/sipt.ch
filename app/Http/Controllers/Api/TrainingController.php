@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DataCollection;
 use App\Models\Training;
+use App\Models\CourseTraining;
 use App\Http\Requests\TrainingStoreRequest;
 use Illuminate\Http\Request;
 
@@ -15,13 +16,13 @@ class TrainingController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Display a listing of trainings.
    *
    * @return \Illuminate\Http\Response
    */
   public function index()
   {
-    return new DataCollection($this->training->get());
+    return new DataCollection($this->training->with('category')->get());
   }
 
   /**
@@ -34,6 +35,20 @@ class TrainingController extends Controller
   {
     $training = Training::create($request->all());
     $training->save();
+
+    // Course Training
+    if (!empty($request->courses))
+    {
+      foreach($request->courses as $course)
+      {
+        $course_training = new CourseTraining([
+          'course_id' => $course,
+          'training_id' => $training->id
+        ]);
+        $course_training->save();
+      }
+    }
+
     return response()->json(['trainingId' => $training->id]);
   }
 
@@ -56,11 +71,11 @@ class TrainingController extends Controller
    */
   public function edit(Training $training)
   {
-    return response()->json($this->training->find($training->id));
+    return response()->json($this->training->with('category')->with('location')->with('courses')->find($training->id));
   }
 
   /**
-   * Update the current student
+   * Update the current resource
    *
    * @param Training $training
    * @param  \Illuminate\Http\Request $request
@@ -70,6 +85,20 @@ class TrainingController extends Controller
   {
     $training->update($request->all());
     $training->save();
+
+    if ($request->courses)
+    {
+      $training->courses()->detach();
+      foreach($request->courses as $course)
+      { 
+        $course_training = new CourseTraining([
+          'course_id' => $course['id'],
+          'training_id' => $training->id
+        ]);
+        $course_training->save();
+      }
+    }    
+
     return response()->json('successfully updated');
   }
 
@@ -89,6 +118,7 @@ class TrainingController extends Controller
   /**
    * Remove the specified resource from storage.
    *
+   * \Observers\TrainingObserver observes and deletes child elements.
    * @param  Training $training
    * @return \Illuminate\Http\Response
    */

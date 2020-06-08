@@ -3,7 +3,9 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DataCollection;
 use App\Models\Student;
+use App\Models\CourseEventStudent;
 use App\Http\Requests\StudentStoreRequest;
+use App\Http\Requests\StudentStoreEventCourseRequest;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -57,6 +59,45 @@ class StudentController extends Controller
   {
     $student->update($request->all());
     $student->save();
+    return response()->json('successfully updated');
+  }
+
+  /**
+   * Get student by id with course events
+   *
+   * @param Student $student
+   * @param  \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\Response
+   */
+  public function courses(Student $student)
+  {
+    $data = $this->student->with('courseEvents.dates')
+                          ->with('courseEvents.course')
+                          ->find($student->id);
+    return response()->json($data);
+  }
+
+  /**
+   * Add course events for a student
+   *
+   * @param  \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\Response
+   */
+  public function updateCourseEvents(StudentStoreEventCourseRequest $request)
+  {
+    $student = $this->student->findOrFail($request->id);
+    if ($request->course_events)
+    {
+      $student->courseEvents()->detach();
+      foreach($request->course_events as $course)
+      { 
+        $course_event = new CourseEventStudent([
+          'course_event_id' => $course['id'],
+          'student_id' => $request->id
+        ]);
+        $course_event->save();
+      }
+    }
     return response()->json('successfully updated');
   }
 }

@@ -13,19 +13,21 @@ class StudentPolicy
   /**
    * Determine whether the user can view any models.
    *
-   * @param \App\Models\User  $user
+   * @param \App\Models\User $user
    * @return mixed
    */
   public function viewAny(User $user)
   {
-    //
+    return $user->isAdmin() 
+           ? Response::allow() 
+           : Response::deny('Access denied');
   }
 
   /**
    * Determine whether the user can view the model.
    *
-   * @param  \App\Models\User  $user
-   * @param  \App\Models\Student  $student
+   * @param  \App\Models\User $user
+   * @param  \App\Models\Student $student
    * @return mixed
    */
   public function view(User $user, Student $student)

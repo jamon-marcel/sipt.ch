@@ -15,7 +15,7 @@ body {
 }
 
 body {
-	color: $color-dark-grey;
+	color: $color-dark;
 	@include font-smoothing();
 	@include font-regular();
 	@include font-size($fs-sm);

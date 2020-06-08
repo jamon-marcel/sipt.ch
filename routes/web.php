@@ -23,6 +23,12 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Route::get('/student', 'StudentController@index')->name('dashboard.student');
 
 
+Route::get('/test/courses/{course}', 'TestController@course');
+Route::get('/test/student/register', 'TestController@register');
+Route::post('/test/student/store', 'TestController@store')->name('student_store');
+Route::get('/test/student/dates/{student}', 'TestController@student');
+
+
 /*
 |--------------------------------------------------------------------------
 | Admin Web routes

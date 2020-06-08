@@ -6,15 +6,31 @@
  */
 
 .listing {
-  border-bottom: 2px solid $color-light-grey;
+  border-bottom: 2px solid $color-light;
+
+  &.is-grouped {
+    border-bottom: none;
+  }
+}
+
+.listing-group {
+  border-bottom: 2px solid $color-light;
+  @include responsive-prop('margin-bottom', $space-md);
 }
 
 .listing__item {
-  border-top: 2px solid $color-light-grey;
+  border-top: 2px solid $color-light;
   display: grid;
   grid-template-columns: auto 102px;
+  padding-left: 2px;
+  padding-right: 2px;
   @include responsive-prop('padding-top', $space-xs);
-  @include responsive-prop('margin-bottom', $space-xs);
+  @include responsive-prop('padding-bottom', $space-xs);
+
+
+  &:hover {
+    background-color: $color-light;
+  }
 
   &[data-icons="2"] {
     grid-template-columns: auto 46px;
@@ -43,21 +59,17 @@
     margin-bottom: 0 !important;
     @include responsive-prop('padding-bottom', $space-xs);
   }
+
+  &.is-narrow {
+    @include responsive-prop('padding-top', $space-xxs);
+    @include responsive-prop('padding-bottom', $space-xxs);   
+  }
 }
 
 .listing__item-body {
+  align-items: center;
+  display: flex;
   @include responsive-prop('padding-right', $space-sm);
-
-  span {
-    display: block;
-  }
-
-  p {
-    margin-bottom: 10px !important;
-    &:last-of-type {
-      margin-bottom: 0 !important;
-    }
-  }
 
   .item-tag {
     background-color: $color-light-grey;
@@ -69,6 +81,17 @@
     line-height: 1 !important;
     padding: 5px;
     width: auto;
+  }
+
+  .item-date {
+    @include font-size($fs-xs);
+  }
+
+  .separator {
+    @include font-size($fs-xxs);
+    display: inline-block;
+    margin-left: 8px;
+    margin-right: 8px;
   }
 }
 

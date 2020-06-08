@@ -7,12 +7,23 @@ class CourseEventDate extends Model
 	protected $fillable = [
 		'date',
 		'timeStart',
-		'timeEnd',
+    'timeEnd',
+    'tutor_id',
 		'course_event_id',
   ];
 
+  protected $appends = [
+    'timeStart',
+    'timeEnd',
+  ];
+
+	public function tutor()
+	{
+		return $this->hasOne('App\Models\Tutor', 'id', 'tutor_id');
+	}
+
   /**
-   * Mutator 'date'
+   * Mutator 'setDate'
    */
 
   public function setDateAttribute($value)
@@ -21,7 +32,7 @@ class CourseEventDate extends Model
   }
 
   /**
-   * Mutator 'timeStart'
+   * Mutator 'setTimeStart'
    */
 
   public function setTimeStartAttribute($value)
@@ -30,11 +41,38 @@ class CourseEventDate extends Model
   }
 
   /**
-   * Mutator 'timeEnd'
+   * Mutator 'setTimeEnd'
    */
 
   public function setTimeEndAttribute($value)
   {
     $this->attributes['timeEnd'] = \Carbon\Carbon::parse($value)->format('H:i:s');
+  }
+
+  /**
+   * Accessor 'getDate'
+   */
+
+  public function getDateAttribute($value)
+  {
+    return \Carbon\Carbon::parse($value)->format('d.m.Y');
+  }
+
+  /**
+   * Accessor 'getTimeStart'
+   */
+
+  public function getTimeStartAttribute($value)
+  {
+    return \Carbon\Carbon::parse($this->attributes['timeStart'])->format('H.i');
+  }
+
+  /**
+   * Accessor 'getTimeEnd'
+   */
+
+  public function getTimeEndAttribute($value)
+  {
+    return \Carbon\Carbon::parse($this->attributes['timeEnd'])->format('H.i');
   }
 }

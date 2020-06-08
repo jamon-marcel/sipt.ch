@@ -7,10 +7,15 @@ class Training extends Model
 	protected $fillable = [
     'title',
     'description',
-		'structure',
+    'description_short',
+    'structure',
 		'supervision',
-    'final_assignment',
+    'thesis',
     'certification',
+    'cost',
+    'time',
+    'location_id',
+    'category_id',
     'is_cas',
     'is_published',
   ];
@@ -19,5 +24,15 @@ class Training extends Model
   {
     return $this->belongsToMany('App\Models\Course');
   }
+
+	public function location()
+	{
+		return $this->hasOne('App\Models\Location', 'id', 'location_id');
+  }
+  
+	public function category()
+	{
+		return $this->hasOne('App\Models\TrainingCategory', 'id', 'category_id');
+	}
 
 }

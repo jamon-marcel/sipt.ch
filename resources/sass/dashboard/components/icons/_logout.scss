@@ -6,20 +6,24 @@
 
 .icon-logout {
   @extend %icon-dashboard;
+  align-items: center;
   background-image: url($url-icons + 'logout.svg');
-  background-size: 18px 18px;
+  background-size: 12px 12px;
   background-position: center left;
-  @include responsive-prop('bottom', $space-md);
+  display: flex;
+  //@include responsive-prop('bottom', $space-md);
   color: $color-medium-grey;
-  @include font-size($fs-xs);
-  height: 20px;
-  @include responsive-prop('left', $space-md);
-  padding-left: 22px;
-  padding-top: 2px;
-  position: absolute;
+  @include font-regular();
+  @include font-size($fs-xxs);
+  //height: 20px;
+  // @include responsive-prop('left', $space-md);
+  padding-left: 14px;
+  // padding-top: 2px;
+  // position: absolute;
   width: auto;
 
   &:hover {
-    color: $color-white;
+    //color: $color-white;
+    text-decoration: underline;
   }
 }

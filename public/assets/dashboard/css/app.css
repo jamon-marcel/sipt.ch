@@ -563,10 +563,8 @@ p {
  * File: component/flexbox
  * -----------------------------------------------------------------------------
  *
- * Alignment using flexbox
- *
  */
-footer.site-footer > div, nav.page > div, .pagination a, .btn-add,
+footer.page-footer > div, .pagination a,
 .v-center {
   display: flex !important;
   align-items: center;
@@ -588,6 +586,11 @@ footer.site-footer > div, nav.page > div, .pagination a, .btn-add,
   justify-content: flex-end;
 }
 
+.flex-sb {
+  display: flex;
+  justify-content: space-between;
+}
+
 /**
  * -----------------------------------------------------------------------------
  * File: helper/functions
@@ -600,6 +603,22 @@ footer.site-footer > div, nav.page > div, .pagination a, .btn-add,
  * Usage: get($map, $key);
  *
  */
+/**
+ * -----------------------------------------------------------------------------
+ * File: component/loader
+ * -----------------------------------------------------------------------------
+ *
+ */
+.is-loaded {
+  opacity: 1;
+  transition: opacity 0.12s ease-out;
+}
+
+.is-loading {
+  opacity: 0;
+  transition: opacity 0.12s ease-out;
+}
+
 /**
  * -----------------------------------------------------------------------------
  * File: helper/mixins
@@ -769,6 +788,234 @@ footer.site-footer > div, nav.page > div, .pagination a, .btn-add,
   text-align: right;
 }
 
+.sa-xxs {
+  margin-bottom: 5px;
+}
+@media screen and (min-width: 768px) {
+  .sa-xxs {
+    margin-bottom: 5px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .sa-xxs {
+    margin-bottom: 10px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .sa-xxs {
+    margin-bottom: 10px;
+  }
+}
+
+.sa-xs {
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 768px) {
+  .sa-xs {
+    margin-bottom: 10px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .sa-xs {
+    margin-bottom: 15px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .sa-xs {
+    margin-bottom: 15px;
+  }
+}
+
+.sa-sm {
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 768px) {
+  .sa-sm {
+    margin-bottom: 15px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .sa-sm {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .sa-sm {
+    margin-bottom: 25px;
+  }
+}
+
+.sa-md {
+  margin-bottom: 15px;
+}
+@media screen and (min-width: 768px) {
+  .sa-md {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .sa-md {
+    margin-bottom: 30px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .sa-md {
+    margin-bottom: 35px;
+  }
+}
+
+.sa-lg {
+  margin-bottom: 30px;
+}
+@media screen and (min-width: 768px) {
+  .sa-lg {
+    margin-bottom: 40px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .sa-lg {
+    margin-bottom: 50px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .sa-lg {
+    margin-bottom: 60px;
+  }
+}
+
+.sa-xl {
+  margin-bottom: 40px;
+}
+@media screen and (min-width: 768px) {
+  .sa-xl {
+    margin-bottom: 60px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .sa-xl {
+    margin-bottom: 80px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .sa-xl {
+    margin-bottom: 100px;
+  }
+}
+
+.sb-xxs {
+  margin-top: 5px;
+}
+@media screen and (min-width: 768px) {
+  .sb-xxs {
+    margin-top: 5px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .sb-xxs {
+    margin-top: 10px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .sb-xxs {
+    margin-top: 10px;
+  }
+}
+
+.sb-xs {
+  margin-top: 10px;
+}
+@media screen and (min-width: 768px) {
+  .sb-xs {
+    margin-top: 10px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .sb-xs {
+    margin-top: 15px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .sb-xs {
+    margin-top: 15px;
+  }
+}
+
+.sb-sm {
+  margin-top: 10px;
+}
+@media screen and (min-width: 768px) {
+  .sb-sm {
+    margin-top: 15px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .sb-sm {
+    margin-top: 20px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .sb-sm {
+    margin-top: 25px;
+  }
+}
+
+.sb-md {
+  margin-top: 15px;
+}
+@media screen and (min-width: 768px) {
+  .sb-md {
+    margin-top: 20px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .sb-md {
+    margin-top: 30px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .sb-md {
+    margin-top: 35px;
+  }
+}
+
+.sb-lg {
+  margin-top: 30px;
+}
+@media screen and (min-width: 768px) {
+  .sb-lg {
+    margin-top: 40px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .sb-lg {
+    margin-top: 50px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .sb-lg {
+    margin-top: 60px;
+  }
+}
+
+.sb-xl {
+  margin-top: 40px;
+}
+@media screen and (min-width: 768px) {
+  .sb-xl {
+    margin-top: 60px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .sb-xl {
+    margin-top: 80px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .sb-xl {
+    margin-top: 100px;
+  }
+}
+
 /**
  * -----------------------------------------------------------------------------
  * File: components/typo/webfonts
@@ -836,24 +1083,24 @@ footer.site-footer > div, nav.page > div, .pagination a, .btn-add,
 }
 
 .fs-xs {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.25;
 }
 @media screen and (min-width: 768px) {
   .fs-xs {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
   .fs-xs {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
   .fs-xs {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
@@ -990,7 +1237,7 @@ p {
   }
   100% {
     opacity: 1;
-    transform: rotate(0);
+    transform: rotate(360deg);
   }
 }
 @keyframes loadingIcon {
@@ -1004,7 +1251,7 @@ p {
   }
   100% {
     opacity: 1;
-    transform: rotate(0);
+    transform: rotate(360deg);
   }
 }
 .fade-out {
@@ -1019,8 +1266,8 @@ p {
  * -----------------------------------------------------------------------------
  *
  */
-header.page-header > div, main.site > div, footer.site-footer > div, nav.page > div, .grid-overlay > div, .upload-overlay-cropper > div, .upload-overlay-edit > div, .overlay-crop > div, .overlay-asset > div,
-.overlay > div,
+header.page-header > div, main.site > div, footer.module-footer > div, footer.page-footer > div, nav.page header, .upload-overlay-edit > div, .grid-overlay .overlay__inner, .upload-overlay-cropper .overlay__inner, .upload-overlay-edit .overlay__inner,
+.overlay .overlay__inner,
 .page-block {
   margin-left: auto;
   margin-right: auto;
@@ -1030,22 +1277,22 @@ header.page-header > div, main.site > div, footer.site-footer > div, nav.page > 
   max-width: 640px;
 }
 @media screen and (min-width: 768px) {
-  header.page-header > div, main.site > div, footer.site-footer > div, nav.page > div, .grid-overlay > div, .upload-overlay-cropper > div, .upload-overlay-edit > div, .overlay-crop > div, .overlay-asset > div,
-.overlay > div,
+  header.page-header > div, main.site > div, footer.module-footer > div, footer.page-footer > div, nav.page header, .upload-overlay-edit > div, .grid-overlay .overlay__inner, .upload-overlay-cropper .overlay__inner, .upload-overlay-edit .overlay__inner,
+.overlay .overlay__inner,
 .page-block {
     max-width: 728px;
   }
 }
 @media screen and (min-width: 1024px) {
-  header.page-header > div, main.site > div, footer.site-footer > div, nav.page > div, .grid-overlay > div, .upload-overlay-cropper > div, .upload-overlay-edit > div, .overlay-crop > div, .overlay-asset > div,
-.overlay > div,
+  header.page-header > div, main.site > div, footer.module-footer > div, footer.page-footer > div, nav.page header, .upload-overlay-edit > div, .grid-overlay .overlay__inner, .upload-overlay-cropper .overlay__inner, .upload-overlay-edit .overlay__inner,
+.overlay .overlay__inner,
 .page-block {
     max-width: 860px;
   }
 }
 @media screen and (min-width: 1280px) {
-  header.page-header > div, main.site > div, footer.site-footer > div, nav.page > div, .grid-overlay > div, .upload-overlay-cropper > div, .upload-overlay-edit > div, .overlay-crop > div, .overlay-asset > div,
-.overlay > div,
+  header.page-header > div, main.site > div, footer.module-footer > div, footer.page-footer > div, nav.page header, .upload-overlay-edit > div, .grid-overlay .overlay__inner, .upload-overlay-cropper .overlay__inner, .upload-overlay-edit .overlay__inner,
+.overlay .overlay__inner,
 .page-block {
     max-width: 1100px;
   }
@@ -1131,7 +1378,7 @@ header.page-header > div, main.site > div, footer.site-footer > div, nav.page > 
   padding: 10px 30px;
 }
 .ratio-boxes [class^=box__] article.is-colored {
-  background-color: #ffd72c;
+  background-color: #f0ad4e;
 }
 .ratio-boxes [class^=box__] article .btn-trash,
 .ratio-boxes [class^=box__] figure .btn-trash {
@@ -1186,6 +1433,7 @@ header.page-header > div, main.site > div, footer.site-footer > div, nav.page > 
  * File: components/bubbles/global
  * -----------------------------------------------------------------------------
  */
+.bubble-danger,
 .bubble {
   background-color: transparent;
   border-radius: 2px;
@@ -1198,41 +1446,38 @@ header.page-header > div, main.site > div, footer.site-footer > div, nav.page > 
   font-stretch: normal;
   font-weight: normal;
   font-size: 10px;
-  line-height: 1.15;
+  line-height: 1.25;
   line-height: 1 !important;
   padding: 6px 8px 6px 8px;
   position: relative;
   width: auto;
 }
 @media screen and (min-width: 768px) {
-  .bubble {
+  .bubble-danger,
+.bubble {
     font-size: 10px;
-    line-height: 1.15;
+    line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
-  .bubble {
+  .bubble-danger,
+.bubble {
     font-size: 12px;
-    line-height: 1.15;
+    line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
-  .bubble {
+  .bubble-danger,
+.bubble {
     font-size: 12px;
-    line-height: 1.15;
+    line-height: 1.25;
   }
 }
+.is-info.bubble-danger,
 .bubble.is-info {
-  background-color: #5bc0de;
+  background-color: #009DDC;
 }
-.bubble.is-restriction {
-  background-color: #eeeeee;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  color: #222222;
-  text-transform: uppercase;
-  top: -1px;
-}
+.bubble-danger strong,
 .bubble strong {
   font-family: Monaco, "Courier New", Courier, monospace;
   font-display: auto;
@@ -1242,12 +1487,17 @@ header.page-header > div, main.site > div, footer.site-footer > div, nav.page > 
   font-weight: 700;
 }
 
+.bubble-danger {
+  background-color: #DA2C38;
+  margin-left: 15px;
+  opacity: 1 !important;
+}
+
 /**
  * -----------------------------------------------------------------------------
  * File: components/buttons/global
  * -----------------------------------------------------------------------------
  */
-.btn-add,
 .btn {
   background-color: transparent;
   border-radius: 2px;
@@ -1259,7 +1509,8 @@ header.page-header > div, main.site > div, footer.site-footer > div, nav.page > 
   transition: background-color 0.1s ease-out 0.2s ease-in-out;
 }
 
-.btn-trash, .btn-toggle-layout, .btn-crop, .btn-add-article, .btn-add-media-highlight, .btn-add-media, .btn-add, .btn-secondary, .btn-primary, .btn-preview, .btn-filter,
+.btn-danger, .btn-secondary,
+.btn-primary,
 .btn-ib {
   border-radius: 2px;
   display: inline-block;
@@ -1278,52 +1529,47 @@ header.page-header > div, main.site > div, footer.site-footer > div, nav.page > 
   box-shadow: 0 4px 6px rgba(100, 100, 100, 0.3);
 }
 
-.btn-preview,
 .btn-bg {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: top left;
 }
 
-.btn-trash-mini, .btn-trash, .btn-toggle-layout, .btn-crop, .btn-add-article, .btn-add-media-highlight, .btn-add-media,
 .btn-icon {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: top left;
   background-size: 18px;
   background-position: top 7px left 5px;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.25;
   line-height: 1 !important;
   padding: 10px 10px 10px 30px;
 }
 @media screen and (min-width: 768px) {
-  .btn-trash-mini, .btn-trash, .btn-toggle-layout, .btn-crop, .btn-add-article, .btn-add-media-highlight, .btn-add-media,
-.btn-icon {
-    font-size: 14px;
+  .btn-icon {
+    font-size: 12px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
-  .btn-trash-mini, .btn-trash, .btn-toggle-layout, .btn-crop, .btn-add-article, .btn-add-media-highlight, .btn-add-media,
-.btn-icon {
-    font-size: 15px;
+  .btn-icon {
+    font-size: 14px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
-  .btn-trash-mini, .btn-trash, .btn-toggle-layout, .btn-crop, .btn-add-article, .btn-add-media-highlight, .btn-add-media,
-.btn-icon {
-    font-size: 15px;
+  .btn-icon {
+    font-size: 14px;
     line-height: 1.25;
   }
 }
 
-.upload-overlay-cropper .form-buttons .btn-secondary, .overlay-crop .form-buttons .btn-secondary, .btn-trash-mini, .btn-trash, .btn-crop,
+.upload-overlay-cropper .form-buttons .btn-secondary,
 .btn-loading {
   position: relative;
 }
-.upload-overlay-cropper .form-buttons .is-loading.btn-secondary:after, .overlay-crop .form-buttons .is-loading.btn-secondary:after, .is-loading.btn-trash-mini:after, .is-loading.btn-trash:after, .is-loading.btn-crop:after,
+.upload-overlay-cropper .form-buttons .is-loading.btn-secondary:after,
 .btn-loading.is-loading:after {
   background-color: #343E3D;
   border-radius: 0;
@@ -1340,42 +1586,40 @@ header.page-header > div, main.site > div, footer.site-footer > div, nav.page > 
 }
 
 .btn-dark {
-  background-color: #222222;
+  background-color: #2A2D34;
   border: 2px solid color--dark;
   color: #f9f9f9;
 }
 
-.btn-toggle-layout, .btn-add-article, .btn-add-media,
 .btn-light {
   background-color: #ffffff;
   border: 2px solid #ffffff;
-  color: #222222;
+  color: #2A2D34;
 }
 
-.btn-trash-mini, .btn-trash,
 .btn-danger {
-  background-color: #d9534f;
+  background-color: #DA2C38;
   border: 2px solid color--danger;
   color: #f9f9f9;
 }
 
-.btn-crop,
 .btn-info {
-  background-color: #5bc0de;
+  background-color: #009DDC;
   border: 2px solid color--info;
   color: #f9f9f9;
 }
 
 /**
  * -----------------------------------------------------------------------------
- * File: components/buttons/filter
+ * File: components/buttons/primary
  * -----------------------------------------------------------------------------
  */
-.btn-filter {
-  background-color: #eeeeee;
+.btn-danger, .btn-secondary,
+.btn-primary {
+  background-color: #2A2D34;
   border-radius: 2px;
   border: none;
-  color: #222222;
+  color: #ffffff;
   font-size: 15px;
   line-height: 1.25;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, sans-serif;
@@ -1385,119 +1629,32 @@ header.page-header > div, main.site > div, footer.site-footer > div, nav.page > 
   font-weight: 400;
   padding: 12px 24px;
   width: auto;
-  transition: background-color 0.16s ease-out 0.2s ease-in-out;
+  transition: background-color 0.1s ease-out;
 }
 @media screen and (min-width: 768px) {
-  .btn-filter {
-    font-size: 15px;
-    line-height: 1.25;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .btn-filter {
-    font-size: 16px;
-    line-height: 1.25;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .btn-filter {
-    font-size: 16px;
-    line-height: 1.25;
-  }
-}
-.btn-filter:hover {
-  background-color: #d5d5d5;
-}
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/buttons/preview
- * -----------------------------------------------------------------------------
- */
-.btn-preview {
-  background-color: #5cb85c;
-  background-image: url("../img/icons/external-link-white.svg");
-  background-size: 18px auto;
-  background-position: center left 8px;
-  border-radius: 2px;
-  border: none;
-  color: #ffffff;
-  font-size: 15px;
-  line-height: 1.25;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, sans-serif;
-  font-display: auto;
-  font-style: normal;
-  font-stretch: normal;
-  font-weight: 700;
-  line-height: 1 !important;
-  padding: 12px 24px 12px 36px;
-  width: auto;
-  transition: background-color 0.16s ease-out 0.2s ease-in-out;
-}
-@media screen and (min-width: 768px) {
-  .btn-preview {
-    font-size: 15px;
-    line-height: 1.25;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .btn-preview {
-    font-size: 16px;
-    line-height: 1.25;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .btn-preview {
-    font-size: 16px;
-    line-height: 1.25;
-  }
-}
-.btn-preview:hover {
-  background-color: #449d44;
-}
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/buttons/primary
- * -----------------------------------------------------------------------------
- */
+  .btn-danger, .btn-secondary,
 .btn-primary {
-  background-color: #f9f9f9;
-  border-radius: 2px;
-  border: none;
-  color: #ffffff;
-  background-color: #5bc0de;
-  font-size: 15px;
-  line-height: 1.25;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, sans-serif;
-  font-display: auto;
-  font-style: normal;
-  font-stretch: normal;
-  font-weight: 700;
-  padding: 12px 24px;
-  width: auto;
-  transition: background-color 0.16s ease-out 0.2s ease-in-out;
-}
-@media screen and (min-width: 768px) {
-  .btn-primary {
     font-size: 15px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
-  .btn-primary {
+  .btn-danger, .btn-secondary,
+.btn-primary {
     font-size: 16px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
-  .btn-primary {
+  .btn-danger, .btn-secondary,
+.btn-primary {
     font-size: 16px;
     line-height: 1.25;
   }
 }
+.btn-danger:hover, .btn-secondary:hover,
 .btn-primary:hover {
-  background-color: #31b0d5;
+  background-color: #414550;
 }
 
 /**
@@ -1506,142 +1663,23 @@ header.page-header > div, main.site > div, footer.site-footer > div, nav.page > 
  * -----------------------------------------------------------------------------
  */
 .btn-secondary {
-  background-color: #5cb85c;
-  border-radius: 2px;
-  border: none;
-  color: #ffffff;
-  font-size: 15px;
-  line-height: 1.25;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, sans-serif;
-  font-display: auto;
-  font-style: normal;
-  font-stretch: normal;
-  font-weight: 700;
-  padding: 12px 24px;
-  width: auto;
-  transition: background-color 0.16s ease-out 0.2s ease-in-out;
-}
-@media screen and (min-width: 768px) {
-  .btn-secondary {
-    font-size: 15px;
-    line-height: 1.25;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .btn-secondary {
-    font-size: 16px;
-    line-height: 1.25;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .btn-secondary {
-    font-size: 16px;
-    line-height: 1.25;
-  }
+  background-color: #cccccc;
+  color: #2A2D34;
 }
 .btn-secondary:hover {
-  background-color: #449d44;
+  background-color: #b3b3b3;
 }
 
 /**
  * -----------------------------------------------------------------------------
- * File: components/buttons/add
+ * File: components/buttons/danger
  * -----------------------------------------------------------------------------
  */
-.btn-add {
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: top left;
-  background-image: url("../img/icons/plus.svg");
-  background-size: 18px 18px;
-  background-position: center left;
-  height: auto;
-  min-height: 18px;
-  color: #222222;
-  padding: 5px 0 5px 24px;
-  width: auto;
+.btn-danger {
+  background-color: #DA2C38;
 }
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/buttons/add-media
- * -----------------------------------------------------------------------------
- */
-.btn-add-media {
-  background-image: url("../img/icons/file-plus.svg");
-}
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/buttons/add-media
- * -----------------------------------------------------------------------------
- */
-.btn-add-media-highlight {
-  background-color: #5bc0de;
-  border: 2px solid color--info;
-  color: #f9f9f9;
-  background-image: url("../img/icons/file-plus-light.svg");
-  margin-bottom: 15px;
-  margin-top: 5px;
-}
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/buttons/add-article
- * -----------------------------------------------------------------------------
- */
-.btn-add-article {
-  background-image: url("../img/icons/file-text.svg");
-}
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/buttons/crop
- * -----------------------------------------------------------------------------
- */
-.btn-crop {
-  background-image: url("../img/icons/crop.svg");
-  position: relative;
-}
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/buttons/toggle-layout
- * -----------------------------------------------------------------------------
- */
-.btn-toggle-layout {
-  background-image: url("../img/icons/chevron-down.svg");
-  background-position: top 8px right;
-  padding-left: 0;
-  padding-right: 20px;
-}
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/buttons/trash
- * -----------------------------------------------------------------------------
- */
-.btn-trash {
-  background-image: url("../img/icons/trash-light.svg");
-  margin-bottom: 15px;
-  margin-top: 5px;
-  position: relative;
-}
-
-.btn-trash-mini {
-  background-image: url("../img/icons/trash-light.svg");
-  background-position: center center;
-  border: 1px solid #d9534f;
-  cursor: pointer !important;
-  display: inline-block !important;
-  height: 22px;
-  line-height: 1 !important;
-  padding: 0 !important;
-  position: absolute;
-  right: 8px;
-  top: 8px;
-  width: 22px;
-  z-index: 70;
+.btn-danger:hover {
+  background-color: #e25761;
 }
 
 /**
@@ -1661,30 +1699,31 @@ header.page-header > div, main.site > div, footer.site-footer > div, nav.page > 
  * -----------------------------------------------------------------------------
  */
 h1 {
+  color: #ff7000;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, sans-serif;
   font-display: auto;
   font-style: normal;
   font-stretch: normal;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.25;
   margin-bottom: 10px;
 }
 @media screen and (min-width: 768px) {
   h1 {
-    font-size: 20px;
+    font-size: 15px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
   h1 {
-    font-size: 20px;
+    font-size: 16px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
   h1 {
-    font-size: 22px;
+    font-size: 16px;
     line-height: 1.25;
   }
 }
@@ -1714,42 +1753,42 @@ h2 {
   font-display: auto;
   font-style: normal;
   font-stretch: normal;
-  font-weight: 400;
-  font-size: 18px;
+  font-weight: 700;
+  font-size: 12px;
   line-height: 1.25;
-  margin-bottom: 3px;
+  margin-bottom: 10px;
 }
 @media screen and (min-width: 768px) {
   h2 {
-    font-size: 20px;
+    font-size: 12px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
   h2 {
-    font-size: 20px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
   h2 {
-    font-size: 22px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 768px) {
   h2 {
-    margin-bottom: 3px;
+    margin-bottom: 10px;
   }
 }
 @media screen and (min-width: 1024px) {
   h2 {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
   }
 }
 @media screen and (min-width: 1280px) {
   h2 {
-    margin-bottom: 5px;
+    margin-bottom: 15px;
   }
 }
 
@@ -1815,17 +1854,11 @@ h3.is-label {
   display: block;
 }
 
-.icon-layout, .icon-trash, .icon-sticky, .icon-star,
-.icon-star-off, .icon-plus, .icon-logout, .icon-grid, .icon-external-link, .icon-eye,
-.icon-eye-off, .icon-edit, .icon-crop, .icon-copy, .icon-close-overlay, .icon-close, .icon-menu,
 .icon-dashboard,
 .icon-ib {
   display: inline-block;
 }
 
-.icon-layout, .icon-trash, .icon-sticky, .icon-star,
-.icon-star-off, .icon-plus, .icon-logout, .icon-grid, .icon-external-link, .icon-eye,
-.icon-eye-off, .icon-edit, .icon-crop, .icon-copy, .icon-close-overlay, .icon-close, .icon-menu,
 .icon-dashboard,
 .icon-bg {
   background-repeat: no-repeat;
@@ -1865,9 +1898,6 @@ h3.is-label {
   opacity: 0.6;
 }
 
-.icon-trash, .icon-sticky, .icon-star,
-.icon-star-off, .icon-plus, .icon-logout, .icon-grid, .icon-external-link, .icon-eye,
-.icon-eye-off, .icon-edit, .icon-crop, .icon-copy, .icon-close-overlay, .icon-close, .icon-menu,
 .icon-dashboard {
   background-size: contain;
   height: 24px;
@@ -1891,268 +1921,78 @@ h3.is-label {
 
 /**
  * -----------------------------------------------------------------------------
- * File: components/icons/menu
+ * File: components/icons/feather
  * -----------------------------------------------------------------------------
  */
-.icon-menu {
-  background-image: url("../img/icons/menu.svg");
-}
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/icons/close
- * -----------------------------------------------------------------------------
- */
-.icon-close {
-  background-image: url("../img/icons/close.svg");
-  left: 15px;
-  position: absolute;
-  top: auto;
-}
-@media screen and (min-width: 768px) {
-  .icon-close {
-    left: 20px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .icon-close {
-    left: 30px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .icon-close {
-    left: 35px;
-  }
-}
-
-.icon-close-overlay {
-  background-image: url("../img/icons/close-dark.svg");
-  position: absolute;
-  right: 20px;
-  top: -3px;
-  z-index: 100;
-}
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/icons/copy
- * -----------------------------------------------------------------------------
- */
-.icon-copy {
-  background-image: url("../img/icons/copy.svg");
-  display: block;
-}
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/icons/crop
- * -----------------------------------------------------------------------------
- */
-.icon-crop {
-  background-image: url("../img/icons/crop.svg");
-  display: block;
-}
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/icons/edit
- * -----------------------------------------------------------------------------
- */
-.icon-edit {
-  background-image: url("../img/icons/edit.svg");
-  display: block;
-}
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/icons/edit
- * -----------------------------------------------------------------------------
- */
-.icon-eye,
-.icon-eye-off {
-  display: block;
-}
-
-.icon-eye {
-  background-image: url("../img/icons/eye.svg");
-}
-
-.icon-eye-off {
-  background-image: url("../img/icons/eye-off.svg");
-}
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/icons/copy
- * -----------------------------------------------------------------------------
- */
-.icon-external-link {
-  background-image: url("../img/icons/external-link.svg");
-  display: inline-block;
-}
-.icon-external-link.is-sm {
-  margin-left: 6px;
-  height: 16px !important;
-  width: 16px !important;
-}
-
-.icon-grid {
-  background-image: url("../img/icons/grid.svg");
-  pointer-events: all;
-}
-.icon-grid.is-disabled {
-  background-image: url("../img/icons/grid-off.svg");
-  pointer-events: none;
-}
-
-.icon-grid-list {
-  display: block;
-  height: auto;
-  width: auto;
-}
-.icon-grid-list img {
-  display: block;
-  height: auto;
-  width: 100px;
-}
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/icons/layout
- * -----------------------------------------------------------------------------
- */
-.icon-layout {
-  background-image: url("../img/icons/layout.svg");
-  background-size: 18px auto;
-  color: #222222;
-  padding-left: 24px;
-  position: absolute;
-  right: 20px;
-  top: 55px;
-  z-index: 100;
-}
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/icons/logout
- * -----------------------------------------------------------------------------
- */
-.icon-logout {
-  background-image: url("../img/icons/logout.svg");
-  background-size: 18px 18px;
-  background-position: center left;
-  bottom: 15px;
-  color: #666666;
-  font-size: 14px;
+.feather-icon {
+  align-items: center;
+  color: #2A2D34 !important;
+  display: flex;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, sans-serif;
+  font-display: auto;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  font-size: 12px;
   line-height: 1.25;
-  height: 20px;
-  left: 15px;
-  padding-left: 22px;
-  padding-top: 2px;
-  position: absolute;
-  width: auto;
+  text-decoration: none;
+  position: relative;
 }
 @media screen and (min-width: 768px) {
-  .icon-logout {
-    bottom: 20px;
+  .feather-icon {
+    font-size: 12px;
+    line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
-  .icon-logout {
-    bottom: 30px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .icon-logout {
-    bottom: 35px;
-  }
-}
-@media screen and (min-width: 768px) {
-  .icon-logout {
+  .feather-icon {
     font-size: 14px;
     line-height: 1.25;
   }
 }
-@media screen and (min-width: 1024px) {
-  .icon-logout {
-    font-size: 15px;
+@media screen and (min-width: 1280px) {
+  .feather-icon {
+    font-size: 14px;
     line-height: 1.25;
   }
 }
-@media screen and (min-width: 1280px) {
-  .icon-logout {
-    font-size: 15px;
-    line-height: 1.25;
-  }
+.feather-icon svg {
+  position: relative;
 }
-@media screen and (min-width: 768px) {
-  .icon-logout {
-    left: 20px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .icon-logout {
-    left: 30px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  .icon-logout {
-    left: 35px;
-  }
-}
-.icon-logout:hover {
-  color: #ffffff;
-}
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/icons/close
- * -----------------------------------------------------------------------------
- */
-.icon-plus {
-  background-image: url("../img/icons/plus.svg");
-  right: 20px;
+.feather-icon em {
+  align-items: center;
+  background-color: #009DDC;
+  border-radius: 50%;
+  color: #ffffff !important;
+  font-family: Monaco, "Courier New", Courier, monospace;
+  font-display: auto;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: normal;
+  font-size: 9px;
+  line-height: 1 !important;
+  height: 15px;
+  display: flex;
+  justify-content: center;
   position: absolute;
-  top: 0;
+  top: -6px;
+  right: -6px;
+  width: 15px;
+  z-index: 101;
 }
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/icons/edit
- * -----------------------------------------------------------------------------
- */
-.icon-star,
-.icon-star-off {
-  display: block;
+.feather-icon.feather-icon--prepend span {
+  padding-left: 2px;
 }
-
-.icon-star {
-  background-image: url("../img/icons/star.svg");
+.feather-icon.feather-icon--append span {
+  padding-right: 5px;
 }
-
-.icon-star-off {
-  background-image: url("../img/icons/star-off.svg");
+.feather-icon.is-disabled {
+  color: #eeeeee !important;
+  pointer-events: none;
 }
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/icons/sticky
- * -----------------------------------------------------------------------------
- */
-.icon-sticky {
-  background-image: url("../img/icons/star-yellow.svg");
-  background-size: 100%;
-  height: 16px;
-  width: 16px;
-}
-
-/**
- * -----------------------------------------------------------------------------
- * File: components/icons/trash
- * -----------------------------------------------------------------------------
- */
-.icon-trash {
-  background-image: url("../img/icons/trash.svg");
+.feather-icon:hover * {
+  color: #666666;
+  transition: color 0.1s ease-out;
 }
 
 /**
@@ -2162,15 +2002,40 @@ h3.is-label {
  *
  */
 .listing {
-  border-bottom: 2px solid #eeeeee;
+  border-bottom: 2px solid #f9f9f9;
+}
+.listing.is-grouped {
+  border-bottom: none;
+}
+
+.listing-group {
+  border-bottom: 2px solid #f9f9f9;
+  margin-bottom: 15px;
+}
+@media screen and (min-width: 768px) {
+  .listing-group {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .listing-group {
+    margin-bottom: 30px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .listing-group {
+    margin-bottom: 35px;
+  }
 }
 
 .listing__item {
-  border-top: 2px solid #eeeeee;
+  border-top: 2px solid #f9f9f9;
   display: grid;
   grid-template-columns: auto 102px;
+  padding-left: 2px;
+  padding-right: 2px;
   padding-top: 10px;
-  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 @media screen and (min-width: 768px) {
   .listing__item {
@@ -2189,18 +2054,21 @@ h3.is-label {
 }
 @media screen and (min-width: 768px) {
   .listing__item {
-    margin-bottom: 10px;
+    padding-bottom: 10px;
   }
 }
 @media screen and (min-width: 1024px) {
   .listing__item {
-    margin-bottom: 15px;
+    padding-bottom: 15px;
   }
 }
 @media screen and (min-width: 1280px) {
   .listing__item {
-    margin-bottom: 15px;
+    padding-bottom: 15px;
   }
+}
+.listing__item:hover {
+  background-color: #f9f9f9;
 }
 .listing__item[data-icons="2"] {
   grid-template-columns: auto 46px;
@@ -2237,8 +2105,44 @@ h3.is-label {
     padding-bottom: 15px;
   }
 }
+.listing__item.is-narrow {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+@media screen and (min-width: 768px) {
+  .listing__item.is-narrow {
+    padding-top: 5px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .listing__item.is-narrow {
+    padding-top: 10px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .listing__item.is-narrow {
+    padding-top: 10px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .listing__item.is-narrow {
+    padding-bottom: 5px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .listing__item.is-narrow {
+    padding-bottom: 10px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .listing__item.is-narrow {
+    padding-bottom: 10px;
+  }
+}
 
 .listing__item-body {
+  align-items: center;
+  display: flex;
   padding-right: 10px;
 }
 @media screen and (min-width: 768px) {
@@ -2256,19 +2160,10 @@ h3.is-label {
     padding-right: 25px;
   }
 }
-.listing__item-body span {
-  display: block;
-}
-.listing__item-body p {
-  margin-bottom: 10px !important;
-}
-.listing__item-body p:last-of-type {
-  margin-bottom: 0 !important;
-}
 .listing__item-body .item-tag {
   background-color: #eeeeee;
   border-radius: 2px;
-  color: #222222;
+  color: #2A2D34;
   display: inline-block;
   font-family: Monaco, "Courier New", Courier, monospace;
   font-display: auto;
@@ -2276,7 +2171,7 @@ h3.is-label {
   font-stretch: normal;
   font-weight: normal;
   font-size: 10px;
-  line-height: 1.15;
+  line-height: 1.25;
   line-height: 1 !important;
   padding: 5px;
   width: auto;
@@ -2284,19 +2179,66 @@ h3.is-label {
 @media screen and (min-width: 768px) {
   .listing__item-body .item-tag {
     font-size: 10px;
-    line-height: 1.15;
+    line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
   .listing__item-body .item-tag {
     font-size: 12px;
-    line-height: 1.15;
+    line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
   .listing__item-body .item-tag {
     font-size: 12px;
-    line-height: 1.15;
+    line-height: 1.25;
+  }
+}
+.listing__item-body .item-date {
+  font-size: 12px;
+  line-height: 1.25;
+}
+@media screen and (min-width: 768px) {
+  .listing__item-body .item-date {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .listing__item-body .item-date {
+    font-size: 14px;
+    line-height: 1.25;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .listing__item-body .item-date {
+    font-size: 14px;
+    line-height: 1.25;
+  }
+}
+.listing__item-body .separator {
+  font-size: 10px;
+  line-height: 1.25;
+  display: inline-block;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+@media screen and (min-width: 768px) {
+  .listing__item-body .separator {
+    font-size: 10px;
+    line-height: 1.25;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .listing__item-body .separator {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .listing__item-body .separator {
+    font-size: 12px;
+    line-height: 1.25;
   }
 }
 
@@ -2334,11 +2276,10 @@ html.has-overlay {
   overflow: hidden;
 }
 
-.grid-overlay, .upload-overlay-cropper, .upload-overlay-edit, .overlay-crop, .overlay-asset,
+.grid-overlay, .upload-overlay-cropper, .upload-overlay-edit,
 .overlay {
-  background-color: black;
-  color: #222222;
-  display: block;
+  background-color: rgba(240, 240, 240, 0.8);
+  color: #2A2D34;
   height: 100%;
   left: 0;
   opacity: 0;
@@ -2346,86 +2287,54 @@ html.has-overlay {
   padding: 40px;
   position: fixed;
   pointer-events: none;
+  transition: opacity 0.16s ease-out;
   top: 0;
   width: 100%;
   z-index: -1;
 }
-.is-visible.grid-overlay, .is-visible.upload-overlay-cropper, .is-visible.upload-overlay-edit, .is-visible.overlay-crop, .is-visible.overlay-asset,
+.is-visible.grid-overlay, .is-visible.upload-overlay-cropper, .is-visible.upload-overlay-edit,
 .overlay.is-visible {
   opacity: 1;
   pointer-events: all;
-  z-index: 101;
-  transition: opacity 0.24s ease-out;
+  transition: opacity 0.16s ease-out;
+  z-index: 201;
 }
-.grid-overlay *, .upload-overlay-cropper *, .upload-overlay-edit *, .overlay-crop *, .overlay-asset *,
-.overlay * {
-  color: #ffffff;
+.grid-overlay .overlay__inner, .upload-overlay-cropper .overlay__inner, .upload-overlay-edit .overlay__inner,
+.overlay .overlay__inner {
+  display: flex;
+  justify-content: center;
 }
-.overlay-asset {
-  opacity: 0;
-  transition: opacity 0s ease-out;
+.grid-overlay .overlay__inner a, .upload-overlay-cropper .overlay__inner a, .upload-overlay-edit .overlay__inner a,
+.overlay .overlay__inner a {
+  right: 10px;
+  position: absolute;
+  top: 10px;
 }
-.overlay-asset.is-visible {
-  transition: opacity 0.24s ease-out;
+.grid-overlay .overlay__inner > div, .upload-overlay-cropper .overlay__inner > div, .upload-overlay-edit .overlay__inner > div,
+.overlay .overlay__inner > div {
+  background-color: #ffffff;
+  border-radius: 4px;
+  padding: 10px;
+  position: relative;
+  width: 480px;
 }
-.overlay-asset .overlay-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-gap: 40px;
-  padding-top: 40px;
+@media screen and (min-width: 768px) {
+  .grid-overlay .overlay__inner > div, .upload-overlay-cropper .overlay__inner > div, .upload-overlay-edit .overlay__inner > div,
+.overlay .overlay__inner > div {
+    padding: 15px;
+  }
 }
-.overlay-asset .overlay-grid.is-files {
-  grid-template-columns: 1fr 1fr;
+@media screen and (min-width: 1024px) {
+  .grid-overlay .overlay__inner > div, .upload-overlay-cropper .overlay__inner > div, .upload-overlay-edit .overlay__inner > div,
+.overlay .overlay__inner > div {
+    padding: 20px;
+  }
 }
-.overlay-asset img {
-  display: block;
-  height: auto;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 5px !important;
-  width: 100% !important;
-}
-.overlay-asset figcaption {
-  display: inline-block;
-  margin-top: 5px;
-}
-.overlay-asset input[type=text],
-.overlay-asset select {
-  border: 2px solid #ffffff;
-  color: #ffffff;
-  max-width: 360px;
-}
-.overlay-asset .select-wrapper {
-  max-width: 360px;
-}
-.overlay-asset .select-wrapper select {
-  padding-bottom: 5px;
-  padding-top: 7px;
-}
-.overlay-asset label.form-control {
-  border-color: #ffffff;
-  color: #ffffff;
-}
-.overlay-asset .form-row {
-  margin-bottom: 20px;
-}
-.overlay-asset .form-row-button {
-  margin-top: 40px;
-}
-
-.overlay-crop img {
-  background-color: transparent;
-  padding: 0 !important;
-}
-.overlay-crop .form-buttons {
-  padding-top: 40px;
-  text-align: left;
-}
-.overlay-crop .form-buttons a:not(.btn-secondary) {
-  margin-left: 20px;
-}
-.overlay-crop .form-buttons a:not(.btn-secondary):hover {
-  text-decoration: underline;
+@media screen and (min-width: 1280px) {
+  .grid-overlay .overlay__inner > div, .upload-overlay-cropper .overlay__inner > div, .upload-overlay-edit .overlay__inner > div,
+.overlay .overlay__inner > div {
+    padding: 25px;
+  }
 }
 
 /**
@@ -2522,10 +2431,10 @@ table th {
   margin-right: 0;
 }
 .pagination a {
-  border: 2px solid #222222;
+  border: 2px solid #2A2D34;
   border-radius: 50%;
   display: block;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.25;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, sans-serif;
   font-display: auto;
@@ -2539,30 +2448,30 @@ table th {
 }
 @media screen and (min-width: 768px) {
   .pagination a {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
   .pagination a {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
   .pagination a {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
 .pagination a:hover, .pagination a.is-active {
-  background-color: #222222;
+  background-color: #2A2D34;
 }
 .pagination a:hover em, .pagination a.is-active em {
   color: #ffffff;
 }
 .pagination a em {
-  color: #222222;
+  color: #2A2D34;
 }
 
 /**
@@ -2621,8 +2530,8 @@ table th {
   font-stretch: normal;
   font-weight: normal;
   font-size: 10px;
-  line-height: 1.15;
-  color: #5cb85c;
+  line-height: 1.25;
+  color: #70AE6E;
   left: 10px;
   padding: 5px;
   bottom: 10px;
@@ -2632,19 +2541,19 @@ table th {
 @media screen and (min-width: 768px) {
   .upload-listing .upload-item .upload__preview .image-label {
     font-size: 10px;
-    line-height: 1.15;
+    line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
   .upload-listing .upload-item .upload__preview .image-label {
     font-size: 12px;
-    line-height: 1.15;
+    line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
   .upload-listing .upload-item .upload__preview .image-label {
     font-size: 12px;
-    line-height: 1.15;
+    line-height: 1.25;
   }
 }
 .upload-listing .upload-item .upload__actions {
@@ -2663,35 +2572,6 @@ table th {
  * File: components/upload/overlay
  * -----------------------------------------------------------------------------
  */
-.grid-overlay, .upload-overlay-cropper, .upload-overlay-edit, .overlay-asset, .overlay-crop {
-  background-color: rgba(255, 255, 255, 0.98);
-  color: #222222;
-  display: block;
-  height: 100%;
-  left: 0;
-  opacity: 0;
-  overflow-y: auto;
-  padding: 40px;
-  position: fixed;
-  pointer-events: none;
-  transition: opacity 0.16s ease-out;
-  top: 0;
-  width: 100%;
-  z-index: 101;
-}
-.is-visible.grid-overlay, .is-visible.upload-overlay-cropper, .is-visible.upload-overlay-edit, .is-visible.overlay-asset, .is-visible.overlay-crop {
-  opacity: 1;
-  pointer-events: all;
-  transition: opacity 0.16s ease-out;
-  z-index: 101;
-}
-.grid-overlay *, .upload-overlay-cropper *, .upload-overlay-edit *, .overlay-asset *, .overlay-crop * {
-  color: #222222;
-}
-.grid-overlay .btn-secondary, .upload-overlay-cropper .btn-secondary, .upload-overlay-edit .btn-secondary, .overlay-asset .btn-secondary, .overlay-crop .btn-secondary {
-  color: #ffffff;
-}
-
 .upload-overlay-edit > div {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -2750,7 +2630,7 @@ button {
   background-color: transparent;
   border-radius: 2px;
   border: 2px solid #eeeeee;
-  color: #222222;
+  color: #2A2D34;
   display: block;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, sans-serif;
   font-display: auto;
@@ -2774,7 +2654,7 @@ input[type=date],
 input[type=time],
 textarea,
 select {
-  transition: border-color 0.12s ease-out, box-shadow 0.12s ease-out;
+  transition: background-color 0.12s ease-out;
 }
 input[type=text]:focus,
 input[type=email]:focus,
@@ -2784,7 +2664,18 @@ input[type=date]:focus,
 input[type=time]:focus,
 textarea:focus,
 select:focus {
-  border-color: #5bc0de;
+  background-color: #f9f9f9;
+}
+input[type=text]:disabled,
+input[type=email]:disabled,
+input[type=number]:disabled,
+input[type=password]:disabled,
+input[type=date]:disabled,
+input[type=time]:disabled,
+textarea:disabled,
+select:disabled {
+  background-color: #f9f9f9;
+  color: #cccccc;
 }
 
 textarea {
@@ -2803,7 +2694,7 @@ select::-ms-expand {
 
 input[type=submit],
 button {
-  background-color: #222222;
+  background-color: #2A2D34;
   border-radius: 2px;
   color: #ffffff;
   display: inline-block;
@@ -2856,7 +2747,7 @@ button:hover {
  * -----------------------------------------------------------------------------
  */
 form a {
-  color: #222222;
+  color: #2A2D34;
   display: inline-block;
   text-decoration: underline;
 }
@@ -2870,7 +2761,7 @@ form a:hover {
  * -----------------------------------------------------------------------------
  */
 label {
-  color: #333333;
+  color: #666666;
   display: block;
   font-size: 15px;
   line-height: 1.25;
@@ -2895,24 +2786,24 @@ label {
   }
 }
 label.is-sm {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.25;
 }
 @media screen and (min-width: 768px) {
   label.is-sm {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
   label.is-sm {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
   label.is-sm {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
@@ -2920,48 +2811,46 @@ label.is-narrow {
   margin-bottom: 5px !important;
 }
 label.form-control {
+  align-items: center;
   background-color: transparent;
   border: 2px solid #cccccc;
   border-radius: 2px;
   color: #cccccc;
   cursor: pointer;
-  display: inline-block !important;
-  font-size: 14px;
+  display: flex !important;
+  font-size: 12px;
   line-height: 1.25;
   margin-bottom: 0;
-  margin-right: 20px;
+  margin-right: 16px;
+  justify-content: center;
   padding: 8px 0;
   text-align: center;
-  width: 55px;
+  width: 48px;
   transition: background-color 0.1s ease-out 0.2s ease-in-out;
 }
 @media screen and (min-width: 768px) {
   label.form-control {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
   label.form-control {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
   label.form-control {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25;
   }
-}
-label.form-control.is-auto {
-  padding: 8px;
-  width: auto;
 }
 
 input[type=radio]:checked + .form-control,
 input[type=checkbox]:checked + .form-control {
-  background-color: #5bc0de;
-  border: 2px solid #5bc0de;
+  background-color: #2A2D34;
+  border: 2px solid #2A2D34;
   color: #ffffff;
 }
 
@@ -3010,37 +2899,51 @@ input[type=checkbox]:checked + .form-control {
     margin-bottom: 25px;
   }
 }
-.form-row.has-error label {
-  color: #d9534f;
-}
-.form-row.has-error input, .form-row.has-error select, .form-row.has-error textarea {
-  border-color: #d9534f;
+
+.form-radio {
+  display: flex;
 }
 
-.form-helper {
-  color: #666666;
-  font-size: 14px;
+.form-row-info {
+  font-size: 10px;
   line-height: 1.25;
-  display: block;
-  margin-top: 5px;
+  padding-top: 5px;
 }
 @media screen and (min-width: 768px) {
-  .form-helper {
-    font-size: 14px;
+  .form-row-info {
+    font-size: 10px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
-  .form-helper {
-    font-size: 15px;
+  .form-row-info {
+    font-size: 12px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
-  .form-helper {
-    font-size: 15px;
+  .form-row-info {
+    font-size: 12px;
     line-height: 1.25;
   }
+}
+@media screen and (min-width: 768px) {
+  .form-row-info {
+    padding-top: 5px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .form-row-info {
+    padding-top: 10px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .form-row-info {
+    padding-top: 10px;
+  }
+}
+.form-row-info.is-danger {
+  color: #DA2C38;
 }
 
 /**
@@ -3050,96 +2953,96 @@ input[type=checkbox]:checked + .form-control {
  */
 input[type=text]::-webkit-input-placeholder {
   color: #666666;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.25;
 }
 @media screen and (min-width: 768px) {
   input[type=text]::-webkit-input-placeholder {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
   input[type=text]::-webkit-input-placeholder {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
   input[type=text]::-webkit-input-placeholder {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
 
 input[type=text]::-moz-placeholder {
   color: #666666;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.25;
 }
 @media screen and (min-width: 768px) {
   input[type=text]::-moz-placeholder {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
   input[type=text]::-moz-placeholder {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
   input[type=text]::-moz-placeholder {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
 
 input[type=text]:-ms-input-placeholder {
   color: #666666;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.25;
 }
 @media screen and (min-width: 768px) {
   input[type=text]:-ms-input-placeholder {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
   input[type=text]:-ms-input-placeholder {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
   input[type=text]:-ms-input-placeholder {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
 
 input[type=text]:-moz-placeholder {
   color: #666666;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.25;
 }
 @media screen and (min-width: 768px) {
   input[type=text]:-moz-placeholder {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
   input[type=text]:-moz-placeholder {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
   input[type=text]:-moz-placeholder {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
@@ -3166,7 +3069,7 @@ input[type=text]:-moz-placeholder {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 18px auto;
-  background-color: #eeeeee;
+  background-color: transparent;
   content: "";
   height: 100%;
   right: 0;
@@ -3207,7 +3110,7 @@ input[type=text]:-moz-placeholder {
   font-stretch: normal;
   font-weight: normal;
   font-size: 10px;
-  line-height: 1.15;
+  line-height: 1.25;
   display: block;
   margin-top: 5px;
   text-align: right;
@@ -3215,24 +3118,27 @@ input[type=text]:-moz-placeholder {
 @media screen and (min-width: 768px) {
   .is-required {
     font-size: 10px;
-    line-height: 1.15;
+    line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
   .is-required {
     font-size: 12px;
-    line-height: 1.15;
+    line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
   .is-required {
     font-size: 12px;
-    line-height: 1.15;
+    line-height: 1.25;
   }
 }
 
-.has-error .is-required {
-  color: #d9534f;
+.has-error {
+  color: #DA2C38;
+}
+.has-error label {
+  color: #DA2C38;
 }
 
 /**
@@ -3246,142 +3152,145 @@ input[type=text]:-moz-placeholder {
  * -----------------------------------------------------------------------------
  */
 nav.page {
-  background-color: #222222;
+  background-color: #ffffff;
+  border-left: 2px solid #f9f9f9;
   height: 100%;
   right: 0;
   position: fixed;
   top: 0;
   width: 360px;
-  z-index: 101;
+  z-index: 301;
   transform: translateX(100%);
   transition: transform 0.2s ease-out;
 }
-nav.page * {
-  opacity: 0;
-  transition: opacity 0.1s 0.3s ease-out;
-}
-nav.page > div {
-  height: 60px;
-}
-@media screen and (min-width: 768px) {
-  nav.page > div {
-    height: 60px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  nav.page > div {
-    height: 80px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  nav.page > div {
-    height: 80px;
-  }
-}
 nav.page.is-visible {
-  box-shadow: 0 6px 9px rgba(100, 100, 100, 0.8);
   transform: translateX(0);
+  transition: transform 0.2s ease-out;
 }
 nav.page.is-visible * {
   opacity: 1;
 }
+nav.page * {
+  opacity: 1;
+  transition: opacity 0.1s 0.3s ease-out;
+}
+nav.page header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  height: 60px;
+}
+@media screen and (min-width: 768px) {
+  nav.page header {
+    height: 60px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  nav.page header {
+    height: 80px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  nav.page header {
+    height: 80px;
+  }
+}
+nav.page header span {
+  color: #666666;
+  font-size: 10px;
+  line-height: 1.25;
+}
+@media screen and (min-width: 768px) {
+  nav.page header span {
+    font-size: 10px;
+    line-height: 1.25;
+  }
+}
+@media screen and (min-width: 1024px) {
+  nav.page header span {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+}
+@media screen and (min-width: 1280px) {
+  nav.page header span {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+}
+nav.page header span .feather-icon {
+  margin-top: 5px;
+}
 nav.page ul {
+  border-top: 2px solid #f9f9f9;
   width: 100%;
 }
 nav.page li {
   display: block;
 }
-nav.page li a,
-nav.page li span {
-  color: #666666;
-  display: block;
-  font-size: 18px;
+nav.page li a {
+  align-items: center;
+  color: #2A2D34;
+  border-bottom: 2px solid #f9f9f9;
+  display: flex;
+  font-size: 15px;
   line-height: 1.25;
   padding-bottom: 10px;
-  padding-left: 15px;
+  padding-left: 20px;
   padding-top: 10px;
   width: 100%;
+  transition: background-color 0.1s ease-out;
 }
 @media screen and (min-width: 768px) {
-  nav.page li a,
-nav.page li span {
-    font-size: 20px;
+  nav.page li a {
+    font-size: 15px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
-  nav.page li a,
-nav.page li span {
-    font-size: 20px;
+  nav.page li a {
+    font-size: 16px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
-  nav.page li a,
-nav.page li span {
-    font-size: 22px;
+  nav.page li a {
+    font-size: 16px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 768px) {
-  nav.page li a,
-nav.page li span {
-    padding-bottom: 10px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  nav.page li a,
-nav.page li span {
+  nav.page li a {
     padding-bottom: 15px;
   }
 }
+@media screen and (min-width: 1024px) {
+  nav.page li a {
+    padding-bottom: 20px;
+  }
+}
 @media screen and (min-width: 1280px) {
-  nav.page li a,
-nav.page li span {
-    padding-bottom: 15px;
+  nav.page li a {
+    padding-bottom: 25px;
   }
 }
 @media screen and (min-width: 768px) {
-  nav.page li a,
-nav.page li span {
-    padding-left: 20px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  nav.page li a,
-nav.page li span {
-    padding-left: 30px;
-  }
-}
-@media screen and (min-width: 1280px) {
-  nav.page li a,
-nav.page li span {
-    padding-left: 35px;
-  }
-}
-@media screen and (min-width: 768px) {
-  nav.page li a,
-nav.page li span {
-    padding-top: 10px;
-  }
-}
-@media screen and (min-width: 1024px) {
-  nav.page li a,
-nav.page li span {
+  nav.page li a {
     padding-top: 15px;
   }
 }
-@media screen and (min-width: 1280px) {
-  nav.page li a,
-nav.page li span {
-    padding-top: 15px;
+@media screen and (min-width: 1024px) {
+  nav.page li a {
+    padding-top: 20px;
   }
 }
-nav.page li a {
-  transition: color 0.1s ease-out 0.2s ease-in-out;
+@media screen and (min-width: 1280px) {
+  nav.page li a {
+    padding-top: 25px;
+  }
 }
 nav.page li a.is-active, nav.page li a:hover {
-  color: #ffffff;
+  background-color: #f9f9f9;
 }
 nav.page li .is-parent,
 nav.page li span {
@@ -3437,7 +3346,7 @@ nav.page ul ul li a {
  */
 nav.tabs {
   margin-bottom: 30px;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 @media screen and (min-width: 768px) {
   nav.tabs {
@@ -3456,17 +3365,17 @@ nav.tabs {
 }
 @media screen and (min-width: 768px) {
   nav.tabs {
-    margin-top: 20px;
+    margin-top: 15px;
   }
 }
 @media screen and (min-width: 1024px) {
   nav.tabs {
-    margin-top: 30px;
+    margin-top: 20px;
   }
 }
 @media screen and (min-width: 1280px) {
   nav.tabs {
-    margin-top: 35px;
+    margin-top: 25px;
   }
 }
 nav.tabs ul {
@@ -3477,7 +3386,7 @@ nav.tabs ul {
 nav.tabs li {
   flex: 1;
   max-width: 300px;
-  padding-right: 10px;
+  padding-right: 20px;
   text-align: center;
 }
 nav.tabs li:last-of-type {
@@ -3485,18 +3394,40 @@ nav.tabs li:last-of-type {
 }
 nav.tabs a {
   border-bottom: 2px solid #eeeeee;
-  color: #666666;
+  color: #cccccc;
   display: block;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, sans-serif;
   font-display: auto;
   font-style: normal;
   font-stretch: normal;
-  font-weight: 700;
-  letter-spacing: 0.05em;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.25;
+  letter-spacing: 0.08em;
   padding-bottom: 10px;
   padding-top: 10px;
+  text-decoration: none;
   text-transform: uppercase;
+  transition: all 0.1s ease-out;
   width: 100%;
+}
+@media screen and (min-width: 768px) {
+  nav.tabs a {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+}
+@media screen and (min-width: 1024px) {
+  nav.tabs a {
+    font-size: 14px;
+    line-height: 1.25;
+  }
+}
+@media screen and (min-width: 1280px) {
+  nav.tabs a {
+    font-size: 14px;
+    line-height: 1.25;
+  }
 }
 @media screen and (min-width: 768px) {
   nav.tabs a {
@@ -3529,12 +3460,12 @@ nav.tabs a {
   }
 }
 nav.tabs a:hover, nav.tabs a.is-active {
-  border-bottom: 2px solid #222222;
-  color: #222222;
+  border-bottom: 2px solid #2A2D34;
+  color: #2A2D34;
 }
 nav.tabs a.has-error {
-  color: #d9534f;
-  border-bottom: 2px solid #d9534f;
+  color: #DA2C38;
+  border-bottom: 2px solid #DA2C38;
 }
 
 /**
@@ -3552,7 +3483,7 @@ body {
 }
 
 body {
-  color: #333333;
+  color: #2A2D34;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif, sans-serif;
@@ -3606,7 +3537,7 @@ body {
  * File: layout/footer
  * -----------------------------------------------------------------------------
  */
-footer.site-footer {
+footer.page-footer {
   background-color: #ffffff;
   box-shadow: 0 6px 9px rgba(100, 100, 100, 0.8);
   bottom: 0;
@@ -3619,78 +3550,78 @@ footer.site-footer {
   transition: transform 0.16s ease-out;
 }
 @media screen and (min-width: 768px) {
-  footer.site-footer {
+  footer.page-footer {
     height: 60px;
   }
 }
 @media screen and (min-width: 1024px) {
-  footer.site-footer {
-    height: 90px;
+  footer.page-footer {
+    height: 80px;
   }
 }
 @media screen and (min-width: 1280px) {
-  footer.site-footer {
-    height: 90px;
+  footer.page-footer {
+    height: 80px;
   }
 }
-footer.site-footer.is-hidden {
+footer.page-footer.is-hidden {
   transform: translateY(100%);
   transition: transform 0.16s ease-out;
 }
-footer.site-footer > div {
+footer.page-footer > div {
   height: 60px;
 }
 @media screen and (min-width: 768px) {
-  footer.site-footer > div {
+  footer.page-footer > div {
     height: 60px;
   }
 }
 @media screen and (min-width: 1024px) {
-  footer.site-footer > div {
-    height: 90px;
+  footer.page-footer > div {
+    height: 80px;
   }
 }
 @media screen and (min-width: 1280px) {
-  footer.site-footer > div {
-    height: 90px;
+  footer.page-footer > div {
+    height: 80px;
   }
 }
-footer.site-footer a:not(.btn-preview) {
-  color: #222222;
+footer.page-footer a:not(.btn-preview) {
+  color: #2A2D34;
   margin-left: 15px;
   text-decoration: underline;
 }
 @media screen and (min-width: 768px) {
-  footer.site-footer a:not(.btn-preview) {
+  footer.page-footer a:not(.btn-preview) {
     margin-left: 20px;
   }
 }
 @media screen and (min-width: 1024px) {
-  footer.site-footer a:not(.btn-preview) {
+  footer.page-footer a:not(.btn-preview) {
     margin-left: 30px;
   }
 }
 @media screen and (min-width: 1280px) {
-  footer.site-footer a:not(.btn-preview) {
+  footer.page-footer a:not(.btn-preview) {
     margin-left: 35px;
   }
 }
-footer.site-footer a:not(.btn-preview):hover {
+footer.page-footer a:not(.btn-preview):hover {
   text-decoration: none;
 }
-footer.site-footer .filter {
+footer.page-footer .filter {
   align-items: center;
   display: flex;
   justify-content: flex-start;
 }
-footer.site-footer .filter .btn-filter {
+footer.page-footer .filter .btn-filter {
   margin-right: 15px;
 }
-footer.site-footer .search-wrapper {
+footer.page-footer .search-wrapper {
   position: relative;
   width: 100%;
 }
-footer.site-footer .search-wrapper .icon-delete {
+footer.page-footer .search-wrapper .icon-delete {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: top left;
@@ -3704,8 +3635,43 @@ footer.site-footer .search-wrapper .icon-delete {
   width: 46px;
   z-index: 10;
 }
-footer.site-footer input[type=text].search {
+footer.page-footer input[type=text].search {
   border: 2px solid #eeeeee;
+}
+
+footer.module-footer {
+  background-color: #ffffff;
+  border-top: 2px solid #f9f9f9;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 101;
+}
+footer.module-footer > div {
+  align-items: center;
+  display: flex;
+  line-height: 1;
+  justify-content: flex-start;
+  height: 60px;
+}
+@media screen and (min-width: 768px) {
+  footer.module-footer > div {
+    height: 60px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  footer.module-footer > div {
+    height: 80px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  footer.module-footer > div {
+    height: 80px;
+  }
+}
+footer.module-footer > div button, footer.module-footer > div a {
+  margin-right: 20px;
 }
 
 /**
@@ -3739,18 +3705,14 @@ main.site {
 }
 @media screen and (min-width: 1024px) {
   main.site {
-    padding-bottom: 120px;
+    padding-bottom: 100px;
   }
 }
 @media screen and (min-width: 1280px) {
   main.site {
-    padding-bottom: 120px;
+    padding-bottom: 100px;
   }
 }
-main.site a {
-  color: #ff7000;
-}
-
 /**
  * -----------------------------------------------------------------------------
  * File: layout/grid
@@ -3777,26 +3739,47 @@ main.site a {
   }
 }
 
-.column-sidebar > div {
-  background-color: #eeeeee;
+.grid-column-sidebar > div {
+  border: 2px solid #eeeeee;
+  background-color: #f9f9f9;
   border-radius: 2px;
   padding: 10px;
   margin-top: 30px;
 }
 @media screen and (min-width: 768px) {
-  .column-sidebar > div {
+  .grid-column-sidebar > div {
     padding: 10px;
   }
 }
 @media screen and (min-width: 1024px) {
-  .column-sidebar > div {
+  .grid-column-sidebar > div {
     padding: 15px;
   }
 }
 @media screen and (min-width: 1280px) {
-  .column-sidebar > div {
+  .grid-column-sidebar > div {
     padding: 15px;
   }
+}
+
+.grid {
+  display: grid;
+  grid-column-gap: 15px;
+}
+.grid.grid-1-1-1 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid.grid-2-1 {
+  grid-template-columns: 2fr 1fr;
+}
+.grid.grid-1-2 {
+  grid-template-columns: 1fr 2fr;
+}
+.grid.grid-3-1 {
+  grid-template-columns: 2fr 1fr;
+}
+.grid.grid-1-3 {
+  grid-template-columns: 1fr 2fr;
 }
 
 /**
@@ -3805,7 +3788,8 @@ main.site a {
  * -----------------------------------------------------------------------------
  */
 header.page-header {
-  background-color: #f9f9f9;
+  background-color: #ffffff;
+  border-bottom: 2px solid #f9f9f9;
   position: relative;
   width: 100%;
 }
@@ -4275,28 +4259,28 @@ aside.sidebar > div {
   border-radius: 2px;
   padding: 10px;
   margin: 10px 10px 0 0;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.25;
   color: #ffffff;
-  background: #5bc0de;
+  background: #009DDC;
   border-left: 5px solid #187FE7;
   border-left: none !important;
 }
 @media screen and (min-width: 768px) {
   .notification {
-    font-size: 14px;
+    font-size: 12px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
   .notification {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
   .notification {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.25;
   }
 }
@@ -4305,11 +4289,11 @@ aside.sidebar > div {
   border-left-color: #f48a06;
 }
 .notification.error {
-  background: #d9534f;
+  background: #DA2C38;
   border-left-color: #B82E24;
 }
 .notification.success {
-  background: #5cb85c;
+  background: #70AE6E;
   border-left-color: #42A85F;
 }
 .notification .notification-title {
@@ -4363,11 +4347,11 @@ aside.sidebar > div {
 
 .btn-cropper-format {
   align-items: center;
-  border: 1px dashed #5cb85c;
-  color: #5cb85c;
+  border: 1px dashed #70AE6E;
+  color: #70AE6E;
   display: flex;
   font-size: 10px;
-  line-height: 1.15;
+  line-height: 1.25;
   font-family: Monaco, "Courier New", Courier, monospace;
   font-display: auto;
   font-style: normal;
@@ -4382,19 +4366,19 @@ aside.sidebar > div {
 @media screen and (min-width: 768px) {
   .btn-cropper-format {
     font-size: 10px;
-    line-height: 1.15;
+    line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
   .btn-cropper-format {
     font-size: 12px;
-    line-height: 1.15;
+    line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
   .btn-cropper-format {
     font-size: 12px;
-    line-height: 1.15;
+    line-height: 1.25;
   }
 }
 .btn-cropper-format.is-3-4 {
@@ -4410,13 +4394,40 @@ aside.sidebar > div {
 
 .line {
   border-style: dashed;
-  border-color: #5cb85c;
+  border-color: #70AE6E;
 }
 
 .handler {
-  background-color: #5cb85c;
+  background-color: #70AE6E;
 }
 
 .vue-advanced-cropper__image {
   opacity: 0.5 !important;
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * VueJs Datepicker https://github.com/charliekassel/vuejs-datepicker
+ *
+ * File: vendor/vdp
+ * -----------------------------------------------------------------------------
+ */
+.vdp-datepicker .vdp-datepicker__calendar {
+  border: 2px solid #eeeeee;
+  border-radius: 2px;
+  margin-top: 2px;
+  width: 100%;
+}
+.vdp-datepicker .vdp-datepicker__calendar .cell {
+  border: 2px solid transparent;
+}
+.vdp-datepicker .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover,
+.vdp-datepicker .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover,
+.vdp-datepicker .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover {
+  border: 2px solid #009DDC;
+}
+.vdp-datepicker .vdp-datepicker__calendar .cell.selected,
+.vdp-datepicker .vdp-datepicker__calendar .cell.selected:hover {
+  background-color: #009DDC;
+  color: #ffffff;
 }

@@ -4,7 +4,7 @@
  * -----------------------------------------------------------------------------
  */
 
-footer.site-footer {
+footer.page-footer {
   background-color: $color-white;
   box-shadow: $box-shadow-lg;
   bottom: 0;
@@ -66,5 +66,28 @@ footer.site-footer {
 
   input[type=text].search {
     border: 2px solid $color-light-grey;
+  }
+}
+
+footer.module-footer {
+  background-color: $color-white;
+  border-top: 2px solid $color-light;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  width: 100%;
+  z-index: 101;
+
+  > div {
+    @extend %page-block;
+    align-items: center;
+    display: flex;
+    line-height: 1;
+    justify-content: flex-start;
+    @include responsive-prop('height', $footer-heights);
+
+    button, a {
+      margin-right: 20px;
+    }
   }
 }

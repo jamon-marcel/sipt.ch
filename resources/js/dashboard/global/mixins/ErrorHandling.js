@@ -25,8 +25,8 @@ export default {
 
     validationError(data) {
       let errors = {};
-      Object.keys(data.body).forEach(function(key) {
-        errors[key] = true;
+      data.body.forEach(function(key) {
+        errors[key.field] = true;
       });
       this.errors = errors;
       this.$notify({ type: "error", text: `Bitte alle mit * markierten Felder prüfen!`});

@@ -14,7 +14,9 @@
 }
 
 .has-error {
-  .is-required {
+  color: $color-danger;
+  
+  label {
     color: $color-danger;
   }
 }

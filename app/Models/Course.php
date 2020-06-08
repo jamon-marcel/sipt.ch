@@ -7,7 +7,11 @@ class Course extends Model
 	protected $fillable = [
 		'title',
 		'description',
-    'is_publish',
+		'credits',
+		'durability',
+		'cost',
+		'is_archived',
+    'is_published',
 	];
 	
 	public function trainings()

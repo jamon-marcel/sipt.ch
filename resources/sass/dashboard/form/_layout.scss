@@ -15,21 +15,16 @@
 	&.is-sm {
 		@include responsive-prop('margin-bottom', $space-sm);
 	}
-
-	&.has-error {
-		label {
-			color: $color-danger;
-		}
-
-		input, select, textarea {
-			border-color: $color-danger;
-		}
-	}
 }
 
-.form-helper {
-	color: $color-medium-grey;
-	@include font-size($fs-xs);
-	display: block;
-	margin-top: 5px;
+.form-radio {
+	display: flex;
+}
+
+.form-row-info {
+	@include font-size($fs-xxs);
+	@include responsive-prop('padding-top', $space-xxs);
+	&.is-danger {
+		color: $color-danger;
+	}
 }

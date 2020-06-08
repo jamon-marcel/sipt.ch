@@ -22,8 +22,11 @@ class TrainingStoreRequest extends FormRequest
   public function rules()
   {
     return [
-      'title'       => 'required',
+      'title' => 'required',
       'description' => 'required',
+      'description_short' => 'required',
+      'location_id' => 'required|exists:App\Models\Location,id',
+      'category_id' => 'required|exists:App\Models\TrainingCategory,id',
     ];
   }
 
@@ -35,8 +38,34 @@ class TrainingStoreRequest extends FormRequest
   public function messages()
   {
     return [
-      'title.required' => 'Titel wird benötigt!',
-      'description.required' => 'Beschreibung wird benötigt!',
+      'title.required' => [
+        'field' => 'title',
+        'error' => 'Titel wird benötigt!'
+      ],
+      'description.required' => [
+        'field' => 'description',
+        'error' => 'Beschreibung wird benötigt'
+      ],
+      'description_short.required' => [
+        'field' => 'description_short',
+        'error' => 'Kurzbeschreibung wird benötigt'
+      ],
+      'location_id.required' => [
+        'field' => 'location_id',
+        'error' => 'Kursort wird benötigt!'
+      ],
+      'location_id.exists' => [
+        'field' => 'location_id',
+        'error' => 'Kursort ungültig!'
+      ],
+      'category_id.required' => [
+        'field' => 'category_id',
+        'error' => 'Kategorie wird benötigt!'
+      ],
+      'category_id.exists' => [
+        'field' => 'category_id',
+        'error' => 'Kategorie ungültig!'
+      ],
     ];
   }
 }

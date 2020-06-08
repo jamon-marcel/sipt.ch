@@ -1,34 +1,85 @@
 <template>
   <div class="listing__item-action" :data-icons="count">
+
     <div v-if="hasToggle">
       <a
         href="javascript:;"
-        :class="[record.is_published == 1 ? 'icon-eye' : 'icon-eye-off', 'icon-mini']"
-        @click.prevent="toggle(record.id,$event)"
-      ></a>
+        @click.prevent="toggle(id,$event)"
+      >
+        <span v-if="record.is_published" class="feather-icon">
+          <eye-icon size="18"></eye-icon>
+        </span>
+        <span v-else>
+          <eye-off-icon size="18" class="feather-icon"></eye-off-icon>
+        </span>
+      </a>
     </div>
+
+    <div v-if="hasEvent">
+      <router-link
+        :to="{name: routes.events, params: { id: id }}"
+        class="feather-icon"
+      >
+        <em v-if="eventCount > 0">{{eventCount}}</em>
+        <calendar-icon size="18"></calendar-icon>
+      </router-link>
+    </div>
+
     <div v-if="hasEdit">
       <router-link
-        :to="{name: routes.edit, params: { id: record.id }}"
-        class="icon-edit icon-mini"
-      ></router-link>
+        :to="{name: routes.edit, params: { id: id }}"
+        class="feather-icon"
+      >
+        <edit-icon size="18"></edit-icon>
+      </router-link>
     </div>
+
     <div v-if="hasDestroy">
       <a
         href="javascript:;"
-        class="icon-trash icon-mini"
-        @click.prevent="destroy(record.id,$event)"
-      ></a>
+        class="feather-icon"
+        @click.prevent="destroy(id,$event)"
+      >
+        <trash2-icon size="18"></trash2-icon>
+      </a>
     </div>
+    
   </div>
 </template>
 <script>
+// Icons
+import { 
+  EyeIcon,
+  EyeOffIcon,
+  EditIcon,
+  Trash2Icon,
+  CalendarIcon
+} from 'vue-feather-icons';
+
 export default {
+  components: {
+    EyeIcon,
+    EyeOffIcon,
+    EditIcon,
+    Trash2Icon,
+    CalendarIcon
+  },
 
   props: {
+
+    id: {
+      type: String,
+      default: null
+    },
+
     count: {
       type: Number,
       default: 1
+    },
+
+    eventCount: {
+      type: Number,
+      default: 0,
     },
     
     hasEdit: {
@@ -44,6 +95,11 @@ export default {
     hasToggle: {
       type: Boolean,
       default: true
+    },
+
+    hasEvent: {
+      type: Boolean,
+      default: false
     },
 
     routes: Object,

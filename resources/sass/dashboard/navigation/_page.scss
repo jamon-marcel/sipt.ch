@@ -6,77 +6,90 @@
 
 nav.page {
 
-    * {
-        opacity: 0;
-        -webkit-transition: opacity .1s .3s ease-out;
-        transition: opacity .1s .3s ease-out;
-    }
+  background-color: $color-white;
+  border-left: 2px solid $color-light;
+  height: 100%;
+  right: 0;
+  position: fixed;
+  top: 0;
+  width: 360px;
+  z-index: 301;
+  transform: translateX(100%);
+  transition: transform .2s  ease-out;
 
-    > div {
-        @extend %page-block;
-        @extend %v-center;
-        @include responsive-prop('height', $header-heights);
-    }
-
-    background-color: $color-dark;
-    height: 100%;
-    right: 0;
-    position: fixed;
-    top: 0;
-    width: 360px;
-    z-index: 101;
-    transform: translateX(100%);
+  &.is-visible {
+    transform: translateX(0);
     transition: transform .2s  ease-out;
-    &.is-visible {
-        box-shadow: $box-shadow-lg;
-        transform: translateX(0);
 
-        * {
-            opacity: 1;
-        }
+    * {
+      opacity: 1;
     }
-    
-    ul {
-        width: 100%;
+  }
+
+  * {
+    opacity: 1;
+    -webkit-transition: opacity .1s .3s ease-out;
+    transition: opacity .1s .3s ease-out;
+  }
+
+  header {
+    @extend %page-block;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    @include responsive-prop('height', $header-heights);
+
+    span {
+      color: $color-medium-grey;
+      @include font-size($fs-xxs);
+
+      .feather-icon {
+        margin-top: 5px;
+      }
+    }
+  }
+
+  ul {
+    border-top: 2px solid $color-light;
+    width: 100%;
+  }
+
+  li {
+    display: block;
+  
+    a {
+      align-items: center;
+      color: $color-dark;
+      border-bottom: 2px solid $color-light;
+      display: flex;
+      @include font-size($fs-sm);
+      @include responsive-prop('padding-bottom', $space-sm);
+      padding-left: 20px;
+      @include responsive-prop('padding-top', $space-sm);
+      width: 100%;
+      transition: background-color .1s ease-out;
+
+      &.is-active,
+      &:hover {
+        background-color: $color-light;
+      }
     }
 
+    .is-parent,
+    span {
+      padding-bottom: 0 !important;
+    }
+  }
+
+  ul ul {
+    @include responsive-prop('margin-left', $space-xs);
 
     li {
-        display: block;
-
-        a,
-        span {
-            color: $color-medium-grey;
-            display: block;
-            @include font-size($fs-md);
-            @include responsive-prop('padding-bottom', $space-xs);
-            @include responsive-prop('padding-left', $space-md);
-            @include responsive-prop('padding-top', $space-xs);
-            width: 100%;
-        }
-        a {
-            @include transition(color .1s ease-out);
-            &.is-active,
-            &:hover {
-                color: $color-white;
-            }
-        }
-
-        .is-parent,
-        span {
-            padding-bottom: 0 !important;
-        }
+      a {
+        @include font-size($fs-sm);
+        padding-top: 5px !important;
+        padding-bottom: 5px !important;
+      }
     }
-
-    ul ul {
-        @include responsive-prop('margin-left', $space-xs);
-
-        li {
-            a {
-                @include font-size($fs-sm);
-                padding-top: 5px !important;
-                padding-bottom: 5px !important;
-            }
-        }
-    }
+  }
 }

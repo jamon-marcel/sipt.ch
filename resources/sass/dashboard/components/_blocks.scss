@@ -5,13 +5,13 @@
  *
  */
 
-// Page block a.k.a outer layout 
+// Page block
 %page-block,
 .page-block {
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 20px;
-    padding-right: 20px;
-    position: relative;
-    @include responsive-prop('max-width', $page-max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+  position: relative;
+  @include responsive-prop('max-width', $page-max-width);
 }

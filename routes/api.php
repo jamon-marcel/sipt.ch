@@ -24,10 +24,20 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::get('students', 'Api\StudentController@index');
   Route::get('student/{student}', 'Api\StudentController@show');
   Route::get('student/edit/{student}', 'Api\StudentController@edit');
+  Route::get('student/courses/{student}', 'Api\StudentController@courses');
   Route::post('student/update/{student}', 'Api\StudentController@update');
+  Route::post('student/update/course/events', 'Api\StudentController@updateCourseEvents');
 
   // Tutors
-  
+  Route::get('tutors', 'Api\TutorController@index');
+  Route::get('tutors/active', 'Api\TutorController@active');
+  Route::get('tutor/{tutor}', 'Api\TutorController@show');
+  Route::get('tutor/edit/{tutor}', 'Api\TutorController@edit');
+  Route::post('tutor/create', 'Api\TutorController@store');
+  Route::post('tutor/update/{tutor}', 'Api\TutorController@update');
+  Route::get('tutor/toggle/{tutor}', 'Api\TutorController@toggle');
+  Route::delete('tutor/destroy/{tutor}', 'Api\TutorController@destroy');
+
   // Trainings
   Route::get('trainings', 'Api\TrainingController@index');
   Route::get('training/{training}', 'Api\TrainingController@show');
@@ -36,5 +46,35 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::post('training/update/{training}', 'Api\TrainingController@update');
   Route::get('training/toggle/{training}', 'Api\TrainingController@toggle');
   Route::delete('training/destroy/{training}', 'Api\TrainingController@destroy');
+
+  // Courses
+  Route::get('courses', 'Api\CourseController@index');
+  Route::get('course/{course}', 'Api\CourseController@show');
+  Route::get('course/edit/{course}', 'Api\CourseController@edit');
+  Route::post('course/create', 'Api\CourseController@store');
+  Route::post('course/update/{course}', 'Api\CourseController@update');
+  Route::get('course/toggle/{course}', 'Api\CourseController@toggle');
+  Route::delete('course/destroy/{course}', 'Api\CourseController@destroy');
+
+  // CourseEvents
+  Route::get('course/events/{course}', 'Api\CourseEventController@index');
+  Route::get('course/event/{courseEvent}', 'Api\CourseEventController@show');
+  Route::post('course/event/create', 'Api\CourseEventController@store');
+  Route::post('course/event/update/{courseEvent}', 'Api\CourseEventController@update');
+  Route::get('course/event/edit/{courseEvent}', 'Api\CourseEventController@edit');
+  Route::get('course/event/toggle/{courseEvent}', 'Api\CourseEventController@toggle');
+  Route::get('course/event/cancel/{courseEvent}', 'Api\CourseEventController@cancel');
+  Route::delete('course/event/destroy/{courseEvent}', 'Api\CourseEventController@destroy');
+
+  // CoursesEventDates
+  Route::delete('course/event/date/destroy/{courseEventDate}', 'Api\CourseEventDateController@destroy');
+
+  // Register a tutor
+  Route::post('user/tutor/register', 'Api\UserController@register')->middleware('role:admin');
+
+  // Settings
+  Route::get('settings/locations', 'Api\SettingsController@locations');
+  Route::get('settings/training/categories', 'Api\SettingsController@trainingCategories');
+
 
 });

@@ -24,13 +24,32 @@ Vue.use(Notifications);
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
+// Vue-Moment
+Vue.use(require('vue-moment'));
+
+// Vue-cleave
+import Cleave from 'cleave.js';
+Vue.directive('cleave', {
+  inserted: (el, binding) => {
+    el.cleave = new Cleave(el, binding.value || {});
+  },
+  update: (el) => {
+    const event = new Event('input', {bubbles: true});
+    setTimeout(function () {
+      el.value = el.cleave.properties.result;
+      el.dispatchEvent(event);
+    }, 100);
+  }
+});
+
 // Routes
-import routes from '@/administration/routes';
+import routes from '@/administration/config/routes';
 const router = new VueRouter({ mode: 'history', routes: routes});
 
 // App component
 import AppComponent from '@/administration/App.vue';
 
+// Mount App
 const app = new Vue({
   components: { 
     AppComponent

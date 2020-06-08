@@ -36,9 +36,15 @@
  input[type=time],
  textarea,
  select {
-	 transition: border-color .12s ease-out, box-shadow .12s ease-out;
+	 transition: background-color .12s ease-out;
+
 	 &:focus {
-		 border-color: $color-blue;
+		background-color: $color-light;
+	 }
+
+	 &:disabled {
+		background-color: $color-light;
+		color: $color-grey;
 	 }
  }
  

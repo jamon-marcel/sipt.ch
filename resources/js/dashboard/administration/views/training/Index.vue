@@ -1,26 +1,33 @@
 <template>
-  <div :class="isLoaded ? 'is-loaded' : 'hide-before-load'">
+  <div :class="isFetched ? 'is-loaded' : 'is-loading'">
     <header class="module-header">
       <h1>Fortbildungen</h1>
-      <router-link :to="{ name: 'training-create' }" class="btn-add">
+      <router-link :to="{ name: 'training-create' }" class="feather-icon feather-icon--prepend">
+        <plus-icon size="18"></plus-icon>
         <span>Hinzufügen</span>
       </router-link>
     </header>
-    <div class="listing" v-if="trainings.length">
-      <div
-        :class="[t.is_published == 0 ? 'is-disabled' : '', 'listing__item']"
-        v-for="t in trainings"
-        :key="t.id"
-        data-icons="3"
-      >
-        <div class="listing__item-body">
-          {{ t.title }}
+    <div class="listing is-grouped" v-if="trainings.length">
+      <div class="listing-group" v-for="(trainings,index) in groupedTrainings" :key="index">
+        <div v-for="(training, idx) in trainings" :key="idx">
+          <h2 v-if="idx == 0">
+            {{ training.category.name }}
+          </h2>
+          <div
+            :class="[training.is_published == 0 ? 'is-disabled' : '', 'listing__item is-group']"
+            data-icons="3"
+          >
+            <div class="listing__item-body">
+              {{ training.title }}
+            </div>
+            <list-actions 
+              :id="training.id" 
+              :count="3" 
+              :record="training"
+              :routes="{edit: 'training-edit'}">
+            </list-actions>
+          </div>
         </div>
-        <list-actions 
-          :count="3" 
-          :record="t"
-          :routes="{edit: 'training-edit'}">
-        </list-actions>
       </div>
     </div>
     <div v-else>
@@ -29,6 +36,9 @@
   </div>
 </template>
 <script>
+
+// Icons
+import { PlusIcon } from 'vue-feather-icons';
 
 // Components
 import ListActions from "@/global/components/ui/ListActions.vue";
@@ -39,18 +49,16 @@ import Progress from "@/global/mixins/progress";
 export default {
 
   components: {
-    ListActions
+    ListActions,
+    PlusIcon
   },
-
-  mixins: [Progress],
 
   data() {
     return {
-      isLoaded: false,
-      trainings: []
+      isFetched: false,
+      trainings: [],
     };
   },
-
 
   created() {
     this.fetch();
@@ -61,43 +69,33 @@ export default {
     fetch() {
       this.axios.get(`/api/trainings`).then(response => {
         this.trainings = response.data.data;
-        this.isLoaded = true;
+        this.isFetched = true;
       });
     },
 
     toggle(id,event) {
       let uri = `/api/training/toggle/${id}`;
-      let el = this.progress(event.target);
       this.axios.get(uri).then(response => {
         const index = this.trainings.findIndex(x => x.id === id);
         this.trainings[index].is_published = response.data;
         this.$notify({ type: "success", text: "Status geändert" });
-        this.progress(el);
       });
     },
 
     destroy(id, event) {
       if (confirm("Bitte löschen bestätigen!")) {
-        let el = this.progress(event.target);
         let uri = `/api/training/destroy/${id}`;
         this.axios.delete(uri).then(response => {
           this.fetch();
-          this.progress(el);
         });
       }
     },
+  },
+
+  computed: {
+    groupedTrainings() {
+      return _.groupBy(this.trainings, "category_id")
+    }
   }
 }
 </script>
-<style>
-.is-loaded {
-  opacity: 1;
-  transition: opacity .12s ease-out;
-}
-
-.hide-before-load {
-  opacity: 0;
-  transition: opacity .12s ease-out;
-}
-
-</style>

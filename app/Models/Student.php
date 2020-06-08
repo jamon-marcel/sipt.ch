@@ -7,7 +7,23 @@ class Student extends Model
 	protected $fillable = [
 		'firstname',
 		'name',
+		'title',
+		'street',
+		'street_no',
+		'zip',
+		'city',
 		'phone',
+		'phone_business',
+		'mobile',
+		'qualifications',
+		'alt_company',
+		'alt_name',
+		'alt_street',
+		'alt_street_no',
+		'alt_zip',
+		'alt_city',
+		'needs_credit_confirmation',
+		'needs_hours_confirmation',
 		'user_id',
 	];
 	
@@ -16,8 +32,8 @@ class Student extends Model
 		return $this->hasOne('App\Models\User', 'id', 'user_id');
 	}
 
-	public function courseEvents()
-	{
-		return $this->hasMany('App\Models\StudentCourseEvent');
-	}
+  public function courseEvents()
+  {
+    return $this->belongsToMany('App\Models\CourseEvent');
+  }
 }

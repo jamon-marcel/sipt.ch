@@ -4,20 +4,20 @@
  * -----------------------------------------------------------------------------
  */
 
+%btn-primary,
 .btn-primary {
 	@extend %btn-ib;
-	background-color: $color-light;
+	background-color: $color-dark;
 	border-radius: 2px;
 	border: none;
 	color: $color-white;
-	background-color: $color-info;
 	@include font-size($fs-sm);
-	@include font-bold();
+	@include font-regular();
 	padding: 12px 24px;
 	width: auto;
-	@include transition(background-color .16s ease-out);
+	transition: background-color .1s ease-out;
 
 	&:hover {
-		background-color: darken($color-info, 10);
+		background-color: lighten($color-dark, 10);
 	}
 }

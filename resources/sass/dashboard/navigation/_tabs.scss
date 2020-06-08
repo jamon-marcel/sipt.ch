@@ -6,44 +6,47 @@
 
 nav.tabs {
     @include responsive-prop('margin-bottom', $space-lg);
-    @include responsive-prop('margin-top', $space-md);
+    @include responsive-prop('margin-top', $space-sm);
 
-    ul {
-        align-items: stretch;
-        display: flex;
-        justify-content: flex-start;        
+  ul {
+    align-items: stretch;
+    display: flex;
+    justify-content: flex-start;        
+  }
+
+  li {
+    flex: 1; 
+    max-width: 300px;
+    padding-right: 20px;
+    text-align: center;
+    &:last-of-type {
+      padding-right: 0;
+    }
+  }
+
+  a {
+    border-bottom: 2px solid $color-light-grey;
+    color: $color-grey;
+    display: block;
+    @include font-regular();
+    @include font-size($fs-xs);
+    letter-spacing: 0.08em;
+    @include responsive-prop('padding-bottom', $space-xs);
+    @include responsive-prop('padding-top', $space-xs);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all .1s ease-out;
+    width: 100%;
+
+    &:hover,
+    &.is-active {
+      border-bottom: 2px solid $color-dark;
+      color: $color-dark;
     }
 
-    li {
-        flex: 1; 
-        max-width: 300px;
-        padding-right: 10px;
-        text-align: center;
-        &:last-of-type {
-            padding-right: 0;
-        }
+    &.has-error {
+      color: $color-danger;
+      border-bottom: 2px solid $color-danger;
     }
-
-    a {
-        border-bottom: 2px solid $color-light-grey;
-        color: $color-medium-grey;
-        display: block;
-        @include font-bold();
-        letter-spacing: 0.05em;
-        @include responsive-prop('padding-bottom', $space-xs);
-        @include responsive-prop('padding-top', $space-xs);
-        text-transform: uppercase;
-        width: 100%;
-
-        &:hover,
-        &.is-active {
-            border-bottom: 2px solid $color-dark;
-            color: $color-dark;
-        }
-
-        &.has-error {
-            color: $color-danger;
-            border-bottom: 2px solid $color-danger;
-        }
-    }
+  }
 }

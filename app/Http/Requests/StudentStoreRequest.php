@@ -22,8 +22,15 @@ class StudentStoreRequest extends FormRequest
   public function rules()
   {
     return [
+      'name' => 'required',
       'firstname' => 'required',
-      'name'      => 'required',
+      'email' => 'required|email|unique:users',
+      'street' => 'required',
+      'street_no' => 'required',
+      'zip' => 'required',
+      'city' => 'required',
+      'phone' => 'required',
+      'qualifications' => 'required',
     ];
   }
 
@@ -35,8 +42,17 @@ class StudentStoreRequest extends FormRequest
   public function messages()
   {
     return [
+      'name.required' => 'Name wird benötigt!',
       'firstname.required' => 'Vorname wird benötigt!',
-      'name.required'      => 'Name wird benötigt!',
+      'email.required' => 'E-Mail wird benötigt!',
+      'email.email' => 'E-Mail ungültig!',
+      'email.unique' => 'Es existiert bereits ein Benutzer mit dieser E-Mail!',
+      'street.required' => 'Strasse wird benötigt!',
+      'street_no.required' => 'Nummer wird benötigt!',
+      'zip.required' => 'Postleitzahl wird benötigt!',
+      'city.required' => 'Ort wird benötigt!',
+      'phone.required' => 'Telefon wird benötigt!',
+      'qualifications.required' => 'Berufsabschluss wird benötigt!',
     ];
   }
 }
