@@ -13,7 +13,7 @@
   <nav :class="[!menuVisible ? '' : 'is-visible', 'page']">
     <header>
       <span>
-        Marcel Stadelmann<br>
+        {{user}}<br>
         <a href="/logout" class="feather-icon feather-icon--prepend">
           <log-out-icon size="12"></log-out-icon>
           <span>Logout</span>
@@ -24,6 +24,11 @@
       </a>
     </header>
     <ul>
+      <li>
+        <router-link :to="{name: 'dashboard'}">
+          <span>Dashboard</span>
+        </router-link>
+      </li>
       <li>
         <router-link :to="{name: 'trainings'}">
           <span>Fortbildungen</span>
@@ -49,6 +54,7 @@
 </div>
 </template>
 <script>
+
 // Icons
 import { ArrowRightIcon, MenuIcon, LogOutIcon } from 'vue-feather-icons';
 
@@ -62,16 +68,23 @@ export default {
     MenuIcon,
     LogOutIcon,
   },
+
+  props: {
+    user: '',
+  },
+
 	data() {
 		return {
 			menuVisible: false
 		}
-	},
+  },
+  
 	methods: {
 		toggleMenu() {
 			this.menuVisible = this.menuVisible ? false : true;
 		}
   },
+
   watch: {
     '$route'() {
       this.menuVisible = false

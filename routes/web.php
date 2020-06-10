@@ -27,7 +27,7 @@ Route::get('/test/courses/{course}', 'TestController@course');
 Route::get('/test/student/register', 'TestController@register');
 Route::post('/test/student/store', 'TestController@store')->name('student_store');
 Route::get('/test/student/dates/{student}', 'TestController@student');
-
+Route::get('/test/courses', 'TestController@courses');
 
 /*
 |--------------------------------------------------------------------------

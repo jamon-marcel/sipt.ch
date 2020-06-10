@@ -9,7 +9,8 @@
   color: $color-dark !important;
   display: flex;
   @include font-regular();
-  @include font-size($fs-xs);
+  @include font-size($fs-sm);
+  line-height: 1 !important;
   text-decoration: none;
   position: relative;
 

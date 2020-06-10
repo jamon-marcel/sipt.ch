@@ -1,15 +1,31 @@
 <template>
 <div>
-  <error-messages />
   <notifications classes="notification" />
-  <router-view></router-view>
+  <page-header :user="$store.state.user"></page-header>
+  <main class="site">
+    <router-view></router-view>
+  </main>
 </div>
 </template>
 <script>
-import ErrorMessages from '@/global/components/ui/ErrorMessages.vue';
+import PageHeader from '@/student/layout/PageHeader.vue';
 export default {
   components: {
-    ErrorMessages,
+    PageHeader
   },
+
+  mounted() {
+    this.fetchUser();
+  },
+
+  methods: {
+    fetchUser() {
+      if (!this.$store.state.user) {
+        this.axios.get(`/api/user/student`).then(response => {
+          this.$store.commit('user', `${response.data.firstname} ${response.data.name}`);
+        });
+      }
+    },
+  }
 }
 </script>

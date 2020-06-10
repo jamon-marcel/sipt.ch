@@ -10,7 +10,10 @@
   @include font-size($fs-xxs);
   display: block;
   margin-top: 5px;
+  position: absolute;
+  right: 0;
   text-align: right;
+
 }
 
 .has-error {

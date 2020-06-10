@@ -1,6 +1,6 @@
 <template>
   <div :class="isFetched ? 'is-loaded' : 'is-loading'">
-    <header class="module-header">
+    <header class="content-header">
       <h1>Dozenten</h1>
       <router-link :to="{ name: 'tutor-create' }" class="feather-icon feather-icon--prepend">
         <plus-icon size="18"></plus-icon>
@@ -26,7 +26,7 @@
       </div>
     </div>
     <div v-else>
-      <p>Es sind noch keine Dozenten vorhanden...</p>
+      <p class="no-records">Es sind noch keine Dozenten vorhanden...</p>
     </div>
   </div>
 </template>

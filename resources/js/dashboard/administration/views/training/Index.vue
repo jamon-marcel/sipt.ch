@@ -1,6 +1,6 @@
 <template>
   <div :class="isFetched ? 'is-loaded' : 'is-loading'">
-    <header class="module-header">
+    <header class="content-header">
       <h1>Fortbildungen</h1>
       <router-link :to="{ name: 'training-create' }" class="feather-icon feather-icon--prepend">
         <plus-icon size="18"></plus-icon>
@@ -31,7 +31,7 @@
       </div>
     </div>
     <div v-else>
-      <p>Es sind noch keine Trainings vorhanden...</p>
+      <p class="no-records">Es sind noch keine Trainings vorhanden...</p>
     </div>
   </div>
 </template>
@@ -43,8 +43,6 @@ import { PlusIcon } from 'vue-feather-icons';
 // Components
 import ListActions from "@/global/components/ui/ListActions.vue";
 
-// Mixins
-import Progress from "@/global/mixins/progress";
 
 export default {
 

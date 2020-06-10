@@ -7,7 +7,7 @@
 %btn-primary,
 .btn-primary {
 	@extend %btn-ib;
-	background-color: $color-dark;
+	background-color: $color-primary;
 	border-radius: 2px;
 	border: none;
 	color: $color-white;
@@ -17,7 +17,11 @@
 	width: auto;
 	transition: background-color .1s ease-out;
 
+	&.is-sm {
+		padding: 8px 16px;
+	}
+
 	&:hover {
-		background-color: lighten($color-dark, 10);
+		background-color: lighten($color-primary, 10);
 	}
 }

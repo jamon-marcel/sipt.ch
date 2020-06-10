@@ -21,6 +21,6 @@ class Course extends Model
 
 	public function events()
 	{
-		return $this->hasMany('App\Models\CourseEvent');
+		return $this->hasMany('App\Models\CourseEvent')->orderBy('dateStart');
 	}
 }

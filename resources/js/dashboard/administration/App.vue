@@ -1,7 +1,7 @@
 <template>
 <div>
   <notifications classes="notification" />
-  <page-header />
+  <page-header :user="$store.state.user"></page-header>
   <main class="site">
     <router-view></router-view>
   </main>
@@ -13,5 +13,19 @@ export default {
   components: {
     PageHeader
   },
+
+  mounted() {
+    this.fetchUser();
+  },
+
+  methods: {
+    fetchUser() {
+      if (!this.$store.state.user) {
+        this.axios.get(`/api/user/admin`).then(response => {
+          this.$store.commit('user', `${response.data.firstname} ${response.data.name}`);
+        });
+      }
+    },
+  }
 }
 </script>

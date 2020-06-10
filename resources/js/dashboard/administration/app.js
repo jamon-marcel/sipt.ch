@@ -27,6 +27,8 @@ Vue.use(VueRouter);
 // Vue-Moment
 Vue.use(require('vue-moment'));
 
+
+
 // Vue-cleave
 import Cleave from 'cleave.js';
 Vue.directive('cleave', {
@@ -42,6 +44,12 @@ Vue.directive('cleave', {
   }
 });
 
+// Global mixins
+import ErrorHandling from "@/global/mixins/ErrorHandling";
+
+// Store
+import store from '@/administration/config/store';
+
 // Routes
 import routes from '@/administration/config/routes';
 const router = new VueRouter({ mode: 'history', routes: routes});
@@ -51,8 +59,10 @@ import AppComponent from '@/administration/App.vue';
 
 // Mount App
 const app = new Vue({
+  mixins: [ErrorHandling],
   components: { 
     AppComponent
   },
-  router
+  router,
+  store
 }).$mount('#app-administration');

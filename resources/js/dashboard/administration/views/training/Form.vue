@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="submit">
-    <header class="module-header">
+    <header class="content-header">
       <h1>{{title}}</h1>
     </header>
     <tabs :tabs="tabs" :errors="errors"></tabs>
@@ -10,7 +10,7 @@
           <div :class="[this.errors.title ? 'has-error' : '', 'form-row']">
             <label>Titel *</label>
             <input type="text" v-model="training.title">
-            <div class="is-required">Pflichtfeld</div>
+            <label-required />
           </div>
           <div :class="[this.errors.description_short ? 'has-error' : '', 'form-row']">
             <label>Kurzbeschreibung *</label>
@@ -19,12 +19,12 @@
               :init="tinyConfigSmall"
               v-model="training.description_short"
             ></tinymce-editor>
-            <div class="is-required">Pflichtfeld</div>
+            <label-required />
           </div>
           <div :class="[this.errors.description ? 'has-error' : '', 'form-row']">
             <label>Beschreibung *</label>
             <tinymce-editor :api-key="tinyApiKey" :init="tinyConfig" v-model="training.description"></tinymce-editor>
-            <div class="is-required">Pflichtfeld</div>
+            <label-required />
           </div>
           <div class="form-row">
             <label>Aufbau der Fortbildung</label>
@@ -133,7 +133,7 @@
 import { ArrowLeftIcon } from "vue-feather-icons";
 
 // Error Handling (mixin)
-import ErrorHandling from "@/global/mixins/ErrorHandling";
+// import ErrorHandling from "@/global/mixins/ErrorHandling";
 
 // TinyMCE
 import tinyConfig from "@/global/config/tiny.js";
@@ -146,6 +146,7 @@ import Locations from "@/administration/components/Locations.vue";
 import Courses from "@/administration/components/Courses.vue";
 import Categories from "@/administration/components/TrainingCategories.vue";
 import Tabs from "@/global/components/ui/Tabs.vue";
+import LabelRequired from "@/global/components/ui/LabelRequired.vue";
 
 // Config
 import tabsConfig from "@/administration/views/training/config/tabs.js";
@@ -155,13 +156,14 @@ export default {
     ArrowLeftIcon,
     TinymceEditor,
     RadioButton,
+    LabelRequired,
     Locations,
     Categories,
     Courses,
     Tabs
   },
 
-  mixins: [ErrorHandling],
+  // mixins: [ErrorHandling],
 
   props: {
     type: String

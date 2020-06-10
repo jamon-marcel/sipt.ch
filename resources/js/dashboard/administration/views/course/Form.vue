@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="submit" :class="isFetched ? 'is-loaded' : 'is-loading'">
-    <header class="module-header">
+    <header class="content-header">
       <h1>{{title}}</h1>
     </header>
     <div class="grid-main-sidebar">
@@ -8,7 +8,7 @@
         <div :class="[this.errors.title ? 'has-error' : '', 'form-row']">
           <label>Titel *</label>
           <input type="text" v-model="course.title">
-          <div class="is-required">Pflichtfeld</div>
+          <label-required />
         </div>
         <div :class="[this.errors.description ? 'has-error' : '', 'form-row']">
           <label>Beschreibung *</label>
@@ -21,17 +21,17 @@
         <div :class="[this.errors.credits ? 'has-error' : '', 'form-row']">
           <label>Credits *</label>
           <input type="text" v-model="course.credits">
-          <div class="is-required">Pflichtfeld</div>
+          <label-required />
         </div>
         <div :class="[this.errors.durability ? 'has-error' : '', 'form-row']">
           <label>Kursdauer (Stunden) *</label>
           <input type="text" v-model="course.durability">
-          <div class="is-required">Pflichtfeld</div>
+          <label-required />
         </div>
         <div :class="[this.errors.cost ? 'has-error' : '', 'form-row']">
           <label>Kosten *</label>
           <input type="text" v-model="course.cost">
-          <div class="is-required">Pflichtfeld</div>
+          <label-required />
         </div>
       </div>
       <div class="grid-column-sidebar">
@@ -73,7 +73,7 @@
 import { ArrowLeftIcon } from 'vue-feather-icons';
 
 // Error Handling (mixin)
-import ErrorHandling from "@/global/mixins/ErrorHandling";
+// import ErrorHandling from "@/global/mixins/ErrorHandling";
 
 // TinyMCE
 import tinyConfig from "@/global/config/tiny.js";
@@ -81,15 +81,17 @@ import TinymceEditor from "@tinymce/tinymce-vue";
 
 // Components
 import RadioButton from "@/global/components/ui/RadioButton.vue";
+import LabelRequired from "@/global/components/ui/LabelRequired.vue";
 
 export default {
   components: {
     ArrowLeftIcon,
     TinymceEditor,
     RadioButton,
+    LabelRequired
   },
 
-  mixins: [ErrorHandling],
+  // mixins: [ErrorHandling],
 
   props: {
     type: String

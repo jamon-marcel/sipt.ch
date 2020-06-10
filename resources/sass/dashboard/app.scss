@@ -42,6 +42,7 @@
 @import 'components/headings/h1';
 @import 'components/headings/h2';
 @import 'components/headings/h3';
+@import 'components/hr';
 @import 'components/icons/global';
 @import 'components/icons/feather';
 @import 'components/listing/global';
@@ -70,6 +71,7 @@
 
 // Layout
 @import 'layout/base';
+@import 'layout/content';
 @import 'layout/footer';
 @import 'layout/main';
 @import 'layout/grid';
@@ -81,7 +83,8 @@
 
 
 // Modules
-
+@import 'modules/global';
+@import 'modules/profile';
 
 // Vendor
 @import 'vendor/dropzone';

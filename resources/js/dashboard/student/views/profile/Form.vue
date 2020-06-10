@@ -1,0 +1,169 @@
+<template>
+<div v-if="isFetched">
+  <form @submit.prevent="submit">
+    <header class="content-header">
+      <h1>Profil bearbeiten</h1>
+    </header>
+    <div class="grid-main-sidebar">
+      <div>
+        <div :class="[this.errors.firstname ? 'has-error' : '', 'form-row']">
+          <label>Vorname *</label>
+          <input type="text" v-model="student.firstname">
+          <label-required />
+        </div>
+        <div :class="[this.errors.name ? 'has-error' : '', 'form-row']">
+          <label>Name *</label>
+          <input type="text" v-model="student.name">
+          <label-required />
+        </div>
+        <div class="form-row">
+          <div class="grid grid-3-1">
+            <div :class="[this.errors.street ? 'has-error' : '', 'form-row-grid']">
+              <label>Strasse *</label>
+              <input type="text" v-model="student.street">
+              <label-required />
+            </div>
+            <div :class="[this.errors.street_no ? 'has-error' : '', 'form-row-grid']">
+              <label>Nr. *</label>
+              <input type="text" v-model="student.street_no">
+              <label-required />
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="grid grid-1-3">
+            <div :class="[this.errors.zip ? 'has-error' : '', 'form-row-grid']">
+              <label>PLZ *</label>
+              <input type="text" v-model="student.zip">
+              <label-required />
+            </div>
+            <div :class="[this.errors.city ? 'has-error' : '', 'form-row-grid']">
+              <label>Ort *</label>
+              <input type="text" v-model="student.city">
+              <label-required />
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="grid grid-1-1-1">
+            <div :class="[this.errors.phone ? 'has-error' : '', 'form-row-grid']">
+              <label>Telefon</label>
+              <input type="text" v-model="student.phone">
+              <label-required />
+            </div>
+            <div class="form-row-grid">
+              <label>Telefon Geschäft</label>
+              <input type="text" v-model="student.phone_business">
+            </div>
+            <div class="form-row-grid">
+              <label>Mobile</label>
+              <input type="text" v-model="student.mobile">
+            </div>
+          </div>
+        </div>
+        <div class="form-row">
+          <label>Titel</label>
+          <input type="text" v-model="student.title">
+        </div>
+        <div :class="[this.errors.qualifications ? 'has-error' : '', 'form-row']">
+          <label>Berufsabschluss *</label>
+          <input type="text" v-model="student.qualifications">
+          <label-required />
+        </div>
+      </div>
+      <div class="grid-column-sidebar">
+        <div>
+          <template v-if="isFetched">
+            <div class="form-row is-sm">
+              <radio-button
+                :label="'Bestätigung Credits?'"
+                v-bind:needs_credit_confirmation.sync="student.needs_credit_confirmation"
+                :model="student.needs_credit_confirmation"
+                :name="'needs_credit_confirmation'"
+              ></radio-button>
+            </div>
+            <div class="form-row is-sm is-last">
+              <radio-button
+                :label="'Bestätigung Stunden?'"
+                v-bind:needs_hours_confirmation.sync="student.needs_hours_confirmation"
+                :model="student.needs_hours_confirmation"
+                :name="'needs_hours_confirmation'"
+              ></radio-button>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+    <footer class="module-footer">
+      <div>
+        <button type="submit" class="btn-primary">Speichern</button>
+        <router-link :to="{ name: 'profile' }" class="btn-secondary">
+          <span>Zurück</span>
+        </router-link>
+      </div>
+    </footer>
+  </form>
+</div>
+</template>
+<script>
+
+// Mixins
+import ErrorHandling from "@/global/mixins/ErrorHandling";
+
+// Components
+import RadioButton from "@/global/components/ui/RadioButton.vue";
+import LabelRequired from "@/global/components/ui/LabelRequired.vue";
+
+export default {
+  components: {
+    RadioButton,
+    LabelRequired
+  },
+
+  mixins: [ErrorHandling],
+
+  data() {
+    return {
+      student: {
+        user: {
+          email: null,
+        }
+      },
+
+      errors: {
+        firstname: false,
+        name: false,
+        street: false,
+        street_no: false,
+        zip: false,
+        city: false,
+        phone: false,
+        qualifications: false,
+      },
+
+      isFetched: true,
+
+    };
+  },
+
+  created() {
+    this.isFetched = false;
+    let uri = `/api/student/edit/${this.$route.params.id}`;
+    this.axios.get(uri).then(response => {
+      this.student = response.data;
+      this.isFetched = true;
+    });
+  },
+
+  methods: {
+
+    submit() {
+      let uri = `/api/student/update/${this.$route.params.id}`;
+      this.axios.post(uri, this.student).then(response => {
+        this.$router.push({ name: "profile" });
+        this.$notify({ type: "success", text: "Änderungen gespeichert!" });
+      });
+    },
+  },
+};
+</script>

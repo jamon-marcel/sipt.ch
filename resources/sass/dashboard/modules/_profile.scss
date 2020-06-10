@@ -1,0 +1,17 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: modules/profile
+ * -----------------------------------------------------------------------------
+ */
+
+.profile {
+
+  .profile__item {
+    @include responsive-prop('margin-bottom', $space-sm);
+
+    label {
+      @include font-size($fs-xs);
+      margin-bottom: 4px;
+    }
+  }
+}

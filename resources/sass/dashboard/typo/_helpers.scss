@@ -44,3 +44,7 @@ strong, b {
 p {
 	@include responsive-prop('margin-bottom', $space-sm);
 }
+
+i {
+	@include font-italic();
+}

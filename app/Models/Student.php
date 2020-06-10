@@ -24,8 +24,13 @@ class Student extends Model
 		'alt_city',
 		'needs_credit_confirmation',
 		'needs_hours_confirmation',
+		'has_alt_address',
 		'user_id',
 	];
+
+	protected $hidden = [
+    'user_id', 'created_at', 'updated_at'
+  ];
 	
 	public function user()
 	{
@@ -34,6 +39,6 @@ class Student extends Model
 
   public function courseEvents()
   {
-    return $this->belongsToMany('App\Models\CourseEvent');
+    return $this->belongsToMany('App\Models\CourseEvent')->orderBy('dateStart');
   }
 }

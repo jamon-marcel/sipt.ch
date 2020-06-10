@@ -2,6 +2,9 @@
 namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Student;
+use App\Models\Tutor;
+use App\Models\Administrator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Http\Requests\UserRegisterRequest;
@@ -9,6 +12,13 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+  public function __construct(Student $student, Tutor $tutor, Administrator $administrator)
+  {
+    $this->student = $student;
+    $this->tutor = $tutor;
+    $this->administrator = $administrator;
+  }
+
   /**
    * Store a newly created resource in storage.
    *
@@ -24,6 +34,28 @@ class UserController extends Controller
       'role' => 'tutor'
     ]);
     return response()->json(['userId' => $user->id]);
+  }
+
+  /**
+   * Get a students info by its user
+   */
+  public function student()
+  {
+    $student = $this->student->with('user')
+                             ->where('user_id', '=', auth()->user()->id)
+                             ->first();
+    return response()->json(['firstname' => $student->firstname, 'name' => $student->name]);
+  }
+
+  /**
+   * Get a administrators info by its user
+   */
+  public function admin()
+  {
+    $administrator = $this->administrator->with('user')
+                                         ->where('user_id', '=', auth()->user()->id)
+                                         ->first();
+    return response()->json(['firstname' => $administrator->firstname, 'name' => $administrator->name]);
   }
 
 }

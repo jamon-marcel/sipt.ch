@@ -20,14 +20,21 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::middleware('auth:sanctum')->group(function() {
 
+  // Administrators
+  Route::get('administrator', 'Api\AdministratorController@index');
+
+
   // Students
   Route::get('students', 'Api\StudentController@index');
-  Route::get('student/{student}', 'Api\StudentController@show');
-  Route::get('student/edit/{student}', 'Api\StudentController@edit');
-  Route::get('student/courses/{student}', 'Api\StudentController@courses');
   Route::post('student/update/{student}', 'Api\StudentController@update');
   Route::post('student/update/course/events', 'Api\StudentController@updateCourseEvents');
+  Route::get('student/profile', 'Api\StudentController@profile')->middleware('role:student');
+  Route::get('student/courses/upcoming', 'Api\StudentController@upcomingCourseEvents')->middleware('role:student');
+  Route::get('student/edit/{student}', 'Api\StudentController@edit');
+  Route::get('student/{student}', 'Api\StudentController@show');
+  Route::get('student/courses/{student}', 'Api\StudentController@courses');
 
+  
   // Tutors
   Route::get('tutors', 'Api\TutorController@index');
   Route::get('tutors/active', 'Api\TutorController@active');
@@ -76,5 +83,8 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::get('settings/locations', 'Api\SettingsController@locations');
   Route::get('settings/training/categories', 'Api\SettingsController@trainingCategories');
 
-
+  // Users
+  Route::get('user/student', 'Api\UserController@student')->middleware('role:student');
+  Route::get('user/tutor', 'Api\UserController@tutor')->middleware('role:tutor');
+  Route::get('user/admin', 'Api\UserController@admin')->middleware('role:admin');
 });

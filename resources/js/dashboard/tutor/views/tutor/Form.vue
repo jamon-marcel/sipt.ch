@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="submit">
-    <header class="module-header">
+    <header class="content-header">
       <h1>{{title}}</h1>
     </header>
     <div class="grid-main-sidebar">
@@ -8,17 +8,17 @@
         <div :class="[this.errors.firstname ? 'has-error' : '', 'form-row']">
           <label>Vorname *</label>
           <input type="text" v-model="tutor.firstname">
-          <div class="is-required">Pflichtfeld</div>
+          <label-required />
         </div>
         <div :class="[this.errors.name ? 'has-error' : '', 'form-row']">
           <label>Name *</label>
           <input type="text" v-model="tutor.name">
-          <div class="is-required">Pflichtfeld</div>
+          <label-required />
         </div>
         <div :class="[this.errors.email ? 'has-error' : '', 'form-row']">
           <label>E-Mail *</label>
           <input type="text" v-model="tutor.user.email" :disabled="this.$props.type == 'edit' ? true : false">
-          <div class="is-required">Pflichtfeld</div>
+          <label-required />
         </div>
         <div class="form-row">
           <label>Titel</label>
@@ -103,8 +103,8 @@
 // Icons
 import { ArrowLeftIcon } from 'vue-feather-icons';
 
-// Error Handling (mixin)
-import ErrorHandling from "@/global/mixins/ErrorHandling";
+// Mixins
+// import ErrorHandling from "@/global/mixins/ErrorHandling";
 
 // TinyMCE
 import tinyConfig from "@/global/config/tiny.js";
@@ -112,15 +112,17 @@ import TinymceEditor from "@tinymce/tinymce-vue";
 
 // Components
 import RadioButton from "@/global/components/ui/RadioButton.vue";
+import LabelRequired from "@/global/components/ui/LabelRequired.vue";
 
 export default {
   components: {
     ArrowLeftIcon,
     TinymceEditor,
-    RadioButton
+    RadioButton,
+    LabelRequired
   },
 
-  mixins: [ErrorHandling],
+  //mixins: [ErrorHandling],
 
   props: {
     type: String

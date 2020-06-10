@@ -10,15 +10,23 @@ class StudentPolicy
 {
   use HandlesAuthorization;
 
+  public function before($user, $ability)
+  {
+    if ($user->isAdmin())
+    {
+      return true;
+    }
+  }
+
   /**
    * Determine whether the user can view any models.
    *
    * @param \App\Models\User $user
    * @return mixed
    */
-  public function viewAny(User $user)
+  public function viewAny(User $user, Student $student)
   {
-    return $user->isAdmin() 
+    return $user->id === $student->user_id
            ? Response::allow() 
            : Response::deny('Access denied');
   }
@@ -32,7 +40,7 @@ class StudentPolicy
    */
   public function view(User $user, Student $student)
   {
-    return $user->id === $student->user_id 
+    return $user->id === $student->user_id
            ? Response::allow() 
            : Response::deny('Access denied');
   }
@@ -97,4 +105,5 @@ class StudentPolicy
   {
     //
   }
+
 }

@@ -4,7 +4,7 @@
       <add-event></add-event>
     </div>
     <form @submit.prevent="submit" :class="isFetched ? 'is-loaded' : 'is-loading'">
-      <header class="module-header">
+      <header class="content-header">
         <h1>Modul: <strong>{{course.title}}</strong></h1>
       </header>
       <div class="grid-main-sidebar">
@@ -22,7 +22,7 @@
             <div :class="[this.errors.max_participants ? 'has-error' : '', 'form-row']">
               <label>max. Teilnehmer *</label>
               <input type="text" v-model="course_event.max_participants">
-              <div class="is-required">Pflichtfeld</div>
+              <label-required />
             </div>
             <label class="flex-sb">
               <span :class="this.errors.dates ? 'has-error' : ''">Daten</span>
@@ -53,7 +53,7 @@
               </div>
             </div>
             <div v-else>
-              <p>Es sind noch keine Daten vorhanden...</p>
+              <p class="no-records">Es sind noch keine Daten für dieses Modul erfasst...</p>
             </div>
           </template>
         </div>
@@ -83,7 +83,7 @@
                   :model="course_event.is_cancelled"
                   :name="'is_cancelled'"
                 ></radio-button>
-                <div class="form-row-info is-danger">
+                <div class="form-info is-danger">
                   <strong>Achtung:</strong><br>wird eine Veranstaltung abgesagt, werden sämtliche Teilnehmer und Dozenten autom. per E-Mail benachrichtigt!
                 </div>
               </div>
@@ -107,7 +107,7 @@
 import { ArrowLeftIcon, PlusIcon, Trash2Icon } from "vue-feather-icons";
 
 // Mixins
-import ErrorHandling from "@/global/mixins/ErrorHandling";
+// import ErrorHandling from "@/global/mixins/ErrorHandling";
 import DateTime from "@/global/mixins/DateTime";
 
 // TinyMCE
@@ -116,6 +116,7 @@ import TinymceEditor from "@tinymce/tinymce-vue";
 
 // Components
 import RadioButton from "@/global/components/ui/RadioButton.vue";
+import LabelRequired from "@/global/components/ui/LabelRequired.vue";
 import Locations from "@/administration/components/Locations.vue";
 import AddEvent from "@/administration/views/course_events/AddEvent.vue";
 
@@ -126,11 +127,12 @@ export default {
     Trash2Icon,
     TinymceEditor,
     RadioButton,
+    LabelRequired,
     Locations,
     AddEvent
   },
 
-  mixins: [ErrorHandling, DateTime],
+  mixins: [DateTime],
 
   props: {
     type: String
@@ -265,19 +267,6 @@ export default {
         }
       }
     },
-
-    // cancel(courseEventId, courseId) {
-    //   if (confirm("Bitte Absage bestätigen!\nEs werden alle Studenten sowie Dozenten per E-mail über die Absage informiert.")) {
-    //     let uri = `/api/course/event/cancel/${courseEventId}`;
-    //     this.axios.get(uri).then(response => {
-    //       this.$router.push({
-    //         name: "course-events",
-    //         params: { id: courseId }
-    //       });
-    //       this.$notify({ type: "success", text: "Veranstaltung abgesagt!" });
-    //     });
-    //   }
-    // },
 
     toggleOverlay() {
       this.hasOverlay = this.hasOverlay ? false : true;

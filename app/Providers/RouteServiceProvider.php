@@ -31,14 +31,19 @@ class RouteServiceProvider extends ServiceProvider
     public const DASHBOARD_ADMINSTRATION = '/administration';
 
     /**
+     * The path to the "student dashboard" route for your application.
+     *
+     * @var string
+     */
+    public const DASHBOARD_STUDENT = '/student';
+
+    /**
      * Define your route model bindings, pattern filters, etc.
      *
      * @return void
      */
     public function boot()
     {
-        //
-
         parent::boot();
     }
 

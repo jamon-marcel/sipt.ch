@@ -1,6 +1,6 @@
 <template>
   <div :class="isFetched ? 'is-loaded' : 'is-loading'">
-    <header class="module-header">
+    <header class="content-header">
       <h1>Module</h1>
       <router-link :to="{ name: 'course-create' }" class="feather-icon feather-icon--prepend">
         <plus-icon size="18"></plus-icon>

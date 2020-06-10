@@ -2,15 +2,24 @@ import moment from 'moment';
 
 export default {
   methods: {
+
+    /**
+     * Format a date object
+     * 
+     * @param date date 
+     * @param string format 
+     */
+    
     dateFormat(date, format = 'DD.MM.YYYY') {
       return moment(date).format(format);
     },
 
-    // filter out dates, format and create string
-    datesToString(data, format = 'DD.MM.YY', appendYear = false) {
-      let str = [...data.map(x => x.date)].join('/');
-      return !appendYear ? str : str + moment(data[0].date).format('Y');
-    },
+    /**
+     * Format a string to '00.00'
+     * 
+     * @param string time 
+     * @return string time
+     */
 
     timeFormat(time) {
       if (time.length == 0) return;

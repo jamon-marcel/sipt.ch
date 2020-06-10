@@ -25,8 +25,8 @@
  * 
  */
 
- @mixin font-regular() {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
+@mixin font-regular() {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-display: auto;
   font-style: normal;
   font-stretch: normal;
@@ -40,7 +40,50 @@
  */
 
 @mixin font-bold() {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif, sans-serif;
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-display: auto;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 700;
+}
+
+/**
+ * Font: italic
+ * -----------------------------------------------------------------------------
+ * 
+ */
+
+ @mixin font-italic() {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-display: auto;
+  font-style: italic;
+  font-stretch: normal;
+  font-weight: 300;
+}
+
+/**
+ * Font: serif
+ * -----------------------------------------------------------------------------
+ * 
+ */
+
+ @mixin font-serif() {
+  font-family: 'PT Serif', serif;
+  font-display: auto;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+}
+
+
+/**
+ * Font: serif
+ * -----------------------------------------------------------------------------
+ * 
+ */
+
+ @mixin font-serif-bold() {
+  font-family: 'PT Serif', serif;
   font-display: auto;
   font-style: normal;
   font-stretch: normal;

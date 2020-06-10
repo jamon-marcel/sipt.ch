@@ -1,6 +1,6 @@
 <template>
   <div :class="isFetched ? 'is-loaded' : 'is-loading'">
-    <header class="module-header">
+    <header class="content-header">
       <h1>Modul: <strong>{{course.title}}</strong></h1>
     </header>
     <template v-if="isFetched">
@@ -36,7 +36,7 @@
         </div>
       </div>  
       <div v-else>
-        <p>Es sind noch keine Daten für dieses Modul vorhanden...</p>
+        <p class="no-records">Es sind noch keine Daten für dieses Modul vorhanden...</p>
       </div>
     </template>
     <footer class="module-footer">
@@ -57,7 +57,7 @@ import { PlusIcon, ArrowLeftIcon } from 'vue-feather-icons';
 import ListActions from "@/global/components/ui/ListActions.vue";
 
 // Mixins
-import DateTime from "@/global/mixins/DateTime";
+import Helpers from "@/global/mixins/Helpers";
 
 export default {
 
@@ -67,7 +67,7 @@ export default {
     ArrowLeftIcon
   },
 
-  mixins: [DateTime],
+  mixins: [Helpers],
 
   data() {
     return {
@@ -106,11 +106,6 @@ export default {
         });
       }
     },
-
-    tutorsToString(data) {
-      // filter out names, remove duplicates and create string
-      return [...new Set([...data.map(x => x.tutor.name)])].join('/');
-    }
   }
 }
 </script>

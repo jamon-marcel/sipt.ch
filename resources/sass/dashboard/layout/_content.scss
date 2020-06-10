@@ -1,0 +1,21 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: layout/content
+ * -----------------------------------------------------------------------------
+ */
+
+.content {
+  @include bp-lg() {
+    max-width: calc(100% - 200px);
+  }
+
+  a {
+    color: $color-medium-grey;
+    text-decoration: none;
+    transition: color .1s ease-out;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}

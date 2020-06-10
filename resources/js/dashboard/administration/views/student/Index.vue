@@ -1,6 +1,6 @@
 <template>
   <div :class="isFetched ? 'is-loaded' : 'is-loading'">
-    <header class="module-header">
+    <header class="content-header">
       <h1>Studenten</h1>
     </header>
     <div class="listing" v-if="students.length">
@@ -20,18 +20,19 @@
           :count="1"
           :hasToggle="false"
           :hasDestroy="false" 
+          :hasEdit="false"
+          :hasShow="true"
           :record="s"
-          :routes="{edit: 'student-edit-courses'}">
+          :routes="{show: 'student-show'}">
         </list-actions>
       </div>
     </div>
     <div v-else>
-      <p>Es sind noch keine Studenten vorhanden...</p>
+      <p class="no-records">Es sind noch keine Studenten vorhanden...</p>
     </div>
   </div>
 </template>
 <script>
-
 // Icons
 import { PlusIcon } from 'vue-feather-icons';
 
@@ -42,7 +43,6 @@ export default {
 
   components: {
     ListActions,
-    PlusIcon
   },
 
   data() {

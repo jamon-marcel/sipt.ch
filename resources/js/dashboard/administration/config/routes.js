@@ -1,5 +1,7 @@
-import ErrorForbidden from '@/global/views/ErrorForbidden.vue';
-import ErrorNotFound from '@/global/views/ErrorNotFound.vue';
+import ErrorForbidden from '@/errors/Forbidden.vue';
+import ErrorNotFound from '@/errors/NotFound.vue';
+
+import Dashboard from '@/administration/views/dashboard/Index.vue';
 
 import TrainingIndex from '@/administration/views/training/Index.vue';
 import TrainingCreate from '@/administration/views/training/Create.vue';
@@ -18,9 +20,16 @@ import TutorsCreate from '@/tutor/views/tutor/Create.vue';
 import TutorsEdit from '@/tutor/views/tutor/Edit.vue';
 
 import StudentsIndex from '@/administration/views/student/Index.vue';
-import StudentEdit from '@/administration/views/student/Edit.vue';
+import StudentShow from '@/administration/views/student/Show.vue';
 
 const routes = [
+
+  // Dashboard
+  {
+    name: 'dashboard',
+    path: '/administration',
+    component: Dashboard,
+  },
 
   // Trainings
   {
@@ -95,9 +104,9 @@ const routes = [
     component: StudentsIndex,
   },
   {
-    name: 'student-edit-courses',
-    path: '/administration/student/courses/:id',
-    component: StudentEdit,
+    name: 'student-show',
+    path: '/administration/student/show/:id',
+    component: StudentShow,
   },
 
   // Authorization

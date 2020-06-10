@@ -43,6 +43,15 @@
         <trash2-icon size="18"></trash2-icon>
       </a>
     </div>
+
+    <div v-if="hasShow">
+      <router-link
+        :to="{name: routes.show, params: { id: id }}"
+        class="feather-icon"
+      >
+        <user-icon size="18"></user-icon>
+      </router-link>
+    </div>
     
   </div>
 </template>
@@ -53,7 +62,8 @@ import {
   EyeOffIcon,
   EditIcon,
   Trash2Icon,
-  CalendarIcon
+  CalendarIcon,
+  UserIcon
 } from 'vue-feather-icons';
 
 export default {
@@ -62,7 +72,8 @@ export default {
     EyeOffIcon,
     EditIcon,
     Trash2Icon,
-    CalendarIcon
+    CalendarIcon,
+    UserIcon
   },
 
   props: {
@@ -100,6 +111,11 @@ export default {
     hasEvent: {
       type: Boolean,
       default: false
+    },
+
+    hasShow: {
+      type: Boolean,
+      default: false,
     },
 
     routes: Object,

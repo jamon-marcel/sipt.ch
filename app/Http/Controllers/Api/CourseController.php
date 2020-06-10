@@ -21,7 +21,10 @@ class CourseController extends Controller
    */
   public function index()
   {
-    $courses = $this->course->with('events.dates.tutor')->with('events.location')->get();
+    $courses = $this->course->with('events.dates.tutor')
+                            ->with('events.location')
+                            ->get();
+                            
     return new DataCollection($courses);
   }
 

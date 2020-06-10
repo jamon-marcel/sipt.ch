@@ -5,8 +5,9 @@
  */
 
 .form-row {
-	@include responsive-prop('margin-bottom', $space-sm);
+	@include responsive-prop('margin-bottom', $space-md);
 	display: block;
+	position: relative;
 
 	&.is-last {
 		margin-bottom: 0 !important;
@@ -17,11 +18,19 @@
 	}
 }
 
+.form-row-grid {
+	@include responsive-prop('margin-bottom', $space-md);
+	position: relative;
+	@include bp-md() {
+		margin-bottom: 0 !important;
+	}
+}
+
 .form-radio {
 	display: flex;
 }
 
-.form-row-info {
+.form-info {
 	@include font-size($fs-xxs);
 	@include responsive-prop('padding-top', $space-xxs);
 	&.is-danger {

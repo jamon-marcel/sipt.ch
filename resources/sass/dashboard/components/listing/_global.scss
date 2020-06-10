@@ -88,7 +88,7 @@
   }
 
   .separator {
-    @include font-size($fs-xxs);
+    @include font-size($fs-md);
     display: inline-block;
     margin-left: 8px;
     margin-right: 8px;

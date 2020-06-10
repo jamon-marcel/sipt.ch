@@ -65,6 +65,10 @@ class CourseEventController extends Controller
     // Course Event Dates
     if (!empty($request->dates))
     {
+      $dateStart = collect($request->dates)->sortBy('date')->first();
+      $courseEvent->dateStart = $dateStart['date'];
+      $courseEvent->save();
+      
       foreach($request->dates as $d)
       {
         $courseEventDate = new CourseEventDate([
@@ -107,11 +111,13 @@ class CourseEventController extends Controller
   {
     // Course Event
     $courseEvent->update($request->all());
-    $courseEvent->save();
 
     // Course Event Dates
     if (!empty($request->dates))
     {
+      $dateStart = collect($request->dates)->sortBy('date')->first();
+      $courseEvent->dateStart = $dateStart['date'];
+
       foreach($request->dates as $d)
       { 
         $courseEventDate = CourseEventDate::updateOrCreate(
@@ -126,6 +132,8 @@ class CourseEventController extends Controller
         );
       }
     }
+    $courseEvent->save();
+
     return response()->json('successfully updated');
   }
 

@@ -1,17 +1,22 @@
 <template>
-<div>
+<div :class="isFetched ? 'is-loaded' : 'is-loading'">
   <form @submit.prevent="submit">
-    <header class="module-header">
-      <h1 v-if="isFetched" v-html="title">{{title}}</h1>
-    </header>
-    <div class="grid-main-sidebar">
+    <div class="grid-main-sidebar profile">
       <div>
+        <header class="content-header">
+          <h1>Profil</h1>
+        </header>
+        <student-profile :student="student"></student-profile>
+        <hr>
+        <header class="content-header">
+          <h1>Besuchte Module</h1>
+        </header>
+        <p class="no-records">{{ student.firstname }} {{ student.name }} hat noch keine Module besucht...</p>
+        <hr>
         <template v-if="isFetched">
           <course-events
-            v-bind:courses.sync="student.course_events"
-            :label="'Modul hinzufügen'"
-            :labelSelected="'Module'"
-            :data="student.course_events"
+            :label="'Gebuchte Module'"
+            :records="student.course_events"
           ></course-events>
         </template>
       </div>
@@ -28,35 +33,28 @@
 </div>
 </template>
 <script>
-// Error Handling (mixin)
-import ErrorHandling from "@/global/mixins/ErrorHandling";
-import DateTime from "@/global/mixins/DateTime";
+// Mixins
+import Helpers from "@/global/mixins/Helpers";
 
 // Components
 import CourseEvents from "@/administration/components/CourseEvents.vue";
 
+// Views
+import StudentProfile from "@/student/views/partials/StudentProfile.vue";
+
 export default {
   components: {
     CourseEvents,
+    StudentProfile,
   },
 
-  mixins: [ErrorHandling, DateTime],
+  mixins: [Helpers],
 
   data() {
     return {
-      // Model
-      student: {
-
-      },
-
-      // Validation
-      errors: {
-
-      },
-
-      // Lazy loading
+      student: {},
+      errors: { },
       isFetched: true,
-
     };
   },
 
@@ -101,7 +99,7 @@ export default {
 
   computed: {
     title: function() {
-      return 'Module für <strong>' + this.student.firstname + ' ' + this.student.name + '</strong> verwalten';
+      return '<strong>' + this.student.firstname + ' ' + this.student.name + '</strong> verwalten';
     }
   }
 };

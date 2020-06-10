@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DataCollection;
+use App\Models\User;
 use App\Models\Student;
 use App\Models\CourseEventStudent;
 use App\Http\Requests\StudentStoreRequest;
@@ -45,7 +46,12 @@ class StudentController extends Controller
    */
   public function edit(Student $student)
   {
-    return response()->json($this->student->with('user')->find($student->id));
+    $student = $this->student->with('user')
+                             ->where('user_id', '=', auth()->user()->id)
+                             ->get()
+                             ->first();
+
+    return response()->json($student);
   }
 
   /**
@@ -71,7 +77,8 @@ class StudentController extends Controller
    */
   public function courses(Student $student)
   {
-    $data = $this->student->with('courseEvents.dates')
+    $data = $this->student->with('user')
+                          ->with('courseEvents.dates')
                           ->with('courseEvents.course')
                           ->find($student->id);
     return response()->json($data);
@@ -86,6 +93,11 @@ class StudentController extends Controller
   public function updateCourseEvents(StudentStoreEventCourseRequest $request)
   {
     $student = $this->student->findOrFail($request->id);
+    if (count($request->course_events) == 0)
+    {
+      $student->courseEvents()->detach();
+    }
+
     if ($request->course_events)
     {
       $student->courseEvents()->detach();
@@ -99,5 +111,35 @@ class StudentController extends Controller
       }
     }
     return response()->json('successfully updated');
+  }
+
+  /**
+   * Get a students profile
+   * 
+   * @return \Illuminate\Http\Response
+   */
+  public function profile()
+  {
+    $student = $this->student->with('user')
+                             ->where('user_id', '=', auth()->user()->id)
+                             ->get()
+                             ->first();
+    return response()->json($student);
+  }
+
+  /**
+   * Get a students upcoming courseEvents
+   * 
+   * @return \Illuminate\Http\Response
+   */
+  public function upcomingCourseEvents()
+  {
+    // Get student with courses for the user
+    $courses = $this->student->with('courseEvents.dates.tutor')
+                             ->with('courseEvents.course')
+                             ->where('user_id', '=', auth()->user()->id)
+                             ->get()
+                             ->first();
+    return response()->json($courses);
   }
 }
