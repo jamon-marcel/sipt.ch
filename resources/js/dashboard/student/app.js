@@ -14,7 +14,7 @@ Vue.use(VueAxios, axios);
 
 // Vue-Axios defaults
 Vue.axios.defaults.withCredentials = true;
-Vue.axios.defaults.baseURL = 'http://sipt.ch.local/';
+// Vue.axios.defaults.baseURL = 'http://sipt.ch.local/';
 
 // Vue-Notifications
 import Notifications from 'vue-notification';
@@ -23,6 +23,9 @@ Vue.use(Notifications);
 // Vue-Router
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
+
+import LoadingIndicator from "@/global/components/ui/LoadingIndicator";
+Vue.component('LoadingIndicator', LoadingIndicator);
 
 // Vue-Moment
 Vue.use(require('vue-moment'));

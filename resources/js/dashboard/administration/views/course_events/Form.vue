@@ -5,7 +5,7 @@
     </div>
     <form @submit.prevent="submit" :class="isFetched ? 'is-loaded' : 'is-loading'">
       <header class="content-header">
-        <h1>Modul: <strong>{{course.title}}</strong></h1>
+        <h1>Modul: <strong>{{course.title}}</strong> – {{courseDates}}</h1>
       </header>
       <div class="grid-main-sidebar">
         <div>
@@ -109,6 +109,8 @@ import { ArrowLeftIcon, PlusIcon, Trash2Icon } from "vue-feather-icons";
 // Mixins
 // import ErrorHandling from "@/global/mixins/ErrorHandling";
 import DateTime from "@/global/mixins/DateTime";
+import Helpers from "@/global/mixins/Helpers";
+
 
 // TinyMCE
 import tinyConfig from "@/global/config/tiny.js";
@@ -132,7 +134,7 @@ export default {
     AddEvent
   },
 
-  mixins: [DateTime],
+  mixins: [DateTime, Helpers],
 
   props: {
     type: String
@@ -204,7 +206,8 @@ export default {
               this.tutors = response.data.data;
               this.isFetched = true;
             });
-          });
+          }
+        );
       }
     },
 
@@ -275,6 +278,12 @@ export default {
     getTutorName(id) {
       const index = this.tutors.findIndex(x => x.id === id);
       return this.tutors[index].firstname + " " + this.tutors[index].name;
+    }
+  },
+
+  computed: {
+    courseDates() {
+      return this.datesToString(this.course_event.dates);
     }
   }
 };

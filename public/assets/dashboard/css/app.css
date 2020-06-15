@@ -591,6 +591,11 @@ footer.page-footer > div, .pagination a,
   justify-content: space-between;
 }
 
+.flex-fe {
+  display: flex;
+  justify-content: flex-end;
+}
+
 /**
  * -----------------------------------------------------------------------------
  * File: helper/functions
@@ -1642,7 +1647,7 @@ header.page-header > div, main.site > div, footer.module-footer > div, footer.pa
   background-color: #ff7000;
   border-radius: 2px;
   border: none;
-  color: #ffffff;
+  color: #ffffff !important;
   font-size: 15px;
   line-height: 1.45;
   font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -1681,7 +1686,7 @@ header.page-header > div, main.site > div, footer.module-footer > div, footer.pa
 }
 .btn-danger:hover, .btn-secondary:hover,
 .btn-primary:hover {
-  background-color: #ff8d33;
+  background-color: #e66500;
 }
 
 /**
@@ -1824,6 +1829,9 @@ h2 {
   h2 {
     margin-bottom: 15px;
   }
+}
+h2.is-narrow {
+  margin-bottom: 2px;
 }
 
 /**
@@ -2069,7 +2077,7 @@ hr,
   z-index: 101;
 }
 .feather-icon.feather-icon--prepend span {
-  padding-left: 2px;
+  padding-left: 5px;
 }
 .feather-icon.feather-icon--append span {
   padding-right: 5px;
@@ -2091,6 +2099,22 @@ hr,
  */
 .listing {
   border-bottom: 2px solid #f9f9f9;
+  margin-bottom: 10px;
+}
+@media screen and (min-width: 768px) {
+  .listing {
+    margin-bottom: 10px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .listing {
+    margin-bottom: 15px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .listing {
+    margin-bottom: 15px;
+  }
 }
 .listing.is-grouped {
   border-bottom: none;
@@ -2305,28 +2329,28 @@ hr,
   }
 }
 .listing__item-body .separator {
-  font-size: 18px;
-  line-height: 1.25;
+  font-size: 15px;
+  line-height: 1.45;
   display: inline-block;
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-left: 12px;
+  margin-right: 12px;
 }
 @media screen and (min-width: 768px) {
   .listing__item-body .separator {
-    font-size: 18px;
-    line-height: 1.25;
+    font-size: 15px;
+    line-height: 1.45;
   }
 }
 @media screen and (min-width: 1024px) {
   .listing__item-body .separator {
-    font-size: 20px;
-    line-height: 1.25;
+    font-size: 16px;
+    line-height: 1.45;
   }
 }
 @media screen and (min-width: 1280px) {
   .listing__item-body .separator {
-    font-size: 22px;
-    line-height: 1.25;
+    font-size: 16px;
+    line-height: 1.45;
   }
 }
 
@@ -4030,6 +4054,7 @@ aside.sidebar > div {
  * -----------------------------------------------------------------------------
  */
 .no-records {
+  color: #ff7000;
   font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-display: auto;
   font-style: italic;
@@ -4079,6 +4104,171 @@ aside.sidebar > div {
 }
 @media screen and (min-width: 1280px) {
   .profile .profile__item label {
+    font-size: 14px;
+    line-height: 1.25;
+  }
+}
+
+/**
+ * -----------------------------------------------------------------------------
+ * File: modules/courses
+ * -----------------------------------------------------------------------------
+ */
+.widget-course-register {
+  margin-top: 15px;
+}
+@media screen and (min-width: 768px) {
+  .widget-course-register {
+    margin-top: 15px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .widget-course-register {
+    margin-top: 20px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .widget-course-register {
+    margin-top: 25px;
+  }
+}
+.widget-course-register > .btn-primary {
+  margin-bottom: 15px;
+}
+@media screen and (min-width: 768px) {
+  .widget-course-register > .btn-primary {
+    margin-bottom: 15px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .widget-course-register > .btn-primary {
+    margin-bottom: 20px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .widget-course-register > .btn-primary {
+    margin-bottom: 25px;
+  }
+}
+.widget-course-register .no-records {
+  margin-top: 15px;
+}
+@media screen and (min-width: 768px) {
+  .widget-course-register .no-records {
+    margin-top: 15px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .widget-course-register .no-records {
+    margin-top: 20px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .widget-course-register .no-records {
+    margin-top: 25px;
+  }
+}
+
+.course-register {
+  background-color: #f9f9f9;
+  border-radius: 2px;
+  padding: 10px;
+  position: relative;
+}
+@media screen and (min-width: 768px) {
+  .course-register {
+    padding: 10px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .course-register {
+    padding: 15px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .course-register {
+    padding: 15px;
+  }
+}
+.course-register__select {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+.course-register__select:nth-child(n+2) {
+  margin-top: 15px;
+}
+@media screen and (min-width: 768px) {
+  .course-register__select:nth-child(n+2) {
+    margin-top: 15px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .course-register__select:nth-child(n+2) {
+    margin-top: 20px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .course-register__select:nth-child(n+2) {
+    margin-top: 25px;
+  }
+}
+.course-register__select .select-wrapper select {
+  border-color: #cccccc;
+}
+.course-register__select .btn-primary {
+  color: #ffffff;
+}
+.course-register__items > div {
+  background-color: transparent;
+  border: 2px solid #cccccc;
+  border-radius: 2px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-bottom: 10px;
+  padding: 10px;
+}
+@media screen and (min-width: 768px) {
+  .course-register__items > div {
+    margin-bottom: 10px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .course-register__items > div {
+    margin-bottom: 15px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .course-register__items > div {
+    margin-bottom: 15px;
+  }
+}
+.course-register__items > div:hover {
+  background-color: #ffffff;
+}
+.course-register__items > div > div:last-child {
+  display: flex;
+  justify-content: flex-end;
+}
+.course-register__items > div label {
+  font-size: 12px;
+  line-height: 1.25;
+  margin-bottom: 0;
+}
+@media screen and (min-width: 768px) {
+  .course-register__items > div label {
+    font-size: 12px;
+    line-height: 1.25;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .course-register__items > div label {
+    font-size: 14px;
+    line-height: 1.25;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .course-register__items > div label {
     font-size: 14px;
     line-height: 1.25;
   }

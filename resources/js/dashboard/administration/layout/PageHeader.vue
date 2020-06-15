@@ -2,7 +2,7 @@
 <div>
   <header class="page-header">
     <div>
-      <a href="/" class="brand">
+      <a href="/administration" class="brand">
        <logo />
       </a>
       <a href="javascript:;" @click="toggleMenu()" class="feather-icon">
@@ -24,11 +24,6 @@
       </a>
     </header>
     <ul>
-      <li>
-        <router-link :to="{name: 'dashboard'}">
-          <span>Dashboard</span>
-        </router-link>
-      </li>
       <li>
         <router-link :to="{name: 'trainings'}">
           <span>Fortbildungen</span>

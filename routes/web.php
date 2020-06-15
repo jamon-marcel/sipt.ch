@@ -17,17 +17,13 @@ Route::get('/', function () {
   return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
+
 Route::get('/logout', 'Auth\LoginController@logout');
 Route::get('/home', 'HomeController@index')->name('home');
-//Route::get('/student', 'StudentController@index')->name('dashboard.student');
 
-
-Route::get('/test/courses/{course}', 'TestController@course');
-Route::get('/test/student/register', 'TestController@register');
-Route::post('/test/student/store', 'TestController@store')->name('student_store');
-Route::get('/test/student/dates/{student}', 'TestController@student');
-Route::get('/test/courses', 'TestController@courses');
+Route::get('/student/sign-up', 'RegisterController@register');
+Route::post('/student/store', 'RegisterController@store')->name('student_store');
 
 /*
 |--------------------------------------------------------------------------
@@ -36,7 +32,7 @@ Route::get('/test/courses', 'TestController@courses');
 |
 */
 
-Route::middleware('auth:sanctum')->group(function() {
+Route::middleware('auth:sanctum', 'verified')->group(function() {
 
   // CatchAll: Dashboard Student
   Route::get('student/{any?}', function () {

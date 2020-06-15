@@ -45,7 +45,7 @@ class CourseEventController extends Controller
     $courseEvent = $this->courseEvent
                         ->with('course')
                         ->with('location')
-                        ->with('dates')
+                        ->with('dates.tutor')
                         ->find($courseEvent->id);
     return response()->json($courseEvent);
   }
@@ -176,5 +176,19 @@ class CourseEventController extends Controller
   {
     $courseEvent->delete();
     return response()->json('successfully deleted');
+  }
+
+  /**
+   * Get course events by course
+   * 
+   * @param Course $course
+   * @return \Illuminate\Http\Response
+   */
+  public function getCourseEventsByCourse(Course $course)
+  {
+    $courseEvents = $this->course->with('events.location')
+                           ->with('events.dates.tutor')
+                           ->find($course->id);
+    return response()->json($courseEvents);
   }
 }

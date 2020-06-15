@@ -1,18 +1,22 @@
 import ErrorForbidden from '@/errors/Forbidden.vue';
 import ErrorNotFound from '@/errors/NotFound.vue';
 
-import Dashboard from '@/student/views/dashboard/Index.vue';
+import Home from '@/student/views/home/Index.vue';
 
 import ProfileIndex from '@/student/views/profile/Index.vue';
 import ProfileEdit from '@/student/views/profile/Form.vue';
+import ProfileChangeEmail from '@/student/views/profile/Email.vue';
+
+import CourseEventsIndex from '@/student/views/course_events/Index.vue';
+import CourseEventsShow from '@/student/views/course_events/Show.vue';
 
 const routes = [
 
-  // Dashboard
+  // Home
   {
-    name: 'dashboard',
+    name: 'home',
     path: '/student',
-    component: Dashboard,
+    component: Home,
   },
 
   // Profile
@@ -27,6 +31,27 @@ const routes = [
     name: 'profile-edit',
     path: '/student/profile/edit/:id',
     component: ProfileEdit,
+  },
+
+  // Profile - Edit
+  {
+    name: 'profile-change-email',
+    path: '/student/profile/change/email/:id',
+    component: ProfileChangeEmail,
+  },
+
+  // Courses
+  {
+    name: 'course-show',
+    path: '/student/course/show/:id',
+    component: CourseEventsShow,
+  },
+
+  // Courses - Show
+  {
+    name: 'courses',
+    path: '/student/courses',
+    component: CourseEventsIndex,
   },
 
   // Authorization

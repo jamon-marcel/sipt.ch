@@ -5,5 +5,6 @@
  */
 
 .no-records {
+  color: $color-primary;
   @include font-italic();
 }

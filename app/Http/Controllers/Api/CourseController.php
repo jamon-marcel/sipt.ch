@@ -3,15 +3,17 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DataCollection;
 use App\Models\Course;
+use App\Models\Training;
 use App\Http\Requests\CourseStoreRequest;
 use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
 
-  public function __construct(Course $course)
+  public function __construct(Course $course, Training $training)
   {
     $this->course = $course;
+    $this->training = $training;
   }
 
   /**
@@ -104,5 +106,16 @@ class CourseController extends Controller
   {
     $course->delete();
     return response()->json('successfully deleted');
+  }
+
+  /**
+   * Get courses by training
+   * 
+   * @param Training $training
+   * @return \Illuminate\Http\Response
+   */
+  public function getCoursesByTraining(Training $training)
+  {
+    return response()->json($training->courses);
   }
 }

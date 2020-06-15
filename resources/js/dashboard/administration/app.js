@@ -14,7 +14,7 @@ Vue.use(VueAxios, axios);
 
 // Vue-Axios defaults
 Vue.axios.defaults.withCredentials = true;
-Vue.axios.defaults.baseURL = 'http://sipt.ch.local/';
+//Vue.axios.defaults.baseURL = 'http://sipt.ch.local/';
 
 // Vue-Notifications
 import Notifications from 'vue-notification';

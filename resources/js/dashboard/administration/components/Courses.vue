@@ -21,6 +21,7 @@
   </div>
 </template>
 <script>
+
 // Components
 import ListActions from "@/global/components/ui/ListActions.vue";
 

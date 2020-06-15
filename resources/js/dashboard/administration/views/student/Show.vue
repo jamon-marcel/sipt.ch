@@ -6,7 +6,7 @@
         <header class="content-header">
           <h1>Profil</h1>
         </header>
-        <student-profile :student="student"></student-profile>
+        <profile :student="student"></profile>
         <hr>
         <header class="content-header">
           <h1>Besuchte Module</h1>
@@ -40,12 +40,12 @@ import Helpers from "@/global/mixins/Helpers";
 import CourseEvents from "@/administration/components/CourseEvents.vue";
 
 // Views
-import StudentProfile from "@/student/views/partials/StudentProfile.vue";
+import Profile from "@/student/views/partials/Profile.vue";
 
 export default {
   components: {
     CourseEvents,
-    StudentProfile,
+    Profile,
   },
 
   mixins: [Helpers],

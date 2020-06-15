@@ -25,13 +25,13 @@
     </header>
     <ul>
       <li>
-        <router-link :to="{name: 'dashboard'}">
-          <span>Dashboard</span>
+        <router-link :to="{name: 'profile'}">
+          <span>Profil</span>
         </router-link>
       </li>
       <li>
-        <router-link :to="{name: 'profile'}">
-          <span>Profil</span>
+        <router-link :to="{name: 'courses'}">
+          <span>Module</span>
         </router-link>
       </li>
     </ul>
@@ -43,7 +43,7 @@
 // Icons
 import { ArrowRightIcon, MenuIcon, LogOutIcon } from 'vue-feather-icons';
 
-// Theme
+// Logo
 import Logo from '@/global/components/theme/Logo.vue';
 
 export default {
@@ -75,6 +75,5 @@ export default {
       this.menuVisible = false
     }
   },
-
 }
 </script>

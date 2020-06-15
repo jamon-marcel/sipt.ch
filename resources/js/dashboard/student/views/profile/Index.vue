@@ -5,33 +5,40 @@
         <header class="content-header">
           <h1>Profil</h1>
         </header>
-        <student-profile :student="student" :hasEdit="true"></student-profile>
+        <profile :student="student" :hasEdit="true"></profile>
       </div>
       <div>
         <header class="content-header">
-          <h1>Login</h1>
+          <h1>Zugangsdaten</h1>
         </header>
         <div class="profile">
           <div class="profile__item">
-            <label>Benutzer</label>
+            <label>E-Mail</label>
             {{ student.user.email }}
           </div>
-          <router-link :to="{name: 'profile-edit', params: { id: student.id }}" class="btn-primary is-sm">
+          <router-link :to="{name: 'profile-change-email', params: { id: student.id }}" class="btn-primary is-sm">
             Bearbeiten
           </router-link>
         </div>
       </div>
     </div>
+    <footer class="module-footer">
+      <div>
+        <router-link :to="{ name: 'home' }" class="btn-secondary">
+          <span>Zurück</span>
+        </router-link>
+      </div>
+    </footer>
   </div>
 </template>
 <script>
 
 // Views
-import StudentProfile from "@/student/views/partials/StudentProfile.vue";
+import Profile from "@/student/views/partials/Profile.vue";
 
 export default {
   components: {
-    StudentProfile
+    Profile
   },
 
   data() {

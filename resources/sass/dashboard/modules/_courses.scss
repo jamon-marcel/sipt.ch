@@ -1,0 +1,72 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: modules/courses
+ * -----------------------------------------------------------------------------
+ */
+
+.widget-course-register {
+  @include responsive-prop('margin-top', $space-sm);
+
+  > .btn-primary {
+    @include responsive-prop('margin-bottom', $space-sm);
+  }
+
+  .no-records {
+    @include responsive-prop('margin-top', $space-sm);
+  }
+}
+
+.course-register {
+  background-color: $color-light;
+  border-radius: 2px;
+  @include responsive-prop('padding', $space-xs);
+  position: relative;
+
+  &__select {
+    display: block;
+    position: relative;
+    width: 100%;
+
+    &:nth-child(n+2) {
+      @include responsive-prop('margin-top', $space-sm);
+    }
+
+    .select-wrapper select {
+      border-color: $color-grey;
+    }
+
+    .btn-primary {
+      color: $color-white;
+    }
+  }
+
+  &__items {
+
+    > div {
+      background-color: transparent;
+      border: 2px solid $color-grey;
+      border-radius: 2px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      @include responsive-prop('margin-bottom', $space-xs);
+      padding: 10px;
+
+      &:hover {
+        background-color: $color-white;
+      }
+
+      > div {
+       
+        &:last-child {
+          display: flex;
+          justify-content: flex-end;
+        }
+      }
+      
+      label {
+        @include font-size($fs-xs);
+        margin-bottom: 0;
+      }
+    }
+  }
+}

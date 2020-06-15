@@ -1,7 +1,7 @@
 import ErrorForbidden from '@/errors/Forbidden.vue';
 import ErrorNotFound from '@/errors/NotFound.vue';
 
-import Dashboard from '@/administration/views/dashboard/Index.vue';
+import Home from '@/administration/views/home/Index.vue';
 
 import TrainingIndex from '@/administration/views/training/Index.vue';
 import TrainingCreate from '@/administration/views/training/Create.vue';
@@ -24,11 +24,11 @@ import StudentShow from '@/administration/views/student/Show.vue';
 
 const routes = [
 
-  // Dashboard
+  // Home
   {
-    name: 'dashboard',
+    name: 'home',
     path: '/administration',
-    component: Dashboard,
+    component: Home,
   },
 
   // Trainings

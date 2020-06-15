@@ -41,6 +41,7 @@ export default {
         errors[key.field] = true;
       });
       this.errors = errors;
+      this.isLoading = false;
       this.$notify({ type: "error", text: `Bitte alle mit * markierten Felder prüfen!`});
     },
 
@@ -54,10 +55,12 @@ export default {
     },
 
     notAllowed(data) {
+      this.isLoading = false;
       this.$notify({ type: "error", text: `${data.status} ${data.code}`});
     },
 
     forbiddenError(data) {
+      this.isLoading = false;
       this.$notify({ type: "error", text: `${data.status} - Zugriff verweigert!`});
       this.$router.push({ name: 'forbidden' });
     }

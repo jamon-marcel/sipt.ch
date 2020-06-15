@@ -7,6 +7,7 @@
 
 .listing {
   border-bottom: 2px solid $color-light;
+  @include responsive-prop('margin-bottom', $space-xs);
 
   &.is-grouped {
     border-bottom: none;
@@ -88,10 +89,10 @@
   }
 
   .separator {
-    @include font-size($fs-md);
+    @include font-size($fs-sm);
     display: inline-block;
-    margin-left: 8px;
-    margin-right: 8px;
+    margin-left: 12px;
+    margin-right: 12px;
   }
 }
 

@@ -30,6 +30,15 @@ class StudentStoreRequest extends FormRequest
       'city' => 'required',
       'phone' => 'required',
       'qualifications' => 'required',
+      'has_alt_address' => 'required',
+
+      'alt_company' => 'required_if:has_alt_address,1',
+      'alt_name' => 'required_if:has_alt_address,1',
+      'alt_street' => 'required_if:has_alt_address,1',
+      'alt_street_no' => 'required_if:has_alt_address,1',
+      'alt_zip' => 'required_if:has_alt_address,1',
+      'alt_city' => 'required_if:has_alt_address,1',
+
     ];
   }
 
@@ -72,6 +81,30 @@ class StudentStoreRequest extends FormRequest
       'qualifications.required' => [
         'field' => 'qualifications',
         'error' => 'Berufsabschluss wird benötigt!'
+      ],
+      'alt_company.required_if' => [
+        'field' => 'alt_company',
+        'error' => 'Firma wird benötigt!'
+      ],
+      'alt_name.required_if' => [
+        'field' => 'alt_name',
+        'error' => 'Vorname wird benötigt!'
+      ],
+      'alt_street.required_if' => [
+        'field' => 'alt_street',
+        'error' => 'Strasse wird benötigt!'
+      ],
+      'alt_street_no.required_if' => [
+        'field' => 'alt_street_no',
+        'error' => 'Nummer wird benötigt!'
+      ],
+      'alt_zip.required_if' => [
+        'field' => 'alt_zip',
+        'error' => 'Postleitzahl wird benötigt!'
+      ],
+      'alt_city.required_if' => [
+        'field' => 'alt_city',
+        'error' => 'Ort wird benötigt!'
       ],
     ];
   }

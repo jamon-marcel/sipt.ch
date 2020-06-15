@@ -8,12 +8,14 @@ use App\Models\Administrator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Http\Requests\UserRegisterRequest;
+use App\Http\Requests\UserChangeEmailRequest;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-  public function __construct(Student $student, Tutor $tutor, Administrator $administrator)
+  public function __construct(User $user, Student $student, Tutor $tutor, Administrator $administrator)
   {
+    $this->user = $user;
     $this->student = $student;
     $this->tutor = $tutor;
     $this->administrator = $administrator;
@@ -56,6 +58,22 @@ class UserController extends Controller
                                          ->where('user_id', '=', auth()->user()->id)
                                          ->first();
     return response()->json(['firstname' => $administrator->firstname, 'name' => $administrator->name]);
+  }
+
+  /**
+   * Change a users email address
+   * 
+   * @param  \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\Response
+   */
+  public function updateEmail(UserChangeEmailRequest $request)
+  {
+    $user = $this->user->findOrFail(auth()->user()->id);
+    $user->email = $request->email;
+    $user->email_verified_at = null;
+    $user->sendEmailVerificationNotification();
+    $user->save();
+    return response()->json('successfully updated');
   }
 
 }

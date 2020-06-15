@@ -40,5 +40,10 @@ class Student extends Model
   public function courseEvents()
   {
     return $this->belongsToMany('App\Models\CourseEvent')->orderBy('dateStart');
-  }
+	}
+
+	public function scopeAuthenticated($query, $id)
+	{
+		return $query->where('user_id', '=', $id)->get()->first();
+	}  
 }

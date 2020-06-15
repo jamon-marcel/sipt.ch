@@ -52,10 +52,20 @@
         <user-icon size="18"></user-icon>
       </router-link>
     </div>
+
+    <div v-if="hasDetail">
+      <router-link
+        :to="{name: routes.details, params: { id: id }}"
+        class="feather-icon"
+      >
+        <arrow-up-right-icon size="18"></arrow-up-right-icon>
+      </router-link>
+    </div>
     
   </div>
 </template>
 <script>
+
 // Icons
 import { 
   EyeIcon,
@@ -63,7 +73,8 @@ import {
   EditIcon,
   Trash2Icon,
   CalendarIcon,
-  UserIcon
+  UserIcon,
+  ArrowUpRightIcon
 } from 'vue-feather-icons';
 
 export default {
@@ -73,7 +84,8 @@ export default {
     EditIcon,
     Trash2Icon,
     CalendarIcon,
-    UserIcon
+    UserIcon,
+    ArrowUpRightIcon
   },
 
   props: {
@@ -114,6 +126,11 @@ export default {
     },
 
     hasShow: {
+      type: Boolean,
+      default: false,
+    },
+    
+    hasDetail: {
       type: Boolean,
       default: false,
     },
