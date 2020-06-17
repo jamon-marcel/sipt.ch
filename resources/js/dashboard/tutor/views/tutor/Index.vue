@@ -3,7 +3,7 @@
     <header class="content-header">
       <h1>Dozenten</h1>
       <router-link :to="{ name: 'tutor-create' }" class="feather-icon feather-icon--prepend">
-        <plus-icon size="18"></plus-icon>
+        <plus-icon size="16"></plus-icon>
         <span>Hinzufügen</span>
       </router-link>
     </header>
@@ -12,14 +12,12 @@
         :class="[t.is_published == 0 ? 'is-disabled' : '', 'listing__item']"
         v-for="t in tutors"
         :key="t.id"
-        data-icons="3"
       >
         <div class="listing__item-body">
           <span v-if="t.title">{{t.title}}</span>&nbsp;{{t.firstname }} {{ t.name}}<span class="separator">&bull;</span>{{ t.city }}
         </div>
         <list-actions 
           :id="t.id" 
-          :count="3" 
           :record="t"
           :routes="{edit: 'tutor-edit'}">
         </list-actions>

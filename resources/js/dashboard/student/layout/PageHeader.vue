@@ -34,6 +34,11 @@
           <span>Module</span>
         </router-link>
       </li>
+      <li>
+        <router-link :to="{name: 'support'}">
+          <span>Hilfe &amp; Support</span>
+        </router-link>
+      </li>
     </ul>
   </nav>
 </div>

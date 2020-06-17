@@ -27,7 +27,9 @@ Vue.use(VueRouter);
 // Vue-Moment
 Vue.use(require('vue-moment'));
 
-
+// Loading indicator
+import LoadingIndicator from "@/global/components/ui/LoadingIndicator";
+Vue.component('LoadingIndicator', LoadingIndicator);
 
 // Vue-cleave
 import Cleave from 'cleave.js';

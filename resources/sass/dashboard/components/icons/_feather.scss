@@ -49,6 +49,10 @@
     pointer-events: none;
   }
 
+  &.is-highlight {
+    color: $color-primary !important;
+  }
+
   &:hover {
     * {
       color: $color-medium-grey;

@@ -21,6 +21,17 @@
 		padding: 8px 16px;
 	}
 
+	&.has-icon {
+		align-items: center;
+		display: flex;
+		padding-left: 10px;
+
+		span {
+			display: block;
+			padding-left: 10px;
+		}
+	}
+
 	&:hover {
 		background-color: darken($color-primary, 5);
 	}

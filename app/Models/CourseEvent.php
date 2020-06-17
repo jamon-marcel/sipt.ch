@@ -10,6 +10,7 @@ class CourseEvent extends Model
 		'dateStart',
 		'location_id',
 		'is_online',
+		'is_bookable',
 		'is_published',
 		'is_cancelled',
 	];

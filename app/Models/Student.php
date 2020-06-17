@@ -37,9 +37,15 @@ class Student extends Model
 		return $this->hasOne('App\Models\User', 'id', 'user_id');
 	}
 
-  public function courseEvents()
+  public function courseEvents($constraint = NULL)
   {
-    return $this->belongsToMany('App\Models\CourseEvent')->orderBy('dateStart');
+		if ($constraint == 'upcoming')
+		{
+			return $this->belongsToMany('App\Models\CourseEvent')
+									->orderBy('dateStart')
+									->where('dateStart', '>=', date('Y.m.d', time()));
+		}
+		return $this->belongsToMany('App\Models\CourseEvent')->orderBy('dateStart');
 	}
 
 	public function scopeAuthenticated($query, $id)

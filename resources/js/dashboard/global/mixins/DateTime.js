@@ -31,6 +31,20 @@ export default {
         return t[0] + '.00';
       }
       return time;
+    },
+
+    /**
+     * Find the difference between now and a date
+     * 
+     * @param string input date
+     * @param string measurement
+     * @return mixed difference
+     */
+
+    dateDifferenceFromNow(date, measurement) {
+      let dateNow = moment();
+      let dateObj = moment(moment(date, 'DD.MM.YYYY'));
+      return dateObj.diff(dateNow, 'days'); // measurement
     }
   }
 };

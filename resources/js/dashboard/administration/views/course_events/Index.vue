@@ -7,8 +7,8 @@
       <label class="flex-sb">
         <span>Veranstaltungen</span>
         <router-link :to="{ name: 'course-event-create', params: { id: course.id } }" class="feather-icon feather-icon--prepend">
-          <plus-icon size="18"></plus-icon>
-          <span>Veranstaltung hinzufügen</span>
+          <plus-icon size="16"></plus-icon>
+          <span>Hinzufügen</span>
         </router-link>
       </label>
       <div class="listing" v-if="course.events.length">
@@ -16,7 +16,6 @@
           :class="[c.is_published == 0 ? 'is-disabled' : '', 'listing__item']"
           v-for="c in course.events"
           :key="c.id"
-          data-icons="3"
         >
           <div class="listing__item-body">
             <span class="item-date">{{ datesToString(c.dates) }}</span>
@@ -29,9 +28,9 @@
           </div>
           <list-actions
             :id="c.id" 
-            :count="3" 
             :record="c"
-            :routes="{edit: 'course-event-edit'}">
+            :hasDetail="true"
+            :routes="{edit: 'course-event-edit', details: 'course-event-show'}">
           </list-actions>
         </div>
       </div>  
@@ -39,6 +38,10 @@
         <p class="no-records">Es sind noch keine Daten für dieses Modul vorhanden...</p>
       </div>
     </template>
+
+
+
+    
     <footer class="module-footer">
       <div>
         <router-link :to="{ name: 'courses' }" class="btn-secondary">

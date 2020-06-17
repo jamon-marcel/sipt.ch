@@ -4,7 +4,7 @@
       <h1>Willkommen <strong>{{student.firstname}} {{student.name}}</strong></h1>
     </header>
     <div class="content">
-      <p>Unser neues Portal für Studenten ermöglicht es Ihnen, ihre persönlichen Daten selbständig zu aktualisieren sowie ganz einfach und schnell neue Kurse zu buchen oder bestehende anzupassen.</p>
+      <p>Unser neues Portal für Studenten ermöglicht es Ihnen, ihre persönlichen Daten selbständig zu aktualisieren sowie ganz einfach und schnell neue Module zu buchen oder bestehende anzupassen.</p>
       <h2 class="sb-md">Ihre nächsten Module</h2>
       <course-events-list :records="courseEvents" :hasDestroy="false"></course-events-list>
       <div v-if="courseEvents" class="flex-fe">
@@ -24,7 +24,7 @@ import { ArrowUpRightIcon } from 'vue-feather-icons';
 import Helpers from "@/global/mixins/Helpers";
 
 // Components
-import CourseEventsList from "@/student/components/CourseEventsList";
+import CourseEventsList from "@/global/components/CourseEventsList";
 
 export default {
 
@@ -49,7 +49,7 @@ export default {
 
   methods: {
     fetch() {
-      this.axios.get(`/api/student/upcoming/courses/3`).then(response => {
+      this.axios.get(`/api/student/courses/upcoming/3`).then(response => {
         this.student = response.data.student;
         this.courseEvents = response.data.courseEvents;
         this.courseEvents = 

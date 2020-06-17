@@ -5,10 +5,13 @@ import Home from '@/student/views/home/Index.vue';
 
 import ProfileIndex from '@/student/views/profile/Index.vue';
 import ProfileEdit from '@/student/views/profile/Form.vue';
-import ProfileChangeEmail from '@/student/views/profile/Email.vue';
+import ProfileChangeEmail from '@/student/views/profile/ChangeEmail.vue';
 
 import CourseEventsIndex from '@/student/views/course_events/Index.vue';
 import CourseEventsShow from '@/student/views/course_events/Show.vue';
+
+import SupportIndex from '@/student/views/support/Index.vue';
+
 
 const routes = [
 
@@ -52,6 +55,14 @@ const routes = [
     name: 'courses',
     path: '/student/courses',
     component: CourseEventsIndex,
+  },
+
+
+  // Courses - Show
+  {
+    name: 'support',
+    path: '/student/support',
+    component: SupportIndex,
   },
 
   // Authorization

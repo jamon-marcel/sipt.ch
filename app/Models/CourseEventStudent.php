@@ -9,6 +9,7 @@ class CourseEventStudent extends Model
 	protected $fillable = [
 		'course_event_id',
 		'student_id',
+		'has_attendance',
 	];
 	
 	public function course()

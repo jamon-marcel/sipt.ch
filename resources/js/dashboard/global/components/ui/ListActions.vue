@@ -1,5 +1,14 @@
 <template>
-  <div class="listing__item-action" :data-icons="count">
+  <div class="listing__item-action">
+
+    <div v-if="hasDetail">
+      <router-link
+        :to="{name: routes.details, params: { id: id }}"
+        class="feather-icon"
+      >
+        <arrow-up-right-icon size="18"></arrow-up-right-icon>
+      </router-link>
+    </div>
 
     <div v-if="hasToggle">
       <a
@@ -34,6 +43,15 @@
       </router-link>
     </div>
 
+    <div v-if="hasShow">
+      <router-link
+        :to="{name: routes.show, params: { id: id }}"
+        class="feather-icon"
+      >
+        <user-icon size="18"></user-icon>
+      </router-link>
+    </div>
+    
     <div v-if="hasDestroy">
       <a
         href="javascript:;"
@@ -44,24 +62,6 @@
       </a>
     </div>
 
-    <div v-if="hasShow">
-      <router-link
-        :to="{name: routes.show, params: { id: id }}"
-        class="feather-icon"
-      >
-        <user-icon size="18"></user-icon>
-      </router-link>
-    </div>
-
-    <div v-if="hasDetail">
-      <router-link
-        :to="{name: routes.details, params: { id: id }}"
-        class="feather-icon"
-      >
-        <arrow-up-right-icon size="18"></arrow-up-right-icon>
-      </router-link>
-    </div>
-    
   </div>
 </template>
 <script>
@@ -93,11 +93,6 @@ export default {
     id: {
       type: String,
       default: null
-    },
-
-    count: {
-      type: Number,
-      default: 1
     },
 
     eventCount: {

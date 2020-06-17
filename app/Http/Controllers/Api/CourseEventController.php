@@ -46,6 +46,7 @@ class CourseEventController extends Controller
                         ->with('course')
                         ->with('location')
                         ->with('dates.tutor')
+                        ->with('students')
                         ->find($courseEvent->id);
     return response()->json($courseEvent);
   }
@@ -186,9 +187,9 @@ class CourseEventController extends Controller
    */
   public function getCourseEventsByCourse(Course $course)
   {
-    $courseEvents = $this->course->with('events.location')
-                           ->with('events.dates.tutor')
-                           ->find($course->id);
+    $courseEvents = $this->course->with('eventsBookable.location')
+                                 ->with('eventsBookable.dates.tutor')
+                                 ->find($course->id);
     return response()->json($courseEvents);
   }
 }

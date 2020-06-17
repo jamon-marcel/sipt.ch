@@ -5,22 +5,34 @@
  */
 
 .widget-course-register {
-  @include responsive-prop('margin-top', $space-sm);
-
-  > .btn-primary {
-    @include responsive-prop('margin-bottom', $space-sm);
-  }
+  @include responsive-prop('margin-bottom', $space-md);
+  @include responsive-prop('margin-top', $space-md);
 
   .no-records {
+    color: $color-danger;
     @include responsive-prop('margin-top', $space-sm);
   }
 }
 
 .course-register {
   background-color: $color-light;
-  border-radius: 2px;
-  @include responsive-prop('padding', $space-xs);
+  border-radius: 4px;
+  @include responsive-prop('margin-top', $space-md);
+  @include responsive-prop('padding-bottom', $space-sm);
+  @include responsive-prop('padding-top', $space-sm);
+  @include responsive-prop('padding-left', $space-sm);
+  @include responsive-prop('padding-right', $space-sm);
   position: relative;
+
+  h2 {
+    @include font-size($fs-md);
+    @include font-serif();
+    color: $color-primary;
+  }
+
+  &__intro {
+    @include responsive-prop('margin-bottom', $space-sm);
+  }
 
   &__select {
     display: block;

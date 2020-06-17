@@ -8,7 +8,6 @@
         :class="[s.is_published == 0 ? 'is-disabled' : '', 'listing__item']"
         v-for="s in students"
         :key="s.id"
-        data-icons="1"
       >
         <div class="listing__item-body">
           {{s.firstname }} {{ s.name}}<span class="separator">&bull;</span>
@@ -17,13 +16,13 @@
         </div>
         <list-actions 
           :id="s.id" 
-          :count="1"
           :hasToggle="false"
           :hasDestroy="false" 
           :hasEdit="false"
           :hasShow="true"
+          :hasEvent="true"
           :record="s"
-          :routes="{show: 'student-show'}">
+          :routes="{show: 'student-profile', events: 'student-courses'}">
         </list-actions>
       </div>
     </div>

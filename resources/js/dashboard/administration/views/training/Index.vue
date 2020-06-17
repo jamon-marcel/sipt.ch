@@ -3,7 +3,7 @@
     <header class="content-header">
       <h1>Fortbildungen</h1>
       <router-link :to="{ name: 'training-create' }" class="feather-icon feather-icon--prepend">
-        <plus-icon size="18"></plus-icon>
+        <plus-icon size="16"></plus-icon>
         <span>Hinzufügen</span>
       </router-link>
     </header>
@@ -15,14 +15,12 @@
           </h2>
           <div
             :class="[training.is_published == 0 ? 'is-disabled' : '', 'listing__item is-group']"
-            data-icons="3"
           >
             <div class="listing__item-body">
               {{ training.title }}
             </div>
             <list-actions 
               :id="training.id" 
-              :count="3" 
               :record="training"
               :routes="{edit: 'training-edit'}">
             </list-actions>

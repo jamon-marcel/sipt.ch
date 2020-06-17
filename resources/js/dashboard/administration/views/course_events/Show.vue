@@ -1,6 +1,6 @@
 <template>
   <div>
-   <course-event-show :isStudent="true" :id="$route.params.id"></course-event-show>
+   <course-event-show :isAdmin="true" :id="$route.params.id"></course-event-show>
   </div>
 </template>
 <script>

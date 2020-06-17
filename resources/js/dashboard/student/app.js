@@ -24,6 +24,7 @@ Vue.use(Notifications);
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
+// Loading indicator
 import LoadingIndicator from "@/global/components/ui/LoadingIndicator";
 Vue.component('LoadingIndicator', LoadingIndicator);
 

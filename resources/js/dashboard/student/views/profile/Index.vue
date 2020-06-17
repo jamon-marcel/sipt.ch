@@ -34,7 +34,7 @@
 <script>
 
 // Views
-import Profile from "@/student/views/partials/Profile.vue";
+import Profile from "@/global/components/StudentProfile.vue";
 
 export default {
   components: {

@@ -10,6 +10,6 @@ h2 {
   @include responsive-prop('margin-bottom', $space-xs);
 
   &.is-narrow {
-    margin-bottom: 2px;
+    @include responsive-prop('margin-bottom', $space-xxs);
   }
 }

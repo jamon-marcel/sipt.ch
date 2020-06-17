@@ -24,10 +24,10 @@
               <input type="text" v-model="course_event.max_participants">
               <label-required />
             </div>
-            <label class="flex-sb">
+            <label class="flex-sb sb-lg">
               <span :class="this.errors.dates ? 'has-error' : ''">Daten</span>
               <a href @click.prevent="toggleOverlay()" class="feather-icon feather-icon--prepend">
-                <plus-icon size="18"></plus-icon>
+                <plus-icon size="16"></plus-icon>
                 <span>Hinzufügen</span>
               </a>
             </label>
@@ -74,6 +74,14 @@
                   v-bind:is_published.sync="course_event.is_published"
                   :model="course_event.is_published"
                   :name="'is_published'"
+                ></radio-button>
+              </div>
+              <div class="form-row is-sm">
+                <radio-button
+                  :label="'Registration geschlossen?'"
+                  v-bind:is_bookable.sync="course_event.is_bookable"
+                  :model="course_event.is_bookable"
+                  :name="'is_bookable'"
                 ></radio-button>
               </div>
               <div class="form-row is-sm is-last">

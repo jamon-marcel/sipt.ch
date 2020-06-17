@@ -1,8 +1,8 @@
 <template>
   <div class="listing" v-if="$props.records">
-    <div class="listing__item" v-for="r in $props.records" :key="r.id" :data-icons="iconCount">
+    <div class="listing__item" v-for="r in $props.records" :key="r.id">
       <div class="listing__item-body">
-        {{r.dates}}
+        <span class="item-date">{{r.dates}}</span>
         <span class="separator">&bull;</span>
         {{ r.title }}
         <span class="separator">&bull;</span>
@@ -10,10 +10,9 @@
       </div>
       <list-actions
         :id="r.id"
-        :count="iconCount"
         :hasEdit="false"
         :hasToggle="false"
-        :hasDetail="true"
+        :hasDetail="$props.hasDetail"
         :hasDestroy="$props.hasDestroy"
         :record="{id: r}"
         :routes="{details: 'course-show'}"
@@ -31,22 +30,16 @@ export default {
     ListActions
   },
 
-  data() {
-    return {
-      iconCount: 2,
-    }
-  },
-
   props: {
     records: null,
     hasDestroy: {
       type: Boolean,
       default: true,
-    }
-  },
-
-  mounted() {
-    this.iconCount = this.$props.hasDestroy ? 2 : 1;
+    },
+    hasDetail: {
+      type: Boolean,
+      default: true,
+    },
   },
 
   methods: {

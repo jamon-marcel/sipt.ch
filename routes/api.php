@@ -26,19 +26,17 @@ Route::middleware('auth:sanctum')->group(function() {
   // Students
   Route::get('students', 'Api\StudentController@index');
   Route::post('student/update/{student}', 'Api\StudentController@update');
-  Route::post('student/update/course/events', 'Api\StudentController@updateCourseEvents');
-  Route::get('student/profile', 'Api\StudentController@profile')->middleware('role:student');
-  Route::get('student/edit/{student}', 'Api\StudentController@edit');
-  
-  Route::post('student/store/course/event', 'Api\StudentController@storeCourseEvent');
-  Route::delete('student/remove/course/event/{courseEvent}', 'Api\StudentController@removeCourseEvent');
 
-  Route::get('student/booked/courses', 'Api\StudentController@bookedCourses')->middleware('role:student');
-  Route::get('student/upcoming/courses/{limit}', 'Api\StudentController@upcomingCourses')->middleware('role:student');
+  Route::get('student/profile/{student?}', 'Api\StudentController@profile')->middleware('role:student');
+  Route::get('student/edit/{student}', 'Api\StudentController@edit')->middleware('role:student');
+  Route::post('student/store/course/event/{student?}', 'Api\StudentController@storeCourseEvent');
+  Route::delete('student/remove/course/event/{courseEvent}/{student?}', 'Api\StudentController@destroyCourseEvent');
+  Route::get('student/courses/booked/{student?}', 'Api\StudentController@bookedCourses')->middleware('role:student');
+  Route::get('student/courses/attended/{student?}', 'Api\StudentController@attendedCourses')->middleware('role:student');
+  Route::get('student/courses/upcoming/{limit}', 'Api\StudentController@upcomingCourses')->middleware('role:student');
   Route::get('student/courses/{student}', 'Api\StudentController@courses');
   Route::get('student/course/show/{courseEvent}', 'Api\StudentController@course');
   Route::get('student/{student}', 'Api\StudentController@show');
-
 
 
   // Tutors
@@ -73,7 +71,6 @@ Route::middleware('auth:sanctum')->group(function() {
 
   // CourseEvents
   Route::get('course/events/by/course/{course}', 'Api\CourseEventController@getCourseEventsByCourse');
-
   Route::get('course/events/{course}', 'Api\CourseEventController@index');
   Route::get('course/event/{courseEvent}', 'Api\CourseEventController@show');
   Route::post('course/event/create', 'Api\CourseEventController@store');

@@ -12,16 +12,15 @@
     <div class="form-row sb-md">
       <label>{{labelSelected}}</label>
       <div class="listing">
-        <div class="listing__item" v-for="c in selection" :key="c.id" data-icons="1">
+        <div class="listing__item" v-for="c in selection" :key="c.id">
           <div class="listing__item-body">{{ c.title }}</div>
-          <list-actions :id="c.id" :count="1" :hasEdit="false" :hasToggle="false" :record="{id: c}"></list-actions>
+          <list-actions :id="c.id" :hasEdit="false" :hasToggle="false" :record="{id: c}"></list-actions>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-
 // Components
 import ListActions from "@/global/components/ui/ListActions.vue";
 
@@ -70,7 +69,7 @@ export default {
         id = target.value,
         title = target.options[target.selectedIndex].innerHTML;
       const idx = this.selection.findIndex(x => x.id === id);
-      if (idx == -1 && id != 'null') {
+      if (idx == -1 && id != "null") {
         this.$parent.addCourse({ id: id, title: title });
       }
     },

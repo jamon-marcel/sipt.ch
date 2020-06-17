@@ -14,13 +14,16 @@ import CourseEdit from '@/administration/views/course/Edit.vue';
 import CourseEventsIndex from '@/administration/views/course_events/Index.vue';
 import CourseEventsCreate from '@/administration/views/course_events/Create.vue';
 import CourseEventsEdit from '@/administration/views/course_events/Edit.vue';
+import CourseEventsShow from '@/administration/views/course_events/Show.vue';
+
 
 import TutorsIndex from '@/tutor/views/tutor/Index.vue';
 import TutorsCreate from '@/tutor/views/tutor/Create.vue';
 import TutorsEdit from '@/tutor/views/tutor/Edit.vue';
 
 import StudentsIndex from '@/administration/views/student/Index.vue';
-import StudentShow from '@/administration/views/student/Show.vue';
+import StudentCourseEvents from '@/administration/views/student/course_events/Index.vue';
+import StudentProfile from '@/administration/views/student/profile/Index.vue';
 
 const routes = [
 
@@ -79,6 +82,11 @@ const routes = [
     path: '/administration/course/event/edit/:id',
     component: CourseEventsEdit,
   },
+  {
+    name: 'course-event-show',
+    path: '/administration/course/event/show/:id',
+    component: CourseEventsShow,
+  },
 
   // Tutors
   {
@@ -104,9 +112,15 @@ const routes = [
     component: StudentsIndex,
   },
   {
-    name: 'student-show',
-    path: '/administration/student/show/:id',
-    component: StudentShow,
+    name: 'student-profile',
+    path: '/administration/student/profile/:id',
+    component: StudentProfile,
+  },
+
+  {
+    name: 'student-courses',
+    path: '/administration/student/courses/:id',
+    component: StudentCourseEvents,
   },
 
   // Authorization

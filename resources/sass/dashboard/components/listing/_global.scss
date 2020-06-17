@@ -22,7 +22,7 @@
 .listing__item {
   border-top: 2px solid $color-light;
   display: grid;
-  grid-template-columns: auto 102px;
+  grid-template-columns: auto auto;
   padding-left: 2px;
   padding-right: 2px;
   @include responsive-prop('padding-top', $space-xs);
@@ -31,22 +31,6 @@
 
   &:hover {
     background-color: $color-light;
-  }
-
-  &[data-icons="2"] {
-    grid-template-columns: auto 46px;
-  }
-
-  &[data-icons="3"] {
-    grid-template-columns: auto 74px;
-  }
-
-  &[data-icons="5"] {
-    grid-template-columns: auto 130px;
-  }
-
-  &[data-icons="6"] {
-    grid-template-columns: auto 158px;
   }
 
   &.is-disabled {
@@ -97,30 +81,15 @@
 }
 
 .listing__item-action {
-  display: grid;
-  grid-template-columns: repeat(4, 18px);
-  grid-gap: 10px;
+  display: flex;
+  justify-content: flex-end;
   align-items: center;
   text-align: right;
 
-  &[data-icons="1"] {
-    grid-template-columns: 1fr;
-    justify-items: flex-end;
-  }
-
-  &[data-icons="2"] {
-    grid-template-columns: repeat(2, 18px);
-  }
-
-  &[data-icons="3"] {
-    grid-template-columns: repeat(3, 18px);
-  }
-
-  &[data-icons="5"] {
-    grid-template-columns: repeat(5, 18px);
-  }
-
-  &[data-icons="6"] {
-    grid-template-columns: repeat(6, 18px);
+  > div {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    width: 28px;
   }
 }

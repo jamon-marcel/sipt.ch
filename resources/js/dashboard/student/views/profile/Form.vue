@@ -127,7 +127,7 @@
             <template v-if="isFetched">
               <div class="form-row is-sm">
                 <radio-button
-                  :label="'Bestätigung Credits?'"
+                  :label="'Bestätigung erworbene Credits?'"
                   v-bind:needs_credit_confirmation.sync="student.needs_credit_confirmation"
                   :model="student.needs_credit_confirmation"
                   :name="'needs_credit_confirmation'"
@@ -135,7 +135,7 @@
               </div>
               <div class="form-row is-sm is-last">
                 <radio-button
-                  :label="'Bestätigung Stunden?'"
+                  :label="'Bestätigung Ausweisung Kursdauer?'"
                   v-bind:needs_hours_confirmation.sync="student.needs_hours_confirmation"
                   :model="student.needs_hours_confirmation"
                   :name="'needs_hours_confirmation'"
