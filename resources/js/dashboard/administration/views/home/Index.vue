@@ -25,11 +25,11 @@ export default {
   },
 
   created() {
-    this.fetchStudent();
+    this.fetch();
   },
 
   methods: {
-    fetchStudent() {
+    fetch() {
       this.axios.get(`/api/administrator`).then(response => {
         this.admin = response.data;
         this.isFetched = true;

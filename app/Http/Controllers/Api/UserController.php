@@ -49,6 +49,18 @@ class UserController extends Controller
     return response()->json(['firstname' => $student->firstname, 'name' => $student->name]);
   }
 
+
+  /**
+   * Get a tutors info by its user
+   */
+  public function tutor()
+  {
+    $tutor = $this->tutor->with('user')
+                         ->where('user_id', '=', auth()->user()->id)
+                         ->first();
+    return response()->json(['firstname' => $tutor->firstname, 'name' => $tutor->name]);
+  }
+
   /**
    * Get a administrators info by its user
    */

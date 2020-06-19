@@ -40,6 +40,9 @@ Route::middleware('auth:sanctum', 'verified')->group(function() {
   })->where('any', '.*')->middleware('role:student');
 
   // CatchAll: Dashboard Dozenten
+  Route::get('tutor/{any?}', function () {
+    return view('dashboards.tutor.app');
+  })->where('any', '.*')->middleware('role:tutor');
 
   // CatchAll: Dashboard Administration
   Route::get('administration/{any?}', function () {

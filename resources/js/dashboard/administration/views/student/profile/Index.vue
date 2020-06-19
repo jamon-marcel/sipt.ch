@@ -43,7 +43,7 @@ export default {
   methods: {
     fetch() {
       this.isFetched = false;
-      this.axios.get(`/api/student/profile/${this.$route.params.id}`).then(response => {
+      this.axios.get(`/api/student/${this.$route.params.id}`).then(response => {
         this.student = response.data;
         this.isFetched = true;
       });

@@ -60,23 +60,23 @@
           </div>
           <template v-if="isFetched">
             <div :class="this.errors.location_id ? 'has-error' : ''">
-              <locations
+              <location-selector
                 v-bind:location_id.sync="training.location_id"
                 :label="'Kursort'"
                 :model="training.location_id"
                 :name="'location_id'"
                 :required="true"
-              ></locations>
+              ></location-selector>
             </div>
             <div :class="this.errors.category_id ? 'has-error' : ''">
-              <categories
+              <training-category-selector
                 v-bind:category_id.sync="training.category_id"
                 :label="'Kategorie'"
                 :model="training.category_id"
                 :name="'category_id'"
                 :required="true"
                 :cssClass="'is-sm'"
-              ></categories>
+              ></training-category-selector>
             </div>
           </template>
         </div>
@@ -108,12 +108,12 @@
       <div class="grid-main-sidebar">
         <div>
           <template v-if="isFetched">
-            <courses
+            <course-selector
               v-bind:courses.sync="training.courses"
               :label="'Modul hinzufügen'"
               :labelSelected="'Module'"
               :data="training.courses"
-            ></courses>
+            ></course-selector>
           </template>
         </div>
       </div>
@@ -132,8 +132,8 @@
 // Icons
 import { ArrowLeftIcon } from "vue-feather-icons";
 
-// Error Handling (mixin)
-// import ErrorHandling from "@/global/mixins/ErrorHandling";
+// Error Handling
+import ErrorHandling from "@/global/mixins/ErrorHandling";
 
 // TinyMCE
 import tinyConfig from "@/global/config/tiny.js";
@@ -142,13 +142,13 @@ import TinymceEditor from "@tinymce/tinymce-vue";
 
 // Components
 import RadioButton from "@/global/components/ui/RadioButton.vue";
-import Locations from "@/administration/components/Locations.vue";
-import Courses from "@/administration/components/Courses.vue";
-import Categories from "@/administration/components/TrainingCategories.vue";
+import LocationSelector from "@/administration/components/LocationSelector.vue";
+import CourseSelector from "@/administration/components/CourseSelector.vue";
+import TrainingCategorySelector from "@/administration/components/TrainingCategorySelector.vue";
 import Tabs from "@/global/components/ui/Tabs.vue";
 import LabelRequired from "@/global/components/ui/LabelRequired.vue";
 
-// Config
+// Tabs config
 import tabsConfig from "@/administration/views/training/config/tabs.js";
 
 export default {
@@ -157,13 +157,13 @@ export default {
     TinymceEditor,
     RadioButton,
     LabelRequired,
-    Locations,
-    Categories,
-    Courses,
+    LocationSelector,
+    TrainingCategorySelector,
+    CourseSelector,
     Tabs
   },
 
-  // mixins: [ErrorHandling],
+  mixins: [ErrorHandling],
 
   props: {
     type: String
@@ -198,7 +198,7 @@ export default {
         category_id: false
       },
 
-      // Lazy loading
+      // Loading state
       isFetched: true,
 
       // Tabs

@@ -4,19 +4,10 @@
  * -----------------------------------------------------------------------------
  */
 
-.icon-close {
-  @extend %icon-dashboard;
-  background-image: url($url-icons + 'close.svg');
-  // @include responsive-prop('left', $space-md);
-  // position: absolute;
-  // top: auto;
-}
-
 .icon-close-overlay {
-  @extend %icon-dashboard;
-  background-image: url($url-icons + 'close-dark.svg');
+  display: block;
   position: absolute;
   right: 20px;
-  top: -3px;
+  top: -15px;
   z-index: 100;
 }

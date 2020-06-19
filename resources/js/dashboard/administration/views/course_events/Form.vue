@@ -11,13 +11,13 @@
         <div>
           <template v-if="isFetched">
             <div :class="this.errors.location_id ? 'has-error' : ''">
-              <locations
+              <location-selector
                 v-bind:location_id.sync="course_event.location_id"
                 :label="'Kursort'"
                 :model="course_event.location_id"
                 :name="'location_id'"
                 :required="true"
-              ></locations>
+              ></location-selector>
             </div>
             <div :class="[this.errors.max_participants ? 'has-error' : '', 'form-row']">
               <label>max. Teilnehmer *</label>
@@ -78,7 +78,7 @@
               </div>
               <div class="form-row is-sm">
                 <radio-button
-                  :label="'Registration geschlossen?'"
+                  :label="'Registration möglich?'"
                   v-bind:is_bookable.sync="course_event.is_bookable"
                   :model="course_event.is_bookable"
                   :name="'is_bookable'"
@@ -127,7 +127,7 @@ import TinymceEditor from "@tinymce/tinymce-vue";
 // Components
 import RadioButton from "@/global/components/ui/RadioButton.vue";
 import LabelRequired from "@/global/components/ui/LabelRequired.vue";
-import Locations from "@/administration/components/Locations.vue";
+import LocationSelector from "@/administration/components/LocationSelector.vue";
 import AddEvent from "@/administration/views/course_events/AddEvent.vue";
 
 export default {
@@ -138,7 +138,7 @@ export default {
     TinymceEditor,
     RadioButton,
     LabelRequired,
-    Locations,
+    LocationSelector,
     AddEvent
   },
 

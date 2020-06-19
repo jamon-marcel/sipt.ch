@@ -69,7 +69,7 @@ export default {
     fetch() {
       
       // Get booked courses
-      this.axios.get(`/api/student/courses/booked/${this.$route.params.id}`).then(response => {
+      this.axios.get(`/api/student/course/events/booked/0/${this.$route.params.id}`).then(response => {
         this.courses.booked = response.data.courseEvents;
         this.courses.booked = 
           this.courses.booked.map(x => ({
@@ -83,7 +83,7 @@ export default {
       });
 
       // Get attended courses
-      this.axios.get(`/api/student/courses/attended/${this.$route.params.id}`).then(response => {
+      this.axios.get(`/api/student/course/events/attended/0/${this.$route.params.id}`).then(response => {
         this.courses.attended = response.data.courseEvents;
         this.courses.attended = 
           this.courses.attended.map(x => ({
@@ -98,7 +98,7 @@ export default {
 
 
       // Get student data
-      this.axios.get(`/api/student/profile/${this.$route.params.id}`).then(response => {
+      this.axios.get(`/api/student/${this.$route.params.id}`).then(response => {
         this.student = response.data;
         this.isFetchedStudent = true;
       });
@@ -107,7 +107,7 @@ export default {
 
     destroy(id) {
       if (confirm("Bitte löschen bestätigen!")) {
-        let uri = `/api/student/remove/course/event/${id}/${this.$route.params.id}`;
+        let uri = `/api/student/course/event/${id}/${this.$route.params.id}`;
         this.isLoading = true;
         this.axios.delete(uri).then(response => {
           this.fetch();

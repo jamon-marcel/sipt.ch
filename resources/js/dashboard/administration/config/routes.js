@@ -17,9 +17,9 @@ import CourseEventsEdit from '@/administration/views/course_events/Edit.vue';
 import CourseEventsShow from '@/administration/views/course_events/Show.vue';
 
 
-import TutorsIndex from '@/tutor/views/tutor/Index.vue';
-import TutorsCreate from '@/tutor/views/tutor/Create.vue';
-import TutorsEdit from '@/tutor/views/tutor/Edit.vue';
+import TutorsIndex from '@/administration/views/tutor/Index.vue';
+import TutorsCreate from '@/administration/views/tutor/Create.vue';
+import TutorsEdit from '@/administration/views/tutor/Edit.vue';
 
 import StudentsIndex from '@/administration/views/student/Index.vue';
 import StudentCourseEvents from '@/administration/views/student/course_events/Index.vue';

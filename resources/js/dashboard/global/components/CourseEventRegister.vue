@@ -176,8 +176,8 @@ export default {
 
     storeCourseEvent(id) {
       let uri = this.$props.studentId
-        ? `/api/student/store/course/event/${this.$props.studentId}`
-        : `/api/student/store/course/event`;
+        ? `/api/student/course/event/${this.$props.studentId}`
+        : `/api/student/course/event`;
       this.isLoading = true;
       this.axios.post(uri, { courseEventId: id }).then(response => {
         this.$notify({ type: "success", text: "Modul hinzugefügt!" });

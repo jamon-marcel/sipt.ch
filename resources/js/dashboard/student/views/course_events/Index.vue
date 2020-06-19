@@ -79,7 +79,7 @@ export default {
   methods: {
     fetch() {
       // Get booked courses
-      this.axios.get(`/api/student/courses/booked`).then(response => {
+      this.axios.get(`/api/student/course/events/booked`).then(response => {
         this.courses.booked = response.data.courseEvents.map(x => ({
           title: x.course.title,
           dates: this.datesToString(x.dates),
@@ -91,7 +91,7 @@ export default {
       });
 
       // Get attended courses
-      this.axios.get(`/api/student/courses/attended`).then(response => {
+      this.axios.get(`/api/student/course/events/attended`).then(response => {
         this.courses.attended = response.data.courseEvents.map(x => ({
           title: x.course.title,
           dates: this.datesToString(x.dates),
@@ -106,12 +106,14 @@ export default {
       if (confirm("Bitte löschen bestätigen!")) {
         
         // Show message if cancellaction fee occurs
-        let coursesBooked = this.courses.booked;
-        if (coursesBooked[coursesBooked.findIndex(x => x.id === id)].hasCancelFee) {
+        let coursesBooked = this.courses.booked, 
+            idx = coursesBooked.findIndex(x => x.id === id);
+        
+        if (idx !== -1 && coursesBooked[idx].hasCancelFee) {
 
         }
 
-        let uri = `/api/student/remove/course/event/${id}`;
+        let uri = `/api/student/course/event/${id}`;
         this.isLoading = true;
         this.axios.delete(uri).then(response => {
           this.fetch();

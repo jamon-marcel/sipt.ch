@@ -48,6 +48,13 @@ class Student extends Model
 		return $this->belongsToMany('App\Models\CourseEvent')->orderBy('dateStart');
 	}
 
+	/**
+	 * Scope a query to get the authenticated student.
+	 *
+	 * @param  \Illuminate\Database\Eloquent\Builder $query
+	 * @return \Illuminate\Database\Eloquent\Builder
+	 */
+
 	public function scopeAuthenticated($query, $id)
 	{
 		return $query->where('user_id', '=', $id)->get()->first();

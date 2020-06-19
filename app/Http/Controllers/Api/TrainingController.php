@@ -71,7 +71,7 @@ class TrainingController extends Controller
    */
   public function edit(Training $training)
   {
-    return response()->json($this->training->with('category')->with('location')->with('courses')->find($training->id));
+    return response()->json($this->training->with('category', 'location', 'courses')->find($training->id));
   }
 
   /**

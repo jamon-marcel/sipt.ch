@@ -46,6 +46,10 @@ class LoginController extends Controller
     {
       return RouteServiceProvider::DASHBOARD_STUDENT;
     }
+    else if (auth()->user()->isTutor())
+    {
+      return RouteServiceProvider::DASHBOARD_TUTOR;
+    }
     else
     {
       return RouteServiceProvider::HOME;

@@ -45,20 +45,19 @@ const routes = [
 
   // Courses
   {
-    name: 'course-show',
-    path: '/student/course/show/:id',
-    component: CourseEventsShow,
-  },
-
-  // Courses - Show
-  {
     name: 'courses',
     path: '/student/courses',
     component: CourseEventsIndex,
   },
-
-
+  
   // Courses - Show
+  {
+    name: 'course-event-show',
+    path: '/student/course/event/:id',
+    component: CourseEventsShow,
+  },
+
+  // Help & Support
   {
     name: 'support',
     path: '/student/support',

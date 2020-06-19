@@ -15,23 +15,6 @@ class CourseEvent extends Model
 		'is_cancelled',
 	];
 	
-  /**
-   * Mutator 'setDateStart'
-   */
-
-  public function setDateStartAttribute($value)
-  {
-    $this->attributes['dateStart'] = \Carbon\Carbon::parse($value)->format('Y.m.d');
-	}
-	
-  /**
-   * Accessor 'getDateStart'
-   */
-
-  public function getDateStartAttribute($value)
-  {
-    return \Carbon\Carbon::parse($value)->format('d.m.Y');
-  }
 
 	public function dates()
 	{
@@ -52,4 +35,43 @@ class CourseEvent extends Model
 	{
 		return $this->belongsToMany('App\Models\Student');
 	}
+
+  /**
+   * Scope for upcoming events
+   */
+
+	public function scopeUpcoming($query)
+	{
+		$constraint = date('Y-m-d', time());
+		return $query->where('dateStart', '>=', $constraint)->get();
+	}
+
+  /**
+   * Scope for completed events
+   */
+
+	public function scopeCompleted($query)
+	{
+		$constraint = date('Y-m-d', time());
+		return $query->where('dateStart', '<', $constraint)->get();
+	}
+	
+
+  /**
+   * Mutator 'setDateStart'
+   */
+
+  public function setDateStartAttribute($value)
+  {
+    $this->attributes['dateStart'] = \Carbon\Carbon::parse($value)->format('Y.m.d');
+	}
+	
+  /**
+   * Accessor 'getDateStart'
+   */
+
+  public function getDateStartAttribute($value)
+  {
+    return \Carbon\Carbon::parse($value)->format('d.m.Y');
+  }
 }

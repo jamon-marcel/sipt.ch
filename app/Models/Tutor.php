@@ -14,7 +14,7 @@ class Tutor extends Model
     'city',
     'phone',
     'mobile',
-		'bio',
+		'emphasis',
 		'publications',
     'image',
     'is_published',
@@ -26,9 +26,19 @@ class Tutor extends Model
 		return $this->hasOne('App\Models\User', 'id', 'user_id');
 	}
 
-	public function courseEvents()
+	public function images()
 	{
-		return $this->hasMany('App\Models\StudentCourseEvent');
+		return $this->hasMany('App\Models\TutorImage');
+	}
+
+	public function courseEventDates($constraint = NULL)
+	{
+		if ($constraint == 'upcoming')
+		{
+			return $this->hasMany('App\Models\CourseEventDate')->where('date', '>=', date('Y.m.d', time()));
+		}
+
+		return $this->hasMany('App\Models\CourseEventDate');
 	}
 
 	/**
@@ -41,5 +51,17 @@ class Tutor extends Model
 	public function scopeActive($query)
 	{
 		return $query->where('is_published', '=', 1);
-	}  
+	}
+	
+	/**
+	 * Scope a query to get the authenticated tutor.
+	 *
+	 * @param  \Illuminate\Database\Eloquent\Builder $query
+	 * @return \Illuminate\Database\Eloquent\Builder
+	 */
+
+	public function scopeAuthenticated($query, $id)
+	{
+		return $query->where('user_id', '=', $id)->get()->first();
+	}
 }

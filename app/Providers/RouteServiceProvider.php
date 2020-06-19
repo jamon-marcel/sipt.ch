@@ -38,6 +38,13 @@ class RouteServiceProvider extends ServiceProvider
     public const DASHBOARD_STUDENT = '/student';
 
     /**
+     * The path to the "tutor dashboard" route for your application.
+     *
+     * @var string
+     */
+    public const DASHBOARD_TUTOR = '/tutor';
+
+    /**
      * Define your route model bindings, pattern filters, etc.
      *
      * @return void

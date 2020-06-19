@@ -2143,7 +2143,7 @@ __webpack_require__.r(__webpack_exports__);
     storeCourseEvent: function storeCourseEvent(id) {
       var _this4 = this;
 
-      var uri = this.$props.studentId ? "/api/student/store/course/event/".concat(this.$props.studentId) : "/api/student/store/course/event";
+      var uri = this.$props.studentId ? "/api/student/course/event/".concat(this.$props.studentId) : "/api/student/course/event";
       this.isLoading = true;
       this.axios.post(uri, {
         courseEventId: id
@@ -2290,6 +2290,10 @@ __webpack_require__.r(__webpack_exports__);
       type: Boolean,
       "default": false
     },
+    isTutor: {
+      type: Boolean,
+      "default": false
+    },
     id: {
       type: String,
       "default": null
@@ -2309,20 +2313,31 @@ __webpack_require__.r(__webpack_exports__);
     fetch: function fetch() {
       var _this = this;
 
-      var uri;
-
       if (this.$props.isStudent) {
-        uri = "/api/student/course/show/".concat(this.$props.id);
+        var uri = "/api/student/course/event/".concat(this.$props.id);
+        this.axios.get("".concat(uri)).then(function (response) {
+          _this.course_event = response.data;
+          _this.isFetched = true;
+        });
+      }
+
+      if (this.$props.isTutor) {
+        var _uri = "/api/tutor/course/event/".concat(this.$props.id);
+
+        this.axios.get("".concat(_uri)).then(function (response) {
+          _this.course_event = response.data.course_event;
+          _this.isFetched = true;
+        });
       }
 
       if (this.$props.isAdmin) {
-        uri = "/api/course/event/".concat(this.$props.id);
-      }
+        var _uri2 = "/api/course/event/".concat(this.$props.id);
 
-      this.axios.get("".concat(uri)).then(function (response) {
-        _this.course_event = response.data;
-        _this.isFetched = true;
-      });
+        this.axios.get("".concat(_uri2)).then(function (response) {
+          _this.course_event = response.data;
+          _this.isFetched = true;
+        });
+      }
     }
   }
 });
@@ -2361,6 +2376,31 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 // Components
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2376,6 +2416,10 @@ __webpack_require__.r(__webpack_exports__);
     hasDetail: {
       type: Boolean,
       "default": true
+    },
+    isTutor: {
+      type: Boolean,
+      "default": false
     }
   },
   methods: {
@@ -2940,7 +2984,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       // Get booked courses
-      this.axios.get("/api/student/courses/booked").then(function (response) {
+      this.axios.get("/api/student/course/events/booked").then(function (response) {
         _this.courses.booked = response.data.courseEvents.map(function (x) {
           return {
             title: x.course.title,
@@ -2953,7 +2997,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.isFetchedCoursesBooked = true;
       }); // Get attended courses
 
-      this.axios.get("/api/student/courses/attended").then(function (response) {
+      this.axios.get("/api/student/course/events/attended").then(function (response) {
         _this.courses.attended = response.data.courseEvents.map(function (x) {
           return {
             title: x.course.title,
@@ -2970,13 +3014,14 @@ __webpack_require__.r(__webpack_exports__);
 
       if (confirm("Bitte löschen bestätigen!")) {
         // Show message if cancellaction fee occurs
-        var coursesBooked = this.courses.booked;
-
-        if (coursesBooked[coursesBooked.findIndex(function (x) {
+        var coursesBooked = this.courses.booked,
+            idx = coursesBooked.findIndex(function (x) {
           return x.id === id;
-        })].hasCancelFee) {}
+        });
 
-        var uri = "/api/student/remove/course/event/".concat(id);
+        if (idx !== -1 && coursesBooked[idx].hasCancelFee) {}
+
+        var uri = "/api/student/course/event/".concat(id);
         this.isLoading = true;
         this.axios["delete"](uri).then(function (response) {
           _this2.fetch();
@@ -3091,7 +3136,7 @@ __webpack_require__.r(__webpack_exports__);
     fetch: function fetch() {
       var _this = this;
 
-      this.axios.get("/api/student/courses/upcoming/3").then(function (response) {
+      this.axios.get("/api/student/course/events/upcoming/3").then(function (response) {
         _this.student = response.data.student;
         _this.courseEvents = response.data.courseEvents;
         _this.courseEvents = _this.courseEvents.map(function (x) {
@@ -3409,7 +3454,7 @@ __webpack_require__.r(__webpack_exports__);
     var _this = this;
 
     this.isFetched = false;
-    var uri = "/api/student/edit/".concat(this.$route.params.id);
+    var uri = "/api/student/".concat(this.$route.params.id);
     this.axios.get(uri).then(function (response) {
       _this.student = response.data;
       _this.isFetched = true;
@@ -3419,9 +3464,9 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this2 = this;
 
-      var uri = "/api/student/update/".concat(this.$route.params.id);
+      var uri = "/api/student/".concat(this.$route.params.id);
       this.isLoading = true;
-      this.axios.post(uri, this.student).then(function (response) {
+      this.axios.put(uri, this.student).then(function (response) {
         _this2.$router.push({
           name: "profile"
         });
@@ -3508,7 +3553,7 @@ __webpack_require__.r(__webpack_exports__);
     fetch: function fetch() {
       var _this = this;
 
-      this.axios.get("/api/student/profile").then(function (response) {
+      this.axios.get("/api/student").then(function (response) {
         _this.student = response.data;
         _this.isFetched = true;
       });
@@ -77560,44 +77605,89 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm.$props.records
-    ? _c(
-        "div",
-        { staticClass: "listing" },
-        _vm._l(_vm.$props.records, function(r) {
-          return _c(
-            "div",
-            { key: r.id, staticClass: "listing__item" },
-            [
-              _c("div", { staticClass: "listing__item-body" }, [
-                _c("span", { staticClass: "item-date" }, [
-                  _vm._v(_vm._s(r.dates))
-                ]),
-                _vm._v(" "),
-                _c("span", { staticClass: "separator" }, [_vm._v("•")]),
-                _vm._v("\n      " + _vm._s(r.title) + "\n      "),
-                _c("span", { staticClass: "separator" }, [_vm._v("•")]),
-                _vm._v("\n      " + _vm._s(r.tutors) + "\n    ")
-              ]),
-              _vm._v(" "),
-              _c("list-actions", {
-                attrs: {
-                  id: r.id,
-                  hasEdit: false,
-                  hasToggle: false,
-                  hasDetail: _vm.$props.hasDetail,
-                  hasDestroy: _vm.$props.hasDestroy,
-                  record: { id: r },
-                  routes: { details: "course-show" }
-                }
-              })
-            ],
-            1
-          )
-        }),
-        0
-      )
-    : _vm._e()
+  return _vm.isTutor
+    ? _c("div", [
+        _vm.$props.records
+          ? _c(
+              "div",
+              { staticClass: "listing" },
+              _vm._l(_vm.$props.records, function(r) {
+                return _c(
+                  "div",
+                  { key: r.id, staticClass: "listing__item" },
+                  [
+                    _c("div", { staticClass: "listing__item-body" }, [
+                      _c("span", { staticClass: "item-date" }, [
+                        _vm._v(_vm._s(r.date))
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "separator" }, [_vm._v("•")]),
+                      _vm._v(
+                        "\n        " +
+                          _vm._s(r.course_event.course.title) +
+                          "\n      "
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("list-actions", {
+                      attrs: {
+                        id: r.course_event.id,
+                        hasEdit: false,
+                        hasToggle: false,
+                        hasDetail: true,
+                        hasDestroy: false,
+                        record: { id: r },
+                        routes: { details: "course-show" }
+                      }
+                    })
+                  ],
+                  1
+                )
+              }),
+              0
+            )
+          : _vm._e()
+      ])
+    : _c("div", [
+        _vm.$props.records
+          ? _c(
+              "div",
+              { staticClass: "listing" },
+              _vm._l(_vm.$props.records, function(r) {
+                return _c(
+                  "div",
+                  { key: r.id, staticClass: "listing__item" },
+                  [
+                    _c("div", { staticClass: "listing__item-body" }, [
+                      _c("span", { staticClass: "item-date" }, [
+                        _vm._v(_vm._s(r.dates))
+                      ]),
+                      _vm._v(" "),
+                      _c("span", { staticClass: "separator" }, [_vm._v("•")]),
+                      _vm._v("\n        " + _vm._s(r.title) + "\n        "),
+                      _c("span", { staticClass: "separator" }, [_vm._v("•")]),
+                      _vm._v("\n        " + _vm._s(r.tutors) + "\n      ")
+                    ]),
+                    _vm._v(" "),
+                    _c("list-actions", {
+                      attrs: {
+                        id: r.id,
+                        hasEdit: false,
+                        hasToggle: false,
+                        hasDetail: _vm.$props.hasDetail,
+                        hasDestroy: _vm.$props.hasDestroy,
+                        record: { id: r },
+                        routes: { details: "course-event-show" }
+                      }
+                    })
+                  ],
+                  1
+                )
+              }),
+              0
+            )
+          : _vm._e()
+      ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -101945,6 +102035,19 @@ try {
 
 window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+/**
+ * Next we will register the CSRF Token as a common header with Axios so that
+ * all outgoing HTTP requests automatically have it attached. This is just
+ * a simple convenience so we don't have to attach every token manually.
+ */
+
+var token = document.head.querySelector('meta[name="csrf-token"]');
+
+if (token) {
+  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+} else {
+  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+}
 
 /***/ }),
 
@@ -103087,15 +103190,15 @@ var routes = [// Home
   component: _student_views_profile_ChangeEmail_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
 }, // Courses
 {
-  name: 'course-show',
-  path: '/student/course/show/:id',
-  component: _student_views_course_events_Show_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
-}, // Courses - Show
-{
   name: 'courses',
   path: '/student/courses',
   component: _student_views_course_events_Index_vue__WEBPACK_IMPORTED_MODULE_6__["default"]
 }, // Courses - Show
+{
+  name: 'course-event-show',
+  path: '/student/course/event/:id',
+  component: _student_views_course_events_Show_vue__WEBPACK_IMPORTED_MODULE_7__["default"]
+}, // Help & Support
 {
   name: 'support',
   path: '/student/support',

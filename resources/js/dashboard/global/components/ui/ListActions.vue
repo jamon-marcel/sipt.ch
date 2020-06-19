@@ -78,6 +78,7 @@ import {
 } from 'vue-feather-icons';
 
 export default {
+
   components: {
     EyeIcon,
     EyeOffIcon,

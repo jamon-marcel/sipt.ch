@@ -29,7 +29,32 @@ class Course extends Model
 
 	public function events()
 	{
-		return $this->hasMany('App\Models\CourseEvent')->orderBy('dateStart');
+		return $this->hasMany('App\Models\CourseEvent')
+								->orderBy('dateStart');
+	}
+
+	/**
+	 * Relationship for all upcoming events
+	 */
+
+	public function eventsUpcoming()
+	{
+		$constraint = date('Y-m-d', time());
+		return $this->hasMany('App\Models\CourseEvent')
+								->orderBy('dateStart')
+								->where('dateStart', '>=', $constraint);
+	}
+
+	/**
+	 * Relationship for all upcoming events
+	 */
+
+	public function eventsCompleted()
+	{
+		$constraint = date('Y-m-d', time());
+		return $this->hasMany('App\Models\CourseEvent')
+								->orderBy('dateStart')
+								->where('dateStart', '<', $constraint);
 	}
 
 	/**
@@ -38,13 +63,13 @@ class Course extends Model
 
 	public function eventsBookable()
 	{
-		$deadline = date('Y-m-d', 
+		$constraint = date('Y-m-d', 
 			strtotime(\Config::get('sipt.registration_deadline'))
 		);
 
 		return $this->hasMany('App\Models\CourseEvent')
 								->orderBy('dateStart')
-								->where('dateStart', '>=', $deadline)
+								->where('dateStart', '>=', $constraint)
 								->where('is_published', '=', 1)
 								->where('is_bookable', '=', 1);
 	}

@@ -21,26 +21,41 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware('auth:sanctum')->group(function() {
 
   // Administrators
-  Route::get('administrator', 'Api\AdministratorController@index');
+  Route::get('administrator', 'Api\AdministratorController@find');
+
+
+  // Students - v2
+  Route::get('students', 'Api\StudentController@get');
+  Route::get('student/{student?}', 'Api\StudentController@find');
+  Route::get('student/profile/{student}', 'Api\StudentController@find');
+  Route::put('student/{student}', 'Api\StudentController@update');
+  Route::post('student/course/event/{student?}', 'Api\StudentController@storeEvent');
+  Route::get('student/course/event/{courseEvent}/{student?}', 'Api\StudentController@getEvent');
+  Route::get('student/course/events/{type?}/{limit?}/{student?}', 'Api\StudentController@getEvents');
+  Route::delete('student/course/event/{courseEvent}/{student?}', 'Api\StudentController@destroyEvent');
 
   // Students
-  Route::get('students', 'Api\StudentController@index');
-  Route::post('student/update/{student}', 'Api\StudentController@update');
+  // Route::get('students', 'Api\StudentController@index');
+  // Route::post('student/update/{student}', 'Api\StudentController@update');
+  // Route::get('student/profile/{student?}', 'Api\StudentController@profile')->middleware('role:student');
+  // Route::get('student/edit/{student}', 'Api\StudentController@edit')->middleware('role:student');
+  // Route::post('student/store/course/event/{student?}', 'Api\StudentController@storeCourseEvent');
+  // Route::delete('student/remove/course/event/{courseEvent}/{student?}', 'Api\StudentController@destroyCourseEvent');
+  // Route::get('student/courses/{student}', 'Api\StudentController@courses');
+  // Route::get('student/courses/booked/{student?}', 'Api\StudentController@bookedCourses')->middleware('role:student');
+  // Route::get('student/courses/attended/{student?}', 'Api\StudentController@attendedCourses')->middleware('role:student');
+  // Route::get('student/courses/upcoming/{limit}', 'Api\StudentController@upcomingCourses')->middleware('role:student');
+  // Route::get('student/courses/{student?}/{type?}', 'Api\StudentController@courses')->middleware('role:student');
+  // Route::get('student/course/event/{courseEvent}', 'Api\StudentController@courseEvent');
+  // Route::get('student/{student}', 'Api\StudentController@show');
 
-  Route::get('student/profile/{student?}', 'Api\StudentController@profile')->middleware('role:student');
-  Route::get('student/edit/{student}', 'Api\StudentController@edit')->middleware('role:student');
-  Route::post('student/store/course/event/{student?}', 'Api\StudentController@storeCourseEvent');
-  Route::delete('student/remove/course/event/{courseEvent}/{student?}', 'Api\StudentController@destroyCourseEvent');
-  Route::get('student/courses/booked/{student?}', 'Api\StudentController@bookedCourses')->middleware('role:student');
-  Route::get('student/courses/attended/{student?}', 'Api\StudentController@attendedCourses')->middleware('role:student');
-  Route::get('student/courses/upcoming/{limit}', 'Api\StudentController@upcomingCourses')->middleware('role:student');
-  Route::get('student/courses/{student}', 'Api\StudentController@courses');
-  Route::get('student/course/show/{courseEvent}', 'Api\StudentController@course');
-  Route::get('student/{student}', 'Api\StudentController@show');
 
 
   // Tutors
   Route::get('tutors', 'Api\TutorController@index');
+  Route::get('tutor/course/events', 'Api\TutorController@courseEvents');
+  Route::get('tutor/course/event/{courseEvent}', 'Api\TutorController@courseEvent');
+  Route::get('tutor/profile/{tutor?}', 'Api\TutorController@profile')->middleware('role:tutor');
   Route::get('tutors/active', 'Api\TutorController@active');
   Route::get('tutor/{tutor}', 'Api\TutorController@show');
   Route::get('tutor/edit/{tutor}', 'Api\TutorController@edit');
@@ -48,6 +63,11 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::post('tutor/update/{tutor}', 'Api\TutorController@update');
   Route::get('tutor/toggle/{tutor}', 'Api\TutorController@toggle');
   Route::delete('tutor/destroy/{tutor}', 'Api\TutorController@destroy');
+
+  // Tutor image routes
+  Route::get('tutor/image/status/{id}', 'Api\TutorImageController@status');
+  Route::delete('tutor/image/destroy/{tutorImage}', 'Api\TutorImageController@destroy');
+  Route::post('tutor/image/coords/{tutorImage}', 'Api\TutorImageController@coords');
 
   // Trainings
   Route::get('trainings', 'Api\TrainingController@index');
@@ -60,14 +80,14 @@ Route::middleware('auth:sanctum')->group(function() {
 
   // Courses
   Route::get('courses', 'Api\CourseController@index');
-  Route::get('courses/by/training/{training}', 'Api\CourseController@getCoursesByTraining');
+  Route::get('courses/by/training/{training}', 'Api\CourseController@getByTraining');
   Route::get('course/{course}', 'Api\CourseController@show');
+  Route::get('course/with/events/{course}', 'Api\CourseController@getCourseWithEvents');
   Route::get('course/edit/{course}', 'Api\CourseController@edit');
   Route::post('course/create', 'Api\CourseController@store');
   Route::post('course/update/{course}', 'Api\CourseController@update');
   Route::get('course/toggle/{course}', 'Api\CourseController@toggle');
   Route::delete('course/destroy/{course}', 'Api\CourseController@destroy');
-
 
   // CourseEvents
   Route::get('course/events/by/course/{course}', 'Api\CourseEventController@getCourseEventsByCourse');
@@ -79,8 +99,6 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::get('course/event/toggle/{courseEvent}', 'Api\CourseEventController@toggle');
   Route::get('course/event/cancel/{courseEvent}', 'Api\CourseEventController@cancel');
   Route::delete('course/event/destroy/{courseEvent}', 'Api\CourseEventController@destroy');
-  Route::get('course/event/student/{courseEvent}', 'Api\CourseEventController@student');
-
 
   // CoursesEventDates
   Route::delete('course/event/date/destroy/{courseEventDate}', 'Api\CourseEventDateController@destroy');
@@ -97,5 +115,8 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::get('user/tutor', 'Api\UserController@tutor')->middleware('role:tutor');
   Route::get('user/admin', 'Api\UserController@admin')->middleware('role:admin');
   Route::post('user/update/email', 'Api\UserController@updateEmail');
+
+  // Upload routes
+  Route::post('image/upload','Api\UploadController@image');
 
 });

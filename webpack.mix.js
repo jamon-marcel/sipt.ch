@@ -26,6 +26,7 @@ mix.sass('resources/sass/app.scss', 'public/css');
       
 // Dashboard
 mix.js('resources/js/dashboard/student/app.js', 'public/assets/dashboard/js/bundle.student.js');
+mix.js('resources/js/dashboard/tutor/app.js', 'public/assets/dashboard/js/bundle.tutor.js');
 mix.js('resources/js/dashboard/administration/app.js', 'public/assets/dashboard/js/bundle.administration.js');
 mix.sass('resources/sass/dashboard/app.scss', 'public/assets/dashboard/css/app.css').options({processCssUrls: false}).version();
 

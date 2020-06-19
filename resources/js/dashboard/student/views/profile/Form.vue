@@ -215,7 +215,7 @@ export default {
 
   created() {
     this.isFetched = false;
-    let uri = `/api/student/edit/${this.$route.params.id}`;
+    let uri = `/api/student/${this.$route.params.id}`;
     this.axios.get(uri).then(response => {
       this.student = response.data;
       this.isFetched = true;
@@ -225,9 +225,9 @@ export default {
   methods: {
 
     submit() {
-      let uri = `/api/student/update/${this.$route.params.id}`;
+      let uri = `/api/student/${this.$route.params.id}`;
       this.isLoading = true;
-      this.axios.post(uri, this.student).then(response => {
+      this.axios.put(uri, this.student).then(response => {
         this.$router.push({ name: "profile" });
         this.$notify({ type: "success", text: "Änderungen gespeichert!" });
         this.isLoading = false;

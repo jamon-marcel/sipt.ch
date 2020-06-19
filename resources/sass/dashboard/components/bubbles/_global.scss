@@ -22,6 +22,15 @@
     background-color: $color-info;
   }
 
+  &.is-restriction {
+    background-color: $color-light-grey;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    color: $color-dark;
+    text-transform: uppercase;
+    top: -1px;
+  }
+
   strong {
     @include font-mono();
     font-weight: 700;
@@ -31,6 +40,13 @@
 .bubble-danger {
   @extend %bubble;
   background-color: $color-danger;
+  margin-left: 15px;
+  opacity: 1 !important;
+}
+
+.bubble-info {
+  @extend %bubble;
+  background-color: $color-info;
   margin-left: 15px;
   opacity: 1 !important;
 }

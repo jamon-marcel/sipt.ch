@@ -1,4 +1,6 @@
 <template>
+<div>
+  <loading-indicator v-if="isLoading"></loading-indicator>
   <div :class="isFetched ? 'is-loaded' : 'is-loading'">
     <header class="content-header">
       <h1>Module</h1>
@@ -20,7 +22,7 @@
           :id="c.id" 
           :record="c"
           :hasEvent="true"
-          :eventCount="c.events.length"
+          :eventCount="c.events_upcoming.length"
           :routes="{edit: 'course-edit', events: 'course-events'}">
         </list-actions>
       </div>
@@ -29,6 +31,7 @@
       <p>Es sind noch keine Module vorhanden...</p>
     </div>
   </div>
+</div>
 </template>
 <script>
 
@@ -47,8 +50,9 @@ export default {
 
   data() {
     return {
+      courses: [],
+      isLoading: false,
       isFetched: false,
-      courses: []
     };
   },
 
@@ -67,18 +71,22 @@ export default {
 
     toggle(id,event) {
       let uri = `/api/course/toggle/${id}`;
+      this.isLoading = true;
       this.axios.get(uri).then(response => {
-        const index = this.courses.findIndex(x => x.id === id);
-        this.courses[index].is_published = response.data;
+        const idx = this.courses.findIndex(x => x.id === id);
+        this.courses[idx].is_published = response.data;
         this.$notify({ type: "success", text: "Status geändert" });
+        this.isLoading = false;
       });
     },
 
     destroy(id, event) {
       if (confirm("Bitte löschen bestätigen!")) {
         let uri = `/api/course/destroy/${id}`;
+        this.isLoading = true;
         this.axios.delete(uri).then(response => {
           this.fetch();
+          this.isLoading = false;
         });
       }
     },

@@ -49,7 +49,7 @@ export default {
 
   methods: {
     fetch() {
-      this.axios.get(`/api/student/courses/upcoming/3`).then(response => {
+      this.axios.get(`/api/student/course/events/upcoming/3`).then(response => {
         this.student = response.data.student;
         this.courseEvents = response.data.courseEvents;
         this.courseEvents = 

@@ -3,6 +3,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DataCollection;
 use App\Models\Course;
+use App\Models\CourseEvent;
 use App\Models\Training;
 use App\Http\Requests\CourseStoreRequest;
 use Illuminate\Http\Request;
@@ -10,10 +11,11 @@ use Illuminate\Http\Request;
 class CourseController extends Controller
 {
 
-  public function __construct(Course $course, Training $training)
+  public function __construct(Course $course, CourseEvent $courseEvent, Training $training)
   {
-    $this->course = $course;
-    $this->training = $training;
+    $this->course      = $course;
+    $this->courseEvent = $courseEvent;
+    $this->training    = $training;
   }
 
   /**
@@ -23,8 +25,8 @@ class CourseController extends Controller
    */
   public function index()
   {
-    $courses = $this->course->with('events.dates.tutor')
-                            ->with('events.location')
+    $courses = $this->course->with('eventsUpcoming.dates.tutor')
+                            ->with('eventsUpcoming.location')
                             ->get();
                             
     return new DataCollection($courses);
@@ -114,8 +116,28 @@ class CourseController extends Controller
    * @param Training $training
    * @return \Illuminate\Http\Response
    */
-  public function getCoursesByTraining(Training $training)
+  public function getByTraining(Training $training)
   {
     return response()->json($training->courses);
+  }
+
+  /**
+   * Get a single course with upcoming and completed events by given course
+   * 
+   * @param Course $course
+   * @return \Illuminate\Http\Response
+   */
+  public function getCourseWithEvents(Course $course)
+  {
+    // Get course
+    $course = $this->course->find($course->id);
+
+    // Get events
+    $events = [
+      'upcoming'  => $this->courseEvent->with('dates.tutor', 'location')->upcoming()->where('course_id', $course->id),
+      'completed' => $this->courseEvent->with('dates.tutor', 'location')->completed()->where('course_id', $course->id),
+    ];
+    $events = new DataCollection($events);
+    return response()->json(['course' => $course, 'events' => $events]);
   }
 }

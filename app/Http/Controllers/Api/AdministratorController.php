@@ -17,7 +17,7 @@ class AdministratorController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function index()
+  public function find()
   {
     $admin = $this->administrator->with('user')
                                  ->where('user_id', '=', auth()->user()->id)

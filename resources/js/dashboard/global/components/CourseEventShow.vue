@@ -100,6 +100,11 @@ export default {
       default: false,
     },
 
+    isTutor: {
+      type: Boolean,
+      default: false,
+    },
+
     id: {
       type: String,
       default: null,
@@ -122,18 +127,29 @@ export default {
   methods: {
     fetch() {
 
-      let uri;
       if (this.$props.isStudent) {
-        uri = `/api/student/course/show/${this.$props.id}`;
-      }
-      if (this.$props.isAdmin) {
-        uri = `/api/course/event/${this.$props.id}`;
+       let uri = `/api/student/course/event/${this.$props.id}`;
+        this.axios.get(`${uri}`).then(response => {
+          this.course_event = response.data;
+          this.isFetched = true;
+        });
       }
 
-      this.axios.get(`${uri}`).then(response => {
-        this.course_event = response.data;
-        this.isFetched = true;
-      });
+      if (this.$props.isTutor) {
+        let uri = `/api/tutor/course/event/${this.$props.id}`;
+        this.axios.get(`${uri}`).then(response => {
+          this.course_event = response.data.course_event;
+          this.isFetched = true;
+        });
+      }
+
+      if (this.$props.isAdmin) {
+        let uri = `/api/course/event/${this.$props.id}`;
+        this.axios.get(`${uri}`).then(response => {
+          this.course_event = response.data;
+          this.isFetched = true;
+        });
+      }
     }
   }
 }
