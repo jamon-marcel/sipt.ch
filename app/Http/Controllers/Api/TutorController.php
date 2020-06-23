@@ -22,64 +22,37 @@ class TutorController extends Controller
   }
 
   /**
-   * Get all Tutors
+   * Get a list of Tutors
    * 
+   * @param String $constraint
    * @return \Illuminate\Http\Response
    */
-  public function index()
+  public function get($constraint = NULL)
   {
-    return new DataCollection($this->tutor->get());
+    if ($constraint == 'active')
+    {
+      return new DataCollection($this->tutor->active()->get());
+    }
+    return new DataCollection($this->tutor->orderBy('name')->get());
   }
 
   /**
-   * Get all active Tutors
-   * 
-   * @return \Illuminate\Http\Response
-   */
-  public function active()
-  {
-    return new DataCollection($this->tutor->active()->orderBy('name')->get());
-  }
-
-  /**
-   * Get current Tutor
+   * Get a single tutor for a given tutor or authenticated tutor
    * 
    * @param Tutor $tutor
    * @return \Illuminate\Http\Response
    */
-  public function show(Tutor $tutor)
+  public function find(Tutor $tutor)
   {
-    return response()->json($this->tutor->with('user')->find($tutor->id));
+    $tutor = auth()->user()->isAdmin()
+              ? $this->tutor->with('user')->with('images')->findOrFail($tutor->id)
+              : $this->tutor->with('user')->with('images')->authenticated(auth()->user()->id);
+
+    return response()->json($tutor);
   }
 
   /**
-   * Store a newly created resource in storage.
-   *
-   * @param  \Illuminate\Http\Request $request
-   * @return \Illuminate\Http\Response
-   */
-
-  public function store(TutorStoreRequest $request)
-  {
-    // Store the tutor
-    $tutor = Tutor::create($request->except('user.email'));
-    $tutor->save();
-    return response()->json(['tutorId' => $tutor->id]);
-  }
-
-  /**
-   * Edit current Tutor
-   * 
-   * @param Tutor $tutor
-   * @return \Illuminate\Http\Response
-   */
-  public function edit(Tutor $tutor)
-  {
-    return response()->json($this->tutor->with('user')->with('images')->find($tutor->id));
-  }
-
-  /**
-   * Update the current Tutor
+   * Update a tutor for a given tutor or authenticated tutor
    *
    * @param Tutor $tutor
    * @param  \Illuminate\Http\Request $request
@@ -87,11 +60,15 @@ class TutorController extends Controller
    */
   public function update(Tutor $tutor, TutorStoreRequest $request)
   {
-    // Update tutor
+    $tutor = auth()->user()->isAdmin()
+              ? $this->tutor->with('user')->findOrFail($tutor->id)
+              : $this->tutor->with('user')->authenticated(auth()->user()->id);
+
+    // Save changes
     $tutor->update($request->except('user.email'));
     $tutor->save();
 
-    // Update/add images
+    // Update or add images
     if (!empty($request->images))
     {
       foreach($request->images as $i)
@@ -113,12 +90,24 @@ class TutorController extends Controller
       }
     }
 
-
     return response()->json('successfully updated');
   }
 
   /**
-   * Toggle the status of the specified resource.
+   * Store a newly created tutor
+   *
+   * @param  \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\Response
+   */
+  public function store(TutorStoreRequest $request)
+  {
+    $tutor = Tutor::create($request->except('user.email'));
+    $tutor->save();
+    return response()->json(['tutorId' => $tutor->id]);
+  }
+
+  /**
+   * Toggle the status a given tutor
    *
    * @param  Tutor $tutor
    * @return \Illuminate\Http\Response
@@ -131,7 +120,7 @@ class TutorController extends Controller
   }
 
   /**
-   * Remove the specified record.
+   * Remove a tutor
    *
    * @param  Tutor $tutor
    * @return \Illuminate\Http\Response
@@ -143,52 +132,58 @@ class TutorController extends Controller
   }
 
   /**
-   * Get a students profile by given tutor (admin) or by authenticated user
+   * Get course events for given tutor or an authenticated tutor with constraints
    *
-   * @param  Tutor $tutor
-   * @return \Illuminate\Http\Response
-   */
-  public function profile(Tutor $tutor)
-  {
-    // Get profile
-    $profile = auth()->user()->isAdmin()
-                ? $this->tutor->with('user')->findOrFail($tutor->id)
-                : $this->tutor->with('user')->authenticated(auth()->user()->id);
-    return response()->json($profile);
-  }
-
-  /**
-   * Remove the specified record.
-   *
-   * @param  Tutor $tutor
+   * @param String $type
+   * @param Tutor $tutor
    * @return \Illuminate\Http\Response
    */
 
-  public function courseEvents(Tutor $tutor)
+  public function getEvents($type = NULL, Tutor $tutor)
   {
-    $tutor = $this->tutor->authenticated(auth()->user()->id);
-    $courseEvents = $tutor->courseEventDates('upcoming')
-                          ->with('courseEvent.course', 'courseEvent.location')
-                          ->get();
+    // Get tutor by logged in user
+    $tutor = auth()->user()->isAdmin()
+              ? $this->tutor->with('user')->findOrFail($tutor->id)
+              : $this->tutor->with('user')->authenticated(auth()->user()->id);
+
+    // Get events by type
+    switch($type)
+    {
+      // Upcoming events
+      case 'upcoming':
+        $courseEvents = $tutor->courseEventDates('upcoming')
+                              ->with('courseEvent.course', 'courseEvent.location')
+                              ->get();
+      break;
+
+      // All events
+      default:
+        $courseEvents = $tutor->courseEventDates()
+                              ->with('courseEvent.course', 'courseEvent.location')
+                              ->get();
+      break;
+    }
 
     return response()->json(['tutor' => $tutor, 'courseEvents' => $courseEvents]);
   }
 
   /**
-   * Get a single courseEvent for a tutor
+   * Get a course event for a given tutor or an authenticated tutor
    *
    * @param CourseEvent $courseEvent
+   * @param Tutor $tutor
    * @return \Illuminate\Http\Response
    */
-
-  public function courseEvent(CourseEvent $courseEvent)
+  public function getEvent(CourseEvent $courseEvent, Tutor $tutor)
   { 
-    // Get student by logged in user
-    $tutor = $this->tutor->authenticated(auth()->user()->id);
+    // Get tutor by logged in user
+    $tutor = auth()->user()->isAdmin()
+              ? $this->tutor->with('user')->findOrFail($tutor->id)
+              : $this->tutor->with('user')->authenticated(auth()->user()->id);
 
     // Get courseEvent with all related data
     $courseEvent = $tutor->courseEventDates()
-                         ->with('courseEvent.course', 'courseEvent.location', 'courseEvent.dates.tutor')
+                         ->with('courseEvent.course', 'courseEvent.location', 'courseEvent.dates.tutor', 'courseEvent.documents')
                          ->where('course_event_id', '=', $courseEvent->id)
                          ->get()
                          ->first();

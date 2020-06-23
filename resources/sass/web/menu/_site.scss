@@ -1,0 +1,52 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: layout/menu/site
+ * -----------------------------------------------------------------------------
+ */
+
+ nav.site-menu {
+  background-color: $color-white;
+  box-shadow: 0 2px 24px 0 rgba(0, 0, 0, .4);
+  height: calc(100vh - #{$header-height});
+  right: 0;
+  overflow: auto;
+  pointer-events: none;
+  position: fixed;
+  transform: translateX(100%);
+  transition: transform .16s ease-in;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  -webkit-overflow-scrolling: touch;
+
+  &.is-open {
+    pointer-events: all;
+    transform: translateX(0);
+    transition: transform .16s ease-in;
+    z-index: 201;
+  }
+
+  @include bp-md() {
+    box-shadow: none;
+    height: 100vh;
+    left: 0;
+    pointer-events: all;
+    right: auto;
+    transform: translateX(0);
+    transition: transform .16s ease-in;
+    width: 25vw;
+    z-index: 0;
+  }
+
+  > div {
+    padding: 0 $space-sm;
+    margin-top: $space-sm;
+
+    @include bp-md() {
+      padding: 0 $space-md;
+    }
+  }
+
+
+
+}

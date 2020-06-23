@@ -14,11 +14,15 @@ class CourseEvent extends Model
 		'is_published',
 		'is_cancelled',
 	];
-	
 
 	public function dates()
 	{
 		return $this->hasMany('App\Models\CourseEventDate')->orderBy('date');
+	}
+
+	public function documents()
+	{
+		return $this->hasMany('App\Models\CourseEventFile');
 	}
 
 	public function location()
@@ -53,7 +57,7 @@ class CourseEvent extends Model
 	public function scopeCompleted($query)
 	{
 		$constraint = date('Y-m-d', time());
-		return $query->where('dateStart', '<', $constraint)->get();
+		return $query->where('dateStart', '<', $constraint)->orderBy('dateStart', 'DESC')->get();
 	}
 	
 

@@ -2129,7 +2129,7 @@ hr,
   z-index: 101;
 }
 .feather-icon.feather-icon--prepend span {
-  padding-left: 3px;
+  padding-left: 5px;
 }
 .feather-icon.feather-icon--append span {
   padding-right: 5px;
@@ -2362,24 +2362,28 @@ hr,
     line-height: 1.25;
   }
 }
-.listing__item-body .item-date {
+.listing__item-body .item-date,
+.listing__item-body .item-info {
   font-size: 12px;
   line-height: 1.25;
 }
 @media screen and (min-width: 768px) {
-  .listing__item-body .item-date {
+  .listing__item-body .item-date,
+.listing__item-body .item-info {
     font-size: 12px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1024px) {
-  .listing__item-body .item-date {
+  .listing__item-body .item-date,
+.listing__item-body .item-info {
     font-size: 14px;
     line-height: 1.25;
   }
 }
 @media screen and (min-width: 1280px) {
-  .listing__item-body .item-date {
+  .listing__item-body .item-date,
+.listing__item-body .item-info {
     font-size: 14px;
     line-height: 1.25;
   }
@@ -2633,6 +2637,30 @@ table th {
 
 /**
  * -----------------------------------------------------------------------------
+ * File: components/upload/global
+ * -----------------------------------------------------------------------------
+ */
+.upload-wrapper {
+  margin-top: 15px;
+}
+@media screen and (min-width: 768px) {
+  .upload-wrapper {
+    margin-top: 20px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .upload-wrapper {
+    margin-top: 30px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .upload-wrapper {
+    margin-top: 35px;
+  }
+}
+
+/**
+ * -----------------------------------------------------------------------------
  * File: components/upload/listing
  * -----------------------------------------------------------------------------
  */
@@ -2645,9 +2673,7 @@ table th {
   grid-gap: 15px;
 }
 .upload-listing.is-files > div {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  grid-gap: 15px;
+  display: block;
 }
 .upload-listing .upload-item {
   border: 2px solid #eeeeee;
@@ -2666,9 +2692,6 @@ table th {
   opacity: 1;
   width: 100%;
   transition: opacity 0.12s ease-out;
-}
-.upload-listing .upload-item.is-file img {
-  padding: 0;
 }
 .upload-listing .upload-item.is-disabled img {
   opacity: 0.6;
@@ -2716,12 +2739,48 @@ table th {
 .upload-listing .upload-item .upload__actions {
   background-color: #ffffff;
   line-height: 1;
-  padding: 10px;
+  padding: 5px 10px 10px 10px;
+  text-align: right;
 }
 .upload-listing .upload-item .upload__actions > div {
-  display: grid;
-  grid-template-columns: repeat(5, 18px);
-  grid-gap: 10px;
+  display: flex;
+  justify-content: flex-start;
+}
+.upload-listing .upload-item .upload__actions > div > div {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 28px;
+}
+.upload-listing .upload-item-file {
+  align-items: center;
+  border-top: 2px solid #eeeeee;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  position: relative;
+  width: 100%;
+}
+.upload-listing .upload-item-file:last-child {
+  border-bottom: 2px solid #eeeeee;
+}
+.upload-listing .upload-item-file input[type=text] {
+  max-width: 300px;
+}
+.upload-listing .upload-item-file .upload__actions {
+  background-color: #ffffff;
+  line-height: 1;
+  text-align: right;
+}
+.upload-listing .upload-item-file .upload__actions > div {
+  display: flex;
+  justify-content: flex-end;
+}
+.upload-listing .upload-item-file .upload__actions > div > div {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 28px;
 }
 
 /**

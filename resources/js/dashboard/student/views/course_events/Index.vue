@@ -7,17 +7,31 @@
       </header>
       <div class="content">
         <p>Eine Übersicht Ihrer bevorstehenden und absolvierten Module.</p>
+
         <template v-if="isFetchedCoursesBooked">
           <h2>Bevorstehende Module</h2>
-          <course-events-list :records="courses.booked" :hasDetail="true"></course-events-list>
+          <course-events-list
+            :records="courses.booked"
+            :hasDetail="true"
+            v-if="courses.booked.length"
+          ></course-events-list>
+          <div class="no-records" v-else>Es sind keine Module vorhanden...</div>
           <course-event-register :records="courses.booked"></course-event-register>
         </template>
+
         <template v-if="isFetchedCoursesAttended">
           <h2>Absolvierte Module</h2>
-          <course-events-list :records="courses.attended" :hasDetail="false" :hasDestroy="false"></course-events-list>
+          <course-events-list
+            :records="courses.attended"
+            :hasDetail="false"
+            :hasDestroy="false"
+            v-if="courses.attended.length"
+          ></course-events-list>
+          <div class="no-records" v-else>Es sind keine Module vorhanden...</div>
         </template>
+
         <div class="sb-md">
-          <a href="" class="feather-icon feather-icon--prepend is-highlight">
+          <a href class="feather-icon feather-icon--prepend is-highlight">
             <award-icon size="16"></award-icon>
             <span>Ausbildungsblatt herunterladen</span>
           </a>
@@ -34,9 +48,8 @@
   </div>
 </template>
 <script>
-
 // Icons
-import { AwardIcon } from 'vue-feather-icons';
+import { AwardIcon } from "vue-feather-icons";
 
 // Mixins
 import Helpers from "@/global/mixins/Helpers";
@@ -57,7 +70,6 @@ export default {
 
   data() {
     return {
-      
       courses: {
         booked: {},
         attended: {}
@@ -68,7 +80,7 @@ export default {
       isFetchedCoursesAttended: false,
       isLoading: false,
 
-      cancellationDeadline: 14,
+      cancellationDeadline: 14
     };
   },
 
@@ -104,13 +116,11 @@ export default {
 
     destroy(id) {
       if (confirm("Bitte löschen bestätigen!")) {
-        
         // Show message if cancellaction fee occurs
-        let coursesBooked = this.courses.booked, 
-            idx = coursesBooked.findIndex(x => x.id === id);
-        
-        if (idx !== -1 && coursesBooked[idx].hasCancelFee) {
+        let coursesBooked = this.courses.booked,
+          idx = coursesBooked.findIndex(x => x.id === id);
 
+        if (idx !== -1 && coursesBooked[idx].hasCancelFee) {
         }
 
         let uri = `/api/student/course/event/${id}`;

@@ -35,7 +35,7 @@ class StudentController extends Controller
   }
 
   /**
-   * Get a single student for a given student or authenticated student
+   * Get a single student for a given student or an authenticated student
    * 
    * @param Student $student
    * @return \Illuminate\Http\Response
@@ -58,17 +58,17 @@ class StudentController extends Controller
    */
   public function update(Student $student, StudentStoreRequest $request)
   {
-    $student->update($request->all());
+    $student->update($request->except('user.email'));
     $student->save();
     return response()->json('successfully updated');
   }
 
   /**
-   * Get course events for a given student or authenticated student with constraints
+   * Get course events for a given student or an authenticated student with constraints
    * 
-   * @param Student $student
    * @param String $type
    * @param Integer $limit
+   * @param Student $student
    * @return \Illuminate\Http\Response
    */
   public function getEvents($type = NULL, $limit = 1, Student $student)
@@ -79,45 +79,43 @@ class StudentController extends Controller
                 : $this->student->with('user')->authenticated(auth()->user()->id);
 
     // Get events by type
-    if ($type)
+    switch($type)
     {
-      switch($type)
-      {
-        // Upcoming events
-        case 'upcoming':
-          $courseEvents = $student->courseEvents('upcoming')
-                                  ->with('course', 'location', 'dates.tutor')
-                                  ->take($limit)
-                                  ->get();
-        break;
+      // Upcoming events
+      case 'upcoming':
+        $courseEvents = $student->courseEvents('upcoming')
+                                ->with('course', 'location', 'dates.tutor')
+                                ->take($limit)
+                                ->get();
+      break;
 
-        // Booked events
-        case 'booked':
-          $courseEvents = $student->courseEvents()
-                                  ->with('course', 'location', 'dates.tutor')
-                                  ->where('has_attendance', '=', 0)
-                                  ->get();
-        break;
+      // Booked events
+      case 'booked':
+        $courseEvents = $student->courseEvents()
+                                ->with('course', 'location', 'dates.tutor')
+                                ->where('has_attendance', '=', 0)
+                                ->get();
+      break;
 
-        // Attended events
-        case 'attended':
-          $courseEvents = $student->courseEvents()
-                                  ->with('course', 'location', 'dates.tutor')
-                                  ->where('has_attendance', '=', 1)
-                                  ->get();
-        break;
+      // Attended events
+      case 'attended':
+        $courseEvents = $student->courseEvents()
+                                ->with('course', 'location', 'dates.tutor')
+                                ->where('has_attendance', '=', 1)
+                                ->get();
+      break;
 
-        default:
-          $courseEvents = $student->courseEvents()->with('course', 'location', 'dates.tutor')->get();
-        break;
-      }
+      // All events
+      default:
+        $courseEvents = $student->courseEvents()->with('course', 'location', 'dates.tutor')->get();
+      break;
     }
 
     return response()->json(['student' => $student, 'courseEvents' => $courseEvents]);
   }
 
   /**
-   * Get a course event for a given student or authenticated student
+   * Get a course event for a given student or an authenticated student
    *
    * @param CourseEvent $courseEvent
    * @param Student $student
@@ -132,14 +130,14 @@ class StudentController extends Controller
 
     // Get courseEvent with all related data
     $courseEvent = $student->courseEvents()
-                           ->with('course', 'location', 'dates.tutor')
+                           ->with('course', 'location', 'dates.tutor', 'documents')
                            ->find($courseEvent->id);
 
     return response()->json($courseEvent);
   }
 
   /**
-   * Store a course event for given student or authenticated user
+   * Store a course event for given student or an authenticated user
    *
    * @param Student $student
    * @param \Illuminate\Http\Request $request
@@ -163,7 +161,7 @@ class StudentController extends Controller
   }
 
   /**
-   * Remove a course event for given student or authenticated user
+   * Remove a course event for given student or an authenticated user
    *
    * @param CourseEvent $courseEvent
    * @param Student $student
@@ -179,146 +177,4 @@ class StudentController extends Controller
   
     return response()->json('successfully removed');
   }
-
-
-
-
-
-
-  /**
-   * Get student by id with course events
-   *
-   * @param Student $student
-   * @param  \Illuminate\Http\Request $request
-   * @return \Illuminate\Http\Response
-   */
-  public function courses(Student $student)
-  {
-    $data = $this->student->with('user')
-                          ->with('courseEvents.dates')
-                          ->with('courseEvents.course')
-                          ->find($student->id);
-    return response()->json($data);
-  }
-
-  /**
-   * Remove a course event for given student (admin) or authenticated user
-   *
-   * @param CourseEvent $courseEvent
-   * @param Student $student
-   * @return \Illuminate\Http\Response
-   */
-
-  public function destroyCourseEvent(CourseEvent $courseEvent, Student $student)
-  {
-    // Get student
-    $student = auth()->user()->isAdmin()
-              ? $this->student->findOrFail($student->id)
-              : $this->student->authenticated(auth()->user()->id);
-
-    $student->courseEvents()->detach($courseEvent->id);
-    return response()->json('successfully removed');
-  }
-
-
-
-  
-  // /**
-  //  * Get a students profile by given student (admin) or by authenticated user
-  //  *
-  //  * @param Student $student
-  //  * @return \Illuminate\Http\Response
-  //  */
-  // public function profile(Student $student)
-  // {
-  //   // Get profile
-  //   $profile = auth()->user()->isAdmin()
-  //               ? $this->student->with('user')->findOrFail($student->id)
-  //               : $this->student->with('user')->authenticated(auth()->user()->id);
-  //   return response()->json($profile);
-  // }
-
-  // /**
-  //  * Get a students upcoming courseEvents
-  //  * 
-  //  * @param int $limit
-  //  * @return \Illuminate\Http\Response
-  //  */
-  // public function upcomingCourses($limit = 1)
-  // {
-  //   // Get student by logged in user
-  //   $student = $this->student->authenticated(auth()->user()->id);
-
-  //   // Get courseEvents with all related data
-  //   $courseEvents = $student->courseEvents('upcoming')
-  //                           ->with('course', 'location', 'dates.tutor')
-  //                           ->take($limit)
-  //                           ->get();
-
-  //   return response()->json(['student' => $student, 'courseEvents' => $courseEvents]);
-  // }
-
-  // /**
-  //  * Get a students booked courses by given student (admin) or by authenticated user
-  //  *
-  //  * @param Student $student
-  //  * @return \Illuminate\Http\Response
-  //  */
-  // public function bookedCourses(Student $student)
-  // {
-  //   // Get student
-  //   $student = auth()->user()->isAdmin()
-  //               ? $this->student->findOrFail($student->id)
-  //               : $this->student->authenticated(auth()->user()->id);
-
-  //   // Get courseEvents with all related data
-  //   $courseEvents = $student->courseEvents()
-  //                           ->with('course', 'location', 'dates.tutor')
-  //                           ->where('has_attendance', '=', 0)
-  //                           ->get();
-
-  //   return response()->json(['courseEvents' => $courseEvents]);
-  // }
-
-  // /**
-  //  * Get a students attended courses by given student (admin) or by authenticated user
-  //  *
-  //  * @param Student $student
-  //  * @return \Illuminate\Http\Response
-  //  */
-  // public function attendedCourses(Student $student)
-  // {
-  //   // Get student
-  //   $student = auth()->user()->isAdmin()
-  //               ? $this->student->findOrFail($student->id)
-  //               : $this->student->authenticated(auth()->user()->id);
-
-  //   // Get courseEvents with all related data
-  //   $courseEvents = $student->courseEvents()
-  //                           ->with('course', 'location', 'dates.tutor')
-  //                           ->where('has_attendance', '=', 1)
-  //                           ->get();
-
-  //   return response()->json(['courseEvents' => $courseEvents]);
-  // }
-
-  // /**
-  //  * Get a single courseEvent for a student
-  //  *
-  //  * @param CourseEvent $courseEvent
-  //  * @return \Illuminate\Http\Response
-  //  */
-
-  // public function courseEvent(CourseEvent $courseEvent)
-  // { 
-  //   // Get student by logged in user
-  //   $student = $this->student->authenticated(auth()->user()->id);
-
-  //   // Get courseEvent with all related data
-  //   $courseEvent = $student->courseEvents()
-  //                          ->with('course', 'location', 'dates.tutor')
-  //                          ->find($courseEvent->id);
-
-  //   return response()->json($courseEvent);
-  // }
 }

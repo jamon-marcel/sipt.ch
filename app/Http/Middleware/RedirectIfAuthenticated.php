@@ -18,7 +18,23 @@ class RedirectIfAuthenticated
   {
     if (Auth::guard($guard)->check())
     {
-      return redirect(RouteServiceProvider::HOME);
+      if (auth()->user()->isAdmin())
+      {
+        return redirect(RouteServiceProvider::DASHBOARD_ADMINSTRATION);
+      }
+      else if (auth()->user()->isTutor())
+      {
+        return redirect(RouteServiceProvider::DASHBOARD_TUTOR);
+      }
+      else if (auth()->user()->isStudent())
+      {
+        return redirect(RouteServiceProvider::DASHBOARD_STUDENT);
+      }
+      else
+      {
+        return redirect(RouteServiceProvider::HOME);
+      }
+      
     }
     return $next($request);
   }

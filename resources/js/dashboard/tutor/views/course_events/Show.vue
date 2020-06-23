@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import CourseEventShow from "@/global/components/CourseEventShow";
+import CourseEventShow from "@/global/components/CourseEventShowAdmin";
 export default {
   components: {
     CourseEventShow

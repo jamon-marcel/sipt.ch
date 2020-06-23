@@ -20,11 +20,14 @@
           :key="c.id"
         >
           <div class="listing__item-body">
-            <span class="item-date">{{ datesToString(c.dates) }}</span>
+            <span class="item-date" v-if="c.dates.length">{{ datesToString(c.dates) }}</span>
+            <span class="item-date" v-else>Keine Daten...</span>
             <span class="separator">&bull;</span>
+
             <span v-if="c.location_id != 'null' && c.is_online == 0">{{ c.location.name_short }}, {{ c.location.city }}</span>
             <span v-else>Online</span>
             <span class="separator">&bull;</span>
+            
             {{ tutorsToString(c.dates) }}
             <em class="bubble-danger" v-if="c.is_cancelled">Abgesagt</em>
             <em class="bubble-info" v-if="!c.is_bookable">Registration Geschlossen</em>
@@ -135,7 +138,7 @@ export default {
     },
 
     toggle(id,event) {
-      let uri = `/api/course/event/toggle/${id}`;
+      let uri = `/api/course/event/state/${id}`;
       this.isLoading = true;
       this.axios.get(uri).then(response => {
         const idx = this.events_upcoming.findIndex(x => x.id === id);
@@ -147,11 +150,11 @@ export default {
 
     destroy(id, event) {
       if (confirm("Bitte löschen bestätigen!")) {
-        let uri = `/api/course/event/destroy/${id}`;
+        let uri = `/api/course/event/${id}`;
         this.isLoading = true;
         this.axios.delete(uri).then(response => {
           this.fetch();
-          this.isLoading = true;
+          this.isLoading = false;
         });
       }
     },

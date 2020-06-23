@@ -174,7 +174,7 @@ export default {
   created() {
     if (this.$props.type == "edit") {
       this.isFetched = false;
-      let uri = `/api/tutor/edit/${this.$route.params.id}`;
+      let uri = `/api/tutor/${this.$route.params.id}`;
       this.axios.get(uri).then(response => {
         this.tutor = response.data;
         this.isFetched = true;
@@ -198,7 +198,7 @@ export default {
     store() {
       if (this.tutor.user_id != null) {
         this.isLoading = true;
-        this.axios.post('/api/tutor/create', this.tutor).then(response => {
+        this.axios.post('/api/tutor', this.tutor).then(response => {
           this.$router.push({ name: "tutors" });
           this.$notify({ type: "success", text: "Dozent erfasst!" });
           this.isLoading = false;
@@ -208,7 +208,7 @@ export default {
         this.isLoading = true;
         this.axios.post('/api/user/tutor/register', this.tutor.user).then(response => {
           this.tutor.user_id = response.data.userId;
-          this.axios.post('/api/tutor/create', this.tutor).then(response => {
+          this.axios.post('/api/tutor', this.tutor).then(response => {
             this.$router.push({ name: "tutors" });
             this.$notify({ type: "success", text: "Dozent erfasst!" });
             this.isLoading = false;
@@ -218,9 +218,9 @@ export default {
     },
 
     update() {
-      let uri = `/api/tutor/update/${this.$route.params.id}`;
+      let uri = `/api/tutor/${this.$route.params.id}`;
       this.isLoading = true;
-      this.axios.post(uri, this.tutor).then(response => {
+      this.axios.put(uri, this.tutor).then(response => {
         this.$router.push({ name: "tutors" });
         this.$notify({ type: "success", text: "Änderungen gespeichert!" });
         this.isLoading = false;

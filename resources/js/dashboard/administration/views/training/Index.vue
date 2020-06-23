@@ -1,4 +1,6 @@
 <template>
+<div>
+  <loading-indicator v-if="isLoading"></loading-indicator>
   <div :class="isFetched ? 'is-loaded' : 'is-loading'">
     <header class="content-header">
       <h1>Fortbildungen</h1>
@@ -32,6 +34,7 @@
       <p class="no-records">Es sind noch keine Trainings vorhanden...</p>
     </div>
   </div>
+</div>
 </template>
 <script>
 
@@ -51,6 +54,7 @@ export default {
 
   data() {
     return {
+      isLoading: false,
       isFetched: false,
       trainings: [],
     };
@@ -70,19 +74,23 @@ export default {
     },
 
     toggle(id,event) {
-      let uri = `/api/training/toggle/${id}`;
+      let uri = `/api/training/state/${id}`;
+      this.isLoading = true;
       this.axios.get(uri).then(response => {
         const index = this.trainings.findIndex(x => x.id === id);
         this.trainings[index].is_published = response.data;
         this.$notify({ type: "success", text: "Status geändert" });
+        this.isLoading = false;
       });
     },
 
     destroy(id, event) {
       if (confirm("Bitte löschen bestätigen!")) {
-        let uri = `/api/training/destroy/${id}`;
+        let uri = `/api/training/${id}`;
+        this.isLoading = true;
         this.axios.delete(uri).then(response => {
           this.fetch();
+          this.isLoading = false;
         });
       }
     },

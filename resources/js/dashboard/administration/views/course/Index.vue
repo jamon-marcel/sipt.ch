@@ -70,7 +70,7 @@ export default {
     },
 
     toggle(id,event) {
-      let uri = `/api/course/toggle/${id}`;
+      let uri = `/api/course/state/${id}`;
       this.isLoading = true;
       this.axios.get(uri).then(response => {
         const idx = this.courses.findIndex(x => x.id === id);
@@ -82,7 +82,7 @@ export default {
 
     destroy(id, event) {
       if (confirm("Bitte löschen bestätigen!")) {
-        let uri = `/api/course/destroy/${id}`;
+        let uri = `/api/course/${id}`;
         this.isLoading = true;
         this.axios.delete(uri).then(response => {
           this.fetch();

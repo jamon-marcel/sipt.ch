@@ -5,13 +5,5 @@
  */
 
 h2 {
-  border-bottom: 1px solid $color-black;
-  @include font-light();
-  @include font-size($fs-xl);
-  margin-bottom: $space-sm;
-  padding-bottom: $space-xxs;
 
-  &.is-narrow {
-    margin-bottom: $space-xs;
-  }
 }

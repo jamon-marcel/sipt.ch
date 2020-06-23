@@ -206,7 +206,7 @@ export default {
 
       if (this.$props.type == "edit") {
         this.axios
-          .get(`/api/course/event/edit/${this.$route.params.id}`)
+          .get(`/api/course/event/${this.$route.params.id}`)
           .then(response => {
             this.course_event = response.data;
             this.course = this.course_event.course;
@@ -231,7 +231,7 @@ export default {
     },
 
     store() {
-      let uri = "/api/course/event/create";
+      let uri = "/api/course/event";
       this.axios.post(uri, this.course_event).then(response => {
         this.$router.push({
           name: "course-events",
@@ -242,8 +242,8 @@ export default {
     },
 
     update() {
-      let uri = `/api/course/event/update/${this.$route.params.id}`;
-      this.axios.post(uri, this.course_event).then(response => {
+      let uri = `/api/course/event/${this.$route.params.id}`;
+      this.axios.put(uri, this.course_event).then(response => {
         this.$router.push({
           name: "course-events",
           params: { id: this.course.id }
@@ -268,7 +268,7 @@ export default {
           this.course_event.dates.splice(index, 1);
         } 
         else {
-          let uri = `/api/course/event/date/destroy/${data.id}`;
+          let uri = `/api/course/event/date/${data.id}`;
           this.axios.delete(uri).then(response => {
             const index = this.course_event.dates.findIndex(
               x => x.id == data.id

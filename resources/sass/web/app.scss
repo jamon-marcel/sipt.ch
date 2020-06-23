@@ -27,20 +27,13 @@
 
 
 // Components
-@import 'components/animations';
 @import 'components/anchors';
 @import 'components/blocks';
 @import 'components/boxes/global';
-@import 'components/boxes/ratio';
 @import 'components/buttons/global';
+@import 'components/buttons/menu';
 @import 'components/collapsible';
 @import 'components/icons/global';
-@import 'components/icons/arrow-up';
-@import 'components/icons/chevron';
-@import 'components/icons/dash';
-@import 'components/icons/document';
-@import 'components/icons/menu';
-@import 'components/icons/browse';
 @import 'components/headings/global';
 @import 'components/headings/h1';
 @import 'components/headings/h2';
@@ -49,31 +42,18 @@
 @import 'components/images';
 @import 'components/overlay/global';
 
-
 // Layout
 @import 'layout/base';
 @import 'layout/main';
+@import 'layout/section';
 @import 'layout/grid';
-@import 'layout/sections';
 @import 'layout/header';
 @import 'layout/footer';
-
+@import 'layout/themes';
 
 // Menu
 @import 'menu/global';
-@import 'menu/page';
-
-// Vendor
-@import 'vendor/fancybox/fancybox';
-@import 'vendor/fancybox/fancybox-custom';
-// @import 'vendor/swiper/swiper';
-// @import 'vendor/swiper/swiper-custom';
-
+@import 'menu/site';
 
 // Views
-@import 'views/contact';
-@import 'views/discourse';
 @import 'views/home';
-@import 'views/office';
-@import 'views/project';
-@import 'views/works';

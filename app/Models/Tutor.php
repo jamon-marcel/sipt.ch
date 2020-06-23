@@ -50,7 +50,7 @@ class Tutor extends Model
 
 	public function scopeActive($query)
 	{
-		return $query->where('is_published', '=', 1);
+		return $query->where('is_published', '=', 1)->orderBy('name');
 	}
 	
 	/**

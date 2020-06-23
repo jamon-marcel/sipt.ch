@@ -23,14 +23,13 @@ class TutorImageController extends Controller
   }
 
   /**
-   * Update the status of the specified resource.
+   * Toggle the status a given tutorImage
    *
-   * @param  int $id
+   * @param  TutorImage $tutorImage
    * @return \Illuminate\Http\Response
    */
-  public function status($id)
+  public function toggle(TutorImage $tutorImage)
   {
-    $tutorImage = $this->tutorImage->findOrFail($id);
     $tutorImage->publish = $tutorImage->publish == 0 ? 1 : 0;
     $tutorImage->save();
     return response()->json($tutorImage->publish);

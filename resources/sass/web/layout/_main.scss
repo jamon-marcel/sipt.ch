@@ -5,13 +5,13 @@
  */
 
 main.site {
-  @include responsive-prop('padding-top', $header-height);
+  min-height: 100vh;
+  padding-top: $header-height;
 
-  > div {
-    @extend %inner-block;
-    // padding-bottom: $space-sm;
-    // @include bp-md() {
-    //   padding-bottom: $space-huge;
-    // }
+  @include bp-md() {
+    padding-top: 0;
+    position: relative;
+    transform: translateX(25vw);
+    width: calc(100% - 25vw);
   }
 }

@@ -9,11 +9,6 @@
 .inner-block {
   margin-left: auto;
   margin-right: auto;
-  padding: 0 $space-xs;
   position: relative;
   max-width: $site-max-width;
-
-  @include bp-md() {
-    padding: 0 $space-xl;
-  }
 }

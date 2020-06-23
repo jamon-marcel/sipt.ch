@@ -19,21 +19,30 @@ class CourseController extends Controller
   }
 
   /**
-   * Display a listing of the resource.
+   * Get a list of courses
    *
    * @return \Illuminate\Http\Response
    */
-  public function index()
+  public function get()
   {
-    $courses = $this->course->with('eventsUpcoming.dates.tutor')
-                            ->with('eventsUpcoming.location')
-                            ->get();
-                            
+    $courses = $this->course->with('eventsUpcoming.dates.tutor', 'eventsUpcoming.location')->get();
     return new DataCollection($courses);
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Get a single course for a given course
+   *
+   * @param Course $course
+   * @return \Illuminate\Http\Response
+   */
+  public function find(Course $course)
+  {
+    $course = $this->course->with('events.location', 'events.dates.tutor')->find($course->id);
+    return response()->json($course);
+  }
+
+  /**
+   * Store a newly created course
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -46,32 +55,7 @@ class CourseController extends Controller
   }
 
   /**
-   * Display the specified resource.
-   *
-   * @param Course $course
-   * @return \Illuminate\Http\Response
-   */
-  public function show(Course $course)
-  {
-    $course = $this->course->with('events.location')
-                           ->with('events.dates.tutor')
-                           ->find($course->id);
-    return response()->json($course);
-  }
-
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param Course $course
-   * @return \Illuminate\Http\Response
-   */
-  public function edit(Course $course)
-  {
-    return response()->json($this->course->find($course->id));
-  }
-
-  /**
-   * Update the current student
+   * Update the current course
    *
    * @param Course $course
    * @param  \Illuminate\Http\Request $request
@@ -85,7 +69,7 @@ class CourseController extends Controller
   }
 
   /**
-   * Toggle the status of the specified resource.
+   * Toggle the status of a given course
    *
    * @param  Course $course
    * @return \Illuminate\Http\Response
@@ -98,7 +82,7 @@ class CourseController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Remove a course by a given course
    *
    * \Observers\CourseObserver observes and deletes child elements.
    * @param  Course $course
@@ -111,7 +95,7 @@ class CourseController extends Controller
   }
 
   /**
-   * Get courses by training
+   * Get courses by a given training
    * 
    * @param Training $training
    * @return \Illuminate\Http\Response
@@ -127,7 +111,7 @@ class CourseController extends Controller
    * @param Course $course
    * @return \Illuminate\Http\Response
    */
-  public function getCourseWithEvents(Course $course)
+  public function getWithEvents(Course $course)
   {
     // Get course
     $course = $this->course->find($course->id);

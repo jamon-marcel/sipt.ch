@@ -50,6 +50,24 @@ class UploadController extends Controller
   }
 
   /**
+   * File upload
+   * 
+   * @param  \Illuminate\Http\Request  $request
+   * @return \Illuminate\Http\Response
+   */
+  public function file(Request $request)
+  {
+    $file = $request->file('file');
+    $name = $this->sanitize(trim($file->getClientOriginalName()));
+    $name = $this->prefix . uniqid()  . '_' . $name;
+    $file->move($this->upload_path, $name);
+    $filetype = File::extension($this->upload_path . $name);
+    $filesize = File::size($this->upload_path . '/' . $name);
+
+    return response()->json(['name' => $name, 'type' => $filetype, 'size' => $this->filesize($filesize)], 200);
+  }
+
+  /**
    * Sanitize a filename
    *
    * @param str $filename
@@ -64,5 +82,19 @@ class UploadController extends Controller
     $clean = preg_replace('/\s+/', "-", $clean);
     $clean = ($anal) ? preg_replace("/[^a-zA-Z0-9._\-]/", "", $clean) : $clean ;
     return ($force_lowercase) ? (function_exists('mb_strtolower')) ? mb_strtolower($clean, 'UTF-8') : strtolower($clean) : $clean;
+  }
+
+  /**
+   * Get the formatted size of a file
+   *
+   * @param $size
+   * @return Number $size
+   */
+
+  protected function filesize($size)
+  {
+    $units = array( 'B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB');
+    $power = $size > 0 ? floor(log($size, 1024)) : 0;
+    return number_format($size / pow(1024, $power), 2, '.', ',') . ' ' . $units[$power];
   }
 }

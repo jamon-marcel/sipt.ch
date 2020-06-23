@@ -4,141 +4,45 @@
  * -----------------------------------------------------------------------------
  */
 
-nav.site-menu {
-  background-color: $color-white;
-  height: auto;
-  left: 0;
-  min-height: 140px;
-  opacity: 0;
-  position: absolute;
-  pointer-events: none;
-  @include responsive-prop('top', $header-height);
-  transition: opacity 0s ease-in-out;
-  width: 100%;
-  z-index: -1;
+nav {
 
-  @include bp-md() {
-    padding-top: 35px;
+  h2 {
+    border-bottom: 1px solid $color-black;
+    @include font-bold();
+    line-height: 1.52 !important;
+    padding-bottom: 2px;
   }
 
-  &.is-visible {
-    opacity: 1;
-    pointer-events: all;
-    z-index: 200;
-    transition: opacity .1s ease-in-out;
-  }
-
-  > div {
-    @extend %inner-block;
-    position: relative;
-  }
-
-  .site-menu__main,
-  .site-menu__sub {
-    border-top: 1px solid $color-black;
-    display: flex;
-    padding-top: $space-xs;
-    @include bp-md() {
-      padding-top: $space-lg;
-    }
-  }
-
-  .site-menu__main {
-    @include bp-md() {
-      min-height: 169px
-    }
-  }
-
-  .site-menu__sub  {
-    margin-top: $space-sm;
-    padding-bottom: $space-xxl;
-    @include bp-md() {
-      position: relative;
-      margin-top: -43px;
-    }
+  ul {
+    margin-bottom: $space-sm;
   }
   
-  ul {
-    margin-right: $space-xxl;
-    position: relative;
-    @include bp-md() {
-      margin-right: 0;
-    }
-
-    li {
-      display: block;
-      margin-bottom: 3px;
-      @include bp-md() {
-        display: inline-block;
-        margin-right: $space-lg;
-      }
-    }
-
-    a {
-      @extend %anchor-underline;
-      color: $color-black;
-      display: inline-block;
-      @include font-size($fs-xl);
-      @include font-light();
-    }
-  }
-
-  ul ul {
-    margin-top: $space-xs;
-    padding-bottom: $space-sm;
-
-    @include bp-md() {
-      display: none;
-      position: absolute;
-      margin-top: 3px;
-    }
-
-    li {
-      display: block;
-    }
-
-    a {
-      display: inline;
-      @include font-size($fs-md);
-      @include font-regular();
-    }
-  }
-
-  .site-menu__sub {
-    display: none;
-
-    &.is-hidden {
-      display: none !important;
-    }
-
-    &.is-selected {
-      display: block;
-    }
-  }
-
-  .site-menu__sub > ul > li > a + ul {
-    display: none;
-
-    &.is-visible {
-      display: block;
-      @include bp-md() {
-        display: none;
-      }
-    }
-
-    @include bp-md() {
-      padding-top: 20px;
-    }
-  }
-
-  // Hover effect for 3rd level
-  .site-menu__sub > ul > li:hover a.is-active ul {
+  li {
     display: block;
   }
 
-  .site-menu__sub > ul > li:hover a + ul {
-    @include bp-md() {
-      display: block;
+  a {
+    border-bottom: 1px solid $color-black;
+    color: $color-black;
+    display: block;
+    line-height: 1.52 !important;
+    padding: 2px 0;
+    text-decoration: none;
+    transition: color .12s ease-in;
+
+    &:hover {
+      color: $color-orange;
+    }
+
+    &.is-active {
+      color: $color-orange;
+      @include font-bold();
+    }
+  }
+
+  @include bp-sm() {
+    h2, a {
+      padding: 0;
     }
   }
 

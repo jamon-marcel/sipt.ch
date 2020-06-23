@@ -1,0 +1,25 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: buttons/menu
+ * -----------------------------------------------------------------------------
+ */
+
+.btn-menu-show,
+.btn-menu-hide {
+  @include background-default();
+  background-size: contain;
+  background-position: center center;
+  border-bottom: none;
+  display: block;
+  text-decoration: none;
+  height: 20px;
+  width: 30px;
+}
+
+.btn-menu-show {
+  background-image: url($url-icons + 'burger.svg');
+}
+
+.btn-menu-hide {
+  background-image: url($url-icons + 'cross.svg');
+}

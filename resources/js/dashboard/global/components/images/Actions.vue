@@ -1,41 +1,51 @@
 <template>
   <div>
-    <a
-      href="javascript:;"
-      class="feather-icon"
-      @click.prevent="toggle(image,$event)"
-    >
-      <eye-icon size="24" v-if="publish"></eye-icon>
-      <eye-off-icon size="24" v-if="!publish"></eye-off-icon>
-    </a>
-    <a
-      href="javascript:;"
-      class="feather-icon"
-      @click.prevent="showEdit(image)"
-    >
-      <edit-icon size="24"></edit-icon>
-    </a>
-    <a 
-      :href="getSource(image.name, imagePreviewRoute)" 
-      target="_blank" 
-      class="feather-icon"
-    >
-      <image-icon size="24"></image-icon>
-    </a>
-    <a
-      href="javascript:;"
-      class="feather-icon"
-      @click.prevent="destroy(image,$event)"
-    >
-      <trash-2-icon size="24"></trash-2-icon>
-    </a>
-    <a
-      href="javascript:;"
-      class="feather-icon"
-      @click.prevent="showCropper(image)"
-    >
-      <crop-icon size="24"></crop-icon>
-    </a>
+    <div>
+      <a
+        href="javascript:;"
+        class="feather-icon"
+        @click.prevent="toggle(image,$event)"
+      >
+        <eye-icon size="18" v-if="publish"></eye-icon>
+        <eye-off-icon size="18" v-if="!publish"></eye-off-icon>
+      </a>
+    </div>
+    <div>
+      <a
+        href="javascript:;"
+        class="feather-icon"
+        @click.prevent="showEdit(image)"
+      >
+        <edit-icon size="18"></edit-icon>
+      </a>
+    </div>
+    <div>
+      <a 
+        :href="getSource(image.name, imagePreviewRoute)" 
+        target="_blank" 
+        class="feather-icon"
+      >
+        <image-icon size="18"></image-icon>
+      </a>
+    </div>
+    <div>
+      <a
+        href="javascript:;"
+        class="feather-icon"
+        @click.prevent="destroy(image,$event)"
+      >
+        <trash-2-icon size="18"></trash-2-icon>
+      </a>
+    </div>
+    <div>
+      <a
+        href="javascript:;"
+        class="feather-icon"
+        @click.prevent="showCropper(image)"
+      >
+        <crop-icon size="18"></crop-icon>
+      </a>
+    </div>
   </div>
 </template>
 <script>

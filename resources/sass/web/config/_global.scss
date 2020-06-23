@@ -28,9 +28,8 @@ $url-svg:    '../img/svg/';
 /* Breakpoints
  * -------------------- */
 
-//$bp-xs:  600px;
 $bp-sm:  768px;
-$bp-md: 1024px;
+$bp-md: 1100px;
 $bp-lg: 1440px;
 $bp-xl: 1800px;
 
@@ -49,14 +48,8 @@ $site-max-width: 1440px;
 /* Header
  * -------------------- */
 
-$header-height-sm: 110px;
-$header-height-lg: 175px;
-$header-height: (
-  null:  $header-height-sm,
-  sm:    $header-height-sm,
-  md:    $header-height-lg,
-  lg:    $header-height-lg
-);
+$header-height: 50px;
+
 
 /* Grids
  * -------------------- */

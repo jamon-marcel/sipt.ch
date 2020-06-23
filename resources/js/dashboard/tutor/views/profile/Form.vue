@@ -192,7 +192,7 @@ export default {
 
   created() {
     this.isFetched = false;
-    let uri = `/api/tutor/edit/${this.$route.params.id}`;
+    let uri = `/api/tutor/${this.$route.params.id}`;
     this.axios.get(uri).then(response => {
       this.tutor = response.data;
       this.isFetched = true;
@@ -202,9 +202,9 @@ export default {
   methods: {
 
     submit() {
-      let uri = `/api/tutor/update/${this.$route.params.id}`;
+      let uri = `/api/tutor/${this.$route.params.id}`;
       this.isLoading = true;
-      this.axios.post(uri, this.tutor).then(response => {
+      this.axios.put(uri, this.tutor).then(response => {
         this.$router.push({ name: "profile" });
         this.$notify({ type: "success", text: "Änderungen gespeichert!" });
         this.isLoading = false;
@@ -230,7 +230,7 @@ export default {
     // Delete by name
     destroyImage(image, event) {
       if (confirm("Bitte löschen bestätigen!")) {
-        let uri = `/api/tutor/image/destroy/${image}`;
+        let uri = `/api/tutor/image/${image}`;
         this.isLoading = true;
         this.axios.delete(uri).then(response => {
           const index = this.tutor.images.findIndex(x => x.name === image);
@@ -246,7 +246,7 @@ export default {
         const index = this.tutor.images.findIndex(x => x.name === image.name);
         this.tutor.images[index].publish = image.publish == 1 ? 0 : 1;
       } else {
-        let uri = `/api/tutor/image/status/${image.id}`;
+        let uri = `/api/tutor/image/state/${image.id}`;
         this.isLoading = true;
         this.axios.get(uri).then(response => {
           const index = this.tutor.images.findIndex(x => x.id === image.id);
@@ -263,9 +263,9 @@ export default {
         this.tutor.images[index].coords = image.coords;
       } 
       else {
-        let uri = `/api/tutor/image/coords/${image.id}`;
+        let uri = `/api/tutor/image/${image.id}`;
         this.isLoading = true;
-        this.axios.post(uri, image).then(response => {
+        this.axios.put(uri, image).then(response => {
           this.$notify({ type: "success", text: "Änderungen gespeichert!" });
           this.isLoading = false;
         });

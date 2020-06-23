@@ -1,4 +1,6 @@
 <template>
+<div>
+  <loading-indicator v-if="isLoading"></loading-indicator>
   <form @submit.prevent="submit">
     <header class="content-header">
       <h1>{{title}}</h1>
@@ -127,6 +129,7 @@
       </div>
     </footer>
   </form>
+</div>
 </template>
 <script>
 // Icons
@@ -199,6 +202,7 @@ export default {
       },
 
       // Loading state
+      isLoading: false,
       isFetched: true,
 
       // Tabs
@@ -214,7 +218,7 @@ export default {
   created() {
     if (this.$props.type == "edit") {
       this.isFetched = false;
-      let uri = `/api/training/edit/${this.$route.params.id}`;
+      let uri = `/api/training/${this.$route.params.id}`;
       this.axios.get(uri).then(response => {
         this.training = response.data;
         this.training.courses = 
@@ -240,18 +244,22 @@ export default {
     },
 
     store() {
-      let uri = "/api/training/create";
+      let uri = "/api/training";
+      this.isLoading = true;
       this.axios.post(uri, this.training).then(response => {
         this.$router.push({ name: "trainings" });
         this.$notify({ type: "success", text: "Fortbildung erfasst!" });
+        this.isLoading = false;
       });
     },
 
     update() {
-      let uri = `/api/training/update/${this.$route.params.id}`;
-      this.axios.post(uri, this.training).then(response => {
+      let uri = `/api/training/${this.$route.params.id}`;
+      this.isLoading = true;
+      this.axios.put(uri, this.training).then(response => {
         this.$router.push({ name: "trainings" });
         this.$notify({ type: "success", text: "Änderungen gespeichert!" });
+        this.isLoading = false;
       });
     },
 

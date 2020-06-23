@@ -13,7 +13,7 @@ class CourseEventDateController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Remove a course event date by given course event date
    *
    * @param  CourseEventDate $courseEventDate
    * @return \Illuminate\Http\Response

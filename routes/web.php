@@ -13,14 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-  return view('welcome');
-});
-
 Auth::routes(['verify' => true]);
+Route::get('auth/login', 'Auth\AuthController@getLogin');
 
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/login', 'HomeController@login')->name('login');
 Route::get('/logout', 'Auth\LoginController@logout');
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/student/sign-up', 'RegisterController@register');
 Route::post('/student/store', 'RegisterController@store')->name('student_store');

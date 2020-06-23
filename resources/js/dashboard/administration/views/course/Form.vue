@@ -1,4 +1,6 @@
 <template>
+<div>
+  <loading-indicator v-if="isLoading"></loading-indicator>
   <form @submit.prevent="submit" :class="isFetched ? 'is-loaded' : 'is-loading'">
     <header class="content-header">
       <h1>{{title}}</h1>
@@ -66,6 +68,7 @@
       </div>
     </footer>
   </form>
+</div>
 </template>
 <script>
 
@@ -73,7 +76,7 @@
 import { ArrowLeftIcon } from 'vue-feather-icons';
 
 // Error Handling (mixin)
-// import ErrorHandling from "@/global/mixins/ErrorHandling";
+import ErrorHandling from "@/global/mixins/ErrorHandling";
 
 // TinyMCE
 import tinyConfig from "@/global/config/tiny.js";
@@ -91,7 +94,7 @@ export default {
     LabelRequired
   },
 
-  // mixins: [ErrorHandling],
+  mixins: [ErrorHandling],
 
   props: {
     type: String
@@ -115,9 +118,12 @@ export default {
       errors: {
         title: false,
         description: false,
+        credits: false,
+        durability: false,
       },
 
       // Lazy loading
+      isLoading: false,
       isFetched: true,
 
       // TinyMCE
@@ -129,7 +135,7 @@ export default {
   created() {
     if (this.$props.type == "edit") {
       this.isFetched = false;
-      this.axios.get(`/api/course/edit/${this.$route.params.id}`).then(response => {
+      this.axios.get(`/api/course/${this.$route.params.id}`).then(response => {
         this.course = response.data;
         this.isFetched = true;
       });
@@ -151,17 +157,21 @@ export default {
 
     store() {
       let uri = "/api/course/create";
+      this.isLoading = true;
       this.axios.post(uri, this.course).then(response => {
         this.$router.push({ name: "courses" });
         this.$notify({ type: "success", text: "Fortbildung erfasst!" });
+        this.isLoading = false;
       });
     },
 
     update() {
-      let uri = `/api/course/update/${this.$route.params.id}`;
-      this.axios.post(uri, this.course).then(response => {
+      let uri = `/api/course/${this.$route.params.id}`;
+      this.isLoading = true;
+      this.axios.put(uri, this.course).then(response => {
         this.$router.push({ name: "courses" });
         this.$notify({ type: "success", text: "Änderungen gespeichert!" });
+        this.isLoading = false;
       });
     },
   },

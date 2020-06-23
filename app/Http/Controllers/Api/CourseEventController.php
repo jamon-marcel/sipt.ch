@@ -18,41 +18,31 @@ class CourseEventController extends Controller
   }
 
   /**
-   * Get all course events by its parent id
+   * Get a list of course events by a given course
    *
    * @param Course $course
    * @return \Illuminate\Http\Response
    */
-  public function index(Course $course)
+  public function get(Course $course)
   {
-    $courseEvent = $this->courseEvent
-                        ->with('course')
-                        ->with('location')
-                        ->with('dates')
-                        ->where('course_id', '=', $course->id)
-                        ->get();
+    $courseEvent = $this->courseEvent->with('course', 'location', 'dates')->where('course_id', '=', $course->id)->get();
     return response()->json($courseEvent);
   }
 
   /**
-   * Get a single course event
+   * Get a course event for a given course event
    *
    * @param CourseEvent $courseEvent
    * @return \Illuminate\Http\Response
    */
-  public function show(CourseEvent $courseEvent)
+  public function find(CourseEvent $courseEvent)
   {
-    $courseEvent = $this->courseEvent
-                        ->with('course')
-                        ->with('location')
-                        ->with('dates.tutor')
-                        ->with('students')
-                        ->find($courseEvent->id);
+    $courseEvent = $this->courseEvent->with('course', 'location', 'dates.tutor', 'students', 'documents')->find($courseEvent->id);
     return response()->json($courseEvent);
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Store a newly created course event
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
@@ -86,23 +76,7 @@ class CourseEventController extends Controller
   }
 
   /**
-   * Show the form for editing the specified resource.
-   *
-   * @param CourseEvent $courseEvent
-   * @return \Illuminate\Http\Response
-   */
-  public function edit(CourseEvent $courseEvent)
-  {
-    $courseEvent = $this->courseEvent
-                        ->with('course')
-                        ->with('location')
-                        ->with('dates')
-                        ->find($courseEvent->id);    
-    return response()->json($courseEvent);
-  }
-
-  /**
-   * Update the current student
+   * Update the current course event
    *
    * @param CourseEvent $courseEvent
    * @param  \Illuminate\Http\Request $request
@@ -139,7 +113,7 @@ class CourseEventController extends Controller
   }
 
   /**
-   * Toggle the status of the specified resource.
+   * Toggle the status course event by given course event
    *
    * @param  CourseEvent $courseEvent
    * @return \Illuminate\Http\Response
@@ -152,7 +126,7 @@ class CourseEventController extends Controller
   }
 
   /**
-   * Set 'is_cancelled' of the specified resource.
+   * Set attributes 'cancelled' and 'published' and by given course event
    *
    * @param  CourseEvent $courseEvent
    * @return \Illuminate\Http\Response
@@ -167,7 +141,7 @@ class CourseEventController extends Controller
   }
 
   /**
-   * Remove the specified resource from storage.
+   * Remove a course by given course
    *
    * \Observers\CourseEventObserver observes and deletes child elements.
    * @param  Course $course
@@ -180,12 +154,12 @@ class CourseEventController extends Controller
   }
 
   /**
-   * Get course events by course
+   * Get course events by given course
    * 
    * @param Course $course
    * @return \Illuminate\Http\Response
    */
-  public function getCourseEventsByCourse(Course $course)
+  public function getByCourse(Course $course)
   {
     $courseEvents = $this->course->with('eventsBookable.location')
                                  ->with('eventsBookable.dates.tutor')

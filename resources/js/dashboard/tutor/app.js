@@ -12,6 +12,9 @@ import axios from 'axios';
 window.axios = require('axios');
 Vue.use(VueAxios, axios);
 
+// Filters
+require('../filters');
+
 // Vue-Axios defaults
 Vue.axios.defaults.withCredentials = true;
 

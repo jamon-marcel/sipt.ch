@@ -6,15 +6,10 @@
 
 .logo {
   display: block;
-  height: 88px;
-  width: 245px;
-
-  @include bp-md() {
-    height: 145px;
-    width: 405px;
-  }
-
-  svg {
+  height: 25px;
+  width: 75px;
+  
+  img, svg {
     display: block;
     height: auto;
     width: 100%;

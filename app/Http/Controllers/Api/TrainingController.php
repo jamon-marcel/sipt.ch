@@ -16,24 +16,35 @@ class TrainingController extends Controller
   }
 
   /**
-   * Display a listing of trainings.
-   *
+   * Get a list of trainings
+   * 
    * @return \Illuminate\Http\Response
    */
-  public function index()
+  public function get()
   {
     return new DataCollection($this->training->with('category')->get());
   }
 
   /**
-   * Store a newly created resource in storage.
+   * Get a single training for a given training
+   * 
+   * @param Training $training
+   * @return \Illuminate\Http\Response
+   */
+  public function find(Training $training)
+  {
+    return response()->json($this->training->with('category', 'location', 'courses')->findOrFail($training->id));
+  }
+
+  /**
+   * Store a newly created training
    *
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
   public function store(TrainingStoreRequest $request)
   {
-    $training = Training::create($request->all());
+    $training = Training::create($request->except('courses'));
     $training->save();
 
     // Course Training
@@ -42,7 +53,7 @@ class TrainingController extends Controller
       foreach($request->courses as $course)
       {
         $course_training = new CourseTraining([
-          'course_id' => $course,
+          'course_id' => $course['id'],
           'training_id' => $training->id
         ]);
         $course_training->save();
@@ -53,29 +64,7 @@ class TrainingController extends Controller
   }
 
   /**
-   * Display the specified resource.
-   *
-   * @param  int  $id
-   * @return \Illuminate\Http\Response
-   */
-  public function show($id)
-  {
-    //
-  }
-
-  /**
-   * Show the form for editing the specified resource.
-   *
-   * @param Training $training
-   * @return \Illuminate\Http\Response
-   */
-  public function edit(Training $training)
-  {
-    return response()->json($this->training->with('category', 'location', 'courses')->find($training->id));
-  }
-
-  /**
-   * Update the current resource
+   * Update the current training
    *
    * @param Training $training
    * @param  \Illuminate\Http\Request $request
