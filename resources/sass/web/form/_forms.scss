@@ -1,0 +1,52 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: form/forms
+ * -----------------------------------------------------------------------------
+ */
+
+form {
+  max-width: 480px;
+}
+
+// Registration form
+form.registration {
+  margin-top: $space-lg;
+  position: relative;
+  
+  @include bp-lg() {
+    margin-top: $space-mega;
+  }
+}
+
+// Login form
+form.auth {
+  margin-top: $space-md;
+  
+  input[type=text],
+  input[type=email],
+  input[type=password] {
+    background-color: $color-white;
+  }
+}
+
+// Recover password
+form.auth--recover {
+  .form-group {
+    label {
+      @include bp-xl() {
+        flex: 0 0 125px;
+      }
+    }
+  }
+}
+
+// Reset password form
+form.auth--reset {
+  .form-group {
+    label {
+      @include bp-xl() {
+        flex: 0 0 215px;
+      }
+    }
+  }
+}

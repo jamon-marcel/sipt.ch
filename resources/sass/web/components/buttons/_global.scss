@@ -16,3 +16,8 @@
   -webkit-tap-highlight-color: $color-white;
   @include transition(background-color .1s ease-out);
 }
+
+%btn-bg,
+.btn-bg {
+  @include background-default();
+}

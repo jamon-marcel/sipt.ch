@@ -7,6 +7,11 @@
     </header>
     <div class="grid-main-sidebar">
       <div>
+        <div :class="[this.errors.number ? 'has-error' : '', 'form-row']">
+          <label>Nummer *</label>
+          <input type="text" v-model="course.number">
+          <label-required />
+        </div>
         <div :class="[this.errors.title ? 'has-error' : '', 'form-row']">
           <label>Titel *</label>
           <input type="text" v-model="course.title">
@@ -105,17 +110,19 @@ export default {
       
       // Model
       course: {
+        number: null,
         title: null,
         description: null,
-        credits: null,
+        credits: 9,
         durability: null,
-        cost: null,
+        cost: '450.00',
         is_archived: 0,
         is_published: 0,
       },
 
       // Validation
       errors: {
+        number: false,
         title: false,
         description: false,
         credits: false,

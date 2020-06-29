@@ -51,7 +51,7 @@ class CourseController extends Controller
   {
     $course = Course::create($request->all());
     $course->save();
-    return response()->json(['CourseId' => $course->id]);
+    return response()->json(['courseId' => $course->id]);
   }
 
   /**
@@ -118,8 +118,8 @@ class CourseController extends Controller
 
     // Get events
     $events = [
-      'upcoming'  => $this->courseEvent->with('dates.tutor', 'location')->upcoming()->where('course_id', $course->id),
-      'completed' => $this->courseEvent->with('dates.tutor', 'location')->completed()->where('course_id', $course->id),
+      'upcoming'  => $this->courseEvent->with('dates.tutor', 'location', 'students')->upcoming()->where('course_id', $course->id),
+      'completed' => $this->courseEvent->with('dates.tutor', 'location', 'students')->completed()->where('course_id', $course->id),
     ];
     $events = new DataCollection($events);
     return response()->json(['course' => $course, 'events' => $events]);

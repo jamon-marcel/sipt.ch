@@ -1,0 +1,23 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/quotes
+ * -----------------------------------------------------------------------------
+ */
+
+.quote {
+  @extend %word-break;
+  color: $color-white;
+  @include font-serif-bold();
+  @include font-size($fs-xl);
+
+  &.quote--small {
+    @include font-size($fs-lg);
+  }
+
+  .quote__author {
+    color: $color-black;
+    @include font-serif();
+    @include font-size($fs-md);
+    margin-top: $space-sm;
+  }
+}

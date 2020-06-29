@@ -1,0 +1,17 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/icons/arrow-right
+ * -----------------------------------------------------------------------------
+ */
+
+.icon-download {
+  @extend %icon-ib;
+  @extend %icon-bg;
+  align-items: center;
+  background-image: url($url-icons + 'download.svg');
+  background-size: 24px auto;
+  background-position: bottom left;
+  height: 24px;
+  text-decoration: none;
+  width: 24px;
+}

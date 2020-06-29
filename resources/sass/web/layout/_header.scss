@@ -22,7 +22,7 @@ header.site-header {
     justify-content: space-between;
   }
 
-  @include bp-md() {
+  @include bp-sm() {
     display: none;
   }
 }
@@ -36,5 +36,20 @@ header.site-menu__header {
 
   @include bp-md() {
     display: none;
+  }
+}
+
+header.content-header {
+  @include bp-md() {
+    align-items: flex-end;
+    display: flex;
+    height: $space-lg;
+    left: $space-sm;
+    position: absolute;
+    top: 0;
+  }
+
+  @include bp-lg() {
+    left: $space-lg;
   }
 }

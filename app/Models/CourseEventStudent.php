@@ -1,9 +1,12 @@
 <?php
 namespace App\Models;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use GoldSpecDigital\LaravelEloquentUUID\Database\Eloquent\Model;
 
 class CourseEventStudent extends Model
 {
+	use SoftDeletes;
+
 	protected $table = 'course_event_student';
 
 	protected $fillable = [

@@ -28,6 +28,8 @@ export default {
         if (t[1].length == 1) {
           return t[0] + '.' + t[1] + '0';
         }
+      }
+      else {
         return t[0] + '.00';
       }
       return time;

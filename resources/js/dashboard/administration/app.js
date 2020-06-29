@@ -50,7 +50,7 @@ Vue.directive('cleave', {
 });
 
 // Global mixins
-import ErrorHandling from "@/global/mixins/ErrorHandling";
+// import ErrorHandling from "@/global/mixins/ErrorHandling";
 
 // Store
 import store from '@/administration/config/store';
@@ -64,7 +64,7 @@ import AppComponent from '@/administration/App.vue';
 
 // Mount App
 const app = new Vue({
-  mixins: [ErrorHandling],
+  mixins: [],
   components: { 
     AppComponent
   },

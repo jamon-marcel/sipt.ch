@@ -5,5 +5,11 @@
  */
 
 h2 {
+  @extend %line;
+  @include font-bold();
+  @include font-size($fs-md);
 
+  &.is-narrow {
+    margin-bottom: 0;
+  }
 }

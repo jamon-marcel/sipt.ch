@@ -1,0 +1,28 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/lists
+ * -----------------------------------------------------------------------------
+ */
+
+.list {
+  margin-top: 0;
+  
+  .list__header,
+  .list__item {
+    @extend %line;
+  }
+
+  .list__header {
+    @extend %flex-space-between;
+  }
+
+  .list__item {
+    a {
+      color: $color-black;
+      text-decoration: none;
+      &:hover {
+        color: $color-orange;
+      }
+    }
+  }
+}

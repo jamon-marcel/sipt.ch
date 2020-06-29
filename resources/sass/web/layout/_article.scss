@@ -1,0 +1,30 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: layout/article
+ * -----------------------------------------------------------------------------
+ */
+
+article {
+  
+  > div {
+    margin-top: $space-sm;
+  }
+
+  h2 {
+    @extend %line;
+    margin-bottom: $space-xxs;
+
+    a {
+      color: $color-black;
+      text-decoration: none !important;
+    }
+  }
+
+  a {
+    color: $color-black;
+  }
+}
+
+article + article {
+  margin-top: $space-xl;
+}

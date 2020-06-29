@@ -1,65 +1,29 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
-                        @csrf
-
-                        <input type="hidden" name="token" value="{{ $token }}">
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+@extends('web.layout.grids.1-1')
+@section('seo_title', 'Passwort zurücksetzen')
+@section('seo_description', '')
+@section('section')
+<section class="theme-light">
+  <x-header title="SIPT - Passwort zurücksetzen" />
+  <article>
+    <h2>Passwort zurücksetzen</h2>
+    <div>
+      <p>{{__('messages.password_reset')}}</p>
+      @if ($errors->any())
+        <x-alert type="danger" message="{{__('messages.general_error')}}" />
+      @endif
+      @if (session('status'))
+        <x-alert type="success" message="{{ session('status') }}" />
+      @endif
+      <form method="POST" class="auth auth--reset" action="{{ route('password.update') }}">
+        @csrf
+        <input type="hidden" name="token" value="{{ $token }}">
+        <x-text-field label="E-Mail" type="email" name="email" />
+        <x-text-field label="Passwort" type="password" name="password" />
+        <x-text-field label="Passwort bestätigen" type="password" name="password_confirmation" required autocomplete="new-password" />
+        <x-button label="Passwort zurücksetzen" name="reset_password" class="btn-primary js-btn-loader" type="submit" />
+      </form>
     </div>
-</div>
+  </article>
+</section>
 @endsection
+

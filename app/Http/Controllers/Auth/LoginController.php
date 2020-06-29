@@ -44,7 +44,8 @@ class LoginController extends Controller
     }
     else if (auth()->user()->isStudent())
     {
-      return RouteServiceProvider::DASHBOARD_STUDENT;
+      //return RouteServiceProvider::DASHBOARD_STUDENT;
+      return RouteServiceProvider::HOME;
     }
     else if (auth()->user()->isTutor())
     {

@@ -115,7 +115,7 @@
 import { ArrowLeftIcon, PlusIcon, Trash2Icon } from "vue-feather-icons";
 
 // Mixins
-// import ErrorHandling from "@/global/mixins/ErrorHandling";
+import ErrorHandling from "@/global/mixins/ErrorHandling";
 import DateTime from "@/global/mixins/DateTime";
 import Helpers from "@/global/mixins/Helpers";
 
@@ -142,7 +142,7 @@ export default {
     AddEvent
   },
 
-  mixins: [DateTime, Helpers],
+  mixins: [DateTime, Helpers, ErrorHandling],
 
   props: {
     type: String
@@ -158,7 +158,7 @@ export default {
 
       course_event: {
         course_id: null,
-        location_id: null,
+        location_id: '76ab6fee-bb20-4d36-b456-a1d606e45c78',
         max_participants: 1,
         is_online: 0,
         is_cancelled: 0,
@@ -169,7 +169,8 @@ export default {
       // Validation
       errors: {
         location_id: false,
-        max_participants: false
+        max_participants: false,
+        dates: false,
       },
 
       // Tutors

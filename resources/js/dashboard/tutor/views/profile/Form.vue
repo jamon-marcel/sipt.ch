@@ -66,6 +66,10 @@
               </div>
             </div>
             <div class="form-row">
+              <label>Beschreibung</label>
+              <textarea name="description" v-model="tutor.description"></textarea>
+            </div>
+            <div class="form-row">
               <label>Themenschwerpunkte</label>
               <tinymce-editor
                 :api-key="tinyApiKey"

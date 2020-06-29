@@ -1,0 +1,17 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/line
+ * -----------------------------------------------------------------------------
+ */
+
+%line,
+.line {
+  border-bottom: 1px solid $color-black;
+	padding: 4px 0;
+}
+
+%line-before,
+.line-before {
+  border-top: 1px solid $color-black;
+	padding: 4px 0 0 0;
+}

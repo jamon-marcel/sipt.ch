@@ -7,11 +7,26 @@
 main.site {
   min-height: 100vh;
   padding-top: $header-height;
-
-  @include bp-md() {
+  transition: transform 0 ease-in;
+  
+  @include bp-sm() {
     padding-top: 0;
     position: relative;
-    transform: translateX(25vw);
-    width: calc(100% - 25vw);
   }
+}
+
+html.has-menu {
+  main {
+    @include bp-sm() {
+      transition: transform .16s ease-in;
+      transform: translateX(30vw);
+    }
+    @include bp-md() {
+      transform: translateX(0);
+    }
+  }
+}
+
+body.has-menu {
+  overflow-x: hidden;
 }

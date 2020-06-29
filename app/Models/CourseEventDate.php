@@ -1,9 +1,12 @@
 <?php
 namespace App\Models;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use GoldSpecDigital\LaravelEloquentUUID\Database\Eloquent\Model;
 
 class CourseEventDate extends Model
 {
+  use SoftDeletes;
+
 	protected $fillable = [
 		'date',
 		'timeStart',

@@ -1,0 +1,17 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/icons/user
+ * -----------------------------------------------------------------------------
+ */
+
+.icon-user {
+  @extend %icon-ib;
+  @extend %icon-bg;
+  align-items: center;
+  background-image: url($url-icons + 'user.svg');
+  background-size: 18px auto;
+  background-position: top left;
+  color: $color-black;
+  padding-left: 22px;
+  text-decoration: none;
+}

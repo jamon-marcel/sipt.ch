@@ -28,7 +28,8 @@ strong, b {
 }
 
 p {
-
+	margin-bottom: $space-md;
+	
 	&:last-of-type {
 		margin-bottom: 0 !important;
 	}

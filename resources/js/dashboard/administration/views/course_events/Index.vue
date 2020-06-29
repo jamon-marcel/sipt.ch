@@ -29,8 +29,14 @@
             <span class="separator">&bull;</span>
             
             {{ tutorsToString(c.dates) }}
-            <em class="bubble-danger" v-if="c.is_cancelled">Abgesagt</em>
-            <em class="bubble-info" v-if="!c.is_bookable">Registration Geschlossen</em>
+
+            <div v-if="c.students.length">
+              <span class="separator">&bull;</span>
+              <strong>{{c.students.length}} Teilnehmer</strong>
+            </div>
+
+            <em class="bubble-danger" v-if="c.is_cancelled">abgesagt</em>
+            <em class="bubble-info" v-if="!c.is_bookable">geschlossen</em>
           </div>
           <list-actions
             :id="c.id" 

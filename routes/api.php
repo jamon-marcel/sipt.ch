@@ -50,7 +50,7 @@ Route::middleware('auth:sanctum')->group(function() {
   });
 
   // Training routes
-  Route::middleware('role:admin')->group(function() {
+  Route::middleware('role:student')->group(function() {
     Route::get('trainings', 'Api\TrainingController@get');
     Route::get('training/{training}', 'Api\TrainingController@find');
     Route::post('training', 'Api\TrainingController@store');

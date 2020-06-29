@@ -36,8 +36,10 @@ $fs-xl: (
 );
 
 $fs-huge: (
-  null: (60px,1.2),
-  sm:   (60px,1.2),
-  md:   (60px,1.2),
+  null: (32px,1.2),
+  sm:   (40px,1.2),
+  md:   (48px,1.2),
   lg:   (60px,1.2)  
 );
+
+$line-height-line: 1.5;

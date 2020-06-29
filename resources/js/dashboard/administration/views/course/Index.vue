@@ -16,7 +16,7 @@
         :key="c.id"
       >
         <div class="listing__item-body">
-          {{ c.title }}
+          {{ c.number }} – {{ c.title }}
         </div>
         <list-actions
           :id="c.id" 

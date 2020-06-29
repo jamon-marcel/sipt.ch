@@ -30,3 +30,16 @@
   display: flex !important;
   justify-content: flex-end;
 }
+
+%flex-end,
+.flex-end {
+  display: flex !important;
+  justify-content: flex-end;
+}
+
+%flex-space-between,
+.flex-space-between {
+  align-items: center;
+  display: flex !important;
+  justify-content: space-between;
+}

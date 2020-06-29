@@ -7,7 +7,10 @@
 
 %anchor,
 .anchor {
+  color: $color-orange;
   text-decoration: none;
+  transition: color .1s ease-out;
+  
   &:hover {
     text-decoration: underline;
   }

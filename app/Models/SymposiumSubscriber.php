@@ -1,0 +1,36 @@
+<?php
+Namespace App\Models;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use GoldSpecDigital\LaravelEloquentUUID\Database\Eloquent\Model;
+
+class SymposiumSubscriber extends Model
+{
+  use SoftDeletes;
+  
+	protected $fillable = [
+		'firstname',
+		'name',
+		'title',
+		'street',
+		'street_no',
+		'zip',
+		'city',
+    'email',
+    'phone',
+		'phone_business',
+		'mobile',
+		'qualifications',
+		'invoice_number',
+    'user_id',
+    'symposium_id',
+	];
+
+	protected $hidden = [
+    'user_id', 'created_at', 'updated_at'
+  ];
+
+  public function symposium()
+  {
+    return $this->belongsTo('App\Models\Symposium');
+	}
+}

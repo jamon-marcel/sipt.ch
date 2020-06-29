@@ -1,0 +1,31 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: component/alerts
+ * -----------------------------------------------------------------------------
+ *
+ */
+
+.alert {
+  //border: 1px solid $color-black;
+  @include font-bold();
+  @include font-size($fs-sm);
+  margin-bottom: $space-md;
+  margin-top: $space-md;
+  max-width: 480px;
+
+  &.alert--danger {
+    //border-color: $color-danger;
+    color: $color-danger;
+  }
+
+  &.alert--success {
+    border-color: $color-success;
+    color: $color-success;
+  }
+
+  ul {
+    @include font-regular();
+    margin-top: $space-sm;
+    margin-bottom: 0;
+  }
+}

@@ -1,0 +1,17 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/icons/login
+ * -----------------------------------------------------------------------------
+ */
+
+.icon-login {
+  @extend %icon-ib;
+  @extend %icon-bg;
+  align-items: center;
+  background-image: url($url-icons + 'login.svg');
+  background-size: 16px auto;
+  background-position: center left;
+  color: $color-black;
+  padding-left: 20px;
+  text-decoration: none;
+}

@@ -5,5 +5,12 @@
  */
 
 h1 {
+  color: $color-orange;
+  @include font-size($fs-sm);
+  @include font-bold();
+  margin-bottom: $space-md;
 
+  @include bp-md() {
+    margin-bottom: 0;
+  }
 }

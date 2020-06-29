@@ -9,11 +9,28 @@
   @include background-default();
   background-size: contain;
   background-position: center center;
-  border-bottom: none;
+  border-bottom: none !important;
   display: block;
   text-decoration: none;
   height: 20px;
+  right: $space-sm;
+  position: fixed;
+  top: $space-xs;
   width: 30px;
+  z-index: 301;
+
+  @include bp-sm() {
+    left: $space-sm;
+    right: auto;
+  }
+
+  @include bp-md() {
+    display: none;
+  }
+
+  &.is-hidden {
+    display: none;
+  }
 }
 
 .btn-menu-show {

@@ -5,6 +5,74 @@
  */
 
 section {
-  min-height: 100vh;
-  padding: 0 $space-sm;
+  min-height: calc(100vh - 100px);
+  padding: $space-sm;
+  position: relative;
+
+  @include bp-sm() {
+    min-height: 100vh;
+    padding-top: $space-mega;
+  }
+
+  @include bp-md() {
+    min-height: 100vh;
+    padding-top: $space-giga;
+  }
+
+  @include bp-lg() {
+    padding: $space-giga $space-lg $space-lg $space-lg;
+  }
+
+  a {
+    color: $color-black;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  ul, li {
+    margin: 0;
+  }
+
+  ul {
+    list-style-type: disc;
+    margin-bottom: $space-md;
+    padding-left: 20px;
+  }
+
+  li {
+    display: list-item;
+    list-style-type: disc;
+  }
 }
+
+/* Splash screen */
+section.splash {
+  
+  &.splash--anniversary {
+    @include background-default();
+    background-image: url($url-images + 'logo-sipt-anniversary.svg');
+    background-size: 300px 259px;
+    background-position: left bottom;
+  
+    @include bp-sm() {
+      background-size: 400px 345px;
+    }
+  
+    @include bp-md() {
+      background-size: 500px 431px;
+    }
+  }
+
+  .splash__title {
+    color: $color-white;
+    @include font-serif-bold();
+    @include font-size($fs-huge);
+    max-width: 480px;
+  
+    @include bp-md() {
+      max-width: 640px;
+    }
+  }
+}
+

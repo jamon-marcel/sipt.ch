@@ -6,44 +6,14 @@
 
 nav {
 
-  h2 {
-    border-bottom: 1px solid $color-black;
-    @include font-bold();
-    line-height: 1.52 !important;
-    padding-bottom: 2px;
-  }
-
-  ul {
-    margin-bottom: $space-sm;
-  }
-  
   li {
     display: block;
   }
 
   a {
-    border-bottom: 1px solid $color-black;
     color: $color-black;
     display: block;
-    line-height: 1.52 !important;
-    padding: 2px 0;
     text-decoration: none;
-    transition: color .12s ease-in;
-
-    &:hover {
-      color: $color-orange;
-    }
-
-    &.is-active {
-      color: $color-orange;
-      @include font-bold();
-    }
-  }
-
-  @include bp-sm() {
-    h2, a {
-      padding: 0;
-    }
   }
 
 }

@@ -1,0 +1,107 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: views/tutors
+ * -----------------------------------------------------------------------------
+ */
+
+// Tutor section
+.tutor-profile {
+  @include bp-sm() {
+    padding-right: 0;
+  }
+}
+
+// Tutor section with portrait
+.tutor-profile.has-portrait {
+  @include bp-md() {
+    padding-top: 0;
+  }
+
+  nav.tutors {
+    @include bp-md() {
+      padding-top: $space-giga;
+    }
+  }
+
+  .tutor {
+
+    @include bp-md() {
+      margin-top: 0;
+    }
+  }
+}
+
+// Tutors listing
+.tutors {
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+// Tutor details
+.tutor {
+
+  @include bp-sm() {
+    margin-top: 33px;
+  }
+  
+  > div {
+
+    @include bp-sm() {
+      padding-right: $space-lg;
+    }
+  }
+
+  header {
+    @extend %line-before;
+    margin-bottom: $space-md;
+  }
+
+  figure {
+    margin-bottom: $space-md;
+
+    @include bp-md() {
+      margin-top: 0;
+    }
+
+    img {
+      @extend %is-responsive;
+      max-width: 400px;
+      @include bp-sm() {
+        max-width: none;
+      }
+    }
+  }
+
+  .collapsible {
+
+    h3 {
+      @extend %line-before;
+      margin-bottom: $space-xxs;
+    }
+
+    a {
+      color: $color-black;
+      text-decoration: none !important;
+    }
+  }
+}
+
+// Tutors list
+nav.tutors {
+  margin-top: $space-lg;
+
+  @include bp-sm() {
+    margin-top: 0;
+  }
+  
+  @include bp-md() {
+    margin-top: 0;
+  }
+
+  a.is-active {
+    color: $color-orange;
+    @include font-bold();
+  }
+}
+

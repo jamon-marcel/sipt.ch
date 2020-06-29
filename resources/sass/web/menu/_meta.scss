@@ -1,0 +1,39 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: layout/menu/meta
+ * -----------------------------------------------------------------------------
+ */
+
+nav.meta-menu {
+  display: none;
+  height: $space-lg;
+  padding-left: $space-sm;
+
+  @include bp-lg() {
+    padding-left: $space-lg;
+  }
+
+  ul {
+    display: flex;
+  }
+
+  li {
+    margin-right: $space-xs;
+  }
+
+  a {
+    @include font-bold();
+    @include font-size($fs-sm);
+  }
+
+  @include bp-md() {
+    align-items: flex-end;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    right: 0;
+    width: 25vw;
+    z-index: 301;
+  }
+}

@@ -8,12 +8,68 @@
 
 %grid,
 .grid {
+  display: grid;
+}
+
+.grid-1-1 {
+  @extend %grid;
+  @include bp-sm() {
+    grid-template-columns: auto 3fr 1fr;
+  }
   @include bp-md() {
-    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
   }
 }
 
+
 .grid-1-2 {
   @extend %grid;
-  grid-template-columns: 1fr 2fr;
+  @include bp-sm() {
+    grid-template-columns: auto 1fr 2fr;
+  }
+  @include bp-md() {
+    grid-template-columns: 1fr 1fr 2fr;
+  }
+}
+
+.grid-2-1 {
+  @extend %grid;
+  @include bp-sm() {
+    grid-template-columns: auto 2fr 1fr;
+  }
+  @include bp-md() {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+}
+
+
+.order-1 {
+  order: 2;
+  @include bp-sm() {
+    order: 1;
+  }
+}
+
+.order-2 {
+  order: 1;
+  @include bp-sm() {
+    order: 2;
+  }
+}
+
+%content-grid,
+.content-grid {
+  display: grid;
+}
+
+.content-grid-1x1 {
+  @extend %content-grid;
+  @include bp-sm() {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: $space-sm;
+  }
+
+  @include bp-lg() {
+    grid-column-gap: $space-lg;
+  }
 }

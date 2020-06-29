@@ -1,135 +1,148 @@
 <template>
-<div>
-  <loading-indicator v-if="isLoading"></loading-indicator>
-  <form @submit.prevent="submit">
-    <header class="content-header">
-      <h1>{{title}}</h1>
-    </header>
-    <tabs :tabs="tabs" :errors="errors"></tabs>
-    <div v-show="tabs.data.active">
-      <div class="grid-main-sidebar">
-        <div>
-          <div :class="[this.errors.title ? 'has-error' : '', 'form-row']">
-            <label>Titel *</label>
-            <input type="text" v-model="training.title">
-            <label-required />
-          </div>
-          <div :class="[this.errors.description_short ? 'has-error' : '', 'form-row']">
-            <label>Kurzbeschreibung *</label>
-            <tinymce-editor
-              :api-key="tinyApiKey"
-              :init="tinyConfigSmall"
-              v-model="training.description_short"
-            ></tinymce-editor>
-            <label-required />
-          </div>
-          <div :class="[this.errors.description ? 'has-error' : '', 'form-row']">
-            <label>Beschreibung *</label>
-            <tinymce-editor :api-key="tinyApiKey" :init="tinyConfig" v-model="training.description"></tinymce-editor>
-            <label-required />
-          </div>
-          <div class="form-row">
-            <label>Aufbau der Fortbildung</label>
-            <tinymce-editor :api-key="tinyApiKey" :init="tinyConfig" v-model="training.structure"></tinymce-editor>
-          </div>
-          <div class="form-row">
-            <label>Supervision</label>
-            <tinymce-editor
-              :api-key="tinyApiKey"
-              :init="tinyConfigSmall"
-              v-model="training.supervision"
-            ></tinymce-editor>
-          </div>
-          <div class="form-row">
-            <label>Abschlussarbeit</label>
-            <tinymce-editor :api-key="tinyApiKey" :init="tinyConfigSmall" v-model="training.thesis"></tinymce-editor>
-          </div>
-          <div class="form-row">
-            <label>Zertifizierung</label>
-            <tinymce-editor
-              :api-key="tinyApiKey"
-              :init="tinyConfig"
-              v-model="training.certification"
-            ></tinymce-editor>
-          </div>
-          <div class="form-row">
-            <label>Kosten</label>
-            <tinymce-editor :api-key="tinyApiKey" :init="tinyConfigSmall" v-model="training.cost"></tinymce-editor>
-          </div>
-          <div class="form-row">
-            <label>Unterrichtszeiten</label>
-            <tinymce-editor :api-key="tinyApiKey" :init="tinyConfigSmall" v-model="training.time"></tinymce-editor>
-          </div>
-          <template v-if="isFetched">
-            <div :class="this.errors.location_id ? 'has-error' : ''">
-              <location-selector
-                v-bind:location_id.sync="training.location_id"
-                :label="'Kursort'"
-                :model="training.location_id"
-                :name="'location_id'"
-                :required="true"
-              ></location-selector>
+  <div>
+    <loading-indicator v-if="isLoading"></loading-indicator>
+    <form @submit.prevent="submit">
+      <header class="content-header">
+        <h1>{{title}}</h1>
+      </header>
+      <tabs :tabs="tabs" :errors="errors"></tabs>
+      <div v-show="tabs.data.active">
+        <div class="grid-main-sidebar">
+          <div>
+            <div :class="[this.errors.title ? 'has-error' : '', 'form-row']">
+              <label>Titel *</label>
+              <input type="text" v-model="training.title">
+              <label-required/>
             </div>
-            <div :class="this.errors.category_id ? 'has-error' : ''">
-              <training-category-selector
-                v-bind:category_id.sync="training.category_id"
-                :label="'Kategorie'"
-                :model="training.category_id"
-                :name="'category_id'"
-                :required="true"
-                :cssClass="'is-sm'"
-              ></training-category-selector>
+            <div :class="[this.errors.description_short ? 'has-error' : '', 'form-row']">
+              <label>Kurzbeschreibung *</label>
+              <tinymce-editor
+                :api-key="tinyApiKey"
+                :init="tinyConfigSmall"
+                v-model="training.description_short"
+              ></tinymce-editor>
+              <label-required/>
             </div>
-          </template>
+            <div :class="[this.errors.description ? 'has-error' : '', 'form-row']">
+              <label>Beschreibung *</label>
+              <tinymce-editor
+                :api-key="tinyApiKey"
+                :init="tinyConfig"
+                v-model="training.description"
+              ></tinymce-editor>
+              <label-required/>
+            </div>
+            <div class="form-row">
+              <label>Aufbau der Fortbildung</label>
+              <tinymce-editor :api-key="tinyApiKey" :init="tinyConfig" v-model="training.structure"></tinymce-editor>
+            </div>
+            <div class="form-row">
+              <label>Supervision</label>
+              <tinymce-editor
+                :api-key="tinyApiKey"
+                :init="tinyConfigSmall"
+                v-model="training.supervision"
+              ></tinymce-editor>
+            </div>
+            <div class="form-row">
+              <label>Abschlussarbeit</label>
+              <tinymce-editor
+                :api-key="tinyApiKey"
+                :init="tinyConfigSmall"
+                v-model="training.thesis"
+              ></tinymce-editor>
+            </div>
+            <div class="form-row">
+              <label>Zertifizierung</label>
+              <tinymce-editor
+                :api-key="tinyApiKey"
+                :init="tinyConfig"
+                v-model="training.certification"
+              ></tinymce-editor>
+            </div>
+            <div class="form-row">
+              <label>Kosten</label>
+              <tinymce-editor :api-key="tinyApiKey" :init="tinyConfigSmall" v-model="training.cost"></tinymce-editor>
+            </div>
+            <div class="form-row">
+              <label>Unterrichtszeiten</label>
+              <tinymce-editor
+                :api-key="tinyApiKey"
+                :init="tinyConfigSmall"
+                v-model="training.time"
+                :initial-value="'Freitag: 18.00 bis 21.15 Uhr (4 Unterrichts-Einheiten)<br>Samstag: 09.00 bis 16.30 Uhr (8 Unterrichts-Einheiten)'"
+              ></tinymce-editor>
+            </div>
+            <template v-if="isFetched">
+              <div :class="this.errors.location_id ? 'has-error' : ''">
+                <location-selector
+                  v-bind:location_id.sync="training.location_id"
+                  :label="'Kursort'"
+                  :model="training.location_id"
+                  :name="'location_id'"
+                  :required="true"
+                ></location-selector>
+              </div>
+              <div :class="this.errors.category_id ? 'has-error' : ''">
+                <training-category-selector
+                  v-bind:category_id.sync="training.category_id"
+                  :label="'Kategorie'"
+                  :model="training.category_id"
+                  :name="'category_id'"
+                  :required="true"
+                  :cssClass="'is-sm'"
+                ></training-category-selector>
+              </div>
+            </template>
+          </div>
+          <div class="grid-column-sidebar">
+            <div>
+              <template v-if="isFetched">
+                <div class="form-row is-sm">
+                  <radio-button
+                    :label="'CAS?'"
+                    v-bind:is_cas.sync="training.is_cas"
+                    :model="training.is_cas"
+                    :name="'is_cas'"
+                  ></radio-button>
+                </div>
+                <div class="form-row is-sm is-last">
+                  <radio-button
+                    :label="'Publizieren?'"
+                    v-bind:is_published.sync="training.is_published"
+                    :model="training.is_published"
+                    :name="'is_published'"
+                  ></radio-button>
+                </div>
+              </template>
+            </div>
+          </div>
         </div>
-        <div class="grid-column-sidebar">
+      </div>
+      <div v-show="tabs.modules.active">
+        <div class="grid-main-sidebar">
           <div>
             <template v-if="isFetched">
-              <div class="form-row is-sm">
-                <radio-button
-                  :label="'CAS?'"
-                  v-bind:is_cas.sync="training.is_cas"
-                  :model="training.is_cas"
-                  :name="'is_cas'"
-                ></radio-button>
-              </div>
-              <div class="form-row is-sm is-last">
-                <radio-button
-                  :label="'Publizieren?'"
-                  v-bind:is_published.sync="training.is_published"
-                  :model="training.is_published"
-                  :name="'is_published'"
-                ></radio-button>
-              </div>
+              <course-selector
+                v-bind:courses.sync="training.courses"
+                :label="'Modul hinzufügen'"
+                :labelSelected="'Module'"
+                :data="training.courses"
+              ></course-selector>
             </template>
           </div>
         </div>
       </div>
-    </div>
-    <div v-show="tabs.modules.active">
-      <div class="grid-main-sidebar">
+      <footer class="module-footer">
         <div>
-          <template v-if="isFetched">
-            <course-selector
-              v-bind:courses.sync="training.courses"
-              :label="'Modul hinzufügen'"
-              :labelSelected="'Module'"
-              :data="training.courses"
-            ></course-selector>
-          </template>
+          <button type="submit" class="btn-primary">Speichern</button>
+          <router-link :to="{ name: 'trainings' }" class="btn-secondary">
+            <span>Zurück</span>
+          </router-link>
         </div>
-      </div>
-    </div>
-    <footer class="module-footer">
-      <div>
-        <button type="submit" class="btn-primary">Speichern</button>
-        <router-link :to="{ name: 'trainings' }" class="btn-secondary">
-          <span>Zurück</span>
-        </router-link>
-      </div>
-    </footer>
-  </form>
-</div>
+      </footer>
+    </form>
+  </div>
 </template>
 <script>
 // Icons
@@ -185,7 +198,7 @@ export default {
         certification: null,
         cost: null,
         time: null,
-        location_id: null,
+        location_id: "76ab6fee-bb20-4d36-b456-a1d606e45c78",
         category_id: null,
         courses: [],
         is_published: 0,
@@ -221,12 +234,10 @@ export default {
       let uri = `/api/training/${this.$route.params.id}`;
       this.axios.get(uri).then(response => {
         this.training = response.data;
-        this.training.courses = 
-          this.training.courses.map(x => ({
-            title: x.title,
-            id: x.id
-          }))
-        ;
+        this.training.courses = this.training.courses.map(x => ({
+          title: x.title,
+          id: x.id
+        }));
         this.isFetched = true;
       });
     }

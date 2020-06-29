@@ -28,7 +28,8 @@ class RedirectIfAuthenticated
       }
       else if (auth()->user()->isStudent())
       {
-        return redirect(RouteServiceProvider::DASHBOARD_STUDENT);
+        //return redirect(RouteServiceProvider::DASHBOARD_STUDENT);
+        return redirect(RouteServiceProvider::HOME);
       }
       else
       {

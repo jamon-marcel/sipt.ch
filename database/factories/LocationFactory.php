@@ -24,6 +24,5 @@ $factory->define(Location::class, function (Faker $faker) {
         'street_no' => $faker->name,
         'zip' => $faker->name,
         'city' => $faker->name,
-
     ];
 });

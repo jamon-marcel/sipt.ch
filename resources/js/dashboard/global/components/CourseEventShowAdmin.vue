@@ -31,46 +31,45 @@
               </div>
             </div>
           </div>
-          <div v-if="$props.isAdmin">
-            <div class="flex-sb sb-md">
-              <h2 class="is-narrow">
-                Angemeldete Teilnehmer
-                <em v-if="course_event.students.length">({{course_event.students.length}})</em>
-              </h2>
-              <a href class="feather-icon feather-icon--prepend">
-                <users-icon size="16"></users-icon>
-                <span>Teilnehmerliste</span>
-              </a>
-            </div>
-            <div v-if="course_event.students.length">
-              <div class="listing">
-                <div
-                  class="listing__item"
-                  v-for="student in course_event.students"
-                  :key="student.id"
-                >
-                  <div class="listing__item-body">
-                    {{student.firstname}} {{student.name}}
-                    <span class="separator">&bull;</span>
-                    {{student.title}}
-                  </div>
+
+          <div class="flex-sb sb-md">
+            <h2 class="is-narrow">
+              Angemeldete Teilnehmer
+              <em v-if="course_event.students.length">({{course_event.students.length}})</em>
+            </h2>
+            <a href class="feather-icon feather-icon--prepend">
+              <users-icon size="16"></users-icon>
+              <span>Teilnehmerliste</span>
+            </a>
+          </div>
+          <div v-if="course_event.students.length">
+            <div class="listing">
+              <div
+                class="listing__item"
+                v-for="student in course_event.students"
+                :key="student.id"
+              >
+                <div class="listing__item-body">
+                  {{student.firstname}} {{student.name}}
+                  <span class="separator">&bull;</span>
+                  {{student.title}}
                 </div>
               </div>
             </div>
-            <div v-else>
-              <p
-                class="no-records"
-              >Es haben sich noch keine Teilnehmer für dieses Modul angemeldet...</p>
-            </div>
+          </div>
+          <div v-else>
+            <p
+              class="no-records"
+            >Es haben sich noch keine Teilnehmer für dieses Modul angemeldet...</p>
           </div>
           <div class="sb-md">
-            <header class="content-header is-narrow">
+            <div class="flex-sb">
               <h2 class="is-narrow">Kursunterlagen</h2>
               <a href @click.prevent="toggleUpload()" class="feather-icon feather-icon--prepend">
                 <upload-cloud-icon size="16"></upload-cloud-icon>
                 <span>Upload</span>
               </a>
-            </header>
+            </div>
             <div class="upload-wrapper" v-if="hasUpload">
               <div class="sa-sm">
                 <div class="form-row">

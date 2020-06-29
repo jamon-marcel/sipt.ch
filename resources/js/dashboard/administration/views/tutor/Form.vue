@@ -59,6 +59,10 @@
           </div>
         </div>
         <div class="form-row">
+          <label>Beschreibung</label>
+          <textarea name="description" v-model="tutor.description"></textarea>
+        </div>
+        <div class="form-row">
           <label>Themenschwerpunkte</label>
           <tinymce-editor
             :api-key="tinyApiKey"
@@ -125,7 +129,7 @@ export default {
     LabelRequired
   },
 
-  //mixins: [ErrorHandling],
+  mixins: [ErrorHandling],
 
   props: {
     type: String
@@ -145,6 +149,7 @@ export default {
         city: null,
         phone: null,
         mobile: null,
+        description: null,
         emphasis: null,
         publications: null,
         is_published: 0,

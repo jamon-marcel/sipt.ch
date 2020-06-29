@@ -16,7 +16,7 @@
         :key="t.id"
       >
         <div class="listing__item-body">
-          <span v-if="t.title">{{t.title}}</span>&nbsp;{{t.firstname }} {{ t.name}}<span class="separator">&bull;</span>{{ t.city }}
+          {{t.firstname }} {{ t.name}}<span class="separator">&bull;</span>{{ t.city }}
         </div>
         <list-actions 
           :id="t.id" 

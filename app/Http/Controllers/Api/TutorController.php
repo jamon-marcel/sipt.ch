@@ -183,7 +183,7 @@ class TutorController extends Controller
 
     // Get courseEvent with all related data
     $courseEvent = $tutor->courseEventDates()
-                         ->with('courseEvent.course', 'courseEvent.location', 'courseEvent.dates.tutor', 'courseEvent.documents')
+                         ->with('courseEvent.course', 'courseEvent.location', 'courseEvent.dates.tutor', 'courseEvent.documents', 'courseEvent.students')
                          ->where('course_event_id', '=', $courseEvent->id)
                          ->get()
                          ->first();
