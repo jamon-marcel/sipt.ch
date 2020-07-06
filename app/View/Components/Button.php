@@ -21,11 +21,18 @@ class Button extends Component
   public $label;
 
   /**
-   * Class
+   * Button class
    *
    * @var string
    */
-  public $class;
+  public $btnClass;
+
+  /**
+   * Wrapper class
+   *
+   * @var string
+   */
+  public $wrapperClass;
 
   /**
    * Type
@@ -43,12 +50,13 @@ class Button extends Component
    * @param $type
    * @return void
    */
-  public function __construct($name, $label, $class = '', $type = 'submit')
+  public function __construct($name, $label, $btnClass = '', $wrapperClass = '', $type = 'submit')
   {
-    $this->name = $name;
-    $this->label = $label;
-    $this->class = $class;
-    $this->type = $type;
+    $this->name     = $name;
+    $this->label    = $label;
+    $this->btnClass = $btnClass;
+    $this->wrapperClass = $wrapperClass;
+    $this->type     = $type;
   }
 
   /**

@@ -37,8 +37,8 @@
               Angemeldete Teilnehmer
               <em v-if="course_event.students.length">({{course_event.students.length}})</em>
             </h2>
-            <a href class="feather-icon feather-icon--prepend">
-              <users-icon size="16"></users-icon>
+            <a :href="'/download/teilnehmerliste/' + course_event.id" target="_blank" class="feather-icon feather-icon--prepend">
+              <download-cloud-icon size="16"></download-cloud-icon>
               <span>Teilnehmerliste</span>
             </a>
           </div>
@@ -121,6 +121,10 @@
       </div>
       <footer class="module-footer">
         <div>
+          <a :href="'/download/teilnehmerliste/' + course_event.id" class="btn-primary has-icon" target="_blank">
+            <download-cloud-icon size="16"></download-cloud-icon>
+            <span>Teilnehmerliste</span>
+          </a>
           <a href="javascript:history.go(-1)" class="btn-secondary">
             <span>Zurück</span>
           </a>
@@ -135,7 +139,8 @@ import {
   UsersIcon,
   UploadCloudIcon,
   Trash2Icon,
-  DownloadCloudIcon
+  DownloadCloudIcon,
+  DownloadIcon
 } from "vue-feather-icons";
 
 // Mixins
@@ -152,6 +157,7 @@ export default {
     UploadCloudIcon,
     Trash2Icon,
     DownloadCloudIcon,
+    DownloadIcon,
     FileUpload,
     FileListing,
     ListActions

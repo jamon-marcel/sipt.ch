@@ -20,7 +20,7 @@
         <x-text-field label="E-Mail" type="email" name="email" />
         <x-text-field label="Passwort" type="password" name="password" />
         <x-text-field label="Passwort bestätigen" type="password" name="password_confirmation" required autocomplete="new-password" />
-        <x-button label="Passwort zurücksetzen" name="reset_password" class="btn-primary js-btn-loader" type="submit" />
+        <x-button label="Passwort zurücksetzen" name="reset_password" btnClass="btn-primary js-btn-loader" type="submit" />
       </form>
     </div>
   </article>

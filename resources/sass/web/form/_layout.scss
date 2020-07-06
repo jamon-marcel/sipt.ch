@@ -78,8 +78,16 @@
 	justify-content: flex-end;
 	margin-top: $space-md;
 
-	&.fe-sb {
+	&.align-justify {
 		justify-content: space-between;
+	}
+
+	&.align-start {
+		justify-content: flex-start;
+	}
+
+	&.align-end {
+		justify-content: flex-end;
 	}
 }
 

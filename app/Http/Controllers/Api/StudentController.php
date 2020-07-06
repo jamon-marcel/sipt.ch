@@ -31,7 +31,7 @@ class StudentController extends Controller
    */
   public function get()
   {
-    return new DataCollection($this->student->get());
+    return new DataCollection($this->student->orderBy('name', 'DESC')->get());
   }
 
   /**

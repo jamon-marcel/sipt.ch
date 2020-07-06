@@ -16,7 +16,6 @@ import CourseEventsCreate from '@/administration/views/course_events/Create.vue'
 import CourseEventsEdit from '@/administration/views/course_events/Edit.vue';
 import CourseEventsShow from '@/administration/views/course_events/Show.vue';
 
-
 import TutorsIndex from '@/administration/views/tutor/Index.vue';
 import TutorsCreate from '@/administration/views/tutor/Create.vue';
 import TutorsEdit from '@/administration/views/tutor/Edit.vue';
@@ -24,6 +23,7 @@ import TutorsEdit from '@/administration/views/tutor/Edit.vue';
 import StudentsIndex from '@/administration/views/student/Index.vue';
 import StudentCourseEvents from '@/administration/views/student/course_events/Index.vue';
 import StudentProfile from '@/administration/views/student/profile/Index.vue';
+import StudentProfileEdit from '@/administration/views/student/profile/Form.vue';
 
 const routes = [
 
@@ -115,6 +115,11 @@ const routes = [
     name: 'student-profile',
     path: '/administration/student/profile/:id',
     component: StudentProfile,
+  },
+  {
+    name: 'student-profile-edit',
+    path: '/administration/student/profile/edit/:id',
+    component: StudentProfileEdit,
   },
 
   {

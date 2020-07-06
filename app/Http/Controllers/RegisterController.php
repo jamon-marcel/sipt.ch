@@ -2,6 +2,14 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Student;
+
+// dev for participant list
+use App\Models\CourseEvent;
+use App\Events\CourseEventParticipantsList;
+
+// dev for course list
+use App\Events\CourseList;
+
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Http\Requests\StudentStoreRequest;
@@ -9,6 +17,11 @@ use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
+  public function __construct(User $user)
+  {
+    $this->user = $user;
+  }
+
   public function register()
   {
     return view('frontend.register');

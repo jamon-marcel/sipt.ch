@@ -30,13 +30,21 @@
     <div v-else>
       <p>Es sind noch keine Module vorhanden...</p>
     </div>
+    <footer class="module-footer">
+      <div>
+        <a href="/download/modulliste" class="btn-primary has-icon" target="_blank">
+          <download-icon size="16"></download-icon>
+          <span>Download Modulliste</span>
+        </a>
+      </div>
+    </footer>
   </div>
 </div>
 </template>
 <script>
 
 // Icons
-import { PlusIcon } from 'vue-feather-icons';
+import { PlusIcon, DownloadIcon } from 'vue-feather-icons';
 
 // Components
 import ListActions from "@/global/components/ui/ListActions.vue";
@@ -45,7 +53,8 @@ export default {
 
   components: {
     ListActions,
-    PlusIcon
+    PlusIcon,
+    DownloadIcon
   },
 
   data() {

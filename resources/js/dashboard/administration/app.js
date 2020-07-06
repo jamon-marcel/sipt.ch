@@ -59,6 +59,7 @@ import store from '@/administration/config/store';
 import routes from '@/administration/config/routes';
 const router = new VueRouter({ mode: 'history', routes: routes});
 
+
 // App component
 import AppComponent from '@/administration/App.vue';
 

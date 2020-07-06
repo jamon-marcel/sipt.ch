@@ -15,7 +15,7 @@
         @csrf
         <x-text-field label="E-Mail" type="email" name="email" />
         <x-text-field label="Passwort" type="password" name="password" />
-        <x-button label="Anmelden" name="register" class="btn-primary js-btn-loader" type="submit" />
+        <x-button label="Anmelden" name="register" btnClass="btn-primary js-btn-loader" type="submit" />
         @if (Route::has('password.request'))
           <a href="{{ route('password.request') }}" class="form-helper">Passwort vergessen?</a>
         @endif

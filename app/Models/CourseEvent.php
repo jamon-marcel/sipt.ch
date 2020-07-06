@@ -80,5 +80,14 @@ class CourseEvent extends Model
   public function getDateStartAttribute($value)
   {
     return \Carbon\Carbon::parse($value)->format('d.m.Y');
+	}
+	
+  /**
+   * Accessor 'getNumber'
+   */
+
+  public function getCourseNumberAttribute()
+  {
+    return $this->course->number . '.' . \Carbon\Carbon::parse($this->dateStart)->format('dmy');
   }
 }

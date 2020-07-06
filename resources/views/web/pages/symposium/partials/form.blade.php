@@ -23,6 +23,6 @@
     <div class="sb-md">
       <x-radio label="Ich bin mit den AGBs einverstanden" id="toc" name="toc" />
     </div>
-    <x-button label="Anmelden" name="register" class="btn-primary js-btn-loader" type="submit" />
+    <x-button label="Anmelden" name="register" btnClass="btn-primary js-btn-loader" type="submit" />
   </form>
 </section>

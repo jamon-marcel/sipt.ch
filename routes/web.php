@@ -45,6 +45,10 @@ Route::get('/jubilaeums-fachtagung-15-jahre-sipt', 'SymposiumController@annivers
 Route::post('/jubilaeums-fachtagung-15-jahre-sipt/registration', 'SymposiumSubscriberController@store')->name('symposium_register');
 Route::get('/jubilaeums-fachtagung-15-jahre-sipt/anmeldung-erfolgreich', 'SymposiumController@registered')->name('symposium_register_success');
 
+// Dev
+Route::get('/import', 'RegisterController@import');
+Route::get('/teilnehmerliste/{courseEvent}', 'RegisterController@participantlist');
+
 /*
 |--------------------------------------------------------------------------
 | Admin Web routes
@@ -53,6 +57,10 @@ Route::get('/jubilaeums-fachtagung-15-jahre-sipt/anmeldung-erfolgreich', 'Sympos
 */
 
 Route::middleware('auth:sanctum', 'verified')->group(function() {
+
+  // Downloads for tutors / admins
+  Route::get('/download/modulliste', 'DownloadController@courses')->middleware('role:tutor');
+  Route::get('/download/teilnehmerliste/{courseEvent}', 'DownloadController@participants')->middleware('role:tutor');
 
   // CatchAll: Dashboard Student
   Route::get('student/{any?}', function () {

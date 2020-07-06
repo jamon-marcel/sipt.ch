@@ -10,19 +10,21 @@
         :key="s.id"
       >
         <div class="listing__item-body">
-          {{s.firstname }} {{ s.name}}<span class="separator">&bull;</span>
-          {{ s.title }}<span class="separator">&bull;</span>
+          <em v-if="s.street_no != ''" style="color: green; display: inline-block; margin-right: 20px">OK</em>
+          {{ s.name}} <span class="separator">&bull;</span> 
+          {{s.firstname }} <span class="separator">&bull;</span>
+          <em v-if="s.title">{{ s.title }}<span class="separator">&bull;</span></em>
           {{ s.city }}
         </div>
         <list-actions 
           :id="s.id" 
           :hasToggle="false"
           :hasDestroy="false" 
-          :hasEdit="false"
+          :hasEdit="true"
           :hasShow="true"
           :hasEvent="true"
           :record="s"
-          :routes="{show: 'student-profile', events: 'student-courses'}">
+          :routes="{show: 'student-profile', events: 'student-courses', edit: 'student-profile-edit'}">
         </list-actions>
       </div>
     </div>

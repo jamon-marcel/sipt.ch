@@ -8,13 +8,16 @@ class Student extends Model
 	use SoftDeletes;
 	
 	protected $fillable = [
+		'number',
 		'firstname',
 		'name',
 		'title',
+		'training',
 		'street',
 		'street_no',
 		'zip',
 		'city',
+		'country',
 		'phone',
 		'phone_business',
 		'mobile',
@@ -62,4 +65,13 @@ class Student extends Model
 	{
 		return $query->where('user_id', '=', $id)->get()->first();
 	}  
+
+  /**
+   * Accessor 'getFullName'
+   */
+
+  public function getFullNameAttribute()
+  {
+    return $this->firstname . ' ' . $this->name;
+  }
 }

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Providers;
-
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -22,6 +21,14 @@ class EventServiceProvider extends ServiceProvider
     'App\Events\SymposiumConfirmSubscription' => [
       'App\Listeners\SymposiumCreateInvoice',
       'App\Listeners\SymposiumNotifySubscriber',
+    ],
+
+    'App\Events\CourseEventParticipantsList' => [
+      'App\Listeners\CourseEventCreateParticipantsList',
+    ],
+
+    'App\Events\CourseList' => [
+      'App\Listeners\CourseCreateList',
     ],
   ];
 

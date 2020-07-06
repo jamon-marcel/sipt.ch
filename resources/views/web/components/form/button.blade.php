@@ -1,6 +1,6 @@
-<div class="form-buttons">
+<div class="form-buttons {{ $wrapperClass ?? '' }}">
   <button
-    class="{{ $class ?? '' }}"
+    class="{{ $btnClass ?? '' }}"
     type="{{ $type ?? 'submit' }}"
     name="{{ $name }}"
   >{{ $label }}</button>

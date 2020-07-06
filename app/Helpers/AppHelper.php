@@ -34,4 +34,39 @@ class AppHelper
   {
     return number_format(round($amount * 20) / 20, 2, '.', '');
   }
+
+  public static function datesToString($data = NULL)
+  {
+    return $data->implode('date', '/');
+  }
+
+  public static function timesToString($data = NULL)
+  {
+    $start = $data->pluck('timeStart');
+    $end   = $data->pluck('timeEnd');
+   
+    if (count($data) == 2)
+    {
+      $day1 = $start[0] . '-' . $end[0];
+      $day2 = $start[1] . '-' . $end[1];
+      return $day1 . '/' . $day2;
+    }
+    else if (count($start) == 1)
+    {
+      $day1 = $start[0] . '-' . $end[0];
+      return $day1;
+    }
+    return null;
+  }
+
+  public static function tutorsToString($data)
+  {
+    return $data->pluck('tutor.fullName')->implode('/');
+  }
+
+  public static function locationName($data)
+  {
+    $location = \App\Models\Location::find($data);
+    return $location->name_short;
+  }
 }

@@ -1,27 +1,22 @@
-@extends('web.layout.app')
-@section('seo_title', 'Home')
+@extends('web.layout.grids.1-1')
+@section('seo_title', 'E-Mail verifizieren')
 @section('seo_description', '')
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Verify Your Email Address') }}</div>
-                <div class="card-body">
-                    @if (session('resent'))
-                        <div class="alert alert-success" role="alert">
-                            {{ __('A fresh verification link has been sent to your email address.') }}
-                        </div>
-                    @endif
-                    {{ __('Before proceeding, please check your email for a verification link.') }}
-                    {{ __('If you did not receive the email') }},
-                    <form class="d-inline" method="POST" action="{{ route('verification.resend') }}">
-                        @csrf
-                        <button type="submit" class="btn btn-link p-0 m-0 align-baseline">{{ __('click here to request another') }}</button>.
-                    </form>
-                </div>
-            </div>
-        </div>
+@section('section')
+<section class="theme-light">
+  <x-header title="SIPT - E-Mail verifizieren" />
+  <article>
+    <h2>E-Mail verifizieren</h2>
+    <div>
+      @if (session('resent'))
+        <x-alert type="success" message="Neuer Bestätigungslink gesendet. Bitte Posteingang prüfen." />
+      @endif
+      <p>Bevor Sie weiterfahren können, müssen Sie ihre E-Mail-Adresse bestätigen. Bitte prüfen Sie ihren Posteingang.</p>
+      <p>Falls Sie keine E-Mail erhalten haben, können Sie einen neuen Link anfordern:</p>
+        <form method="POST" action="{{ route('verification.resend') }}">
+          @csrf
+          <x-button label="Anfordern" name="request-link" wrapperClass="align-start" btnClass="btn-primary js-btn-loader" type="submit" />
+        </form>
     </div>
-</div>
+  </article>
+</section>
 @endsection

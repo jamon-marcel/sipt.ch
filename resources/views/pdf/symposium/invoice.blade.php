@@ -1,16 +1,17 @@
-@include('pdf.partials.header')
+@include('pdf.partials.header-portrait')
+@include('pdf.partials.css.views.invoice')
+<table class="recipient-data">
+  <tr>
+    <td>
+      {{$subscriber->firstname}} {{$subscriber->name}}<br>
+      {{$subscriber->street}} {{$subscriber->street_no}}<br>
+      {{$subscriber->zip}} {{$subscriber->city}}
+    </td>
+    <td>
+    </td>
+  </tr>
+</table>
 <div class="content">
-  <table class="recipient-data">
-    <tr>
-      <td>
-        {{$subscriber->firstname}} {{$subscriber->name}}<br>
-        {{$subscriber->street}} {{$subscriber->street_no}}<br>
-        {{$subscriber->zip}} {{$subscriber->city}}
-      </td>
-      <td>
-      </td>
-    </tr>
-  </table>
   <h1>Rechnung</h1>
   <table class="invoice-meta-data">
     <tr>
@@ -19,7 +20,7 @@
     </tr>
     <tr>
       <td>Kunden-Nr.:</td>
-      <td>–</td>
+      <td>1162</td>
     </tr>
     <tr>
       <td>Kursreservation:</td>
@@ -39,7 +40,7 @@
     <tbody>
       <td class="qty">1</td>
       <td class="unit">Fachtagung</td>
-      <td class="number">–</td>
+      <td class="number">100.101020</td>
       <td class="description">
         {{ $subscriber->symposium->title }}<br>{!! $subscriber->symposium->description !!}
       </td>
@@ -56,4 +57,23 @@
     Kondition: zahlbar vor Kursbeginn<br>Bankverbindung für ausländische Teilnehmer:<br>BIC/SWIFT: ZKBKCHZZ80A, IBAN: CH98 0070 0110 0049 1771 7. Bitte Kursnummer vermerken.
   </div>
 </div>
-@include('pdf.partials.footer')
+<div class="payment-slip">
+  <span class="payment-item payment-item__reference">96 34990 00000 11620 00060 52772</span>
+  <span class="payment-item payment-item__reference-small">96 34990 00000 11620<br>00060 52772</span>
+  <span class="payment-item payment-item__amount-left">200</span>
+  <span class="payment-item payment-item__amount-left-cents">00</span>
+  <span class="payment-item payment-item__amount-right">200</span>
+  <span class="payment-item payment-item__amount-right-cents">00</span>
+  <span class="payment-item payment-address-left">
+    {{$subscriber->firstname}} {{$subscriber->name}}<br>
+    {{$subscriber->street}} {{$subscriber->street_no}}<br>
+    {{$subscriber->zip}} {{$subscriber->city}}
+  </span>
+  <span class="payment-item payment-address-right">
+    {{$subscriber->firstname}} {{$subscriber->name}}<br>
+    {{$subscriber->street}} {{$subscriber->street_no}}<br>
+    {{$subscriber->zip}} {{$subscriber->city}}
+  </span>
+  <img src="{{ asset('/assets/img/einzahlungsschein.jpg') }}" width="100">
+</div>
+@include('pdf.partials.footer-portrait')
