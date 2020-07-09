@@ -124,10 +124,14 @@ img {
   -premailer-width: 570px;
   background-color: #ff7a00;
   margin: 0 auto;
-  padding: 36px 0 12px 0;
   font-size: 16px;
   text-align: center;
   width: 100%;
+}
+
+.footer .content-cell {
+  padding-top: 24px;
+  padding-bottom: 12px;
 }
 
 .footer a {
@@ -235,6 +239,11 @@ a[x-apple-data-detectors] {
   font-family: inherit !important;
   font-weight: inherit !important;
   line-height: inherit !important;
+}
+
+a.anchor {
+  color: #ff7a00 !important;
+  text-decoration: none;
 }
 
 .content-table {

@@ -19,7 +19,7 @@ class CreateSymposiumSubscribersTable extends Migration
             $table->string('name', 100);
             $table->string('title', 200)->nullable();
             $table->string('street', 100);
-            $table->string('street_no', 10);
+            $table->string('street_no', 10)->nullable();
             $table->string('city', 100);
             $table->string('phone', 100);
             $table->string('phone_business', 200)->nullable();

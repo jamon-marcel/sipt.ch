@@ -29,6 +29,17 @@ form.auth {
   }
 }
 
+// Sidebar form
+form.form-sidebar {
+  .form-group {
+    label {
+      @include bp-xl() {
+        flex: 0 0 165px;
+      }
+    }
+  }
+}
+
 // Recover password
 form.auth--recover {
   .form-group {
@@ -48,5 +59,16 @@ form.auth--reset {
         flex: 0 0 215px;
       }
     }
+  }
+}
+
+form.booking {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: $space-sm;
+  max-width: none;
+  
+  @include bp-xl() {
+    margin-top: $space-md;
   }
 }

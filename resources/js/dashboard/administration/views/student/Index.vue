@@ -10,7 +10,6 @@
         :key="s.id"
       >
         <div class="listing__item-body">
-          <em v-if="s.street_no != ''" style="color: green; display: inline-block; margin-right: 20px">OK</em>
           {{ s.name}} <span class="separator">&bull;</span> 
           {{s.firstname }} <span class="separator">&bull;</span>
           <em v-if="s.title">{{ s.title }}<span class="separator">&bull;</span></em>

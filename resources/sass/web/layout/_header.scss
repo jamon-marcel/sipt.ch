@@ -49,7 +49,7 @@ header.content-header {
     top: 0;
   }
 
-  @include bp-lg() {
+  @include bp-xl() {
     left: $space-lg;
   }
 }

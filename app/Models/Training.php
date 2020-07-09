@@ -25,7 +25,7 @@ class Training extends Model
 
   public function courses()
   {
-    return $this->belongsToMany('App\Models\Course');
+    return $this->belongsToMany('App\Models\Course')->orderBy('title');
   }
 
 	public function location()

@@ -17,7 +17,7 @@
 <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffffff">
 <meta name="msapplication-TileColor" content="#00aba9">
 <meta name="theme-color" content="#ffffff">
-<meta name="csrf-token" value="{{ csrf_token() }}" />
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 <meta name="format-detection" content="telephone=no">
 <link href="{{ asset('assets/css/app.css') }}" type="text/css" rel="stylesheet" />
 <script src="{{ asset('assets/js/modernizr.min.js') }}"></script>
@@ -31,5 +31,6 @@
     </a>
   </div>
 </header>
-@include('web.layout.partials.menu.meta')
+<x-menu-meta />
+<x-bookings />
 <x-loader />

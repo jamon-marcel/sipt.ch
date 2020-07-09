@@ -23,6 +23,10 @@
     color: $color-success;
   }
 
+  &.alert--narrow {
+    margin-bottom: 0;
+  }
+
   ul {
     @include font-regular();
     margin-top: $space-sm;

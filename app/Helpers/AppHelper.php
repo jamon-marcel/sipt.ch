@@ -26,7 +26,6 @@ class AppHelper
     $replace = array(
       'ae', 'oe', 'ue', 'e', 'e', 'a', 'a', 'c',
     );
-
     return (string) str_replace($search, $replace, mb_strtolower($string, 'UTF-8'));
   }
 
@@ -40,33 +39,46 @@ class AppHelper
     return $data->implode('date', '/');
   }
 
-  public static function timesToString($data = NULL)
+  public static function timesToString($data = NULL, $hasSpace = FALSE)
   {
     $start = $data->pluck('timeStart');
     $end   = $data->pluck('timeEnd');
    
     if (count($data) == 2)
     {
-      $day1 = $start[0] . '-' . $end[0];
-      $day2 = $start[1] . '-' . $end[1];
+      $day1 = $start[0] . '–' . $end[0];
+      $day2 = $start[1] . '–' . $end[1];
       return $day1 . '/' . $day2;
     }
     else if (count($start) == 1)
     {
-      $day1 = $start[0] . '-' . $end[0];
+      $day1 = $start[0] . '–' . $end[0];
       return $day1;
     }
     return null;
   }
 
-  public static function tutorsToString($data)
+  public static function tutorsToString($data, $filterDuplicates = FALSE)
   {
-    return $data->pluck('tutor.fullName')->implode('/');
+    $tutors = $data->pluck('tutor.fullName');
+
+    if ($filterDuplicates)
+    {
+     return collect($tutors)->unique()->values()->first();
+    }
+
+    return collect($tutors)->implode('/');
   }
 
-  public static function locationName($data)
+  public static function locationName($data, $showCity = FALSE)
   {
     $location = \App\Models\Location::find($data);
+
+    if ($showCity)
+    {
+      return $location->name_short . ', ' . $location->city;
+    }
+
     return $location->name_short;
   }
 }

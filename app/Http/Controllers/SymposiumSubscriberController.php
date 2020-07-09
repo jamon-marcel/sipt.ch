@@ -42,8 +42,6 @@ class SymposiumSubscriberController extends Controller
     // Event: Subscription confirmation
     event(new SymposiumConfirmSubscription($subscriber));
 
-    // @todo: Create and attach Invoice
-
     // Delete for testing
     $subscriber->forceDelete();
 

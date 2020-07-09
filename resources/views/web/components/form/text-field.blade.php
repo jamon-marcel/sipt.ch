@@ -5,6 +5,7 @@
     </label>
   @endif
   <input
+    class="{{ $css ?? '' }}"
     type="{{ $type ?? 'text' }}"
     name="{{ $name }}"
     placeholder="{{ $placeholder ?? '' }}"

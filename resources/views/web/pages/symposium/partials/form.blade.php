@@ -16,13 +16,17 @@
     <x-text-field label="Nr." name="street_no" />
     <x-text-field label="PLZ" name="zip" />
     <x-text-field label="Ort" name="city" />
+    <x-text-field label="Land" name="country" />
     <x-text-field label="Telefon P" name="phone" />
     <x-text-field label="Telefon G" name="phone_business" placeholder="optional" />
+    <x-text-field label="Mobile" name="mobile" placeholder="optional" />
     <x-text-field label="E-Mail" type="email" name="email" />
     <x-text-field label="Berufsabschluss" name="qualifications" />
     <div class="sb-md">
       <x-radio label="Ich bin mit den AGBs einverstanden" id="toc" name="toc" />
     </div>
-    <x-button label="Anmelden" name="register" btnClass="btn-primary js-btn-loader" type="submit" />
+    <div class="form-buttons align-end">
+      <x-button label="Anmelden" name="register" btnClass="btn-primary js-btn-loader" type="submit" />
+    </div>
   </form>
 </section>

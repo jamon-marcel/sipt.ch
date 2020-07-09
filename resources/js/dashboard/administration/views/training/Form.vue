@@ -18,7 +18,7 @@
               <label>Kurzbeschreibung *</label>
               <tinymce-editor
                 :api-key="tinyApiKey"
-                :init="tinyConfigSmall"
+                :init="tinyConfig"
                 v-model="training.description_short"
               ></tinymce-editor>
               <label-required/>

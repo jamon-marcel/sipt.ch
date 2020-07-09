@@ -34,7 +34,7 @@ a.logo {
     max-width: 180px;
   }
 
-  @include bp-lg() {
+  @include bp-xl() {
     bottom: $space-lg;
     left: $space-lg;
     max-width: 230px;

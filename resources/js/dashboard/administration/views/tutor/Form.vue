@@ -20,6 +20,7 @@
         <div :class="[this.errors.email ? 'has-error' : '', 'form-row']">
           <label>E-Mail *</label>
           <input type="text" v-model="tutor.user.email" :disabled="this.$props.type == 'edit' ? true : false">
+          <!-- <input type="text" v-model="tutor.user.email"> -->
           <label-required />
         </div>
         <div class="form-row">

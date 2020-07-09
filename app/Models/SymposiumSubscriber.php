@@ -15,6 +15,7 @@ class SymposiumSubscriber extends Model
 		'street_no',
 		'zip',
 		'city',
+		'country',
     'email',
     'phone',
 		'phone_business',

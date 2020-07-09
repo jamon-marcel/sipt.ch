@@ -1,12 +1,11 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
-
+use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class LoginController extends Controller
+class LoginController extends BaseController
 {
   /*
   |--------------------------------------------------------------------------
@@ -28,6 +27,7 @@ class LoginController extends Controller
    */
   public function __construct()
   {
+    parent::__construct();
     $this->middleware('guest')->except('logout');
   }
 
@@ -44,7 +44,6 @@ class LoginController extends Controller
     }
     else if (auth()->user()->isStudent())
     {
-      //return RouteServiceProvider::DASHBOARD_STUDENT;
       return RouteServiceProvider::HOME;
     }
     else if (auth()->user()->isTutor())

@@ -1,0 +1,33 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/icons/cross
+ * -----------------------------------------------------------------------------
+ */
+
+.icon-cross {
+  @extend %icon;
+  @extend %icon-bg;
+  @include background-default();
+  background-image: url($url-icons + 'cross.svg');
+  background-size: contain;
+  background-position: center center;
+  border-bottom: none !important;
+  display: block;
+  text-decoration: none;
+  height: 20px;
+  right: $space-sm;
+  position: fixed;
+  top: $space-xs;
+  width: 20px;
+  z-index: 501;
+
+  @include bp-md() {
+    height: 14px;
+    top: $space-sm;
+    width: 14px;
+  }
+
+  @include bp-xl() {
+    right: $space-xl;
+  }
+}

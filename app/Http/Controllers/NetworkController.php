@@ -1,10 +1,16 @@
 <?php
 namespace App\Http\Controllers;
+use App\Http\Controllers\BaseController;
 use Illuminate\Http\Request;
 
-class NetworkController extends Controller
+class NetworkController extends BaseController
 {
   protected $viewPath = 'web.pages.network.';
+
+  public function __construct()
+  {
+    parent::__construct();
+  }
 
   /**
    * Show the therapists page

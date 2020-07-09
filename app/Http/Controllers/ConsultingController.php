@@ -1,10 +1,16 @@
 <?php
 namespace App\Http\Controllers;
+use App\Http\Controllers\BaseController;
 use Illuminate\Http\Request;
 
-class ConsultingController extends Controller
+class ConsultingController extends BaseController
 {
   protected $viewPath = 'web.pages.consulting.index';
+
+  public function __construct()
+  {
+    parent::__construct();
+  }
 
   /**
    * Show the consulting index page

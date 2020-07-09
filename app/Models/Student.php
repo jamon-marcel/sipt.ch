@@ -28,7 +28,6 @@ class Student extends Model
 		'alt_street_no',
 		'alt_zip',
 		'alt_city',
-		'needs_credit_confirmation',
 		'needs_hours_confirmation',
 		'has_alt_address',
 		'user_id',

@@ -11,7 +11,7 @@
         <loading-indicator :classNames="'is-widget'" :iconSize="'24'" v-if="isLoading"></loading-indicator>
         <div class="course-register__intro">
           <h2>Modul hinzufügen</h2>
-          <p>Fügen Sie mit wenigen Schritten ein neues Modul hinzu. Neue Module können bis 2 Wochen vor Beginn hinzugefügt werden.</p>
+          <p>Fügen Sie mit wenigen Schritten ein neues Modul hinzu.</p>
         </div>
         <div class="course-register__select" v-if="trainings.length">
           <h3>Ihre Ausbildungsrichtung?</h3>

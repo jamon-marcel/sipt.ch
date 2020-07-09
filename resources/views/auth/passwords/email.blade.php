@@ -17,7 +17,9 @@
       <form method="POST" class="auth auth--recover" action="{{ route('password.email') }}">
         @csrf
         <x-text-field label="E-Mail" type="email" name="email" />
-        <x-button label="Link anfordern" name="register" btnClass="btn-primary js-btn-loader" type="submit" />
+        <div class="form-buttons align-end">
+          <x-button label="Link anfordern" name="register" btnClass="btn-primary js-btn-loader" type="submit" />
+        </div>
       </form>
     </div>
   </article>

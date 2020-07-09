@@ -25,15 +25,14 @@
                 <input type="text" v-model="student.street">
                 <label-required />
               </div>
-              <div :class="[this.errors.street_no ? 'has-error' : '', 'form-row-grid']">
-                <label>Nr. *</label>
+              <div class="form-row-grid">
+                <label>Nr.</label>
                 <input type="text" v-model="student.street_no">
-                <label-required />
               </div>
             </div>
           </div>
           <div class="form-row">
-            <div class="grid grid-1-3">
+            <div class="grid grid-1-1-1">
               <div :class="[this.errors.zip ? 'has-error' : '', 'form-row-grid']">
                 <label>PLZ *</label>
                 <input type="text" v-model="student.zip">
@@ -42,6 +41,11 @@
               <div :class="[this.errors.city ? 'has-error' : '', 'form-row-grid']">
                 <label>Ort *</label>
                 <input type="text" v-model="student.city">
+                <label-required />
+              </div>
+              <div :class="[this.errors.country ? 'has-error' : '', 'form-row-grid']">
+                <label>Land *</label>
+                <input type="text" v-model="student.country">
                 <label-required />
               </div>
             </div>
@@ -67,10 +71,9 @@
             <label>Titel</label>
             <input type="text" v-model="student.title">
           </div>
-          <div :class="[this.errors.qualifications ? 'has-error' : '', 'form-row']">
-            <label>Berufsabschluss *</label>
+          <div class="form-row">
+            <label>Berufsabschluss</label>
             <input type="text" v-model="student.qualifications">
-            <label-required />
           </div>
           <div class="form-row">
             <a href="" @click.prevent="toggleAltAddress()" class="feather-icon feather-icon--prepend">
@@ -125,14 +128,6 @@
         <div class="grid-column-sidebar">
           <div>
             <template v-if="isFetched">
-              <div class="form-row is-sm">
-                <radio-button
-                  :label="'Bestätigung erworbene Credits?'"
-                  v-bind:needs_credit_confirmation.sync="student.needs_credit_confirmation"
-                  :model="student.needs_credit_confirmation"
-                  :name="'needs_credit_confirmation'"
-                ></radio-button>
-              </div>
               <div class="form-row is-sm is-last">
                 <radio-button
                   :label="'Bestätigung Ausweisung Kursdauer?'"
@@ -193,11 +188,10 @@ export default {
         firstname: false,
         name: false,
         street: false,
-        street_no: false,
         zip: false,
         city: false,
         phone: false,
-        qualifications: false,
+        country: false,
 
         alt_company: false,
         alt_name: false,

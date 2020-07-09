@@ -64,6 +64,6 @@ button {
 	width: auto;
 
 	&:hover {
-		background-color: $color-black;
+		background-color: lighten($color-orange, 15);
 	}
 }

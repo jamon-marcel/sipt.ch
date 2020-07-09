@@ -15,10 +15,9 @@
   </article>
   <article>
     <div class="list">
-      <header class="list__header">
-        <div><strong>Ausführliches Programm</strong> [download PDF 2 MB]</div>
-        <a href="" class="icon-download" title="Download Programm"></a>
-      </header>
+      <a href="/storage/downloads/sipt-zertifizierung-klinik.pdf" target="_blank" class="btn-download" title="Download Kriterien und Empfehlungen">
+        <strong>Ausführliches Programm</strong> [PDF, 804KB]
+      </a>
       <div class="list__item">
         Samstag 10.Oktober 2020
       </div>

@@ -1,12 +1,11 @@
 <?php
-
 namespace App\Http\Controllers\Auth;
-
+use App\Http\Controllers\BaseController;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 
-class ResetPasswordController extends Controller
+class ResetPasswordController extends BaseController
 {
   /*
   |--------------------------------------------------------------------------
@@ -20,6 +19,11 @@ class ResetPasswordController extends Controller
   */
 
   use ResetsPasswords;
+
+  public function __construct()
+  {
+    parent::__construct();
+  }
 
   /**
    * Where to redirect users after resetting their password.

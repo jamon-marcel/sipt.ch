@@ -10,6 +10,7 @@ class TrainingCategory extends Model
   protected $fillable = [
     'name',
     'name_short',
+    'order',
   ];
 
   public function training()

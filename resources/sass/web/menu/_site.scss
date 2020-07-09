@@ -64,10 +64,11 @@
     @include bp-md() {
       margin-top: $space-giga;
     }
-
-    @include bp-lg() {
+    
+    @include bp-xl() {
       padding: 0 $space-lg;
     }
+
   }
 
   h2 {

@@ -6,7 +6,8 @@ export default {
   external_plugins: {
     link: '/assets/dashboard/js/tinymce/plugins/link/plugin.min.js',
   },
-  toolbar: 'undo redo | bold | link | superscript | removeformat | styleselect',
+  plugins: ["lists"],
+  toolbar: 'undo redo | bold | bullist | link | superscript | removeformat | styleselect',
   paste_as_text: true,
   height: "320px",
   style_formats_merge: false,
@@ -19,4 +20,4 @@ export default {
       { title: 'Überschrift 3', block : 'h3'},
     ],
   }]
-}
+};

@@ -1,7 +1,5 @@
 <?php
-
 namespace App\View\Components;
-
 use Illuminate\View\Component;
 
 class Button extends Component
@@ -28,13 +26,6 @@ class Button extends Component
   public $btnClass;
 
   /**
-   * Wrapper class
-   *
-   * @var string
-   */
-  public $wrapperClass;
-
-  /**
    * Type
    *
    * @var string
@@ -50,12 +41,11 @@ class Button extends Component
    * @param $type
    * @return void
    */
-  public function __construct($name, $label, $btnClass = '', $wrapperClass = '', $type = 'submit')
+  public function __construct($name, $label, $btnClass = '', $type = 'submit')
   {
     $this->name     = $name;
     $this->label    = $label;
     $this->btnClass = $btnClass;
-    $this->wrapperClass = $wrapperClass;
     $this->type     = $type;
   }
 

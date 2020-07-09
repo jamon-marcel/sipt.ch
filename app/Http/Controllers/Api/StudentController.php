@@ -6,8 +6,9 @@ use App\Models\User;
 use App\Models\Student;
 use App\Models\CourseEvent;
 use App\Models\CourseEventStudent;
+use App\Events\CourseEventBooked;
+use App\Events\CourseEventCancelled;
 use App\Http\Requests\StudentStoreRequest;
-use App\Http\Requests\StudentStoreEventCourseRequest;
 use App\Http\Requests\StudentStoreCourseEventRequest;
 use Illuminate\Http\Request;
 
@@ -31,7 +32,7 @@ class StudentController extends Controller
    */
   public function get()
   {
-    return new DataCollection($this->student->orderBy('name', 'DESC')->get());
+    return new DataCollection($this->student->orderBy('name')->get());
   }
 
   /**
@@ -85,6 +86,7 @@ class StudentController extends Controller
       case 'upcoming':
         $courseEvents = $student->courseEvents('upcoming')
                                 ->with('course', 'location', 'dates.tutor')
+                                ->where('course_event_student.deleted_at', '=', NULL)
                                 ->take($limit)
                                 ->get();
       break;
@@ -94,6 +96,7 @@ class StudentController extends Controller
         $courseEvents = $student->courseEvents()
                                 ->with('course', 'location', 'dates.tutor')
                                 ->where('has_attendance', '=', 0)
+                                ->where('course_event_student.deleted_at', '=', NULL)
                                 ->get();
       break;
 
@@ -102,6 +105,7 @@ class StudentController extends Controller
         $courseEvents = $student->courseEvents()
                                 ->with('course', 'location', 'dates.tutor')
                                 ->where('has_attendance', '=', 1)
+                                ->where('course_event_student.deleted_at', '=', NULL)
                                 ->get();
       break;
 
@@ -148,15 +152,22 @@ class StudentController extends Controller
   {
     // Get student
     $student = auth()->user()->isAdmin()
-                ? $this->student->findOrFail($student->id)
-                : $this->student->authenticated(auth()->user()->id);
+                ? $this->student->with('user')->findOrFail($student->id)
+                : $this->student->with('user')->authenticated(auth()->user()->id);
 
     // Create Course Event
-    $course_event = new CourseEventStudent([
+    $course_event = CourseEventStudent::updateOrCreate([
       'course_event_id' => $request->courseEventId,
-      'student_id' => $student->id
+      'student_id' => $student->id,
     ]);
     $course_event->save();
+
+    // Get course event data for confirmation
+    $courseEvent = $this->courseEvent->with('course', 'dates')->find($request->courseEventId);
+
+    // Send confirmation
+    event(new CourseEventBooked($student, $courseEvent));
+
     return response()->json('successfully stored');
   }
 
@@ -173,8 +184,17 @@ class StudentController extends Controller
                 ? $this->student->findOrFail($student->id)
                 : $this->student->authenticated(auth()->user()->id);
 
-    $student->courseEvents()->detach($courseEvent->id);
-  
+    // Get record
+    $courseEventStudent = $this->courseEventStudent->where('course_event_id', '=', $courseEvent->id)
+                                                   ->where('student_id', '=', $student->id)
+                                                   ->firstOrFail();
+
+    // Delete record
+    $courseEventStudent->delete();
+    
+    // Confirm annulation
+    event(new CourseEventCancelled($student, $courseEvent));
+
     return response()->json('successfully removed');
   }
 }

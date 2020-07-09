@@ -25,20 +25,18 @@ class StudentStoreRequest extends FormRequest
       'name' => 'required',
       'firstname' => 'required',
       'street' => 'required',
-      'street_no' => 'required',
       'zip' => 'required',
       'city' => 'required',
+      'country' => 'required',
       'phone' => 'required',
       'qualifications' => 'required',
       'has_alt_address' => 'required',
-
       'alt_company' => 'required_if:has_alt_address,1',
       'alt_name' => 'required_if:has_alt_address,1',
       'alt_street' => 'required_if:has_alt_address,1',
       'alt_street_no' => 'required_if:has_alt_address,1',
       'alt_zip' => 'required_if:has_alt_address,1',
       'alt_city' => 'required_if:has_alt_address,1',
-
     ];
   }
 
@@ -52,59 +50,55 @@ class StudentStoreRequest extends FormRequest
     return [
       'name.required' => [
         'field' => 'name',
-        'error' => 'Name wird benötigt!'
+        'error' => 'Name muss ausgefüllt sein.'
       ],
       'firstname.required' => [
         'field' => 'firstname',
-        'error' => 'Vorname wird benötigt!'
+        'error' => 'Vorname muss ausgefüllt sein.'
       ],
       'street.required' => [
         'field' => 'street',
-        'error' => 'Strasse wird benötigt!'
-      ],
-      'street_no.required' => [
-        'field' => 'street_no',
-        'error' => 'Nummer wird benötigt!'
+        'error' => 'Strasse muss ausgefüllt sein.'
       ],
       'zip.required' => [
         'field' => 'zip',
-        'error' => 'Postleitzahl wird benötigt!'
+        'error' => 'Postleitzahl muss ausgefüllt sein.'
       ],
       'city.required' => [
         'field' => 'city',
-        'error' => 'Ort wird benötigt!'
+        'error' => 'Ort muss ausgefüllt sein.'
+      ],
+      'country.required' => [
+        'field' => 'country',
+        'error' => 'Land muss ausgefüllt sein.'
       ],
       'phone.required' => [
         'field' => 'phone',
-        'error' => 'Telefon wird benötigt!'
-      ],
-      'qualifications.required' => [
-        'field' => 'qualifications',
-        'error' => 'Berufsabschluss wird benötigt!'
+        'error' => 'Telefon muss ausgefüllt sein.'
       ],
       'alt_company.required_if' => [
         'field' => 'alt_company',
-        'error' => 'Firma wird benötigt!'
+        'error' => 'Firma muss ausgefüllt sein.'
       ],
       'alt_name.required_if' => [
         'field' => 'alt_name',
-        'error' => 'Vorname wird benötigt!'
+        'error' => 'Vorname muss ausgefüllt sein.'
       ],
       'alt_street.required_if' => [
         'field' => 'alt_street',
-        'error' => 'Strasse wird benötigt!'
+        'error' => 'Strasse muss ausgefüllt sein.'
       ],
       'alt_street_no.required_if' => [
         'field' => 'alt_street_no',
-        'error' => 'Nummer wird benötigt!'
+        'error' => 'Nummer muss ausgefüllt sein.'
       ],
       'alt_zip.required_if' => [
         'field' => 'alt_zip',
-        'error' => 'Postleitzahl wird benötigt!'
+        'error' => 'Postleitzahl muss ausgefüllt sein.'
       ],
       'alt_city.required_if' => [
         'field' => 'alt_city',
-        'error' => 'Ort wird benötigt!'
+        'error' => 'Ort muss ausgefüllt sein.'
       ],
     ];
   }

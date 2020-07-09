@@ -20,6 +20,10 @@ article {
     }
   }
 
+  &.is-narrow {
+    margin-top: $space-md !important;
+  }
+
   a {
     color: $color-black;
   }

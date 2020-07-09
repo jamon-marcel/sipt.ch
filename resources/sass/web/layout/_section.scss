@@ -20,6 +20,10 @@ section {
   }
 
   @include bp-lg() {
+    padding: $space-giga $space-sm $space-sm $space-sm;
+  }
+
+  @include bp-xl() {
     padding: $space-giga $space-lg $space-lg $space-lg;
   }
 

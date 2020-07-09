@@ -13,11 +13,12 @@ use Illuminate\Http\Request;
 
 class TutorController extends Controller
 {
-  public function __construct(Tutor $tutor, TutorImage $tutorImage, CourseEvent $courseEvent)
+  public function __construct(Tutor $tutor, TutorImage $tutorImage, CourseEvent $courseEvent, User $user)
   {
-    $this->tutor      = $tutor;
-    $this->tutorImage = $tutorImage;
+    $this->tutor       = $tutor;
+    $this->tutorImage  = $tutorImage;
     $this->courseEvent = $courseEvent;
+    $this->user        = $user;
     $this->authorizeResource(Tutor::class, 'tutor');
   }
 
@@ -67,6 +68,12 @@ class TutorController extends Controller
     // Save changes
     $tutor->update($request->except('user.email'));
     $tutor->save();
+
+    // Temporary allow changes uf email
+    // $user = $this->user->find($tutor->user_id);
+    // $user->production_email = $request->input('user.email');
+    // $user->email = 'sipt.' .  $request->input('user.email');
+    // $user->save();
 
     // Update or add images
     if (!empty($request->images))

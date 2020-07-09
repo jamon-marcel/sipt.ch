@@ -1,7 +1,5 @@
 <?php
-
 namespace App\View\Components;
-
 use Illuminate\View\Component;
 
 class Radio extends Component

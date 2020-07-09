@@ -1,0 +1,46 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: layout/sidebar
+ * -----------------------------------------------------------------------------
+ */
+
+aside.booking {
+  background-color: $color-white;
+  // box-shadow: $box-shadow;
+  height: 100%;
+  overflow-x: auto;
+  padding-top: $space-xl;
+  position: fixed;
+  right: 0;
+  transform: translateX(100%);
+  transition: transform .12s ease-out;
+  top: 0;
+  width: 100%;
+  z-index: 301;
+  -webkit-overflow-scrolling: touch;
+
+  &.is-visible {
+    transform: translateX(0);
+
+    a.my-bookings {
+      color: $color-orange;
+    }
+  }
+
+  @include bp-sm() {
+    padding-top: 0;
+    width: 33.3333%;
+  }
+
+  @include bp-md() {
+    width: 25vw;
+  }
+
+  .booking__forms {
+    margin-top: $space-md;
+
+    @include bp-xl() {
+      margin-top: $space-xl;
+    }
+  }
+}

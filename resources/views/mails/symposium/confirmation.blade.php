@@ -22,4 +22,6 @@
 </table>
 <p>Dürfen wir Sie bitten, die Gebühr für die Teilnahme innert 30 Tagen zu überweisen.</p>
 <p>Beilage:<br>– Rechnung mit Einzahlungsschein<br>– Lageplan</p>
+<br>
+@include('mails.partials.html.signature')
 @endcomponent

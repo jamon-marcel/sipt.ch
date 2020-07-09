@@ -1,4 +1,4 @@
-@extends('web.layout.grids.1-2')
+@extends('web.layout.grids.2-1')
 @section('seo_title', 'Das SIPT > Über uns')
 @section('seo_description', 'Das SIPT setzt sich für Anliegen von Traumaopfern ein und bietet Fortbildungen für verschiedene Berufsgruppen an, die in ihrer Arbeit mit traumatisierten Menschen konfrontiert sind')
 @section('section')
@@ -32,10 +32,5 @@
     </div>
   </article>
 </section>
-<section class="theme-medium">
-  <div class="quote">
-    <p>«Traumatherapie, Traumapädagogik und Beratung von traumatisierten Menschen: Beziehungsorientiert, unterstützend, fundiert, vernetzt. So arbeitet das SIPT. Im Zentrum steht dabei immer der Mensch und sein Trauma.»</p>
-    <div class="quote__author">Rosmarie Barwinski, Leiterin SIPT</div>
-  </div>
-</section>
+<x-quote size="is-sm" quote="Traumatherapie, Traumapädagogik und Beratung von traumatisierten Menschen: Beziehungsorientiert, unterstützend, fundiert, vernetzt. So arbeitet das SIPT. Im Zentrum steht dabei immer der Mensch und sein Trauma." author="Rosmarie Barwinski, Leiterin SIPT" />
 @endsection

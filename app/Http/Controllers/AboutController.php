@@ -1,10 +1,11 @@
 <?php
 namespace App\Http\Controllers;
+use App\Http\Controllers\BaseController;
 use App\Models\Tutor;
 use App\Models\TutorImage;
 use Illuminate\Http\Request;
 
-class AboutController extends Controller
+class AboutController extends BaseController
 {
   protected $viewPath = 'web.pages.about.';
 
@@ -14,6 +15,7 @@ class AboutController extends Controller
    */
   public function __construct(Tutor $tutor, TutorImage $tutorImage)
   {
+    parent::__construct();
     $this->tutor      = $tutor;
     $this->tutorImage = $tutorImage;
   }

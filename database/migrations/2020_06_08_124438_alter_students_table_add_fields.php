@@ -16,7 +16,7 @@ class AlterStudentsTableAddFields extends Migration
         Schema::table('students', function (Blueprint $table) {
             $table->string('title', 200)->after('name')->nullable();
             $table->string('street', 100)->after('title');
-            $table->string('street_no', 10)->after('street');
+            $table->string('street_no', 10)->after('street')->nullable();
             $table->string('city', 100)->after('street_no');
             $table->string('phone_business', 200)->after('phone')->nullable();
             $table->string('mobile', 200)->after('phone_business')->nullable();

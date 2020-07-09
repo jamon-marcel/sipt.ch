@@ -1,7 +1,5 @@
 <?php
-
 namespace App\View\Components;
-
 use Illuminate\View\Component;
 
 class TextField extends Component
@@ -43,6 +41,13 @@ class TextField extends Component
   public $required;
 
   /**
+   * Css
+   *
+   * @var string
+   */
+  public $css;
+
+  /**
    * Create a new component instance.
    *
    * @param $name
@@ -50,16 +55,18 @@ class TextField extends Component
    * @param $label
    * @param $placeholder
    * @param $required
+   * @param $css
    * 
    * @return void
    */
-  public function __construct($name, $type = 'text', $label, $placeholder = NULL, $required = FALSE)
+  public function __construct($name, $type = 'text', $label, $placeholder = NULL, $required = FALSE, $css = NULL)
   {
     $this->name = $name;
     $this->type = $type;
     $this->label = $label;
     $this->placeholder = $placeholder;
     $this->required = $required;
+    $this->css = $css;
   }
 
   /**

@@ -9,7 +9,7 @@ nav.meta-menu {
   height: $space-lg;
   padding-left: $space-sm;
 
-  @include bp-lg() {
+  @include bp-xl() {
     padding-left: $space-lg;
   }
 
@@ -33,7 +33,12 @@ nav.meta-menu {
     justify-content: space-between;
     position: fixed;
     right: 0;
-    width: 25vw;
-    z-index: 301;
+    z-index: 301;    
   }
+
+  @include bp-lg() {
+    width: 25vw;
+  }
+
+  
 }

@@ -10,7 +10,7 @@
   @include font-serif-bold();
   @include font-size($fs-xl);
 
-  &.quote--small {
+  &.is-sm {
     @include font-size($fs-lg);
   }
 

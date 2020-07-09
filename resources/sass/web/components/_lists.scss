@@ -25,4 +25,21 @@
       }
     }
   }
+
+  .list__item--button {
+    @include font-size($fs-sm);
+    text-align: right;
+
+    a {
+      color: $color-dark-grey;
+    }
+  }
+}
+
+.list.list--event + .list.list--event {
+  margin-top: $space-lg;
+}
+
+.list.list--booking + .list.list--booking {
+  margin-top: $space-lg;
 }

@@ -16,6 +16,9 @@
 .align-right { text-align: right; }
 .nobr { white-space: nowrap; }
 
+.highlight {
+	color: $color-orange;
+}
 
 /**
  * Typography - Generic elements
@@ -33,4 +36,9 @@ p {
 	&:last-of-type {
 		margin-bottom: 0 !important;
 	}
+}
+
+.small,
+small {
+	@include font-size($fs-sm);
 }
