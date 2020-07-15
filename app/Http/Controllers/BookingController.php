@@ -130,10 +130,14 @@ class BookingController extends BaseController
       $bookings = $request->session()->get('bookings');
       foreach($bookings as $booking)
       {
+        // Create booking number
+        $booking_number = CourseEventStudent::max('booking_number') + 1;
+        
         // Create course
         $course_event = CourseEventStudent::updateOrCreate([
           'course_event_id' => $booking['id'],
           'student_id' => $student->id,
+          'booking_number' => $booking_number
         ]);
 
         // Get course event data
@@ -166,10 +170,14 @@ class BookingController extends BaseController
       $bookings = $request->session()->get('bookings');
       foreach($bookings as $booking)
       {
+        // Create booking number
+        $booking_number = CourseEventStudent::max('booking_number') + 1;
+
         // Create course
         $course_event = CourseEventStudent::updateOrCreate([
           'course_event_id' => $booking['id'],
           'student_id' => $student->id,
+          'booking_number' => $booking_number
         ]);
 
         // Get course event data

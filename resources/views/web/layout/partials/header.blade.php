@@ -31,6 +31,7 @@
     </a>
   </div>
 </header>
-<x-menu-meta />
+<x-meta />
 <x-bookings />
+<x-contact />
 <x-loader />

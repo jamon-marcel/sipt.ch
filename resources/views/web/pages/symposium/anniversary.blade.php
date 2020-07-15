@@ -15,11 +15,11 @@
   </article>
   <article>
     <div class="list">
-      <a href="/storage/downloads/sipt-zertifizierung-klinik.pdf" target="_blank" class="btn-download" title="Download Kriterien und Empfehlungen">
-        <strong>Ausführliches Programm</strong> [PDF, 804KB]
+      <a href="/storage/downloads/sipt-tagungsprogramm.pdf" target="_blank" class="btn-download" title="Download Tagungsprogramm">
+        <strong>Ausführliches Programm</strong> [PDF, 804KB]
       </a>
       <div class="list__item">
-        Samstag 10.Oktober 2020
+        Samstag, 10. Oktober 2020
       </div>
       <div class="list__item">
         Zeit: 8:15 Uhr bis 17:30 Uhr

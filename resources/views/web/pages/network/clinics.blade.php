@@ -7,7 +7,7 @@
   <article>
     <h2>SIPT zertifizierte Kliniken</h2>
     <div>
-      <p><strong>Traumastation Waldegg A</strong><br>Clienia Littenheid AG<br>Privatklinik für Psychiatrie und Psychotherapie<br>9573 Littenheid</p>
+      <p><strong>Traumastation Waldegg A</strong><br>Clienia Littenheid AG<br>Privatklinik für Psychiatrie und Psychotherapie<br>9573 Littenheid</p>
     </div>
   </article>
 </section>

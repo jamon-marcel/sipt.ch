@@ -19,11 +19,11 @@
   position: fixed;
   top: $space-xs;
   width: 20px;
-  z-index: 501;
+  z-index: 1001;
 
   @include bp-md() {
     height: 14px;
-    top: $space-sm;
+    top: 20px;
     width: 14px;
   }
 

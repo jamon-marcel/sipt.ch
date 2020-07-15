@@ -28,7 +28,8 @@ var Booking = (function() {
 
   // classes
   var classes = {
-    visible: 'is-visible'
+    visible: 'is-visible',
+    active: 'is-active',
   };
 
   // booking template
@@ -106,8 +107,11 @@ var Booking = (function() {
         _refreshBookings(data);
         _showBookings();
         _toggleRegisterForm();
+        Loader.hide();
       },
-      error: function(data) { }
+      error: function(data) {
+        Loader.hide();
+      }
     });
   };
 
@@ -119,8 +123,11 @@ var Booking = (function() {
       method: 'delete',
       success: function(data){
         _refreshBookings(data);
+        Loader.hide();
       },
-      error: function(data) { }
+      error: function(data) {
+        Loader.hide();
+      }
     });
   };
 
@@ -198,7 +205,6 @@ var Booking = (function() {
       $(selectors.listing).html('');
       $(selectors.counter).html('');
       $(selectors.empty).show();
-      Loader.hide();
       _hideBookings();
       return;
     }
@@ -214,22 +220,31 @@ var Booking = (function() {
         $(item).appendTo(selectors.listing);
       });
       $(selectors.counter).html('['+data.length+']');
-      Loader.hide();
     }
   };
 
   var _showBookings = function() {
     Notify.hide();
+    $(selectors.btnToggle).toggleClass(classes.active);
     $(selectors.wrapper).addClass(classes.visible);
     $(selectors.forms).show();
   };
 
   var _hideBookings = function() {
     $(selectors.wrapper).removeClass(classes.visible);
+    $(selectors.btnToggle).removeClass(classes.active);
     $(selectors.forms).hide();
   };
 
   var _toogleBookings = function() {
+
+    if ($(selectors.wrapper).hasClass(classes.visible)) {
+      $(selectors.btnToggle).removeClass(classes.active);
+    }
+    else {
+      $(selectors.btnToggle).addClass(classes.active);
+    }
+
     $(selectors.wrapper).toggleClass(classes.visible);
   };
 

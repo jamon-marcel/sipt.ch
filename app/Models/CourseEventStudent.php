@@ -13,6 +13,7 @@ class CourseEventStudent extends Model
 		'course_event_id',
 		'student_id',
 		'has_attendance',
+		'booking_number'
 	];
 	
 	public function course()

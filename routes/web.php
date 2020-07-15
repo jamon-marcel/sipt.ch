@@ -44,6 +44,11 @@ Route::get('/jubilaeums-fachtagung-15-jahre-sipt', 'SymposiumController@annivers
 Route::post('/jubilaeums-fachtagung-15-jahre-sipt/registration', 'SymposiumSubscriberController@store')->name('symposium_register');
 Route::get('/jubilaeums-fachtagung-15-jahre-sipt/anmeldung-erfolgreich', 'SymposiumController@registered')->name('symposium_register_success');
 
+// TOC
+Route::get('/agb', 'AboutController@toc')->name('about_toc');
+
+
+
 // Bookings
 Route::get('/booking/{courseEvent}', 'BookingController@add');
 Route::post('/booking/cancel/confirm', 'BookingController@destroy')->name('booking_cancel_confirm');
@@ -60,6 +65,10 @@ Route::post('/auth/student/login', 'LoginController@login')->name('student_login
 // Dev
 Route::get('/import', 'RegisterController@import');
 Route::get('/teilnehmerliste/{courseEvent}', 'RegisterController@participantlist');
+
+
+Route::get('/invoice', 'TestController@invoice');
+Route::get('/billable', 'TestController@billable');
 
 // Dev - email previews
 Route::get('preview/verification', function () {

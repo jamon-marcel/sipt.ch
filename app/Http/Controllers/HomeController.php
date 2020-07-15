@@ -28,19 +28,4 @@ class HomeController extends BaseController
   {
     return view('auth.login');
   }
-
-
-
-  // public function pdf()
-  // {
-  //   $this->viewData['subscriber'] = [];
-  //   $pdf  = PDF::loadView('pdf.invoice', $this->viewData);
-
-  //   // Set path & filename
-  //   $path = public_path() . '/storage/downloads/';
-  //   $file = 'sipt_rechnung-' . date('d.m.Y-H.i.s', time()) . '.pdf';
-
-  //   // Store file
-  //   $pdf->save($path . '/' . $file);
-  // }
 }

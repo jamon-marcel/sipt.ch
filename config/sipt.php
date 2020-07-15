@@ -9,5 +9,22 @@ return [
   |
   */
 
+  // Registration
   'registration_deadline' => '+1 day',
+
+  // Bank/ESR details
+  'esr_codeline_prefix' => '01',
+  'esr_customer_id'     => '96 34990',
+  'esr_account_str'     => '01-200027-2',
+  'esr_account_int'     => '012000272',
+
+  // Minimum Invoice Number
+  'min_invoice_number' => 605278,
+
+  // Minimum Booking Number
+  'min_booking_number_number' => 605278,
+
+  // E-Mail Carbon Copy
+  'email_cc' => 'm@marceli.to',
+  
 ];

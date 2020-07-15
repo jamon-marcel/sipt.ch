@@ -36,6 +36,7 @@ class SymposiumSubscriberController extends Controller
     }
 
     // Create subscriber    
+    $data['booking_number'] = SymposiumSubscriber::max('booking_number') + 1;
     $subscriber = SymposiumSubscriber::create($data);
     $subscriber->save();
 

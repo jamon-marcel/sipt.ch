@@ -2,7 +2,7 @@
 require('./bootstrap');
 
 // Plugins and libraries
-// require('./vendor/scrollTo.js');
+require('./vendor/simplebar.js');
 
 // Modules
 require('./modules/collapsible.js');
@@ -11,3 +11,4 @@ require('./modules/loader.js');
 require('./modules/booking.js');
 require('./modules/auth.js');
 require('./modules/notify.js');
+require('./modules/contact.js');

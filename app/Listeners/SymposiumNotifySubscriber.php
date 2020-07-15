@@ -36,7 +36,7 @@ class SymposiumNotifySubscriber
     ];
 
     Mail::to($subscriber->email)
-          ->cc(['m@marceli.to'])
+          ->cc([\Config::get('sipt.email_cc')])
           ->send(
               new SymposiumSubscriptionConfirmation(
                 [

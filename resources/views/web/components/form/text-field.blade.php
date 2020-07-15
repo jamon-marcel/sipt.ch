@@ -11,5 +11,10 @@
     placeholder="{{ $placeholder ?? '' }}"
     value="{{ old($name, $value ?? '') }}"
     {{ ($required ?? false) ? 'required' : '' }}
+
+    @if ($autocomplete != 'false')
+      autocomplete="off"
+    @endif
   >
+
 </div>

@@ -5,7 +5,7 @@
 <section class="theme-light">
   <x-header title="Beratung und Zertifizierung" />
   <article>
-    <h2>Beratung und zertifizierung von Institutionen</h2>
+    <h2>Beratung und Zertifizierung von Institutionen</h2>
     <div>
       <p>Anfragen zur Zertifizierung einer Traumastation können bei der Leitung des SIPT eingereicht werden.</p>
       <p>Prof. Dr. phil. habil. Rosmarie Barwinski<br>Telefon: (0041) 52 – 213 41 12<br>E-Mail: <a href="mailto:rb@sipt.ch">rb@sipt.ch</a></p>

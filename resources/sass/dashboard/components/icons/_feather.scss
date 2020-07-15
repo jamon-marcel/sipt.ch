@@ -53,6 +53,14 @@
     color: $color-primary !important;
   }
 
+  &.is-active {
+    color: $color-green !important;
+  }
+
+  &.is-inactive {
+    color: $color-medium-grey !important;
+  }
+
   &:hover {
     * {
       color: $color-medium-grey;

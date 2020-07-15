@@ -30,7 +30,7 @@ class CourseEventStudentCancel
     $student  = $event->student;
 
     Mail::to($student->user->email)
-          ->cc(['m@marceli.to'])
+          ->cc([\Config::get('sipt.email_cc')])
           ->send(
               new BookingCancelStudent(
                 [

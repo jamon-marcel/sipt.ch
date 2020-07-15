@@ -68,4 +68,15 @@ class AboutController extends BaseController
         ]
       );
   }
+
+  /**
+   * Show the toc
+   *
+   * @return \Illuminate\Http\Response
+   */
+
+  public function toc()
+  { 
+    return view($this->viewPath . 'toc');
+  }
 }

@@ -6,7 +6,7 @@
     <div class="content">
       <h2>Wichtige Kontakte &amp; Adressen</h2>
       <p>
-        Schweizer Institut für  Psychotraumatologie (SIPT) GmbH<br>
+        Schweizer Institut für  Psychotraumatologie (SIPT) GmbH<br>
         Fortbildung – Supervision – Forschung<br>
         Neuwiesenstrasse 95<br>
         8400 Winterthur<br><br>

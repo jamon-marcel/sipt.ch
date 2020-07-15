@@ -4,11 +4,31 @@
 @section('section')
 <section class="theme-light">
   <x-header title="Bildungsangebot" />
-  <article>
-    <h2>{{$training->title}}</h2>
-    {!! $training->description !!}
-  </article>
-  
+
+  @if ($training->description_short)
+    <article>
+      <h2>{{$training->title}}</h2>
+      {!! $training->description_short !!}
+    </article>
+
+    @if ($training->description)
+      <article class="collapsible js-clpsbl">
+        <h2>
+          <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">Beschreibung</a>
+        </h2>
+        <div class="collapsible__content js-clpsbl-body" style="display:none">
+          {!! $training->description !!}
+        </div>
+      </article>
+    @endif
+
+  @else
+    <article>
+      <h2>{{$training->title}}</h2>
+      {!! $training->description !!}
+    </article>
+  @endif
+
   @if ($training->structure)
     <article class="collapsible js-clpsbl">
       <h2>
@@ -16,6 +36,25 @@
       </h2>
       <div class="collapsible__content js-clpsbl-body" style="display:none">
         {!! $training->structure !!}
+      </div>
+    </article>
+  @endif
+
+  @if ($training->courses)
+    <article class="collapsible js-clpsbl">
+      <h2>
+        <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">Module</a>
+      </h2>
+      <div class="collapsible__content js-clpsbl-body" style="display:none">
+        <div class="list">
+          @foreach($training->courses as $course)
+          <div class="list__item">
+            <a href="{{ route('course_show', ['slug' => AppHelper::slug($course->title), 'course' => $course->id]) }}">
+              {{ $course->title }}
+            </a>
+          </div>
+          @endforeach
+        </div>
       </div>
     </article>
   @endif
@@ -63,26 +102,7 @@
       </div>
     </article>
   @endif
-
-  @if ($training->courses)
-    <article class="collapsible js-clpsbl">
-      <h2>
-        <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">Module</a>
-      </h2>
-      <div class="collapsible__content js-clpsbl-body" style="display:none">
-        <div class="list">
-          @foreach($training->courses as $course)
-          <div class="list__item">
-            <a href="{{ route('course_show', ['slug' => AppHelper::slug($course->title), 'course' => $course->id]) }}">
-              {{ $course->title }}
-            </a>
-          </div>
-          @endforeach
-        </div>
-      </div>
-    </article>
-  @endif
 </section>
-<x-quote size="is-sm" quote="Die Weiterbildung zur Fachberaterin und Fachpädagogin Psychotraumatologie am SIPT war für mich zentral. Die Theorien der Übertragungsphänomene, das Wissen um die Bedeutung der frühkindlichen Bindung, das Verstehen von hirnorganischer Abläufe gerade auch unter Stress sind wichtige Inhalte in meinen Weiterbildungen." author="Marianne Herzog, Fachberaterin / Fachpädagogin Psychotraumatologie" />
+<x-quote size="is-sm" quote="Die Weiterbildung zur Fachberaterin und Fachpädagogin Psychotraumatologie am SIPT war für mich zentral. Die Theorien der Übertragungsphänomene, das Wissen um die Bedeutung der frühkindlichen Bindung, das Verstehen von hirnorganischer Abläufe gerade auch unter Stress sind wichtige Inhalte in meinen Weiterbildungen." author="Marianne Herzog, Fachberaterin / Fachpädagogin Psychotraumatologie" />
 
 @endsection

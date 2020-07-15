@@ -21,7 +21,7 @@ class SymposiumSubscriber extends Model
 		'phone_business',
 		'mobile',
 		'qualifications',
-		'invoice_number',
+		'booking_number',
     'user_id',
     'symposium_id',
 	];

@@ -12,7 +12,7 @@
         <li>Nachweis als Facharzt/Fachärztin in Psychotherapie oder eine</li>
         <li>Praxisbewilligung als PsychotherapeutIn oder eine äquivalente Qualifikation</li>
       </ul>
-      <p>Sie absolvierten das Curriculum zum/zur FachpsychotherapeutIn für Psychotraumatologie beim SIPT GmbH. Das differenzierte Fortbildungsangebot des SIPT GmbH qualifiziert sie als Fachpsychotherapeuten im Bereich psychotraumatischer Störungen. Sie sind fähig Traumafolgestörungen zuverlässig zu erkennen und differentiell zu behandeln. Differentialdiagnose, differentielle Indikation (und Kontraindikation) traumatherapeutischer Techniken die Fähigkeit zu Dokumentation, Qualitätssicherung und Eigensupervision bilden den Kern des Qualifikationsprofils.</p>
+      <p>Sie absolvierten das Curriculum zum/zur FachpsychotherapeutIn für Psychotraumatologie beim SIPT GmbH. Das differenzierte Fortbildungsangebot des SIPT GmbH qualifiziert sie als Fachpsychotherapeuten im Bereich psychotraumatischer Störungen. Sie sind fähig Traumafolgestörungen zuverlässig zu erkennen und differentiell zu behandeln. Differentialdiagnose, differentielle Indikation (und Kontraindikation) traumatherapeutischer Techniken die Fähigkeit zu Dokumentation, Qualitätssicherung und Eigensupervision bilden den Kern des Qualifikationsprofils.</p>
     </div>
   </article>
   <article class="collapsible js-clpsbl">

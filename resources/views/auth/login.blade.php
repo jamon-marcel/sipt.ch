@@ -3,18 +3,17 @@
 @section('seo_description', '')
 @section('section')
 <section class="theme-light">
-  <x-header title="SIPT - Login" />
+  <x-header title="Login" />
   <article>
     <h2>Login</h2>
     <div>
-      <p>Lorem ipsum dolor samet es ind nano.</p>
       @if ($errors->any())
         <x-alert type="danger" message="{{__('messages.general_error')}}" />
       @endif
       <form method="POST" class="auth" action="{{ route('login') }}">
         @csrf
-        <x-text-field label="E-Mail" type="email" name="email" />
-        <x-text-field label="Passwort" type="password" name="password" />
+        <x-text-field label="E-Mail" type="email" name="email" autocomplete="false" />
+        <x-text-field label="Passwort" type="password" name="password" autocomplete="false" />
         <div class="form-buttons align-justify">
           @if (Route::has('password.request'))
             <a href="{{ route('password.request') }}" class="form-helper">Passwort vergessen?</a>

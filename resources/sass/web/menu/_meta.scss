@@ -5,9 +5,29 @@
  */
 
 nav.meta-menu {
-  display: none;
+  display: flex;
   height: $space-lg;
-  padding-left: $space-sm;
+  position: absolute;
+  right: 0;
+  top: 68px;
+  z-index: 401;    
+
+  @include bp-sm() {
+    align-items: flex-end;
+    background-color: transparent;
+    justify-content: flex-start;
+    left: 75vw;
+    padding-left: $space-sm;
+    position: fixed;
+    top: 0;
+    z-index: 501;    
+  }
+
+  @include bp-lg() {
+    left: auto;
+    right: 68px;
+    width: calc(25vw - 70px);
+  }
 
   @include bp-xl() {
     padding-left: $space-lg;
@@ -24,20 +44,6 @@ nav.meta-menu {
   a {
     @include font-bold();
     @include font-size($fs-sm);
-  }
-
-  @include bp-md() {
-    align-items: flex-end;
-    background-color: transparent;
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    right: 0;
-    z-index: 301;    
-  }
-
-  @include bp-lg() {
-    width: 25vw;
   }
 
   

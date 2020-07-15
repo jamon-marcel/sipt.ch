@@ -22,7 +22,7 @@
     @slot('footer')
         @component('mail::footer')
         Adresse
-        SIPT Schweizer Institut für Psychotraumatologie
+        SIPT Schweizer Institut für Psychotraumatologie
         Neuwiesenstrasse 95
         CH-8400 Winterthur
         

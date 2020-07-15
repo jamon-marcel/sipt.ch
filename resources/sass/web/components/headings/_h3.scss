@@ -6,6 +6,6 @@
 
 h3 {
   @include font-bold();
-  @include font-size($fs-sm);
+  // @include font-size($fs-sm);
   margin-bottom: $space-xxs;
 }

@@ -3,7 +3,7 @@
 @section('seo_description', '')
 @section('section')
 <section class="theme-light">
-  <x-header title="SIPT - Passwort zurücksetzen" />
+  <x-header title="Passwort zurücksetzen" />
   <article>
     <h2>Passwort zurücksetzen</h2>
     <div>
@@ -21,7 +21,7 @@
         <x-text-field label="Passwort" type="password" name="password" />
         <x-text-field label="Passwort bestätigen" type="password" name="password_confirmation" required autocomplete="new-password" />
         <div class="form-buttons align-end">
-          <x-button label="Passwort zurücksetzen" name="reset_password" btnClass="btn-primary js-btn-loader" type="submit" />
+          <x-button label="zurücksetzen" name="reset_password" btnClass="btn-primary js-btn-loader" type="submit" />
         </div>
       </form>
     </div>

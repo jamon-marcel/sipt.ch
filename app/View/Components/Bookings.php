@@ -30,7 +30,7 @@ class Bookings extends Component
   public function __construct(Request $request, Student $student)
   {
     $this->bookings = $request->session()->has('bookings') ? $request->session()->get('bookings') : [];
-    $this->student = auth()->user() ? $student->with('user')->authenticated(auth()->user()->id) : false;
+    $this->student  = auth()->user() && auth()->user()->role == 'student' ? $student->with('user')->authenticated(auth()->user()->id) : false;
   }
 
   /**

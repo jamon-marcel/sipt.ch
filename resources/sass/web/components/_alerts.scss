@@ -6,8 +6,7 @@
  */
 
 .alert {
-  //border: 1px solid $color-black;
-  @include font-bold();
+  @include font-regular();
   @include font-size($fs-sm);
   margin-bottom: $space-md;
   margin-top: $space-md;

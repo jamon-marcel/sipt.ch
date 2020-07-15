@@ -48,6 +48,13 @@ class TextField extends Component
   public $css;
 
   /**
+   * Autocomplete
+   *
+   * @var boolean
+   */
+  public $autocomplete;
+
+  /**
    * Create a new component instance.
    *
    * @param $name
@@ -59,7 +66,7 @@ class TextField extends Component
    * 
    * @return void
    */
-  public function __construct($name, $type = 'text', $label, $placeholder = NULL, $required = FALSE, $css = NULL)
+  public function __construct($name, $type = 'text', $label, $placeholder = NULL, $required = FALSE, $css = NULL, $autocomplete = TRUE)
   {
     $this->name = $name;
     $this->type = $type;
@@ -67,6 +74,7 @@ class TextField extends Component
     $this->placeholder = $placeholder;
     $this->required = $required;
     $this->css = $css;
+    $this->autocomplete = $autocomplete;
   }
 
   /**

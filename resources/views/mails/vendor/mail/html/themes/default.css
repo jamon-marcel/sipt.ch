@@ -162,11 +162,13 @@ img {
 
 .table th {
   border-bottom: 1px solid #000000;
+  font-size: 16px;
   margin: 0;
   padding-bottom: 8px;
 }
 
 .table td {
+  font-size: 16px;
   color: #000000;
   margin: 0;
   padding: 10px 0;
@@ -248,12 +250,14 @@ a.anchor {
 
 .content-table {
   border-bottom: 1px solid #000000;
+  font-size: 16px !important;
   width: 100%;
   margin-bottom: 24px;
 }
 
 .content-table td {
   border-top: 1px solid #000000;
+  font-size: 16px !important;
   padding: 4px 0;
   text-align: left;
   vertical-align: top

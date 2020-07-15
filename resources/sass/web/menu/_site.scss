@@ -24,7 +24,7 @@
     pointer-events: all;
     transform: translateX(0);
     transition: transform .16s ease-in;
-    z-index: 201;
+    z-index: 601;
   }
 
   @include bp-sm() {
@@ -57,16 +57,23 @@
   > div {
     background-color: $color-white;
     margin-top: $space-sm;
+    height: calc(100vh - #{$space-mega});
+    overflow-x: auto;
     padding: 0 $space-sm;
-    position: relative;    
-    z-index: 10;
     
     @include bp-md() {
       margin-top: $space-giga;
+      height: calc(100vh - #{$space-giga});
     }
     
     @include bp-xl() {
       padding: 0 $space-lg;
+    }
+
+    .site-menu__inner {
+      background-color: $color-white;
+      position: relative;
+      z-index: 10;
     }
 
   }

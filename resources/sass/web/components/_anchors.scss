@@ -15,3 +15,14 @@
     text-decoration: underline;
   }
 }
+
+.anchor-bookings {
+
+  &.is-active {
+    color: $color-orange;
+  }
+
+  em {
+    @include font-regular();
+  }
+}

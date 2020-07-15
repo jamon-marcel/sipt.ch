@@ -3,7 +3,7 @@
 @section('seo_description', '')
 @section('section')
 <section class="theme-light">
-  <x-header title="SIPT - Passwort vergessen" />
+  <x-header title="Passwort vergessen" />
   <article>
     <h2>Passwort vergessen?</h2>
     <div>
@@ -18,7 +18,7 @@
         @csrf
         <x-text-field label="E-Mail" type="email" name="email" />
         <div class="form-buttons align-end">
-          <x-button label="Link anfordern" name="register" btnClass="btn-primary js-btn-loader" type="submit" />
+          <x-button label="senden" name="register" btnClass="btn-primary js-btn-loader" type="submit" />
         </div>
       </form>
     </div>

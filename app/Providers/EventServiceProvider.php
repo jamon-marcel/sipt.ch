@@ -43,6 +43,10 @@ class EventServiceProvider extends ServiceProvider
     'App\Events\CourseEventCancelled' => [
       'App\Listeners\CourseEventStudentCancel',
     ],
+
+    'App\Events\StudentInvoice' => [
+      'App\Listeners\CreateSendStudentInvoice',
+    ],
   ];
 
   /**

@@ -72,7 +72,7 @@
           ></tinymce-editor>
         </div>
         <div class="form-row">
-          <label>Veröffentlichungen</label>
+          <label>Veröffentlichungen</label>
           <tinymce-editor
             :api-key="tinyApiKey"
             :init="tinyConfig"

@@ -42,6 +42,11 @@ class Student extends Model
 		return $this->hasOne('App\Models\User', 'id', 'user_id');
 	}
 
+	public function invoices()
+	{
+		return $this->hasMany('App\Models\Invoice');
+	}
+
   public function courseEvents($constraint = NULL)
   {
 		if ($constraint == 'upcoming')

@@ -6,10 +6,9 @@
 
 aside.booking {
   background-color: $color-white;
-  // box-shadow: $box-shadow;
   height: 100%;
   overflow-x: auto;
-  padding-top: $space-xl;
+  padding-top: 80px;
   position: fixed;
   right: 0;
   transform: translateX(100%);
@@ -21,10 +20,6 @@ aside.booking {
 
   &.is-visible {
     transform: translateX(0);
-
-    a.my-bookings {
-      color: $color-orange;
-    }
   }
 
   @include bp-sm() {
@@ -42,5 +37,49 @@ aside.booking {
     @include bp-xl() {
       margin-top: $space-xl;
     }
+  }
+}
+
+aside.contact {
+  background-color: $color-primary;
+  height: 100%;
+  overflow-x: auto;
+  padding-top: 80px;
+  position: fixed;
+  right: 0;
+  transform: translateX(100%);
+  transition: transform .12s ease-out;
+  top: 0;
+  width: 100%;
+  z-index: 701;
+  -webkit-overflow-scrolling: touch;
+
+  &.is-visible {
+    transform: translateX(0);
+  }
+
+  @include bp-sm() {
+    padding-top: 0;
+    width: 33.3333%;
+  }
+
+  @include bp-md() {
+    width: 25vw;
+    z-index: 299;
+  }
+
+  h1 {
+    color: $color-black;
+  }
+
+  a {
+    color: $color-black;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .imprint {
+    @include font-size($fs-sm);
   }
 }

@@ -25,4 +25,13 @@ class Administrator extends Model
 	{
 		return $this->hasOne('App\Models\User', 'id', 'user_id');
 	}
+
+  /**
+   * Accessor 'getFullName'
+   */
+
+  public function getFullNameAttribute()
+  {
+    return $this->firstname . ' ' . $this->name;
+  }
 }

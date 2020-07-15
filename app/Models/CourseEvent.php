@@ -40,7 +40,15 @@ class CourseEvent extends Model
 	
 	public function students()
 	{
-		return $this->belongsToMany('App\Models\Student');
+		return $this->belongsToMany('App\Models\Student')->withPivot('has_attendance', 'booking_number', 'is_billed');
+	}
+
+	public function billableStudents()
+	{
+		return $this->belongsToMany('App\Models\Student')
+								->with('user')
+								->withPivot('has_attendance', 'booking_number', 'is_billed')
+								->where('is_billed', '=', 0);
 	}
 
   /**
@@ -62,7 +70,17 @@ class CourseEvent extends Model
 		$constraint = date('Y-m-d', time());
 		return $query->where('dateStart', '<', $constraint)->orderBy('dateStart', 'DESC')->get();
 	}
-	
+
+  /**
+   * Scope for billable events
+   */
+
+	public function scopeBillable($query)
+	{
+		$constraint = date('Y-m-d', strtotime('+30 days'));
+		return $query->where('dateStart', '<=', $constraint)->get();
+	}
+
 
   /**
    * Mutator 'setDateStart'

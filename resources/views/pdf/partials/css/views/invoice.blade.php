@@ -1,4 +1,12 @@
 <style>
+
+@font-face {
+  font-family: 'OCRBRegular';
+  src: url({{ storage_path('fonts/OCRBRegular.ttf') }}) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
 table.invoice-meta-data {
   margin-bottom: 5mm;
 }
@@ -40,6 +48,7 @@ table.invoice-positions td.number {
 }
 
 table.invoice-positions td.price {
+  padding-right: 0 !important;
   text-align: right;
 }
 
@@ -79,8 +88,9 @@ table.invoice-total td:last-child {
 }
 
 .payment-item {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'OCRBRegular';
   font-size: 9pt;
+  line-height: 8pt;
   position: absolute;
 }
 
@@ -107,7 +117,7 @@ table.invoice-total td:last-child {
   letter-spacing: .5mm;
   padding-left: .5mm;
   text-align: right;
-  top: 50.6mm;
+  top: 51mm;
 }
 
 .payment-item.payment-item__amount-left {
@@ -138,11 +148,19 @@ table.invoice-total td:last-child {
 
 .payment-item.payment-address-left {
   left: 2mm;
-  top: 67mm;
+  top: 70mm;
 }
 
 .payment-item.payment-address-right {
   left: 124.4mm;
   top: 47mm;
+}
+
+.payment-item.payment-codeline {
+  font-size: 12pt;
+  letter-spacing: .01mm;
+  left: 68mm;
+  top: 88mm;
+  width: 140mm;
 }
 </style>

@@ -105,5 +105,13 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('file/upload','Api\UploadController@file');
   });
 
+  // Backoffice
+  Route::middleware('role:admin')->group(function() {
+    Route::get('backoffice/courses/list/concluded', 'Api\BackofficeController@getConcludedCourses');
+    Route::get('backoffice/student/attendance/{student}/{courseEvent}', 'Api\BackofficeController@setAttendance');
+    Route::get('backoffice/course/event/{courseEvent}', 'Api\BackofficeController@getCourseEvent');
+
+  });
+
 
 });

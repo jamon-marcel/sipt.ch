@@ -1,1 +1,1 @@
-<p>Freundliche Grüsse<br>SIPT Schweizer Institut für Psychotraumatologie</p>
+<p>Freundliche Grüsse<br>SIPT Schweizer Institut für Psychotraumatologie</p>
