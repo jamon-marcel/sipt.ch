@@ -29,6 +29,15 @@ class Symposium extends Model
   }
   
   /**
+   * Relationship for all subscribers
+   */
+  
+	public function invoices()
+	{
+		return $this->hasMany('App\Models\Invoice');
+	}
+
+  /**
    * Accessor 'getDate'
    */
 

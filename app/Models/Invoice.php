@@ -12,11 +12,18 @@ class Invoice extends Model
 	protected $fillable = [
     'number',
     'date',
+    'amount',
+    'date_notice',
     'state',
     'file',
     'is_paid',
+    'is_replacement',
+    'replaced_by',
     'course_event_id',
-    'student_id'
+    'student_id',
+    'symposium_subscriber_id',
+    'symposium_id',
+    'user_id',
   ];
 
 	/**
@@ -34,8 +41,41 @@ class Invoice extends Model
 
 	public function event()
 	{
-		return $this->belongsTo('App\Models\CourseEvent');
+		return $this->belongsTo('App\Models\CourseEvent', 'course_event_id', 'id');
   }
+
+  public function replacement()
+  {
+    return $this->belongsTo('App\Models\invoice', 'replaced_by', 'id');
+  }
+
+	/**
+	 * Relationship for symposiumSubscriber
+	 */
+
+	public function symposiumSubscriber()
+	{
+		return $this->belongsTo('App\Models\SymposiumSubscriber', 'symposium_subscriber_id', 'id');
+  }
+
+  /**
+	 * Relationship for symposium
+	 */
+
+	public function symposium()
+	{
+		return $this->belongsTo('App\Models\Symposium', 'symposium_id', 'id');
+  }
+
+	/**
+	 * Relationship for user
+	 */
+
+	public function user()
+	{
+		return $this->belongsTo('App\Models\User');
+  }
+
   
   /**
    * Mutator 'setDate'
@@ -47,10 +87,28 @@ class Invoice extends Model
   }
 
   /**
+   * Mutator 'setDateNotice'
+   */
+
+  public function setDateNoticeAttribute($value)
+  {
+    $this->attributes['date_notice'] = \Carbon\Carbon::parse($value)->format('Y.m.d');
+  }
+
+  /**
    * Accessor 'getDate'
    */
 
   public function getDateAttribute($value)
+  {
+    return \Carbon\Carbon::parse($value)->format('d.m.Y');
+  }
+
+  /**
+   * Accessor 'getDateNotice'
+   */
+
+  public function getDateNoticeAttribute($value)
   {
     return \Carbon\Carbon::parse($value)->format('d.m.Y');
   }

@@ -4,15 +4,20 @@
  * -----------------------------------------------------------------------------
  */
 
+.icon-arrow,
 .icon-arrow-right {
   @extend %icon-ib;
   @extend %icon-bg;
   align-items: center;
   background-image: url($url-icons + 'arrow-right.svg');
   background-size: 20px auto;
-  background-position: bottom left;
+  background-position: top 2px left;
   color: $color-black;
-  @include font-size($fs-sm);
   padding-left: 24px;
   text-decoration: none;
+}
+
+.icon-arrow-right {
+  background-position: bottom left;
+  @include font-size($fs-sm);
 }

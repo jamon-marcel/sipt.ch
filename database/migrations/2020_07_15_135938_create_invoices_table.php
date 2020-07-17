@@ -17,12 +17,19 @@ class CreateInvoicesTable extends Migration
             $table->uuid('id')->primary();
             $table->mediumInteger('number');
             $table->date('date');
+            $table->string('file');
             $table->tinyInteger('state')->nullable();
             $table->tinyInteger('is_paid')->default(0);
-            $table->uuid('student_id');
+            $table->uuid('student_id')->nullable();
             $table->foreign('student_id')->references('id')->on('students');
-            $table->uuid('course_event_id');
+            $table->uuid('course_event_id')->nullable();
             $table->foreign('course_event_id')->references('id')->on('course_events');
+
+            $table->uuid('symposium_subscriber_id')->nullable();
+            $table->foreign('symposium_subscriber_id')->references('id')->on('symposium_subscribers');
+            $table->uuid('symposium_id')->nullable();
+            $table->foreign('symposium_id')->references('id')->on('symposiums');
+
             $table->softDeletes();
             $table->timestamps();
         });

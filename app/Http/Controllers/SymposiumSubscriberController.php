@@ -3,7 +3,7 @@ namespace App\Http\Controllers;
 use App\Models\Symposium;
 use App\Models\SymposiumSubscriber;
 use App\Models\User;
-use App\Events\SymposiumConfirmSubscription;
+use App\Events\SymposiumSubscription;
 use App\Http\Requests\SymposiumSubscriberStoreRequest;
 use Illuminate\Http\Request;
 
@@ -34,17 +34,17 @@ class SymposiumSubscriberController extends Controller
     {
       $data['user_id'] = $user->id;
     }
+    
+    // Create booking number
+    $booking_number = SymposiumSubscriber::withTrashed()->max('booking_number') + 1;
+    $data['booking_number'] = str_pad($booking_number, 6, "0", STR_PAD_LEFT);
 
-    // Create subscriber    
-    $data['booking_number'] = SymposiumSubscriber::max('booking_number') + 1;
+    // Create subscriber
     $subscriber = SymposiumSubscriber::create($data);
     $subscriber->save();
 
     // Event: Subscription confirmation
-    event(new SymposiumConfirmSubscription($subscriber));
-
-    // Delete for testing
-    $subscriber->forceDelete();
+    event(new SymposiumSubscription($subscriber));
 
     return redirect()->route('symposium_register_success');
   }

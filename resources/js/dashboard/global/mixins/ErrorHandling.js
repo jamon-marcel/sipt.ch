@@ -8,6 +8,10 @@ export default {
   
   mounted() {
 
+    window.intercepted.$on('response:401', data => {
+      this.unauthorized(data);
+    });
+
     window.intercepted.$on('response:403', data => {
       this.forbiddenError(data);
     });
@@ -24,13 +28,19 @@ export default {
       this.validationError(data);
     });
 
+    window.intercepted.$on('response:500', data => {
+      this.serverError(data);
+    });
+
   },
 
   beforeDestroy(){
+    window.intercepted.$off('response:401', this.listener);
     window.intercepted.$off('response:403', this.listener);
     window.intercepted.$off('response:404', this.listener);
     window.intercepted.$off('response:405', this.listener);
     window.intercepted.$off('response:422', this.listener);
+    window.intercepted.$off('response:500', this.listener);
   },
 
   methods: {
@@ -46,7 +56,8 @@ export default {
     },
 
     serverError(data) {
-      this.$notify({ type: "error", text: `${data.status} ${data.code}`});
+      this.isLoading = false;
+      this.$notify({ type: "error", text: `${data.status} ${data.code}<br>${data.body.message}`});
     },
 
     notFoundError(data) {
@@ -63,6 +74,10 @@ export default {
       this.isLoading = false;
       this.$notify({ type: "error", text: `${data.status} - Zugriff verweigert!`});
       this.$router.push({ name: 'forbidden' });
+    },
+
+    unauthorized(data) {
+      document.location.href = '/login';
     }
   },
 

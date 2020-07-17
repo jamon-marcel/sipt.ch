@@ -3,193 +3,81 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DataCollection;
 use App\Models\Invoice;
-use App\Models\Student;
-use App\Models\CourseEvent;
-use App\Models\CourseEventStudent;
+use App\Events\InvoiceReminder;
 use Illuminate\Http\Request;
 
 class InvoiceController extends Controller
 {
-  public function __construct(
-    Student $student, 
-    CourseEvent $courseEvent,
-    CourseEventStudent $courseEventStudent)
+  public function __construct(Invoice $invoice)
   {
-    $this->student = $student;
-    $this->courseEvent = $courseEvent;
-    $this->courseEventStudent = $courseEventStudent;
+    $this->invoice = $invoice;
   }
 
   /**
-   * Get a list of students
-   * 
+   * Get all invoices
+   *
    * @return \Illuminate\Http\Response
    */
   public function get()
   {
-    return new DataCollection($this->student->orderBy('name')->get());
+    $invoices = $this->invoice->with('event.course', 'student', 'symposiumSubscriber', 'symposium')
+                              ->orderBy('number', 'DESC')
+                              ->get();
+    return new DataCollection($invoices);
   }
 
   /**
-   * Get a single student for a given student or an authenticated student
+   * Get history by given invoice
+   *
+   * @param Invoice $invoice
+   * @return \Illuminate\Http\Response
+   */
+  public function getHistory(Invoice $invoice)
+  {
+    $invoice = $this->invoice->with('event.course', 'student', 'symposiumSubscriber', 'symposium', 'replacement')
+                             ->where('replaced_by', '=', $invoice->id)
+                             ->withTrashed()
+                             ->get()
+                             ->first();
+    return response()->json($invoice);
+  }
+
+  /**
+   * Get a single invoice for a given invoice
    * 
-   * @param Student $student
+   * @param Invoice $invoice
    * @return \Illuminate\Http\Response
    */
-  public function find(Student $student)
+  public function find(Invoice $invoice)
   {
-    $student = auth()->user()->isAdmin()
-                ? $this->student->with('user')->findOrFail($student->id)
-                : $this->student->with('user')->authenticated(auth()->user()->id);
-
-    return response()->json($student);
+    $invoice = $this->invoice->findOrFail($invoice->id);
+    return response()->json($invoice);
   }
 
   /**
-   * Update the current student
-   *
-   * @param Student $student
-   * @param \Illuminate\Http\Request $request
-   * @return \Illuminate\Http\Response
-   */
-  public function update(Student $student, StudentStoreRequest $request)
-  {
-    $student->update($request->except('user.email'));
-    $student->save();
-    return response()->json('successfully updated');
-  }
-
-  /**
-   * Get course events for a given student or an authenticated student with constraints
+   * Change state for a given invoice
    * 
-   * @param String $type
-   * @param Integer $limit
-   * @param Student $student
+   * @param Invoice $invoice
    * @return \Illuminate\Http\Response
    */
-  public function getEvents($type = NULL, $limit = 5, Student $student)
+  public function state(Invoice $invoice)
   {
-    // Get student by logged in user
-    $student = auth()->user()->isAdmin()
-                ? $this->student->with('user')->findOrFail($student->id)
-                : $this->student->with('user')->authenticated(auth()->user()->id);
-
-    // Get events by type
-    switch($type)
-    {
-      // Upcoming events
-      case 'upcoming':
-        $courseEvents = $student->courseEvents('upcoming')
-                                ->with('course', 'location', 'dates.tutor')
-                                ->where('course_event_student.deleted_at', '=', NULL)
-                                ->take($limit)
-                                ->get();
-      break;
-
-      // Booked events
-      case 'booked':
-        $courseEvents = $student->courseEvents()
-                                ->with('course', 'location', 'dates.tutor')
-                                ->where('has_attendance', '=', 0)
-                                ->where('course_event_student.deleted_at', '=', NULL)
-                                ->get();
-      break;
-
-      // Attended events
-      case 'attended':
-        $courseEvents = $student->courseEvents()
-                                ->with('course', 'location', 'dates.tutor')
-                                ->where('has_attendance', '=', 1)
-                                ->where('course_event_student.deleted_at', '=', NULL)
-                                ->get();
-      break;
-
-      // All events
-      default:
-        $courseEvents = $student->courseEvents()->with('course', 'location', 'dates.tutor')->get();
-      break;
-    }
-
-    return response()->json(['student' => $student, 'courseEvents' => $courseEvents]);
+    $invoice->is_paid = $invoice->is_paid == 0 ? 1 : 0;
+    $invoice->save();
+    return response()->json($invoice->is_paid); 
   }
 
   /**
-   * Get a course event for a given student or an authenticated student
-   *
-   * @param CourseEvent $courseEvent
-   * @param Student $student
-   * @return \Illuminate\Http\Response
-   */
-  public function getEvent(CourseEvent $courseEvent, Student $student)
-  { 
-    // Get student by logged in user
-    $student = auth()->user()->isAdmin()
-                ? $this->student->with('user')->findOrFail($student->id)
-                : $this->student->with('user')->authenticated(auth()->user()->id);
-
-    // Get courseEvent with all related data
-    $courseEvent = $student->courseEvents()
-                           ->with('course', 'location', 'dates.tutor', 'documents')
-                           ->find($courseEvent->id);
-
-    return response()->json($courseEvent);
-  }
-
-  /**
-   * Store a course event for given student or an authenticated user
-   *
-   * @param Student $student
-   * @param \Illuminate\Http\Request $request
+   * Send invoice notice by given invoice and type
+   * 
+   * @param Invoice $invoice
+   * @param String $noticeType
    * @return \Illuminate\Http\Response
    */
 
-  public function storeEvent(StudentStoreCourseEventRequest $request, Student $student)
+  public function notice(Invoice $invoice, $noticeType = NULL)
   {
-    // Get student
-    $student = auth()->user()->isAdmin()
-                ? $this->student->with('user')->findOrFail($student->id)
-                : $this->student->with('user')->authenticated(auth()->user()->id);
-
-    // Create Course Event
-    $course_event = CourseEventStudent::updateOrCreate([
-      'course_event_id' => $request->courseEventId,
-      'student_id' => $student->id,
-    ]);
-    $course_event->save();
-
-    // Get course event data for confirmation
-    $courseEvent = $this->courseEvent->with('course', 'dates')->find($request->courseEventId);
-
-    // Send confirmation
-    event(new CourseEventBooked($student, $courseEvent));
-
-    return response()->json('successfully stored');
-  }
-
-  /**
-   * Remove a course event for given student or an authenticated user
-   *
-   * @param CourseEvent $courseEvent
-   * @param Student $student
-   * @return \Illuminate\Http\Response
-   */
-  public function destroyEvent(CourseEvent $courseEvent, Student $student)
-  {
-    $student = auth()->user()->isAdmin()
-                ? $this->student->findOrFail($student->id)
-                : $this->student->authenticated(auth()->user()->id);
-
-    // Get record
-    $courseEventStudent = $this->courseEventStudent->where('course_event_id', '=', $courseEvent->id)
-                                                   ->where('student_id', '=', $student->id)
-                                                   ->firstOrFail();
-
-    // Delete record
-    $courseEventStudent->delete();
-    
-    // Confirm annulation
-    event(new CourseEventCancelled($student, $courseEvent));
-
-    return response()->json('successfully removed');
+    event(new InvoiceReminder($invoice, $noticeType));
+    return response()->json(true); 
   }
 }

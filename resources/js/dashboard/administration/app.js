@@ -34,6 +34,9 @@ Vue.use(require('vue-moment'));
 import LoadingIndicator from "@/global/components/ui/LoadingIndicator";
 Vue.component('LoadingIndicator', LoadingIndicator);
 
+import Separator from "@/global/components/ui/Separator";
+Vue.component('Separator', Separator);
+
 // Vue-cleave
 import Cleave from 'cleave.js';
 Vue.directive('cleave', {

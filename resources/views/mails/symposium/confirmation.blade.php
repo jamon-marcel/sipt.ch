@@ -17,7 +17,7 @@
   </tr>
   <tr>
     <td width="120">Kosten:</td>
-    <td>{{ $subscriber['symposium']['cost'] }}.–</td>
+    <td>CHF {{ $subscriber['symposium']['cost'] }}</td>
   </tr>
 </table>
 <p>Dürfen wir Sie bitten, die Gebühr für die Teilnahme innert 30 Tagen zu überweisen.</p>

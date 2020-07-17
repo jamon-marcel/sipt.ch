@@ -23,6 +23,9 @@ export default {
 
     timeFormat(time) {
       if (time.length == 0) return;
+
+      if (time.length == 3 && time[time.length-1] == '.') return time + '00';
+
       let t = time.split('.');
       if (t[1] !== undefined) {
         if (t[1].length == 1) {
@@ -32,6 +35,7 @@ export default {
       else {
         return t[0] + '.00';
       }
+
       return time;
     },
 

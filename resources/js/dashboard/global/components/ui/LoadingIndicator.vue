@@ -33,7 +33,7 @@ export default {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 501;
 }
 
 .loading-indicator.is-widget {

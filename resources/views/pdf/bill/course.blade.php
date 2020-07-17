@@ -61,7 +61,7 @@
       <td class="unit">Modul</td>
       <td class="number">{{$invoice['courseEvent']->courseNumber}}</td>
       <td class="description">
-        {{$invoice['courseEvent']->course->title }}<br>{{\AppHelper::datesToString($invoice['courseEvent']->dates)}}
+        {{$invoice['courseEvent']->course->title }}, {{\AppHelper::datesToString($invoice['courseEvent']->dates)}}
       </td>
       <td class="price">CHF {{$invoice['invoice_amount']}}</td>
     </tbody>

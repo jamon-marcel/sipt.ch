@@ -5,8 +5,8 @@
 <section class="theme-light">
   <x-header title="Bildungsangebot" />
   <article>
-    <h2>Annulation bestätigen</h2>
-    <p>Bitte bestätigen Sie die Annulation ihrer Buchung:</p>
+    <h2>Annullation bestätigen</h2>
+    <div><p>Bitte bestätigen Sie die Annullation Ihrer Buchung:</p></div>
   </article>
   <article class="is-narrow">
     <div class="list list--event">
@@ -20,13 +20,18 @@
         DozentInnen: {{AppHelper::tutorsToString($courseEvent->dates, TRUE)}}
       </div>
       <div class="list__item">
-        Kosten: CHF {{$courseEvent->course->cost}}.–
+        Kosten: CHF {{$courseEvent->course->cost}}
       </div>
     </div>
+    @if ($penalty > 0)
+      <div class="alert-warning">
+        Für Ihre Annullation müssen wir Ihnen leider <strong>{{$penalty}}%</strong> der Modulkosten in Rechnung stellen. Sämtliche Informationen zu unseren Annullationsbedingungen finden Sie in unseren <a href="{{ route('about_toc') }}">AGB</a>.
+      </div>
+    @endif
     <form class="booking" action="{{ route('booking_cancel_confirm') }}" method="POST">
       @csrf
       <input type="hidden" name="id" value="{{$id}}">
-      <button type="submit">annulation bestätigen</button>
+      <button type="submit">Annullation bestätigen</button>
     </form>
   </article>
 </section>

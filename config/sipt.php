@@ -22,9 +22,20 @@ return [
   'min_invoice_number' => 605278,
 
   // Minimum Booking Number
-  'min_booking_number_number' => 605278,
+  'min_booking_number' => 406400,
 
   // E-Mail Carbon Copy
-  'email_cc' => 'm@marceli.to',
-  
+  'email_cc' => [
+    'm@marceli.to',
+    //'marcel@jamon.digital',
+  ],
+
+  // Notice types
+  'notice_types' => [
+    0 => 'Zahlungserinnerung',
+    1 => '1. Mahnung',
+    2 => '2. Mahnung',
+    3 => '3. Mahnung'
+  ],
+
 ];

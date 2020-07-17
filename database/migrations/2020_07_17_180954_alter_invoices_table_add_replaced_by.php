@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterInvoicesTableAddFile extends Migration
+class AlterInvoicesTableAddReplacedBy extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,8 @@ class AlterInvoicesTableAddFile extends Migration
     public function up()
     {
         Schema::table('invoices', function (Blueprint $table) {
-            $table->string('file')->after('date');
+            $table->tinyInteger('is_replacement')->default(0)->after('is_paid');
+            $table->uuid('replaced_by')->nullable()->after('is_replacement');
         });
     }
 

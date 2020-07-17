@@ -5,7 +5,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class BookingCancelStudent extends Mailable
+class CourseEventBillingNotification extends Mailable
 {
   use Queueable, SerializesModels;
 
@@ -28,14 +28,21 @@ class BookingCancelStudent extends Mailable
    */
   public function build()
   {
-    $mail = $this->subject('Annulation Modul «' . $this->data['courseEvent']->course->title . '»')
+    $mail = $this->subject('Rechnung ' . $this->data['invoice_number'])
                  ->with(
                    [
                      'student' => $this->data['student'],
                      'courseEvent' => $this->data['courseEvent'],
+                     'invoiceNumber' => $this->data['invoice_number'],
+                     'invoiceAmount' => $this->data['invoice_amount']
                    ]
                  )
-                 ->markdown('mails.booking.confirmation-cancel');
+                 ->markdown('mails.course_event.bill');
+    
+    if ($this->data['pdf'])
+    {
+      $mail->attach($this->data['pdf'], ['mime' => 'application/pdf']);
+    }
     return $mail;
   }
 }

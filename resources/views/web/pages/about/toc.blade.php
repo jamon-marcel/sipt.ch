@@ -22,7 +22,7 @@
       <li>Sie können Ihre Seminaranmeldung spätestens 14 Tage vor Seminarbeginn auf eine andere Person übertragen.</li>
     </ul>
     <h2>Umbuchungen</h2>
-    <p>Bei Umbuchen müssen wir aufgrund des administrativen Aufwandes CHF 40.– Umbuchungsgebühr verrechnen.</p>
+    <p>Bei Umbuchen müssen wir aufgrund des administrativen Aufwandes CHF 40 Umbuchungsgebühr verrechnen.</p>
     <h2>Bei Absage durch den Veranstalter</h2>
     <p>SIPT behält sich vor Seminare aus wichtigen Gründen abzusagen. In diesen Fällen informieren wir die Teilnehmer rechtzeitig und bieten Ersatztermine an. Wenn Ihnen die Ersatztermine nicht zusagen, erstatten wir die Seminargebühren in voller Höhe zurück. Weitergehende Forderungen sind ausgeschlossen.</p>
   </article>

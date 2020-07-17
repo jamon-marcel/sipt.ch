@@ -23,7 +23,7 @@
     <x-text-field label="E-Mail" type="email" name="email" />
     <x-text-field label="Berufsabschluss" name="qualifications" />
     <div class="sb-md">
-      <x-radio label="Ich bin mit den AGBs einverstanden" id="toc" name="toc" />
+      <x-radio label="Ich bin mit den %toc% einverstanden" id="toc" name="toc" />
     </div>
     <div class="form-buttons align-end">
       <x-button label="Anmelden" name="register" btnClass="btn-primary js-btn-loader" type="submit" />

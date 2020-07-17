@@ -7,9 +7,11 @@ use App\Models\Course;
 use App\Models\CourseEvent;
 use App\Models\CourseEventStudent;
 use App\Http\Requests\StudentRegisterRequest;
+use App\Services\Withdrawal;
 use App\Events\StudentRegistered;
 use App\Events\CourseEventBooked;
 use App\Events\CourseEventCancelled;
+use App\Events\CourseEventCancelledWithPenalty;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -131,7 +133,7 @@ class BookingController extends BaseController
       foreach($bookings as $booking)
       {
         // Create booking number
-        $booking_number = CourseEventStudent::max('booking_number') + 1;
+        $booking_number = CourseEventStudent::withTrashed()->max('booking_number') + 1;
         
         // Create course
         $course_event = CourseEventStudent::updateOrCreate([
@@ -171,13 +173,14 @@ class BookingController extends BaseController
       foreach($bookings as $booking)
       {
         // Create booking number
-        $booking_number = CourseEventStudent::max('booking_number') + 1;
+        $max_booking_number = CourseEventStudent::withTrashed()->max('booking_number') + 1;
+        $booking_number     = ($max_booking_number > \Config::get('sipt.min_booking_number')) ? $max_booking_number : \Config::get('sipt.min_booking_number');
 
         // Create course
         $course_event = CourseEventStudent::updateOrCreate([
           'course_event_id' => $booking['id'],
           'student_id' => $student->id,
-          'booking_number' => $booking_number
+          'booking_number' => str_pad($booking_number, 6, "0", STR_PAD_LEFT)
         ]);
 
         // Get course event data
@@ -207,12 +210,19 @@ class BookingController extends BaseController
     $record = $this->courseEventStudent->where('course_event_id', '=', $courseEvent->id)
                                        ->where('student_id', '=', $student->id)
                                        ->firstOrFail();
+
     $courseEvent = $this->courseEvent->with('course', 'dates')->findOrFail($courseEvent->id);
+
+    // Get withdrawal penalty
+    $withdrawal = new Withdrawal();
+    $penalty    = $withdrawal->getCharges($courseEvent->dateStart);
+    
     return 
       view('web.pages.course.cancel-preview', 
         [
           'courseEvent' => $courseEvent,
-          'id' => $record->id
+          'id' => $record->id,
+          'penalty' => $penalty
         ]
       );
   }
@@ -229,12 +239,22 @@ class BookingController extends BaseController
     $courseEventStudent = $this->courseEventStudent->findOrFail($request->input('id'));
     $courseEvent = $this->courseEvent->with('course', 'dates')->findOrFail($courseEventStudent->course_event_id);
     $student = $this->student->findOrFail($courseEventStudent->student_id);
-    
-    // Delete courseEvent
-    $courseEventStudent->delete();
 
-    // Confirm cancellation
-    event(new CourseEventCancelled($student, $courseEvent));
+    // Get withdrawal penalty
+    $withdrawal = new Withdrawal();
+    $penalty    = $withdrawal->getCharges($courseEvent->dateStart);
+
+    // If there is no penalty set cancellation date and delete entry
+    if ($penalty == 0)
+    {
+      // Confirm cancellation
+      event(new CourseEventCancelled($student, $courseEventStudent, $courseEvent));
+    }
+    else
+    {
+      // Confirm cancellation
+      event(new CourseEventCancelledWithPenalty($student, $courseEventStudent, $courseEvent, $penalty));
+    }
 
     return view('web.pages.course.cancel-confirm');
   }

@@ -2,8 +2,9 @@
 <div>
   <loading-indicator v-if="isLoading"></loading-indicator>
   <div :class="isFetched ? 'is-loaded' : 'is-loading'">
-    <header class="content-header">
+    <header class="content-header flex-sb flex-vc">
       <h1>Vergangene Module</h1>
+      <view-selector></view-selector>
     </header>
     <div class="listing is-grouped" v-if="coursesConcluded.length">
       <div
@@ -17,9 +18,9 @@
             <div class="listing__item is-group" v-for="e in c.events_completed" :key="e.id">
               <div class="listing__item-body">
                 <span>{{ c.number }}.{{dateFormat(e.dateStart, 'DDMMYY')}}</span>
-                <span class="separator">&bull;</span>
+                <separator />
                 <span>{{ datesToString(e.dates) }}</span>
-                <span class="separator">&bull;</span>
+                <separator />
                 <span>{{ tutorsToString(e.dates) }}</span>
               </div>
               <list-actions
@@ -29,7 +30,7 @@
                 :hasEdit="false"
                 :hasDestroy="false"
                 :hasToggle="false"
-                :routes="{details: 'backoffice-course-event-show'}">
+                :routes="{details: 'backoffice-course-event'}">
               </list-actions>
             </div>
           </div>
@@ -42,7 +43,6 @@
     <footer class="module-footer">
       <div>
         <a href="/download/modulliste" class="btn-primary has-icon" target="_blank">
-          <download-icon size="16"></download-icon>
           <span>Download Modulliste</span>
         </a>
       </div>
@@ -57,20 +57,23 @@ import { PlusIcon, DownloadIcon } from 'vue-feather-icons';
 
 // Components
 import ListActions from "@/global/components/ui/ListActions.vue";
+import ViewSelector from '@/administration/views/backoffice/components/ViewSelector.vue';
 
 // Mixins
 import Helpers from "@/global/mixins/Helpers";
 import DateTime from "@/global/mixins/DateTime";
+import ErrorHandling from "@/global/mixins/ErrorHandling";
 
 export default {
 
   components: {
     ListActions,
     PlusIcon,
-    DownloadIcon
+    DownloadIcon,
+    ViewSelector
   },
 
-  mixins: [Helpers, DateTime],
+  mixins: [Helpers, DateTime, ErrorHandling],
 
   data() {
     return {

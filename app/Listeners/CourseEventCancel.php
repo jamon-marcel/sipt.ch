@@ -1,12 +1,12 @@
 <?php
 namespace App\Listeners;
-use App\Events\CourseEventBooked;
-use App\Mail\BookingConfirmationStudent;
+use App\Events\CourseEventCancelled;
+use App\Mail\CourseEventCancelNotification;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class CourseEventStudentConfirm
+class CourseEventCancel
 {
   /**
    * Create the event listener.
@@ -21,18 +21,22 @@ class CourseEventStudentConfirm
   /**
    * Handle the event.
    *
-   * @param  CourseEventBooked  $event
+   * @param  CourseEventCancelled $event
    * @return void
    */
-  public function handle(CourseEventBooked $event)
+  public function handle(CourseEventCancelled $event)
   {
-    $courseEvent  = $event->courseEvent;
-    $student  = $event->student;
+    $student            = $event->student;
+    $courseEvent        = $event->courseEvent;
+    $courseEventStudent = $event->courseEventStudent;
+
+    // Delete courseEvent for student
+    $courseEventStudent->delete();
 
     Mail::to($student->user->email)
-          ->cc([\Config::get('sipt.email_cc')])
+          ->cc(\Config::get('sipt.email_cc'))
           ->send(
-              new BookingConfirmationStudent(
+              new CourseEventCancelNotification(
                 [
                   'student' => $student,
                   'courseEvent' => $courseEvent,

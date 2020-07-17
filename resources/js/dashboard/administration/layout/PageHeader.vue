@@ -45,7 +45,7 @@
         </router-link>
       </li>
       <li>
-        <router-link :to="{name: 'backoffice'}">
+        <router-link :to="{name: 'backoffice-invoices'}">
           <span>Buchhaltung</span>
         </router-link>
       </li>

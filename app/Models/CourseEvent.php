@@ -38,6 +38,11 @@ class CourseEvent extends Model
     return $this->belongsTo('App\Models\Course');
 	}
 	
+	public function invoices()
+	{
+		return $this->hasMany('App\Models\Invoice')->orderBy('number');
+	}
+
 	public function students()
 	{
 		return $this->belongsToMany('App\Models\Student')->withPivot('has_attendance', 'booking_number', 'is_billed');

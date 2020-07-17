@@ -18,7 +18,7 @@ class PaymentSlip
 
   public function get()
   {
-    $invoice_data = [
+    $data = [
       'client_no'           => $this->clientNumber,
       'reservation_no'      => $this->reservationNumber,
       'invoice_no'          => $this->invoiceNumber,
@@ -29,7 +29,7 @@ class PaymentSlip
       'esr_codeline_str'    => $this->referenceCodeLineString(),
     ];
 
-    return $invoice_data;
+    return $data;
   }
 
   private function referenceInvoiceNumber()
@@ -107,7 +107,7 @@ class PaymentSlip
   {
     $amount_array = explode('.', $this->invoiceAmount);
 
-    // add zeros of 'rappen' is missing
+    // add zeros if 'rappen' is missing
     if (!isset($amount_array[1]))
     {
       $amount_array[1] = '00';

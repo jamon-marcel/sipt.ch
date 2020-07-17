@@ -41,15 +41,15 @@
   @endif
 
   @if ($training->courses)
-    <article class="collapsible js-clpsbl">
+    <article class="collapsible is-expanded js-clpsbl">
       <h2>
         <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">Module</a>
       </h2>
-      <div class="collapsible__content js-clpsbl-body" style="display:none">
+      <div class="collapsible__content js-clpsbl-body" style="display:block">
         <div class="list">
           @foreach($training->courses as $course)
           <div class="list__item">
-            <a href="{{ route('course_show', ['slug' => AppHelper::slug($course->title), 'course' => $course->id]) }}">
+            <a href="{{ route('course_show', ['slug' => AppHelper::slug($course->title), 'course' => $course->id]) }}" class="icon-arrow">
               {{ $course->title }}
             </a>
           </div>

@@ -11,13 +11,13 @@
       @endguest
       @auth
         @if (auth()->user()->isStudent())
-          <a href="{{ route('dashboard_student') }}">Mein Profil</a>
+          <a href="{{ route('dashboard_student') }}" target="_blank">Mein Profil</a>
         @endif
         @if (auth()->user()->isTutor())
-          <a href="{{ route('dashboard_tutor') }}">Mein Profil</a>
+          <a href="{{ route('dashboard_tutor') }}" target="_blank">Mein Profil</a>
         @endif
         @if (auth()->user()->isAdmin())
-          <a href="{{ route('dashboard_admin') }}">Administration</a>
+          <a href="{{ route('dashboard_admin') }}" target="_blank">Administration</a>
         @endif
       @endauth
     </li>

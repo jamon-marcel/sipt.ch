@@ -72,13 +72,6 @@
   .item-info {
     @include font-size($fs-xs);
   }
-
-  .separator {
-    @include font-size($fs-sm);
-    display: inline-block;
-    margin-left: 12px;
-    margin-right: 12px;
-  }
 }
 
 .listing__item-action {

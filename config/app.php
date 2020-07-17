@@ -230,6 +230,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Intervention\Image\Facades\Image::class,
         'AppHelper' => App\Helpers\AppHelper::class,
+        'MoneyFormatHelper' => App\Helpers\MoneyFormatHelper::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
     ],
 

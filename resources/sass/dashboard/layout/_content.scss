@@ -9,6 +9,10 @@
     max-width: calc(100% - 200px);
   }
 
+  &.content--wide {
+    max-width: none !important;
+  }
+
   a {
     color: $color-medium-grey;
     text-decoration: none;

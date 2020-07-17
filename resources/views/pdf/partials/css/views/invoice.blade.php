@@ -50,6 +50,7 @@ table.invoice-positions td.number {
 table.invoice-positions td.price {
   padding-right: 0 !important;
   text-align: right;
+  width: 20mm;
 }
 
 table.invoice-total {

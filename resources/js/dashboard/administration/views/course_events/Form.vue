@@ -40,9 +40,9 @@
               >
                 <div class="listing__item-body">
                   {{ c.date }}
-                  <span class="separator">&bull;</span>
+                  <separator />
                   {{ c.timeStart }} - {{ c.timeEnd }} Uhr
-                  <span class="separator">&bull;</span>
+                  <separator />
                   {{ getTutorName(c.tutor_id) }}
                 </div>
                 <div class="listing__item-action" data-icons="1">

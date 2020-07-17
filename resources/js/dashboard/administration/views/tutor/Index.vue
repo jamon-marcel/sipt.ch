@@ -16,7 +16,7 @@
         :key="t.id"
       >
         <div class="listing__item-body">
-          {{t.firstname }} {{ t.name}}<span class="separator">&bull;</span>{{ t.city }}
+          {{t.firstname }} {{ t.name}}<separator />{{ t.city }}
         </div>
         <list-actions 
           :id="t.id" 

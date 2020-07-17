@@ -31,6 +31,9 @@ Vue.use(VueRouter);
 import LoadingIndicator from "@/global/components/ui/LoadingIndicator";
 Vue.component('LoadingIndicator', LoadingIndicator);
 
+import Separator from "@/global/components/ui/Separator";
+Vue.component('Separator', Separator);
+
 // Vue-Moment
 Vue.use(require('vue-moment'));
 

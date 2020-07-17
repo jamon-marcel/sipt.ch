@@ -23,9 +23,8 @@ class EventServiceProvider extends ServiceProvider
       'App\Listeners\SendEmailVerification',
     ],
 
-    'App\Events\SymposiumConfirmSubscription' => [
-      'App\Listeners\SymposiumCreateInvoice',
-      'App\Listeners\SymposiumNotifySubscriber',
+    'App\Events\SymposiumSubscription' => [
+      'App\Listeners\SymposiumConfirmSubscription',
     ],
 
     'App\Events\CourseEventParticipantsList' => [
@@ -37,16 +36,26 @@ class EventServiceProvider extends ServiceProvider
     ],
 
     'App\Events\CourseEventBooked' => [
-      'App\Listeners\CourseEventStudentConfirm',
+      'App\Listeners\CourseEventConfirm',
     ],
 
     'App\Events\CourseEventCancelled' => [
-      'App\Listeners\CourseEventStudentCancel',
+      'App\Listeners\CourseEventCancel',
     ],
 
-    'App\Events\StudentInvoice' => [
-      'App\Listeners\CreateSendStudentInvoice',
+    'App\Events\CourseEventCancelledWithPenalty' => [
+      'App\Listeners\CourseEventCancelWithPenalty',
     ],
+
+    'App\Events\CourseEventBill' => [
+      'App\Listeners\CourseEventCreateSendBill',
+    ],
+
+    'App\Events\InvoiceReminder' => [
+      'App\Listeners\InvoiceCreateSendReminder',
+    ],
+
+
   ];
 
   /**

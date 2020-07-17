@@ -1,9 +1,17 @@
 @component('mail::message')
-# Bestätigung Abmeldung
+# Rechnung {{ $invoiceNumber }}
 <p>Guten Tag {{ $student->fullName }}</p>
-<p>Hiermit bestätigen wir die Annulation des Moduls «{{$courseEvent->course->title}}».</p>
+<p>In der Beilage erhalten Sie unsere Rechnung für das Modul «{{$courseEvent->course->title}}».</p>
 <br>
 <table class="content-table" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="120">Rechnung:</td>
+    <td>{{ $invoiceNumber }}</td>
+  </tr>
+  <tr>
+    <td width="120">Betrag:</td>
+    <td>CHF {{ $invoiceAmount }}</td>
+  </tr>
   <tr>
     <td width="120">Modul:</td>
     <td>{{ $courseEvent->course->title }}</td>
@@ -14,6 +22,7 @@
   </tr>
 </table>
 <br>
+<p>Um diese Buchung zu annulieren, klicken Sie bitte <a href="{{ route('booking_cancel_preview', ['courseEvent' => $courseEvent->id, 'student' => $student->id]) }}" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</p>
 <p>Möchten Sie weitere Module besuchen? Verwalten Sie ihre Module sowie Ihre persönlichen Daten einfach und bequem unter: <a href="{{ url('/student') }}" class="anchor" style="color: #ff7a00; text-decoration: none;">{{ url('/student') }}</a></p>
 @include('mails.partials.html.signature')
 @endcomponent

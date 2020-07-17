@@ -31,6 +31,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('student/course/event/{student?}', 'Api\StudentController@storeEvent');
     Route::get('student/course/event/{courseEvent}/{student?}', 'Api\StudentController@getEvent');
     Route::get('student/course/events/{type?}/{limit?}/{student?}', 'Api\StudentController@getEvents');
+    Route::get('student/course/event/withdraw/{courseEvent}/{student?}', 'Api\StudentController@withdrawEvent');
     Route::delete('student/course/event/{courseEvent}/{student?}', 'Api\StudentController@destroyEvent');
   });
 
@@ -110,6 +111,12 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('backoffice/courses/list/concluded', 'Api\BackofficeController@getConcludedCourses');
     Route::get('backoffice/student/attendance/{student}/{courseEvent}', 'Api\BackofficeController@setAttendance');
     Route::get('backoffice/course/event/{courseEvent}', 'Api\BackofficeController@getCourseEvent');
+    
+    Route::get('backoffice/invoices', 'Api\InvoiceController@get');
+    Route::get('backoffice/invoice/history/{invoice}', 'Api\InvoiceController@getHistory');
+    Route::get('backoffice/invoice/{invoice}', 'Api\InvoiceController@find');
+    Route::get('backoffice/invoice/state/{invoice}', 'Api\InvoiceController@state');
+    Route::get('backoffice/invoice/notice/{invoice}/{noticeType}', 'Api\InvoiceController@notice');
 
   });
 

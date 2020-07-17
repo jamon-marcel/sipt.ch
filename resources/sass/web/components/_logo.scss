@@ -20,6 +20,10 @@ a.logo {
   border: none !important;
   display: none;
   padding: 0;
+
+  @include bp-narrow {
+    display: none !important;
+  }
   
   @include bp-sm() {
     bottom: $space-sm;

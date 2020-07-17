@@ -22,16 +22,16 @@
           <div class="listing__item-body">
             <span class="item-date" v-if="c.dates.length">{{ datesToString(c.dates) }}</span>
             <span class="item-date" v-else>Keine Daten...</span>
-            <span class="separator">&bull;</span>
+            <separator />
 
             <span v-if="c.location_id != 'null' && c.is_online == 0">{{ c.location.name_short }}, {{ c.location.city }}</span>
             <span v-else>Online</span>
-            <span class="separator">&bull;</span>
+            <separator />
             
             {{ tutorsToString(c.dates) }}
 
             <div v-if="c.students.length">
-              <span class="separator">&bull;</span>
+              <separator />
               <strong>{{c.students.length}} Teilnehmer</strong>
             </div>
 
@@ -64,10 +64,10 @@
         >
           <div class="listing__item-body">
             <span class="item-date">{{ datesToString(c.dates) }}</span>
-            <span class="separator">&bull;</span>
+            <separator />
             <span v-if="c.location_id != 'null' && c.is_online == 0">{{ c.location.name_short }}, {{ c.location.city }}</span>
             <span v-else>Online</span>
-            <span class="separator">&bull;</span>
+            <separator />
             {{ tutorsToString(c.dates) }}
             <em class="bubble-danger" v-if="c.is_cancelled">Abgesagt</em>
           </div>

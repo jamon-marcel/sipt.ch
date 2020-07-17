@@ -5,7 +5,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class BookingConfirmationStudent extends Mailable
+class CourseEventConfirmationNotification extends Mailable
 {
   use Queueable, SerializesModels;
 
@@ -35,7 +35,7 @@ class BookingConfirmationStudent extends Mailable
                      'courseEvent' => $this->data['courseEvent'],
                    ]
                  )
-                 ->markdown('mails.booking.confirmation-booking');
+                 ->markdown('mails.course_event.confirmation');
     return $mail;
   }
 }

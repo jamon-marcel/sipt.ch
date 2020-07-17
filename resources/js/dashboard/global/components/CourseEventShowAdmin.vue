@@ -24,9 +24,9 @@
             <div class="listing__item" v-for="date in course_event.dates" :key="date.id">
               <div class="listing__item-body">
                 {{date.date}}
-                <span class="separator">&bull;</span>
+                <separator />
                 {{date.timeStart}} – {{date.timeEnd}} Uhr
-                <span class="separator">&bull;</span>
+                <separator />
                 {{date.tutor.title}} {{date.tutor.firstname}} {{date.tutor.name}}
               </div>
             </div>
@@ -51,7 +51,7 @@
               >
                 <div class="listing__item-body">
                   {{student.firstname}} {{student.name}}
-                  <span class="separator">&bull;</span>
+                  <separator />
                   {{student.title}}
                 </div>
               </div>
@@ -98,7 +98,7 @@
                       <em v-if="d.caption != d.name">{{ d.caption | truncate(30, '...') }}</em>
                       <em v-else>{{ d.name | truncate(30, '...') }}</em>
                     </a>
-                    <span class="separator">&bull;</span>
+                    <separator />
                     <span class="item-info">{{d.type.toUpperCase()}}, {{d.size}}</span>
                   </div>
                   <div class="listing__item-action">

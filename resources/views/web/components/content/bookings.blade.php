@@ -7,7 +7,7 @@
           <div class="list list--booking">
             <div class="list__item">{{$booking['title']}}</div>
             <div class="list__item">Datum: {{$booking['date']}}</div>
-            <div class="list__item">Kosten: CHF {{$booking['cost']}}.–</div>
+            <div class="list__item">Kosten: CHF {{$booking['cost']}}</div>
             <div class="list__item list__item--button">
               <a href="javascript:;" class="js-btn-delete-booking" data-id="{{$booking['id']}}">löschen</a>
             </div>

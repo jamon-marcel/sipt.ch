@@ -69,6 +69,7 @@ Route::get('/teilnehmerliste/{courseEvent}', 'RegisterController@participantlist
 
 Route::get('/invoice', 'TestController@invoice');
 Route::get('/billable', 'TestController@billable');
+Route::get('/reminder/{invoice}', 'TestController@reminder');
 
 // Dev - email previews
 Route::get('preview/verification', function () {

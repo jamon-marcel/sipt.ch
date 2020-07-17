@@ -5,7 +5,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SendStudentInvoice extends Mailable
+class InvoiceSendReminder extends Mailable
 {
   use Queueable, SerializesModels;
 
@@ -28,17 +28,20 @@ class SendStudentInvoice extends Mailable
    */
   public function build()
   {
-    $mail = $this->subject('Rechnung Nr. ' . $this->data['invoice_number'])
+    $noticeType = \Config::get('sipt.notice_types.'. $this->data['noticeType']);
+    $mail = $this->subject($noticeType . ' – Rechnung ' . $this->data['invoice']->number)
                  ->with(
                    [
-                     'student' => $this->data['student'],
-                     'courseEvent' => $this->data['courseEvent'],
+                     'recipient' => $this->data['recipient'],
+                     'invoice' => $this->data['invoice']
                    ]
                  )
-                 ->markdown('mails.invoice.invoice');
-
-    $mail->attach($this->data['pdf'], ['mime' => 'application/pdf']);
-
+                 ->markdown('mails.reminder.reminder_' . $this->data['noticeType']);
+    
+    if ($this->data['pdf'])
+    {
+      $mail->attach($this->data['pdf'], ['mime' => 'application/pdf']);
+    }
     return $mail;
   }
 }

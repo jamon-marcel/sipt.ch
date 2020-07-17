@@ -19,6 +19,18 @@
   z-index: 1;
   -webkit-overflow-scrolling: touch;
 
+  @include bp-narrow() {
+    @include background-default();
+    background-image: url($url-images + 'logo-sipt-sm.svg');
+    background-position: top 18px left 18px;
+    background-size: 120px auto;
+  }
+
+  @include bp-narrow-xl() {
+    background-position: top 18px left 36px;
+  }
+
+
   &.is-open {
     box-shadow: $box-shadow;
     pointer-events: all;
@@ -89,8 +101,13 @@
     margin-bottom: $space-sm;
   }
 
+  li {
+    a {
+      @extend %line;
+    }
+  }
+
   a {
-    @extend %line;
     color: $color-black;
     text-decoration: none;
     transition: color .12s ease-in;

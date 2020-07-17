@@ -281,6 +281,20 @@
 	}
 }
 
+@mixin bp-narrow {
+	@media only screen and (max-height: 900px) {
+		@content;
+	}
+}
+
+@mixin bp-narrow-xl {
+	@media only screen and (max-height: 900px) and (min-width: $bp-xl) {
+		@content;
+	}
+}
+
+
+
 @mixin bp-xs {
 	@media only screen and (min-width: 600px) {
 		@content;

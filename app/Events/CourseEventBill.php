@@ -5,7 +5,7 @@ use App\Models\CourseEvent;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class StudentInvoice
+class CourseEventBill
 {
   use Dispatchable, SerializesModels;
 

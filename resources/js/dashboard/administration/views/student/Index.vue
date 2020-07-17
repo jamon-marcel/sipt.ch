@@ -1,4 +1,6 @@
 <template>
+<div>
+  <loading-indicator v-if="isLoading"></loading-indicator>
   <div :class="isFetched ? 'is-loaded' : 'is-loading'">
     <header class="content-header">
       <h1>Studenten</h1>
@@ -10,9 +12,9 @@
         :key="s.id"
       >
         <div class="listing__item-body">
-          {{ s.name}} <span class="separator">&bull;</span> 
-          {{s.firstname }} <span class="separator">&bull;</span>
-          <em v-if="s.title">{{ s.title }}<span class="separator">&bull;</span></em>
+          {{ s.name}} <separator /> 
+          {{s.firstname }} <separator />
+          <em v-if="s.title">{{ s.title }}<separator /></em>
           {{ s.city }}
         </div>
         <list-actions 
@@ -31,6 +33,7 @@
       <p class="no-records">Es sind noch keine Studenten vorhanden...</p>
     </div>
   </div>
+</div>
 </template>
 <script>
 // Icons
@@ -48,6 +51,7 @@ export default {
   data() {
     return {
       isFetched: false,
+      isLoading: false,
       students: []
     };
   },
@@ -59,9 +63,11 @@ export default {
   methods: {
 
     fetch() {
+      this.isLoading = true;
       this.axios.get(`/api/students`).then(response => {
         this.students = response.data.data;
         this.isFetched = true;
+        this.isLoading = false;
       });
     },
 

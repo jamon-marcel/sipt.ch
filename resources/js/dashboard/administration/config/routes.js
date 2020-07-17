@@ -25,8 +25,9 @@ import StudentCourseEvents from '@/administration/views/student/course_events/In
 import StudentProfile from '@/administration/views/student/profile/Index.vue';
 import StudentProfileEdit from '@/administration/views/student/profile/Form.vue';
 
-import BackofficeIndex from '@/administration/views/backoffice/Index.vue';
-import BackofficeCourseEventsShow from '@/administration/views/backoffice/Show.vue';
+import BackofficeModules from '@/administration/views/backoffice/Modules.vue';
+import BackofficeInvoices from '@/administration/views/backoffice/Invoices.vue';
+import BackofficeCourseEvent from '@/administration/views/backoffice/CourseEvent.vue';
 
 
 const routes = [
@@ -134,14 +135,19 @@ const routes = [
 
   // Backoffice
   {
-    name: 'backoffice',
-    path: '/administration/backoffice',
-    component: BackofficeIndex,
+    name: 'backoffice-modules',
+    path: '/administration/backoffice/modules',
+    component: BackofficeModules,
   },
   {
-    name: 'backoffice-course-event-show',
+    name: 'backoffice-invoices',
+    path: '/administration/backoffice/invoices',
+    component: BackofficeInvoices,
+  },
+  {
+    name: 'backoffice-course-event',
     path: '/administration/backoffice/course/event/show/:id',
-    component: BackofficeCourseEventsShow,
+    component: BackofficeCourseEvent,
   },
 
   // Authorization

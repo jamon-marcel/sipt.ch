@@ -13,14 +13,14 @@
         <p>{{ course_event.course.credits }}</p>
         <hr>
         <h2 class="is-narrow">Kosten</h2>
-        <p>CHF {{ course_event.course.cost }}.–</p>
+        <p>CHF {{ course_event.course.cost }}</p>
         <hr>
         <h2 class="is-narrow">Daten</h2>
         <div class="listing">
           <div class="listing__item" v-for="date in course_event.dates" :key="date.id">
             <div class="listing__item-body">
-              {{date.date}} <span class="separator">&bull;</span>
-              {{date.timeStart}} –  {{date.timeEnd}} Uhr <span class="separator">&bull;</span>
+              {{date.date}} <separator />
+              {{date.timeStart}} –  {{date.timeEnd}} Uhr <separator />
               {{date.tutor.title}} {{date.tutor.firstname}} {{date.tutor.name}}
             </div>
           </div>
@@ -38,7 +38,7 @@
                   <em v-if="d.caption != d.name">{{ d.caption | truncate(30, '...') }}</em> 
                   <em v-else>{{ d.name | truncate(30, '...') }}</em>
                 </a>
-                <span class="separator">&bull;</span>
+                <separator />
                 <span class="item-info">{{d.type.toUpperCase()}}, {{d.size}}</span>
               </div>
               <div class="listing__item-action">

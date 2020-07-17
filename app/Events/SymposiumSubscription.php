@@ -4,7 +4,7 @@ use App\Models\SymposiumSubscriber;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class SymposiumConfirmSubscription
+class SymposiumSubscription
 {
   use Dispatchable, SerializesModels;
 

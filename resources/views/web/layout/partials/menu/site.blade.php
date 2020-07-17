@@ -4,7 +4,9 @@
   </header>
   <div data-simplebar>
     <div class="site-menu__inner">
-      <h2>Das SIPT</h2>
+      <h2>
+        <a href="{{route('home')}}">Das SIPT</a>
+      </h2>
       <ul>
         <li>
           <a href="{{ route('about_index') }}" class="{{ request()->routeIs('about_index') ? 'is-active' : '' }}">
@@ -67,13 +69,13 @@
         @auth
           <li>
             @if (auth()->user()->isStudent())
-              <a href="{{ route('dashboard_student') }}">Mein Profil</a>
+              <a href="{{ route('dashboard_student') }}" target="_blank">Mein Profil</a>
             @endif
             @if (auth()->user()->isTutor())
-              <a href="{{ route('dashboard_tutor') }}">Mein Profil</a>
+              <a href="{{ route('dashboard_tutor') }}" target="_blank">Mein Profil</a>
             @endif
             @if (auth()->user()->isAdmin())
-              <a href="{{ route('dashboard_admin') }}">Administration</a>
+              <a href="{{ route('dashboard_admin') }}" target="_blank">Administration</a>
             @endif
           </li>
           <li>

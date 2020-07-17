@@ -24,5 +24,9 @@ export default {
       let str = [...data.map(x => x.date)].join('/');
       return !appendYear ? str : str + moment(data[0].date).format('Y');
     },
+
+    moneyFormat(amount) {
+      return amount.toFixed(2);
+    }
   }
 };

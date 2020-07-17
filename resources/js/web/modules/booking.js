@@ -36,7 +36,7 @@ var Booking = (function() {
   var tpl = `<div class="list list--booking">
               <div class="list__item">%module%</div>
               <div class="list__item">Datum: %date%</div>
-              <div class="list__item">Kosten: CHF %cost%.–</div>
+              <div class="list__item">Kosten: CHF %cost%</div>
               <div class="list__item list__item--button">
                 <a href="javascript:;" class="js-btn-delete-booking" data-id="%id%">löschen</a>
               </div>

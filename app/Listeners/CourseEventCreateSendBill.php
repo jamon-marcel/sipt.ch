@@ -3,15 +3,15 @@ namespace App\Listeners;
 use App\Models\CourseEventStudent;
 use App\Models\Invoice;
 use App\Services\PaymentSlip;
-use App\Mail\SendStudentInvoice;
-use App\Events\StudentInvoice;
+use App\Mail\CourseEventBillingNotification;
+use App\Events\CourseEventBill;
 use PDF;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class CreateSendStudentInvoice
+class CourseEventCreateSendBill
 {
   /**
    * Create the event listener.
@@ -26,25 +26,24 @@ class CreateSendStudentInvoice
   /**
    * Handle the event.
    *
-   * @param  StudentInvoice $event
+   * @param  CourseEventBill $event
    * @return void
    */
-  public function handle(StudentInvoice $event)
+  public function handle(CourseEventBill $event)
   {
     $student        = $event->student;
     $courseEvent    = $event->courseEvent;
-    $invoiceNumber  = Invoice::max('number') + 1;
+    $invoiceNumber  = Invoice::withTrashed()->max('number') + 1;
           
     $data = [
       'invoice_number' => ($invoiceNumber > \Config::get('sipt.min_invoice_number')) ? $invoiceNumber : \Config::get('sipt.min_invoice_number'),
       'invoice_date'   => date('d.m.Y', time()),
-      'invoice_amount' => $courseEvent->course->cost,
+      'invoice_amount' => \MoneyFormatHelper::number($courseEvent->course->cost),
       'client_number'  => $student->number,
       'booking_number' => $student->pivot->booking_number,
       'student'        => $student,
       'courseEvent'    => $courseEvent
     ];
-
     $this->viewData['invoice'] = $data;
 
     // Get payment slip data
@@ -52,7 +51,7 @@ class CreateSendStudentInvoice
     $this->viewData['payment_slip'] =  $paymentSlip->get();
           
     // Load pdf view
-    $pdf  = PDF::loadView('pdf.invoice.course', $this->viewData);
+    $pdf  = PDF::loadView('pdf.bill.course', $this->viewData);
 
     // Set filename
     $file = 'sipt_rechnung-' . $data['invoice_number'] . '-' . date('d-m-Y-H-i-s', time()) . '.pdf';
@@ -64,6 +63,7 @@ class CreateSendStudentInvoice
     $invoice = Invoice::create([
       'number' => $data['invoice_number'],
       'date'   => $data['invoice_date'],
+      'amount' => $courseEvent->course->cost,
       'file'   => $file,
       'student_id' => $student->id,
       'course_event_id' => $courseEvent->id
@@ -79,13 +79,14 @@ class CreateSendStudentInvoice
     
     // Send mail to student
     Mail::to($student->user->email)
-          ->cc([\Config::get('sipt.email_cc')])
+          ->cc(\Config::get('sipt.email_cc'))
           ->send(
-              new SendStudentInvoice(
+              new CourseEventBillingNotification(
                 [
                   'student'         => $student,
                   'courseEvent'     => $courseEvent,
                   'invoice_number'  => $data['invoice_number'],
+                  'invoice_amount'  => $data['invoice_amount'],
                   'pdf'             => public_path() . '/storage/invoices/' . $file
                 ]
           )

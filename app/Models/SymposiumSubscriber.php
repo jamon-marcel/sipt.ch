@@ -34,4 +34,18 @@ class SymposiumSubscriber extends Model
   {
     return $this->belongsTo('App\Models\Symposium');
 	}
+
+	public function invoices()
+	{
+		return $this->hasMany('App\Models\Invoice');
+	}
+
+  /**
+   * Accessor 'getFullName'
+   */
+
+  public function getFullNameAttribute()
+  {
+    return $this->firstname . ' ' . $this->name;
+  }
 }

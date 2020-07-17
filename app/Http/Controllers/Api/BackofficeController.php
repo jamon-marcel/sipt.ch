@@ -5,7 +5,9 @@ use App\Http\Resources\DataCollection;
 use App\Models\Course;
 use App\Models\CourseEvent;
 use App\Models\CourseEventStudent;
+use App\Models\Invoice;
 use App\Models\Student;
+use App\Events\InvoiceReminder;
 use Illuminate\Http\Request;
 
 class BackofficeController extends Controller
@@ -14,13 +16,15 @@ class BackofficeController extends Controller
     Course $course, 
     CourseEvent $courseEvent,
     CourseEventStudent $courseEventStudent,
-    Student $student
+    Student $student,
+    Invoice $invoice
   )
   {
     $this->course             = $course;
     $this->courseEvent        = $courseEvent;
     $this->courseEventStudent = $courseEventStudent;
     $this->student            = $student;
+    $this->invoice            = $invoice;
   }
 
   /**
@@ -43,7 +47,7 @@ class BackofficeController extends Controller
    */
   public function getCourseEvent(CourseEvent $courseEvent)
   {
-    $courseEvent = $this->courseEvent->with('course', 'location', 'dates.tutor', 'students')->find($courseEvent->id);
+    $courseEvent = $this->courseEvent->with('course', 'location', 'invoices.student', 'dates.tutor', 'students')->find($courseEvent->id);
     return response()->json($courseEvent);
   }
 
@@ -65,4 +69,5 @@ class BackofficeController extends Controller
     $course_event_student->save();
     return response()->json($course_event_student->has_attendance);                                           
   }
+
 }

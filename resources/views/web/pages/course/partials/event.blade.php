@@ -12,7 +12,7 @@
     DozentInnen: {{AppHelper::tutorsToString($event->dates, TRUE)}}
   </div>
   <div class="list__item">
-    Kosten: CHF {{$course->cost}}.–
+    Kosten: CHF {{$course->cost}}
   </div>
 </div>
 <form class="booking">

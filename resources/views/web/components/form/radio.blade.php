@@ -4,6 +4,6 @@
     <div class="checkbox"><span></span></div>
   </div>
   <label for="{{ $id }}">
-    {{ $label }}
+    {!! str_replace('%toc%', '<a href="/agb" target="_blank">AGB</a>', $label) !!}
   </label>
 </div>

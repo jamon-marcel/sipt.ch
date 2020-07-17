@@ -5,7 +5,7 @@
       <div class="listing__item" v-for="r in $props.records" :key="r.id">
         <div class="listing__item-body">
           <span class="item-date">{{r.date}}</span>
-          <span class="separator">&bull;</span>
+          <separator />
           {{ r.course_event.course.title }}
         </div>
         <list-actions
@@ -26,9 +26,9 @@
       <div class="listing__item" v-for="r in $props.records" :key="r.id">
         <div class="listing__item-body">
           <span class="item-date">{{r.dates}}</span>
-          <span class="separator">&bull;</span>
+          <separator />
           {{ r.title }}
-          <span class="separator">&bull;</span>
+          <separator />
           {{ r.tutors }}
         </div>
         <list-actions

@@ -8,6 +8,8 @@ use App\Models\CourseEvent;
 use App\Models\CourseEventStudent;
 use App\Events\CourseEventBooked;
 use App\Events\CourseEventCancelled;
+use App\Events\CourseEventCancelledWithPenalty;
+use App\Services\Withdrawal;
 use App\Http\Requests\StudentStoreRequest;
 use App\Http\Requests\StudentStoreCourseEventRequest;
 use Illuminate\Http\Request;
@@ -155,10 +157,15 @@ class StudentController extends Controller
                 ? $this->student->with('user')->findOrFail($student->id)
                 : $this->student->with('user')->authenticated(auth()->user()->id);
 
+    // Create booking number
+    $max_booking_number = CourseEventStudent::withTrashed()->max('booking_number') + 1;
+    $booking_number     = ($max_booking_number > \Config::get('sipt.min_booking_number')) ? $max_booking_number : \Config::get('sipt.min_booking_number');
+
     // Create Course Event
     $course_event = CourseEventStudent::updateOrCreate([
       'course_event_id' => $request->courseEventId,
       'student_id' => $student->id,
+      'booking_number' => str_pad($booking_number, 6, "0", STR_PAD_LEFT)
     ]);
     $course_event->save();
 
@@ -189,11 +196,21 @@ class StudentController extends Controller
                                                    ->where('student_id', '=', $student->id)
                                                    ->firstOrFail();
 
-    // Delete record
-    $courseEventStudent->delete();
-    
-    // Confirm annulation
-    event(new CourseEventCancelled($student, $courseEvent));
+    // Get withdrawal penalty
+    $withdrawal = new Withdrawal();
+    $penalty    = $withdrawal->getCharges($courseEvent->dateStart);
+
+    // If there is no penalty set cancellation date and delete entry
+    if ($penalty == 0)
+    {
+      // Confirm cancellation
+      event(new CourseEventCancelled($student, $courseEventStudent, $courseEvent));
+    }
+    else
+    {
+      // Confirm cancellation
+      event(new CourseEventCancelledWithPenalty($student, $courseEventStudent, $courseEvent, $penalty));
+    }
 
     return response()->json('successfully removed');
   }
