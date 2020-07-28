@@ -5,6 +5,8 @@ use App\Http\Resources\DataCollection;
 use App\Models\Course;
 use App\Models\CourseEvent;
 use App\Models\CourseEventDate;
+use App\Events\CourseEventCancelledByAdministrator;
+use App\Events\CourseEventClosed;
 use App\Http\Requests\CourseEventStoreRequest;
 use Illuminate\Http\Request;
 
@@ -109,6 +111,11 @@ class CourseEventController extends Controller
     }
     $courseEvent->save();
 
+    // call event if course event is cancelled
+    if ($courseEvent->is_cancelled == 1)
+    {
+      event(new CourseEventCancelledByAdministrator($courseEvent));
+    }
     return response()->json('successfully updated');
   }
 
@@ -133,11 +140,39 @@ class CourseEventController extends Controller
    */
   public function cancel(CourseEvent $courseEvent)
   {
-    // @todo: send mail to student/tutor
     $courseEvent->is_cancelled = 1;
     $courseEvent->is_published = 0;
     $courseEvent->save();
     return response()->json($courseEvent->is_cancelled);
+  }
+
+  /**
+   * Set attributes 'is_closed' and 'is_bookable' and by given course event
+   *
+   * @param  CourseEvent $courseEvent
+   * @return \Illuminate\Http\Response
+   */
+  public function close(CourseEvent $courseEvent)
+  {
+    $courseEvent->is_closed = 1;
+    $courseEvent->is_bookable = 0;
+    $courseEvent->save();
+    event(new CourseEventClosed($courseEvent));
+    return response()->json($courseEvent->is_closed);
+  }
+
+  /**
+   * Set attributes 'is_closed' and 'is_bookable' and by given course event
+   *
+   * @param  CourseEvent $courseEvent
+   * @return \Illuminate\Http\Response
+   */
+  public function open(CourseEvent $courseEvent)
+  {
+    $courseEvent->is_closed = 0;
+    $courseEvent->is_bookable = 1;
+    $courseEvent->save();
+    return response()->json($courseEvent->is_closed);
   }
 
   /**

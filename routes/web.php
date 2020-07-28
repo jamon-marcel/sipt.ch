@@ -43,10 +43,11 @@ Route::get('/netzwerk/partner-institutionen', 'NetworkController@partners')->nam
 Route::get('/jubilaeums-fachtagung-15-jahre-sipt', 'SymposiumController@anniversary')->name('symposium_anniversary');
 Route::post('/jubilaeums-fachtagung-15-jahre-sipt/registration', 'SymposiumSubscriberController@store')->name('symposium_register');
 Route::get('/jubilaeums-fachtagung-15-jahre-sipt/anmeldung-erfolgreich', 'SymposiumController@registered')->name('symposium_register_success');
+Route::get('/jubilaeums-fachtagung-15-jahre-sipt/abmeldung/{symposiumSubscriber}', 'SymposiumSubscriberController@cancel')->name('symposium_cancel');
+Route::get('/jubilaeums-fachtagung-15-jahre-sipt/abmeldung-erfolgreich', 'SymposiumController@cancelled')->name('symposium_cancelled');
 
 // TOC
 Route::get('/agb', 'AboutController@toc')->name('about_toc');
-
 
 
 // Bookings
@@ -62,20 +63,11 @@ Route::get('/bookings', 'BookingController@get');
 Route::post('/auth/student/login', 'LoginController@login')->name('student_login');
 
 
-// Dev
-Route::get('/import', 'RegisterController@import');
-Route::get('/teilnehmerliste/{courseEvent}', 'RegisterController@participantlist');
+// Cron
+Route::get('/invite/tutors', 'CronController@inviteTutors');
+Route::get('/invite/students', 'CronController@inviteStudents');
 
 
-Route::get('/invoice', 'TestController@invoice');
-Route::get('/billable', 'TestController@billable');
-Route::get('/reminder/{invoice}', 'TestController@reminder');
-
-// Dev - email previews
-Route::get('preview/verification', function () {
-  $user = App\Models\User::find('3a2fa106-970c-4ef1-a817-ff5e1043a863');
-  return new App\Mail\EmailVerification(['user' => $user, 'user_data' => ['password' => 'asdfasdfa']]);
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -89,6 +81,10 @@ Route::middleware('auth:sanctum', 'verified')->group(function() {
   // Downloads for tutors / admins
   Route::get('/download/modulliste', 'DownloadController@courses')->middleware('role:tutor');
   Route::get('/download/teilnehmerliste/{courseEvent}', 'DownloadController@participants')->middleware('role:tutor');
+
+  // Downloads for students
+  Route::get('/download/modulbestaetigung/{courseEvent}', 'DownloadController@confirmation')->middleware('role:student');
+
 
   // CatchAll: Dashboard Student
   Route::get('student/{any?}', function () {

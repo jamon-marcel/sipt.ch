@@ -1,5 +1,5 @@
 @extends('web.layout.grids.2-1')
-@section('seo_title', 'Buchung annulieren: ' . $courseEvent->course->title)
+@section('seo_title', 'Buchung annullieren: ' . $courseEvent->course->title)
 @section('seo_description', )
 @section('section')
 <section class="theme-light">

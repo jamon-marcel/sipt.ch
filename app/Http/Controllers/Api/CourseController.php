@@ -25,7 +25,7 @@ class CourseController extends Controller
    */
   public function get()
   {
-    $courses = $this->course->with('eventsUpcoming.dates.tutor', 'eventsUpcoming.location')->get();
+    $courses = $this->course->with('eventsUpcoming.dates.tutor', 'eventsUpcoming.location')->orderBy('number')->get();
     return new DataCollection($courses);
   }
 

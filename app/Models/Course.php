@@ -50,7 +50,7 @@ class Course extends Model
 	}
 
 	/**
-	 * Relationship for all upcoming events
+	 * Relationship for all completed events
 	 */
 
 	public function eventsCompleted()
@@ -58,8 +58,24 @@ class Course extends Model
 		$constraint = date('Y-m-d', time());
 		return $this->hasMany('App\Models\CourseEvent')
 								->orderBy('dateStart')
-								->where('dateStart', '<', $constraint);
+								->where('dateStart', '<', $constraint)
+								->where('is_closed', '=', 0);
 	}
+
+	/**
+	 * Relationship for all closed events
+	 */
+
+	public function eventsClosed()
+	{
+		$constraint = date('Y-m-d', time());
+		return $this->hasMany('App\Models\CourseEvent')
+								->orderBy('dateStart')
+								->where('dateStart', '<', $constraint)
+								->where('is_closed', '=', 1);
+	}
+
+
 
 	/**
 	 * Relationship for bookable events

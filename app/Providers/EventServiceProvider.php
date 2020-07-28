@@ -55,6 +55,13 @@ class EventServiceProvider extends ServiceProvider
       'App\Listeners\InvoiceCreateSendReminder',
     ],
 
+    'App\Events\CourseEventCancelledByAdministrator' => [
+      'App\Listeners\CourseEventCancelByAdministrator',
+    ],
+
+    'App\Events\CourseEventClosed' => [
+      'App\Listeners\CourseEventClose',
+    ],
 
   ];
 

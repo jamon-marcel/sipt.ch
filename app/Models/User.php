@@ -16,7 +16,7 @@ class User extends Authenticatable implements MustVerifyEmail
    * @var array
    */
   protected $fillable = [
-    'email', 'production_email', 'password', 'role'
+    'email', 'production_email', 'password', 'role', 'has_invitation'
   ];
 
   /**
@@ -63,4 +63,14 @@ class User extends Authenticatable implements MustVerifyEmail
   {
     return $this->role == 'tutor' ? TRUE : FALSE;
   }
+
+  public function tutor()
+	{
+    return $this->hasOne('App\Models\Tutor', 'user_id', 'id');
+  }
+  
+  public function student()
+	{
+    return $this->hasOne('App\Models\Student', 'user_id', 'id');
+	}
 }

@@ -35,7 +35,19 @@ class BackofficeController extends Controller
    */
   public function getConcludedCourses()
   {
-    $courses = $this->course->with('eventsCompleted.dates.tutor', 'eventsCompleted.location')->get();
+    $courses = $this->course->with('eventsCompleted.dates.tutor', 'eventsCompleted.location')->orderBy('number')->get();
+    return new DataCollection($courses);
+  }
+
+  /**
+   * Get a list of past and closed courses with events
+   * 
+   * @param Course $course
+   * @return \Illuminate\Http\Response
+   */
+  public function getClosedCourses()
+  {
+    $courses = $this->course->with('eventsClosed.dates.tutor', 'eventsClosed.location')->orderBy('number')->get();
     return new DataCollection($courses);
   }
 
@@ -68,6 +80,27 @@ class BackofficeController extends Controller
     $course_event_student->has_attendance = $course_event_student->has_attendance == 0 ? 1 : 0;
     $course_event_student->save();
     return response()->json($course_event_student->has_attendance);                                           
+  }
+
+  /**
+   * @param \Illuminate\Http\Request $request
+   */
+  public function import(Request $request)
+  {
+
+    // Create Course Event
+    $course_event = CourseEventStudent::firstOrNew(
+      ['course_event_id' => $request->courseEventId, 'student_id' => $request->studentId],
+      [
+        'course_event_id' => $request->courseEventId,
+        'student_id' => $request->studentId,
+        'booking_number' => $request->booking,
+        'created_at' => $request->date
+      ]
+    );
+    $course_event->save();
+    return response()->json(true);                                           
+
   }
 
 }

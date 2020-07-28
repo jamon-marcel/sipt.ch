@@ -34,4 +34,15 @@ class SymposiumController extends BaseController
     return view($this->viewPath . 'anniversary', ['sidebar' => 'confirmation']);
   }
 
+  /**
+   * Show the cancelled confirmation page
+   *
+   * @return \Illuminate\Http\Response
+   */
+
+  public function cancelled()
+  {
+    return view($this->viewPath . 'anniversary', ['sidebar' => 'confirmation_cancel']);
+  }
+
 }

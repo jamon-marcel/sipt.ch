@@ -28,6 +28,7 @@ import StudentProfileEdit from '@/administration/views/student/profile/Form.vue'
 import BackofficeModules from '@/administration/views/backoffice/Modules.vue';
 import BackofficeInvoices from '@/administration/views/backoffice/Invoices.vue';
 import BackofficeCourseEvent from '@/administration/views/backoffice/CourseEvent.vue';
+import BackofficeImport from '@/administration/views/backoffice/Import.vue';
 
 
 const routes = [
@@ -148,6 +149,11 @@ const routes = [
     name: 'backoffice-course-event',
     path: '/administration/backoffice/course/event/show/:id',
     component: BackofficeCourseEvent,
+  },
+  {
+    name: 'backoffice-import',
+    path: '/administration/backoffice/import',
+    component: BackofficeImport,
   },
 
   // Authorization

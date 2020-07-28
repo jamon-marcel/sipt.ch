@@ -3,6 +3,7 @@
   <select v-model="current" @change="change($event.target.value)">
     <option value="/administration/backoffice/modules">Module</option>
     <option value="/administration/backoffice/invoices">Rechnungen</option>
+    <option value="/administration/backoffice/import">Import</option>
   </select>
 </div>
 </template>

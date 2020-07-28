@@ -16,9 +16,9 @@
     </tr>
   </table>
 </header>
-<script type="text/php">
+{{-- <script type="text/php">
 if (isset($pdf)) {
     $font = $fontMetrics->getFont("Helvetica", "normal");
     $pdf->page_text(100, 100, "{PAGE_NUM}", $font, 16, array(0, 0, 0));
 }
-</script>
+</script> --}}

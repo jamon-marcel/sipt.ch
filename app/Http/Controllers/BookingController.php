@@ -132,15 +132,16 @@ class BookingController extends BaseController
       $bookings = $request->session()->get('bookings');
       foreach($bookings as $booking)
       {
-        // Create booking number
-        $booking_number = CourseEventStudent::withTrashed()->max('booking_number') + 1;
-        
         // Create course
-        $course_event = CourseEventStudent::updateOrCreate([
-          'course_event_id' => $booking['id'],
-          'student_id' => $student->id,
-          'booking_number' => $booking_number
-        ]);
+        $course_event = CourseEventStudent::firstOrNew(
+          ['course_event_id' => $booking['id'], 'student_id' => $student->id],
+          [
+            'course_event_id' => $booking['id'],
+            'student_id' => $student->id,
+            'booking_number' => \AppHelper::bookingNumber()
+          ]
+        );
+        $course_event->save();
 
         // Get course event data
         $courseEvent = $this->courseEvent->with('course', 'dates')->find($booking['id']);
@@ -172,16 +173,16 @@ class BookingController extends BaseController
       $bookings = $request->session()->get('bookings');
       foreach($bookings as $booking)
       {
-        // Create booking number
-        $max_booking_number = CourseEventStudent::withTrashed()->max('booking_number') + 1;
-        $booking_number     = ($max_booking_number > \Config::get('sipt.min_booking_number')) ? $max_booking_number : \Config::get('sipt.min_booking_number');
-
         // Create course
-        $course_event = CourseEventStudent::updateOrCreate([
-          'course_event_id' => $booking['id'],
-          'student_id' => $student->id,
-          'booking_number' => str_pad($booking_number, 6, "0", STR_PAD_LEFT)
-        ]);
+        $course_event = CourseEventStudent::firstOrNew(
+          ['course_event_id' => $booking['id'], 'student_id' => $student->id],
+          [
+            'course_event_id' => $booking['id'],
+            'student_id' => $student->id,
+            'booking_number' => \AppHelper::bookingNumber()
+          ]
+        );
+        $course_event->save();
 
         // Get course event data
         $courseEvent = $this->courseEvent->with('course', 'dates')->find($booking['id']);

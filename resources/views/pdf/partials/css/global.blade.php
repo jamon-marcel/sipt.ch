@@ -48,7 +48,6 @@ table.list td {
   padding: 2mm 1mm 2mm 0;
 }
 
-
 h1 {
   font-weight: bold;
   font-size: 13pt;

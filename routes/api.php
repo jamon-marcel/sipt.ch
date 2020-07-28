@@ -54,6 +54,9 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::middleware('role:student')->group(function() {
     Route::get('trainings', 'Api\TrainingController@get');
     Route::get('training/{training}', 'Api\TrainingController@find');
+  });
+
+  Route::middleware('role:admin')->group(function() {
     Route::post('training', 'Api\TrainingController@store');
     Route::put('training/{training}', 'Api\TrainingController@update');
     Route::delete('training/{training}', 'Api\TrainingController@destroy');
@@ -77,6 +80,8 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::put('course/event/{courseEvent}', 'Api\CourseEventController@update');
   Route::get('course/event/state/{courseEvent}', 'Api\CourseEventController@toggle');
   Route::get('course/event/cancel/{courseEvent}', 'Api\CourseEventController@cancel');
+  Route::get('course/event/close/{courseEvent}', 'Api\CourseEventController@close');
+  Route::get('course/event/open/{courseEvent}', 'Api\CourseEventController@open');
   Route::delete('course/event/{courseEvent}', 'Api\CourseEventController@destroy');
   Route::get('course/events/by/course/{course}', 'Api\CourseEventController@getByCourse');
 
@@ -109,6 +114,7 @@ Route::middleware('auth:sanctum')->group(function() {
   // Backoffice
   Route::middleware('role:admin')->group(function() {
     Route::get('backoffice/courses/list/concluded', 'Api\BackofficeController@getConcludedCourses');
+    Route::get('backoffice/courses/list/closed', 'Api\BackofficeController@getClosedCourses');
     Route::get('backoffice/student/attendance/{student}/{courseEvent}', 'Api\BackofficeController@setAttendance');
     Route::get('backoffice/course/event/{courseEvent}', 'Api\BackofficeController@getCourseEvent');
     
@@ -117,6 +123,9 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('backoffice/invoice/{invoice}', 'Api\InvoiceController@find');
     Route::get('backoffice/invoice/state/{invoice}', 'Api\InvoiceController@state');
     Route::get('backoffice/invoice/notice/{invoice}/{noticeType}', 'Api\InvoiceController@notice');
+
+    Route::post('backoffice/import', 'Api\BackofficeController@import');
+
 
   });
 

@@ -6,11 +6,16 @@
     <div class="content">
       <p>Unser neues Portal für Studenten ermöglicht es Ihnen, ihre persönlichen Daten selbständig zu aktualisieren sowie ganz einfach und schnell neue Module zu buchen oder bestehende anzupassen.</p>
       <h2 class="sb-md">Ihre nächsten Module</h2>
-      <course-events-list :records="courseEvents" :hasDestroy="false"></course-events-list>
-      <div v-if="courseEvents" class="flex-fe">
-        <router-link :to="{name: 'courses'}">
-          <span>Alle anzeigen</span>
-        </router-link>
+      <div v-if="courseEvents.length">
+        <course-events-list :records="courseEvents" :hasDestroy="false"></course-events-list>
+        <div class="flex-fe">
+          <router-link :to="{name: 'courses'}">
+            <span>Alle anzeigen</span>
+          </router-link>
+        </div>
+      </div>
+      <div v-else>
+        <p class="no-records">Sie haben keine bevorstehenden Module...</p>
       </div>
     </div>
   </div>

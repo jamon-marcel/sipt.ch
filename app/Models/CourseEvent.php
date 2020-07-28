@@ -16,6 +16,7 @@ class CourseEvent extends Model
 		'is_bookable',
 		'is_published',
 		'is_cancelled',
+		'is_closed',
 	];
 
 	public function dates()

@@ -13,10 +13,12 @@ class CourseEventStudent extends Model
 		'course_event_id',
 		'student_id',
 		'has_attendance',
+		'has_confirmation',
 		'booking_number',
 		'is_billed',
 		'is_cancelled',
-		'cancelled_at'
+		'cancelled_at',
+		'created_at'
 	];
 	
 	public function course()

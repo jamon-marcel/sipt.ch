@@ -256,12 +256,6 @@ export default {
   },
 
   computed: {
-    coursesConcluded() {
-      let courses = this.courses.filter(function(course) {
-        return course.events_completed.length;
-      });
-      return courses;
-    },
 
     invoicesPaid() {
       let invoices = this.invoices.filter(function(invoice) {

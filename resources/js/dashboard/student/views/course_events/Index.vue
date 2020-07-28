@@ -37,12 +37,22 @@
         </template>
         <template v-if="isFetchedCoursesAttended">
           <h2>Absolvierte Module</h2>
-          <course-events-list
-            :records="courses.attended"
-            :hasDetail="false"
-            :hasDestroy="false"
-            v-if="courses.attended.length"
-          ></course-events-list>
+          <div class="listing" v-if="courses.attended.length">
+            <div class="listing__item" v-for="r in courses.attended" :key="r.id">
+              <div class="listing__item-body">
+                <span class="item-date">{{r.dates}}</span>
+                <separator />
+                {{ r.title }}
+                <separator />
+                {{ r.tutors }}
+              </div>
+              <div class="listing__item-action">
+                <a :href="'/download/modulbestaetigung/' + r.id" class="feather-icon" target="_blank" title="Modulbestätigung herunterladen">
+                  <download-cloud-icon size="20"></download-cloud-icon>
+                </a>
+              </div>
+            </div>
+          </div>
           <div class="no-records" v-else>Es sind keine Module vorhanden...</div>
         </template>
         <div class="sb-md">
@@ -65,7 +75,7 @@
 <script>
 
 // Icons
-import { AwardIcon, XIcon } from "vue-feather-icons";
+import { AwardIcon, XIcon, DownloadCloudIcon } from "vue-feather-icons";
 
 // Mixins
 import Helpers from "@/global/mixins/Helpers";
@@ -80,6 +90,7 @@ export default {
     CourseEventsList,
     CourseEventRegister,
     AwardIcon,
+    DownloadCloudIcon,
     XIcon
   },
 

@@ -82,9 +82,9 @@
             <a href="{{ route('logout') }}">Logout</a>
           </li>
         @endauth
-        <li>
+        {{-- <li>
           <a href="">Newsletter</a>
-        </li>
+        </li> --}}
         <li>
           <a href="javascript:;" class="js-btn-contact">Kontakt</a>
         </li>

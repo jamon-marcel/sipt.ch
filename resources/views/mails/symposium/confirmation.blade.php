@@ -20,8 +20,9 @@
     <td>CHF {{ $subscriber['symposium']['cost'] }}</td>
   </tr>
 </table>
-<p>Dürfen wir Sie bitten, die Gebühr für die Teilnahme innert 30 Tagen zu überweisen.</p>
-<p>Beilage:<br>– Rechnung mit Einzahlungsschein<br>– Lageplan</p>
+<p>Um diese Buchung zu annullieren, klicken Sie bitte <a href="{{ route('symposium_cancel', ['symposiumSubscriber' => $subscriber['id']]) }}" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</p>
+
+<p>Beilage:<br>– Lageplan</p>
 <br>
 @include('mails.partials.html.signature')
 @endcomponent

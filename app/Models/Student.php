@@ -49,12 +49,13 @@ class Student extends Model
 
   public function courseEvents($constraint = NULL)
   {
-		if ($constraint == 'upcoming')
+		if ($constraint == 'upcoming' || $constraint == 'booked')
 		{
 			return $this->belongsToMany('App\Models\CourseEvent')
 									->orderBy('dateStart')
 									->where('dateStart', '>=', date('Y.m.d', time()));
 		}
+
 		return $this->belongsToMany('App\Models\CourseEvent')->orderBy('dateStart');
 	}
 

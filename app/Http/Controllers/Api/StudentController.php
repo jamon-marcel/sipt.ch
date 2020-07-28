@@ -34,7 +34,7 @@ class StudentController extends Controller
    */
   public function get()
   {
-    return new DataCollection($this->student->orderBy('name')->get());
+    return new DataCollection($this->student->with('user')->orderBy('name')->get());
   }
 
   /**
@@ -95,7 +95,7 @@ class StudentController extends Controller
 
       // Booked events
       case 'booked':
-        $courseEvents = $student->courseEvents()
+        $courseEvents = $student->courseEvents('booked')
                                 ->with('course', 'location', 'dates.tutor')
                                 ->where('has_attendance', '=', 0)
                                 ->where('course_event_student.deleted_at', '=', NULL)
@@ -157,16 +157,15 @@ class StudentController extends Controller
                 ? $this->student->with('user')->findOrFail($student->id)
                 : $this->student->with('user')->authenticated(auth()->user()->id);
 
-    // Create booking number
-    $max_booking_number = CourseEventStudent::withTrashed()->max('booking_number') + 1;
-    $booking_number     = ($max_booking_number > \Config::get('sipt.min_booking_number')) ? $max_booking_number : \Config::get('sipt.min_booking_number');
-
     // Create Course Event
-    $course_event = CourseEventStudent::updateOrCreate([
-      'course_event_id' => $request->courseEventId,
-      'student_id' => $student->id,
-      'booking_number' => str_pad($booking_number, 6, "0", STR_PAD_LEFT)
-    ]);
+    $course_event = CourseEventStudent::firstOrNew(
+      ['course_event_id' => $request->courseEventId, 'student_id' => $student->id],
+      [
+        'course_event_id' => $request->courseEventId,
+        'student_id' => $student->id,
+        'booking_number' => \AppHelper::bookingNumber()
+      ]
+    );
     $course_event->save();
 
     // Get course event data for confirmation

@@ -1,7 +1,7 @@
 <template>
 <div>
   <loading-indicator v-if="isLoading"></loading-indicator>
-  <div :class="isFetched ? 'is-loaded' : 'is-loading'">
+  <div :class="isFetchedConcluded && isFetchedClosed ? 'is-loaded' : 'is-loading'">
     <header class="content-header flex-sb flex-vc">
       <h1>Vergangene Module</h1>
       <view-selector></view-selector>
@@ -40,20 +40,57 @@
     <div v-else>
       <p>Es sind noch keine Module vorhanden...</p>
     </div>
-    <footer class="module-footer">
-      <div>
-        <a href="/download/modulliste" class="btn-primary has-icon" target="_blank">
-          <span>Download Modulliste</span>
-        </a>
+    <header class="content-header flex-sb flex-vc">
+      <h1>Geschlossene Module</h1>
+      <a href="" class="feather-icon feather-icon--prepend" @click.prevent="toggleClosed()">
+        <chevron-down-icon size="20"></chevron-down-icon>
+        <span>Anzeigen</span>
+      </a>
+    </header>
+    <div v-if="showClosed">
+      <div class="listing is-grouped" v-if="coursesClosed.length">
+        <div
+          :class="[c.is_published == 0 ? 'is-disabled' : '', '']"
+          v-for="c in coursesClosed"
+          :key="c.id"
+        >
+          <div class="listing-group">
+            <h2>{{ c.number }} – {{ c.title }}</h2>
+            <div v-if="c.events_closed.length">
+              <div class="listing__item is-group" v-for="e in c.events_closed" :key="e.id">
+                <div class="listing__item-body">
+                  <span>{{ c.number }}.{{dateFormat(e.dateStart, 'DDMMYY')}}</span>
+                  <separator />
+                  <span>{{ datesToString(e.dates) }}</span>
+                  <separator />
+                  <span>{{ tutorsToString(e.dates) }}</span>
+                </div>
+                <list-actions
+                  :id="e.id" 
+                  :record="c"
+                  :hasDetail="true"
+                  :hasEdit="false"
+                  :hasDestroy="false"
+                  :hasToggle="false"
+                  :routes="{details: 'backoffice-course-event'}">
+                </list-actions>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </footer>
+      <div v-else>
+        <p>Es sind noch keine Module vorhanden...</p>
+      </div>
+    </div>
+
   </div>
 </div>
 </template>
 <script>
 
 // Icons
-import { PlusIcon, DownloadIcon } from 'vue-feather-icons';
+import { PlusIcon, DownloadIcon, ChevronDownIcon } from 'vue-feather-icons';
 
 // Components
 import ListActions from "@/global/components/ui/ListActions.vue";
@@ -70,6 +107,7 @@ export default {
     ListActions,
     PlusIcon,
     DownloadIcon,
+    ChevronDownIcon,
     ViewSelector
   },
 
@@ -77,9 +115,12 @@ export default {
 
   data() {
     return {
-      courses: [],
+      courses_concluded: [],
+      courses_closed: [],
       isLoading: false,
-      isFetched: false,
+      isFetchedConcluded: false,
+      isFetchedClosed: false,
+      showClosed: false,
     };
   },
 
@@ -91,20 +132,36 @@ export default {
 
     fetch() {
       this.axios.get(`/api/backoffice/courses/list/concluded`).then(response => {
-        this.courses = response.data.data;
-        this.isFetched = true;
+        this.courses_concluded = response.data.data;
+        this.isFetchedConcluded = true;
+      });
+
+      this.axios.get(`/api/backoffice/courses/list/closed`).then(response => {
+        this.courses_closed = response.data.data;
+        this.isFetchedClosed = true;
       });
     },
+
+    toggleClosed() {
+      this.showClosed = this.showClosed ? false : true;
+    }
 
   },
 
   computed: {
     coursesConcluded() {
-      let courses = this.courses.filter(function(course) {
+      let courses = this.courses_concluded.filter(function(course) {
         return course.events_completed.length;
       });
       return courses;
-    }
+    },
+
+    coursesClosed() {
+      let courses = this.courses_closed.filter(function(course) {
+        return course.events_closed.length;
+      });
+      return courses;
+    },
   }
 }
 </script>

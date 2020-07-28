@@ -36,7 +36,8 @@ class TrainingController extends BaseController
         [
           'category'  => $trainingCategory,
           'trainings' => $trainings,
-          'activeCategory' => $trainingCategory->id
+          'activeCategory' => $trainingCategory->id,
+          'quote' => \Config::get('sipt.quotes.' . $trainingCategory->id),
         ]
       );
   }

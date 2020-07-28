@@ -8,93 +8,101 @@
       <div class="content">
         <template v-if="isFetched">
           <h1>{{title}}</h1>
-          <h2 class="is-narrow sb-md">Teilnehmer</h2>
-          <div v-if="course_event.students.length">
-            <div class="listing">
-              <div
-                class="listing__item"
-                v-for="student in course_event.students"
-                :key="student.id"
-              >
-                <div class="listing__item-body">
-                  {{student.firstname}} {{student.name}}
-                  <separator />
-                  {{student.city}}
-                </div>
-                <div class="listing__item-action">
-                  <div>
-                    <a
-                      href="javascript:;"
-                      @click.prevent="toggleAttendance(student.id, course_event.id)"
-                    >
-                      <span v-if="student.pivot.has_attendance" class="feather-icon is-active">
-                        <check-circle-icon size="20"></check-circle-icon>
-                      </span>
-                      <span v-else>
-                        <circle-icon size="20" class="feather-icon is-inactive"></circle-icon>
-                      </span>
-                    </a>
+          <div v-if="isClosed">
+            <p class="no-records">Dieses Modul ist geschlossen!</p>
+            <a href class="btn-primary has-icon" @click.prevent="open()">
+              <lock-icon size="16"></lock-icon>
+              <span>Modul öffnen</span>
+            </a>
+          </div>
+          <div v-else>
+            <h2 class="is-narrow sb-md">Teilnehmer</h2>
+            <div v-if="course_event.students.length">
+              <div class="listing">
+                <div class="listing__item" v-for="student in course_event.students" :key="student.id">
+                  <div class="listing__item-body">
+                    {{student.firstname}} {{student.name}}
+                    <separator/>
+                    {{student.city}}
+                  </div>
+                  <div class="listing__item-action">
+                    <div>
+                      <a
+                        href="javascript:;"
+                        @click.prevent="toggleAttendance(student.id, course_event.id)"
+                      >
+                        <span v-if="student.pivot.has_attendance" class="feather-icon is-active">
+                          <check-circle-icon size="20"></check-circle-icon>
+                        </span>
+                        <span v-else>
+                          <circle-icon size="20" class="feather-icon is-inactive"></circle-icon>
+                        </span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div v-else>
-            <p class="no-records">Es sind keine Teilnehmer für dieses Modul vorhanden...</p>
-          </div>
-          <h2 class="is-narrow sb-md">Rechnungen</h2>
-          <div v-if="course_event.invoices.length">
-            <div class="listing">
-              <div
-                class="listing__item"
-                v-for="invoice in course_event.invoices"
-                :key="invoice.id"
-              >
-                <div class="listing__item-body">
-                  <a :href="'/storage/invoices/' + invoice.file" target="_blank">{{invoice.number}}</a>
-                  <separator />
-                  {{moneyFormat(course_event.course.cost)}}
-                  <separator />
-                  {{invoice.date}}
-                  <separator />
-                  {{invoice.student.firstname}} {{invoice.student.name}}, {{invoice.student.city}}
-                  
-                  <span v-if="invoice.state != null && invoice.is_paid == 0">
-                    <separator />
-                    <div :class="'bubble-invoice bubble-invoice__' + invoice.state">{{invoiceStates[invoice.state]}} - {{invoice.date_notice}}</div>
-                  </span>
-                  <span v-if="invoice.is_paid">
-                    <separator />
-                    <div class="bubble-invoice bubble-invoice__paid">Bezahlt</div>
-                  </span>
-                </div>
-                <div class="listing__item-action">
-                  <div v-if="invoice.is_paid == 0">
-                    <a href="" @click.prevent="showNoticeForm(invoice)">
-                      <span class="feather-icon">
-                        <bell-icon size="20"></bell-icon>
-                      </span>
-                    </a>
-                  </div>
-                  <div>
-                    <a
-                      href="javascript:;"
-                      @click.prevent="toggleBillStatus(invoice.id)"
+            <div v-else>
+              <p class="no-records">Es sind keine Teilnehmer für dieses Modul vorhanden...</p>
+            </div>
+            <h2 class="is-narrow sb-md">Rechnungen</h2>
+            <div v-if="course_event.invoices.length">
+              <div class="listing">
+                <div class="listing__item" v-for="invoice in course_event.invoices" :key="invoice.id">
+                  <div class="listing__item-body">
+                    <a :href="'/storage/invoices/' + invoice.file" target="_blank">{{invoice.number}}</a>
+                    <separator/>
+                    {{moneyFormat(course_event.course.cost)}}
+                    <separator/>
+                    {{invoice.date}}
+                    <separator/>
+
+                    {{invoice.student.firstname}} {{invoice.student.name}}, {{invoice.student.city}}
+                    <span
+                      v-if="invoice.state != null && invoice.is_paid == 0"
                     >
-                      <span v-if="invoice.is_paid" class="feather-icon is-active">
-                        <dollar-sign-icon size="20"></dollar-sign-icon>
-                      </span>
-                      <span v-else>
-                        <dollar-sign-icon size="20" class="feather-icon is-inactive"></dollar-sign-icon>
-                      </span>
-                    </a>
+                      <separator/>
+                      <div
+                        :class="'bubble-invoice bubble-invoice__' + invoice.state"
+                      >{{invoiceStates[invoice.state]}} - {{invoice.date_notice}}</div>
+                    </span>
+                    <span v-if="invoice.is_paid">
+                      <separator/>
+                      <div class="bubble-invoice bubble-invoice__paid">Bezahlt</div>
+                    </span>
+                  </div>
+                  <div class="listing__item-action">
+                    <div v-if="invoice.is_paid == 0">
+                      <a href @click.prevent="showNoticeForm(invoice)">
+                        <span class="feather-icon">
+                          <bell-icon size="20"></bell-icon>
+                        </span>
+                      </a>
+                    </div>
+                    <div>
+                      <a href="javascript:;" @click.prevent="toggleBillStatus(invoice.id)">
+                        <span v-if="invoice.is_paid" class="feather-icon is-active">
+                          <dollar-sign-icon size="20"></dollar-sign-icon>
+                        </span>
+                        <span v-else>
+                          <dollar-sign-icon size="20" class="feather-icon is-inactive"></dollar-sign-icon>
+                        </span>
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div v-else>
-            <p class="no-records">Es sind keine Rechnungen für dieses Modul vorhanden...</p>
+            <div v-else>
+              <p class="no-records">Es sind keine Rechnungen für dieses Modul vorhanden...</p>
+            </div>
+            <h2 class="is-narrow sb-lg">Modul schliessen</h2>
+            <p>Nach dem Schliessen eines Moduls werden die Kursbestätigungen per E-Mail an die Teilnehmer mit Anwesenheit versendet.</p>
+            <a href class="btn-primary has-icon" @click.prevent="close()">
+              <unlock-icon size="16"></unlock-icon>
+              <span>Modul schliessen</span>
+            </a>
           </div>
         </template>
       </div>
@@ -110,7 +118,15 @@
 </template>
 <script>
 // Icons
-import { CheckCircleIcon, CircleIcon, DownloadCloudIcon, DollarSignIcon, BellIcon } from "vue-feather-icons";
+import {
+  CheckCircleIcon,
+  CircleIcon,
+  DownloadCloudIcon,
+  DollarSignIcon,
+  BellIcon,
+  LockIcon,
+  UnlockIcon
+} from "vue-feather-icons";
 
 // Mixins
 import ErrorHandling from "@/global/mixins/ErrorHandling";
@@ -118,7 +134,7 @@ import Helpers from "@/global/mixins/Helpers";
 import DateTime from "@/global/mixins/DateTime";
 
 // Components
-import NoticeForm from '@/administration/views/backoffice/components/NoticeForm.vue';
+import NoticeForm from "@/administration/views/backoffice/components/NoticeForm.vue";
 import ListActions from "@/global/components/ui/ListActions.vue";
 
 export default {
@@ -128,6 +144,8 @@ export default {
     DownloadCloudIcon,
     DollarSignIcon,
     BellIcon,
+    LockIcon,
+    UnlockIcon,
     ListActions,
     NoticeForm
   },
@@ -137,16 +155,17 @@ export default {
   data() {
     return {
       course_event: {},
+      isClosed: true,
       isLoading: false,
       isFetched: false,
       hasOverlay: false,
       noticeInvoice: null,
 
       invoiceStates: {
-        0: 'Zahlungserinnerung',
-        1: '1. Mahnung',
-        2: '2. Mahnung',
-        3: '3. Mahnung'
+        0: "Zahlungserinnerung",
+        1: "1. Mahnung",
+        2: "2. Mahnung",
+        3: "3. Mahnung"
       }
     };
   },
@@ -160,15 +179,36 @@ export default {
       let uri = `/api/backoffice/course/event/${this.$route.params.id}`;
       this.axios.get(`${uri}`).then(response => {
         this.course_event = response.data;
+        this.isClosed = this.course_event.is_closed;
         this.isFetched = true;
       });
     },
 
-    toggleAttendance(studentId,courseEventId) {
+    close() {
+      let uri = `/api/course/event/close/${this.$route.params.id}`;
+      this.isLoading = true;
+      this.axios.get(`${uri}`).then(response => {
+        this.isLoading = false;
+        this.isClosed = true;
+      });
+    },
+
+    open() {
+      let uri = `/api/course/event/open/${this.$route.params.id}`;
+      this.isLoading = true;
+      this.axios.get(`${uri}`).then(response => {
+        this.isLoading = false;
+        this.isClosed = false;
+      });
+    },
+
+    toggleAttendance(studentId, courseEventId) {
       let uri = `/api/backoffice/student/attendance/${studentId}/${courseEventId}`;
       this.isLoading = true;
       this.axios.get(uri).then(response => {
-        const idx = this.course_event.students.findIndex(x => x.id === studentId);
+        const idx = this.course_event.students.findIndex(
+          x => x.id === studentId
+        );
         this.course_event.students[idx].pivot.has_attendance = response.data;
         this.$notify({ type: "success", text: "Status geändert!" });
         this.isLoading = false;
@@ -179,7 +219,9 @@ export default {
       let uri = `/api/backoffice/invoice/state/${invoiceId}`;
       this.isLoading = true;
       this.axios.get(uri).then(response => {
-        const idx = this.course_event.invoices.findIndex(x => x.id === invoiceId);
+        const idx = this.course_event.invoices.findIndex(
+          x => x.id === invoiceId
+        );
         this.course_event.invoices[idx].is_paid = response.data;
         this.$notify({ type: "success", text: "Status geändert!" });
         this.isLoading = false;
@@ -190,7 +232,7 @@ export default {
       let uri = `/api/backoffice/invoice/notice/${this.noticeInvoice.id}/${noticeType}`;
       this.isLoading = true;
       this.axios.get(uri).then(response => {
-        this.$notify({ type: "success", text: "Mahnung versendet!"});
+        this.$notify({ type: "success", text: "Mahnung versendet!" });
         this.noticeInvoice = null;
         this.hideNoticeForm();
         this.isLoading = false;
@@ -205,12 +247,15 @@ export default {
 
     hideNoticeForm() {
       this.hasOverlay = false;
-    },
+    }
   },
 
   computed: {
     title() {
-      return `${this.course_event.course.number}.${this.dateFormat(this.course_event.dateStart, 'DDMMYY')} – 
+      return `${this.course_event.course.number}.${this.dateFormat(
+        this.course_event.dateStart,
+        "DDMMYY"
+      )} – 
               ${this.course_event.course.title},
               ${this.datesToString(this.course_event.dates)}`;
     }

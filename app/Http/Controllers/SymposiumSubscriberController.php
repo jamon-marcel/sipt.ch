@@ -36,8 +36,7 @@ class SymposiumSubscriberController extends Controller
     }
     
     // Create booking number
-    $booking_number = SymposiumSubscriber::withTrashed()->max('booking_number') + 1;
-    $data['booking_number'] = str_pad($booking_number, 6, "0", STR_PAD_LEFT);
+    $data['booking_number'] = \AppHelper::bookingNumber();
 
     // Create subscriber
     $subscriber = SymposiumSubscriber::create($data);
@@ -47,6 +46,23 @@ class SymposiumSubscriberController extends Controller
     event(new SymposiumSubscription($subscriber));
 
     return redirect()->route('symposium_register_success');
+  }
+
+  /**
+   * Cancel a booking
+   * @todo: implement withdrawal process
+   *
+   * @param SymposiumSubscriber $symposiumSubscriber
+   * @return \Illuminate\Http\Response
+   */
+
+  public function cancel(SymposiumSubscriber $symposiumSubscriber)
+  {
+    if ($symposiumSubscriber)
+    {
+      $symposiumSubscriber->delete();
+    }
+    return redirect()->route('symposium_cancelled');
   }
 
 }

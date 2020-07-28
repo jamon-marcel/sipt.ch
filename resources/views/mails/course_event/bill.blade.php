@@ -22,7 +22,7 @@
   </tr>
 </table>
 <br>
-<p>Um diese Buchung zu annulieren, klicken Sie bitte <a href="{{ route('booking_cancel_preview', ['courseEvent' => $courseEvent->id, 'student' => $student->id]) }}" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</p>
+<p>Um diese Buchung zu annullieren, klicken Sie bitte <a href="{{ route('booking_cancel_preview', ['courseEvent' => $courseEvent->id, 'student' => $student->id]) }}" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</p>
 <p>Möchten Sie weitere Module besuchen? Verwalten Sie ihre Module sowie Ihre persönlichen Daten einfach und bequem unter: <a href="{{ url('/student') }}" class="anchor" style="color: #ff7a00; text-decoration: none;">{{ url('/student') }}</a></p>
 @include('mails.partials.html.signature')
 @endcomponent
