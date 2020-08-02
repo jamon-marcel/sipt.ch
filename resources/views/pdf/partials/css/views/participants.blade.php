@@ -1,7 +1,7 @@
 <style>
 @page {
   size: A4 landscape;
-  margin: 85mm 10mm 10mm 20mm;
+  margin: 85mm 10mm 20mm 20mm;
 }
 
 h1 {
@@ -39,21 +39,30 @@ table.list-participants {
 
 table.list-participants td {
   border-top: .15mm solid #000000;
+  padding-right: 3mm;
 }
 
 table.list-participants td:nth-child(1) {
-  width: 15mm;
+  width: 10mm;
 }
 
 table.list-participants td:nth-child(2) {
-  width: 60mm;
+  width: 45mm;
 }
 
 table.list-participants td:nth-child(3) {
-  width: 75mm;
+  width: 32mm;
+}
+
+table.list-participants td:nth-child(4) {
+  width: 65mm;
+}
+
+table.list-participants td:nth-child(5) {
+  width: 70mm;
 }
 
 table.list-participants td:last-child {
-  width: auto;
+  padding-right: 0;
 }
 </style>

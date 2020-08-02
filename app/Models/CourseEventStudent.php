@@ -15,6 +15,7 @@ class CourseEventStudent extends Model
 		'has_attendance',
 		'has_confirmation',
 		'booking_number',
+		'is_invited',
 		'is_billed',
 		'is_cancelled',
 		'cancelled_at',

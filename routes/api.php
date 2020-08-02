@@ -74,6 +74,7 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::get('course/with/events/{course}', 'Api\CourseController@getWithEvents');
 
   // CourseEvents routes
+  Route::get('course/events/fetch/{constraint?}', 'Api\CourseEventController@fetch');
   Route::get('course/events/{course}', 'Api\CourseEventController@get');
   Route::get('course/event/{courseEvent}', 'Api\CourseEventController@find');
   Route::post('course/event', 'Api\CourseEventController@store');
@@ -116,13 +117,16 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('backoffice/courses/list/concluded', 'Api\BackofficeController@getConcludedCourses');
     Route::get('backoffice/courses/list/closed', 'Api\BackofficeController@getClosedCourses');
     Route::get('backoffice/student/attendance/{student}/{courseEvent}', 'Api\BackofficeController@setAttendance');
+    Route::get('backoffice/student/bookings/{student}', 'Api\BackofficeController@getBookings');
+
     Route::get('backoffice/course/event/{courseEvent}', 'Api\BackofficeController@getCourseEvent');
-    
+   
     Route::get('backoffice/invoices', 'Api\InvoiceController@get');
     Route::get('backoffice/invoice/history/{invoice}', 'Api\InvoiceController@getHistory');
     Route::get('backoffice/invoice/{invoice}', 'Api\InvoiceController@find');
     Route::get('backoffice/invoice/state/{invoice}', 'Api\InvoiceController@state');
     Route::get('backoffice/invoice/notice/{invoice}/{noticeType}', 'Api\InvoiceController@notice');
+    Route::post('backoffice/invoice/store', 'Api\BackofficeController@createInvoice');
 
     Route::post('backoffice/import', 'Api\BackofficeController@import');
 

@@ -11,11 +11,39 @@ class Document
   }
 
   /**
-   * Generate the 'attendance confirmation' for a given course_event and a given student
+   * Create the 'invitation' for a given course_event and a given student
    * 
    * @param $courseEvent
    * @param $student
+   * @return Array
    */
+  public function invitation($courseEvent, $student)
+  {
+    // Create pdf
+    $this->viewData['courseEvent'] = $courseEvent;
+    $this->viewData['student']     = $student;
+    $pdf = PDF::loadView('pdf.course.invitation', $this->viewData);
+
+    // Set path & filename
+    $path = public_path() . '/storage/temp/';
+    $filename = 'sipt.ch-kurseinladung-' . \AppHelper::slug($courseEvent->courseNumber) . '_' . \AppHelper::slug($student->fullName);
+    $file = $filename . '.pdf';
+    $pdf->save($path . $file);
+
+    return [
+      'path' => $path . $file,
+      'name' => $file
+    ];
+  }
+
+  /**
+   * Create the 'attendance confirmation' for a given course_event and a given student
+   * 
+   * @param $courseEvent
+   * @param $student
+   * @return Array
+   */
+
   public function attendance($courseEvent, $student)
   {
     // Create pdf
@@ -25,7 +53,7 @@ class Document
 
     // Set path & filename
     $path = public_path() . '/storage/temp/';
-    $filename = 'sipt_kursbestaetigung_' . \AppHelper::slug($courseEvent->courseNumber) . '_' . \AppHelper::slug($student->fullName);
+    $filename = 'sipt.ch-kursbestaetigung-' . \AppHelper::slug($courseEvent->courseNumber) . '_' . \AppHelper::slug($student->fullName);
     $file = $filename . '.pdf';
     $pdf->save($path . $file);
 
@@ -36,20 +64,22 @@ class Document
   }
 
   /**
-   * Generate the module list
+   * Create the course events list for all course events
+   * 
+   * @return Array
    */
 
-  public function moduleList()
+  public function courseEventsList()
   {
-    $courseEvent = CourseEvent::with('course', 'students', 'dates.tutor')->orderBy('dateStart')->upcoming();
+    $courseEvents = CourseEvent::with('course', 'students', 'dates.tutor')->orderBy('dateStart')->upcoming();
 
     // Create pdf
-    $this->viewData['data'] = $courseEvent;
-    $pdf = PDF::loadView('pdf.course.course-list', $this->viewData);
+    $this->viewData['data'] = $courseEvents;
+    $pdf = PDF::loadView('pdf.lists.courses', $this->viewData);
 
     // Set path & filename
     $path = public_path() . '/storage/temp/';
-    $filename = 'modulliste-' . date('dmY', time());
+    $filename = 'sipt.ch-modulliste-' . date('dmY', time());
     $file = $filename . '.pdf';
     $pdf->save($path . $file);
 
@@ -60,20 +90,51 @@ class Document
   }
 
   /**
-   * Generate a participant list for a given courseEvent
+   * Create a participant list for a given course event
+   * 
+   * @param $courseEventId
+   * @return Array
    */
 
   public function participantList($courseEventId = NULL)
   {
     $courseEvent = CourseEvent::with('course', 'students', 'dates.tutor')->findOrFail($courseEventId);
+    $courseEvent->students = $courseEvent->students->sortByDesc('pivot.created_at');
 
     // Create pdf
     $this->viewData['data'] = $courseEvent;
-    $pdf = PDF::loadView('pdf.course.participants-list', $this->viewData);
+    $pdf = PDF::loadView('pdf.lists.participants', $this->viewData);
 
     // Set path & filename
     $path = public_path() . '/storage/temp/';
-    $filename = \AppHelper::slug($courseEvent->course->title) . '-' . $courseEvent->course->number . '.' . date('dmy', strtotime($courseEvent->dateStart));
+    $filename = 'sipt.ch-teilnehmerliste-' . \AppHelper::slug($courseEvent->course->title) . '-' . $courseEvent->course->number . '.' . date('dmy', strtotime($courseEvent->dateStart));
+    $file = $filename . '.pdf';
+    $pdf->save($path . $file);
+
+    return [
+      'path' => $path . $file,
+      'name' => $file
+    ];
+  }
+
+  /**
+   * Create a attendance list for a given course event
+   * 
+   * @param $courseEventId
+   * @return Array
+   */
+
+  public function attendanceList($courseEventId = NULL)
+  {
+    $courseEvent = CourseEvent::with('course', 'students', 'dates.tutor')->findOrFail($courseEventId);
+
+    // Create pdf
+    $this->viewData['data'] = $courseEvent;
+    $pdf = PDF::loadView('pdf.lists.attendance', $this->viewData);
+
+    // Set path & filename
+    $path = public_path() . '/storage/temp/';
+    $filename = 'sipt.ch-anwesenheitsliste-' . \AppHelper::slug($courseEvent->course->title) . '-' . $courseEvent->course->number . '.' . date('dmy', strtotime($courseEvent->dateStart));
     $file = $filename . '.pdf';
     $pdf->save($path . $file);
 

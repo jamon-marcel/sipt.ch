@@ -37,9 +37,9 @@
               Angemeldete Teilnehmer
               <em v-if="course_event.students.length">({{course_event.students.length}})</em>
             </h2>
-            <a :href="'/download/teilnehmerliste/' + course_event.id" target="_blank" class="feather-icon feather-icon--prepend">
+            <a :href="'/download/anwesenheitsliste/' + course_event.id" target="_blank" class="feather-icon feather-icon--prepend">
               <download-cloud-icon size="16"></download-cloud-icon>
-              <span>Teilnehmerliste</span>
+              <span>Anwesenheitsliste</span>
             </a>
           </div>
           <div v-if="course_event.students.length">
@@ -50,9 +50,15 @@
                 :key="student.id"
               >
                 <div class="listing__item-body">
+                  {{student.number}}
+                  <separator />
                   {{student.firstname}} {{student.name}}
                   <separator />
-                  {{student.title}}
+                  {{student.city}}
+                  <span v-if="student.qualifications">
+                    <separator />
+                    {{student.qualifications}}
+                  </span>
                 </div>
               </div>
             </div>
@@ -121,9 +127,9 @@
       </div>
       <footer class="module-footer">
         <div>
-          <a :href="'/download/teilnehmerliste/' + course_event.id" class="btn-primary has-icon" target="_blank">
+          <a :href="'/download/anwesenheitsliste/' + course_event.id" class="btn-primary has-icon" target="_blank">
             <download-cloud-icon size="16"></download-cloud-icon>
-            <span>Teilnehmerliste</span>
+            <span>Anwesenheitsliste</span>
           </a>
           <a href="javascript:history.go(-1)" class="btn-secondary">
             <span>Zurück</span>

@@ -232,6 +232,8 @@ return [
         'AppHelper' => App\Helpers\AppHelper::class,
         'MoneyFormatHelper' => App\Helpers\MoneyFormatHelper::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'BookingHelper' => App\Helpers\BookingHelper::class,
+        'InvoiceHelper' => App\Helpers\InvoiceHelper::class,
     ],
 
 ];

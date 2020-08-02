@@ -8,6 +8,10 @@ use Illuminate\Queue\InteractsWithQueue;
 
 class CourseEventConfirm
 {
+
+  protected $courseEvent;
+  protected $student;
+
   /**
    * Create the event listener.
    *
@@ -26,16 +30,26 @@ class CourseEventConfirm
    */
   public function handle(CourseEventBooked $event)
   {
-    $courseEvent  = $event->courseEvent;
-    $student  = $event->student;
+    $this->courseEvent  = $event->courseEvent;
+    $this->student      = $event->student;
+    $this->notify();
+  }
 
-    Mail::to($student->user->email)
+  /**
+   * Send the notification for the event
+   * 
+   * @return void
+   */
+  
+  public function notify()
+  {
+    Mail::to($this->student->user->email)
           ->cc(\Config::get('sipt.email_cc'))
           ->send(
               new CourseEventConfirmationNotification(
                 [
-                  'student' => $student,
-                  'courseEvent' => $courseEvent,
+                  'student' => $this->student,
+                  'courseEvent' => $this->courseEvent,
                 ]
           )
     );

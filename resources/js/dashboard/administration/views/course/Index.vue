@@ -2,40 +2,82 @@
 <div>
   <loading-indicator v-if="isLoading"></loading-indicator>
   <div :class="isFetched ? 'is-loaded' : 'is-loading'">
-    <header class="content-header">
+    <header class="content-header flex-sb flex-vc">
       <h1>Module</h1>
-      <router-link :to="{ name: 'course-create' }" class="feather-icon feather-icon--prepend">
-        <plus-icon size="16"></plus-icon>
-        <span>Hinzufügen</span>
-      </router-link>
+      <view-selector
+        :items="[
+          {route: '/administration/courses', label: 'Nach Nummer'},
+          {route: '/administration/courses/chronological', label: 'Chronologisch'},
+        ]"
+        :setView="true"
+      ></view-selector>
     </header>
-    <div class="listing" v-if="courses.length">
-      <div
-        :class="[c.is_published == 0 ? 'is-disabled' : '', 'listing__item']"
-        v-for="c in courses"
-        :key="c.id"
-      >
-        <div class="listing__item-body">
-          {{ c.number }} – {{ c.title }}
+
+    <!-- Order by number -->
+    <div v-if="this.view == 'courses'">
+      <div class="listing" v-if="courses.length">
+        <div
+          :class="[c.is_published == 0 ? 'is-disabled' : '', 'listing__item']"
+          v-for="c in courses"
+          :key="c.id"
+        >
+          <div class="listing__item-body">
+            {{ c.number }} – {{ c.title | truncate(75, '...') }}
+          </div>
+          <list-actions
+            :id="c.id" 
+            :record="c"
+            :hasEvent="true"
+            :eventCount="c.events_upcoming.length"
+            :routes="{edit: 'course-edit', events: 'course-events'}">
+          </list-actions>
         </div>
-        <list-actions
-          :id="c.id" 
-          :record="c"
-          :hasEvent="true"
-          :eventCount="c.events_upcoming.length"
-          :routes="{edit: 'course-edit', events: 'course-events'}">
-        </list-actions>
       </div>
     </div>
-    <div v-else>
-      <p>Es sind noch keine Module vorhanden...</p>
+
+    <!-- Order chronological -->
+    <div v-if="this.view == 'courses-chronological'">
+      <div class="listing" v-if="course_events.length">
+        <div
+          class="listing__item"
+          v-for="c in course_events"
+          :key="c.id"
+        >
+          <div :class="[c.students.length > c.max_participants ? 'color-danger' : 'listing__item-body']">
+            {{ datesToString(c.dates) }}
+            <separator />
+            {{c.courseNumber}}
+            <separator />
+            {{c.course.title | truncate(50, '...')}}
+            <separator />
+            <span>
+              {{c.students.length}}/{{c.max_participants}}
+            </span>
+          </div>
+          <list-actions
+            :id="c.id" 
+            :record="c"
+            :hasDetail="true"
+            :hasDownload="true"
+            :hasDestroy="false"
+            :hasEdit="false"
+            :hasToggle="false"
+            :routes="{details: 'course-event-show', download: '/download/teilnehmerliste/' + c.id}">
+          </list-actions>
+        </div>
+      </div>
     </div>
+
     <footer class="module-footer">
-      <div>
+      <div class="flex-sb flex-vc">
         <a href="/download/modulliste" class="btn-primary has-icon" target="_blank">
           <download-icon size="16"></download-icon>
           <span>Download Modulliste</span>
         </a>
+        <router-link :to="{ name: 'course-create' }" class="btn-secondary has-icon">
+          <plus-icon size="16"></plus-icon>
+          <span>Hinzufügen</span>
+        </router-link>
       </div>
     </footer>
   </div>
@@ -44,38 +86,63 @@
 <script>
 
 // Icons
-import { PlusIcon, DownloadIcon } from 'vue-feather-icons';
+import { PlusIcon, DownloadIcon, DownloadCloudIcon, ArrowUpRightIcon, EditIcon } from 'vue-feather-icons';
 
 // Components
 import ListActions from "@/global/components/ui/ListActions.vue";
+import ViewSelector from "@/administration/components/ViewSelector.vue";
+import Helpers from "@/global/mixins/Helpers";
 
 export default {
 
   components: {
     ListActions,
     PlusIcon,
-    DownloadIcon
+    DownloadIcon,
+    DownloadCloudIcon,
+    ArrowUpRightIcon,
+    EditIcon,
+    ViewSelector
   },
+
+  mixins: [Helpers],
 
   data() {
     return {
       courses: [],
+      course_events: [],
       isLoading: false,
       isFetched: false,
+      view: 'courses',
     };
   },
 
   created() {
+    this.view = this.$router.currentRoute.name;
     this.fetch();
   },
 
   methods: {
 
     fetch() {
-      this.axios.get(`/api/courses`).then(response => {
-        this.courses = response.data.data;
-        this.isFetched = true;
-      });
+
+      if (this.view == 'courses') {
+        this.isLoading = true;
+        this.axios.get(`/api/courses`).then(response => {
+          this.courses = response.data.data;
+          this.isFetched = true;
+          this.isLoading = false;
+        });
+      }
+
+      if (this.view == 'courses-chronological') {
+        this.isLoading = true;
+        this.axios.get(`/api/course/events/fetch/upcoming`).then(response => {
+          this.course_events = response.data.data;
+          this.isFetched = true;
+          this.isLoading = false;
+        });
+      }
     },
 
     toggle(id,event) {
@@ -99,6 +166,11 @@ export default {
         });
       }
     },
+
+    setView(view) {
+      this.view = view;
+      this.fetch();
+    }
   }
 }
 </script>

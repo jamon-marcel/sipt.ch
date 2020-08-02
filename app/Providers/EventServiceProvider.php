@@ -27,14 +27,6 @@ class EventServiceProvider extends ServiceProvider
       'App\Listeners\SymposiumConfirmSubscription',
     ],
 
-    'App\Events\CourseEventParticipantsList' => [
-      'App\Listeners\CourseEventCreateParticipantsList',
-    ],
-
-    'App\Events\CourseList' => [
-      'App\Listeners\CourseCreateList',
-    ],
-
     'App\Events\CourseEventBooked' => [
       'App\Listeners\CourseEventConfirm',
     ],
@@ -51,6 +43,10 @@ class EventServiceProvider extends ServiceProvider
       'App\Listeners\CourseEventCreateSendBill',
     ],
 
+    'App\Events\CourseEventInvitation' => [
+      'App\Listeners\CourseEventCreateSendInvitation',
+    ],
+
     'App\Events\InvoiceReminder' => [
       'App\Listeners\InvoiceCreateSendReminder',
     ],
@@ -63,6 +59,9 @@ class EventServiceProvider extends ServiceProvider
       'App\Listeners\CourseEventClose',
     ],
 
+    'App\Events\CourseEventParticipantsChanged' => [
+      'App\Listeners\CourseEventCheckMaxParticipants',
+    ],
   ];
 
   /**

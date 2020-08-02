@@ -1,7 +1,5 @@
 <?php
 namespace App\Events;
-use App\Models\Student;
-use App\Models\CourseEvent;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
@@ -9,18 +7,16 @@ class CourseEventBill
 {
   use Dispatchable, SerializesModels;
 
-  public $student;
-  public $courseEvent;
+  public $notifyUser;
   
   /**
    * Create a new event instance.
-   * @param Student $student
-   * @param CourseEvent $courseEvent
+   * 
+   * @param Boolean $notifyUser
    * @return void
    */
-  public function __construct(Student $student, CourseEvent $courseEvent)
+  public function __construct($notifyUser)
   {
-    $this->student = $student;
-    $this->courseEvent = $courseEvent;
+    $this->notifyUser = $notifyUser;
   }
 }

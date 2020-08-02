@@ -6,9 +6,9 @@
 
 .btn-secondary {
   @extend %btn-primary;
-  background-color: $color-grey;
+  background-color: darken($color-grey, 10);
   color: $color-dark;
 	&:hover {
-		background-color: darken($color-grey, 10);
+		background-color: $color-grey;
 	}
 }

@@ -1,8 +1,13 @@
 <nav class="meta-menu">
   <ul>
     {{-- <li><a href="javascript:;" class="js-btn-calendar">Kalender</a></li> --}}
-    <li><a href="javascript:;" class="js-btn-newsletter">Newsletter</a></li>
-    <li><a href="javascript:;" class="js-btn-contact">Kontakt</a></li>
+    {{-- <li><a href="javascript:;" class="js-btn-newsletter">Newsletter</a></li> --}}
+    <li>
+      <a href="{{ route('downloads_index')}}" class="{{ request()->routeIs('downloads_index') ? 'is-active' : '' }}">Downloads</a>
+    </li>
+    <li>
+      <a href="javascript:;" class="js-btn-contact">Kontakt</a>
+    </li>
   </ul>
   <ul>
     <li>

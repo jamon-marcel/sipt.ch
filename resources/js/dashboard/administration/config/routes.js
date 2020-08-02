@@ -27,7 +27,7 @@ import StudentProfileEdit from '@/administration/views/student/profile/Form.vue'
 
 import BackofficeModules from '@/administration/views/backoffice/Modules.vue';
 import BackofficeInvoices from '@/administration/views/backoffice/Invoices.vue';
-import BackofficeCourseEvent from '@/administration/views/backoffice/CourseEvent.vue';
+import BackofficeCreateInvoice from '@/administration/views/backoffice/CreateInvoice.vue';
 import BackofficeImport from '@/administration/views/backoffice/Import.vue';
 
 
@@ -61,6 +61,11 @@ const routes = [
   {
     name: 'courses',
     path: '/administration/courses',
+    component: CourseIndex,
+  },
+  {
+    name: 'courses-chronological',
+    path: '/administration/courses/chronological',
     component: CourseIndex,
   },
   {
@@ -127,7 +132,6 @@ const routes = [
     path: '/administration/student/profile/edit/:id',
     component: StudentProfileEdit,
   },
-
   {
     name: 'student-courses',
     path: '/administration/student/courses/:id',
@@ -146,9 +150,9 @@ const routes = [
     component: BackofficeInvoices,
   },
   {
-    name: 'backoffice-course-event',
-    path: '/administration/backoffice/course/event/show/:id',
-    component: BackofficeCourseEvent,
+    name: 'backoffice-create-invoice',
+    path: '/administration/backoffice/invoice/create',
+    component: BackofficeCreateInvoice,
   },
   {
     name: 'backoffice-import',

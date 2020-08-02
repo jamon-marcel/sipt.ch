@@ -16,6 +16,10 @@
       </div>
       <div v-else>
         <p class="no-records">Sie haben keine bevorstehenden Module...</p>
+        <router-link :to="{ name: 'courses' }" class="btn-primary has-icon is-sm">
+          <shopping-cart-icon size="16"></shopping-cart-icon>
+          <span>Modul hinzufügen</span>
+        </router-link>
       </div>
     </div>
   </div>
@@ -23,7 +27,7 @@
 <script>
 
 // Icons
-import { ArrowUpRightIcon } from 'vue-feather-icons';
+import { ArrowUpRightIcon, ShoppingCartIcon } from 'vue-feather-icons';
 
 // Mixins
 import Helpers from "@/global/mixins/Helpers";
@@ -35,6 +39,7 @@ export default {
 
   components: {
     ArrowUpRightIcon,
+    ShoppingCartIcon,
     CourseEventsList
   },
 

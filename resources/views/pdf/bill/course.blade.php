@@ -2,30 +2,30 @@
 @include('pdf.partials.css.views.invoice')
 <table class="recipient-data">
   <tr>
-    @if ($invoice['student']->has_alt_address)
+    @if ($invoice['client']->has_alt_address)
       <td>
-        {{ $invoice['student']->alt_company}}<br>
-        {{ $invoice['student']->alt_name}}<br>
-        {{ $invoice['student']->alt_street}} {{ $invoice['student']->alt_street_no}}<br>
-        {{ $invoice['student']->alt_zip}} {{ $invoice['student']->alt_city}}
+        {{ $invoice['client']->alt_company}}<br>
+        {{ $invoice['client']->alt_name}}<br>
+        {{ $invoice['client']->alt_street}} {{ $invoice['client']->alt_street_no}}<br>
+        {{ $invoice['client']->alt_zip}} {{ $invoice['client']->alt_city}}
       </td>
       <td>
         Kursteilnehmer:<br>
-        @if ($invoice['student'])
-          {{ $invoice['student']->title}}<br>
+        @if ($invoice['client'])
+          {{ $invoice['client']->title}}<br>
         @endif
-        {{ $invoice['student']->fullName}}<br>
-        {{ $invoice['student']->street}} {{ $invoice['student']->street_no}}<br>
-        {{ $invoice['student']->zip}} {{ $invoice['student']->city}}<br>
+        {{ $invoice['client']->fullName}}<br>
+        {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
+        {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
       </td>
     @else
       <td>
-        @if ($invoice['student']->title)
-          {{ $invoice['student']->title}}<br>
+        @if ($invoice['client']->title)
+          {{ $invoice['client']->title}}<br>
         @endif
-        {{ $invoice['student']->fullName}}<br>
-        {{ $invoice['student']->street}} {{ $invoice['student']->street_no}}<br>
-        {{ $invoice['student']->zip}} {{ $invoice['student']->city}}<br>
+        {{ $invoice['client']->fullName}}<br>
+        {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
+        {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
       </td>
     @endif
   </tr>
@@ -84,25 +84,25 @@
   <span class="payment-item payment-item__amount-right">{{$payment_slip['invoice_amount_arr'][0]}}</span>
   <span class="payment-item payment-item__amount-right-cents">{{$payment_slip['invoice_amount_arr'][1]}}</span>
   <span class="payment-item payment-address-left">
-    @if ($invoice['student']->has_alt_address)
-      {{ $invoice['student']->alt_company}}<br>
-      {{ $invoice['student']->alt_street}} {{ $invoice['student']->alt_street_no}}<br>
-      {{ $invoice['student']->alt_zip}} {{ $invoice['student']->alt_city}}
+    @if ($invoice['client']->has_alt_address)
+      {{ $invoice['client']->alt_company}}<br>
+      {{ $invoice['client']->alt_street}} {{ $invoice['client']->alt_street_no}}<br>
+      {{ $invoice['client']->alt_zip}} {{ $invoice['client']->alt_city}}
     @else
-      {{ $invoice['student']->fullName}}<br>
-      {{ $invoice['student']->street}} {{ $invoice['student']->street_no}}<br>
-      {{ $invoice['student']->zip}} {{ $invoice['student']->city}}<br>
+      {{ $invoice['client']->fullName}}<br>
+      {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
+      {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
     @endif
   </span>
   <span class="payment-item payment-address-right">
-    @if ($invoice['student']->has_alt_address)
-      {{ $invoice['student']->alt_company}}<br>
-      {{ $invoice['student']->alt_street}} {{ $invoice['student']->alt_street_no}}<br>
-      {{ $invoice['student']->alt_zip}} {{ $invoice['student']->alt_city}}
+    @if ($invoice['client']->has_alt_address)
+      {{ $invoice['client']->alt_company}}<br>
+      {{ $invoice['client']->alt_street}} {{ $invoice['client']->alt_street_no}}<br>
+      {{ $invoice['client']->alt_zip}} {{ $invoice['client']->alt_city}}
     @else
-      {{ $invoice['student']->fullName}}<br>
-      {{ $invoice['student']->street}} {{ $invoice['student']->street_no}}<br>
-      {{ $invoice['student']->zip}} {{ $invoice['student']->city}}<br>
+      {{ $invoice['client']->fullName}}<br>
+      {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
+      {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
     @endif
   </span>
   <span class="payment-item payment-codeline">{{$payment_slip['esr_codeline_str']}}</span>

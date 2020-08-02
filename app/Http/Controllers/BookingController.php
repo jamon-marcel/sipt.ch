@@ -10,6 +10,7 @@ use App\Http\Requests\StudentRegisterRequest;
 use App\Services\Withdrawal;
 use App\Events\StudentRegistered;
 use App\Events\CourseEventBooked;
+use App\Events\CourseEventParticipantsChanged;
 use App\Events\CourseEventCancelled;
 use App\Events\CourseEventCancelledWithPenalty;
 use Illuminate\Support\Facades\Hash;
@@ -138,7 +139,7 @@ class BookingController extends BaseController
           [
             'course_event_id' => $booking['id'],
             'student_id' => $student->id,
-            'booking_number' => \AppHelper::bookingNumber()
+            'booking_number' => \BookingHelper::getNumber()
           ]
         );
         $course_event->save();
@@ -148,6 +149,9 @@ class BookingController extends BaseController
 
         // Confirm booking
         event(new CourseEventBooked($student, $courseEvent));
+
+        // Check max. participants
+        event(new CourseEventParticipantsChanged($courseEvent));
       }
 
       // Remove bookings
@@ -179,7 +183,7 @@ class BookingController extends BaseController
           [
             'course_event_id' => $booking['id'],
             'student_id' => $student->id,
-            'booking_number' => \AppHelper::bookingNumber()
+            'booking_number' => \BookingHelper::getNumber()
           ]
         );
         $course_event->save();
@@ -189,6 +193,9 @@ class BookingController extends BaseController
 
         // Confirm booking
         event(new CourseEventBooked($student, $courseEvent));
+
+        // Check max. participants
+        event(new CourseEventParticipantsChanged($courseEvent));
       }
 
       // Remove bookings
@@ -256,6 +263,9 @@ class BookingController extends BaseController
       // Confirm cancellation
       event(new CourseEventCancelledWithPenalty($student, $courseEventStudent, $courseEvent, $penalty));
     }
+
+    // Check max. participants
+    event(new CourseEventParticipantsChanged($courseEvent));
 
     return view('web.pages.course.cancel-confirm');
   }

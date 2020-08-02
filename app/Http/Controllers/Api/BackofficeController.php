@@ -7,7 +7,9 @@ use App\Models\CourseEvent;
 use App\Models\CourseEventStudent;
 use App\Models\Invoice;
 use App\Models\Student;
+use App\Events\CourseEventParticipantsChanged;
 use App\Events\InvoiceReminder;
+use App\Services\CourseInvoice;
 use Illuminate\Http\Request;
 
 class BackofficeController extends Controller
@@ -83,11 +85,13 @@ class BackofficeController extends Controller
   }
 
   /**
+   * Create a booking for a student
+   * 
    * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\Response
    */
   public function import(Request $request)
   {
-
     // Create Course Event
     $course_event = CourseEventStudent::firstOrNew(
       ['course_event_id' => $request->courseEventId, 'student_id' => $request->studentId],
@@ -99,8 +103,61 @@ class BackofficeController extends Controller
       ]
     );
     $course_event->save();
+
+    // Check max. participants
+    // event(new CourseEventParticipantsChanged($courseEvent));
+
     return response()->json(true);                                           
 
   }
+
+  /**
+   * Get all bookings for a given student
+   * 
+   * @param Student $student
+   * @return \Illuminate\Http\Response
+   */
+
+  public function getBookings(Student $student)
+  {
+    $bookings = $student->courseEvents()
+                        ->with('course', 'location', 'dates.tutor')
+                        ->where('course_event_student.is_billed', '=', 0)
+                        ->where('course_event_student.deleted_at', '=', NULL)
+                        ->get();
+
+    return response()->json($bookings);
+  }
+
+  /**
+   * Create an invoice
+   * 
+   * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\Response
+   */
+
+  public function createInvoice(Request $request)
+  {
+    $student     = $this->student->findOrFail($request->studentId);
+    $courseEvent = $this->courseEvent->with('course', 'dates')->findOrFail($request->courseEventId);
+
+    $courseInvoice = new CourseInvoice();
+    $courseInvoice->create([
+      'date'  => $request->date ? $request->date : date('d.m.Y', time()),
+      'amount' => $request->amount,
+      'client' => $student,
+      'booking_number' => $request->booking_number,
+      'course_event' => $courseEvent,
+    ]);
+          
+    // Write to disk
+    $file = $courseInvoice->write();
+
+    // Store in database
+    $invoice = $courseInvoice->store();
+
+    return response()->json($file);
+  }
+
 
 }

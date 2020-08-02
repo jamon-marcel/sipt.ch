@@ -27,7 +27,7 @@
         <div class="listing__item-body">
           <span class="item-date">{{r.dates}}</span>
           <separator />
-          {{ r.title }}
+          {{ r.title | truncate(50, '...') }}
           <separator />
           {{ r.tutors }}
         </div>

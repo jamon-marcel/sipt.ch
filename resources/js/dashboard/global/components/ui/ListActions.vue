@@ -1,6 +1,14 @@
 <template>
   <div class="listing__item-action">
 
+    <div v-if="hasDownload">
+      <a :href="routes.download" target="_blank"
+        class="feather-icon"
+      >
+        <download-cloud-icon size="18"></download-cloud-icon>
+      </a>   
+    </div>
+
     <div v-if="hasDetail">
       <router-link
         :to="{name: routes.details, params: { id: id }}"
@@ -74,7 +82,8 @@ import {
   Trash2Icon,
   CalendarIcon,
   UserIcon,
-  ArrowUpRightIcon
+  ArrowUpRightIcon,
+  DownloadCloudIcon
 } from 'vue-feather-icons';
 
 export default {
@@ -86,7 +95,8 @@ export default {
     Trash2Icon,
     CalendarIcon,
     UserIcon,
-    ArrowUpRightIcon
+    ArrowUpRightIcon,
+    DownloadCloudIcon
   },
 
   props: {
@@ -101,6 +111,11 @@ export default {
       default: 0,
     },
     
+    hasDownload: {
+      type: Boolean,
+      default: false,
+    },
+
     hasEdit: {
       type: Boolean,
       default: true

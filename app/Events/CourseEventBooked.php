@@ -17,7 +17,6 @@ class CourseEventBooked
    * 
    * @param Student $student
    * @param CourseEvent $courseEvent
-   * @param String $token
    * @return void
    */
   public function __construct(Student $student, CourseEvent $courseEvent)

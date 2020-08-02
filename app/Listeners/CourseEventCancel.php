@@ -8,6 +8,11 @@ use Illuminate\Queue\InteractsWithQueue;
 
 class CourseEventCancel
 {
+
+  protected $student;
+  protected $courseEvent;
+  protected $courseEventStudent;
+
   /**
    * Create the event listener.
    *
@@ -26,20 +31,24 @@ class CourseEventCancel
    */
   public function handle(CourseEventCancelled $event)
   {
-    $student            = $event->student;
-    $courseEvent        = $event->courseEvent;
-    $courseEventStudent = $event->courseEventStudent;
+    $this->student            = $event->student;
+    $this->courseEvent        = $event->courseEvent;
+    $this->courseEventStudent = $event->courseEventStudent;
 
     // Delete courseEvent for student
-    $courseEventStudent->delete();
+    $this->courseEventStudent->delete();
+    $this->notify();
+  }
 
-    Mail::to($student->user->email)
+  public function notify()
+  {
+    Mail::to($this->student->user->email)
           ->cc(\Config::get('sipt.email_cc'))
           ->send(
               new CourseEventCancelNotification(
                 [
-                  'student' => $student,
-                  'courseEvent' => $courseEvent,
+                  'student' => $this->student,
+                  'courseEvent' => $this->courseEvent,
                 ]
           )
     );

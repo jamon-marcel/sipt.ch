@@ -11,6 +11,8 @@ return [
 
   // Registration
   'registration_deadline' => '+1 day',
+  'billable_deadline' => '+30 days',
+  'callable_deadline' => '+20 days',
 
   // Bank/ESR details
   'esr_codeline_prefix' => '01',
@@ -19,12 +21,20 @@ return [
   'esr_account_int'     => '012000272',
 
   // Minimum Invoice Number
-  'min_invoice_number' => 605423,
+  'min_invoice_number' => 650000,
 
   // Minimum Booking Number
-  'min_booking_number' => 406588,
+  'min_booking_number' => 450000,
 
-  // E-Mail Carbon Copy
+  // Chunk size for cron jobs
+  'cron_chunk_size' => 2,
+
+  // E-Mail 
+  'email_admin' => [
+    'm@marceli.to',
+  ],
+
+  // Carbon Copy
   'email_cc' => [
     'm@marceli.to',
   ],
@@ -58,7 +68,6 @@ return [
       'author' => 'Marianne Herzog, Fachberaterin / Fachpädagogin Psychotraumatologie',
       'quote' => 'Die Weiterbildung zur Fachberaterin und Fachpädagogin Psychotraumatologie am SIPT war für mich zentral. Die Theorien der Übertragungsphänomene, das Wissen um die Bedeutung der frühkindlichen Bindung, das Verstehen von hirnorganischer Abläufe gerade auch unter Stress sind wichtige Inhalte in meinen Weiterbildungen.',
     ]
-
   ]
 
 ];

@@ -42,6 +42,7 @@ class CourseEventClose
         // Get student data
         $student = $this->student->with('user')->find($student->id);
         
+        // Get course_event_student data
         $courseEventStudent = $this->courseEventStudent->where('student_id', '=', $student->id)
                                                        ->where('course_event_id', '=', $courseEvent->id)
                                                        ->get()
@@ -49,26 +50,39 @@ class CourseEventClose
 
         if ($courseEventStudent->has_attendance === 1 && $courseEventStudent->has_confirmation === 0)
         {
-          $document = new Document();
-          $document = $document->attendance($courseEvent, $student);
-
-          Mail::to($student->user->email)
-                ->cc(\Config::get('sipt.email_cc'))
-                ->send(
-                    new CourseEventAttendanceConfirmation(
-                      [
-                        'student' => $student,
-                        'courseEvent' => $courseEvent,
-                        'pdf' => isset($document['path']) ? $document['path'] : null
-                      ]
-                )
-          );
-
-          // Set confirmation state
+          // Update confirmation state
           $courseEventStudent->has_confirmation = 1;
           $courseEventStudent->save();
+
+          // Notify student
+          $this->notify($courseEvent, $student);
         }
       }
     }
+  }
+
+  /**
+   * Send mail to student
+   * 
+   * @param $courseEvent
+   * @param $student
+   */
+
+  public function notify($courseEvent, $student)
+  {
+    $document = new Document();
+    $document = $document->attendance($courseEvent, $student);
+
+    Mail::to($student->user->email)
+        ->cc(\Config::get('sipt.email_cc'))
+        ->send(
+            new CourseEventAttendanceConfirmation(
+              [
+                'student' => $student,
+                'courseEvent' => $courseEvent,
+                'pdf' => isset($document['path']) ? $document['path'] : null
+              ]
+        )
+    );
   }
 }

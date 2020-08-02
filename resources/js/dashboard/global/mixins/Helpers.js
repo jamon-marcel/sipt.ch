@@ -27,6 +27,10 @@ export default {
 
     moneyFormat(amount) {
       return amount.toFixed(2);
+    },
+
+    shorten(str, length = 10, suffix = "...") {
+      return str.substring(0, length) + suffix;
     }
   }
 };

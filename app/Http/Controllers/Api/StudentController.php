@@ -7,6 +7,7 @@ use App\Models\Student;
 use App\Models\CourseEvent;
 use App\Models\CourseEventStudent;
 use App\Events\CourseEventBooked;
+use App\Events\CourseEventParticipantsChanged;
 use App\Events\CourseEventCancelled;
 use App\Events\CourseEventCancelledWithPenalty;
 use App\Services\Withdrawal;
@@ -163,7 +164,7 @@ class StudentController extends Controller
       [
         'course_event_id' => $request->courseEventId,
         'student_id' => $student->id,
-        'booking_number' => \AppHelper::bookingNumber()
+        'booking_number' => \BookingHelper::getNumber()
       ]
     );
     $course_event->save();
@@ -173,6 +174,9 @@ class StudentController extends Controller
 
     // Send confirmation
     event(new CourseEventBooked($student, $courseEvent));
+
+    // Check max. participants
+    event(new CourseEventParticipantsChanged($courseEvent));
 
     return response()->json('successfully stored');
   }
@@ -210,6 +214,9 @@ class StudentController extends Controller
       // Confirm cancellation
       event(new CourseEventCancelledWithPenalty($student, $courseEventStudent, $courseEvent, $penalty));
     }
+
+    // Check max. participants
+    event(new CourseEventParticipantsChanged($courseEvent));
 
     return response()->json('successfully removed');
   }

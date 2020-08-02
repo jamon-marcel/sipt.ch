@@ -75,8 +75,6 @@ class Course extends Model
 								->where('is_closed', '=', 1);
 	}
 
-
-
 	/**
 	 * Relationship for bookable events
 	 */

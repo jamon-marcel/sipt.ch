@@ -88,6 +88,14 @@ footer.module-footer {
 
     button, a {
       margin-right: 20px;
+
+      &:last-of-type {
+        margin-right: 0 !important;
+      }
+    }
+
+    button + a {
+      margin-left: 20px;
     }
   }
 }

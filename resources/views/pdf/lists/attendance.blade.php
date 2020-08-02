@@ -1,0 +1,23 @@
+@include('pdf.partials.header-landscape')
+@include('pdf.partials.css.views.attendances')
+<div class="content-header">
+  <h1>TeilnehmerInnen-Liste</h1>
+  <h2>
+    {{$data->courseNumber}}, {{$data->course->title}}<br>{{\AppHelper::datesToString($data->dates)}}, {{\AppHelper::tutorsToString($data->dates)}}
+  </h2>
+</div>
+<div class="content">
+  @if ($data->students)
+    <table class="list list-attendances" cellspacing="0" cellpadding="0">
+      @foreach($data->students as $student)
+        <tr>
+          <td>{{$student->number}}</td>
+          <td>{{$student->fullName}}</td>
+          <td>{{$student->qualifications}}</td>
+          <td>Unterschrift:</td>
+        </tr>
+      @endforeach
+    </table>
+  @endif
+</div>
+@include('pdf.partials.footer-landscape')

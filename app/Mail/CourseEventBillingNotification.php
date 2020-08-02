@@ -39,9 +39,9 @@ class CourseEventBillingNotification extends Mailable
                  )
                  ->markdown('mails.course_event.bill');
     
-    if ($this->data['pdf'])
+    if ($this->data['attachment'])
     {
-      $mail->attach($this->data['pdf'], ['mime' => 'application/pdf']);
+      $mail->attach($this->data['attachment'], ['mime' => 'application/pdf']);
     }
     return $mail;
   }

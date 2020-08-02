@@ -5,7 +5,6 @@
       <header class="content-header">
         <div v-html="title">{{title}}</div>
       </header>
-
       <div class="overlay is-visible" v-if="hasOverlay">
         <div class="overlay__inner">
           <div>
@@ -22,7 +21,6 @@
           </div>
         </div>
       </div>
-
       <div class="content">
         <p>Eine Übersicht Ihrer bevorstehenden und absolvierten Module.</p>
         <template v-if="isFetchedCoursesBooked">

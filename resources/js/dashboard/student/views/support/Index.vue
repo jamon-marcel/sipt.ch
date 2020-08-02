@@ -27,7 +27,7 @@
       <h3>Annullierungsbedingungen</h3>
       <p>Bei einem Rücktritt bis acht Wochen vor Seminarbeginn ist der Rücktritt kostenfrei.<br>Bei einem Rücktritt bis vier Wochen vor Seminarbeginn berechnen wir 25 % der Seminargebühr.<br>Bei einem Rücktritt bis vierzehn Tage vor Seminarbeginn berechnen wir fünfzig Prozent der Seminargebühren.<br>Bei einem späteren Rücktritt oder bei Nichterscheinen berechnen wir die Seminargebühren in voller Höhe.<br>Sie können Ihre Seminaranmeldung spätestens 14 Tage vor Seminarbeginn auf eine andere Person übertragen.</p>
       <h3>Bei Absage durch den Veranstalter</h3>
-      <p>SIPT behält sich vor Seminare aus wichtigen Gründen abzusagen. In diesen Fällen informieren wir die Teilnehmer rechtzeitig und bieten Ersatztermine an. Wenn Ihnen die Ersatztermine nicht zusagen, erstatten wir die Seminargebühren in voller Höhe zurück. Weitergehende Forderungen sind ausgeschlossen.</p>
+      <p>SIPT behält sich vor, Seminare aus wichtigen Gründen abzusagen. In diesen Fällen informieren wir die Teilnehmer rechtzeitig und bieten Ersatztermine an. Wenn Ihnen die Ersatztermine nicht zusagen, erstatten wir die Seminargebühren in voller Höhe zurück. Weitergehende Forderungen sind ausgeschlossen.</p>
     </div>
   </div>
 </template>

@@ -7,10 +7,6 @@ use Illuminate\Support\Facades\Route;
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware gwroup. Now create something great!
-|
 */
 
 // Auth routes
@@ -49,6 +45,9 @@ Route::get('/jubilaeums-fachtagung-15-jahre-sipt/abmeldung-erfolgreich', 'Sympos
 // TOC
 Route::get('/agb', 'AboutController@toc')->name('about_toc');
 
+// Downloads
+Route::get('/downloads', 'DownloadController@index')->name('downloads_index');
+
 
 // Bookings
 Route::get('/booking/{courseEvent}', 'BookingController@add');
@@ -62,12 +61,11 @@ Route::get('/bookings', 'BookingController@get');
 // Student Login
 Route::post('/auth/student/login', 'LoginController@login')->name('student_login');
 
-
 // Cron
+Route::get('/bills', 'CronController@bills');
+Route::get('/invitations', 'CronController@invitations');
 Route::get('/invite/tutors', 'CronController@inviteTutors');
 Route::get('/invite/students', 'CronController@inviteStudents');
-
-
 
 /*
 |--------------------------------------------------------------------------
@@ -79,12 +77,12 @@ Route::get('/invite/students', 'CronController@inviteStudents');
 Route::middleware('auth:sanctum', 'verified')->group(function() {
 
   // Downloads for tutors / admins
-  Route::get('/download/modulliste', 'DownloadController@courses')->middleware('role:tutor');
-  Route::get('/download/teilnehmerliste/{courseEvent}', 'DownloadController@participants')->middleware('role:tutor');
+  Route::get('/download/modulliste', 'DownloadController@listCourses')->middleware('role:tutor');
+  Route::get('/download/teilnehmerliste/{courseEvent}', 'DownloadController@listParticipants')->middleware('role:admin');
+  Route::get('/download/anwesenheitsliste/{courseEvent}', 'DownloadController@listAttendances')->middleware('role:tutor');
 
   // Downloads for students
   Route::get('/download/modulbestaetigung/{courseEvent}', 'DownloadController@confirmation')->middleware('role:student');
-
 
   // CatchAll: Dashboard Student
   Route::get('student/{any?}', function () {
@@ -100,4 +98,5 @@ Route::middleware('auth:sanctum', 'verified')->group(function() {
   Route::get('administration/{any?}', function () {
     return view('dashboards.administration.app');
   })->where('any', '.*')->middleware('role:admin')->name('dashboard_admin');
+
 });

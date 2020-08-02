@@ -23,3 +23,8 @@
 .sb-md  { @include responsive-prop('margin-top', $space-md); }
 .sb-lg  { @include responsive-prop('margin-top', $space-lg); }
 .sb-xl  { @include responsive-prop('margin-top', $space-xl); }
+
+.color-success { color: $color-success; }
+.color-info { color: $color-info; }
+.color-warning { color: $color-warning; }
+.color-danger { color: $color-danger; }

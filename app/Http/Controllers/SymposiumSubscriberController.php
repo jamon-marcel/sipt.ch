@@ -36,7 +36,7 @@ class SymposiumSubscriberController extends Controller
     }
     
     // Create booking number
-    $data['booking_number'] = \AppHelper::bookingNumber();
+    $data['booking_number'] = \BookingHelper::getNumber();
 
     // Create subscriber
     $subscriber = SymposiumSubscriber::create($data);

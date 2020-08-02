@@ -1,22 +1,22 @@
 <?php
 namespace App\Events;
+use App\Models\Student;
 use App\Models\CourseEvent;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class CourseEventParticipantsList
+class CourseEventInvitation
 {
   use Dispatchable, SerializesModels;
-
-  public $courseEvent;
-
+  
   /**
    * Create a new event instance.
-   *
+   * @param Student $student
+   * @param CourseEvent $courseEvent
    * @return void
    */
-  public function __construct(CourseEvent $courseEvent)
+  public function __construct()
   {
-    $this->courseEvent = $courseEvent;
+
   }
 }

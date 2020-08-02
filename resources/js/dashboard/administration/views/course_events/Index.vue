@@ -3,7 +3,7 @@
   <loading-indicator v-if="isLoading"></loading-indicator>
   <div :class="isFetched ? 'is-loaded' : 'is-loading'">
     <header class="content-header">
-      <h1>Modul: <strong>{{course.title}}</strong></h1>
+      <h1><strong>{{course.number}} – {{course.title}}</strong></h1>
     </header>
     <template v-if="isFetched">
       <header class="flex-sb">
@@ -20,6 +20,8 @@
           :key="c.id"
         >
           <div class="listing__item-body">
+            {{c.courseNumber}}
+            <separator />
             <span class="item-date" v-if="c.dates.length">{{ datesToString(c.dates) }}</span>
             <span class="item-date" v-else>Keine Daten...</span>
             <separator />
@@ -30,9 +32,9 @@
             
             {{ tutorsToString(c.dates) }}
 
-            <div v-if="c.students.length">
+            <div :class="[c.students.length > c.max_participants ? 'color-danger' : '']">
               <separator />
-              <strong>{{c.students.length}} Teilnehmer</strong>
+              {{c.students.length}}/{{c.max_participants}}
             </div>
 
             <em class="bubble-danger" v-if="c.is_cancelled">abgesagt</em>
@@ -42,7 +44,8 @@
             :id="c.id" 
             :record="c"
             :hasDetail="true"
-            :routes="{edit: 'course-event-edit', details: 'course-event-show'}">
+            :hasDownload="true"
+            :routes="{edit: 'course-event-edit', details: 'course-event-show', download: '/download/teilnehmerliste/' + c.id}">
           </list-actions>
         </div>
       </div>  
@@ -53,7 +56,7 @@
         <a href="" @click.prevent="toggleCompleted()" class="is-narrow sa-xs feather-icon feather-icon--prepend">
           <chevron-down-icon size="16" v-if="showCompleted"></chevron-down-icon>
           <chevron-right-icon size="16" v-if="!showCompleted"></chevron-right-icon>
-          <span>Vergangene Veranstaltungen</span>
+          <span>Vergangene Veranstaltungen ({{events_completed.length}})</span>
         </a>
       </header>
       <div class="listing" v-if="showCompleted">

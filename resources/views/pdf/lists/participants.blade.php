@@ -13,10 +13,16 @@
         <tr>
           <td>{{$student->number}}</td>
           <td>{{$student->fullName}}</td>
+          <td>{{$student->city}}</td>
+          <td>{{$student->user->email}}</td>
           <td>{{$student->qualifications}}</td>
-          <td>Unterschrift:</td>
+          <td>{{$student->pivot->booking_number}}</td>
+          <td style="text-align: right">{{date('d.m.Y', strtotime($student->pivot->created_at))}}</td>
         </tr>
       @endforeach
+      <tr>
+        <td colspan="7" style="width: 100%">Anzahl TeilnehmerInnen: {{count($data->students)}}</td>
+      </tr>
     </table>
   @endif
 </div>

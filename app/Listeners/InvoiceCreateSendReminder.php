@@ -47,7 +47,6 @@ class InvoiceCreateSendReminder
       $recipient_email = $recipient->email;
     }
 
-
     // Update invoice
     $invoice->date_notice = date('d.m.Y', time());
     $invoice->user_id = auth()->user()->id;
@@ -55,6 +54,19 @@ class InvoiceCreateSendReminder
     $invoice->save();
 
     // Send reminder
+    $this->notify($invoice, $recipient, $recipient_email, $noticeType);
+  }
+
+  /**
+   * Notify the user
+   * 
+   * @param $invoice
+   * @param $recipient
+   * @param $noticeType
+   * @return void
+   */
+  public function notify($invoice, $recipient, $recipient_email, $noticeType)
+  {
     Mail::to($recipient_email)
           ->cc(\Config::get('sipt.email_cc'))
           ->send(
@@ -67,6 +79,5 @@ class InvoiceCreateSendReminder
                 ]
           )
     );
-
   }
 }

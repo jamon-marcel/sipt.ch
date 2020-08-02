@@ -20,6 +20,25 @@ class CourseEventController extends Controller
   }
 
   /**
+   * Fetch all upcoming course events
+   *
+   * @param String $constraint
+   * @return \Illuminate\Http\Response
+   */
+  public function fetch($constraint = NULL)
+  {
+    if ($constraint == 'upcoming')
+    {
+      $courseEvents = $this->courseEvent->with('course', 'location', 'dates', 'students')->orderBy('dateStart')->upcoming();
+      return new DataCollection($courseEvents);
+    }
+
+    $courseEvents = $this->courseEvent->with('course', 'location', 'dates', 'students')->orderBy('dateStart')->get();
+    return new DataCollection($courseEvents);
+  }
+
+
+  /**
    * Get a list of course events by a given course
    *
    * @param Course $course
@@ -39,7 +58,7 @@ class CourseEventController extends Controller
    */
   public function find(CourseEvent $courseEvent)
   {
-    $courseEvent = $this->courseEvent->with('course', 'location', 'dates.tutor', 'students', 'documents')->find($courseEvent->id);
+    $courseEvent = $this->courseEvent->with('course', 'location', 'dates.tutor', 'students.user', 'documents')->find($courseEvent->id);
     return response()->json($courseEvent);
   }
 
