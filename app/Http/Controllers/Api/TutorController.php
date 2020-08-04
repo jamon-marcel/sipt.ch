@@ -69,12 +69,6 @@ class TutorController extends Controller
     $tutor->update($request->except('user.email'));
     $tutor->save();
 
-    // Temporary allow changes uf email
-    // $user = $this->user->find($tutor->user_id);
-    // $user->production_email = $request->input('user.email');
-    // $user->email = 'sipt.' .  $request->input('user.email');
-    // $user->save();
-
     // Update or add images
     if (!empty($request->images))
     {

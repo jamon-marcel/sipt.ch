@@ -5,7 +5,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class InvitationTutorNotification extends Mailable
+class OnboardingTutorNotification extends Mailable
 {
   use Queueable, SerializesModels;
 
@@ -28,7 +28,7 @@ class InvitationTutorNotification extends Mailable
    */
   public function build()
   {
-    $mail = $this->subject('Neue Webseite')
+    $mail = $this->subject('Neue Webseite psychotraumatologie-sipt.ch')
                  ->with(
                    [
                      'tutor'    => $this->data['tutor'],
@@ -36,7 +36,19 @@ class InvitationTutorNotification extends Mailable
                      'password' => $this->data['password'],
                    ]
                  )
-                 ->markdown('mails.invitation.tutor');
+                 ->markdown('mails.onboarding.tutor');
+    
+    if ($this->data['attachments'])
+    {
+      foreach($this->data['attachments'] as $file)
+      {
+        if ($file)
+        {
+          $mail->attach($file, ['mime' => 'application/pdf']);
+        }
+      }
+    }
+
     return $mail;
   }
 }

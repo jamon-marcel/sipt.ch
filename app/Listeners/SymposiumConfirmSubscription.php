@@ -68,7 +68,7 @@ class SymposiumConfirmSubscription
     // $invoice->save();
 
     Mail::to($subscriber->email)
-          ->cc(\Config::get('sipt.email_cc'))
+          ->bcc(\Config::get('sipt.email_copy'))
           ->send(
               new SymposiumSubscriptionConfirmation(
                 [

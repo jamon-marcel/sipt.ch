@@ -74,14 +74,40 @@ class DownloadController extends Controller
   /**
    * Download attendance confirmation
    *
+   * @param CourseEvent $courseEvent
+   * @param String studentId
    * @return \Illuminate\Http\Response
    */
 
-  public function confirmation(CourseEvent $courseEvent)
+  public function confirmation(CourseEvent $courseEvent, $studentId = NULL)
   {
-    $student = $this->student->with('user')->authenticated(auth()->user()->id);
+    $student = auth()->user()->isAdmin()
+                ? $this->student->with('user')->findOrFail($studentId)
+                : $this->student->with('user')->authenticated(auth()->user()->id);
+
     $file = new Document();
     $file = $file->attendance($courseEvent, $student);
+    
+    return response()->download($file['path'], $file['name'], $this->headers);
+  }
+
+  /**
+   * Download invitation
+   *
+   * @param CourseEvent $courseEvent
+   * @param String studentId
+   * @return \Illuminate\Http\Response
+   */
+
+  public function invitation(CourseEvent $courseEvent, $studentId = NULL)
+  {
+    $student = auth()->user()->isAdmin()
+                ? $this->student->with('user')->findOrFail($studentId)
+                : $this->student->with('user')->authenticated(auth()->user()->id);
+
+    $file = new Document();
+    $file = $file->invitation($courseEvent, $student);
+    
     return response()->download($file['path'], $file['name'], $this->headers);
   }
 

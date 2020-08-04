@@ -148,9 +148,7 @@ export default {
     },
 
     getStudent(value) {
-
       if (value.length == 0) return;
-
       let v = value.charAt(0).toUpperCase() + value.slice(1)
       const idx = this.students.findIndex(x => x.number == v || x.name.includes(v));
       if (idx > -1) {

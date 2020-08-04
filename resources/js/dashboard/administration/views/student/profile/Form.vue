@@ -128,6 +128,14 @@
         <div class="grid-column-sidebar">
           <div>
             <template v-if="isFetched">
+              <div class="form-row is-sm">
+                <radio-button
+                  :label="'Aktiv?'"
+                  v-bind:is_active.sync="student.is_active"
+                  :model="student.is_active"
+                  :name="'is_active'"
+                ></radio-button>
+              </div>
               <div class="form-row is-sm is-last">
                 <radio-button
                   :label="'Bestätigung Ausweisung Kursdauer?'"

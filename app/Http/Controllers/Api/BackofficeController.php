@@ -145,6 +145,7 @@ class BackofficeController extends Controller
     $courseInvoice->create([
       'date'  => $request->date ? $request->date : date('d.m.Y', time()),
       'amount' => $request->amount,
+      'number' => $request->number,
       'client' => $student,
       'booking_number' => $request->booking_number,
       'course_event' => $courseEvent,

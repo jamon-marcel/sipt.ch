@@ -32,9 +32,7 @@ class StudentStoreRequest extends FormRequest
       'qualifications' => 'required',
       'has_alt_address' => 'required',
       'alt_company' => 'required_if:has_alt_address,1',
-      'alt_name' => 'required_if:has_alt_address,1',
       'alt_street' => 'required_if:has_alt_address,1',
-      'alt_street_no' => 'required_if:has_alt_address,1',
       'alt_zip' => 'required_if:has_alt_address,1',
       'alt_city' => 'required_if:has_alt_address,1',
     ];
@@ -80,17 +78,9 @@ class StudentStoreRequest extends FormRequest
         'field' => 'alt_company',
         'error' => 'Firma muss ausgefüllt sein.'
       ],
-      'alt_name.required_if' => [
-        'field' => 'alt_name',
-        'error' => 'Vorname muss ausgefüllt sein.'
-      ],
       'alt_street.required_if' => [
         'field' => 'alt_street',
         'error' => 'Strasse muss ausgefüllt sein.'
-      ],
-      'alt_street_no.required_if' => [
-        'field' => 'alt_street_no',
-        'error' => 'Nummer muss ausgefüllt sein.'
       ],
       'alt_zip.required_if' => [
         'field' => 'alt_zip',

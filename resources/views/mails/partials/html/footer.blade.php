@@ -5,4 +5,4 @@
 <h2>Administrative Fragen</h2>
 <p>Beatrice Roncoroni und Nadine Raue<br>Telefon: (0041) 071 – 886 48 24<br>E-Mail: <a href="mailto:sekretariat@sipt.ch" style="color:#000000;text-decoration:underline">sekretariat@sipt.ch</a></p>
 <h2>Module online buchen</h2>
-<p><a href="https://www.sipt.ch" style="color:#000000;text-decoration:underline;" target="_blank">www.sipt.ch</a></p>
+<p><a href="http://www.psychotraumatologie-sipt.ch/" style="color:#000000;text-decoration:underline;" target="_blank">www.psychotraumatologie-sipt.ch</a></p>

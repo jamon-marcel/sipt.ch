@@ -79,7 +79,7 @@ class Document
 
     // Set path & filename
     $path = public_path() . '/storage/temp/';
-    $filename = 'sipt.ch-modulliste-' . date('dmY', time());
+    $filename = 'sipt.ch-modulliste-' . date('dmY', time()) . '-' . \Str::random(8);
     $file = $filename . '.pdf';
     $pdf->save($path . $file);
 
@@ -107,7 +107,7 @@ class Document
 
     // Set path & filename
     $path = public_path() . '/storage/temp/';
-    $filename = 'sipt.ch-teilnehmerliste-' . \AppHelper::slug($courseEvent->course->title) . '-' . $courseEvent->course->number . '.' . date('dmy', strtotime($courseEvent->dateStart));
+    $filename = 'sipt.ch-teilnehmerliste-' . \AppHelper::slug($courseEvent->course->title) . '-' . $courseEvent->course->number . '.' . date('dmy', strtotime($courseEvent->dateStart)) . '-' . \Str::random(8);
     $file = $filename . '.pdf';
     $pdf->save($path . $file);
 
@@ -134,7 +134,7 @@ class Document
 
     // Set path & filename
     $path = public_path() . '/storage/temp/';
-    $filename = 'sipt.ch-anwesenheitsliste-' . \AppHelper::slug($courseEvent->course->title) . '-' . $courseEvent->course->number . '.' . date('dmy', strtotime($courseEvent->dateStart));
+    $filename = 'sipt.ch-anwesenheitsliste-' . \AppHelper::slug($courseEvent->course->title) . '-' . $courseEvent->course->number . '.' . date('dmy', strtotime($courseEvent->dateStart)) . '-' . \Str::random(8);
     $file = $filename . '.pdf';
     $pdf->save($path . $file);
 

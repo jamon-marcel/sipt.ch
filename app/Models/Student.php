@@ -30,6 +30,7 @@ class Student extends Model
 		'alt_city',
 		'needs_hours_confirmation',
 		'has_alt_address',
+		'is_active',
 		'user_id',
 	];
 
@@ -53,10 +54,13 @@ class Student extends Model
 		{
 			return $this->belongsToMany('App\Models\CourseEvent')
 									->orderBy('dateStart')
+									->withPivot('has_attendance', 'booking_number', 'is_billed', 'is_invited', 'created_at')
 									->where('dateStart', '>=', date('Y.m.d', time()));
 		}
 
-		return $this->belongsToMany('App\Models\CourseEvent')->orderBy('dateStart');
+		return $this->belongsToMany('App\Models\CourseEvent')
+								->withPivot('has_attendance', 'booking_number', 'is_billed', 'is_invited', 'created_at')
+								->orderBy('dateStart');
 	}
 
 	/**

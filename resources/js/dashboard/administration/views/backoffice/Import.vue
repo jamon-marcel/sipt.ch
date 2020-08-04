@@ -85,7 +85,7 @@
             <td>{{s.number}}</td>
             <td>{{s.firstname}} {{s.name}}</td>
             <td>{{s.city}}</td>
-            <td>{{s.user.production_email}}</td>
+            <td>{{s.user.email}}</td>
             <td>{{s.pivot.booking_number}}</td>
             <td style="text-align: right; padding-right: 0">{{ dateFormat(s.pivot.created_at, 'DD.MM.YYYY')}}</td>
           </tr>

@@ -57,7 +57,7 @@ class CourseEventCancelByAdministrator
         }                                            
         
         Mail::to($student->user->email)
-              ->cc(\Config::get('sipt.email_cc'))
+              ->bcc(\Config::get('sipt.email_copy'))
               ->send(
                   new CourseEventCancelByAdministratorStudentNotification(
                     [
@@ -78,7 +78,7 @@ class CourseEventCancelByAdministrator
         {
           $tutor = $this->tutor->with('user')->find($date->tutor->id);
           Mail::to($tutor->user->email)
-                ->cc(\Config::get('sipt.email_cc'))
+                ->bcc(\Config::get('sipt.email_copy'))
                 ->send(
                     new CourseEventCancelByAdministratorTutorNotification(
                       [

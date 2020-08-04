@@ -82,8 +82,8 @@ class CourseEventCreateSendInvitation
     $document = new Document();
     $document = $document->invitation($courseEvent, $student);
     
-    Mail::to(\Config::get('sipt.email_admin'))
-          ->cc(\Config::get('sipt.email_cc'))
+    Mail::to($student->user->email)
+          ->bcc(\Config::get('sipt.email_copy'))
           ->send(
               new CourseEventInvitationNotification(
                 [

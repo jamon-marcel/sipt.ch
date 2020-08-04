@@ -60,7 +60,6 @@ class CourseEventCheckMaxParticipants
   public function notifyFull()
   {
     Mail::to(\Config::get('sipt.email_admin'))
-        ->cc(\Config::get('sipt.email_cc'))
         ->send(
             new CourseEventFullyBookedNotification(
               [
@@ -79,7 +78,6 @@ class CourseEventCheckMaxParticipants
   public function notifyReopen()
   {
     Mail::to(\Config::get('sipt.email_admin'))
-        ->cc(\Config::get('sipt.email_cc'))
         ->send(
             new CourseEventReopenedNotification(
               [

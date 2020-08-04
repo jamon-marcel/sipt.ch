@@ -50,12 +50,13 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::put('tutor/image/{tutorImage}', 'Api\TutorImageController@coords');
   });
 
-  // Training routes
+  // Training routes for students
   Route::middleware('role:student')->group(function() {
     Route::get('trainings', 'Api\TrainingController@get');
     Route::get('training/{training}', 'Api\TrainingController@find');
   });
 
+  // Training routes for admins
   Route::middleware('role:admin')->group(function() {
     Route::post('training', 'Api\TrainingController@store');
     Route::put('training/{training}', 'Api\TrainingController@update');
@@ -66,10 +67,10 @@ Route::middleware('auth:sanctum')->group(function() {
   // Course routes
   Route::get('courses', 'Api\CourseController@get');
   Route::get('course/{course}', 'Api\CourseController@find');
-  Route::post('course/create', 'Api\CourseController@store');
-  Route::put('course/{course}', 'Api\CourseController@update');
-  Route::get('course/state/{course}', 'Api\CourseController@toggle');
-  Route::delete('course/{course}', 'Api\CourseController@destroy');
+  Route::post('course/create', 'Api\CourseController@store')->middleware('role:admin');
+  Route::put('course/{course}', 'Api\CourseController@update')->middleware('role:admin');
+  Route::get('course/state/{course}', 'Api\CourseController@toggle')->middleware('role:admin');
+  Route::delete('course/{course}', 'Api\CourseController@destroy')->middleware('role:admin');
   Route::get('courses/by/training/{training}', 'Api\CourseController@getByTraining');
   Route::get('course/with/events/{course}', 'Api\CourseController@getWithEvents');
 
@@ -77,21 +78,23 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::get('course/events/fetch/{constraint?}', 'Api\CourseEventController@fetch');
   Route::get('course/events/{course}', 'Api\CourseEventController@get');
   Route::get('course/event/{courseEvent}', 'Api\CourseEventController@find');
-  Route::post('course/event', 'Api\CourseEventController@store');
-  Route::put('course/event/{courseEvent}', 'Api\CourseEventController@update');
-  Route::get('course/event/state/{courseEvent}', 'Api\CourseEventController@toggle');
+  Route::post('course/event', 'Api\CourseEventController@store')->middleware('role:admin');
+  Route::put('course/event/{courseEvent}', 'Api\CourseEventController@update')->middleware('role:admin');
+  Route::get('course/event/state/{courseEvent}', 'Api\CourseEventController@toggle')->middleware('role:admin');
   Route::get('course/event/cancel/{courseEvent}', 'Api\CourseEventController@cancel');
   Route::get('course/event/close/{courseEvent}', 'Api\CourseEventController@close');
   Route::get('course/event/open/{courseEvent}', 'Api\CourseEventController@open');
-  Route::delete('course/event/{courseEvent}', 'Api\CourseEventController@destroy');
+  Route::delete('course/event/{courseEvent}', 'Api\CourseEventController@destroy')->middleware('role:admin');
   Route::get('course/events/by/course/{course}', 'Api\CourseEventController@getByCourse');
 
   // CoursesEventDates routes
-  Route::delete('course/event/date/{courseEventDate}', 'Api\CourseEventDateController@destroy');
+  Route::delete('course/event/date/{courseEventDate}', 'Api\CourseEventDateController@destroy')->middleware('role:admin');
 
   // CourseEventFiles routes
-  Route::post('course/event/files', 'Api\CourseEventFileController@store');
-  Route::delete('course/event/file/{courseEventFile}', 'Api\CourseEventFileController@destroy');
+  Route::middleware('role:tutor')->group(function() {
+    Route::post('course/event/files', 'Api\CourseEventFileController@store');
+    Route::delete('course/event/file/{courseEventFile}', 'Api\CourseEventFileController@destroy');
+  });
 
   // Settings
   Route::middleware('role:admin')->group(function() {
@@ -118,20 +121,14 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('backoffice/courses/list/closed', 'Api\BackofficeController@getClosedCourses');
     Route::get('backoffice/student/attendance/{student}/{courseEvent}', 'Api\BackofficeController@setAttendance');
     Route::get('backoffice/student/bookings/{student}', 'Api\BackofficeController@getBookings');
-
     Route::get('backoffice/course/event/{courseEvent}', 'Api\BackofficeController@getCourseEvent');
-   
     Route::get('backoffice/invoices', 'Api\InvoiceController@get');
     Route::get('backoffice/invoice/history/{invoice}', 'Api\InvoiceController@getHistory');
     Route::get('backoffice/invoice/{invoice}', 'Api\InvoiceController@find');
-    Route::get('backoffice/invoice/state/{invoice}', 'Api\InvoiceController@state');
+    Route::put('backoffice/invoice/state/{invoice}', 'Api\InvoiceController@state');
     Route::get('backoffice/invoice/notice/{invoice}/{noticeType}', 'Api\InvoiceController@notice');
     Route::post('backoffice/invoice/store', 'Api\BackofficeController@createInvoice');
-
     Route::post('backoffice/import', 'Api\BackofficeController@import');
-
-
   });
-
 
 });

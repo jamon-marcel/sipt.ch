@@ -55,13 +55,15 @@ class InvoiceController extends Controller
   }
 
   /**
-   * Change state for a given invoice
-   * 
+   * Update the state of a given invoice
+   *
    * @param Invoice $invoice
+   * @param  \Illuminate\Http\Request $request
    * @return \Illuminate\Http\Response
    */
-  public function state(Invoice $invoice)
+  public function state(Invoice $invoice, Request $request)
   {
+    $invoice->update($request->all());
     $invoice->is_paid = $invoice->is_paid == 0 ? 1 : 0;
     $invoice->save();
     return response()->json($invoice->is_paid); 

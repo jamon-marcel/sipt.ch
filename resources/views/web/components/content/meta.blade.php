@@ -4,7 +4,7 @@
       <a href="">Kalender</a>
     </li> --}}
     <li>
-      <a href="javascript:;" class="anchor-bookings js-btn-bookings">
+      <a href="javascript:;" class="anchor-bookings js-btn-bookings" title="Meine Module anzeigen">
         Meine Module <em class="js-booking-counter">@if ($count > 0)[{{$count}}]@endif</em> 
       </a>
     </li>

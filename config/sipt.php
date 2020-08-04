@@ -12,7 +12,7 @@ return [
   // Registration
   'registration_deadline' => '+1 day',
   'billable_deadline' => '+30 days',
-  'callable_deadline' => '+20 days',
+  'callable_deadline' => '+10 days',
 
   // Bank/ESR details
   'esr_codeline_prefix' => '01',
@@ -31,12 +31,13 @@ return [
 
   // E-Mail 
   'email_admin' => [
-    'm@marceli.to',
+    'admin@sipt.ch',
   ],
 
   // Carbon Copy
-  'email_cc' => [
-    'm@marceli.to',
+  'email_copy' => [
+    'support@sipt.ch',
+    'r.barwinski@swissonline.ch'
   ],
 
   // Notice types

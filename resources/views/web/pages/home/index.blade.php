@@ -1,6 +1,6 @@
 @extends('web.layout.grids.1-2')
 @section('seo_title', 'Home')
-@section('seo_description', '')
+@section('seo_description', 'Das SIPT setzt sich für Anliegen von Traumaopfern ein und bietet Fortbildungen für verschiedene Berufsgruppen an, die in ihrer Arbeit mit traumatisierten Menschen konfrontiert sind. Im Fortbildungsangebot des SIPT stehen psychodynamische Konzepte im Vordergrund.')
 @section('section')
 <section class="theme-light order-1">
   <x-header title="Aktuell" />

@@ -30,7 +30,7 @@ class SendEmailVerification
     $user_data = $event->user_data;
     
     Mail::to($user->email)
-          ->cc(\Config::get('sipt.email_cc'))
+          ->bcc(\Config::get('sipt.email_copy'))
           ->send(
               new EmailVerification(
                 [

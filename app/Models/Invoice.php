@@ -14,6 +14,7 @@ class Invoice extends Model
     'date',
     'amount',
     'date_notice',
+    'date_paid',
     'state',
     'file',
     'is_paid',
@@ -96,6 +97,16 @@ class Invoice extends Model
   }
 
   /**
+   * Mutator 'setDatePaid'
+   */
+
+  public function setDatePaidAttribute($value)
+  {
+    $this->attributes['date_paid'] = $value ? \Carbon\Carbon::parse($value)->format('Y.m.d') : null;
+  }
+
+
+  /**
    * Accessor 'getDate'
    */
 
@@ -109,6 +120,15 @@ class Invoice extends Model
    */
 
   public function getDateNoticeAttribute($value)
+  {
+    return \Carbon\Carbon::parse($value)->format('d.m.Y');
+  }
+
+  /**
+   * Accessor 'getDatePaid'
+   */
+
+  public function getDatePaidAttribute($value)
   {
     return \Carbon\Carbon::parse($value)->format('d.m.Y');
   }

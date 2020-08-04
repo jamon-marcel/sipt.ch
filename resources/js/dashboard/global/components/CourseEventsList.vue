@@ -6,7 +6,7 @@
         <div class="listing__item-body">
           <span class="item-date">{{r.date}}</span>
           <separator />
-          {{ r.course_event.course.title }}
+          {{ r.course_event.course.title | truncate(70, '...') }}
         </div>
         <list-actions
           :id="r.course_event.id "
@@ -37,8 +37,10 @@
           :hasToggle="false"
           :hasDetail="$props.hasDetail"
           :hasDestroy="$props.hasDestroy"
+          :hasInvitation="r.isInvited"
+          :hasAttendance="r.hasAttendance"
           :record="{id: r}"
-          :routes="{details: 'course-event-show'}"
+          :routes="{details: 'course-event-show', invitation: '/download/kurseinladung/' + r.id, attendance: '/download/kursbestaetigung/' + r.id}"
         ></list-actions>
       </div>
     </div>
@@ -66,6 +68,11 @@ export default {
     hasDetail: {
       type: Boolean,
       default: true,
+    },
+
+    hasInvitation: {
+      type: Boolean,
+      default: false,
     },
 
     isTutor: {

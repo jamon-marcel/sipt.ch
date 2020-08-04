@@ -49,7 +49,7 @@ class CourseEvent extends Model
 	public function students()
 	{
 		return $this->belongsToMany('App\Models\Student')
-								->withPivot('has_attendance', 'booking_number', 'is_billed', 'created_at')
+								->withPivot('has_attendance', 'booking_number', 'is_billed', 'is_invited', 'created_at')
 								->where('is_cancelled', '=', 0);
 	}
 

@@ -1,6 +1,6 @@
 @extends('web.layout.grids.2-1')
 @section('seo_title', $course->title)
-@section('seo_description', )
+@section('seo_description', strip_tags($course->description))
 @section('section')
 <section class="theme-light">
   <x-header title="Bildungsangebot" />

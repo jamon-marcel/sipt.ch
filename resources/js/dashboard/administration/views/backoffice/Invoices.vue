@@ -7,7 +7,12 @@
     <div v-if="hasNoticeOverlay">
       <notice-form :invoice="noticeInvoice"></notice-form>
     </div>
+    <div v-if="hasDateOverlay">
+      <date-paid-form :invoice="datePaidInvoice"></date-paid-form>
+    </div>
     <div :class="isFetched ? 'is-loaded' : 'is-loading'">
+
+      <!-- invoices open -->
       <header class="content-header flex-sb flex-vc">
         <h1>Offene Rechnungen</h1>
         <view-selector
@@ -23,6 +28,10 @@
           <div class="listing__item" v-for="invoice in invoicesOpen" :key="invoice.id">
             <div class="listing__item-body">
               <a :href="'/storage/invoices/' + invoice.file" target="_blank">{{invoice.number}}</a>
+              <span v-if="invoice.event">
+                <separator/>
+                {{invoice.event.courseNumber}}
+              </span>
               <separator/>
               {{moneyFormat(invoice.amount)}}
               <separator/>
@@ -63,12 +72,9 @@
                 </a>
               </div>
               <div>
-                <a href="javascript:;" @click.prevent="toggleBillStatus(invoice.id)">
-                  <span v-if="invoice.is_paid" class="feather-icon is-active">
+                <a href="javascript:;" @click.prevent="showDateForm(invoice.id)">
+                  <span class="feather-icon is-inactive">
                     <dollar-sign-icon size="20"></dollar-sign-icon>
-                  </span>
-                  <span v-else>
-                    <dollar-sign-icon size="20" class="feather-icon is-inactive"></dollar-sign-icon>
                   </span>
                 </a>
               </div>
@@ -79,6 +85,9 @@
       <div v-else>
         <p class="no-records">Es sind keine offenen Rechnungen vorhanden...</p>
       </div>
+      <!-- // invoices open -->
+
+      <!-- invoices paid -->
       <header class="content-header sb-md">
         <h1>Bezahlte Rechnungen</h1>
       </header>
@@ -87,10 +96,14 @@
           <div class="listing__item" v-for="invoice in invoicesPaid" :key="invoice.id">
             <div class="listing__item-body">
               <a :href="'/storage/invoices/' + invoice.file" target="_blank">{{invoice.number}}</a>
+              <span v-if="invoice.event">
+                <separator/>
+                {{invoice.event.courseNumber}}
+              </span>
               <separator/>
               {{moneyFormat(invoice.amount)}}
               <separator/>
-              {{invoice.date}}
+              {{invoice.date_paid}}
               <separator/>
               <span v-if="invoice.student">
                 {{invoice.student.firstname}} {{invoice.student.name}}, {{invoice.student.city}}
@@ -109,12 +122,9 @@
                 </a>
               </div>
               <div>
-                <a href="javascript:;" @click.prevent="toggleBillStatus(invoice.id)">
-                  <span v-if="invoice.is_paid" class="feather-icon is-active">
+                <a href="javascript:;" @click.prevent="update(invoice.id)">
+                  <span class="feather-icon is-active">
                     <dollar-sign-icon size="20"></dollar-sign-icon>
-                  </span>
-                  <span v-else>
-                    <dollar-sign-icon size="20" class="feather-icon is-inactive"></dollar-sign-icon>
                   </span>
                 </a>
               </div>
@@ -125,6 +135,8 @@
       <div v-else>
         <p class="no-records">Es sind keine bezahlten Rechnungen vorhanden...</p>
       </div>
+      <!-- // invoices paid -->
+
     </div>
     <footer class="module-footer">
       <div class="flex-sb flex-vc">
@@ -145,6 +157,7 @@ import { DollarSignIcon, BellIcon, LayersIcon, FilePlusIcon } from "vue-feather-
 import ListActions from "@/global/components/ui/ListActions.vue";
 import ViewSelector from "@/administration/components/ViewSelector.vue";
 import NoticeForm from "@/administration/views/backoffice/components/NoticeForm.vue";
+import DatePaidForm from "@/administration/views/backoffice/components/DatePaidForm.vue";
 import InvoiceHistory from "@/administration/views/backoffice/components/InvoiceHistory.vue";
 
 // Mixins
@@ -161,6 +174,7 @@ export default {
     ListActions,
     ViewSelector,
     NoticeForm,
+    DatePaidForm,
     InvoiceHistory
   },
 
@@ -171,11 +185,14 @@ export default {
       invoices: [],
       isLoading: false,
       isFetched: false,
+
       hasNoticeOverlay: false,
       hasHistoryOverlay: false,
+      hasDateOverlay: false,
 
       noticeInvoice: null,
       historyInvoice: null,
+      datePaidInvoice: null,
 
       invoiceStates: {
         0: "Zahlungserinnerung",
@@ -200,13 +217,17 @@ export default {
       });
     },
 
-    toggleBillStatus(invoiceId) {
-      let uri = `/api/backoffice/invoice/state/${invoiceId}`;
+    update(invoice, date = null) {
+      let data = {'date_paid': date};
+      let uri = `/api/backoffice/invoice/state/${invoice}`;
       this.isLoading = true;
-      this.axios.get(uri).then(response => {
-        const idx = this.invoices.findIndex(x => x.id === invoiceId);
+      this.axios.put(uri, data).then(response => {
+        const idx = this.invoices.findIndex(x => x.id === invoice);
         this.invoices[idx].is_paid = response.data;
+        this.invoices[idx].date_paid = date ? date : null;
         this.$notify({ type: "success", text: "Status geändert!" });
+        this.hideDateForm();
+        this.datePaidInvoice = null;
         this.isLoading = false;
       });
     },
@@ -243,6 +264,15 @@ export default {
     hideNoticeForm() {
       this.noticeInvoice = null;
       this.hasNoticeOverlay = false;
+    },
+
+    showDateForm(invoice) {
+      this.hasDateOverlay = true;
+      this.datePaidInvoice = invoice;
+    },
+
+    hideDateForm() {
+      this.hasDateOverlay = false;
     },
 
     filterByState(data, state) {

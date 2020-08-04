@@ -1,6 +1,6 @@
 <nav class="site-menu js-menu">
   <header class="site-menu__header">
-    <a href="javascript:;" class="btn-menu-hide js-menu-btn-hide"></a>
+    <a href="javascript:;" class="btn-menu-hide js-menu-btn-hide" title="Menu schliessen"></a>
   </header>
   <div data-simplebar>
     <div class="site-menu__inner">

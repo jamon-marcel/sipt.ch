@@ -6,7 +6,7 @@
       <a href="{{ route('downloads_index')}}" class="{{ request()->routeIs('downloads_index') ? 'is-active' : '' }}">Downloads</a>
     </li>
     <li>
-      <a href="javascript:;" class="js-btn-contact">Kontakt</a>
+      <a href="javascript:;" class="js-btn-contact" title="Kontakt anzeigen">Kontakt</a>
     </li>
   </ul>
   <ul>

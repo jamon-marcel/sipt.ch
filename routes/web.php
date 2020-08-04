@@ -48,7 +48,6 @@ Route::get('/agb', 'AboutController@toc')->name('about_toc');
 // Downloads
 Route::get('/downloads', 'DownloadController@index')->name('downloads_index');
 
-
 // Bookings
 Route::get('/booking/{courseEvent}', 'BookingController@add');
 Route::post('/booking/cancel/confirm', 'BookingController@destroy')->name('booking_cancel_confirm');
@@ -61,11 +60,6 @@ Route::get('/bookings', 'BookingController@get');
 // Student Login
 Route::post('/auth/student/login', 'LoginController@login')->name('student_login');
 
-// Cron
-Route::get('/bills', 'CronController@bills');
-Route::get('/invitations', 'CronController@invitations');
-Route::get('/invite/tutors', 'CronController@inviteTutors');
-Route::get('/invite/students', 'CronController@inviteStudents');
 
 /*
 |--------------------------------------------------------------------------
@@ -82,7 +76,8 @@ Route::middleware('auth:sanctum', 'verified')->group(function() {
   Route::get('/download/anwesenheitsliste/{courseEvent}', 'DownloadController@listAttendances')->middleware('role:tutor');
 
   // Downloads for students
-  Route::get('/download/modulbestaetigung/{courseEvent}', 'DownloadController@confirmation')->middleware('role:student');
+  Route::get('/download/kursbestaetigung/{courseEvent}/{student?}', 'DownloadController@confirmation')->middleware('role:student');
+  Route::get('/download/kurseinladung/{courseEvent}/{student?}', 'DownloadController@invitation')->middleware('role:student');
 
   // CatchAll: Dashboard Student
   Route::get('student/{any?}', function () {

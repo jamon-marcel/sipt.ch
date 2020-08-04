@@ -37,7 +37,7 @@
         E-Mail: sekretariat@sipt.ch
         
         Module online buchen
-        www.sipt.ch
+        www.psychotraumatologie-sipt.ch
         @endcomponent
     @endslot
 @endcomponent

@@ -5,25 +5,21 @@
     @if ($invoice['client']->has_alt_address)
       <td>
         {{ $invoice['client']->alt_company}}<br>
-        {{ $invoice['client']->alt_name}}<br>
+        @if ($invoice['client']->alt_name) {{ $invoice['client']->alt_name}}<br> @endif
         {{ $invoice['client']->alt_street}} {{ $invoice['client']->alt_street_no}}<br>
         {{ $invoice['client']->alt_zip}} {{ $invoice['client']->alt_city}}
       </td>
       <td>
         Kursteilnehmer:<br>
-        @if ($invoice['client'])
-          {{ $invoice['client']->title}}<br>
-        @endif
         {{ $invoice['client']->fullName}}<br>
+        @if ($invoice['client']->title) {{ $invoice['client']->title}}<br> @endif
         {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
         {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
       </td>
     @else
       <td>
-        @if ($invoice['client']->title)
-          {{ $invoice['client']->title}}<br>
-        @endif
         {{ $invoice['client']->fullName}}<br>
+        @if ($invoice['client']->title) {{ $invoice['client']->title}}<br> @endif
         {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
         {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
       </td>

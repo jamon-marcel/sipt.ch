@@ -45,7 +45,7 @@
                 {{ r.tutors }}
               </div>
               <div class="listing__item-action">
-                <a :href="'/download/modulbestaetigung/' + r.id" class="feather-icon" target="_blank" title="Modulbestätigung herunterladen">
+                <a :href="'/download/kursbestaetigung/' + r.id" class="feather-icon" target="_blank" title="Kursbestätigung herunterladen">
                   <download-cloud-icon size="20"></download-cloud-icon>
                 </a>
               </div>
@@ -53,12 +53,12 @@
           </div>
           <div class="no-records" v-else>Es sind keine Module vorhanden...</div>
         </template>
-        <div class="sb-md">
+        <!-- <div class="sb-md">
           <a href class="feather-icon feather-icon--prepend is-highlight">
             <award-icon size="16"></award-icon>
             <span>Ausbildungsblatt herunterladen</span>
           </a>
-        </div>
+        </div> -->
       </div>
       <footer class="module-footer">
         <div>
@@ -124,6 +124,7 @@ export default {
           dates: this.datesToString(x.dates),
           tutors: this.tutorsToString(x.dates),
           cancelPenalty: this.getCancelPenalty(x.dates),
+          isInvited: x.pivot.is_invited ? true : false,
           id: x.id
         }));
         this.isFetchedCoursesBooked = true;

@@ -14,7 +14,8 @@ class Tutor extends Model
     'street',
     'street_no',
     'zip',
-    'city',
+		'city',
+		'country',
     'phone',
 		'mobile',
 		'description',
@@ -43,10 +44,9 @@ class Tutor extends Model
 	{
 		if ($constraint == 'upcoming')
 		{
-			return $this->hasMany('App\Models\CourseEventDate')->where('date', '>=', date('Y.m.d', time()));
+			return $this->hasMany('App\Models\CourseEventDate')->where('date', '>=', date('Y.m.d', time()))->orderBy('date');
 		}
-
-		return $this->hasMany('App\Models\CourseEventDate');
+		return $this->hasMany('App\Models\CourseEventDate')->orderBy('date');
 	}
 
 	/**

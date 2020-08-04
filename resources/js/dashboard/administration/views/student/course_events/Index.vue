@@ -88,6 +88,8 @@ export default {
             title: x.course.title,
             dates: this.datesToString(x.dates),
             tutors: this.tutorsToString(x.dates),
+            isInvited: x.pivot.is_invited ? true : false,
+            studentId: x.pivot.student_id,
             id: x.id
           }));
           this.isFetchedCoursesBooked = true;
@@ -102,6 +104,8 @@ export default {
             title: x.course.title,
             dates: this.datesToString(x.dates),
             tutors: this.tutorsToString(x.dates),
+            hasAttendance: x.pivot.has_attendance ? true : false,
+            studentId: x.pivot.student_id,
             id: x.id
           }));
           this.isFetchedCoursesAttended = true;

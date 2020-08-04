@@ -74,7 +74,7 @@ class CourseEventClose
     $document = $document->attendance($courseEvent, $student);
 
     Mail::to($student->user->email)
-        ->cc(\Config::get('sipt.email_cc'))
+        ->bcc(\Config::get('sipt.email_copy'))
         ->send(
             new CourseEventAttendanceConfirmation(
               [

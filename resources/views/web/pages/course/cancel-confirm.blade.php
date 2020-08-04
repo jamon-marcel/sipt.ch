@@ -1,6 +1,6 @@
 @extends('web.layout.grids.2-1')
 @section('seo_title', 'Buchung annuliert')
-@section('seo_description', )
+@section('seo_description', '')
 @section('section')
 <section class="theme-light">
   <x-header title="Bildungsangebot" />

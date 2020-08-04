@@ -98,8 +98,8 @@ class CourseEventCreateSendBill
 
   public function notify($invoice, $student, $courseEvent)
   {
-    Mail::to(\Config::get('sipt.email_admin'))
-          ->cc(\Config::get('sipt.email_cc'))
+    Mail::to($student->user->email)
+          ->bcc(\Config::get('sipt.email_copy'))
           ->send(
               new CourseEventBillingNotification(
                 [

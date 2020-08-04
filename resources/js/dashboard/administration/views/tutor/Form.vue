@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="form-row">
-          <div class="grid grid-1-3">
+          <div class="grid grid-1-1">
             <div>
               <label>PLZ</label>
               <input type="text" v-model="tutor.zip">
@@ -56,6 +56,10 @@
             <div>
               <label>Ort</label>
               <input type="text" v-model="tutor.city">
+            </div>
+            <div>
+              <label>Land</label>
+              <input type="text" v-model="tutor.country">
             </div>
           </div>
         </div>
@@ -148,6 +152,7 @@ export default {
         street_no: null,
         zip: null,
         city: null,
+        country: null,
         phone: null,
         mobile: null,
         description: null,

@@ -25,8 +25,8 @@
       <p>
         Impressum:<br>
         Redaktion: Rosmarie Barwinski<br>
-        Grafikdesign: <a href="https://alexandranoth.ch" target="_blank">Alexandra Noth</a><br>
-        Programmierung: <a href="https://marceli.to" target="_blank">Marcel Stadelmann</a>
+        Grafikdesign: <a href="https://alexandranoth.ch" target="_blank" rel="noopener">Alexandra Noth</a><br>
+        Programmierung: <a href="https://marceli.to" target="_blank" rel="noopener">Marcel Stadelmann</a>
       </p>
     </article>   
   </section>

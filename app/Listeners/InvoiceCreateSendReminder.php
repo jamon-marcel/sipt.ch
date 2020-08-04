@@ -68,7 +68,7 @@ class InvoiceCreateSendReminder
   public function notify($invoice, $recipient, $recipient_email, $noticeType)
   {
     Mail::to($recipient_email)
-          ->cc(\Config::get('sipt.email_cc'))
+          ->bcc(\Config::get('sipt.email_copy'))
           ->send(
               new InvoiceSendReminder(
                 [

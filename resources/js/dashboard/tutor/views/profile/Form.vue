@@ -39,7 +39,7 @@
               </div>
             </div>
             <div class="form-row">
-              <div class="grid grid-1-3">
+              <div class="grid grid-1-1-1">
                 <div :class="[this.errors.zip ? 'has-error' : '', 'form-row-grid']">
                   <label>PLZ *</label>
                   <input type="text" v-model="tutor.zip">
@@ -49,6 +49,10 @@
                   <label>Ort *</label>
                   <input type="text" v-model="tutor.city">
                   <label-required />
+                </div>
+                <div class="form-row-grid">
+                  <label>Land</label>
+                  <input type="text" v-model="tutor.country">
                 </div>
               </div>
             </div>
@@ -177,6 +181,7 @@ export default {
         street_no: false,
         zip: false,
         city: false,
+        country: false,
         phone: false,
       },
 

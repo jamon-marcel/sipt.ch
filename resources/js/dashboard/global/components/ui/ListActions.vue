@@ -1,6 +1,32 @@
 <template>
   <div class="listing__item-action">
 
+    <div v-if="hasInvitation">
+      <span v-if="student">
+        <a :href="routes.invitation + '/' + student" target="_blank" class="feather-icon" title="Kurseinladung herunterladen">
+          <download-cloud-icon size="18"></download-cloud-icon>
+        </a>
+      </span>
+      <span v-else>
+        <a :href="routes.invitation" target="_blank" class="feather-icon" title="Kurseinladung herunterladen">
+          <download-cloud-icon size="18"></download-cloud-icon>
+        </a>
+      </span>
+    </div>
+
+    <div v-if="hasAttendance">
+      <span v-if="student">
+        <a :href="routes.attendance + '/' + student" target="_blank" class="feather-icon" title="Kursbestätigung herunterladen">
+          <download-cloud-icon size="18"></download-cloud-icon>
+        </a>
+      </span>
+      <span v-else>
+        <a :href="routes.attendance" target="_blank" class="feather-icon" title="Kursbestätigung herunterladen">
+          <download-cloud-icon size="18"></download-cloud-icon>
+        </a>
+      </span>
+    </div>
+
     <div v-if="hasDownload">
       <a :href="routes.download" target="_blank"
         class="feather-icon"
@@ -146,6 +172,18 @@ export default {
       default: false,
     },
 
+    hasInvitation: {
+      type: Boolean,
+      default: false,
+    },
+
+    hasAttendance: {
+      typoe: Boolean,
+      default: false,
+    },
+
+    studentId: null,
+
     routes: Object,
     record: Object,
   },
@@ -158,6 +196,15 @@ export default {
 
     destroy(id,$event) {
       this.$parent.destroy(id,$event);
+    }
+  },
+
+  computed: {
+    student() {
+      if (this.$props.record.id.studentId) {
+        return this.$props.record.id.studentId;
+      }
+      return false;
     }
   }
 }
