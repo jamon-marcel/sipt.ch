@@ -32,10 +32,10 @@ class SymposiumSubscriptionConfirmation extends Mailable
                  ->with(['subscriber' => $this->data['subscriber']])
                  ->markdown('mails.symposium.confirmation');
 
-    foreach($this->data['files'] as $file)
-    {
-      $mail->attach($file, ['mime' => 'application/pdf']);
-    }
+    // foreach($this->data['files'] as $file)
+    // {
+    //   $mail->attach($file, ['mime' => 'application/pdf']);
+    // }
 
     return $mail;
   }

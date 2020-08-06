@@ -75,8 +75,8 @@ class SymposiumConfirmSubscription
                   'subscriber' => $subscriber,
                   'symposium' => $subscriber->symposium,
                   'files' => [
-                    //public_path() . '/storage/invoices/' . $file,
-                    public_path() . '/storage/downloads/' . 'sipt-lageplan.pdf',
+                    // public_path() . '/storage/invoices/' . $file,
+                    // public_path() . '/storage/downloads/' . 'sipt-lageplan.pdf',
                   ]
                 ]
           )
