@@ -28,8 +28,6 @@ class Kernel extends ConsoleKernel
   {
     // $schedule->call(new CourseEventBills)->everyMinute();
     // $schedule->call(new CourseEventInvitations)->everyMinute();
-    // $schedule->call(new OnboardingTutors)->everyMinute();
-    // $schedule->call(new OnboardingStudents)->everyMinute();
   }
 
   /**

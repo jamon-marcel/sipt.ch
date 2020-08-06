@@ -105,7 +105,7 @@ class BackofficeController extends Controller
     $course_event->save();
 
     // Check max. participants
-    // event(new CourseEventParticipantsChanged($courseEvent));
+    event(new CourseEventParticipantsChanged($courseEvent));
 
     return response()->json(true);                                           
 

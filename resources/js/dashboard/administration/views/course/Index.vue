@@ -53,6 +53,7 @@
             <span>
               {{c.students.length}}/{{c.max_participants}}
             </span>
+            <em class="bubble-info" v-if="!c.is_bookable">geschlossen</em>
           </div>
           <list-actions
             :id="c.id" 
@@ -60,9 +61,9 @@
             :hasDetail="true"
             :hasDownload="true"
             :hasDestroy="false"
-            :hasEdit="false"
+            :hasEdit="true"
             :hasToggle="false"
-            :routes="{details: 'course-event-show', download: '/download/teilnehmerliste/' + c.id}">
+            :routes="{edit: 'course-event-edit', details: 'course-event-show', download: '/download/teilnehmerliste/' + c.id}">
           </list-actions>
         </div>
       </div>

@@ -34,10 +34,11 @@ return [
     'admin@sipt.ch',
   ],
 
-  // Carbon Copy
+  // E-Mail carbon copy
   'email_copy' => [
     'support@sipt.ch',
-    'r.barwinski@swissonline.ch'
+    // 'r.barwinski@swissonline.ch',
+    // 'sekretariat@sipt.ch'
   ],
 
   // Notice types
