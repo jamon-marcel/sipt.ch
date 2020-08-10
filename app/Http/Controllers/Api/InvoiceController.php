@@ -16,13 +16,37 @@ class InvoiceController extends Controller
   /**
    * Get all invoices
    *
+   * @param String $constraint
    * @return \Illuminate\Http\Response
    */
-  public function get()
+  public function get($constraint = NULL)
   {
+    if ($constraint == 'paid')
+    {
+      $invoices = $this->invoice->with('event.course', 'student', 'symposiumSubscriber', 'symposium')
+                                ->where('is_cancelled', '=', 0)
+                                ->where('is_paid', '=', 1)
+                                ->orderBy('number', 'DESC')
+                                ->get();
+      return new DataCollection($invoices);
+    }
+    
+    if ($constraint == 'cancelled')
+    {
+      $invoices = $this->invoice->with('event.course', 'student', 'symposiumSubscriber', 'symposium')
+                                ->where('is_cancelled', '=', 1)
+                                ->where('is_paid', '=', 0)
+                                ->orderBy('number', 'DESC')
+                                ->get();
+      return new DataCollection($invoices);   
+    }
+
     $invoices = $this->invoice->with('event.course', 'student', 'symposiumSubscriber', 'symposium')
+                              ->where('is_cancelled', '=', 0)
+                              ->where('is_paid', '=', 0)
                               ->orderBy('number', 'DESC')
                               ->get();
+
     return new DataCollection($invoices);
   }
 
@@ -67,6 +91,20 @@ class InvoiceController extends Controller
     $invoice->is_paid = $invoice->is_paid == 0 ? 1 : 0;
     $invoice->save();
     return response()->json($invoice->is_paid); 
+  }
+
+  /**
+   * Cancel a given invoice
+   *
+   * @param Invoice $invoice
+   * @param  \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\Response
+   */
+  public function cancel(Invoice $invoice, Request $request)
+  {
+    $invoice->update($request->all());
+    $invoice->save();
+    return response()->json($invoice->is_cancelled); 
   }
 
   /**

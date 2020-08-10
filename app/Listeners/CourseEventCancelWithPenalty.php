@@ -38,11 +38,11 @@ class CourseEventCancelWithPenalty
     $penalty            = $event->penalty;
 
     // Create invoice number
-    $invoiceNumber  = Invoice::withTrashed()->max('number') + 1;
+    $invoiceNumber  = \InvoiceHelper::getNumber();;
     
     // Set data
     $data = [
-      'invoice_number' => ($invoiceNumber > \Config::get('sipt.min_invoice_number')) ? $invoiceNumber : \Config::get('sipt.min_invoice_number'),
+      'invoice_number' => $invoiceNumber,
       'invoice_date'   => date('d.m.Y', time()),
       'invoice_amount' => \MoneyFormatHelper::number(($courseEvent->course->cost * $penalty)/100),
       'client_number'  => $student->number,

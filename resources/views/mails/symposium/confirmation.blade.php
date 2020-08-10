@@ -17,7 +17,7 @@
   </tr>
   <tr>
     <td width="120">Kosten:</td>
-    <td>CHF {{ $subscriber['symposium']['cost'] }}</td>
+    <td>CHF {{ $subscriber->cost }}</td>
   </tr>
 </table>
 <p>Um diese Buchung zu annullieren, klicken Sie bitte <a href="{{ route('symposium_cancel', ['symposiumSubscriber' => $subscriber['id']]) }}" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</p>

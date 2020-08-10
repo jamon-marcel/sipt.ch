@@ -54,6 +54,7 @@ class CourseEventCancelByAdministrator
           $courseEventStudent->is_cancelled = 1;
           $courseEventStudent->cancelled_at = date('d.m.Y', time());
           $courseEventStudent->save();
+          $courseEventStudent->delete();
         }                                            
         
         Mail::to($student->user->email)

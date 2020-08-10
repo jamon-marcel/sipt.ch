@@ -13,6 +13,7 @@
           <course-events-list
             :records="courses.booked"
             :hasDetail="false"
+            :isAdmin="true"
             v-if="courses.booked.length"
           ></course-events-list>
           <div class="no-records" v-else>Es sind keine Module vorhanden...</div>
@@ -20,7 +21,7 @@
         </template>
 
         <template v-if="isFetchedCoursesAttended">
-          <h2>Absolvierte Module</h2>
+          <h2>Absolvierte Module*</h2>
           <course-events-list
             :records="courses.attended"
             :hasDetail="false"
@@ -28,8 +29,8 @@
             v-if="courses.attended.length"
           ></course-events-list>
           <div class="no-records" v-else>Es sind keine Module vorhanden...</div>
+          <p class="sb-lg"><small>*Absolvierte Module ab 14.08.2020</small></p>
         </template>
-
       </div>
       <footer class="module-footer">
         <div>
@@ -119,8 +120,20 @@ export default {
     },
 
     destroy(id) {
-      if (confirm("Bitte löschen bestätigen!")) {
+      if (confirm("Bitte löschen mit Kostenfolge bestätigen!")) {
         let uri = `/api/student/course/event/${id}/${this.$route.params.id}`;
+        this.isLoading = true;
+        this.axios.delete(uri).then(response => {
+          this.fetch();
+          this.$notify({ type: "success", text: "Modul entfernt!" });
+          this.isLoading = false;
+        });
+      }
+    },
+
+    destroyWithoutCost(id) {
+      if (confirm("Bitte löschen ohne Kostenfolge bestätigen!")) {
+        let uri = `/api/backoffice/course/event/student/${id}/${this.$route.params.id}`;
         this.isLoading = true;
         this.axios.delete(uri).then(response => {
           this.fetch();

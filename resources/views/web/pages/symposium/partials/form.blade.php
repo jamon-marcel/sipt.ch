@@ -13,7 +13,7 @@
     <x-text-field label="Name" name="name" />
     <x-text-field label="Titel" name="title" placeholder="optional" />
     <x-text-field label="Strasse" name="street" />
-    <x-text-field label="Nr." name="street_no" />
+    <x-text-field label="Nr." name="street_no" placeholder="optional" />
     <x-text-field label="PLZ" name="zip" />
     <x-text-field label="Ort" name="city" />
     <x-text-field label="Land" name="country" />

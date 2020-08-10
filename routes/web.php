@@ -73,12 +73,14 @@ Route::middleware('auth:sanctum', 'verified')->group(function() {
 
   // Dev routes
   Route::get('/mask-user', 'DevController@maskUser');
-
+  Route::get('/invite', 'DevController@invite');
 
   // Downloads for tutors / admins
   Route::get('/download/modulliste', 'DownloadController@listCourses')->middleware('role:tutor');
   Route::get('/download/teilnehmerliste/{courseEvent}', 'DownloadController@listParticipants')->middleware('role:admin');
   Route::get('/download/anwesenheitsliste/{courseEvent}', 'DownloadController@listAttendances')->middleware('role:tutor');
+  Route::get('/download/fachtagung/teilnehmerliste', 'DownloadController@listSymposiumParticipants')->middleware('role:admin');
+
 
   // Downloads for students
   Route::get('/download/kursbestaetigung/{courseEvent}/{student?}', 'DownloadController@confirmation')->middleware('role:student');

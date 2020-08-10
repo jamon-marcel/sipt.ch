@@ -28,7 +28,7 @@
         Ort: Alte Kaserne Winterthur
       </div>
       <div class="list__item">
-        Kosten: CHF 200 
+        Kosten: CHF 250
       </div>
     </div>
   </article>

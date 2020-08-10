@@ -122,13 +122,25 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('backoffice/student/attendance/{student}/{courseEvent}', 'Api\BackofficeController@setAttendance');
     Route::get('backoffice/student/bookings/{student}', 'Api\BackofficeController@getBookings');
     Route::get('backoffice/course/event/{courseEvent}', 'Api\BackofficeController@getCourseEvent');
-    Route::get('backoffice/invoices', 'Api\InvoiceController@get');
+    Route::delete('backoffice/course/event/student/{courseEvent}/{student}', 'Api\BackofficeController@destroyCourseEventStudent');
+    Route::get('backoffice/invoices/{constraint?}', 'Api\InvoiceController@get');
     Route::get('backoffice/invoice/history/{invoice}', 'Api\InvoiceController@getHistory');
     Route::get('backoffice/invoice/{invoice}', 'Api\InvoiceController@find');
     Route::put('backoffice/invoice/state/{invoice}', 'Api\InvoiceController@state');
+    Route::put('backoffice/invoice/cancel/{invoice}', 'Api\InvoiceController@cancel');
     Route::get('backoffice/invoice/notice/{invoice}/{noticeType}', 'Api\InvoiceController@notice');
     Route::post('backoffice/invoice/store', 'Api\BackofficeController@createInvoice');
     Route::post('backoffice/import', 'Api\BackofficeController@import');
+  });
+
+  // Symposium routes
+  Route::middleware('role:admin')->group(function() {
+    Route::get('symposium/subscribers', 'Api\SymposiumSubscriberController@get');
+    Route::get('symposium/{symposiumSubscriber?}', 'Api\SymposiumSubscriberController@find');
+    Route::post('symposium/subscribe', 'Api\SymposiumSubscriberController@store');
+    Route::put('symposium/{symposiumSubscriber}', 'Api\SymposiumSubscriberController@update');
+    Route::delete('symposium/{symposiumSubscriber}', 'Api\SymposiumSubscriberController@cancel');
+
   });
 
 });

@@ -8,6 +8,7 @@ use App\Models\CourseEventStudent;
 use App\Models\Invoice;
 use App\Models\Student;
 use App\Events\CourseEventParticipantsChanged;
+use App\Events\CourseEventCancelled;
 use App\Events\InvoiceReminder;
 use App\Services\CourseInvoice;
 use Illuminate\Http\Request;
@@ -158,6 +159,30 @@ class BackofficeController extends Controller
     $invoice = $courseInvoice->store();
 
     return response()->json($file);
+  }
+
+/**
+   * Remove a course event for given student or an authenticated user
+   *
+   * @param CourseEvent $courseEvent
+   * @param Student $student
+   * @return \Illuminate\Http\Response
+   */
+  public function destroyCourseEventStudent(CourseEvent $courseEvent, Student $student)
+  {
+    $student = $this->student->findOrFail($student->id);
+
+    // Get record
+    $courseEventStudent = $this->courseEventStudent->where('course_event_id', '=', $courseEvent->id)
+                                                   ->where('student_id', '=', $student->id)
+                                                   ->firstOrFail();
+    // Confirm cancellation
+    event(new CourseEventCancelled($student, $courseEventStudent, $courseEvent));
+
+    // Check max. participants
+    event(new CourseEventParticipantsChanged($courseEvent));
+
+    return response()->json('successfully removed');
   }
 
 

@@ -65,4 +65,42 @@ table.list-participants td:nth-child(5) {
 table.list-participants td:last-child {
   padding-right: 0;
 }
+
+
+table.list-participants {
+  border-bottom: .15mm solid #000000;
+}
+
+table.list-symposium-participants td {
+  border-top: .15mm solid #000000;
+  padding-right: 3mm;
+}
+
+table.list-symposium-participants td:nth-child(1) {
+  width: 10mm;
+}
+
+table.list-symposium-participants td:nth-child(2) {
+  width: 45mm;
+}
+
+table.list-symposium-participants td:nth-child(3) {
+  width: 32mm;
+}
+
+table.list-symposium-participants td:nth-child(4) {
+  width: 65mm;
+}
+
+table.list-symposium-participants td:nth-child(5) {
+  width: 45mm;
+}
+
+table.list-symposium-participants td:nth-child(6) {
+  width: 25mm;
+}
+
+table.list-symposium-participants td:last-child {
+  padding-right: 0;
+}
 </style>

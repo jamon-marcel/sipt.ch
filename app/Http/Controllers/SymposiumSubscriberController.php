@@ -4,6 +4,8 @@ use App\Models\Symposium;
 use App\Models\SymposiumSubscriber;
 use App\Models\User;
 use App\Events\SymposiumSubscription;
+use App\Events\SymposiumCancelled;
+use App\Services\Withdrawal;
 use App\Http\Requests\SymposiumSubscriberStoreRequest;
 use Illuminate\Http\Request;
 
@@ -38,6 +40,12 @@ class SymposiumSubscriberController extends Controller
     // Create booking number
     $data['booking_number'] = \BookingHelper::getNumber();
 
+    // Client number
+    $data['number'] = \StudentHelper::getNumber();
+
+    // Cost
+    $data['cost'] = \MoneyFormatHelper::number('250');
+
     // Create subscriber
     $subscriber = SymposiumSubscriber::create($data);
     $subscriber->save();
@@ -50,7 +58,6 @@ class SymposiumSubscriberController extends Controller
 
   /**
    * Cancel a booking
-   * @todo: implement withdrawal process
    *
    * @param SymposiumSubscriber $symposiumSubscriber
    * @return \Illuminate\Http\Response
@@ -58,10 +65,20 @@ class SymposiumSubscriberController extends Controller
 
   public function cancel(SymposiumSubscriber $symposiumSubscriber)
   {
+    $symposium  = $this->symposium->find(\Config::get('sipt.symposium_id'));
+    $withdrawal = new Withdrawal();
+    $penalty    = $withdrawal->getSymposiumCharges();
+
     if ($symposiumSubscriber)
     {
-      $symposiumSubscriber->delete();
+      $symposiumSubscriber->is_cancelled = 1;
+      $symposiumSubscriber->is_billed = 1;
+      $symposiumSubscriber->save();
+
+      // Confirm cancellation
+      event(new SymposiumCancelled($symposiumSubscriber, $symposium, $penalty));
     }
+
     return redirect()->route('symposium_cancelled');
   }
 

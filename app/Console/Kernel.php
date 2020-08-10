@@ -2,8 +2,6 @@
 namespace App\Console;
 use App\Tasks\CourseEventBills;
 use App\Tasks\CourseEventInvitations;
-use App\Tasks\OnboardingTutors;
-use App\Tasks\OnboardingStudents;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 

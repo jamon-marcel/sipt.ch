@@ -81,6 +81,7 @@
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
         <p><strong>Fioritto, Lucina</strong><br>
+        Fachpsychologin für Psychotherapie FSP<br>
         Paradiesgasse 19<br>
         7000 Chur<br>
         Telefon: 079 893 01 59<br>

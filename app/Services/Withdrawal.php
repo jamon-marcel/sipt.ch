@@ -15,6 +15,18 @@ class Withdrawal
     return $penalty;
   }
 
+  public function getSymposiumCharges()
+  {
+    $deadline = strtotime('10.09.2020');
+    $today = time();
+
+    if ($today <= $deadline)
+    {
+      return 'partial';
+    }
+    return 'full';
+  }
+
   /**
    * Get difference between today and a second date in days
    * 

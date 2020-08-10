@@ -58,6 +58,7 @@ class CourseEvent extends Model
 		return $this->belongsToMany('App\Models\Student')
 								->with('user')
 								->withPivot('has_attendance', 'booking_number', 'is_billed')
+								->where('is_cancelled', '=', 0)
 								->where('is_billed', '=', 0);
 	}
 
@@ -66,8 +67,8 @@ class CourseEvent extends Model
 		return $this->belongsToMany('App\Models\Student')
 								->with('user')
 								->withPivot('booking_number', 'is_invited')
-								->where('is_invited', '=', 0)
-								->limit(1);
+								->where('is_cancelled', '=', 0)
+								->where('is_invited', '=', 0);
 	}
 
   /**

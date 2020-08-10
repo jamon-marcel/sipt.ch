@@ -1,5 +1,5 @@
 <template>
-
+<div>
   <div v-if="isTutor">
     <div class="listing" v-if="$props.records">
       <div class="listing__item" v-for="r in $props.records" :key="r.id">
@@ -22,6 +22,24 @@
   </div>
 
   <div v-else>
+
+    <div class="overlay is-visible" v-if="hasOverlay">
+      <div class="overlay__inner">
+        <div>
+          <a href @click.prevent="hideOverlay()" class="feather-icon">
+            <x-icon size="24"></x-icon>
+          </a>
+          <h2>Stornierung ohne Kostenfolge?</h2>
+          <p>Soll die Buchung mit oder ohne Kostenfolge storniert werden?</p>
+          <div class="flex sb-sm">
+            <button class="btn-primary is-sm" @click.prevent="destroyWithCost()">Mit Kostenfolge</button>
+            &nbsp;&nbsp;
+            <button class="btn-secondary is-sm" @click.prevent="destroyWithoutCost()">Ohne Kostenfolge</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="listing" v-if="$props.records">
       <div class="listing__item" v-for="r in $props.records" :key="r.id">
         <div class="listing__item-body">
@@ -45,16 +63,21 @@
       </div>
     </div>
   </div>
-
+</div>
 </template>
 <script>
+
+// Icons
+import { XIcon } from "vue-feather-icons";
 
 // Components
 import ListActions from "@/global/components/ui/ListActions.vue";
 
 export default {
+
   components: {
-    ListActions
+    ListActions,
+    XIcon
   },
 
   props: {
@@ -78,12 +101,49 @@ export default {
     isTutor: {
       type: Boolean,
       default: false
+    },
+
+    isAdmin: {
+      type: Boolean,
+      default: false,
     }
   },
 
+  data() {
+    return {
+      hasOverlay: false,
+      overlayRecord: null,
+      destroyWithoutPenalty: false,
+    };
+  },
+
+
   methods: {
     destroy(id,$event) {
-      this.$parent.destroy(id,$event);
+      if (this.$props.isAdmin) {
+        this.hasOverlay = true;
+        this.overlayRecord = id;
+        return;
+      }
+      else {
+        this.$parent.destroy(id,$event)
+      }
+    },
+
+    destroyWithoutCost() {
+      this.$parent.destroyWithoutCost(this.overlayRecord,true);
+      this.overlayRecord = null;
+      this.hideOverlay();
+    },
+
+    destroyWithCost() {
+      this.$parent.destroy(this.overlayRecord);
+      this.overlayRecord = null;
+      this.hideOverlay();
+    },
+
+    hideOverlay() {
+      this.hasOverlay = false;
     }
   }
 };

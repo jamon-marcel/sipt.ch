@@ -234,6 +234,7 @@ return [
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'BookingHelper' => App\Helpers\BookingHelper::class,
         'InvoiceHelper' => App\Helpers\InvoiceHelper::class,
+        'StudentHelper' => App\Helpers\StudentHelper::class,
     ],
 
 ];

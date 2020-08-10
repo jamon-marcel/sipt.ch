@@ -33,6 +33,7 @@ class CourseEventInvitationNotification extends Mailable
                    [
                      'student' => $this->data['student'],
                      'courseEvent' => $this->data['courseEvent'],
+                     'hasMap' => $this->data['hasMap']
                    ]
                  )
                  ->markdown('mails.course_event.invitation');

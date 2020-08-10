@@ -2,6 +2,7 @@
 namespace App\Services;
 use PDF;
 use App\Models\CourseEvent;
+use App\Models\SymposiumSubscriber;
 use Illuminate\Support\Facades\Storage;
 
 class Document
@@ -108,6 +109,33 @@ class Document
     // Set path & filename
     $path = public_path() . '/storage/temp/';
     $filename = 'sipt.ch-teilnehmerliste-' . \AppHelper::slug($courseEvent->course->title) . '-' . $courseEvent->course->number . '.' . date('dmy', strtotime($courseEvent->dateStart)) . '-' . \Str::random(8);
+    $file = $filename . '.pdf';
+    $pdf->save($path . $file);
+
+    return [
+      'path' => $path . $file,
+      'name' => $file
+    ];
+  }
+
+  /**
+   * Create a participant list for a given course event
+   * 
+   * @param $courseEventId
+   * @return Array
+   */
+
+  public function symposiumParticipantList($courseEventId = NULL)
+  {
+    $subscribers = SymposiumSubscriber::with('symposium')->orderBy('created_at', 'DESC')->where('is_cancelled', '=', 0)->get();
+
+    // Create pdf
+    $this->viewData['subscribers'] = $subscribers;
+    $pdf = PDF::loadView('pdf.lists.symposium', $this->viewData);
+
+    // Set path & filename
+    $path = public_path() . '/storage/temp/';
+    $filename = 'sipt.ch-teilnehmerliste-fachtagung-100.101020' . '-' . \Str::random(8);
     $file = $filename . '.pdf';
     $pdf->save($path . $file);
 

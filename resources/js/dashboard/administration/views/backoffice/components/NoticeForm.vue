@@ -5,7 +5,7 @@
         <a href @click.prevent="hideNoticeForm()" class="feather-icon">
           <x-icon size="24"></x-icon>
         </a>
-        <h2>Mahnung auslösen für:</h2>
+        <h2>Mahnung auslösen für</h2>
         <div class="listing">
           <div class="listing__item">
             <div class="listing__item-body">
@@ -28,7 +28,7 @@
           </div>
         </div>
         <div class="sb-sm">
-          <button class="btn-primary" @click.prevent="store()">Senden</button>
+          <button class="btn-primary" @click.prevent="store()">Mahnung Senden</button>
         </div>
       </div>
     </div>

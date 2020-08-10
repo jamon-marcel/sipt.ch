@@ -45,7 +45,7 @@
             :record="c"
             :hasDetail="true"
             :hasDownload="true"
-            :routes="{edit: 'course-event-edit', details: 'course-event-show', download: '/download/teilnehmerliste/' + c.id}">
+            :routes="{edit: 'course-event-edit', details: 'course-event-show', download: '/download/teilnehmerliste/' + c.id + '?v=' + randomString()}">
           </list-actions>
         </div>
       </div>  

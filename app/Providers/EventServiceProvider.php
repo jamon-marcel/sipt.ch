@@ -27,6 +27,10 @@ class EventServiceProvider extends ServiceProvider
       'App\Listeners\SymposiumConfirmSubscription',
     ],
 
+    'App\Events\SymposiumCancelled' => [
+      'App\Listeners\SymposiumCancelSubscription',
+    ],
+
     'App\Events\CourseEventBooked' => [
       'App\Listeners\CourseEventConfirm',
     ],

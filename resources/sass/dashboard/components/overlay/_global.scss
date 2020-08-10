@@ -37,10 +37,20 @@ html.has-overlay {
     display: flex;
     justify-content: center;
 
-    a {
+    a.feather-icon {
       right: 10px;
       position: absolute;
       top: 10px;
+    }
+
+    a.btn-close {
+      color: $color-medium-grey;
+      @include responsive-prop('margin-left', $space-sm);
+      transition: color .1s ease-out;
+
+      &:hover {
+        color: $color-primary;
+      }
     }
 
     > div {

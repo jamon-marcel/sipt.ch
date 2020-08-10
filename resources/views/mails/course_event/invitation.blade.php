@@ -29,5 +29,12 @@
   </tr>
 </table>
 @include('mails.partials.html.signature')
-<div>Beilagen:<br>– Kurseinladung<br>– Kursbeurteilung<br>– Lageplan</div>
+<div>
+  Beilagen:<br>
+  – Kurseinladung<br>
+  – Kursbeurteilung<br>
+  @if ($hasMap)
+  – Lageplan
+  @endif
+</div>
 @endcomponent

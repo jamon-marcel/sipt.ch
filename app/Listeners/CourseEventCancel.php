@@ -36,6 +36,9 @@ class CourseEventCancel
     $this->courseEventStudent = $event->courseEventStudent;
 
     // Delete courseEvent for student
+    $this->courseEventStudent->is_cancelled = 1;
+    $this->courseEventStudent->cancelled_at = date('d.m.Y', time());
+    $this->courseEventStudent->save();
     $this->courseEventStudent->delete();
     $this->notify();
   }

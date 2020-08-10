@@ -33,7 +33,7 @@ class CourseEventCreateSendInvitation
   public function handle(CourseEventInvitation $event)
   {
     // Get callable courses with billableStudents
-    $courseEvents = $this->courseEvent->with('course', 'dates', 'callableStudents')->callable();
+    $courseEvents = $this->courseEvent->with('course', 'dates', 'location', 'callableStudents')->callable();
 
     // Filter out empty course events without students
     $courseEventsWithStudents = $courseEvents->filter(function($courseEvent) {
@@ -82,6 +82,20 @@ class CourseEventCreateSendInvitation
     $document = new Document();
     $document = $document->invitation($courseEvent, $student);
     
+    // Prepare attachements
+    $attachments = [
+      isset($document['path']) ? $document['path'] : null,
+      public_path() . '/storage/downloads/' . 'sipt-kursbeurteilung.pdf',
+    ];
+
+    // Add 'Lageplan' if location is 'SIPT Neuwiesenstrasse'
+    $hasMap = false;
+    if ($courseEvent->location->id == \Config::get('sipt.location_sipt'))
+    {
+      $attachments[] =  public_path() . '/storage/downloads/' . 'sipt-lageplan.pdf';
+      $hasMap = true;
+    }
+
     Mail::to($student->user->email)
           ->bcc(\Config::get('sipt.email_copy'))
           ->send(
@@ -89,11 +103,8 @@ class CourseEventCreateSendInvitation
                 [
                   'student' => $student,
                   'courseEvent' => $courseEvent,
-                  'attachments' => [
-                    isset($document['path']) ? $document['path'] : null,
-                    public_path() . '/storage/downloads/' . 'sipt-lageplan.pdf',
-                    public_path() . '/storage/downloads/' . 'sipt-kursbeurteilung.pdf',
-                  ]
+                  'attachments' => $attachments,
+                  'hasMap' => $hasMap
                 ]
               )
     );

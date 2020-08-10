@@ -28,8 +28,13 @@ import StudentProfileEdit from '@/administration/views/student/profile/Form.vue'
 import BackofficeModules from '@/administration/views/backoffice/Modules.vue';
 import BackofficeCourseEvent from '@/administration/views/backoffice/CourseEvent.vue';
 import BackofficeInvoices from '@/administration/views/backoffice/Invoices.vue';
+import BackofficeInvoicesPaid from '@/administration/views/backoffice/InvoicesPaid.vue';
+import BackofficeInvoicesCancelled from '@/administration/views/backoffice/InvoicesCancelled.vue';
 import BackofficeCreateInvoice from '@/administration/views/backoffice/CreateInvoice.vue';
 import BackofficeImport from '@/administration/views/backoffice/Import.vue';
+
+import Symposium from '@/administration/views/symposium/Index.vue';
+import SymposiumSubscriberCreate from '@/administration/views/symposium/Form.vue';
 
 
 const routes = [
@@ -156,6 +161,16 @@ const routes = [
     component: BackofficeInvoices,
   },
   {
+    name: 'backoffice-invoices-paid',
+    path: '/administration/backoffice/invoices/paid',
+    component: BackofficeInvoicesPaid,
+  },
+  {
+    name: 'backoffice-invoices-cancelled',
+    path: '/administration/backoffice/invoices/cancelled',
+    component: BackofficeInvoicesCancelled,
+  },
+  {
     name: 'backoffice-create-invoice',
     path: '/administration/backoffice/invoice/create',
     component: BackofficeCreateInvoice,
@@ -166,6 +181,19 @@ const routes = [
     component: BackofficeImport,
   },
 
+  // Symposium
+  {
+    name: 'symposium',
+    path: '/administration/symposium',
+    component: Symposium,
+  },
+  {
+    name: 'symposium-subscriber-create',
+    path: '/administration/symposium/create',
+    component: SymposiumSubscriberCreate,
+  },
+
+  
   // Authorization
   {
     name: 'forbidden',

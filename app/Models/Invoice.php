@@ -15,10 +15,13 @@ class Invoice extends Model
     'amount',
     'date_notice',
     'date_paid',
+    'date_cancelled',
     'state',
     'file',
     'is_paid',
     'is_replacement',
+    'is_cancelled',
+    'cancel_reason',
     'replaced_by',
     'course_event_id',
     'student_id',
@@ -76,7 +79,6 @@ class Invoice extends Model
 	{
 		return $this->belongsTo('App\Models\User');
   }
-
   
   /**
    * Mutator 'setDate'
@@ -105,6 +107,14 @@ class Invoice extends Model
     $this->attributes['date_paid'] = $value ? \Carbon\Carbon::parse($value)->format('Y.m.d') : null;
   }
 
+  /**
+   * Mutator 'setDatePaid'
+   */
+
+  public function setDateCancelledAttribute($value)
+  {
+    $this->attributes['date_cancelled'] = $value ? \Carbon\Carbon::parse($value)->format('Y.m.d') : null;
+  }
 
   /**
    * Accessor 'getDate'
@@ -129,6 +139,15 @@ class Invoice extends Model
    */
 
   public function getDatePaidAttribute($value)
+  {
+    return \Carbon\Carbon::parse($value)->format('d.m.Y');
+  }
+
+  /**
+   * Accessor 'getDateCancelled'
+   */
+
+  public function getDateCancelledAttribute($value)
   {
     return \Carbon\Carbon::parse($value)->format('d.m.Y');
   }

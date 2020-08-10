@@ -10,7 +10,7 @@
           <input type="text" v-model="date" v-cleave="{delimiter: '.', blocks: [2, 2, 4]}">
         </div>
         <div class="sb-sm">
-          <button class="btn-primary" @click.prevent="update()">Senden</button>
+          <button class="btn-primary" @click.prevent="update()">Speichern</button>
         </div>
       </div>
     </div>

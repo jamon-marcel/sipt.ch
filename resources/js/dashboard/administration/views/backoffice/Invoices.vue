@@ -10,22 +10,26 @@
     <div v-if="hasDateOverlay">
       <date-paid-form :invoice="datePaidInvoice"></date-paid-form>
     </div>
+    <div v-if="hasCancelOverlay">
+      <cancel-form :invoice="cancelInvoice"></cancel-form>
+    </div>
+    
     <div :class="isFetched ? 'is-loaded' : 'is-loading'">
-
-      <!-- invoices open -->
       <header class="content-header flex-sb flex-vc">
         <h1>Offene Rechnungen</h1>
         <view-selector
           :items="[
             {route: '/administration/backoffice/modules', label: 'Module'},
-            {route: '/administration/backoffice/invoices', label: 'Rechnungen'},
-            {route: '/administration/backoffice/import', label: 'Import'}
+            {route: '/administration/backoffice/invoices', label: 'Rechnungen – offen'},
+            {route: '/administration/backoffice/invoices/paid', label: 'Rechnungen – bezahlt'},
+            {route: '/administration/backoffice/invoices/cancelled', label: 'Rechnungen – storniert'},
+            //{route: '/administration/backoffice/import', label: 'Import'}
           ]"
         ></view-selector>
       </header>
-      <div class="content content--wide sb-sm" v-if="invoicesOpen.length">
+      <div class="content content--wide sb-sm" v-if="invoices.length">
         <div class="listing">
-          <div class="listing__item" v-for="invoice in invoicesOpen" :key="invoice.id">
+          <div class="listing__item" v-for="invoice in invoices" :key="invoice.id">
             <div class="listing__item-body">
               <a :href="'/storage/invoices/' + invoice.file" target="_blank">{{invoice.number}}</a>
               <span v-if="invoice.event">
@@ -57,24 +61,30 @@
             </div>
             <div class="listing__item-action">
               <div v-if="invoice.is_replacement">
-                <a href @click.prevent="showHistory(invoice)">
+                <a href @click.prevent="showHistory(invoice)" title="Rechnungshistory anzeigen">
                   <span class="feather-icon">
                     <layers-icon size="20"></layers-icon>
                   </span>
                 </a>
               </div>
-
-              <div v-if="invoice.is_paid == 0">
-                <a href @click.prevent="showNoticeForm(invoice)">
+              <div>
+                <a href @click.prevent="showNoticeForm(invoice)" title="Mahnung erstellen">
                   <span class="feather-icon">
                     <bell-icon size="20"></bell-icon>
                   </span>
                 </a>
               </div>
               <div>
-                <a href="javascript:;" @click.prevent="showDateForm(invoice.id)">
-                  <span class="feather-icon is-inactive">
+                <a href="javascript:;" @click.prevent="showDateForm(invoice.id)" title="Rechnungsstatus ändern">
+                  <span class="feather-icon">
                     <dollar-sign-icon size="20"></dollar-sign-icon>
+                  </span>
+                </a>
+              </div>
+              <div>
+                <a href="javascript:;" @click.prevent="showCancelForm(invoice.id)" title="Rechnung stornieren">
+                  <span class="feather-icon">
+                    <x-circle-icon size="20"></x-circle-icon>
                   </span>
                 </a>
               </div>
@@ -85,58 +95,6 @@
       <div v-else>
         <p class="no-records">Es sind keine offenen Rechnungen vorhanden...</p>
       </div>
-      <!-- // invoices open -->
-
-      <!-- invoices paid -->
-      <header class="content-header sb-md">
-        <h1>Bezahlte Rechnungen</h1>
-      </header>
-      <div class="content content--wide" v-if="invoicesPaid.length">
-        <div class="listing">
-          <div class="listing__item" v-for="invoice in invoicesPaid" :key="invoice.id">
-            <div class="listing__item-body">
-              <a :href="'/storage/invoices/' + invoice.file" target="_blank">{{invoice.number}}</a>
-              <span v-if="invoice.event">
-                <separator/>
-                {{invoice.event.courseNumber}}
-              </span>
-              <separator/>
-              {{moneyFormat(invoice.amount)}}
-              <separator/>
-              {{invoice.date_paid}}
-              <separator/>
-              <span v-if="invoice.student">
-                {{invoice.student.firstname}} {{invoice.student.name}}, {{invoice.student.city}}
-              </span>
-              <span v-if="invoice.symposium_subscriber">
-                {{invoice.symposium_subscriber.firstname}} {{invoice.symposium_subscriber.name}}, {{invoice.symposium_subscriber.city}}
-                <separator/>Fachtagung
-              </span>
-            </div>
-            <div class="listing__item-action">
-              <div v-if="invoice.is_replacement">
-                <a href @click.prevent="showHistory(invoice)">
-                  <span class="feather-icon">
-                    <layers-icon size="20"></layers-icon>
-                  </span>
-                </a>
-              </div>
-              <div>
-                <a href="javascript:;" @click.prevent="update(invoice.id)">
-                  <span class="feather-icon is-active">
-                    <dollar-sign-icon size="20"></dollar-sign-icon>
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div v-else>
-        <p class="no-records">Es sind keine bezahlten Rechnungen vorhanden...</p>
-      </div>
-      <!-- // invoices paid -->
-
     </div>
     <footer class="module-footer">
       <div class="flex-sb flex-vc">
@@ -151,13 +109,14 @@
 <script>
 
 // Icons
-import { DollarSignIcon, BellIcon, LayersIcon, FilePlusIcon } from "vue-feather-icons";
+import { DollarSignIcon, BellIcon, LayersIcon, FilePlusIcon, XCircleIcon } from "vue-feather-icons";
 
 // Components
 import ListActions from "@/global/components/ui/ListActions.vue";
 import ViewSelector from "@/administration/components/ViewSelector.vue";
 import NoticeForm from "@/administration/views/backoffice/components/NoticeForm.vue";
 import DatePaidForm from "@/administration/views/backoffice/components/DatePaidForm.vue";
+import CancelForm from "@/administration/views/backoffice/components/CancelForm.vue";
 import InvoiceHistory from "@/administration/views/backoffice/components/InvoiceHistory.vue";
 
 // Mixins
@@ -171,10 +130,12 @@ export default {
     BellIcon,
     LayersIcon,
     FilePlusIcon,
+    XCircleIcon,
     ListActions,
     ViewSelector,
     NoticeForm,
     DatePaidForm,
+    CancelForm,
     InvoiceHistory
   },
 
@@ -189,10 +150,12 @@ export default {
       hasNoticeOverlay: false,
       hasHistoryOverlay: false,
       hasDateOverlay: false,
+      hasCancelOverlay: false,
 
       noticeInvoice: null,
       historyInvoice: null,
       datePaidInvoice: null,
+      cancelInvoice: null,
 
       invoiceStates: {
         0: "Zahlungserinnerung",
@@ -223,11 +186,28 @@ export default {
       this.isLoading = true;
       this.axios.put(uri, data).then(response => {
         const idx = this.invoices.findIndex(x => x.id === invoice);
-        this.invoices[idx].is_paid = response.data;
-        this.invoices[idx].date_paid = date ? date : null;
+        this.invoices.splice(idx,1);
         this.$notify({ type: "success", text: "Status geändert!" });
         this.hideDateForm();
         this.datePaidInvoice = null;
+        this.isLoading = false;
+      });
+    },
+
+    cancel(invoice, date, reason) {
+      let data = {
+        'is_cancelled': 1,
+        'date_cancelled': date,
+        'cancel_reason': reason
+      };
+      let uri = `/api/backoffice/invoice/cancel/${invoice}`;
+      this.isLoading = true;
+      this.axios.put(uri, data).then(response => {
+        const idx = this.invoices.findIndex(x => x.id === invoice);
+        this.invoices.splice(idx,1);
+        this.$notify({ type: "success", text: "Rechnung storniert!" });
+        this.hideCancelForm();
+        this.cancelInvoice = null;
         this.isLoading = false;
       });
     },
@@ -275,28 +255,14 @@ export default {
       this.hasDateOverlay = false;
     },
 
-    filterByState(data, state) {
-      let invoices = data.filter(function(invoice) {
-        return invoice.is_paid == state;
-      });
-      return invoices;
-    }
-  },
-
-  computed: {
-    invoicesPaid() {
-      let invoices = this.invoices.filter(function(invoice) {
-        return invoice.is_paid == 1;
-      });
-      return invoices;
+    showCancelForm(invoice) {
+      this.hasCancelOverlay = true;
+      this.cancelInvoice = invoice;
     },
 
-    invoicesOpen() {
-      let invoices = this.invoices.filter(function(invoice) {
-        return invoice.is_paid == 0;
-      });
-      return invoices;
-    }
-  }
+    hideCancelForm() {
+      this.hasCancelOverlay = false;
+    },
+  },
 };
 </script>

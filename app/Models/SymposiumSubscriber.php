@@ -8,6 +8,7 @@ class SymposiumSubscriber extends Model
   use SoftDeletes;
   
 	protected $fillable = [
+		'number',
 		'firstname',
 		'name',
 		'title',
@@ -22,12 +23,17 @@ class SymposiumSubscriber extends Model
 		'mobile',
 		'qualifications',
 		'booking_number',
+		'cost',
+		'has_attendance',
+		'is_cancelled',
+		'is_billed',
     'user_id',
-    'symposium_id',
+		'symposium_id',
+		'created_at'
 	];
 
 	protected $hidden = [
-    'user_id', 'created_at', 'updated_at'
+    'user_id', 'updated_at'
   ];
 
   public function symposium()

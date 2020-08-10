@@ -27,7 +27,7 @@ return [
   'min_booking_number' => 450000,
 
   // Chunk size for cron jobs
-  'cron_chunk_size' => 2,
+  'cron_chunk_size' => 1,
 
   // E-Mail 
   'email_admin' => [
@@ -36,7 +36,7 @@ return [
 
   // E-Mail carbon copy
   'email_copy' => [
-    'support@sipt.ch',
+    // 'support@sipt.ch',
     // 'r.barwinski@swissonline.ch',
     // 'sekretariat@sipt.ch'
   ],
@@ -49,6 +49,13 @@ return [
     3 => '3. Mahnung'
   ],
 
+  // ID for location 'SIPT Neuwiesenstrasse'
+  'location_sipt' => '76ab6fee-bb20-4d36-b456-a1d606e45c78',
+
+  // ID for current symposium
+  'symposium_id' => '644b0723-5c3a-45d3-800a-592876d90257',
+
+  // Quotes for training pages
   'quotes' => [
     'a7cfb68c-a8fe-4460-a804-e6b7b3489dd9' => [
       'author' => 'Marianne Herzog, Fachberaterin / Fachpädagogin Psychotraumatologie',

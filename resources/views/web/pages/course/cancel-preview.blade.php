@@ -19,9 +19,6 @@
       <div class="list__item">
         DozentInnen: {{AppHelper::tutorsToString($courseEvent->dates, TRUE)}}
       </div>
-      <div class="list__item">
-        Kosten: CHF {{$courseEvent->course->cost}}
-      </div>
     </div>
     @if ($penalty > 0)
       <div class="alert-warning">

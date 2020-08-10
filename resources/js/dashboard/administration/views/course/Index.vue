@@ -63,7 +63,7 @@
             :hasDestroy="false"
             :hasEdit="true"
             :hasToggle="false"
-            :routes="{edit: 'course-event-edit', details: 'course-event-show', download: '/download/teilnehmerliste/' + c.id}">
+            :routes="{edit: 'course-event-edit', details: 'course-event-show', download: '/download/teilnehmerliste/' + c.id + '?v=' + randomString()}">
           </list-actions>
         </div>
       </div>
@@ -71,7 +71,7 @@
 
     <footer class="module-footer">
       <div class="flex-sb flex-vc">
-        <a href="/download/modulliste" class="btn-primary has-icon" target="_blank">
+        <a :href="'/download/modulliste?v=' + randomString()" class="btn-primary has-icon" target="_blank">
           <download-icon size="16"></download-icon>
           <span>Download Modulliste</span>
         </a>

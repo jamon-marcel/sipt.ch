@@ -46,6 +46,19 @@ class DownloadController extends Controller
   }
 
   /**
+   * Download the participant list
+   *
+   * @return \Illuminate\Http\Response
+   */
+
+  public function listSymposiumParticipants()
+  {
+    $file = new Document();
+    $file = $file->symposiumParticipantList();
+    return response()->download($file['path'], $file['name'], $this->headers);
+  }
+
+  /**
    * Download the list of attendees
    *
    * @return \Illuminate\Http\Response

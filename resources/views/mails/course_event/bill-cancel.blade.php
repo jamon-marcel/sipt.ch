@@ -2,7 +2,7 @@
 # Bestätigung Abmeldung / Rechnung {{ $invoiceNumber }}
 <p>Guten Tag {{ $student->fullName }}</p>
 <p>Hiermit bestätigen wir die Annullation des Moduls «{{$courseEvent->course->title}}».</p>
-<p>Für Ihre Annullation müssen wir Ihnen leider {{$penalty}}% der Modulkosten in Rechnung stellen. Sämtliche Informationen zu unseren Annullationsbedingungen finden Sie in unseren <a href="{{ route('about_toc') }}">AGB</a>.</p>
+<p>Für Ihre Annullation müssen wir Ihnen leider <strong>{{$penalty}}%</strong> der Modulkosten in Rechnung stellen. Sämtliche Informationen zu unseren Annullationsbedingungen finden Sie in unseren <a href="{{ route('about_toc') }}">AGB</a>.</p>
 <br>
 <table class="content-table" cellpadding="0" cellspacing="0">
   <tr>
