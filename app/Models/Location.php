@@ -14,5 +14,7 @@ class Location extends Model
     'street_no',
     'zip',
     'city',
+    'maps_uri',
+    'maps_file'
   ];
 }

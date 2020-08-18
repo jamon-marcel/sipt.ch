@@ -95,4 +95,10 @@ class AppHelper
 
     return $location->name;
   }
+
+  public static function locationMap($data)
+  {
+    $location = \App\Models\Location::find($data);
+    return $location->maps_uri;
+  }
 }

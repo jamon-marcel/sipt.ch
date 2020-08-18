@@ -26,6 +26,10 @@
                 <separator/>
                 {{invoice.event.courseNumber}}
               </span>
+              <span v-else-if="invoice.symposium_subscriber">
+                <separator/>
+                100.101020
+              </span>
               <separator/>
               {{moneyFormat(invoice.amount)}}
               <separator/>
@@ -36,7 +40,6 @@
               </span>
               <span v-if="invoice.symposium_subscriber">
                 {{invoice.symposium_subscriber.firstname}} {{invoice.symposium_subscriber.name}}, {{invoice.symposium_subscriber.city}}
-                <separator/>Fachtagung
               </span>
             </div>
             <div class="listing__item-action">

@@ -54,6 +54,7 @@
               {{c.students.length}}/{{c.max_participants}}
             </span>
             <em class="bubble-info" v-if="!c.is_bookable">geschlossen</em>
+            <em class="bubble-warning" v-if="!c.is_published">autom. Versand deaktiviert</em>
           </div>
           <list-actions
             :id="c.id" 

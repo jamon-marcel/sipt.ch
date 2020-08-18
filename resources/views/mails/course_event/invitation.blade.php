@@ -24,6 +24,10 @@
     <td>{{AppHelper::locationNameFull($courseEvent->location_id, TRUE)}}</td>
   </tr>
   <tr>
+    <td>Lageplan:</td>
+    <td><a href="{{AppHelper::locationMap($courseEvent->location_id)}}" target="_blank" class="anchor" style="color: #ff7a00; text-decoration: none;">Googlemaps</a></td>
+  </tr>
+  <tr>
     <td>Kursgebühr:</td>
     <td>CHF {{$courseEvent->course->cost}}</td>
   </tr>

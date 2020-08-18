@@ -60,8 +60,6 @@ Route::get('/bookings', 'BookingController@get');
 // Student Login
 Route::post('/auth/student/login', 'LoginController@login')->name('student_login');
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Admin Web routes
@@ -74,6 +72,7 @@ Route::middleware('auth:sanctum', 'verified')->group(function() {
   // Dev routes
   Route::get('/mask-user', 'DevController@maskUser');
   Route::get('/invite', 'DevController@invite');
+  Route::get('/bills', 'DevController@bills');
 
   // Downloads for tutors / admins
   Route::get('/download/modulliste', 'DownloadController@listCourses')->middleware('role:tutor');

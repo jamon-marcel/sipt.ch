@@ -11,8 +11,8 @@ return [
 
   // Registration
   'registration_deadline' => '+1 day',
-  'billable_deadline' => '+30 days',
-  'callable_deadline' => '+10 days',
+  'billable_deadline'     => '+30 days',
+  'callable_deadline'     => '+10 days',
 
   // Bank/ESR details
   'esr_codeline_prefix' => '01',
@@ -48,9 +48,6 @@ return [
     2 => '2. Mahnung',
     3 => '3. Mahnung'
   ],
-
-  // ID for location 'SIPT Neuwiesenstrasse'
-  'location_sipt' => '76ab6fee-bb20-4d36-b456-a1d606e45c78',
 
   // ID for current symposium
   'symposium_id' => '644b0723-5c3a-45d3-800a-592876d90257',

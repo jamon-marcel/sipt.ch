@@ -88,11 +88,10 @@ class CourseEventCreateSendInvitation
       public_path() . '/storage/downloads/' . 'sipt-kursbeurteilung.pdf',
     ];
 
-    // Add 'Lageplan' if location is 'SIPT Neuwiesenstrasse'
     $hasMap = false;
-    if ($courseEvent->location->id == \Config::get('sipt.location_sipt'))
+    if ($courseEvent->location->maps_file)
     {
-      $attachments[] =  public_path() . '/storage/downloads/' . 'sipt-lageplan.pdf';
+      $attachments[] =  public_path() . '/storage/downloads/' . $courseEvent->location->maps_file;
       $hasMap = true;
     }
 

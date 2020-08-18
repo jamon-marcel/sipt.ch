@@ -89,15 +89,15 @@ table.list-symposium-participants td:nth-child(3) {
 }
 
 table.list-symposium-participants td:nth-child(4) {
-  width: 65mm;
+  width: 55mm;
 }
 
 table.list-symposium-participants td:nth-child(5) {
-  width: 45mm;
+  width: 40mm;
 }
 
 table.list-symposium-participants td:nth-child(6) {
-  width: 25mm;
+  width: 20mm;
 }
 
 table.list-symposium-participants td:last-child {
