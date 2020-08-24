@@ -44,7 +44,7 @@ class SymposiumSubscriberController extends Controller
     $data['number'] = \StudentHelper::getNumber();
 
     // Cost
-    $data['cost'] = \MoneyFormatHelper::number('250');
+    $data['cost'] = '0.00';
 
     // Create subscriber
     $subscriber = SymposiumSubscriber::create($data);

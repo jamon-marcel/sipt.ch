@@ -65,7 +65,7 @@ class SymposiumSubscriberController extends Controller
         'user_id' => $student->user->id,
         'symposium_id' => '644b0723-5c3a-45d3-800a-592876d90257',
         'booking_number' => $data['booking_number'],
-        'cost' => \MoneyFormatHelper::number('200'),
+        'cost' => '0.00',
         'created_at' => $data['created_at'],
       ];
 
@@ -100,7 +100,7 @@ class SymposiumSubscriberController extends Controller
         'mobile' => $data['subscriber']['mobile'],
         'symposium_id' => '644b0723-5c3a-45d3-800a-592876d90257',
         'booking_number' => $data['booking_number'],
-        'cost' => \MoneyFormatHelper::number('200'),
+        'cost' => '0.00',
         'created_at' => $data['created_at'],
       ];
 
@@ -129,6 +129,20 @@ class SymposiumSubscriberController extends Controller
     // event(new SymposiumSubscription($subscriber));
 
     return response()->json(true); 
+  }
+
+  /**
+   * Update the current symposiumSubscriber
+   *
+   * @param SymposiumSubscriber $symposiumSubscriber
+   * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\Response
+   */
+  public function update(SymposiumSubscriber $symposiumSubscriber, Request $request)
+  {
+    $symposiumSubscriber->update(['cost' => $request->input('cost')]);
+    $symposiumSubscriber->save();
+    return response()->json('successfully updated');
   }
 
   /**

@@ -19,7 +19,7 @@ class DevController extends Controller
 
   public function bills()
   {
-    // event(new \App\Events\CourseEventBill(TRUE));
+    // event(new \App\Events\SymposiumBill());
   }
 
   public function maskUser()

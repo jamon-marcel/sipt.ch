@@ -47,6 +47,15 @@ class SymposiumSubscriber extends Model
 	}
 
   /**
+   * Scope for billable subscribers
+   */
+
+	public function scopeBillable($query)
+	{
+		return $query->where('is_billed', '=', 0)->where('is_cancelled', '=', 0)->where('cost', '>', 0)->get();
+	}
+
+  /**
    * Accessor 'getFullName'
    */
 

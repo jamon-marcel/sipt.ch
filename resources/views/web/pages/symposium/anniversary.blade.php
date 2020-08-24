@@ -6,12 +6,11 @@
   <x-header title="Fachtagung" />
   <article>
     <h2>Jubiläums-Fachtagung — 15 Jahre SIPT<br>Neue Entwicklungen im psychodynamischen Traumaverständnis</h2>
-    <p>Wie kann die Beziehung im Verlauf einer Traumatherapie, als auch im pädagogischen Kontext gestaltet werden, damit Entwicklung möglich wird?</p>
-    <p>Dies wird Thema der Jubiläumstagung zum 15-jährigen Bestehen des SIPT sein. Dabei stehen symboltheoretische Überlegungen im Vordergrund.</p>
-    <p>Prof. Dr. Reinhard Fatke zeigt auf, dass Phantasieren im Kindesalter als eine spezifische Form der Symbolbildung zur Bewältigung von irritierenden Erlebnissen verstanden werden kann.</p>
-    <p>Dipl.- med. Natascha Unfried veranschaulicht, wie pränatal / präverbal erlebte Traumata innere Bilder nachhaltig gestalten und Prof. Dr. Pia Andreatta rundet den Vormittag mit ihrem Vortrag über Sprachbilder und Symbolisierung ab.</p>
-    <p>Prof. Dr. Heinrich Deserno zeigt anschliessend auf, welche Bedeutung der Symbolbildung bei Panik- und Persönlichkeitsstörungen zukommt.</p>
-    <p>Prof. Dr. Carl Scheidt erläutert abschliessend Spiegelungs – und Resonanzprozesse in der Therapie.</p>
+    <p>In den letzten Jahren wurde eine Reihe von Techniken zur Behandlung von Traumafolgestörungen entwickelt, die in der Praxis häufig ohne zugrundeliegendes Behandlungs- und Verlaufskonzept angewendet werden. Diesem eher technikorientiertem Vorgehen möchten wir eine andere, beziehungsorientierte Sichtweise entgegen stellen. Wie kann die Beziehung im Verlauf einer Traumatherapie, als auch im pädagogischen Kontext gestaltet werden, damit Entwicklung möglich wird? Dies wird Thema der Jubiläumstagung zum 15-jährigen Bestehen des SIPT sein. Dabei stehen symboltheoretische Überlegungen im Vordergrund.</p> 
+    <p>Prof. Dr. Reinhard Fatke zeigt auf, dass Phantasieren im Kindesalter als eine spezifische Form der Symbolbildung zur Bewältigung von irritierenden Erlebnissen verstanden werden kann.</p> 
+    <p>Dipl.-med. Natascha Unfried veranschaulicht, wie pränatal / präverbal erlebte Traumata innere Bilder nachhaltig gestalten und Prof. Dr. Pia Andreatta rundet den Vormittag mit ihrem Vortrag über Sprachbilder und Symbolisierung ab.</p> 
+    <p>Prof. Dr. Carl Scheidt zeigt anschliessend auf, wie Spiegelungs- und Resonanzprozesse in der Therapie von statten gehen. Prof. Dr. Lutz Wittmann erläutert abschliessend, wie die Verarbeitung traumatischer Erinnerungsspuren in Träumen nachgezeichnet werden kann.</p>
+    <p>Eine bereichernde, interaktive Tagung ist gewiss. Wir freuen uns, Sie bei unserer Tagung begrüssen zu dürfen.</p>
   </article>
   <article>
     <div class="list">

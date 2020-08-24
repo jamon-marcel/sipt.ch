@@ -51,6 +51,13 @@
   opacity: 1 !important;
 }
 
+.bubble-success {
+  @extend %bubble;
+  background-color: $color-green;
+  margin-left: 10px;
+  opacity: 1 !important;
+}
+
 .bubble-warning {
   @extend %bubble;
   background-color: $color-yellow;

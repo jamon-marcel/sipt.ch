@@ -46,6 +46,9 @@ Production:
 
 1)
 
+php artisan config:clear && 
+php artisan cache:clear && 
+php artisan view:clear &&
 npm run production &&
 tar --exclude="vendor/" --exclude="INSTALL.TXT" --exclude="*.DS_Store" --exclude="resources/js/" --exclude="resources/sass/" --exclude="storage/app/public/" --exclude="node_modules/" --exclude=".git*" --exclude=".env" --exclude=".editorconfig" --exclude="public/storage/" --exclude="public/.htaccess" -cvzf app.tar.gz * &&
 scp app.tar.gz siptse9@psychotraumatologie-sipt.ch:/home/siptse9/www/psychotraumatologie-sipt.ch/ &&

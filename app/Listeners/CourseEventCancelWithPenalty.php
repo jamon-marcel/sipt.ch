@@ -38,7 +38,7 @@ class CourseEventCancelWithPenalty
     $penalty            = $event->penalty;
 
     // Create invoice number
-    $invoiceNumber  = \InvoiceHelper::getNumber();;
+    $invoiceNumber  = \InvoiceHelper::getNumber();
     
     // Set data
     $data = [

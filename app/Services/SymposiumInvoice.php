@@ -5,7 +5,7 @@ use App\Services\PaymentSlip;
 use PDF;
 use Illuminate\Support\Facades\Storage;
 
-class CourseInvoice
+class SymposiumInvoice
 {
   /**
    * The invoice date
@@ -43,9 +43,9 @@ class CourseInvoice
   protected $bookingNumber;
 
   /**
-   * The course event
+   * The symposium
    */
-  protected $courseEvent;
+  protected $symposium;
 
   /**
    * The file name
@@ -67,7 +67,8 @@ class CourseInvoice
   public function __construct()
   {
     $this->invoice = new \App\Models\Invoice;
-    $this->courseEventStudent = new \App\Models\CourseEventStudent;
+    $this->symposiumSubscriber = new \App\Models\SymposiumSubscriber;
+    $this->symposium = new \App\Models\Symposium;
   }
 
   public function create($data = array())
@@ -79,7 +80,7 @@ class CourseInvoice
     $this->client = $data['client'];
     $this->clientNumber = $data['client']->number;
     $this->bookingNumber = $data['booking_number'];
-    $this->courseEvent = $data['course_event'];
+    $this->symposium = $data['symposium'];
   }
 
   /**
@@ -97,7 +98,7 @@ class CourseInvoice
       'client_number'  => $this->clientNumber,
       'client'         => $this->client,
       'booking_number' => $this->bookingNumber,
-      'courseEvent'    => $this->courseEvent
+      'symposium'      => $this->symposium
     ];
 
     // Set view data for payment slip
@@ -107,7 +108,7 @@ class CourseInvoice
     $this->filename = $this->getFilename();
 
     // Load pdf view
-    $pdf = PDF::loadView('pdf.bill.course', $this->viewData);
+    $pdf = PDF::loadView('pdf.bill.symposium', $this->viewData);
     $pdf->save(public_path() . '/storage/invoices/' . $this->filename);
     
     return $this->filename;
@@ -126,17 +127,17 @@ class CourseInvoice
       'date'   => $this->date,
       'amount' => $this->amountRaw,
       'file'   => $this->filename,
-      'student_id' => $this->client->id,
-      'course_event_id' => $this->courseEvent->id
+      'symposium_subscriber_id' => $this->client->id,
+      'symposium_id' => $this->symposium->id
     ]);
     $invoice->save();
 
-    // Update 'is_billed' on the pivot table
-    $pivot = $this->courseEventStudent->where('student_id', '=', $this->client->id)
-                                      ->where('course_event_id', '=', $this->courseEvent->id)
-                                      ->get()->first();
-    $pivot->is_billed = 1;
-    $pivot->save();
+    // Update 'is_billed' on the symposiumSubscriber table
+    $subscriber = $this->symposiumSubscriber->where('id', '=', $this->client->id)
+                                            ->where('symposium_id', '=', $this->symposium->id)
+                                            ->get()->first();
+    $subscriber->is_billed = 1;
+    $subscriber->save();
 
     return $invoice;
   }

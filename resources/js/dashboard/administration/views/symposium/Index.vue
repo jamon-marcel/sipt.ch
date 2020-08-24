@@ -1,6 +1,9 @@
 <template>
   <div>
     <loading-indicator v-if="isLoading"></loading-indicator>
+    <div v-if="hasOverlay">
+      <cost-form :subscriber="subscriber"></cost-form>
+    </div>
     <div :class="isFetched ? 'is-loaded' : 'is-loading'">
       <header class="content-header">
         <h1>Jubiläums-Fachtagung — 15 Jahre SIPT</h1>
@@ -22,8 +25,22 @@
             {{ s.email }}
             <separator/>
             {{dateFormat(s.created_at, 'DD.MM.YYYY')}}
+            <separator/>
+            {{moneyFormat(s.cost)}}
+            <span v-if="s.is_billed" class="bubble-success">
+              Rechnung gestellt
+            </span>
           </div>
           <div class="listing__item-action">
+            <div>
+              <a
+                href="javascript:;"
+                class="feather-icon"
+                @click.prevent="showOverlay(s.id)"
+              >
+                <edit-icon size="18"></edit-icon>
+              </a>
+            </div>
             <div>
               <a
                 href="javascript:;"
@@ -54,19 +71,24 @@
 <script>
 
 // Icons
-import { PlusIcon, DownloadIcon, Trash2Icon } from 'vue-feather-icons';
+import { PlusIcon, DownloadIcon, Trash2Icon, EditIcon } from 'vue-feather-icons';
 
 // Mixins
 import Helpers from "@/global/mixins/Helpers";
 import DateTime from "@/global/mixins/DateTime";
 import ErrorHandling from "@/global/mixins/ErrorHandling";
 
+// Components
+import CostForm from "@/administration/views/backoffice/components/CostForm.vue";
+
 export default {
 
   components: {
     PlusIcon,
     DownloadIcon,
-    Trash2Icon
+    Trash2Icon,
+    EditIcon,
+    CostForm
   },
 
   mixins: [Helpers, DateTime, ErrorHandling],
@@ -75,8 +97,10 @@ export default {
     return {
       isFetched: false,
       isLoading: false,
+      hasOverlay: false,
       search: "",
-      subscribers: []
+      subscribers: [],
+      subscriber: null,
     };
   },
 
@@ -103,7 +127,30 @@ export default {
           this.isLoading = false;
         });
       }
-    }
+    },
+
+    saveAmount(subscriber, amount) {
+      let data = {'cost': amount};
+      let uri = `/api/symposium/${subscriber}`;
+      this.isLoading = true;
+      this.axios.put(uri, data).then(response => {
+        const idx = this.subscribers.findIndex(x => x.id === subscriber);
+        this.subscribers[idx].cost = parseFloat(amount);
+        this.hideOverlay();
+        this.isLoading = false;
+        this.$notify({ type: "success", text: "Betrag geändert!" });
+      });
+    },
+
+    showOverlay(subscriber) {
+      this.hasOverlay = true;
+      this.subscriber = subscriber;
+    },
+
+    hideOverlay() {
+      this.hasOverlay = false;
+      this.subscriber = null;
+    },
   },
 };
 </script>

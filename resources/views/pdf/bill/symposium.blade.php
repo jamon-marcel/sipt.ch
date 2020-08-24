@@ -3,11 +3,10 @@
 <table class="recipient-data">
   <tr>
     <td>
-      {{$invoice['subscriber']->firstname}} {{$invoice['subscriber']->name}}<br>
-      {{$invoice['subscriber']->street}} {{$invoice['subscriber']->street_no}}<br>
-      {{$invoice['subscriber']->zip}} {{$invoice['subscriber']->city}}
-    </td>
-    <td>
+      {{ $invoice['client']->fullName}}<br>
+      @if ($invoice['client']->title) {{ $invoice['client']->title}}<br> @endif
+      {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
+      {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
     </td>
   </tr>
 </table>
@@ -17,6 +16,10 @@
     <tr>
       <td>Datum:</td>
       <td>{{$invoice['invoice_date']}}</td>
+    </tr>
+    <tr>
+      <td>Kunden-Nr.:</td>
+      <td>{{$invoice['client_number']}}</td>
     </tr>
     <tr>
       <td>Kursreservation:</td>
@@ -38,7 +41,7 @@
       <td class="unit">Fachtagung</td>
       <td class="number">100.101020</td>
       <td class="description">
-        {{ $invoice['subscriber']->symposium->title }}<br>{!! $invoice['subscriber']->symposium->description !!}
+        {{$invoice['symposium']->title }}<br>{!! $invoice['symposium']->description !!}
       </td>
       <td class="price">CHF {{$invoice['invoice_amount']}}</td>
     </tbody>
@@ -61,14 +64,14 @@
   <span class="payment-item payment-item__amount-right">{{$payment_slip['invoice_amount_arr'][0]}}</span>
   <span class="payment-item payment-item__amount-right-cents">{{$payment_slip['invoice_amount_arr'][1]}}</span>
   <span class="payment-item payment-address-left">
-    {{$invoice['subscriber']->firstname}} {{$invoice['subscriber']->name}}<br>
-    {{$invoice['subscriber']->street}} {{$invoice['subscriber']->street_no}}<br>
-    {{$invoice['subscriber']->zip}} {{$invoice['subscriber']->city}}
+    {{ $invoice['client']->fullName}}<br>
+    {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
+    {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
   </span>
   <span class="payment-item payment-address-right">
-    {{$invoice['subscriber']->firstname}} {{$invoice['subscriber']->name}}<br>
-    {{$invoice['subscriber']->street}} {{$invoice['subscriber']->street_no}}<br>
-    {{$invoice['subscriber']->zip}} {{$invoice['subscriber']->city}}
+    {{ $invoice['client']->fullName}}<br>
+    {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
+    {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
   </span>
   <span class="payment-item payment-codeline">{{$payment_slip['esr_codeline_str']}}</span>
   <img src="{{ asset('/assets/img/einzahlungsschein.jpg') }}" width="100">

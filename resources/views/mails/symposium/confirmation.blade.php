@@ -17,10 +17,11 @@
   </tr>
   <tr>
     <td width="120">Kosten:</td>
-    <td>CHF {{ $subscriber->cost }}</td>
+    <td>CHF 200/250 (ehem. und aktuelle AusbildungsteilnehmerInnen/übrige)</td>
   </tr>
 </table>
-<p>Um diese Buchung zu annullieren, klicken Sie bitte <a href="{{ route('symposium_cancel', ['symposiumSubscriber' => $subscriber['id']]) }}" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</p>
 <br>
 @include('mails.partials.html.signature')
+<br>
+<p>Um diese Buchung zu annullieren, klicken Sie bitte <a href="{{ route('symposium_cancel', ['symposiumSubscriber' => $subscriber['id']]) }}" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>. Bitte beachten Sie dabei unsere Annullationsbedingungen für die Fachtagung: «Bei Abmeldung bis 10.09.2020 erfolgt Rückerstattung der Tagungsgebühr unter Abzug einer Bearbeitungsgebühr von CHF 80. Nach diesem Termin ist keine Rückerstattung mehr möglich.»</p>
 @endcomponent

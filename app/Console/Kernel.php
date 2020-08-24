@@ -2,6 +2,8 @@
 namespace App\Console;
 use App\Tasks\CourseEventBills;
 use App\Tasks\CourseEventInvitations;
+use App\Tasks\SymposiumBills;
+use App\Tasks\Newsletter;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -26,6 +28,8 @@ class Kernel extends ConsoleKernel
   {
     // $schedule->call(new CourseEventBills)->everyMinute();
     // $schedule->call(new CourseEventInvitations)->everyMinute();
+    // $schedule->call(new Newsletter)->everyMinute();
+    // $schedule->call(new SymposiumBills)->everyMinute();
   }
 
   /**

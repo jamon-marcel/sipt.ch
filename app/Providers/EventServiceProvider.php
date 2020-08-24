@@ -31,6 +31,10 @@ class EventServiceProvider extends ServiceProvider
       'App\Listeners\SymposiumCancelSubscription',
     ],
 
+    'App\Events\SymposiumBill' => [
+      'App\Listeners\SymposiumCreateSendBill',
+    ],
+
     'App\Events\CourseEventBooked' => [
       'App\Listeners\CourseEventConfirm',
     ],
@@ -66,6 +70,7 @@ class EventServiceProvider extends ServiceProvider
     'App\Events\CourseEventParticipantsChanged' => [
       'App\Listeners\CourseEventCheckMaxParticipants',
     ],
+    
   ];
 
   /**
