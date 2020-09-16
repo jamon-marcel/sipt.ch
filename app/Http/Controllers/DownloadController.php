@@ -3,9 +3,10 @@ namespace App\Http\Controllers;
 use App\Services\Document;
 use App\Models\CourseEvent;
 use App\Models\Student;
+use App\Http\Controllers\BaseController;
 use Illuminate\Http\Request;
 
-class DownloadController extends Controller
+class DownloadController extends BaseController
 {
   protected $viewPath = 'web.pages.downloads.';
   
@@ -18,6 +19,7 @@ class DownloadController extends Controller
 
   public function __construct(Student $student)
   {
+    parent::__construct();
     $this->student = $student;
   }
 
@@ -108,7 +110,7 @@ class DownloadController extends Controller
    * Download invitation
    *
    * @param CourseEvent $courseEvent
-   * @param String studentId
+   * @param String $studentId
    * @return \Illuminate\Http\Response
    */
 
@@ -121,6 +123,24 @@ class DownloadController extends Controller
     $file = new Document();
     $file = $file->invitation($courseEvent, $student);
     
+    return response()->download($file['path'], $file['name'], $this->headers);
+  }
+
+  /**
+   * Download course overview
+   *
+   * @param String $studentId
+   * @return \Illuminate\Http\Response
+   */
+
+  public function overview($studentId = NULL)
+  {
+    $student = auth()->user()->isAdmin()
+                ? $this->student->with('user')->findOrFail($studentId)
+                : $this->student->with('user')->authenticated(auth()->user()->id);
+    
+    $file = new Document();
+    $file = $file->overview($student);
     return response()->download($file['path'], $file['name'], $this->headers);
   }
 

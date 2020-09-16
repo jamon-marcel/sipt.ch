@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Spatie\Honeypot\ProtectAgainstSpam;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +38,7 @@ Route::get('/netzwerk/partner-institutionen', 'NetworkController@partners')->nam
 
 // Symposium
 Route::get('/jubilaeums-fachtagung-15-jahre-sipt', 'SymposiumController@anniversary')->name('symposium_anniversary');
-Route::post('/jubilaeums-fachtagung-15-jahre-sipt/registration', 'SymposiumSubscriberController@store')->name('symposium_register');
+Route::post('/jubilaeums-fachtagung-15-jahre-sipt/registration', 'SymposiumSubscriberController@store')->middleware(ProtectAgainstSpam::class)->name('symposium_register');
 Route::get('/jubilaeums-fachtagung-15-jahre-sipt/anmeldung-erfolgreich', 'SymposiumController@registered')->name('symposium_register_success');
 Route::get('/jubilaeums-fachtagung-15-jahre-sipt/abmeldung/{symposiumSubscriber}', 'SymposiumSubscriberController@cancel')->name('symposium_cancel');
 Route::get('/jubilaeums-fachtagung-15-jahre-sipt/abmeldung-erfolgreich', 'SymposiumController@cancelled')->name('symposium_cancelled');
@@ -76,6 +77,8 @@ Route::middleware('auth:sanctum', 'verified')->group(function() {
   Route::get('/mask-user', 'DevController@maskUser');
   Route::get('/invite', 'DevController@invite');
   Route::get('/bills', 'DevController@bills');
+  Route::get('/reminder', 'DevController@reminder');
+
 
   // Downloads for tutors / admins
   Route::get('/download/modulliste', 'DownloadController@listCourses')->middleware('role:tutor');
@@ -87,6 +90,7 @@ Route::middleware('auth:sanctum', 'verified')->group(function() {
   // Downloads for students
   Route::get('/download/kursbestaetigung/{courseEvent}/{student?}', 'DownloadController@confirmation')->middleware('role:student');
   Route::get('/download/kurseinladung/{courseEvent}/{student?}', 'DownloadController@invitation')->middleware('role:student');
+  Route::get('/download/kursuebersicht/{student?}', 'DownloadController@overview')->middleware('role:student');
 
   // CatchAll: Dashboard Student
   Route::get('student/{any?}', function () {

@@ -13,6 +13,7 @@ return [
   'registration_deadline' => '+1 day',
   'billable_deadline'     => '+30 days',
   'callable_deadline'     => '+10 days',
+  'reminder_deadline'     => '+20 days',
 
   // Bank/ESR details
   'esr_codeline_prefix' => '01',

@@ -47,9 +47,9 @@
               <p class="no-records">Es sind keine Teilnehmer für dieses Modul vorhanden...</p>
             </div>
             <h2 class="is-narrow sb-md">Rechnungen</h2>
-            <div v-if="course_event.invoices.length">
+            <div v-if="course_event.active_invoices.length">
               <div class="listing">
-                <div class="listing__item" v-for="invoice in course_event.invoices" :key="invoice.id">
+                <div class="listing__item" v-for="invoice in course_event.active_invoices" :key="invoice.id">
                   <div class="listing__item-body">
                     <a :href="'/storage/invoices/' + invoice.file" target="_blank">{{invoice.number}}</a>
                     <separator/>

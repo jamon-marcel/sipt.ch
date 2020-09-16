@@ -102,6 +102,15 @@
       </div>
     </article>
   @endif
+
+  @if ($training->is_cas)
+    <article>
+      <a href="/storage/downloads/sipt-anmeldung-zertifikatsstudium-CAS-2019.pdf" target="_blank" class="btn-download" title="Download Anmeldung Zertifikatsstudium CAS">
+        <strong>Anmeldeformular CAS</strong> [PDF, 237KB]
+      </a>
+    </article>
+  @endif
+
 </section>
 <x-quote size="is-sm" quote="Die Weiterbildung zur Fachberaterin und Fachpädagogin Psychotraumatologie am SIPT war für mich zentral. Die Theorien der Übertragungsphänomene, das Wissen um die Bedeutung der frühkindlichen Bindung, das Verstehen von hirnorganischer Abläufe gerade auch unter Stress sind wichtige Inhalte in meinen Weiterbildungen." author="Marianne Herzog, Fachberaterin / Fachpädagogin Psychotraumatologie" />
 

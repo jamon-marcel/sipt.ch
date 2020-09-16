@@ -26,11 +26,11 @@
       <div class="list__item">
         Ort: Alte Kaserne Winterthur
       </div>
-      <div class="list__item">
+      {{-- <div class="list__item">
         Kosten: CHF 250
-      </div>
+      </div> --}}
     </div>
   </article>
 </section>
-@include('web.pages.symposium.partials.' . $sidebar)
+{{-- @include('web.pages.symposium.partials.' . $sidebar) --}}
 @endsection

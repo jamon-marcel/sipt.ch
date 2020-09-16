@@ -27,7 +27,7 @@ class CourseEventDate extends Model
 
 	public function courseEvent()
 	{
-		return $this->belongsTo('App\Models\courseEvent');
+		return $this->belongsTo('App\Models\CourseEvent');
 	}
 
   /**

@@ -22,6 +22,11 @@ class DevController extends Controller
     // event(new \App\Events\SymposiumBill());
   }
 
+  public function reminder()
+  {
+    event(new \App\Events\CourseEventReminder());
+  }
+
   public function maskUser()
   {
     // $subscribers = $this->subscriber->get();

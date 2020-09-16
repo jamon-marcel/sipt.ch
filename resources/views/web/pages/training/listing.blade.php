@@ -20,6 +20,11 @@
         @endforeach
       </div>
     </article>
+    <article>
+      <a href="/storage/downloads/sipt-{{AppHelper::slug($category->name)}}.pdf" target="_blank" class="btn-download" title="Download PDF">
+        <strong>{{$category->name}}</strong> [PDF, 70KB]
+      </a>
+    </article>
   @endif
 </section>
 <x-quote size="is-sm" quote="{{$quote['quote']}}" author="{{$quote['author']}}" />

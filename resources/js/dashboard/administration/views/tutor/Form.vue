@@ -20,7 +20,6 @@
         <div :class="[this.errors.email ? 'has-error' : '', 'form-row']">
           <label>E-Mail *</label>
           <input type="text" v-model="tutor.user.email" :disabled="this.$props.type == 'edit' ? true : false">
-          <!-- <input type="text" v-model="tutor.user.email"> -->
           <label-required />
         </div>
         <div class="form-row">
@@ -48,7 +47,7 @@
           </div>
         </div>
         <div class="form-row">
-          <div class="grid grid-1-1">
+          <div class="grid grid-1-1-1">
             <div>
               <label>PLZ</label>
               <input type="text" v-model="tutor.zip">

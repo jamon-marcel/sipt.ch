@@ -17,6 +17,7 @@ class CourseEvent extends Model
 		'is_published',
 		'is_cancelled',
 		'is_closed',
+		'has_reminder',
 	];
 
 	protected $appends = ['courseNumber'];
@@ -44,6 +45,11 @@ class CourseEvent extends Model
 	public function invoices()
 	{
 		return $this->hasMany('App\Models\Invoice')->orderBy('number');
+	}
+
+	public function activeInvoices()
+	{
+		return $this->hasMany('App\Models\Invoice')->orderBy('number')->where('is_cancelled', '=', 0);
 	}
 
 	public function students()
@@ -110,6 +116,24 @@ class CourseEvent extends Model
 		$constraint = date('Y-m-d', strtotime(\Config::get('sipt.callable_deadline')));
 		return $query->where('dateStart', '<=', $constraint)->where('is_published', '=', 1)->where('is_cancelled', '=', 0)->where('is_closed', '=', 0)->get();
 	}
+
+  /**
+   * Scope for callable events (send invitations)
+   */
+
+	public function scopeReminder($query)
+	{
+		$constraint_deadline = date('Y-m-d', strtotime(\Config::get('sipt.reminder_deadline')));
+		$constraint_now = date('Y-m-d', time());
+		return $query->where('dateStart', '<=', $constraint_deadline)
+								 ->where('dateStart', '>', $constraint_now)
+								 ->where('is_published', '=', 1)
+								 ->where('is_cancelled', '=', 0)
+								 ->where('is_closed', '=', 0)
+								 ->where('has_reminder', '=', 0)
+								 ->get();
+	}
+
 
 
   /**

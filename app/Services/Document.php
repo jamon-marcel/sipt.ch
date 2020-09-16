@@ -172,4 +172,33 @@ class Document
     ];
   }
 
+  /**
+   * Create the 'overview' for a given student
+   * 
+   * @param $student
+   * @return Array
+   */
+  public function overview($student)
+  {
+    // Create pdf
+    $this->viewData['student'] = $student;
+
+    // Get course events
+    $courses = $student->courseEvents()->with('course', 'location', 'dates.tutor')->where('course_event_student.is_cancelled', '=', 0)->get();
+    $this->viewData['courseEvents'] = $courses->sortBy('courseNumber');
+
+    // Load view
+    $pdf = PDF::loadView('pdf.course.overview', $this->viewData);
+
+    // Set path & filename
+    $path = public_path() . '/storage/temp/';
+    $filename = 'sipt.ch-kursuebersicht-' . \AppHelper::slug($student->fullName);
+    $file = $filename . '.pdf';
+    $pdf->save($path . $file);
+
+    return [
+      'path' => $path . $file,
+      'name' => $file
+    ];
+  }
 }

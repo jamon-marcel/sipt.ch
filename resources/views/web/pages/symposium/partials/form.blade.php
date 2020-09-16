@@ -8,6 +8,7 @@
   @endif
   <form method="POST" class="registration" action="{{ route('symposium_register') }}" class="sb-lg">
     @csrf
+    @honeypot
     <input type="hidden" name="symposium_id" value="644b0723-5c3a-45d3-800a-592876d90257">
     <x-text-field label="Vorname" name="firstname" />
     <x-text-field label="Name" name="name" />

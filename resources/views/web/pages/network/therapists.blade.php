@@ -183,7 +183,8 @@
         (Kostenübernahme durch die Krankenkasse möglich; im Bedarfsfall arbeitet das SIPT in medizinisch-medikamentösen Fragen mit Frau Jutta Müllers zusammen.)</p>
         
         <p><strong>Paul, Anita</strong><br>
-        KomplementärTherapeutin, Körpertherapeutin<br>
+        Fachpsychotherapeutin für Psychotraumatologie SIPT/DIPT<br>
+        Eidg. Dipl. KomplementärTherapeutin, Körpertherapeutin Methode Polarity inkl. Craniosacral, Paarberaterin ibp, systemische Therapeutin<br>
         Ganzheitliche Gesundheitspraxis<br>
         Unterer Chruchenberg 12<br>
         8505 Pfyn bei Frauenfeld TG<br>

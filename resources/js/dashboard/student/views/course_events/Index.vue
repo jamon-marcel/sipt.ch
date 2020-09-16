@@ -23,6 +23,12 @@
       </div>
       <div class="content">
         <p>Eine Übersicht Ihrer bevorstehenden und absolvierten Module.</p>
+        <p class="sa-md">
+          <a href="/download/kursuebersicht/" target="_blank" class="feather-icon feather-icon--prepend is-highlight">
+            <download-cloud-icon size="16"></download-cloud-icon>
+            <span>Download Kursübersicht</span>
+          </a>
+        </p>
         <template v-if="isFetchedCoursesBooked">
           <h2>Bevorstehende Module</h2>
           <course-events-list
@@ -53,12 +59,6 @@
           </div>
           <div class="no-records" v-else>Es sind keine Module vorhanden...</div>
         </template>
-        <!-- <div class="sb-md">
-          <a href class="feather-icon feather-icon--prepend is-highlight">
-            <award-icon size="16"></award-icon>
-            <span>Ausbildungsblatt herunterladen</span>
-          </a>
-        </div> -->
       </div>
       <footer class="module-footer">
         <div>

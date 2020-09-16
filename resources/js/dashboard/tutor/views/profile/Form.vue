@@ -27,28 +27,24 @@
             <div class="form-row">
               <div class="grid grid-3-1">
                 <div :class="[this.errors.street ? 'has-error' : '', 'form-row-grid']">
-                  <label>Strasse *</label>
+                  <label>Strasse</label>
                   <input type="text" v-model="tutor.street">
-                  <label-required />
                 </div>
                 <div :class="[this.errors.street_no ? 'has-error' : '', 'form-row-grid']">
-                  <label>Nr. *</label>
+                  <label>Nr.</label>
                   <input type="text" v-model="tutor.street_no">
-                  <label-required />
                 </div>
               </div>
             </div>
             <div class="form-row">
               <div class="grid grid-1-1-1">
                 <div :class="[this.errors.zip ? 'has-error' : '', 'form-row-grid']">
-                  <label>PLZ *</label>
+                  <label>PLZ</label>
                   <input type="text" v-model="tutor.zip">
-                  <label-required />
                 </div>
                 <div :class="[this.errors.city ? 'has-error' : '', 'form-row-grid']">
-                  <label>Ort *</label>
+                  <label>Ort</label>
                   <input type="text" v-model="tutor.city">
-                  <label-required />
                 </div>
                 <div class="form-row-grid">
                   <label>Land</label>

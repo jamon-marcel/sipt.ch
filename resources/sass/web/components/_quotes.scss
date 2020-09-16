@@ -10,6 +10,17 @@
   @include font-serif-bold();
   @include font-size($fs-xl);
 
+  @include bp-sm() {
+    bottom: $space-sm;
+    padding-right: $space-sm;
+    position: fixed;
+  }
+
+  @include bp-xl() {
+    bottom: $space-lg;
+    padding-right: $space-lg;
+  }
+
   &.is-sm {
     @include font-size($fs-lg);
   }

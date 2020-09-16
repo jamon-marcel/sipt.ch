@@ -62,7 +62,7 @@ class BackofficeController extends Controller
    */
   public function getCourseEvent(CourseEvent $courseEvent)
   {
-    $courseEvent = $this->courseEvent->with('course', 'location', 'invoices.student', 'dates.tutor', 'students')->find($courseEvent->id);
+    $courseEvent = $this->courseEvent->with('course', 'location', 'activeInvoices.student', 'dates.tutor', 'students')->find($courseEvent->id);
     return response()->json($courseEvent);
   }
 

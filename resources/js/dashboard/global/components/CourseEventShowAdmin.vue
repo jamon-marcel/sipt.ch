@@ -76,14 +76,15 @@
                 <span>Upload</span>
               </a>
             </div>
+            <div>Erlaubt sind die folgenden Formate: PDF, PowerPoint, Word, ZIP</div>
             <div class="upload-wrapper" v-if="hasUpload">
               <div class="sa-sm">
                 <div class="form-row">
                   <file-upload
-                    :restrictions="'pdf | max. 8 MB'"
+                    :restrictions="'pdf, ppt, pptx, doc, docx, zip | max. 16 MB'"
                     :maxFiles="99"
                     :maxFilesize="8"
-                    :acceptedFiles="'.pdf'"
+                    :acceptedFiles="'.pdf,.ppt,.pptx,.doc,.docx,.zip'"
                   ></file-upload>
                 </div>
               </div>

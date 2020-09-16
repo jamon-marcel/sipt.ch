@@ -7,7 +7,12 @@
       </header>
       <div class="content">
         <p>Eine Übersicht der bevorstehenden und absolvierten Module.</p>
-
+        <p class="sa-md">
+          <a :href="'/download/kursuebersicht/' + student.id" target="_blank" class="feather-icon feather-icon--prepend is-highlight">
+            <download-cloud-icon size="16"></download-cloud-icon>
+            <span>Download Kursübersicht</span>
+          </a>
+        </p>
         <template v-if="isFetchedCoursesBooked">
           <h2>Bevorstehende Module</h2>
           <course-events-list
@@ -29,7 +34,7 @@
             v-if="courses.attended.length"
           ></course-events-list>
           <div class="no-records" v-else>Es sind keine Module vorhanden...</div>
-          <p class="sb-lg"><small>*Absolvierte Module ab 14.08.2020</small></p>
+          <p><small>*Absolvierte Module ab 14.08.2020</small></p>
         </template>
       </div>
       <footer class="module-footer">
@@ -43,6 +48,10 @@
   </div>
 </template>
 <script>
+
+// Icons
+import { AwardIcon, XIcon, DownloadCloudIcon } from "vue-feather-icons";
+
 // Mixins
 import Helpers from "@/global/mixins/Helpers";
 
@@ -53,7 +62,9 @@ import CourseEventRegister from "@/global/components/CourseEventRegister";
 export default {
   components: {
     CourseEventsList,
-    CourseEventRegister
+    CourseEventRegister,
+    AwardIcon,
+    DownloadCloudIcon
   },
 
   mixins: [Helpers],

@@ -29,7 +29,7 @@ Development:
 
 1)
 npm run production &&
-tar --exclude="INSTALL.TXT" --exclude="*.DS_Store" --exclude="storage/app/public/" --exclude="node_modules/" --exclude=".git*" --exclude=".env" --exclude=".editorconfig" --exclude="public/storage/" --exclude="public/.htaccess" -cvzf app.tar.gz * &&
+tar --exclude="INSTALL.TXT" --exclude="*.DS_Store" --exclude="app/Console/Kernel.php" --exclude="config/sipt.php" --exclude="storage/app/public/" --exclude="node_modules/" --exclude=".git*" --exclude=".env" --exclude=".editorconfig" --exclude="public/storage/" --exclude="public/.htaccess" -cvzf app.tar.gz * &&
 scp app.tar.gz www-data@silverfish02.nine.ch:/home/www-data/marceli.to/sipt.ch/ &&
 ssh www-data@silverfish02.nine.ch
 
@@ -50,7 +50,7 @@ php artisan config:clear &&
 php artisan cache:clear && 
 php artisan view:clear &&
 npm run production &&
-tar --exclude="vendor/" --exclude="INSTALL.TXT" --exclude="*.DS_Store" --exclude="resources/js/" --exclude="resources/sass/" --exclude="storage/app/public/" --exclude="node_modules/" --exclude=".git*" --exclude=".env" --exclude=".editorconfig" --exclude="public/storage/" --exclude="public/.htaccess" -cvzf app.tar.gz * &&
+tar --exclude="vendor/" --exclude="INSTALL.TXT" --exclude="app/Console/Kernel.php" --exclude="config/sipt.php" --exclude="*.DS_Store" --exclude="resources/js/" --exclude="resources/sass/" --exclude="storage/app/public/" --exclude="node_modules/" --exclude=".git*" --exclude=".env" --exclude=".editorconfig" --exclude="public/storage/" --exclude="public/.htaccess" -cvzf app.tar.gz * &&
 scp app.tar.gz siptse9@psychotraumatologie-sipt.ch:/home/siptse9/www/psychotraumatologie-sipt.ch/ &&
 ssh siptse9@psychotraumatologie-sipt.ch
 
