@@ -13,6 +13,7 @@
             <a 
               href="{{ route('training_show', ['slug' => AppHelper::slug($t->title), 'training' => $t->id]) }}"
               title="{{ $t->title }}"
+              class="icon-arrow"
             >
               {{ $t->title }}
             </a>

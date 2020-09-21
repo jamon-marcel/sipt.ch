@@ -134,8 +134,6 @@ class CourseEvent extends Model
 								 ->get();
 	}
 
-
-
   /**
    * Mutator 'setDateStart'
    */

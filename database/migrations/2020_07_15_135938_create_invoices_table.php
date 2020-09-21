@@ -24,12 +24,10 @@ class CreateInvoicesTable extends Migration
             $table->foreign('student_id')->references('id')->on('students');
             $table->uuid('course_event_id')->nullable();
             $table->foreign('course_event_id')->references('id')->on('course_events');
-
             $table->uuid('symposium_subscriber_id')->nullable();
             $table->foreign('symposium_subscriber_id')->references('id')->on('symposium_subscribers');
             $table->uuid('symposium_id')->nullable();
             $table->foreign('symposium_id')->references('id')->on('symposiums');
-
             $table->softDeletes();
             $table->timestamps();
         });

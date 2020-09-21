@@ -37,6 +37,7 @@ class SymposiumCancelSubscription
     $penalty             = $event->penalty;
 
     // Create invoice number
+    /*
     $invoiceNumber  = \InvoiceHelper::getNumber();
     
     // Calculate amount
@@ -101,7 +102,8 @@ class SymposiumCancelSubscription
       $invoice->is_replacement = 1;
       $invoice->save();
     }
-    
+    */
+
     // Send mail to student
     Mail::to($symposiumSubscriber->email)
           ->bcc(\Config::get('sipt.email_copy'))
@@ -110,10 +112,10 @@ class SymposiumCancelSubscription
                 [
                   'symposiumSubscriber' => $symposiumSubscriber,
                   'symposium'           => $symposium,
-                  'penalty'             => $penalty,
-                  'invoice_number'      => $data['invoice_number'],
-                  'invoice_amount'      => $data['invoice_amount'],
-                  'pdf'                 => public_path() . '/storage/invoices/' . $file
+                  // 'penalty'             => $penalty,
+                  // 'invoice_number'      => $data['invoice_number'],
+                  // 'invoice_amount'      => $data['invoice_amount'],
+                  // 'pdf'                 => public_path() . '/storage/invoices/' . $file
                 ]
           )
     );

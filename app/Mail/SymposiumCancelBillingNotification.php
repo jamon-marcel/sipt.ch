@@ -33,17 +33,17 @@ class SymposiumCancelBillingNotification extends Mailable
                    [
                      'symposiumSubscriber' => $this->data['symposiumSubscriber'],
                      'symposium' => $this->data['symposium'],
-                     'penalty' => $this->data['penalty'],
-                     'invoiceNumber' => $this->data['invoice_number'],
-                     'invoiceAmount' => $this->data['invoice_amount']
+                    //  'penalty' => $this->data['penalty'],
+                    //  'invoiceNumber' => $this->data['invoice_number'],
+                    //  'invoiceAmount' => $this->data['invoice_amount']
                    ]
                  )
                  ->markdown('mails.symposium.cancel');
     
-    if ($this->data['pdf'])
-    {
-      $mail->attach($this->data['pdf'], ['mime' => 'application/pdf']);
-    }
+    // if ($this->data['pdf'])
+    // {
+    //   $mail->attach($this->data['pdf'], ['mime' => 'application/pdf']);
+    // }
     return $mail;
   }
 }

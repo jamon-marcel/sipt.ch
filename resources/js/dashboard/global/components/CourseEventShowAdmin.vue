@@ -1,13 +1,19 @@
 <template>
   <div>
     <loading-indicator v-if="isLoading"></loading-indicator>
+
+    <div v-if="hasMessageFormOverlay">
+      <create-message-form :courseEvent="course_event.id"></create-message-form>
+    </div>
+
+    <div v-if="hasMessageOverlay">
+      <show-message :messageId="messageId"></show-message>
+    </div>
+
     <div :class="isFetched ? 'is-loaded' : 'is-loading'">
       <div class="content">
         <template v-if="isFetched">
-          <h1>
-            Modul:
-            <strong>{{ course_event.course.title }}</strong>
-          </h1>
+          <h1>Modul: <strong>{{ course_event.course.title }}</strong></h1>
           <h2 class="is-narrow">Beschreibung</h2>
           <p v-html="course_event.course.description">{{ course_event.course.description }}</p>
           <hr>
@@ -31,7 +37,6 @@
               </div>
             </div>
           </div>
-
           <div class="flex-sb sb-md">
             <h2 class="is-narrow">
               Angemeldete Teilnehmer
@@ -64,9 +69,7 @@
             </div>
           </div>
           <div v-else>
-            <p
-              class="no-records"
-            >Es haben sich noch keine Teilnehmer für dieses Modul angemeldet...</p>
+            <p class="no-records">Es haben sich noch keine Teilnehmer für dieses Modul angemeldet...</p>
           </div>
           <div class="sb-md">
             <div class="flex-sb">
@@ -76,7 +79,7 @@
                 <span>Upload</span>
               </a>
             </div>
-            <div>Erlaubt sind die folgenden Formate: PDF, PowerPoint, Word, ZIP</div>
+            <div class="sa-xs">Erlaubt sind die folgenden Formate: PDF, PowerPoint, Word, ZIP</div>
             <div class="upload-wrapper" v-if="hasUpload">
               <div class="sa-sm">
                 <div class="form-row">
@@ -123,6 +126,49 @@
                 </div>
               </div>
             </div>
+            <hr>
+            <div class="sb-md">
+              <div class="flex-sb">
+                <h2 class="is-narrow">Nachrichten</h2>
+                <a href @click.prevent="showMessageForm()" class="feather-icon feather-icon--prepend">
+                  <message-square-icon size="16"></message-square-icon>
+                  <span>Neue Nachricht</span>
+                </a>
+              </div>
+              <template v-if="isFetchedMessages">
+                <div v-if="messages.length">
+                  <div class="sb-xs listing">
+                    <div
+                      class="listing__item"
+                      v-for="message in messages"
+                      :key="message.id"
+                    >
+                      <div class="listing__item-body">
+                        {{message.date}}
+                        <separator />
+                        {{message.senderName}}
+                        <separator />
+                        {{message.subject}}
+                      </div>
+                      <div class="listing__item-action">
+                        <div>
+                          <a
+                            href="javascript:;"
+                            @click.prevent="showMessage(message.id)"
+                            class="feather-icon"
+                          >
+                            <arrow-up-right-icon size="18"></arrow-up-right-icon>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div v-else>
+                  <p class="no-records">Es haben sich noch keine Nachrichten vorhanden...</p>
+                </div>
+              </template>
+            </div>
           </div>
         </template>
       </div>
@@ -147,7 +193,9 @@ import {
   UploadCloudIcon,
   Trash2Icon,
   DownloadCloudIcon,
-  DownloadIcon
+  DownloadIcon,
+  MessageSquareIcon,
+  ArrowUpRightIcon
 } from "vue-feather-icons";
 
 // Mixins
@@ -157,6 +205,8 @@ import Helpers from "@/global/mixins/Helpers";
 import FileUpload from "@/global/components/files/Upload.vue";
 import FileListing from "@/global/components/files/Edit.vue";
 import ListActions from "@/global/components/ui/ListActions.vue";
+import CreateMessageForm from "@/administration/views/course_events/CreateMessageForm.vue";
+import ShowMessage from "@/global/components/ShowMessage.vue";
 
 export default {
   components: {
@@ -165,9 +215,13 @@ export default {
     Trash2Icon,
     DownloadCloudIcon,
     DownloadIcon,
+    MessageSquareIcon,
+    ArrowUpRightIcon,
     FileUpload,
     FileListing,
-    ListActions
+    ListActions,
+    CreateMessageForm,
+    ShowMessage
   },
 
   props: {
@@ -192,35 +246,52 @@ export default {
   data() {
     return {
       course_event: {},
+      messages: [],
+      messageId: null,
       files: [],
-
       hasUpload: false,
       isLoading: false,
-      isFetched: false
+      isFetched: false,
+      isFetchedMessages: false,
+      hasMessageFormOverlay: false,
+      hasMessageOverlay: false,
     };
   },
 
   mounted() {
     this.fetch();
+    this.fetchMessages();
   },
 
   methods: {
     fetch() {
       if (this.$props.isTutor) {
         let uri = `/api/tutor/course/event/${this.$props.id}`;
+        this.isLoading = true;
         this.axios.get(`${uri}`).then(response => {
           this.course_event = response.data.course_event;
           this.isFetched = true;
+          this.isLoading = false;
         });
       }
 
       if (this.$props.isAdmin) {
         let uri = `/api/course/event/${this.$props.id}`;
+        this.isLoading = true;
         this.axios.get(`${uri}`).then(response => {
           this.course_event = response.data;
           this.isFetched = true;
+          this.isLoading = false;
         });
       }
+    },
+
+    fetchMessages() {
+      let uri = `/api/messages/${this.$props.id}`;
+      this.axios.get(`${uri}`).then(response => {
+        this.messages = response.data;
+        this.isFetchedMessages = true;
+      });
     },
 
     storeFile(upload) {
@@ -274,7 +345,40 @@ export default {
 
     toggleUpload() {
       this.hasUpload = this.hasUpload ? false : true;
-    }
+    },
+
+    showMessageForm(invoice) {
+      this.hasMessageFormOverlay = true;
+    },
+
+    hideMessageForm() {
+      this.hasMessageFormOverlay = false;
+    },
+
+    storeMessage(message) {
+      let uri = "/api/message";
+      let data = {
+        'course_event_id': this.$props.id,
+        'subject': message.subject,
+        'message': message.message
+      };
+
+      this.axios.post(uri, data).then(response => {
+        this.$notify({ type: "success", text: "Nachricht wird versendet." });
+        this.hideMessageForm();
+        this.fetchMessages();
+      });
+    },
+
+    showMessage(id) {
+      this.messageId = id;
+      this.hasMessageOverlay = true;
+    },
+
+    hideMessage() {
+      this.hasMessageOverlay = false;
+    },
+
   }
 };
 </script>

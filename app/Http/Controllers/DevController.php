@@ -24,7 +24,12 @@ class DevController extends Controller
 
   public function reminder()
   {
-    event(new \App\Events\CourseEventReminder());
+    //event(new \App\Events\CourseEventReminder());
+  }
+
+  public function message()
+  {
+
   }
 
   public function maskUser()

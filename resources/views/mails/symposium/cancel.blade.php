@@ -1,7 +1,8 @@
 @component('mail::message')
-# Bestätigung Abmeldung / Rechnung {{ $invoiceNumber }}
+# Bestätigung Abmeldung
 <p>Guten Tag {{ $symposiumSubscriber->fullName }}</p>
 <p>Hiermit bestätigen wir die Annullation der «Jubiläums-Fachtagung — 15 Jahre SIPT».</p>
+{{-- 
 @if ($penalty == 'partial')
 <p>Für Ihre Annullation müssen wir Ihnen leider <strong>CHF 80</strong> Bearbeitungsgebühr in Rechnung stellen. Sämtliche Informationen zu unseren Annullationsbedingungen finden Sie in unseren <a href="{{ route('about_toc') }}">AGB</a>.</p>
 @else
@@ -30,5 +31,6 @@
     <td>{{$symposium->date}}</td>
   </tr>
 </table>
+--}}
 @include('mails.partials.html.signature')
 @endcomponent

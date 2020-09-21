@@ -11,7 +11,7 @@ class Newsletter
     foreach($subscribers->all() as $s)
     {
       \Mail::to($s->email)
-            //->bcc(\Config::get('sipt.email_copy'))
+            ->bcc(\Config::get('sipt.email_copy'))
             ->send(
               new \App\Mail\Newsletter(
                 [

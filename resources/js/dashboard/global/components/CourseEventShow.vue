@@ -1,5 +1,9 @@
 <template>
-  <div :class="isFetched ? 'is-loaded' : 'is-loading'">
+  <div>
+    <loading-indicator v-if="isLoading"></loading-indicator>
+    <div v-if="hasMessageOverlay">
+      <show-message :messageId="messageId"></show-message>
+    </div>
     <div class="content">
       <template v-if="isFetched">
         <h1>Modul: <strong>{{ course_event.course.title }}</strong></h1>
@@ -56,8 +60,47 @@
             </div>
           </div>
         </div>
-
       </template>
+      <div class="sb-md">
+        <div class="flex-sb">
+          <h2 class="is-narrow">Nachrichten</h2>
+        </div>
+        <template v-if="isFetchedMessages">
+          <div v-if="messages.length">
+            <div class="sb-xs listing">
+              <div
+                class="listing__item"
+                v-for="message in messages"
+                :key="message.id"
+              >
+                <div class="listing__item-body">
+                  <a href="" @click.prevent="showMessage(message.id)">
+                    {{message.date}}
+                    <separator />
+                    {{message.senderName}}
+                    <separator />
+                    {{message.subject}}
+                  </a>
+                </div>
+                <div class="listing__item-action">
+                  <div>
+                    <a
+                      href="javascript:;"
+                      @click.prevent="showMessage(message.id)"
+                      class="feather-icon"
+                    >
+                      <arrow-up-right-icon size="18"></arrow-up-right-icon>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div v-else>
+            <p class="no-records">Es haben sich noch keine Nachrichten vorhanden...</p>
+          </div>
+        </template>
+      </div>
     </div>
     <footer class="module-footer">
       <div>
@@ -71,16 +114,21 @@
 <script>
 
 // Icons
-import { UsersIcon, DownloadCloudIcon } from 'vue-feather-icons';
+import { UsersIcon, DownloadCloudIcon, ArrowUpRightIcon } from 'vue-feather-icons';
 
 // Mixins
 import Helpers from "@/global/mixins/Helpers";
+
+// Components
+import ShowMessage from "@/global/components/ShowMessage.vue";
 
 export default {
 
   components: {
     UsersIcon,
-    DownloadCloudIcon
+    DownloadCloudIcon,
+    ArrowUpRightIcon,
+    ShowMessage
   },
 
   props: {
@@ -96,8 +144,13 @@ export default {
 
   data() {
     return {
+      isLoading: false,
       isFetched: false,
+      isFetchedMessages: false,
+      hasMessageOverlay: false,
       course_event: {},
+      messages: [],
+      messageId: null,
     };
   },
 
@@ -107,12 +160,29 @@ export default {
 
   methods: {
     fetch() {
-      let uri = `/api/student/course/event/${this.$props.id}`;
-      this.axios.get(`${uri}`).then(response => {
+      this.isLoading = true;
+      this.axios.get(`/api/student/course/event/${this.$props.id}`).then(response => {
         this.course_event = response.data;
         this.isFetched = true;
+        this.isLoading = false;
+      });
+
+      // Get messages
+      this.axios.get(`/api/messages/${this.$props.id}`).then(response => {
+        this.messages = response.data;
+        this.isFetchedMessages = true;
       });
     },
+
+    showMessage(id) {
+      this.messageId = id;
+      this.hasMessageOverlay = true;
+    },
+
+    hideMessage() {
+      this.hasMessageOverlay = false;
+    },
+
   }
 }
 </script>

@@ -96,6 +96,11 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::delete('course/event/file/{courseEventFile}', 'Api\CourseEventFileController@destroy');
   });
 
+  // Message routes
+  Route::get('messages/{courseEvent}', 'Api\MessageController@get');
+  Route::get('message/{message}', 'Api\MessageController@find');
+  Route::post('message', 'Api\MessageController@store')->middleware('role:tutor');
+
   // Settings
   Route::middleware('role:admin')->group(function() {
     Route::get('settings/locations', 'Api\SettingsController@locations');

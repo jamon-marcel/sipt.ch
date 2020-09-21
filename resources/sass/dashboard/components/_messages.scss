@@ -1,0 +1,26 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/messages
+ * -----------------------------------------------------------------------------
+ */
+
+.message-header {
+  border-bottom: 2px solid $color-light;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+
+  > div {
+    align-items: center;
+    display: flex;
+    @include font-size($fs-xs);
+    padding: 2px 0;
+
+    span {
+      flex: 0 0 75px;
+    }
+  }
+
+  a {
+    color: $color-dark;
+  }
+}
