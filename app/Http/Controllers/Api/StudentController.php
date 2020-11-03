@@ -20,8 +20,10 @@ class StudentController extends Controller
   public function __construct(
     Student $student, 
     CourseEvent $courseEvent,
-    CourseEventStudent $courseEventStudent)
+    CourseEventStudent $courseEventStudent,
+    User $user)
   {
+    $this->user = $user;
     $this->student = $student;
     $this->courseEvent = $courseEvent;
     $this->courseEventStudent = $courseEventStudent;
@@ -62,9 +64,35 @@ class StudentController extends Controller
    */
   public function update(Student $student, StudentStoreRequest $request)
   {
-    $student->update($request->except('user.email'));
+    if (auth()->user()->isAdmin())
+    {
+      // Update the email
+      $user = $this->user->findOrFail($student->user->id);
+      $user->email = $request->input('user.email');
+      $user->save();
+
+      // Update student data
+      $student->update($request->all());
+    }
+    else
+    {
+      $student->update($request->except('user.email'));
+    }
+
     $student->save();
     return response()->json('successfully updated');
+  }
+
+  /**
+   * Remove a course by a given course
+   *
+   * @param  Student $student
+   * @return \Illuminate\Http\Response
+   */
+  public function destroy(Student $student)
+  {
+    $student->delete();
+    return response()->json('successfully deleted');
   }
 
   /**

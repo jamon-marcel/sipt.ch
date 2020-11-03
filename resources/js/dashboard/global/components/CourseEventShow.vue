@@ -11,7 +11,8 @@
         <p v-html="course_event.course.description">{{ course_event.course.description }}</p>
         <hr>
         <h2 class="is-narrow">Ort</h2>
-        <p>
+        <p v-if="course_event.is_online">Kurs findet Online statt</p>
+        <p v-else>
           {{ course_event.location.name }}, {{ course_event.location.city }} – <a :href="course_event.location.maps_uri" target="_blank" class="anchor">Googlemaps</a></p>
         <hr>
         <h2 class="is-narrow">Credits</h2>

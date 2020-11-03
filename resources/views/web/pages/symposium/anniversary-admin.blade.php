@@ -29,5 +29,5 @@
     </div>
   </article>
 </section>
-{{-- @include('web.pages.symposium.partials.' . $sidebar) --}}
+@include('web.pages.symposium.partials.' . $sidebar)
 @endsection

@@ -19,14 +19,21 @@
       </tr>
     @endfor
   @endif
-  <tr>
-    <td>Ort:</td>
-    <td>{{AppHelper::locationNameFull($courseEvent->location_id, TRUE)}}</td>
-  </tr>
-  <tr>
-    <td>Lageplan:</td>
-    <td><a href="{{AppHelper::locationMap($courseEvent->location_id)}}" target="_blank" class="anchor" style="color: #ff7a00; text-decoration: none;">Googlemaps</a></td>
-  </tr>
+  @if ($courseEvent->is_online)
+    <tr>
+      <td>Ort:</td>
+      <td>Kurs findet Online statt</td>
+    </tr>
+  @else
+    <tr>
+      <td>Ort:</td>
+      <td>{{AppHelper::locationNameFull($courseEvent->location_id, TRUE)}}</td>
+    </tr>
+    <tr>
+      <td>Lageplan:</td>
+      <td><a href="{{AppHelper::locationMap($courseEvent->location_id)}}" target="_blank" class="anchor" style="color: #ff7a00; text-decoration: none;">Googlemaps</a></td>
+    </tr>
+  @endif
   <tr>
     <td>Kursgebühr:</td>
     <td>CHF {{$courseEvent->course->cost}}</td>

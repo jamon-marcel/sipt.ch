@@ -17,12 +17,21 @@
           <td>{{$subscriber->email}}</td>
           <td>{{$subscriber->title}}</td>
           <td>{{$subscriber->booking_number}}</td>
+          <td>
+            @if ($subscriber->invoice) 
+              @if ($subscriber->invoice->is_paid == 1)
+                bez.
+              @else
+                –
+              @endif
+            @endif
+          </td>
           <td>{{\MoneyFormatHelper::number($subscriber->cost)}}</td>
           <td style="text-align: right">{{date('d.m.Y', strtotime($subscriber->created_at))}}</td>
         </tr>
       @endforeach
       <tr>
-        <td colspan="8" style="width: 100%">Anzahl TeilnehmerInnen: {{count($subscribers)}}</td>
+        <td colspan="9" style="width: 100%">Anzahl TeilnehmerInnen: {{count($subscribers)}}</td>
       </tr>
     </table>
   @endif

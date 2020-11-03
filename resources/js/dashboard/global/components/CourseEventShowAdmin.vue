@@ -18,7 +18,8 @@
           <p v-html="course_event.course.description">{{ course_event.course.description }}</p>
           <hr>
           <h2 class="is-narrow">Ort</h2>
-          <p>{{ course_event.location.name }}, {{ course_event.location.city }} – <a :href="course_event.location.maps_uri" target="_blank" class="anchor">Googlemaps</a></p>
+          <p v-if="course_event.is_online">Kurs findet Online statt</p>
+          <p v-else>{{ course_event.location.name }}, {{ course_event.location.city }} – <a :href="course_event.location.maps_uri" target="_blank" class="anchor">Googlemaps</a></p>
           <hr>
           <div v-if="$props.isAdmin">
             <h2 class="is-narrow">Max. Teilnehmer</h2>

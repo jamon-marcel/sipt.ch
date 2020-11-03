@@ -28,6 +28,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('students', 'Api\StudentController@get');
     Route::get('student/{student?}', 'Api\StudentController@find');
     Route::put('student/{student}', 'Api\StudentController@update');
+    Route::delete('student/{student}', 'Api\StudentController@destroy')->middleware('role:admin');
     Route::post('student/course/event/{student?}', 'Api\StudentController@storeEvent');
     Route::get('student/course/event/{courseEvent}/{student?}', 'Api\StudentController@getEvent');
     Route::get('student/course/events/{type?}/{limit?}/{student?}', 'Api\StudentController@getEvents');

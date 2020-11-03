@@ -3,6 +3,9 @@ namespace App\Http\Controllers;
 use App\Services\Document;
 use App\Models\CourseEvent;
 use App\Models\Student;
+use App\Exports\SymposiumSubscribersExport;
+use App\Exports\StudentAddressesExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\BaseController;
 use Illuminate\Http\Request;
 
@@ -58,6 +61,28 @@ class DownloadController extends BaseController
     $file = new Document();
     $file = $file->symposiumParticipantList();
     return response()->download($file['path'], $file['name'], $this->headers);
+  }
+
+  /**
+   * Export the participant list
+   *
+   * @return \Illuminate\Http\Response
+   */
+
+  public function exportSymposiumParticipants()
+  {
+    return Excel::download(new SymposiumSubscribersExport, 'symposium_subscribers.xlsx');
+  }
+  
+  /**
+   * Export the students address list
+   *
+   * @return \Illuminate\Http\Response
+   */
+
+  public function exportStudentAddresses()
+  {
+    return Excel::download(new StudentAddressesExport, 'studenten_adressen.xlsx');
   }
 
   /**

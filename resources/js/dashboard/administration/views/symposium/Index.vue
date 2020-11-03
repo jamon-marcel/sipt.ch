@@ -54,11 +54,17 @@
         </div>
       </div>
       <footer class="module-footer">
-        <div class="flex-sb flex-vc">
-          <a :href="'/download/fachtagung/teilnehmerliste?v=' + randomString()" class="btn-primary has-icon" target="_blank">
-            <download-icon size="16"></download-icon>
-            <span>Teilnehmerliste</span>
-          </a>
+        <div class="flex-sb flex-sb">
+          <div>
+            <a :href="'/download/fachtagung/teilnehmerliste?v=' + randomString()" class="btn-primary has-icon" target="_blank">
+              <download-icon size="16"></download-icon>
+              <span>Teilnehmerliste (PDF)</span>
+            </a>
+            <a :href="'/export/fachtagung/teilnehmerliste?v=' + randomString()" class="btn-primary has-icon" target="_blank">
+              <download-icon size="16"></download-icon>
+              <span>Teilnehmerliste (XLS)</span>
+            </a>
+          </div>
           <router-link :to="{ name: 'symposium-subscriber-create' }" class="btn-secondary has-icon">
             <plus-icon size="16"></plus-icon>
             <span>Hinzufügen</span>

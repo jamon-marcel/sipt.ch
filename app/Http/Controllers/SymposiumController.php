@@ -12,6 +12,18 @@ class SymposiumController extends BaseController
     parent::__construct();
   }
 
+
+  /**
+   * Show the homepage
+   *
+   * @return \Illuminate\Http\Response
+   */
+
+  public function anniversaryAdmin()
+  { 
+    return view($this->viewPath . 'anniversary-admin', ['sidebar' => 'form']);
+  }
+
   /**
    * Show the homepage
    *
@@ -31,7 +43,7 @@ class SymposiumController extends BaseController
 
   public function registered()
   {
-    return view($this->viewPath . 'anniversary', ['sidebar' => 'confirmation']);
+    return view($this->viewPath . 'anniversary-admin', ['sidebar' => 'confirmation']);
   }
 
   /**

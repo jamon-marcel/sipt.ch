@@ -85,7 +85,7 @@
         Paradiesgasse 19<br>
         7000 Chur<br>
         Telefon: 079 893 01 59<br>
-        <a href="mailto:kontakt@psychotherapie-fioritto.ch">kontakt@psychotherapie-fioritto.ch</a></p>
+        <a href="mailto:lucina.fioritto@hin.ch">lucina.fioritto@hin.ch</a></p>
         
         <p><strong>Jung Eugster, Erika</strong><br>
         Körpertherapeutin<br>

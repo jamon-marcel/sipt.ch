@@ -38,8 +38,8 @@ Route::get('/netzwerk/partner-institutionen', 'NetworkController@partners')->nam
 
 // Symposium
 Route::get('/jubilaeums-fachtagung-15-jahre-sipt', 'SymposiumController@anniversary')->name('symposium_anniversary');
-Route::post('/jubilaeums-fachtagung-15-jahre-sipt/registration', 'SymposiumSubscriberController@store')->middleware(ProtectAgainstSpam::class)->name('symposium_register');
-Route::get('/jubilaeums-fachtagung-15-jahre-sipt/anmeldung-erfolgreich', 'SymposiumController@registered')->name('symposium_register_success');
+// Route::post('/jubilaeums-fachtagung-15-jahre-sipt/registration', 'SymposiumSubscriberController@store')->middleware(ProtectAgainstSpam::class)->name('symposium_register');
+// Route::get('/jubilaeums-fachtagung-15-jahre-sipt/anmeldung-erfolgreich', 'SymposiumController@registered')->name('symposium_register_success');
 Route::get('/jubilaeums-fachtagung-15-jahre-sipt/abmeldung/{symposiumSubscriber}', 'SymposiumSubscriberController@cancel')->name('symposium_cancel');
 Route::get('/jubilaeums-fachtagung-15-jahre-sipt/abmeldung-erfolgreich', 'SymposiumController@cancelled')->name('symposium_cancelled');
 
@@ -73,6 +73,11 @@ Route::post('/auth/student/login', 'LoginController@login')->name('student_login
 
 Route::middleware('auth:sanctum', 'verified')->group(function() {
 
+  // Temp. Registration Symposium
+  Route::get('/admin/jubilaeums-fachtagung-15-jahre-sipt', 'SymposiumController@anniversaryAdmin');
+  Route::post('/admin/jubilaeums-fachtagung-15-jahre-sipt/registration', 'SymposiumSubscriberController@store')->middleware(ProtectAgainstSpam::class)->name('symposium_register');
+  Route::get('/admin/jubilaeums-fachtagung-15-jahre-sipt/anmeldung-erfolgreich', 'SymposiumController@registered')->name('symposium_register_success');
+
   // Dev routes
   Route::get('/mask-user', 'DevController@maskUser');
   Route::get('/invite', 'DevController@invite');
@@ -85,12 +90,15 @@ Route::middleware('auth:sanctum', 'verified')->group(function() {
   Route::get('/download/teilnehmerliste/{courseEvent}', 'DownloadController@listParticipants')->middleware('role:admin');
   Route::get('/download/anwesenheitsliste/{courseEvent}', 'DownloadController@listAttendances')->middleware('role:tutor');
   Route::get('/download/fachtagung/teilnehmerliste', 'DownloadController@listSymposiumParticipants')->middleware('role:admin');
+  Route::get('/export/fachtagung/teilnehmerliste', 'DownloadController@exportSymposiumParticipants')->middleware('role:admin');
+  Route::get('/export/adressliste', 'DownloadController@exportStudentAddresses')->middleware('role:admin');
 
 
   // Downloads for students
   Route::get('/download/kursbestaetigung/{courseEvent}/{student?}', 'DownloadController@confirmation')->middleware('role:student');
   Route::get('/download/kurseinladung/{courseEvent}/{student?}', 'DownloadController@invitation')->middleware('role:student');
   Route::get('/download/kursuebersicht/{student?}', 'DownloadController@overview')->middleware('role:student');
+
 
   // CatchAll: Dashboard Student
   Route::get('student/{any?}', function () {

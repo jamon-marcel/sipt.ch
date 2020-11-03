@@ -21,11 +21,13 @@
         @endforeach
       </div>
     </article>
-    <article>
-      <a href="/storage/downloads/sipt-{{AppHelper::slug($category->name)}}.pdf" target="_blank" class="btn-download" title="Download PDF">
-        <strong>{{$category->name}}</strong> [PDF, 70KB]
-      </a>
-    </article>
+    @if ($category->id != 'f8397281-acc4-47a4-985e-b6515b433419')
+      <article>
+        <a href="/storage/downloads/sipt-{{AppHelper::slug($category->name)}}.pdf" target="_blank" class="btn-download" title="Download PDF">
+          <strong>{{$category->name}}</strong> [PDF, 70KB]
+        </a>
+      </article>
+    @endif
   @endif
 </section>
 <x-quote size="is-sm" quote="{{$quote['quote']}}" author="{{$quote['author']}}" />

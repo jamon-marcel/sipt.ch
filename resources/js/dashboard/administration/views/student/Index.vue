@@ -2,8 +2,11 @@
   <div>
     <loading-indicator v-if="isLoading"></loading-indicator>
     <div :class="isFetched ? 'is-loaded' : 'is-loading'">
-      <header class="content-header">
+      <header class="content-header flex-sb flex-vc">
         <h1>Studenten</h1>
+        <div style="width: 320px">
+          <input type="text" placeholder="Suche nach Name, Vorname, Kundennummer" v-model="search">
+        </div>
       </header>
       <div class="listing" v-if="students.length">
         <div
@@ -28,7 +31,7 @@
           <list-actions
             :id="s.id"
             :hasToggle="false"
-            :hasDestroy="false"
+            :hasDestroy="true"
             :hasEdit="true"
             :hasShow="true"
             :hasEvent="true"
@@ -42,7 +45,10 @@
       </div>
       <footer class="module-footer">
         <div class="flex-sb flex-vc">
-          <input type="text" placeholder="Suche nach Name, Vorname, Kundennummer" v-model="search">
+          <a :href="'/export/adressliste?v=' + randomString()" class="btn-primary has-icon" target="_blank">
+            <download-icon size="16"></download-icon>
+            <span>Adressliste</span>
+          </a>
         </div>
       </footer>
     </div>
@@ -50,15 +56,23 @@
 </template>
 <script>
 // Icons
-import { PlusIcon } from "vue-feather-icons";
+import { PlusIcon, DownloadIcon } from "vue-feather-icons";
+
+// Mixins
+import Helpers from "@/global/mixins/Helpers";
+import DateTime from "@/global/mixins/DateTime";
+import ErrorHandling from "@/global/mixins/ErrorHandling";
 
 // Components
 import ListActions from "@/global/components/ui/ListActions.vue";
 
 export default {
   components: {
-    ListActions
+    ListActions,
+    DownloadIcon
   },
+
+  mixins: [Helpers, DateTime, ErrorHandling],
 
   data() {
     return {
@@ -85,7 +99,7 @@ export default {
 
     destroy(id, event) {
       if (confirm("Bitte löschen bestätigen!")) {
-        let uri = `/api/student/destroy/${id}`;
+        let uri = `/api/student/${id}`;
         this.axios.delete(uri).then(response => {
           this.fetch();
         });

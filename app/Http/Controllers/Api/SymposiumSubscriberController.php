@@ -126,7 +126,7 @@ class SymposiumSubscriberController extends Controller
     }
 
     // Event: Subscription confirmation
-    // event(new SymposiumSubscription($subscriber));
+    event(new SymposiumSubscription($subscriber));
 
     return response()->json(true); 
   }

@@ -34,23 +34,23 @@ class DevController extends Controller
 
   public function maskUser()
   {
-    // $subscribers = $this->subscriber->get();
-    // foreach($subscribers as $u)
-    // {
-    //   $rand_user = \Str::random(8);
-    //   $u->email = strtolower($rand_user) . '@jamondigital.ch';
-    //   $u->save();
-    // }
+    $subscribers = $this->subscriber->get();
+    foreach($subscribers as $u)
+    {
+      $rand_user = \Str::random(8);
+      $u->email = strtolower($rand_user) . '@jamondigital.ch';
+      $u->save();
+    }
 
-    // $users = $this->user->get();
-    // foreach($users as $u)
-    // {
-    //   if ($u->role != 'admin')
-    //   {
-    //     $rand_user = \Str::random(8);
-    //     $u->email = strtolower($rand_user) . '@jamondigital.ch';
-    //     $u->save();
-    //   }
-    // }
+    $users = $this->user->get();
+    foreach($users as $u)
+    {
+      if ($u->role != 'admin')
+      {
+        $rand_user = \Str::random(8);
+        $u->email = strtolower($rand_user) . '@jamondigital.ch';
+        $u->save();
+      }
+    }
   }
 }

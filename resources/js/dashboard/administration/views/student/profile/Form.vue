@@ -68,6 +68,10 @@
             </div>
           </div>
           <div class="form-row">
+            <label>E-Mail</label>
+            <input type="text" v-model="student.user.email">
+          </div>
+          <div class="form-row">
             <label>Titel</label>
             <input type="text" v-model="student.title">
           </div>

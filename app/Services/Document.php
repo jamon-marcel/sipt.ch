@@ -127,7 +127,34 @@ class Document
 
   public function symposiumParticipantList($courseEventId = NULL)
   {
-    $subscribers = SymposiumSubscriber::with('symposium')->orderBy('created_at', 'DESC')->where('is_cancelled', '=', 0)->get();
+    $subscribers = SymposiumSubscriber::with('symposium', 'invoice')->orderBy('created_at', 'DESC')->where('is_cancelled', '=', 0)->get();
+
+    // // For quick & dirty CSV
+    // echo '"nummer";';
+    // echo '"name";';
+    // echo '"ort";';
+    // echo '"email";';
+    // echo '"title";';
+    // echo '"buchung";';
+    // echo '"bezahlt";';
+    // echo '"betrag";';
+    // echo '"datum registration";';
+    // echo "\r\n";
+
+    // foreach($subscribers as $s)
+    // {
+    //   echo '"' . $s->number . '";';
+    //   echo '"' . $s->fullName . '";';
+    //   echo '"' . $s->city . '";';
+    //   echo '"' . $s->email . '";';
+    //   echo '"' . $s->title . '";';
+    //   echo '"' . $s->booking_number . '";';
+    //   echo $s->invoice && $s->invoice->is_paid ? '"ja";' : '"nein";';
+    //   echo '"' . \MoneyFormatHelper::number($s->cost) . '";';
+    //   echo '"' . date('d.m.Y', strtotime($s->created_at)) . '";';
+    //   echo "\r\n";
+    // }
+    // die();
 
     // Create pdf
     $this->viewData['subscribers'] = $subscribers;

@@ -27,6 +27,7 @@ class SymposiumSubscriber extends Model
 		'has_attendance',
 		'is_cancelled',
 		'is_billed',
+		'is_sent',
     'user_id',
 		'symposium_id',
 		'created_at'
@@ -44,6 +45,11 @@ class SymposiumSubscriber extends Model
 	public function invoices()
 	{
 		return $this->hasMany('App\Models\Invoice');
+	}
+
+	public function invoice()
+	{
+		return $this->hasOne('App\Models\Invoice', 'symposium_subscriber_id', 'id');
 	}
 
   /**
