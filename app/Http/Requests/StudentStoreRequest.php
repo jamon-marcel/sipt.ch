@@ -74,6 +74,10 @@ class StudentStoreRequest extends FormRequest
         'field' => 'phone',
         'error' => 'Telefon muss ausgefüllt sein.'
       ],
+      'qualifications.required' => [
+        'field' => 'qualifications',
+        'error' => 'Berufsabschluss muss ausgefüllt sein.'
+      ],
       'alt_company.required_if' => [
         'field' => 'alt_company',
         'error' => 'Firma muss ausgefüllt sein.'

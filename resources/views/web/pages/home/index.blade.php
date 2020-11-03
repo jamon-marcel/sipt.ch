@@ -7,7 +7,7 @@
   <article>
     <h2>Jubiläums-Fachtagung — 15 Jahre SIPT</h2>
     <p>Am 10. Oktober 2020 führte das SIPT seine Jubiläums-Tagung zum 15jährigen Bestehen durch. Wir freuen uns, Ihnen die Folien der Vorträge zum „Nachlesen“ zur Verfügung stellen zu können. Es war eine spannende und lehrreiche Tagung! Auf Anfrage können die Folien von Herrn Prof. Dr. Lutz Wittmann bei uns angefordert werden.</p>
-    <p><a href="/storage/downloads/sipt.ch-fachtagung-vortraege.zip" target="_blank" class="btn-download" title="Download Folien der Vorträge">Download Folien der Vorträge</a></p>
+    <p><a href="/storage/downloads/sipt-fachtagung-vortraege.zip" target="_blank" class="btn-download" title="Download Folien der Vorträge">Download Folien der Vorträge</a></p>
   </article>
   <article>
     <h2>Neues Buch – Orientierung für den komplexen Prozess der Traumabehandlung</h2>

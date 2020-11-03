@@ -53,7 +53,7 @@
           <div class="form-row">
             <div class="grid grid-1-1-1">
               <div :class="[this.errors.phone ? 'has-error' : '', 'form-row-grid']">
-                <label>Telefon</label>
+                <label>Telefon *</label>
                 <input type="text" v-model="student.phone">
                 <label-required />
               </div>
@@ -75,9 +75,10 @@
             <label>Titel</label>
             <input type="text" v-model="student.title">
           </div>
-          <div class="form-row">
-            <label>Berufsabschluss</label>
+          <div :class="[this.errors.qualifications ? 'has-error' : '', 'form-row']">
+            <label>Berufsabschluss *</label>
             <input type="text" v-model="student.qualifications">
+            <label-required />
           </div>
           <div class="form-row">
             <a href="" @click.prevent="toggleAltAddress()" class="feather-icon feather-icon--prepend">
@@ -204,7 +205,7 @@ export default {
         city: false,
         phone: false,
         country: false,
-
+        qualifications: false,
         alt_company: false,
         alt_name: false,
         alt_street: false,
