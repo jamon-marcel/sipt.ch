@@ -30,10 +30,17 @@
         </tr>
       @endfor
     @endif
-    <tr>
-      <td>Ort:</td>
-      <td>{{AppHelper::locationNameFull($courseEvent->location_id, TRUE)}}</td>
-    </tr>
+    @if ($courseEvent->is_online)
+      <tr>
+        <td>Ort:</td>
+        <td>Kurs findet Online statt</td>
+      </tr>
+    @else
+      <tr>
+        <td>Ort:</td>
+        <td>{{AppHelper::locationNameFull($courseEvent->location_id, TRUE)}}</td>
+      </tr>
+    @endif
     <tr>
       <td>Kursgebühr:</td>
       <td>CHF {{$courseEvent->course->cost}}</td>

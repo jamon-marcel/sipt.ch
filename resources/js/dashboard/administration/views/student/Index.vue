@@ -5,7 +5,7 @@
       <header class="content-header flex-sb flex-vc">
         <h1>Studenten</h1>
         <div style="width: 320px">
-          <input type="text" placeholder="Suche nach Name, Vorname, Kundennummer" v-model="search">
+          <input type="text" placeholder="Suche nach Name, Vorname, Kundennummer" v-model="search" @blur="storeKeyword()">
         </div>
       </header>
       <div class="listing" v-if="students.length">
@@ -62,6 +62,7 @@ import { PlusIcon, DownloadIcon } from "vue-feather-icons";
 import Helpers from "@/global/mixins/Helpers";
 import DateTime from "@/global/mixins/DateTime";
 import ErrorHandling from "@/global/mixins/ErrorHandling";
+import store from "@/administration/config/store";
 
 // Components
 import ListActions from "@/global/components/ui/ListActions.vue";
@@ -79,18 +80,20 @@ export default {
       isFetched: false,
       isLoading: false,
       search: "",
-      students: []
+      students: [],
+      store: store,
     };
   },
 
   created() {
+    this.search = this.store.state.keyword;
     this.fetch();
   },
 
   methods: {
     fetch() {
       this.isLoading = true;
-      this.axios.get(`/api/students`).then(response => {
+      this.axios.get(`/api/students/1`).then(response => {
         this.students = response.data.data;
         this.isFetched = true;
         this.isLoading = false;
@@ -104,10 +107,15 @@ export default {
           this.fetch();
         });
       }
+    },
+
+    storeKeyword() {
+      this.store.commit('keyword', this.search);
     }
   },
   computed: {
     studentsList() {
+
       return this.students.filter(student => {
         let name = student.name,
           firstname = student.firstname,

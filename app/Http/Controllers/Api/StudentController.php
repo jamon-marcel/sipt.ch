@@ -35,8 +35,12 @@ class StudentController extends Controller
    * 
    * @return \Illuminate\Http\Response
    */
-  public function get()
-  {
+  public function get($slim = false)
+  { 
+    if ($slim)
+    {
+      new DataCollection($this->student->with('user')->orderBy('name')->get(['name', 'firstname', 'city', 'title', 'id', 'number']));
+    }
     return new DataCollection($this->student->with('user')->orderBy('name')->get());
   }
 
