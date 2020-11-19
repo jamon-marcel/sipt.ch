@@ -41,7 +41,7 @@ class CourseEventClose
       {
         // Get student data
         $student = $this->student->with('user')->find($student->id);
-        
+
         // Get course_event_student data
         $courseEventStudent = $this->courseEventStudent->where('student_id', '=', $student->id)
                                                        ->where('course_event_id', '=', $courseEvent->id)

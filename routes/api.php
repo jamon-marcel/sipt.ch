@@ -129,6 +129,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('backoffice/student/bookings/{student}', 'Api\BackofficeController@getBookings');
     Route::get('backoffice/course/event/{courseEvent}', 'Api\BackofficeController@getCourseEvent');
     Route::delete('backoffice/course/event/student/{courseEvent}/{student}', 'Api\BackofficeController@destroyCourseEventStudent');
+    Route::post('backoffice/course/event/add/student', 'Api\BackofficeController@addCourseEventStudent');
     Route::get('backoffice/invoices/{constraint?}', 'Api\InvoiceController@get');
     Route::get('backoffice/invoice/history/{invoice}', 'Api\InvoiceController@getHistory');
     Route::get('backoffice/invoice/{invoice}', 'Api\InvoiceController@find');

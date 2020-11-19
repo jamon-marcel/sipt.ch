@@ -107,7 +107,7 @@ class CourseEventCreateSendBill
                   'courseEvent'     => $courseEvent,
                   'invoice_number'  => $invoice->number,
                   'invoice_amount'  => $invoice->amount,
-                  'attachment'     => public_path() . '/storage/invoices/' . $invoice->file
+                  'attachment'      => public_path() . '/storage/invoices/' . $invoice->file
                 ]
           )
     );

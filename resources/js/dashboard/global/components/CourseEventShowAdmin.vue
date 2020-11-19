@@ -10,6 +10,10 @@
       <show-message :messageId="messageId"></show-message>
     </div>
 
+    <div v-if="hasAddStudentOverlay">
+      <add-student-form></add-student-form>
+    </div>
+
     <div :class="isFetched ? 'is-loaded' : 'is-loading'">
       <div class="content">
         <template v-if="isFetched">
@@ -43,10 +47,17 @@
               Angemeldete Teilnehmer
               <em v-if="course_event.students.length">({{course_event.students.length}})</em>
             </h2>
-            <a :href="'/download/anwesenheitsliste/' + course_event.id" target="_blank" class="feather-icon feather-icon--prepend">
-              <download-cloud-icon size="16"></download-cloud-icon>
-              <span>Anwesenheitsliste</span>
-            </a>
+            <div class="flex-sb">
+              <a href="" @click.prevent="showAddStudentForm()" class="feather-icon feather-icon--prepend">
+                <plus-icon size="16"></plus-icon>
+                <span>Hinzufügen</span>
+              </a>
+              &nbsp;&nbsp;&nbsp;&nbsp;
+              <a :href="'/download/anwesenheitsliste/' + course_event.id" target="_blank" class="feather-icon feather-icon--prepend">
+                <download-cloud-icon size="16"></download-cloud-icon>
+                <span>Anwesenheitsliste</span>
+              </a>
+            </div>
           </div>
           <div v-if="course_event.students.length">
             <div class="listing">
@@ -196,7 +207,8 @@ import {
   DownloadCloudIcon,
   DownloadIcon,
   MessageSquareIcon,
-  ArrowUpRightIcon
+  ArrowUpRightIcon,
+  PlusIcon
 } from "vue-feather-icons";
 
 // Mixins
@@ -207,6 +219,8 @@ import FileUpload from "@/global/components/files/Upload.vue";
 import FileListing from "@/global/components/files/Edit.vue";
 import ListActions from "@/global/components/ui/ListActions.vue";
 import CreateMessageForm from "@/administration/views/course_events/CreateMessageForm.vue";
+import AddStudentForm from "@/administration/views/course_events/AddStudentForm.vue";
+
 import ShowMessage from "@/global/components/ShowMessage.vue";
 
 export default {
@@ -218,11 +232,13 @@ export default {
     DownloadIcon,
     MessageSquareIcon,
     ArrowUpRightIcon,
+    PlusIcon,
     FileUpload,
     FileListing,
     ListActions,
     CreateMessageForm,
-    ShowMessage
+    ShowMessage,
+    AddStudentForm
   },
 
   props: {
@@ -256,6 +272,7 @@ export default {
       isFetchedMessages: false,
       hasMessageFormOverlay: false,
       hasMessageOverlay: false,
+      hasAddStudentOverlay: false,
     };
   },
 
@@ -380,6 +397,28 @@ export default {
       this.hasMessageOverlay = false;
     },
 
+
+    showAddStudentForm() {
+      this.hasAddStudentOverlay = true;
+    },
+
+    hideAddStudentForm() {
+      this.hasAddStudentOverlay = false;
+    },
+
+    storeStudent(student) {
+
+      let uri = "/api/backoffice/course/event/add/student";
+      let data = {
+        'courseEventId': this.course_event.id,
+        'studentId': student,
+      };
+      this.axios.post(uri, data).then(response => {
+        this.$notify({ type: "success", text: "Teilnehmerin erfasst." });
+        this.fetch();
+        this.hideAddStudentForm();
+      });
+    },
   }
 };
 </script>

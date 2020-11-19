@@ -77,7 +77,7 @@
           <list-actions
             :id="c.id" 
             :record="c"
-            :hasDetail="false"
+            :hasDetail="true"
             :hasDestroy="false"
             :hasToggle="false"
             :routes="{edit: 'course-event-edit', details: 'course-event-show'}">

@@ -10,6 +10,7 @@ use App\Models\Student;
 use App\Events\CourseEventParticipantsChanged;
 use App\Events\CourseEventCancelled;
 use App\Events\InvoiceReminder;
+use App\Events\CourseEventClosed;
 use App\Services\CourseInvoice;
 use Illuminate\Http\Request;
 
@@ -161,7 +162,7 @@ class BackofficeController extends Controller
     return response()->json($file);
   }
 
-/**
+  /**
    * Remove a course event for given student or an authenticated user
    *
    * @param CourseEvent $courseEvent
@@ -185,5 +186,30 @@ class BackofficeController extends Controller
     return response()->json('successfully removed');
   }
 
+/**
+   * Add a course event for given student and course event
+   *
+   * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\Response
+   */
+  public function addCourseEventStudent(Request $request)
+  {
+    $studentId = $request->studentId;
+    $courseEventId = $request->courseEventId;
+
+    // Create entry for course event student
+    $course_event_student = CourseEventStudent::create(
+      [
+        'course_event_id' => $request->courseEventId,
+        'student_id' => $request->studentId,
+        'booking_number' => \BookingHelper::getNumber(),
+        'has_confirmation' => 0,
+        'is_invited' => 1,
+        'has_attendance' => 1
+      ]
+    );
+    $course_event_student->save();
+    return response()->json('successfully added');
+  }
 
 }
