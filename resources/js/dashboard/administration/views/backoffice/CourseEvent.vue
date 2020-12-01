@@ -57,8 +57,7 @@
                     <separator/>
                     {{invoice.date}}
                     <separator/>
-
-                    {{invoice.student.firstname}} {{invoice.student.name}}, {{invoice.student.city}}
+                    <span v-if="invoice.student">{{invoice.student.firstname}} {{invoice.student.name}}, {{invoice.student.city}}</span>
                     <span
                       v-if="invoice.state != null && invoice.is_paid == 0"
                     >
