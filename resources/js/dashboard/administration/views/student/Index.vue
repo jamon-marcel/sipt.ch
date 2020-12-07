@@ -45,7 +45,7 @@
       </div>
       <footer class="module-footer">
         <div class="flex-sb flex-vc">
-          <a :href="'/export/adressliste?v=' + randomString()" class="btn-primary has-icon" target="_blank">
+          <a :href="'/export/adressliste/studenten?v=' + randomString()" class="btn-primary has-icon" target="_blank">
             <download-icon size="16"></download-icon>
             <span>Adressliste</span>
           </a>

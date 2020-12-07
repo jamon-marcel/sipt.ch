@@ -28,13 +28,26 @@
     <div v-else>
       <p class="no-records">Es sind noch keine Dozenten vorhanden...</p>
     </div>
+    <footer class="module-footer">
+      <div class="flex-sb flex-vc">
+        <a :href="'/export/adressliste/dozenten?v=' + randomString()" class="btn-primary has-icon" target="_blank">
+          <download-icon size="16"></download-icon>
+          <span>Adressliste</span>
+        </a>
+      </div>
+    </footer>
   </div>
 </div>
 </template>
 <script>
 
 // Icons
-import { PlusIcon } from 'vue-feather-icons';
+import { PlusIcon, DownloadIcon } from 'vue-feather-icons';
+
+// Mixins
+import Helpers from "@/global/mixins/Helpers";
+import DateTime from "@/global/mixins/DateTime";
+import ErrorHandling from "@/global/mixins/ErrorHandling";
 
 // Components
 import ListActions from "@/global/components/ui/ListActions.vue";
@@ -43,8 +56,12 @@ export default {
 
   components: {
     ListActions,
-    PlusIcon
+    PlusIcon, 
+    DownloadIcon
   },
+
+  mixins: [Helpers, DateTime, ErrorHandling],
+
 
   data() {
     return {

@@ -102,6 +102,14 @@
         <a href="mailto:frank@bodenseepraxis.ch">frank@bodenseepraxis.ch</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
+        <p>
+          <strong>lic. phil. Ines Geitzsch</strong><br>
+          Clienia Gruppenpraxis Uster<br>
+          Schachenweg 2<br>
+          8610 Uster<br>
+          Tel. 044 905 50 00
+        </p>
+
         <p><strong>lic. phil. Haeny, Christina</strong><br>
         Fachpsychologin für Psychotherapie<br>
         Ambulatorium Barmelweid<br>
