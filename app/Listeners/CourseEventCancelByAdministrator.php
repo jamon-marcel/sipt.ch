@@ -46,6 +46,7 @@ class CourseEventCancelByAdministrator
         
         $courseEventStudent = $this->courseEventStudent->where('student_id', '=', $student->id)
                                                        ->where('course_event_id', '=', $courseEvent->id)
+                                                       ->where('is_cancelled', '=', 0)
                                                        ->get()
                                                        ->first();
 
@@ -55,9 +56,8 @@ class CourseEventCancelByAdministrator
           $courseEventStudent->cancelled_at = date('d.m.Y', time());
           $courseEventStudent->save();
           $courseEventStudent->delete();
-        }                                            
-        
-        Mail::to($student->user->email)
+
+          Mail::to($student->user->email)
               ->bcc(\Config::get('sipt.email_copy'))
               ->send(
                   new CourseEventCancelByAdministratorStudentNotification(
@@ -66,7 +66,8 @@ class CourseEventCancelByAdministrator
                       'courseEvent' => $courseEvent,
                     ]
               )
-        );
+          );
+        }                                            
       }
     }
 

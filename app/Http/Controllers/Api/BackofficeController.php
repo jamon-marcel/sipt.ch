@@ -186,7 +186,7 @@ class BackofficeController extends Controller
     return response()->json('successfully removed');
   }
 
-/**
+  /**
    * Add a course event for given student and course event
    *
    * @param \Illuminate\Http\Request $request
@@ -194,6 +194,7 @@ class BackofficeController extends Controller
    */
   public function addCourseEventStudent(Request $request)
   {
+    // 
     $studentId = $request->studentId;
     $courseEventId = $request->courseEventId;
 

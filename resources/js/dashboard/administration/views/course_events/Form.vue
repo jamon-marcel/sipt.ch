@@ -3,6 +3,7 @@
     <div v-if="hasOverlay">
       <add-event></add-event>
     </div>
+    <loading-indicator v-if="isLoading"></loading-indicator>
     <form @submit.prevent="submit" :class="isFetched ? 'is-loaded' : 'is-loading'">
       <header class="content-header">
         <h1>Modul: <strong>{{course.title}}</strong> – {{courseDates}}</h1>
@@ -178,6 +179,7 @@ export default {
 
       // Lazy loading
       isFetched: true,
+      isLoading: false,
 
       // Overlay
       hasOverlay: false
@@ -244,11 +246,13 @@ export default {
 
     update() {
       let uri = `/api/course/event/${this.$route.params.id}`;
+      this.isLoading = true;
       this.axios.put(uri, this.course_event).then(response => {
         this.$router.push({
           name: "course-events",
           params: { id: this.course.id }
         });
+        this.isLoading = false;
         this.$notify({ type: "success", text: "Änderungen gespeichert!" });
       });
     },
