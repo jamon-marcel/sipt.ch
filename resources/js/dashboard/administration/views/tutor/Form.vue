@@ -5,96 +5,121 @@
     <header class="content-header">
       <h1>{{title}}</h1>
     </header>
-    <div class="grid-main-sidebar">
-      <div>
-        <div :class="[this.errors.firstname ? 'has-error' : '', 'form-row']">
-          <label>Vorname *</label>
-          <input type="text" v-model="tutor.firstname">
-          <label-required />
-        </div>
-        <div :class="[this.errors.name ? 'has-error' : '', 'form-row']">
-          <label>Name *</label>
-          <input type="text" v-model="tutor.name">
-          <label-required />
-        </div>
-        <div :class="[this.errors.email ? 'has-error' : '', 'form-row']">
-          <label>E-Mail *</label>
-          <input type="text" v-model="tutor.user.email" :disabled="this.$props.type == 'edit' ? true : false">
-          <label-required />
-        </div>
-        <div class="form-row">
-          <label>Titel</label>
-          <input type="text" v-model="tutor.title">
-        </div>
-        <div class="form-row">
-          <label>Telefon</label>
-          <input type="text" v-model="tutor.phone">
-        </div>
-        <div class="form-row">
-          <label>Mobile</label>
-          <input type="text" v-model="tutor.mobile">
-        </div>
-        <div class="form-row">
-          <div class="grid grid-3-1">
-            <div>
-              <label>Strasse</label>
-              <input type="text" v-model="tutor.street">
-            </div>
-            <div>
-              <label>Nr.</label>
-              <input type="text" v-model="tutor.street_no">
+    <tabs :tabs="tabs" :errors="errors"></tabs>
+    <div v-show="tabs.data.active">
+      <div class="grid-main-sidebar">
+        <div>
+          <div :class="[this.errors.firstname ? 'has-error' : '', 'form-row']">
+            <label>Vorname *</label>
+            <input type="text" v-model="tutor.firstname">
+            <label-required />
+          </div>
+          <div :class="[this.errors.name ? 'has-error' : '', 'form-row']">
+            <label>Name *</label>
+            <input type="text" v-model="tutor.name">
+            <label-required />
+          </div>
+          <div :class="[this.errors.email ? 'has-error' : '', 'form-row']">
+            <label>E-Mail *</label>
+            <input type="text" v-model="tutor.user.email" :disabled="this.$props.type == 'edit' ? true : false">
+            <label-required />
+          </div>
+          <div class="form-row">
+            <label>Titel</label>
+            <input type="text" v-model="tutor.title">
+          </div>
+          <div class="form-row">
+            <label>Telefon</label>
+            <input type="text" v-model="tutor.phone">
+          </div>
+          <div class="form-row">
+            <label>Mobile</label>
+            <input type="text" v-model="tutor.mobile">
+          </div>
+          <div class="form-row">
+            <div class="grid grid-3-1">
+              <div>
+                <label>Strasse</label>
+                <input type="text" v-model="tutor.street">
+              </div>
+              <div>
+                <label>Nr.</label>
+                <input type="text" v-model="tutor.street_no">
+              </div>
             </div>
           </div>
-        </div>
-        <div class="form-row">
-          <div class="grid grid-1-1-1">
-            <div>
-              <label>PLZ</label>
-              <input type="text" v-model="tutor.zip">
-            </div>
-            <div>
-              <label>Ort</label>
-              <input type="text" v-model="tutor.city">
-            </div>
-            <div>
-              <label>Land</label>
-              <input type="text" v-model="tutor.country">
+          <div class="form-row">
+            <div class="grid grid-1-1-1">
+              <div>
+                <label>PLZ</label>
+                <input type="text" v-model="tutor.zip">
+              </div>
+              <div>
+                <label>Ort</label>
+                <input type="text" v-model="tutor.city">
+              </div>
+              <div>
+                <label>Land</label>
+                <input type="text" v-model="tutor.country">
+              </div>
             </div>
           </div>
+          <div class="form-row">
+            <label>Beschreibung</label>
+            <textarea name="description" v-model="tutor.description"></textarea>
+          </div>
+          <div class="form-row">
+            <label>Themenschwerpunkte</label>
+            <tinymce-editor
+              :api-key="tinyApiKey"
+              :init="tinyConfig"
+              v-model="tutor.emphasis"
+            ></tinymce-editor>
+          </div>
+          <div class="form-row">
+            <label>Veröffentlichungen</label>
+            <tinymce-editor
+              :api-key="tinyApiKey"
+              :init="tinyConfig"
+              v-model="tutor.publications"
+            ></tinymce-editor>
+          </div>
         </div>
-        <div class="form-row">
-          <label>Beschreibung</label>
-          <textarea name="description" v-model="tutor.description"></textarea>
-        </div>
-        <div class="form-row">
-          <label>Themenschwerpunkte</label>
-          <tinymce-editor
-            :api-key="tinyApiKey"
-            :init="tinyConfig"
-            v-model="tutor.emphasis"
-          ></tinymce-editor>
-        </div>
-        <div class="form-row">
-          <label>Veröffentlichungen</label>
-          <tinymce-editor
-            :api-key="tinyApiKey"
-            :init="tinyConfig"
-            v-model="tutor.publications"
-          ></tinymce-editor>
+        <div class="grid-column-sidebar">
+          <div>
+            <template v-if="isFetched">
+              <div class="form-row is-sm is-last">
+                <radio-button 
+                  :label="'Publizieren?'"
+                  v-bind:is_published.sync="tutor.is_published"
+                  :model="tutor.is_published"
+                  :name="'is_published'">
+                </radio-button>
+              </div>
+            </template>
+          </div>
         </div>
       </div>
-      <div class="grid-column-sidebar">
+    </div>
+    <div v-show="tabs.image.active">
+      <div class="grid-main-sidebar">
         <div>
-          <template v-if="isFetched">
-            <div class="form-row is-sm is-last">
-              <radio-button 
-                :label="'Publizieren?'"
-                v-bind:is_published.sync="tutor.is_published"
-                :model="tutor.is_published"
-                :name="'is_published'">
-              </radio-button>
-            </div>
-          </template>
+          <div class="form-row" v-if="tutor.images.length == 0">
+            <image-upload
+              :restrictions="'jpg, png | max. 8 MB'"
+              :maxFiles="99"
+              :maxFilesize="8"
+              :acceptedFiles="'.png,.jpg'"
+            ></image-upload>
+          </div>
+          <div class="form-row">
+            <image-edit 
+              :images="tutor.images"
+              :imagePreviewRoute="'portrait'"
+              :aspectRatioW="4"
+              :aspectRatioH="3"
+            ></image-edit>
+          </div>
         </div>
       </div>
     </div>
@@ -124,13 +149,24 @@ import TinymceEditor from "@tinymce/tinymce-vue";
 // Components
 import RadioButton from "@/global/components/ui/RadioButton.vue";
 import LabelRequired from "@/global/components/ui/LabelRequired.vue";
+import Tabs from "@/global/components/ui/Tabs.vue";
+
+// Upload
+import ImageUpload from "@/global/components/images/Upload.vue";
+import ImageEdit from "@/global/components/images/Edit.vue";
+
+// Tabs config
+import tabsConfig from "@/administration/views/tutor/config/tabs.js";
 
 export default {
   components: {
     ArrowLeftIcon,
     TinymceEditor,
     RadioButton,
-    LabelRequired
+    LabelRequired,
+    ImageUpload,
+    ImageEdit,
+    Tabs
   },
 
   mixins: [ErrorHandling],
@@ -162,6 +198,7 @@ export default {
         user: {
           email: null,
         },
+        images: [],
       },
 
       // Validation
@@ -174,6 +211,9 @@ export default {
       // Loading states
       isFetched: true,
       isLoading: false,
+
+      // Tabs
+      tabs: tabsConfig,
 
       // TinyMCE
       tinyConfig: tinyConfig,
@@ -236,6 +276,68 @@ export default {
         this.isLoading = false;
       });
     },
+
+    // Store uploaded image
+    storeImage(upload) {
+      let image = {
+        id: null,
+        name: upload.name,
+        caption: null,
+        coords_w: 0,
+        coords_h: 0,
+        coords_x: 0,
+        coords_y: 0,
+        orientation: upload.orientation,
+        publish: 1,
+      }
+      this.tutor.images.push(image);
+    },
+
+    // Delete by name
+    destroyImage(image, event) {
+      if (confirm("Bitte löschen bestätigen!")) {
+        let uri = `/api/tutor/image/${image}`;
+        this.isLoading = true;
+        this.axios.delete(uri).then(response => {
+          const index = this.tutor.images.findIndex(x => x.name === image);
+          this.tutor.images.splice(index, 1);
+          this.isLoading = false;
+        });
+      }
+    },
+
+    // Toggle image status
+    toggleImage(image, event) {
+      if (image.id === null) {
+        const index = this.tutor.images.findIndex(x => x.name === image.name);
+        this.tutor.images[index].publish = image.publish == 1 ? 0 : 1;
+      } else {
+        let uri = `/api/tutor/image/state/${image.id}`;
+        this.isLoading = true;
+        this.axios.get(uri).then(response => {
+          const index = this.tutor.images.findIndex(x => x.id === image.id);
+          this.tutor.images[index].publish = response.data;
+          this.isLoading = false;
+        });
+      }
+    },
+
+    // Save coords
+    saveImageCoords(image) {
+      if (image.id === null) {
+        const index = this.tutor.images.findIndex(x => x.name === image.name);
+        this.tutor.images[index].coords = image.coords;
+      } 
+      else {
+        let uri = `/api/tutor/image/${image.id}`;
+        this.isLoading = true;
+        this.axios.put(uri, image).then(response => {
+          this.$notify({ type: "success", text: "Änderungen gespeichert!" });
+          this.isLoading = false;
+        });
+      }
+    },
+
   },
 
   computed: {
