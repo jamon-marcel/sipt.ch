@@ -36,6 +36,9 @@ import BackofficeImport from '@/administration/views/backoffice/Import.vue';
 import Symposium from '@/administration/views/symposium/Index.vue';
 import SymposiumSubscriberCreate from '@/administration/views/symposium/Form.vue';
 
+import VipAddressesIndex from '@/administration/views/vip/Index.vue';
+import VipAddressesCreate from '@/administration/views/vip/Create.vue';
+import VipAddressesEdit from '@/administration/views/vip/Edit.vue';
 
 const routes = [
 
@@ -191,6 +194,23 @@ const routes = [
     name: 'symposium-subscriber-create',
     path: '/administration/symposium/create',
     component: SymposiumSubscriberCreate,
+  },
+
+  // VIP Addresses
+  {
+    name: 'vip-addresses',
+    path: '/administration/vip-addresses',
+    component: VipAddressesIndex,
+  },
+  {
+    name: 'vip-address-create',
+    path: '/administration/vip-address/create',
+    component: VipAddressesCreate,
+  },
+  {
+    name: 'vip-address-edit',
+    path: '/administration/vip-address/edit/:id',
+    component: VipAddressesEdit,
   },
 
   

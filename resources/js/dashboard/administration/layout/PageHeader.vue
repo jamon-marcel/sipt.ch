@@ -50,6 +50,11 @@
         </router-link>
       </li>
       <li>
+        <router-link :to="{name: 'vip-addresses'}">
+          <span>VIP Adressen</span>
+        </router-link>
+      </li>
+      <li>
         <router-link :to="{name: 'symposium'}">
           <span>Fachtagung</span>
         </router-link>

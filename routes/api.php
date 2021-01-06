@@ -147,7 +147,15 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('symposium/subscribe', 'Api\SymposiumSubscriberController@store');
     Route::put('symposium/{symposiumSubscriber}', 'Api\SymposiumSubscriberController@update');
     Route::delete('symposium/{symposiumSubscriber}', 'Api\SymposiumSubscriberController@cancel');
+  });
 
+  // Vip address routes
+  Route::middleware('role:admin')->group(function() {
+    Route::get('vip-addresses', 'Api\VipAddressController@get');
+    Route::get('vip-address/{vipAddress}', 'Api\VipAddressController@find');
+    Route::post('vip-address', 'Api\VipAddressController@store');
+    Route::put('vip-address/{vipAddress}', 'Api\VipAddressController@update');
+    Route::delete('vip-address/{vipAddress}', 'Api\VipAddressController@destroy');
   });
 
 });

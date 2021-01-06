@@ -93,6 +93,7 @@ Route::middleware('auth:sanctum', 'verified')->group(function() {
   Route::get('/export/fachtagung/teilnehmerliste', 'DownloadController@exportSymposiumParticipants')->middleware('role:admin');
   Route::get('/export/adressliste/studenten', 'DownloadController@exportStudentAddresses')->middleware('role:admin');
   Route::get('/export/adressliste/dozenten', 'DownloadController@exportTutorAddresses')->middleware('role:admin');
+  Route::get('/export/adressliste/vip', 'DownloadController@exportVipAddresses')->middleware('role:admin');
 
 
   // Downloads for students
