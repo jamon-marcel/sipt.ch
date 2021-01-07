@@ -15,8 +15,8 @@ class CreateVipAddressesTable extends Migration
     {
         Schema::create('vip_addresses', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('firstname', 100);
-            $table->string('name', 100);
+            $table->string('firstname', 100)->nullable();
+            $table->string('name', 100)->nullable();
             $table->string('title', 100)->nullable();
             $table->string('role', 100)->nullable();
             $table->string('company', 100)->nullable();

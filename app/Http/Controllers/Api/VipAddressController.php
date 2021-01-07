@@ -3,12 +3,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DataCollection;
 use App\Models\VipAddress;
-use App\Http\Requests\VipAddressStoreRequest;
 use Illuminate\Http\Request;
 
 class VipAddressController extends Controller
 {
-
   public function __construct(VipAddress $vipAddress)
   {
     $this->vipAddress = $vipAddress;
@@ -43,7 +41,7 @@ class VipAddressController extends Controller
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(VipAddressStoreRequest $request)
+  public function store(Request $request)
   {
     $vipAddress = VipAddress::create($request->all());
     $vipAddress->save();
@@ -57,7 +55,7 @@ class VipAddressController extends Controller
    * @param  \Illuminate\Http\Request $request
    * @return \Illuminate\Http\Response
    */
-  public function update(VipAddress $vipAddress, VipAddressStoreRequest $request)
+  public function update(VipAddress $vipAddress, Request $request)
   {
     $vipAddress->update($request->all());
     $vipAddress->save();

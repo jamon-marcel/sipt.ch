@@ -11,15 +11,13 @@
           <label>Anrede</label>
           <input type="text" v-model="address.gender">
         </div>
-        <div :class="[this.errors.firstname ? 'has-error' : '', 'form-row']">
-          <label>Vorname *</label>
+        <div class="form-row">
+          <label>Vorname</label>
           <input type="text" v-model="address.firstname">
-          <label-required />
         </div>
-        <div :class="[this.errors.name ? 'has-error' : '', 'form-row']">
-          <label>Name *</label>
+        <div class="form-row">
+          <label>Name</label>
           <input type="text" v-model="address.name">
-          <label-required />
         </div>
         <div class="form-row">
           <label>Firma</label>
@@ -143,12 +141,6 @@ export default {
         country: null,
         phone: null,
         mobile: null,
-      },
-
-      // Validation
-      errors: {
-        firstname: false,
-        name: false,
       },
 
       // Loading states
