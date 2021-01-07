@@ -9,6 +9,7 @@ class NewsletterSubscriber extends Model
   
 	protected $fillable = [
     'email',
-    'is_done'
+    'is_done',
+    'is_confirmed'
 	];
 }

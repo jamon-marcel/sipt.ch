@@ -44,7 +44,12 @@ Route::get('/jubilaeums-fachtagung-15-jahre-sipt/abmeldung/{symposiumSubscriber}
 Route::get('/jubilaeums-fachtagung-15-jahre-sipt/abmeldung-erfolgreich', 'SymposiumController@cancelled')->name('symposium_cancelled');
 
 // Newsletter
+Route::get('/newsletter', 'NewsletterController@index')->name('newsletter_index');
+Route::post('/newsletter/anmelden', 'NewsletterController@register')->name('newsletter_register');
 Route::get('/newsletter/abbestellen/{newsletterSubscriber}', 'NewsletterController@cancel')->name('newsletter_cancel');
+Route::get('/newsletter/bestaetigung/{newsletterSubscriber}', 'NewsletterController@confirm')->name('newsletter_confirm');
+Route::get('/newsletter/import', 'NewsletterController@import')->name('newsletter_import');
+
 
 // TOC
 Route::get('/agb', 'AboutController@toc')->name('about_toc');

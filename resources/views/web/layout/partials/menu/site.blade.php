@@ -82,9 +82,9 @@
             <a href="{{ route('logout') }}">Logout</a>
           </li>
         @endauth
-        {{-- <li>
-          <a href="">Newsletter</a>
-        </li> --}}
+        <li>
+          <a href="{{ route('newsletter_index')}}" class="{{ request()->routeIs('newsletter*') ? 'is-active' : '' }}">Newsletter</a>
+        </li>
         <li>
           <a href="{{ route('downloads_index')}}" class="{{ request()->routeIs('downloads_index') ? 'is-active' : '' }}">Downloads</a>
         </li>

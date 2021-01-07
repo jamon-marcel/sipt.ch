@@ -1,7 +1,9 @@
 <nav class="meta-menu">
   <ul>
     {{-- <li><a href="javascript:;" class="js-btn-calendar">Kalender</a></li> --}}
-    {{-- <li><a href="javascript:;" class="js-btn-newsletter">Newsletter</a></li> --}}
+    <li>
+      <a href="{{ route('newsletter_index')}}" class="{{ request()->routeIs('newsletter_index') ? 'is-active' : '' }}">Newsletter</a>
+    </li>
     <li>
       <a href="{{ route('downloads_index')}}" class="{{ request()->routeIs('downloads_index') ? 'is-active' : '' }}">Downloads</a>
     </li>

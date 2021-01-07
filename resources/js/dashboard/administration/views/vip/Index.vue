@@ -16,10 +16,12 @@
         :key="a.id"
       >
         <div class="listing__item-body">
-          {{a.name }} <separator /> {{ a.firstname}} <separator /> {{ a.city }}
+          <span v-if="a.name">{{a.name }} <separator /></span>
+          <span v-if="a.firstname">{{ a.firstname}} <separator /></span>
           <span v-if="a.company">
-            <separator />{{ a.company }}
+            {{ a.company }} <separator />
           </span>
+          {{ a.city }}
         </div>
         <list-actions 
           :id="a.id" 

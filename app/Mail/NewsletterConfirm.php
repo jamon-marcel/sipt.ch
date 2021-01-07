@@ -5,7 +5,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class Newsletter extends Mailable
+class NewsletterConfirm extends Mailable
 {
   use Queueable, SerializesModels;
 
@@ -28,25 +28,13 @@ class Newsletter extends Mailable
    */
   public function build()
   {
-    $mail = $this->subject('SIPT News')
+    $mail = $this->subject('SIPT Newsletter - E-Mail bestätigen')
                   ->with(
                     [
                       'subscriber' => $this->data['subscriber'],
                     ]
                   )
-                 ->markdown('mails.newsletter.index');
-    
-    if ($this->data['attachments'])
-    {
-      foreach($this->data['attachments'] as $file)
-      {
-        if ($file)
-        {
-          $mail->attach($file, ['mime' => 'application/pdf']);
-        }
-      }
-    }
-    
+                 ->markdown('mails.newsletter.confirm');
     return $mail;
   }
 }
