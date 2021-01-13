@@ -5,11 +5,6 @@
 <section class="theme-light order-1">
   <x-header title="Aktuell" />
   <article>
-    <h2>Jubiläums-Fachtagung — 15 Jahre SIPT</h2>
-    <p>Am 10. Oktober 2020 führte das SIPT seine Jubiläums-Tagung zum 15jährigen Bestehen durch. Wir freuen uns, Ihnen die Folien der Vorträge zum „Nachlesen“ zur Verfügung stellen zu können. Es war eine spannende und lehrreiche Tagung! Auf Anfrage können die Folien von Herrn Prof. Dr. Lutz Wittmann bei uns angefordert werden.</p>
-    <p><a href="/storage/downloads/sipt-fachtagung-vortraege.zip" target="_blank" class="btn-download" title="Download Folien der Vorträge">Download Folien der Vorträge</a></p>
-  </article>
-  <article>
     <h2>Neues Buch – Orientierung für den komplexen Prozess der Traumabehandlung</h2>
     <p>
       Gerne machen wir Sie auf folgendes Buch aufmerksam, welches bei Klett-Cotta erschienen ist.<br>
@@ -33,7 +28,7 @@
     </p>
   </article>
 </section>
-<section class="theme-medium order-2 splash splash--anniversary">
+<section class="theme-medium order-2 splash">
   <div class="splash__title">Willkommen im Schweizer Institut für Psychotraumatologie</div>
 </section>
 @endsection

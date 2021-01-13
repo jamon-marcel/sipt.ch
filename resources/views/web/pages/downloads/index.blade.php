@@ -4,6 +4,12 @@
 @section('section')
 <section class="theme-light">
   <x-header title="Downloads" />
+
+  <article>
+    <a href="/storage/downloads/sipt-fachtagung-vortraege.zip" target="_blank" class="btn-download" title="Download Folien der Vorträge">
+    <strong>Vorträge «Jubiläums-Fachtagung — 15 Jahre SIPT»</strong> [PDF, 14.6MB]
+    </a>
+  </article>
   <article>
     <a href="/storage/downloads/sipt-bildungsangebot-fuer-beraterinnen.pdf" target="_blank" class="btn-download" title="Bildungsangebot für BeraterInnen">
       <strong>Bildungsangebot für BeraterInnen</strong> [PDF, 70KB]
