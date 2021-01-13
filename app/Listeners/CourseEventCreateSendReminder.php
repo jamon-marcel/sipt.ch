@@ -68,7 +68,7 @@ class CourseEventCreateSendReminder
   public function notify($courseEvent, $tutors)
   {
     $hasMap = false;
-    if ($courseEvent->location->maps_file)
+    if ($courseEvent->location->maps_file && !$courseEvent->is_online)
     {
       $attachments[] =  public_path() . '/storage/downloads/' . $courseEvent->location->maps_file;
       $hasMap = true;
