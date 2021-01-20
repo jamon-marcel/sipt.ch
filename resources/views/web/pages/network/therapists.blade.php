@@ -156,9 +156,10 @@
         
         <p><strong>Dipl. Psych. Mohamed, Amr</strong><br>
         Psychologe, Daseinsanalytiker<br>
-        AOZ Zypressenstrasse 60<br>
-        8080 Zürich<br>
-        <a href="mailto:amr.mohamed@aoz.ch">amr.mohamed@aoz.ch</a></p>
+        Rigistrasse 6<br>
+        8006 Zürich<br>
+        Telefon: 044 364 33 66<br>
+        <a href="mailto:tanner.mohamed@bluewin.ch">tanner.mohamed@bluewin.ch</a></p>
         
         <p><strong>Dr. med. Möller, Elisabeth</strong><br>
         Fachärztin für Psychiatrie und Psychotherapie; Psychoanalytikerin
