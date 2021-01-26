@@ -9,45 +9,86 @@
         <span>Hinzufügen</span>
       </router-link>
     </header>
-    <div class="listing" v-if="addresses.length">
-      <div
-        class="listing__item"
-        v-for="a in addresses"
-        :key="a.id"
-      >
-        <div class="listing__item-body">
-          <span v-if="a.name">{{a.name }} <separator /></span>
-          <span v-if="a.firstname">{{ a.firstname}} <separator /></span>
-          <span v-if="a.company">
-            {{ a.company }} <separator />
-          </span>
-          {{ a.city }}
+    <div v-if="results">
+      <div class="listing" v-if="results.students.length">
+        <div 
+          class="listing__item"
+          v-for="(student, index) in results.students" 
+          :key="index">
+          <div class="listing__item-body">
+            {{student.firstname}} {{student.name}} <separator /> {{student.city}} <separator /> {{student.user.email}}
+            <div class="bubble bubble-info" v-if="student.is_active">Student (A)</div>
+            <div class="bubble bubble-warning" v-else>Student (I)</div>
+          </div>
         </div>
-        <list-actions 
-          :id="a.id" 
-          :record="a"
-          :hasToggle="false"
-          :routes="{edit: 'vip-address-edit'}">
-        </list-actions>
+      </div>
+      <div class="listing" v-if="results.tutors.length">
+        <div 
+          class="listing__item"
+          v-for="(tutor, index) in results.tutors" 
+          :key="index">
+          <div class="listing__item-body">
+            {{tutor.firstname}} {{tutor.name}} <separator /> {{tutor.city}} <separator /> {{tutor.user.email}}  <div class="bubble bubble-info">Dozent</div>
+          </div>
+        </div>
+      </div>
+      <div class="listing" v-if="results.vip.length">
+        <div 
+          class="listing__item"
+          v-for="(v, index) in results.vip" 
+          :key="index">
+          <div class="listing__item-body">
+            {{v.firstname}} {{v.name}} <separator /> {{v.city}} <div class="bubble bubble-info">VIP</div>
+          </div>
+        </div>
       </div>
     </div>
     <div v-else>
-      <p class="no-records">Es sind noch keine VIP-Adressen vorhanden...</p>
+      <div class="listing" v-if="addresses.length">
+        <div
+          class="listing__item"
+          v-for="a in addresses"
+          :key="a.id"
+        >
+          <div class="listing__item-body">
+            <span v-if="a.name">{{a.name }} <separator /></span>
+            <span v-if="a.firstname">{{ a.firstname}} <separator /></span>
+            <span v-if="a.company">
+              {{ a.company }} <separator />
+            </span>
+            {{ a.city }}
+          </div>
+          <list-actions 
+            :id="a.id" 
+            :record="a"
+            :hasToggle="false"
+            :routes="{edit: 'vip-address-edit'}">
+          </list-actions>
+        </div>
+      </div>
+      <div v-else>
+        <p class="no-records">Es sind noch keine VIP-Adressen vorhanden...</p>
+      </div>
     </div>
     <footer class="module-footer">
-      <div class="flex-fe flex-vc">
-        <a :href="'/export/adressliste/vip?v=' + randomString()" class="btn-primary has-icon" target="_blank">
-          <download-icon size="16"></download-icon>
-          <span>Export VIP</span>
-        </a>
-        <a :href="'/export/adressliste/dozenten?v=' + randomString()" class="btn-primary has-icon" target="_blank">
-          <download-icon size="16"></download-icon>
-          <span>Export Dozenten</span>
-        </a>
-        <a :href="'/export/adressliste/studenten?v=' + randomString()" class="btn-primary has-icon" target="_blank">
-          <download-icon size="16"></download-icon>
-          <span>Export Studenten</span>
-        </a>
+      <div class="flex-fe flex-sb">
+        <div>
+          <a :href="'/export/adressliste/vip?v=' + randomString()" class="btn-primary has-icon" target="_blank">
+            <download-icon size="16"></download-icon>
+            <span>Export VIP</span>
+          </a>
+          <a :href="'/export/adressliste/dozenten?v=' + randomString()" class="btn-primary has-icon" target="_blank">
+            <download-icon size="16"></download-icon>
+            <span>Export Dozenten</span>
+          </a>
+          <a :href="'/export/adressliste/studenten?v=' + randomString()" class="btn-primary has-icon" target="_blank">
+            <download-icon size="16"></download-icon>
+            <span>Export Studenten</span>
+          </a>
+        </div>
+        <div style="max-width: 360px; margin-left: 20px; width: 100%">
+          <input type="text" placeholder="Suche nach Name" v-model="keyword" @blur="search()">
+        </div>
       </div>
     </footer>
   </div>
@@ -81,7 +122,9 @@ export default {
     return {
       isLoading: false,
       isFetched: false,
-      addresses: []
+      addresses: [],
+      keyword: null,
+      results: false,
     };
   },
 
@@ -108,6 +151,13 @@ export default {
         });
       }
     },
+
+    search() {
+      this.axios.post('/api/search-address', {keyword: this.keyword}).then(response => {
+        this.results = response.data;
+        this.keyword = null;
+      });
+    }
   }
 }
 </script>

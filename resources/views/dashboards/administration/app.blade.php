@@ -14,12 +14,12 @@
 <meta name="theme-color" content="#ffffff">
 <link rel="dns-prefetch" href="//fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-<link href="{{ asset('assets/dashboard/css/app.css') }}" rel="stylesheet">
+<link href="{{ mix('assets/dashboard/css/app.css') }}" rel="stylesheet">
 </head>
 <body>
 <div id="app-administration">
   <app-component />
 </div>
-<script src="{{ asset('assets/dashboard/js/bundle.administration.js') }}" defer></script>
+<script src="{{ mix('assets/dashboard/js/bundle.administration.js') }}" defer></script>
 </body>
 </html>

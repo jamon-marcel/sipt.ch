@@ -158,4 +158,9 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::delete('vip-address/{vipAddress}', 'Api\VipAddressController@destroy');
   });
 
+  // Search address routes
+  Route::middleware('role:admin')->group(function() {
+    Route::post('search-address', 'Api\SearchAddressController@search');
+  });
+
 });
