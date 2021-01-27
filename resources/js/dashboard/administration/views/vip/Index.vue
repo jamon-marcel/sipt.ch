@@ -25,7 +25,7 @@
                 <a
                   href="javascript:;"
                   class="feather-icon"
-                  @click.prevent="copy(student.firstname + ';' + student.name + ';' + student.city + ';' + student.user.email + ';' + (student.is_active ? 'active' : 'inactive') + ';student')"
+                  @click.prevent="copy(student.firstname + ';' + student.name + ';' + student.city + ';' + student.user.email +  ';student;' + (student.is_active ? 'active' : 'inactive'))"
                 >
                   <copy-icon size="18"></copy-icon>
                 </a>
@@ -46,7 +46,7 @@
                 <a
                   href="javascript:;"
                   class="feather-icon"
-                  @click.prevent="copy(tutor.firstname + ';' + tutor.name + ';' + tutor.city + ';' + tutor.user.email)"
+                  @click.prevent="copy(tutor.firstname + ';' + tutor.name + ';' + tutor.city + ';' + tutor.user.email + ';' + 'tutor;')"
                 >
                   <copy-icon size="18"></copy-icon>
                 </a>
@@ -67,7 +67,7 @@
                 <a
                   href="javascript:;"
                   class="feather-icon"
-                  @click.prevent="copy(v.firstname + ';' + v.name + ';' + v.city + ';' + v.email)"
+                  @click.prevent="copy(v.firstname + ';' + v.name + ';' + v.city + ';' + v.email + ';' + 'vip;')"
                 >
                   <copy-icon size="18"></copy-icon>
                 </a>
