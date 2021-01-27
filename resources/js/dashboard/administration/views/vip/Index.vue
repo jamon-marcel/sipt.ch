@@ -20,6 +20,17 @@
             <div class="bubble bubble-info" v-if="student.is_active">Student (A)</div>
             <div class="bubble bubble-warning" v-else>Student (I)</div>
           </div>
+          <div class="listing__item-action">
+            <div>
+                <a
+                  href="javascript:;"
+                  class="feather-icon"
+                  @click.prevent="copy(student.firstname + ';' + student.name + ';' + student.city + ';' + student.user.email + ';' + (student.is_active ? 'active' : 'inactive') + ';student')"
+                >
+                  <copy-icon size="18"></copy-icon>
+                </a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="listing" v-if="results.tutors.length">
@@ -30,6 +41,17 @@
           <div class="listing__item-body">
             {{tutor.firstname}} {{tutor.name}} <separator /> {{tutor.city}} <separator /> {{tutor.user.email}}  <div class="bubble bubble-info">Dozent</div>
           </div>
+          <div class="listing__item-action">
+            <div>
+                <a
+                  href="javascript:;"
+                  class="feather-icon"
+                  @click.prevent="copy(tutor.firstname + ';' + tutor.name + ';' + tutor.city + ';' + tutor.user.email)"
+                >
+                  <copy-icon size="18"></copy-icon>
+                </a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="listing" v-if="results.vip.length">
@@ -38,7 +60,18 @@
           v-for="(v, index) in results.vip" 
           :key="index">
           <div class="listing__item-body">
-            {{v.firstname}} {{v.name}} <separator /> {{v.city}} <div class="bubble bubble-info">VIP</div>
+            {{v.firstname}} {{v.name}} <separator /> {{v.city}} <separator /> {{v.email}}<div class="bubble bubble-info">VIP</div>
+          </div>
+          <div class="listing__item-action">
+            <div>
+                <a
+                  href="javascript:;"
+                  class="feather-icon"
+                  @click.prevent="copy(v.firstname + ';' + v.name + ';' + v.city + ';' + v.email)"
+                >
+                  <copy-icon size="18"></copy-icon>
+                </a>
+            </div>
           </div>
         </div>
       </div>
@@ -97,7 +130,7 @@
 <script>
 
 // Icons
-import { PlusIcon, DownloadIcon } from 'vue-feather-icons';
+import { PlusIcon, DownloadIcon, CopyIcon } from 'vue-feather-icons';
 
 // Mixins
 import Helpers from "@/global/mixins/Helpers";
@@ -112,7 +145,8 @@ export default {
   components: {
     ListActions,
     PlusIcon, 
-    DownloadIcon
+    DownloadIcon,
+    CopyIcon
   },
 
   mixins: [Helpers, DateTime, ErrorHandling],
@@ -157,7 +191,13 @@ export default {
         this.results = response.data;
         this.keyword = null;
       });
-    }
+    },
+
+    copy(data) {
+      this.$copyText(data).then(function (e) {
+        console.log(data);
+      });
+    },
   }
 }
 </script>

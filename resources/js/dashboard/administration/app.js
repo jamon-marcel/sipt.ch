@@ -30,6 +30,10 @@ Vue.use(VueRouter);
 // Vue-Moment
 Vue.use(require('vue-moment'));
 
+// Vue-Clipboard
+import VueClipboard from 'vue-clipboard2';
+Vue.use(VueClipboard);
+
 // Loading indicator
 import LoadingIndicator from "@/global/components/ui/LoadingIndicator";
 Vue.component('LoadingIndicator', LoadingIndicator);
