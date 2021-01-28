@@ -157,6 +157,13 @@ class TutorController extends Controller
                               ->get();
       break;
 
+      // Past events
+      case 'past':
+        $courseEvents = $tutor->courseEventDates('past')
+                              ->with('courseEvent.course', 'courseEvent.location')
+                              ->get();
+      break;
+
       // All events
       default:
         $courseEvents = $tutor->courseEventDates()

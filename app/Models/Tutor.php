@@ -46,6 +46,10 @@ class Tutor extends Model
 		{
 			return $this->hasMany('App\Models\CourseEventDate')->where('date', '>=', date('Y.m.d', time()))->orderBy('date');
 		}
+		else if ($constraint == 'past')
+		{
+			return $this->hasMany('App\Models\CourseEventDate')->where('date', '<', date('Y.m.d', time()))->orderBy('date');
+		}
 		return $this->hasMany('App\Models\CourseEventDate')->orderBy('date');
 	}
 
