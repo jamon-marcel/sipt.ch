@@ -235,11 +235,13 @@
         <p><strong>Schmid, Nuria</strong><br>
         Eidgenössisch anerkannte Psychotherapeutin<br>
         Fachpsychologin für Psychotraumatologie SIPT/DIPT<br>
-        Sanatorium Kirchberg / Zentrum für Psychosomatik<br>
-        Selnaustrasse 6<br>
-        8001 Zürich<br>
-        <a href="mailto:Nuria.Schmid@sanatorium-kilchberg.ch">Nuria.Schmid@sanatorium-kilchberg.ch</a><br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p>
+        Zentralstrasse 2<br>
+        8003 Zürich<br>
+        Telefon: 077 400 90 66<br>
+        <a href="mailto:nuria.schmid@fsp-hin.ch">nuria.schmid@fsp-hin.ch</a><br>
+        (keine Abrechnung über die Grundversicherung möglich)
+        </p>
+
         
         <p><strong>Dr. med. Schwald, Oliver</strong><br>
         Facharzt für Psychiatrie und Psychotherapie; Psychoanalytiker<br>
