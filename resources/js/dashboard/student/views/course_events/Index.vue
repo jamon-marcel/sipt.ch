@@ -39,22 +39,46 @@
           <div class="no-records" v-else>Es sind keine Module vorhanden...</div>
           <course-event-register :records="courses.booked"></course-event-register>
         </template>
+
+        <template v-if="isFetchedCoursesCompleted">
+          <div class="sb-md sa-md">
+            <h2>Kürzlich besuchte Module (Teilnamebestätigung ausstehend)</h2>
+            <course-events-list
+              :records="courses.completed"
+              :hasDetail="true"
+              :hasDestroy="false"
+              v-if="courses.completed.length"
+            ></course-events-list>
+            <div class="no-records" v-else>Es sind keine Module vorhanden...</div>
+          </div>
+        </template>
+
         <template v-if="isFetchedCoursesAttended">
-          <h2>Absolvierte Module</h2>
+          <h2>Abgeschlossene Module</h2>
           <div class="listing" v-if="courses.attended.length">
             <div class="listing__item" v-for="r in courses.attended" :key="r.id">
               <div class="listing__item-body">
                 <span class="item-date">{{r.dates}}</span>
                 <separator />
-                {{ r.title }}
+                {{ r.title | truncate(50, '...') }}
                 <separator />
                 {{ r.tutors }}
               </div>
               <div class="listing__item-action">
-                <a :href="'/download/kursbestaetigung/' + r.id" class="feather-icon" target="_blank" title="Kursbestätigung herunterladen">
-                  <download-cloud-icon size="20"></download-cloud-icon>
-                </a>
-              </div>
+                <div>
+                  <a :href="'/download/kursbestaetigung/' + r.id" class="feather-icon" target="_blank" title="Kursbestätigung herunterladen">
+                    <download-cloud-icon size="20"></download-cloud-icon>
+                  </a>
+                  </div>
+                  <div>
+                    <router-link
+                      :to="{name: 'course-event-show', params: { id: r.id }}"
+                      class="feather-icon"
+                    >
+                      <arrow-up-right-icon size="18"></arrow-up-right-icon>
+                    </router-link>
+                  </div>
+                </div>
             </div>
           </div>
           <div class="no-records" v-else>Es sind keine Module vorhanden...</div>
@@ -73,7 +97,7 @@
 <script>
 
 // Icons
-import { AwardIcon, XIcon, DownloadCloudIcon } from "vue-feather-icons";
+import { AwardIcon, XIcon, DownloadCloudIcon, ArrowUpRightIcon } from "vue-feather-icons";
 
 // Mixins
 import Helpers from "@/global/mixins/Helpers";
@@ -89,7 +113,8 @@ export default {
     CourseEventRegister,
     AwardIcon,
     DownloadCloudIcon,
-    XIcon
+    XIcon,
+    ArrowUpRightIcon
   },
 
   mixins: [Helpers, DateTime],
@@ -98,11 +123,13 @@ export default {
     return {
       courses: {
         booked: {},
+        completed: {},
         attended: {}
       },
       isFetched: false,
       isFetchedCoursesBooked: false,
       isFetchedCoursesAttended: false,
+      isFetchedCoursesCompleted: false,
       isLoading: false,
       hasOverlay: false,
 
@@ -128,6 +155,17 @@ export default {
           id: x.id
         }));
         this.isFetchedCoursesBooked = true;
+      });
+
+      // Get completed courses
+      this.axios.get(`/api/student/course/events/completed`).then(response => {
+        this.courses.completed = response.data.courseEvents.map(x => ({
+          title: x.course.title,
+          dates: this.datesToString(x.dates),
+          tutors: this.tutorsToString(x.dates),
+          id: x.id
+        }));
+        this.isFetchedCoursesCompleted = true;
       });
 
       // Get attended courses

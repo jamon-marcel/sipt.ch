@@ -57,6 +57,14 @@ class Student extends Model
 									->withPivot('has_attendance', 'booking_number', 'is_billed', 'is_invited', 'created_at')
 									->where('dateStart', '>=', date('Y.m.d', time()));
 		}
+		else if ($constraint == 'completed')
+		{
+			return $this->belongsToMany('App\Models\CourseEvent')
+									->orderBy('dateStart')
+									->withPivot('has_attendance', 'booking_number', 'is_billed', 'is_invited', 'created_at')
+									->where('is_closed', '=', 0)
+									->where('dateStart', '<', date('Y.m.d', time()));
+		}
 
 		return $this->belongsToMany('App\Models\CourseEvent')
 								->withPivot('has_attendance', 'booking_number', 'is_billed', 'is_invited', 'created_at')

@@ -135,6 +135,15 @@ class StudentController extends Controller
                                 ->get();
       break;
 
+      // Completed events
+      case 'completed':
+        $courseEvents = $student->courseEvents('completed')
+                                ->with('course', 'location', 'dates.tutor')
+                                ->where('has_attendance', '=', 0)
+                                ->where('course_event_student.deleted_at', '=', NULL)
+                                ->get();
+      break;
+
       // Attended events
       case 'attended':
         $courseEvents = $student->courseEvents()
