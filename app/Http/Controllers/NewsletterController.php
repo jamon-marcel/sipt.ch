@@ -107,7 +107,7 @@ class NewsletterController extends BaseController
    */
   public function import()
   {
-    $users = $this->user->get();
+    $users = $this->user->where('is_newsletter_subscriber', '=', '1')->get();
     if ($users)
     {
       foreach($users as $u)

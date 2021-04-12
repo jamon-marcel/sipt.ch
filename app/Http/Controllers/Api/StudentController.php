@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\Student;
 use App\Models\CourseEvent;
 use App\Models\CourseEventStudent;
+use App\Services\NewsletterPreferences;
 use App\Events\CourseEventBooked;
 use App\Events\CourseEventParticipantsChanged;
 use App\Events\CourseEventCancelled;
@@ -21,12 +22,14 @@ class StudentController extends Controller
     Student $student, 
     CourseEvent $courseEvent,
     CourseEventStudent $courseEventStudent,
+    NewsletterPreferences $newsletterPreferences,
     User $user)
   {
     $this->user = $user;
     $this->student = $student;
     $this->courseEvent = $courseEvent;
     $this->courseEventStudent = $courseEventStudent;
+    $this->newsletterPreferences = $newsletterPreferences;
     $this->authorizeResource(Student::class, 'student');
   }
 
@@ -81,6 +84,12 @@ class StudentController extends Controller
     else
     {
       $student->update($request->except('user.email'));
+
+      // Update the students' user newsletter preference
+      $this->newsletterPreferences->update(
+        $this->user->findOrFail($student->user->id),
+        $request->input('user.is_newsletter_subscriber')
+      );
     }
 
     $student->save();

@@ -128,12 +128,20 @@
         <div class="grid-column-sidebar">
           <div>
             <template v-if="isFetched">
-              <div class="form-row is-sm is-last">
+              <div class="form-row is-sm">
                 <radio-button
                   :label="'Bestätigung Ausweisung Kursdauer?'"
                   v-bind:needs_hours_confirmation.sync="student.needs_hours_confirmation"
                   :model="student.needs_hours_confirmation"
                   :name="'needs_hours_confirmation'"
+                ></radio-button>
+              </div>
+              <div class="form-row is-sm is-last">
+                <radio-button
+                  :label="'Aufbautipp / Newsletter erhalten?'"
+                  v-bind:is_newsletter_subscriber.sync="student.user.is_newsletter_subscriber"
+                  :model="student.user.is_newsletter_subscriber"
+                  :name="'is_newsletter_subscriber'"
                 ></radio-button>
               </div>
             </template>
@@ -180,6 +188,7 @@ export default {
       student: {
         user: {
           email: null,
+          is_newsletter_subscriber: 0,
         },
         has_alt_address: false,
       },
