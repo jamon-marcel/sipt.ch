@@ -12,47 +12,6 @@ class DevController extends Controller
     $this->subscriber = $subscriber;  
   }
 
-  public function invite()
-  {
-    // event(new \App\Events\CourseEventInvitation());
-  }
-
-  public function bills()
-  {
-    // event(new \App\Events\SymposiumBill());
-  }
-
-  public function reminder()
-  {
-    //event(new \App\Events\CourseEventReminder());
-  }
-
-  public function message()
-  {
-
-  }
-
-  public function cleanup()
-  {
-    $subscribers = [];
-    
-    if (!empty($subscribers))
-    {
-      foreach($subscribers as $s)
-      {
-        \Mail::to($s)
-            ->bcc('support@sipt.ch')
-            ->send(
-              new \App\Mail\AddressCleanup(
-                [
-                  'subscriber'  => $s,
-                ]
-            )
-        );
-      }
-    }
-  }
-
   public function maskUser()
   {
     $subscribers = $this->subscriber->get();
