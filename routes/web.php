@@ -89,6 +89,7 @@ Route::middleware('auth:sanctum', 'verified')->group(function() {
   Route::get('/bills', 'DevController@bills');
   Route::get('/reminder', 'DevController@reminder');
   Route::get('/message', 'DevController@message');
+  Route::get('/cleanup', 'DevController@cleanup');
 
   // Downloads for tutors / admins
   Route::get('/download/modulliste', 'DownloadController@listCourses')->middleware('role:tutor');

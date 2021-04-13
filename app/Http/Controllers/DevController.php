@@ -32,6 +32,27 @@ class DevController extends Controller
 
   }
 
+  public function cleanup()
+  {
+    $subscribers = [];
+    
+    if (!empty($subscribers))
+    {
+      foreach($subscribers as $s)
+      {
+        \Mail::to($s)
+            ->bcc('support@sipt.ch')
+            ->send(
+              new \App\Mail\AddressCleanup(
+                [
+                  'subscriber'  => $s,
+                ]
+            )
+        );
+      }
+    }
+  }
+
   public function maskUser()
   {
     $subscribers = $this->subscriber->get();
