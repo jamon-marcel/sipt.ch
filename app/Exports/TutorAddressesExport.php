@@ -28,6 +28,7 @@ class TutorAddressesExport implements FromCollection, WithHeadings
         'Telefon' => $t->phone,
         'Mobile' => $t->mobile,
         'E-Mail' => $t->user->email,
+        'Newsletter' => $t->user->is_newsletter_subscriber
       ];
     }
     return collect($data);
@@ -47,6 +48,7 @@ class TutorAddressesExport implements FromCollection, WithHeadings
       'Telefon',
       'Mobile',
       'E-Mail',
+      'Newsletter'
     ];
   }
 }

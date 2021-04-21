@@ -32,6 +32,7 @@ class StudentAddressesExport implements FromCollection, WithHeadings
         'Mobile' => $s->mobile,
         'E-Mail' => $s->user->email,
         'Aktiv' => $active,
+        'Newsletter' => $s->user->is_newsletter_subscriber
       ];
     }
     return collect($data);
@@ -54,6 +55,7 @@ class StudentAddressesExport implements FromCollection, WithHeadings
       'Mobile',
       'E-Mail',
       'Aktiv',
+      'Newsletter'
     ];
   }
 }
