@@ -23,7 +23,7 @@
       <br><a href="/bildungsangebot/modul/kreaktive-hilfe-zur-selbsthilfe-ohne-viel-worte-umgang-mit-traumatiserten-menschen-im-medizinisch-psychosozialen-bereich-mit-nonverbalen-mitteln/0bd8b528-2fc3-40cc-824a-f1cdc088d90b" class="icon-arrow-right">mehr erfahren</a>
     </p>
     <p>
-      <strong>Geistige, psychische und körperliche Behinderung</strong> – ein Einblick in die Traumapädagogik und Traumatherapie<br>Dozent/in: Prof. Dr. Ulrich Elbing und Dipl.-Psych. Birgit Meyer<br>Termin: 8./9. Oktober 2021
+      <strong>Geistige, psychische und körperliche Behinderung</strong> – ein Einblick in die Traumapädagogik und Traumatherapie<br>Dozent/in: Prof. Dr. Ulrich Elbing und Dr.trer.nat., Dipl.-Psych. Birgit Mayer<br>Termin: 8./9. Oktober 2021
       <br><a href="/bildungsangebot/modul/geistige-psychische-und-koerperliche-behinderung-ein-einblick-in-die-traumapaedagogik-und-traumatherapie/f77f416a-6145-44c4-99b5-4d49ea097479" class="icon-arrow-right">mehr erfahren</a>
     </p>
   </article>
