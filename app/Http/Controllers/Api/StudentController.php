@@ -75,8 +75,12 @@ class StudentController extends Controller
     {
       // Update the email
       $user = $this->user->findOrFail($student->user->id);
-      $user->email = $request->input('user.email');
-      $user->save();
+
+      if ($user->email != $request->input('user.email'))
+      {
+        $user->email = $request->input('user.email');
+        $user->save();
+      }
 
       // Update student data
       $student->update($request->all());
