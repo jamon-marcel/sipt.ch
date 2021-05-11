@@ -145,6 +145,15 @@
         <a href="mailto:anna.kresser@clienia.ch">anna.kresser@clienia.ch</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
+        <p><strong>Manuela Shirin Knapp</strong><br>
+        Eidg. anerkannte Psychotherapeutin<br>
+        Fachpsychotherapeutin für Psychotraumatologie SIPT<br>
+        Vogelsangstrasse 52<br>
+        8006 Zürich<br>
+        Telefon: 079 487 23 55<br>
+        <a href="http://www.psychotherapie-knapp.ch/" target="_blank" rel="noopener">hpsychotherapie-knapp.ch</a>
+        </p>
+
         <p><strong>Dr. med. Lechler, Beate</strong><br>
         Ärztin und Coach<br>
         Clienia Winterthur<br>
