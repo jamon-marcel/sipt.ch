@@ -16,7 +16,7 @@ class Newsletter
                 [
                   'subscriber'  => $s,
                   'attachments' => [
-                    public_path() . '/storage/downloads/' . 'sipt-aufbau_04.pdf',
+                    public_path() . '/storage/downloads/' . 'sipt-aufbau_05.pdf',
                   ]
                 ]
           )

@@ -49,6 +49,7 @@ Route::post('/newsletter/anmelden', 'NewsletterController@register')->name('news
 Route::get('/newsletter/abbestellen/{newsletterSubscriber}', 'NewsletterController@cancel')->name('newsletter_cancel');
 Route::get('/newsletter/bestaetigung/{newsletterSubscriber}', 'NewsletterController@confirm')->name('newsletter_confirm');
 Route::get('/newsletter/import', 'NewsletterController@import')->name('newsletter_import');
+Route::get('/newsletter/test', 'NewsletterController@test')->name('newsletter_test');
 
 
 // TOC

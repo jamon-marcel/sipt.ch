@@ -126,4 +126,20 @@ class NewsletterController extends BaseController
       }
     }
   }
+
+  public function test()
+  {
+    $s = $this->newsletterSubscriber->where('email', '=', 'm@marceli.to')->get()->first();
+    \Mail::to('marcel@jamon.digital')
+    ->send(
+      new \App\Mail\Newsletter(
+        [
+          'subscriber'  => $s,
+          'attachments' => [
+            public_path() . '/storage/downloads/' . 'sipt-aufbau_05.pdf',
+          ]
+        ]
+      )
+    );
+  }
 }

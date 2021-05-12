@@ -28,7 +28,7 @@ class Newsletter extends Mailable
    */
   public function build()
   {
-    $mail = $this->subject('SIPT News')
+    $mail = $this->subject('SIPT Aufbautipp Nr.5/2021')
                   ->with(
                     [
                       'subscriber' => $this->data['subscriber'],
