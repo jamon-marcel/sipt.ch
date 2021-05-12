@@ -1,6 +1,7 @@
 @component('mail::message')
-<p><strong>Wie aus Abfall ein Paradies entsteht</strong> – Aufbautipp Nr.5/2021</p>
-<p>Die Tunnelbauer, die sich 57 Kilometer durch das Gotthardmassiv arbeiteten, seien die letzten Pioniere: Sie setzten ihren Fuss auf Boden, auf dem noch kein Mensch vor ihnen gestanden sei. So beschrieb ein Ingenieur seine Faszination für den Bau des Gotthard-Basistunnels. Seine Begeisterung war spürbar, und die Schweizer Ingenieurskunst erhielt viel Applaus. Pionierhaft ist aber auch, was mit einem Teil des Aushubmaterials, quasi dem Abfall, entstand. Die Tunnelbauer transportierten gigantische Mengen Gestein aus dem Berg. Davon sind 2,4 Millionen Tonnen zusammen mit Material aus dem Bau der A4-Umfahrung Flüelen nach 2005 im Urner Reuss-Delta gelandet – und zwar in Form von sechs Bade- und Naturschutzinseln. Drei Inseln gehören den Badegästen als Erholungsraum, drei Inseln dienen Pflanzen und Tieren als Lebensraum. <a href="https://sipt.ch/storage/downloads/sipt-aufbau_05.pdf" target="_blank" class="anchor" style="color: #ff7a00; text-decoration: none;">weiterlesen...</a></p>
+<p>Liebe Kolleginnen und Kollegen</p>
+<p>Mit dem <a href="https://sipt.ch/storage/downloads/sipt-aufbau_05.pdf" target="_blank" class="anchor" style="color: #ff7a00; text-decoration: none;">5. Aufbau-Tipp</a> führt Sie Karin Salm dorthin, wo aus Abfall ein Paradies entsteht.</p>
+<p>Das ganze SIPT-Team wünscht Ihnen einen schönen Sommer!</p>
 <p>Beste Grüsse<br>Rosmarie Barwinski</p>
 <br>
 <p style="font-size: 14px; margin-bottom: 0">Sie möchten keine News vom SIPT mehr erhalten? Klicken Sie bitte <span class="break-all"><a href="{{ route('newsletter_cancel', ['newsletterSubscriber' => $subscriber->id]) }}" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</span></p>
