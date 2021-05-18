@@ -68,6 +68,18 @@ class BackofficeController extends Controller
   }
 
   /**
+   * Get a course events for a given course number
+   *
+   * @param string $number
+   * @return \Illuminate\Http\Response
+   */
+  public function getCourseByNumber($number = NULL)
+  {
+    $courses = $this->course->with('events')->where('number', '=', $number)->get()->first();
+    return response()->json($courses);
+  }
+
+  /**
    * Set attendance for a given student
    * 
    * @param Student $student
