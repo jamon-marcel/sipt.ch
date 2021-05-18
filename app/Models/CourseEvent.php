@@ -104,7 +104,7 @@ class CourseEvent extends Model
 	public function scopeBillable($query)
 	{
 		$constraint = date('Y-m-d', strtotime(\Config::get('sipt.billable_deadline')));
-		return $query->where('dateStart', '<=', $constraint)->where('is_published', '=', 1)->where('is_cancelled', '=', 0)->where('is_closed', '=', 0)->get();
+		return $query->where('dateStart', '<=', $constraint)->where('is_cancelled', '=', 0)->where('is_closed', '=', 0)->get();
 	}
 
   /**
