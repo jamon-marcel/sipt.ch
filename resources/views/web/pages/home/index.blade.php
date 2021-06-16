@@ -15,16 +15,12 @@
     <h2>Neue Kursangebote</h2>
     <p>Gerne weisen wir auf neue Kursangebote hin, die Sie unter „Spezielle Themen der Psychotraumatologie“ finden können:</p>
     <p>
-      <strong>wingwave zur Linderung von posttraumatischem Stress</strong><br>Dozentin: Catherine De Clercq<br>Termin: 29./30. Oktober 2021
-      <br><a href="/bildungsangebot/modul/wingwave-zur-linderung-von-posttraumatischem-stress/06a1d997-4721-454e-b279-9777fb464c77" class="icon-arrow-right">mehr erfahren</a>
+      <strong>Disputationen und Sokratische Dialoge in der Traumatherapie</strong><br>Dozent: Tarik Hizli<br>Termin: 17./18. Dezember 2021
+      <br><a href="/bildungsangebot/modul/disputationen-und-sokratische-dialoge-in-der-traumatherapie-fakultativ/7cd75d97-1b30-4b8c-8093-a81791ec2145" class="icon-arrow-right">mehr erfahren</a>
     </p>
     <p>
-      <strong>KreaKtive Hilfe zur Selbsthilfe</strong> – ohne viele Worte: Umgang mit traumarisierten Menschen im medizinisch psychosozialen Bereich mit nonverbalen Mitteln<br>Dozentin: Bea Götz<br>Termin: 25./26. Juni 2021
-      <br><a href="/bildungsangebot/modul/kreaktive-hilfe-zur-selbsthilfe-ohne-viel-worte-umgang-mit-traumatiserten-menschen-im-medizinisch-psychosozialen-bereich-mit-nonverbalen-mitteln/0bd8b528-2fc3-40cc-824a-f1cdc088d90b" class="icon-arrow-right">mehr erfahren</a>
-    </p>
-    <p>
-      <strong>Geistige, psychische und körperliche Behinderung</strong> – ein Einblick in die Traumapädagogik und Traumatherapie<br>Dozent/in: Prof. Dr. Ulrich Elbing und Dr.trer.nat., Dipl.-Psych. Birgit Mayer<br>Termin: 8./9. Oktober 2021
-      <br><a href="/bildungsangebot/modul/geistige-psychische-und-koerperliche-behinderung-ein-einblick-in-die-traumapaedagogik-und-traumatherapie/f77f416a-6145-44c4-99b5-4d49ea097479" class="icon-arrow-right">mehr erfahren</a>
+      <strong>Diagnostik: Der Körper als sichtbare Bühne, innere und äussere Prozesse</strong><br>Dozentin: Jutta Müllers<br>Termin: 24./25. September 2021
+      <br><a href="/bildungsangebot/modul/diagnostik-der-koerper-als-sichtbare-buehne-innere-und-aeussere-prozesse/e0efd94e-53b7-4df5-859d-6d4255b49f19" class="icon-arrow-right">mehr erfahren</a>
     </p>
   </article>
 </section>
