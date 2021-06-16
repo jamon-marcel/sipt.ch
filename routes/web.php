@@ -58,6 +58,10 @@ Route::get('/agb', 'AboutController@toc')->name('about_toc');
 // Downloads
 Route::get('/downloads', 'DownloadController@index')->name('downloads_index');
 
+// 
+Route::get('/stelleninserate', 'AboutController@jobs')->name('jobs_index');
+
+
 // Bookings
 Route::get('/booking/{courseEvent}', 'BookingController@add');
 Route::post('/booking/cancel/confirm', 'BookingController@destroy')->name('booking_cancel_confirm');

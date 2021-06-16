@@ -70,6 +70,17 @@ class AboutController extends BaseController
   }
 
   /**
+   * Show the jobs page
+   *
+   * @return \Illuminate\Http\Response
+   */
+
+  public function jobs()
+  { 
+    return view($this->viewPath . 'jobs');
+  }
+
+  /**
    * Show the toc
    *
    * @return \Illuminate\Http\Response
