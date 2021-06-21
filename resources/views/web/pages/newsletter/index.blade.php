@@ -9,6 +9,15 @@
     <p>Das SIPT wünscht Ihnen in Ihrer Tätigkeit viele kleine positive Momente – Momente, die wir alle brauchen, um die Belastungen unserer Tätigkeit, aber auch das aktuelle Zeitgeschehen zu verarbeiten. Mit kurzen „Aufbau-Tipps” will das SIPT in unregelmässigen Abständen zu solchen Momenten beitragen.</p>
   </article>
   <article>
+    <a href="/storage/downloads/sipt-aufbau_05.pdf" target="_blank" class="btn-download" title="Download PDF">
+      <strong>Aufbau-Tipp Nr. 5 / Mai 2021</strong> [PDF, 4.1MB]
+    </a>
+    <div class="list">
+      <div class="list__item">Wie aus Abfall ein Paradies entsteht</div>
+      <div class="list__item">Eine Winter – Frühlings – Sommer – Herbst – Wanderung</div>
+    </div>
+  </article>
+  <article>
     <a href="/storage/downloads/sipt-aufbau_04.pdf" target="_blank" class="btn-download" title="Download PDF">
       <strong>Aufbau-Tipp Nr. 4 / Januar 2021</strong> [PDF, 1.8MB]
     </a>
