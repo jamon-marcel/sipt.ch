@@ -8,16 +8,18 @@
         <h2>Zeitraum</h2>
         <div class="form-row is-sm">
           <label class="is-sm">Von</label>
-          <datepicker v-model="dateFrom" :language="de" :format="dateFormat" :typeable="true"></datepicker>
+          <datepicker v-model="dateFrom" :language="de" :format="dateFormat"></datepicker>
         </div>
         <div class="form-row">
           <label class="is-sm">Bis</label>
-          <datepicker v-model="dateTo" :language="de" :format="dateFormat" :typeable="true"></datepicker>
+          <datepicker v-model="dateTo" :language="de" :format="dateFormat"></datepicker>
         </div>
-        <a :href="'/download/modulliste?v=' + randomString() + range+''" class="btn-primary has-icon" target="_blank">
-          <download-icon size="16"></download-icon>
-          <span>Download {{ rangeString }}</span>
-        </a>
+        <div class="flex-vc">
+          <a :href="'/download/modulliste?v=' + randomString() + range+''" class="btn-primary" target="_blank">
+            <span>Download {{ rangeString }}</span>
+          </a>
+          <a href="" @click.prevent="resetPeriode()" class="btn-close">Zurücksetzen</a>
+        </div>
       </div>
     </div>
   </div>
@@ -57,6 +59,10 @@ export default {
     toggleOverlay() {
       this.$parent.toggleOverlay();
     },
+    resetPeriode() {
+      this.dateFrom = null;
+      this.dateTo = null;
+    }
   },
 
   computed: {
