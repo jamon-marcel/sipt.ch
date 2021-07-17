@@ -32,6 +32,11 @@
 		}
 	}
 
+	&.is-disabled {
+		background-color: $color-medium-grey;
+		pointer-events: none;
+	}
+
 	&:hover {
 		background-color: darken($color-primary, 5);
 	}

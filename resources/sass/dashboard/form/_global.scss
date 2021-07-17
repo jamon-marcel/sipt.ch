@@ -74,8 +74,8 @@
 	 width: auto;
 	 @include transition(background-color .1s ease-out, border-color .1s ease-out);
  
-	 &:hover {
-		 background-color: $color-medium-grey;
-		 border-color: $color-medium-grey;
-	 }
+	&:hover {
+		background-color: $color-medium-grey;
+		border-color: $color-medium-grey;
+	}
  }

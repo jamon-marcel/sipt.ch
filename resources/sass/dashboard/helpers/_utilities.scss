@@ -10,6 +10,10 @@
 .align-left { text-align: left; }
 .align-right { text-align: right; }
 
+.is-relative { position: relative; }
+.is-absolute { position: absolute; }
+.is-fixed { position: fixed; }
+
 .sa-xxs { @include responsive-prop('margin-bottom', $space-xxs); }
 .sa-xs  { @include responsive-prop('margin-bottom', $space-xs); }
 .sa-sm  { @include responsive-prop('margin-bottom', $space-sm); }

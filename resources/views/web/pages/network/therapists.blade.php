@@ -102,6 +102,13 @@
         <a href="mailto:frank@bodenseepraxis.ch">frank@bodenseepraxis.ch</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
+        <p><strong>lic. phil. Martina Frei, MSc</strong><br>
+          Eidg. anerkannte Psychotherapeutin<br>
+          Fachpsychotherapeutin für Psychotraumatologie <br>
+          Clienia Psychiatriezentrum Wetzikon<br>
+          Bahnhofstrasse 196, 8620 Wetzikon<br>
+          Telefon: 044 931 39 39
+        </p>
         <p>
           <strong>lic. phil. Ines Geitzsch</strong><br>
           Clienia Gruppenpraxis Uster<br>

@@ -128,10 +128,14 @@ class DownloadController extends BaseController
    * @return \Illuminate\Http\Response
    */
 
-  public function listCourses()
+  public function listCourses(Request $request)
   {
+    $opts = [
+      'dateStart' => $request->from,
+      'dateEnd' => $request->to,
+    ];
     $file = new Document();
-    $file = $file->courseEventsList();
+    $file = $file->courseEventsList($opts);
     return response()->download($file['path'], $file['name'], $this->headers);
   }
 

@@ -78,6 +78,32 @@ class CourseEvent extends Model
 	}
 
   /**
+   * Scope for events by a certain period
+   */
+
+	public function scopeByPeriode($query, $opts)
+	{
+		if (isset($opts['dateStart']) && $opts['dateStart'] && isset($opts['dateEnd']) && $opts['dateEnd'])
+		{
+			$constraintStart = date('Y-m-d', strtotime($opts['dateStart']));
+			$constraintEnd = date('Y-m-d', strtotime($opts['dateEnd']));
+			return $query->where('dateStart', '>=', $constraintStart)->where('dateStart', '<=', $constraintEnd)->get();
+		}
+		else if (isset($opts['dateStart']) && $opts['dateStart'])
+		{
+			$constraintStart = date('Y-m-d', strtotime($opts['dateStart']));
+			return $query->where('dateStart', '>=', $constraintStart)->get();
+		}
+		else if (isset($opts['dateEnd']) && $opts['dateEnd'])
+		{
+			$constraintEnd = date('Y-m-d', strtotime($opts['dateEnd']));
+			return $query->where('dateStart', '<=', $constraintEnd)->get();
+		}
+
+	}
+
+
+	/**
    * Scope for upcoming events
    */
 

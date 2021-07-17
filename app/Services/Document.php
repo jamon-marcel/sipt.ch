@@ -67,12 +67,22 @@ class Document
   /**
    * Create the course events list for all course events
    * 
+   * @param Array $opts
    * @return Array
    */
 
-  public function courseEventsList()
+  public function courseEventsList($opts = [])
   {
-    $courseEvents = CourseEvent::with('course', 'students', 'dates.tutor')->orderBy('dateStart')->upcoming();
+
+    if (isset($opts['dateStart']) || isset($opts['dateEnd']))
+    {
+      $courseEvents = CourseEvent::with('course', 'students', 'dates.tutor')->orderBy('dateStart')->byPeriode($opts);
+      $this->viewData['opts'] = $opts;
+    }
+    else
+    {
+      $courseEvents = CourseEvent::with('course', 'students', 'dates.tutor')->orderBy('dateStart')->upcoming();
+    }
 
     // Create pdf
     $this->viewData['data'] = $courseEvents;

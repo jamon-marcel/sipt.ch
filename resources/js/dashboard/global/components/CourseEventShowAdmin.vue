@@ -72,9 +72,13 @@
                   {{student.firstname}} {{student.name}}
                   <separator />
                   {{student.city}}
-                  <span v-if="student.qualifications">
+                  <!-- <span v-if="student.qualifications">
                     <separator />
                     {{student.qualifications}}
+                  </span> -->
+                  <span v-if="$props.isAdmin">
+                    <separator />
+                    {{student.user.email}}
                   </span>
                 </div>
               </div>

@@ -11,8 +11,10 @@ html.has-overlay {
 
 %overlay,
 .overlay {
+  align-items: center;
   background-color: rgba(240,240,240,.8);
   color: $color-dark;
+  display: flex;
   height: 100%;
   left: 0;
   opacity: 0;

@@ -49,6 +49,10 @@
     pointer-events: none;
   }
 
+  &.is-light {
+    color: $color-light-grey !important;
+  }
+
   &.is-highlight {
     color: $color-primary !important;
   }

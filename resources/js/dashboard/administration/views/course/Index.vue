@@ -1,6 +1,12 @@
 <template>
 <div>
   <loading-indicator v-if="isLoading"></loading-indicator>
+
+  <div v-if="hasOverlay">
+    <export-course></export-course>
+  </div>
+
+
   <div :class="isFetched ? 'is-loaded' : 'is-loading'">
     <header class="content-header flex-sb flex-vc">
       <h1>Module</h1>
@@ -69,13 +75,16 @@
         </div>
       </div>
     </div>
-
     <footer class="module-footer">
       <div class="flex-sb flex-vc">
-        <a :href="'/download/modulliste?v=' + randomString()" class="btn-primary has-icon" target="_blank">
+        <a href="" @click.prevent="toggleOverlay()" class="btn-primary has-icon">
+          <download-icon size="16"></download-icon>
+          <span>Modulliste</span>
+        </a>
+        <!-- <a :href="'/download/modulliste?v=' + randomString()" class="btn-primary has-icon" target="_blank">
           <download-icon size="16"></download-icon>
           <span>Download Modulliste</span>
-        </a>
+        </a> -->
         <router-link :to="{ name: 'course-create' }" class="btn-secondary has-icon">
           <plus-icon size="16"></plus-icon>
           <span>Hinzufügen</span>
@@ -93,6 +102,7 @@ import { PlusIcon, DownloadIcon, DownloadCloudIcon, ArrowUpRightIcon, EditIcon }
 // Components
 import ListActions from "@/global/components/ui/ListActions.vue";
 import ViewSelector from "@/administration/components/ViewSelector.vue";
+import ExportCourse from "@/administration/views/course/Export.vue";
 import Helpers from "@/global/mixins/Helpers";
 
 export default {
@@ -104,7 +114,8 @@ export default {
     DownloadCloudIcon,
     ArrowUpRightIcon,
     EditIcon,
-    ViewSelector
+    ViewSelector,
+    ExportCourse
   },
 
   mixins: [Helpers],
@@ -116,6 +127,9 @@ export default {
       isLoading: false,
       isFetched: false,
       view: 'courses',
+
+      // Overlay
+      hasOverlay: false
     };
   },
 
@@ -172,7 +186,11 @@ export default {
     setView(view) {
       this.view = view;
       this.fetch();
-    }
+    },
+
+    toggleOverlay() {
+      this.hasOverlay = this.hasOverlay ? false : true;
+    },
   }
 }
 </script>
