@@ -8,7 +8,7 @@
     <div class="grid-main-sidebar">
       <div>
         <p>Geben Sie die gewünschte neue E-Mail Adresse ein. Sie erhalten danach eine E-Mail mit einem Link für die Bestätigung der neuen Adresse.</p>
-        <div :class="[this.errors.email ? 'has-error' : '', 'form-row']">
+        <div :class="[this.errors.email ? 'has-error' : '', 'form-row']" style="max-width: 540px">
           <label>Neue E-Mail *</label>
           <input type="text" v-model="email">
           <label-required />

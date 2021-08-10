@@ -113,6 +113,7 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::get('user/tutor', 'Api\UserController@tutor')->middleware('role:tutor');
   Route::get('user/admin', 'Api\UserController@admin')->middleware('role:admin');
   Route::post('user/email', 'Api\UserController@updateEmail');
+  Route::post('user/password', 'Api\UserController@updatePassword');
   Route::post('user/tutor/register', 'Api\UserController@register')->middleware('role:admin');
 
   // Upload routes

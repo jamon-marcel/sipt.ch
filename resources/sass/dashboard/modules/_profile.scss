@@ -9,6 +9,10 @@
   .profile__item {
     @include responsive-prop('margin-bottom', $space-sm);
 
+    &.is-lg {
+      @include responsive-prop('margin-bottom', $space-lg);
+    }
+
     label {
       @include font-size($fs-xs);
       margin-bottom: 4px;

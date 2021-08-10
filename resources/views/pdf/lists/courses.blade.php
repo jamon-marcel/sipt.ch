@@ -43,7 +43,7 @@
                 <td>{{date('d.m.y', strtotime($date->date))}}</td>
               @endforeach
             @else
-              <td>{{date('d.m.y', strtotime($d->dates[0]->date))}}</td>
+              <td>{{ isset($d->dates[0]) ? date('d.m.y', strtotime($d->dates[0]->date)) : ''}}</td>
               <td>-</td>
             @endif
             <td>{{$d->courseNumber}}</td>
@@ -53,7 +53,7 @@
                 <td>{{$date->tutor->name}}</td>
               @endforeach
             @else
-              <td>{{$d->dates[0]->tutor->name}}</td>
+              <td>{{ isset($d->dates[0]) ? $d->dates[0]->tutor->name : ''}}</td>
               <td>-</td>
             @endif
             <td>{{\AppHelper::timesToString($d->dates)}}</td>
