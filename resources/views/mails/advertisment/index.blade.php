@@ -1,0 +1,10 @@
+@component('mail::message')
+<p style="text-align:right">Winterthur, den {{ date('d', time())}}. August 2021</p>
+<p>Sehr geehrte Damen und Herren</p>
+<p>Möchten Sie Ihren Umgang mit SuchtpatientInnen mit einer Traumavorgeschichte verbessern? Wünschen Sie sich einen interdisziplinären Austausch? Gerne möchten wir Sie auf unser Kursangebot «Sucht und Trauma» aufmerksam machen. Lernen Sie im Seminar von unserer sehr praxiserfahrenen Dozentin Christiane Köhler anschaulich die komplexen Zusammenhänge dieser unheiligen Allianz kennen.  Einer Suchterkrankung gehen oft Traumatisierungen im Kindesalter voraus. Und auch in späteren Lebensabschnitten sind Süchtige überdurchschnittlich traumatischen Erfahrungen ausgesetzt.</p>
+<p>Für den Erfolg einer Suchtbehandlung ist es darum zentral, die Wechselbeziehung zwischen Sucht und Trauma zu verstehen und in die Therapie Betroffener mit einzubeziehen. Nur so kann langfristig eine Stabilisierung im Umgang mit Suchtmitteln erlangt werden.</p>
+<p>An Fällen aus Ihrem jeweiligen Arbeitskontext werden in diesem eineinhalbtägigen Workshop Konzepte aus der Traumabehandlung vorgestellt. Sie erlernen das Erkennen von Übertragungsphänomenen und die Erarbeitung wirksamer Handlungsansätze für die Beratung und Therapie betroffener KlientInnen mit dieser Doppeldiagnose von Sucht- und Traumastörung.</p>
+<p>Erfahren Sie mehr über das spezifische Schulungsangebot oder buchen Sie gleich über diesen <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/sucht-und-trauma-fakultativ/7d2f7338-7f98-4f88-9bc8-e5712f6ed504" target="_blank">Link</a>. <small>(https://psychotraumatologie-sipt.ch/bildungsangebot/modul/sucht-und-trauma-fakultativ/7d2f7338-7f98-4f88-9bc8-e5712f6ed504)</small></p>
+<p>Das SIPT freut sich, Sie kennenzulernen und Sie auf Ihrer beruflichen Weiterbildung zu begleiten.</p>
+<p>Beste Grüsse<br>Rosmarie Barwinski</p>
+@endcomponent

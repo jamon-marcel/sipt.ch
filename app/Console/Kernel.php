@@ -6,6 +6,7 @@ use App\Tasks\CourseEventReminder;
 use App\Tasks\SymposiumBills;
 use App\Tasks\Message;
 use App\Tasks\Newsletter;
+use App\Tasks\Advertisment;
 use App\Tasks\SymposiumNews;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -36,6 +37,8 @@ class Kernel extends ConsoleKernel
     // $schedule->call(new SymposiumNews)->everyMinute();
     // $schedule->call(new SymposiumBills)->everyMinute();
     // $schedule->call(new Newsletter)->everyMinute();
+    
+    $schedule->call(new Advertisment)->everyMinute();
   }
 
   /**
