@@ -1,27 +1,27 @@
 <template>
 <div>
-  <label class="is-sm">{{label}}</label>
-    <div class="form-radio">
-      <input
-        v-model="value"
-        type="radio"
-        :name="name + '_1'"
-        :id="name + '_1'"
-        value="1"
-        class="visually-hidden"
-        @change="change($event.target.value)"
-      >
-      <label :for="name + '_1'" class="form-control">{{labelTrue}}</label>
-      <input
-        v-model="value"
-        type="radio"
-        :name="name + '_0'"
-        :id="name + '_0'"
-        value="0"
-        class="visually-hidden"
-        @change="change($event.target.value)"
-      >
-      <label :for="name + '_0'" class="form-control">{{labelFalse}}</label>
+  <label :class="labelClass">{{label}}</label>
+  <div class="form-radio">
+    <input
+      v-model="value"
+      type="radio"
+      :name="name + '_1'"
+      :id="name + '_1'"
+      value="1"
+      class="visually-hidden"
+      @change="change($event.target.value)"
+    >
+    <label :for="name + '_1'" class="form-control">{{labelTrue}}</label>
+    <input
+      v-model="value"
+      type="radio"
+      :name="name + '_0'"
+      :id="name + '_0'"
+      value="0"
+      class="visually-hidden"
+      @change="change($event.target.value)"
+    >
+    <label :for="name + '_0'" class="form-control">{{labelFalse}}</label>
   </div>
 </div>
 </template>
@@ -48,6 +48,10 @@ export default {
     labelFalse: {
       type: String,
       default: 'Nein',
+    },
+    labelClass: {
+      type: String,
+      default: 'is-sm'
     }
   },
 

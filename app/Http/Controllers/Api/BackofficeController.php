@@ -206,9 +206,9 @@ class BackofficeController extends Controller
    */
   public function addCourseEventStudent(Request $request)
   {
-    // 
     $studentId = $request->studentId;
     $courseEventId = $request->courseEventId;
+    $isBilled = $request->is_billed;
 
     // Create entry for course event student
     $course_event_student = CourseEventStudent::create(
@@ -218,7 +218,8 @@ class BackofficeController extends Controller
         'booking_number' => \BookingHelper::getNumber(),
         'has_confirmation' => 0,
         'is_invited' => 1,
-        'has_attendance' => 1
+        'has_attendance' => 1,
+        'is_billed' => $isBilled
       ]
     );
     $course_event_student->save();

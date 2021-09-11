@@ -25,6 +25,16 @@
           </div>
           <label-required />
         </div>
+
+        <div class="form-row">
+          <radio-button
+            :label="'Soll für diese Buchung eine Rechnung erstellt werden?'"
+            :labelClass="''"
+            v-bind:has_billing.sync="has_billing"
+            :model="has_billing"
+            :name="'has_billing'"
+          ></radio-button>
+        </div>
         <div class="sb-sm flex-vc">
           <button class="btn-primary" @click.prevent="store()">Speichern</button>
           <a href="javascript:;" class="btn-close" @click.prevent="hideAddStudentForm()">Abbrechen</a>
@@ -38,6 +48,7 @@
 
 // Components
 import LabelRequired from "@/global/components/ui/LabelRequired.vue";
+import RadioButton from "@/global/components/ui/RadioButton.vue";
 
 // Icons
 import { XIcon } from "vue-feather-icons";
@@ -45,6 +56,7 @@ import { XIcon } from "vue-feather-icons";
 export default {
   components: {
     XIcon,
+    RadioButton,
     LabelRequired
   },
 
@@ -52,6 +64,7 @@ export default {
     return {
       students: null,
       student: null,
+      has_billing: 1,
       isFetched: false,
       isLoading: false
     }
@@ -80,7 +93,7 @@ export default {
         });
         return false;
       }
-      this.$parent.storeStudent(this.student);
+      this.$parent.storeStudent(this.student, this.has_billing);
     },
 
     hideAddStudentForm() {

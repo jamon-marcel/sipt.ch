@@ -410,12 +410,12 @@ export default {
       this.hasAddStudentOverlay = false;
     },
 
-    storeStudent(student) {
-
+    storeStudent(student, billing = true) {
       let uri = "/api/backoffice/course/event/add/student";
       let data = {
         'courseEventId': this.course_event.id,
         'studentId': student,
+        'is_billed': billing ? 0 : 1
       };
       this.axios.post(uri, data).then(response => {
         this.$notify({ type: "success", text: "Teilnehmerin erfasst." });
