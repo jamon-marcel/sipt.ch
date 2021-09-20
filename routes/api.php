@@ -139,6 +139,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::put('backoffice/invoice/cancel/{invoice}', 'Api\InvoiceController@cancel');
     Route::get('backoffice/invoice/notice/{invoice}/{noticeType}', 'Api\InvoiceController@notice');
     Route::post('backoffice/invoice/store', 'Api\BackofficeController@createInvoice');
+    Route::post('backoffice/invoice/manual/store', 'Api\BackofficeController@createManualInvoice');
     Route::post('backoffice/import', 'Api\BackofficeController@import');
   });
 

@@ -14,6 +14,24 @@
       <cancel-form :invoice="cancelInvoice"></cancel-form>
     </div>
     
+
+    <div class="overlay is-visible" v-if="hasTypeSelectorOverlay">
+      <div class="overlay__inner">
+        <div>
+          <a href @click.prevent="hideTypeSelectorOverlay()" class="feather-icon">
+            <x-icon size="24"></x-icon>
+          </a>
+          <h2>Rechnungstyp wählen</h2>
+          <p>Um eine Rechnung für Student:innen mit/ohne Buchung zu erstellen, wählen Sie «Modulrechnung». Wählen Sie «manuelle Rechnung» für alle anderen Fälle (z.B. Charta).</p>
+          <div class="flex sb-sm">
+            <router-link :to="{ name: 'backoffice-create-invoice' }" class="btn-primary is-sm">Modulrechnung</router-link>
+            &nbsp;&nbsp;
+            <router-link :to="{ name: 'backoffice-create-manual-invoice' }" class="btn-primary is-sm">manuelle Rechnung</router-link>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div :class="isFetched ? 'is-loaded' : 'is-loading'">
       <header class="content-header flex-sb flex-vc">
         <h1>Offene Rechnungen</h1>
@@ -50,6 +68,12 @@
               </span>
               <span v-if="invoice.symposium_subscriber">
                 {{invoice.symposium_subscriber.firstname}} {{invoice.symposium_subscriber.name}}, {{invoice.symposium_subscriber.city}}
+              </span>
+              <span v-if="invoice.tutor">
+                {{invoice.tutor.firstname}} {{invoice.tutor.name}}, {{invoice.tutor.city}}
+              </span>
+              <span v-if="invoice.recipient">
+                {{invoice.recipient}}
               </span>
               <span v-if="invoice.state != null && invoice.is_paid == 0">
                 <separator/>
@@ -101,10 +125,10 @@
     </div>
     <footer class="module-footer">
       <div class="flex-sb flex-vc">
-        <router-link :to="{ name: 'backoffice-create-invoice' }" class="btn-primary has-icon">
+        <a href="javascript:;" @click.prevent="showTypeSelectorOverlay()" class="btn-primary has-icon">
           <file-plus-icon size="16"></file-plus-icon>
           <span>Rechnung erstellen</span>
-        </router-link>
+        </a>
       </div>
     </footer>
   </div>
@@ -112,7 +136,7 @@
 <script>
 
 // Icons
-import { DollarSignIcon, BellIcon, LayersIcon, FilePlusIcon, XCircleIcon } from "vue-feather-icons";
+import { DollarSignIcon, BellIcon, LayersIcon, FilePlusIcon, XCircleIcon, XIcon } from "vue-feather-icons";
 
 // Components
 import ListActions from "@/global/components/ui/ListActions.vue";
@@ -134,6 +158,7 @@ export default {
     LayersIcon,
     FilePlusIcon,
     XCircleIcon,
+    XIcon,
     ListActions,
     ViewSelector,
     NoticeForm,
@@ -154,6 +179,7 @@ export default {
       hasHistoryOverlay: false,
       hasDateOverlay: false,
       hasCancelOverlay: false,
+      hasTypeSelectorOverlay: false,
 
       noticeInvoice: null,
       historyInvoice: null,
@@ -265,6 +291,14 @@ export default {
 
     hideCancelForm() {
       this.hasCancelOverlay = false;
+    },
+
+    showTypeSelectorOverlay() {
+      this.hasTypeSelectorOverlay = true;
+    },
+
+    hideTypeSelectorOverlay() {
+      this.hasTypeSelectorOverlay = false;
     },
   },
 };

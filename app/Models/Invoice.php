@@ -16,8 +16,10 @@ class Invoice extends Model
     'date_notice',
     'date_paid',
     'date_cancelled',
+    'recipient',
     'state',
     'file',
+    'remarks',
     'is_paid',
     'is_replacement',
     'is_cancelled',
@@ -25,6 +27,7 @@ class Invoice extends Model
     'replaced_by',
     'course_event_id',
     'student_id',
+    'tutor_id',
     'symposium_subscriber_id',
     'symposium_id',
     'user_id',
@@ -37,6 +40,16 @@ class Invoice extends Model
 	public function student()
 	{
 		return $this->belongsTo('App\Models\Student');
+  }
+
+
+	/**
+	 * Relationship for tutor
+	 */
+
+	public function tutor()
+	{
+		return $this->belongsTo('App\Models\Tutor');
   }
 
 	/**

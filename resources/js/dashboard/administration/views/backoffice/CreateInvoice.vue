@@ -8,7 +8,7 @@
           :items="[
             {route: '/administration/backoffice/modules', label: 'Module'},
             {route: '/administration/backoffice/invoices', label: 'Rechnungen'},
-            {route: '/administration/backoffice/import', label: 'Import'}
+            //{route: '/administration/backoffice/import', label: 'Import'}
           ]"
         ></view-selector>
       </header>

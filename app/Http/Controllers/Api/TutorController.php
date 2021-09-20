@@ -41,7 +41,7 @@ class TutorController extends Controller
     {
       return new DataCollection($this->tutor->active()->get());
     }
-    return new DataCollection($this->tutor->orderBy('name')->get());
+    return new DataCollection($this->tutor->orderBy('name')->with('user')->get());
   }
 
   /**

@@ -23,7 +23,7 @@ class InvoiceController extends Controller
   {
     if ($constraint == 'paid')
     {
-      $invoices = $this->invoice->with('event.course', 'student', 'symposiumSubscriber', 'symposium')
+      $invoices = $this->invoice->with('event.course', 'student', 'tutor', 'symposiumSubscriber', 'symposium')
                                 ->where('is_cancelled', '=', 0)
                                 ->where('is_paid', '=', 1)
                                 ->orderBy('number', 'DESC')
@@ -33,7 +33,7 @@ class InvoiceController extends Controller
     
     if ($constraint == 'cancelled')
     {
-      $invoices = $this->invoice->with('event.course', 'student', 'symposiumSubscriber', 'symposium')
+      $invoices = $this->invoice->with('event.course', 'student', 'tutor', 'symposiumSubscriber', 'symposium')
                                 ->where('is_cancelled', '=', 1)
                                 ->where('is_paid', '=', 0)
                                 ->orderBy('number', 'DESC')
@@ -41,7 +41,7 @@ class InvoiceController extends Controller
       return new DataCollection($invoices);   
     }
 
-    $invoices = $this->invoice->with('event.course', 'student', 'symposiumSubscriber', 'symposium')
+    $invoices = $this->invoice->with('event.course', 'student', 'tutor', 'symposiumSubscriber', 'symposium')
                               ->where('is_cancelled', '=', 0)
                               ->where('is_paid', '=', 0)
                               ->orderBy('number', 'DESC')
@@ -58,7 +58,7 @@ class InvoiceController extends Controller
    */
   public function getHistory(Invoice $invoice)
   {
-    $invoice = $this->invoice->with('event.course', 'student', 'symposiumSubscriber', 'symposium', 'replacement')
+    $invoice = $this->invoice->with('event.course', 'student', 'tutor', 'symposiumSubscriber', 'symposium', 'replacement')
                              ->where('replaced_by', '=', $invoice->id)
                              ->withTrashed()
                              ->get()

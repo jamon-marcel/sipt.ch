@@ -7,11 +7,13 @@ use App\Models\CourseEvent;
 use App\Models\CourseEventStudent;
 use App\Models\Invoice;
 use App\Models\Student;
+use App\Models\Tutor;
 use App\Events\CourseEventParticipantsChanged;
 use App\Events\CourseEventCancelled;
 use App\Events\InvoiceReminder;
 use App\Events\CourseEventClosed;
 use App\Services\CourseInvoice;
+use App\Services\ManualInvoice;
 use Illuminate\Http\Request;
 
 class BackofficeController extends Controller
@@ -21,6 +23,7 @@ class BackofficeController extends Controller
     CourseEvent $courseEvent,
     CourseEventStudent $courseEventStudent,
     Student $student,
+    Tutor $tutor,
     Invoice $invoice
   )
   {
@@ -28,6 +31,7 @@ class BackofficeController extends Controller
     $this->courseEvent        = $courseEvent;
     $this->courseEventStudent = $courseEventStudent;
     $this->student            = $student;
+    $this->tutor              = $tutor;
     $this->invoice            = $invoice;
   }
 
@@ -170,6 +174,52 @@ class BackofficeController extends Controller
 
     // Store in database
     $invoice = $courseInvoice->store();
+
+    return response()->json($file);
+  }
+
+  /**
+   * Create an manually issued invoice
+   * 
+   * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\Response
+   */
+
+  public function createManualInvoice(Request $request)
+  {
+    if ($request->studentId)
+    {
+      $client = $this->student->findOrFail($request->studentId);
+      $client_type = 'student';
+    }
+    if ($request->tutorId)
+    {
+      $client = $this->tutor->findOrFail($request->tutorId);
+      $client_type = 'tutor';
+    }
+    if ($request->recipient)
+    {
+      $client = $request->recipient;
+      $client_type = 'other';
+    }
+
+    $manualInvoice = new ManualInvoice();
+    $manualInvoice->create([
+      'date'  => $request->date ? $request->date : date('d.m.Y', time()),
+      'amount' => $request->amount,
+      'number' => $request->number,
+      'client' => $client,
+      'client_type' => $client_type,
+      'booking_number' => $request->booking_number,
+      'remarks' => $request->remarks,
+      'description' => $request->description
+    ]);
+          
+    // Write to disk
+    $file = $manualInvoice->write();
+
+    // Store in database
+    $invoice = $manualInvoice->store();
 
     return response()->json($file);
   }
