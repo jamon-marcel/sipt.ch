@@ -53,7 +53,7 @@ class CourseController extends Controller
     $course = Course::create($request->all());
     $course->save();
 
-    // Course Training
+    // Course Specialisation
     if (!empty($request->specialisations))
     {
       foreach($request->specialisations as $specialisation)
