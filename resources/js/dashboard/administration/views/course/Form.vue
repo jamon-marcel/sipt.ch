@@ -40,18 +40,14 @@
           <input type="text" v-model="course.cost">
           <label-required />
         </div>
-
-        <div class="form-row">
-          <label>Vertiefung</label>
-          <div class="select-wrapper is-wide">
-            <select v-model="course.course_specialization_id">
-              <option value="null">Bitte wählen...</option>
-              <option v-for="specialization in specializations" :key="specialization.id" :value="specialization.id">{{ specialization.description }}</option>
-            </select>
-          </div>
-        </div>
-
-
+        <template v-if="isFetched">
+          <specialisation-selector
+            v-bind:courses.sync="course.specialisations"
+            :label="'Vertiefung hinzufügen'"
+            :labelSelected="'Vertiefungen'"
+            :data="course.specialisations"
+          ></specialisation-selector>
+        </template>
       </div>
       <div class="grid-column-sidebar">
         <div>
@@ -100,6 +96,7 @@ import tinyConfig from "@/global/config/tiny.js";
 import TinymceEditor from "@tinymce/tinymce-vue";
 
 // Components
+import SpecialisationSelector from "@/administration/components/SpecialisationSelector.vue";
 import RadioButton from "@/global/components/ui/RadioButton.vue";
 import LabelRequired from "@/global/components/ui/LabelRequired.vue";
 
@@ -108,7 +105,8 @@ export default {
     ArrowLeftIcon,
     TinymceEditor,
     RadioButton,
-    LabelRequired
+    LabelRequired,
+    SpecialisationSelector
   },
 
   mixins: [ErrorHandling],
@@ -128,12 +126,10 @@ export default {
         credits: 9,
         durability: null,
         cost: '450.00',
-        course_specialization_id: null,
+        specialisations: [],
         is_archived: 0,
         is_published: 0,
       },
-
-      specializations: null,
 
       // Validation
       errors: {
@@ -162,12 +158,6 @@ export default {
         this.isFetched = true;
       });
     }
-
-    this.isFetched = false;
-    this.axios.get(`/api/settings/courseSpecializations`).then(response => {
-      this.specializations = response.data.data;
-      this.isFetched = true;
-    });
   },
 
   methods: {
@@ -202,6 +192,15 @@ export default {
         this.isLoading = false;
       });
     },
+
+    addSpecialisation(specialisation) {
+      this.course.specialisations.push(specialisation);
+    },
+
+    removeSpecialisation(id) {
+      const idx = this.course.specialisations.findIndex(x => x.id === id);
+      this.course.specialisations.splice(idx, 1);
+    }
   },
 
   computed: {

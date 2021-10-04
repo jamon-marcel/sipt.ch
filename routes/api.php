@@ -106,7 +106,7 @@ Route::middleware('auth:sanctum')->group(function() {
   Route::middleware('role:admin')->group(function() {
     Route::get('settings/locations', 'Api\SettingsController@locations');
     Route::get('settings/training/categories', 'Api\SettingsController@trainingCategories');
-    Route::get('settings/courseSpecializations', 'Api\SettingsController@courseSpecializations');
+    Route::get('settings/specialisations', 'Api\SettingsController@specialisations');
   });
 
   // Users

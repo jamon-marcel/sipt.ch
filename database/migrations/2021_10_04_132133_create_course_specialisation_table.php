@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCourseSpecializationsTable extends Migration
+class CreateCourseSpecialisationTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateCourseSpecializationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('course_specializations', function (Blueprint $table) {
+        Schema::create('course_specialisation', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('description', 100);
+            $table->uuid('course_id');
+            $table->foreign('course_id')->references('id')->on('courses');
+            $table->uuid('specialisation_id');
+            $table->foreign('specialisation_id')->references('id')->on('specialisations');
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateCourseSpecializationsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('course_specializations');
+        Schema::dropIfExists('course_specialisation');
     }
 }

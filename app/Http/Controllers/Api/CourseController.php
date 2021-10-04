@@ -4,6 +4,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\DataCollection;
 use App\Models\Course;
 use App\Models\CourseEvent;
+use App\Models\CourseSpecialisation;
 use App\Models\Training;
 use App\Http\Requests\CourseStoreRequest;
 use Illuminate\Http\Request;
@@ -37,7 +38,7 @@ class CourseController extends Controller
    */
   public function find(Course $course)
   {
-    $course = $this->course->with('events.location', 'events.dates.tutor')->find($course->id);
+    $course = $this->course->with('events.location', 'events.dates.tutor', 'specialisations')->find($course->id);
     return response()->json($course);
   }
 
@@ -51,6 +52,20 @@ class CourseController extends Controller
   {
     $course = Course::create($request->all());
     $course->save();
+
+    // Course Training
+    if (!empty($request->specialisations))
+    {
+      foreach($request->specialisations as $specialisation)
+      {
+        $course_specialisation = new CourseSpecialisation([
+          'specialisation_id' => $specialisation['id'],
+          'course_id' => $course->id
+        ]);
+        $course_specialisation->save();
+      }
+    }
+
     return response()->json(['courseId' => $course->id]);
   }
 
@@ -65,6 +80,20 @@ class CourseController extends Controller
   {
     $course->update($request->all());
     $course->save();
+
+    if ($request->specialisations)
+    {
+      $course->specialisations()->detach();
+      foreach($request->specialisations as $specialisation)
+      { 
+        $course_specialisation = new CourseSpecialisation([
+          'specialisation_id' => $specialisation['id'],
+          'course_id' => $course->id
+        ]);
+        $course_specialisation->save();
+      }
+    }  
+
     return response()->json('successfully updated');
   }
 

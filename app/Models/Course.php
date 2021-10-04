@@ -14,7 +14,6 @@ class Course extends Model
 		'credits',
 		'durability',
 		'cost',
-		'course_specialization_id',
 		'is_archived',
     'is_published',
 	];
@@ -93,13 +92,9 @@ class Course extends Model
 								->where('is_bookable', '=', 1);
 	}
 
-	/**
-	 * Relationship for bookable events
-	 */
-
-	public function specialization()
+	public function specialisations()
 	{
-		return $this->hasOne('App\Models\CourseSpecialization', 'id', 'course_specialization_id');
+		return $this->belongsToMany('App\Models\Specialisation');
 	}
 
 }

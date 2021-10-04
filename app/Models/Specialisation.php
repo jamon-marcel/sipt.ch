@@ -3,7 +3,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use GoldSpecDigital\LaravelEloquentUUID\Database\Eloquent\Model;
 
-class CourseSpecialization extends Model
+class Specialisation extends Model
 {
 	use SoftDeletes;
 	
@@ -12,5 +12,9 @@ class CourseSpecialization extends Model
 		'sort'
 	];
 
+	public function courses()
+	{
+		return $this->belongsToMany('App\Models\Course');
+	}
 
 }
