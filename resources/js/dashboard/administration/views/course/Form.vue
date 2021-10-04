@@ -43,8 +43,8 @@
         <template v-if="isFetched">
           <specialisation-selector
             v-bind:courses.sync="course.specialisations"
-            :label="'Vertiefung hinzufügen'"
-            :labelSelected="'Vertiefungen'"
+            :label="'Vertiefungsrichtung hinzufügen'"
+            :labelSelected="'Vertiefungsrichtungen'"
             :data="course.specialisations"
           ></specialisation-selector>
         </template>
