@@ -48,7 +48,6 @@
           </div>
         </div>
         <template v-if="isStudent">
-          <!-- Student query form -->
           <div class="form-row">
             <label>Student suchen...</label>
             <input v-model="student_query" type="text" @blur="getStudent($event.target.value)">
@@ -68,7 +67,6 @@
             </div>
           </div>
         </template>
-
         <template v-if="isTutor">
           <div class="form-row">
             <label>Dozent</label>
@@ -84,18 +82,21 @@
             </div>
           </div>
         </template>
-
         <template v-if="isOther">
           <div class="form-row">
             <label>Rechnungsadresse</label>
             <textarea v-model="recipient"></textarea>
           </div>
         </template>
-
       </div>
       <footer class="module-footer">
         <div class="flex-sb flex-vc">
-          <button class="btn-primary" @click.prevent="create()">Speichern</button>
+          <div>
+            <button class="btn-primary" @click.prevent="create()">Speichern</button>
+            <router-link :to="{ name: 'backoffice-invoices' }" class="btn-secondary">
+              <span>Zurück</span>
+            </router-link>
+          </div>
           <div v-if="file">
             <a :href="'/storage/invoices/' + file" target="_blank" class="btn-secondary has-icon">
               <download-icon size="16"></download-icon>

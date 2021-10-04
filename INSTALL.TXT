@@ -76,3 +76,6 @@ Create PW with tinker
 1. php artisan tinker
 2. \Str::random(16)
 3. \Hash::make()
+
+
+\Str::uuid();

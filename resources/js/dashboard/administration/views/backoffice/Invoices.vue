@@ -13,25 +13,10 @@
     <div v-if="hasCancelOverlay">
       <cancel-form :invoice="cancelInvoice"></cancel-form>
     </div>
-    
-
-    <div class="overlay is-visible" v-if="hasTypeSelectorOverlay">
-      <div class="overlay__inner">
-        <div>
-          <a href @click.prevent="hideTypeSelectorOverlay()" class="feather-icon">
-            <x-icon size="24"></x-icon>
-          </a>
-          <h2>Rechnungstyp wählen</h2>
-          <p>Um eine Rechnung für Student:innen mit/ohne Buchung zu erstellen, wählen Sie «Modulrechnung». Wählen Sie «manuelle Rechnung» für alle anderen Fälle (z.B. Charta).</p>
-          <div class="flex sb-sm">
-            <router-link :to="{ name: 'backoffice-create-invoice' }" class="btn-primary is-sm">Modulrechnung</router-link>
-            &nbsp;&nbsp;
-            <router-link :to="{ name: 'backoffice-create-manual-invoice' }" class="btn-primary is-sm">manuelle Rechnung</router-link>
-          </div>
-        </div>
-      </div>
+    <div v-if="hasTypeSelectorOverlay">
+      <invoice-type-selector />
     </div>
-
+    
     <div :class="isFetched ? 'is-loaded' : 'is-loading'">
       <header class="content-header flex-sb flex-vc">
         <h1>Offene Rechnungen</h1>
@@ -145,6 +130,7 @@ import NoticeForm from "@/administration/views/backoffice/components/NoticeForm.
 import DatePaidForm from "@/administration/views/backoffice/components/DatePaidForm.vue";
 import CancelForm from "@/administration/views/backoffice/components/CancelForm.vue";
 import InvoiceHistory from "@/administration/views/backoffice/components/InvoiceHistory.vue";
+import InvoiceTypeSelector from "@/administration/views/backoffice/components/InvoiceTypeSelector.vue";
 
 // Mixins
 import Helpers from "@/global/mixins/Helpers";
@@ -164,7 +150,8 @@ export default {
     NoticeForm,
     DatePaidForm,
     CancelForm,
-    InvoiceHistory
+    InvoiceHistory,
+    InvoiceTypeSelector
   },
 
   mixins: [Helpers, DateTime, ErrorHandling],
