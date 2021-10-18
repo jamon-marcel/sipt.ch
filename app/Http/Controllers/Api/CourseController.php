@@ -92,7 +92,11 @@ class CourseController extends Controller
         ]);
         $course_specialisation->save();
       }
-    }  
+    }
+    else
+    {
+      $course->specialisations()->detach();
+    }
 
     return response()->json('successfully updated');
   }

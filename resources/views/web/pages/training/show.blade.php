@@ -39,7 +39,7 @@
       </div>
     </article>
   @endif
-
+  
   @if ($training->courses)
     <article class="collapsible is-expanded js-clpsbl">
       <h2>

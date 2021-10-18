@@ -248,16 +248,6 @@
         <a href="mailto:katherine.schlag@clienia.ch">katherine.schlag@clienia.ch</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
-        <p><strong>Schmid, Nuria</strong><br>
-        Eidgenössisch anerkannte Psychotherapeutin<br>
-        Fachpsychologin für Psychotraumatologie SIPT/DIPT<br>
-        Zentralstrasse 2<br>
-        8003 Zürich<br>
-        Telefon: 077 400 90 66<br>
-        <a href="mailto:nuria.schmid@fsp-hin.ch">nuria.schmid@fsp-hin.ch</a><br>
-        (keine Abrechnung über die Grundversicherung möglich)
-        </p>
-
         
         <p><strong>Dr. med. Schwald, Oliver</strong><br>
         Facharzt für Psychiatrie und Psychotherapie; Psychoanalytiker<br>
@@ -275,7 +265,13 @@
         Clienia Littenheid AG<br>
         9573 Littenheid<br>
         <a href="mailto:maya.schenkel@clienia.ch">maya.schenkel@clienia.ch</a></p>
-        
+
+        <p><strong>proPsych</strong><br>
+        Silvia Pohl<br>
+        Sandbreitestrasse 18<br>
+        8280 Kreuzlingen<br>
+        <a href="mailto:Silvia.pohl@fsp-hin.ch">Silvia.pohl@fsp-hin.ch</a></p>
+
         <p><strong>Tanya Squirrell</strong><br>
         Kunsttherapeutin<br>
         Wettingerstrasse 17<br>
@@ -284,7 +280,7 @@
         <a href="mailto:info@artandflow.ch">info@artandflow.ch</a><br>
         (Krankenkasse Anerkennung mit Zusatzversicherung)</p>
         
-        Dr. med. Steinegger, Brigitt</strong><br>
+        <p><strong>Dr. med. Steinegger, Brigitt</strong><br>
         Fachärztin für Psychiatrie und Psychotherapie; Psychoanalytikerin
         Technikumstr. 98<br>
         8400 Winterthur<br>
