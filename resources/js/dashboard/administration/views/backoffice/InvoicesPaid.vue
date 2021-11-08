@@ -13,7 +13,6 @@
             {route: '/administration/backoffice/invoices', label: 'Rechnungen – offen'},
             {route: '/administration/backoffice/invoices/paid', label: 'Rechnungen – bezahlt'},
             {route: '/administration/backoffice/invoices/cancelled', label: 'Rechnungen – storniert'},
-            //{route: '/administration/backoffice/import', label: 'Import'}
           ]"
         ></view-selector>
       </header>

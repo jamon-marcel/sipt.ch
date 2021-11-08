@@ -1,0 +1,19 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: modules/backoffice
+ * -----------------------------------------------------------------------------
+ */
+
+.widget-invoice-type-selector {
+
+  > div {
+    border-bottom: 1px solid $color-light-grey;
+    @include responsive-prop('margin-bottom', $space-sm);
+    @include responsive-prop('padding-bottom', $space-sm);
+
+    &:last-of-type {
+      margin-bottom: 0 !important;
+    }
+  }
+
+}

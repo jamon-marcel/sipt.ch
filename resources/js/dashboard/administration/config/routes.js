@@ -32,6 +32,7 @@ import BackofficeInvoicesPaid from '@/administration/views/backoffice/InvoicesPa
 import BackofficeInvoicesCancelled from '@/administration/views/backoffice/InvoicesCancelled.vue';
 import BackofficeCreateInvoice from '@/administration/views/backoffice/CreateInvoice.vue';
 import BackofficeCreateManualInvoice from '@/administration/views/backoffice/CreateManualInvoice.vue';
+import BackofficeEditInvoice from '@/administration/views/backoffice/EditInvoice.vue';
 import BackofficeImport from '@/administration/views/backoffice/Import.vue';
 
 import Symposium from '@/administration/views/symposium/Index.vue';
@@ -183,6 +184,11 @@ const routes = [
     name: 'backoffice-create-manual-invoice',
     path: '/administration/backoffice/invoice/manual/create',
     component: BackofficeCreateManualInvoice,
+  },
+  {
+    name: 'backoffice-edit-invoice',
+    path: '/administration/backoffice/invoice/edit',
+    component: BackofficeEditInvoice,
   },
   {
     name: 'backoffice-import',

@@ -225,6 +225,44 @@ class BackofficeController extends Controller
   }
 
   /**
+   * Edit an invoice
+   * 
+   * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\Response
+   */
+
+  public function editInvoice(Request $request)
+  {
+    // Get Student
+    $student = $this->student->findOrFail($request->studentId);
+
+    // Get Booking number
+    $booking = $this->courseEventStudent->where('course_event_id', '=', $request->courseEventId)->where('student_id', '=', $student->id)->first();
+
+    // Get Course Event
+    $courseEvent = $this->courseEvent->with('course', 'dates')->findOrFail($request->courseEventId);
+
+    $courseInvoice = new CourseInvoice();
+    $courseInvoice->create([
+      'date'  => $request->date ? $request->date : date('d.m.Y', time()),
+      'amount' => $request->amount,
+      'number' => $request->invoiceNumber,
+      'client' => $student,
+      'booking_number' => $booking->booking_number,
+      'course_event' => $courseEvent,
+      'alt_address' => $request->address ? $request->address : false
+    ]);
+
+    // Write to disk
+    $file = $courseInvoice->write();
+
+    // Store in database
+    $invoice = $courseInvoice->update($request->invoiceId);
+
+    return response()->json($file);
+  }
+
+  /**
    * Remove a course event for given student or an authenticated user
    *
    * @param CourseEvent $courseEvent

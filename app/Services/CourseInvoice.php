@@ -80,6 +80,7 @@ class CourseInvoice
     $this->clientNumber = $data['client']->number;
     $this->bookingNumber = $data['booking_number'];
     $this->courseEvent = $data['course_event'];
+    $this->alt_address = $data['alt_address'];
   }
 
   /**
@@ -89,6 +90,7 @@ class CourseInvoice
    */
   public function write()
   {
+
     // Set view data for the invoice
     $this->viewData['invoice'] = [
       'invoice_number' => $this->number,
@@ -97,7 +99,8 @@ class CourseInvoice
       'client_number'  => $this->clientNumber,
       'client'         => $this->client,
       'booking_number' => $this->bookingNumber,
-      'courseEvent'    => $this->courseEvent
+      'courseEvent'    => $this->courseEvent,
+      'alt_address'    => $this->alt_address
     ];
 
     // Set view data for payment slip
@@ -114,7 +117,7 @@ class CourseInvoice
   }
 
   /**
-   * Store the invoice to the database
+   * Store the invoice
    * 
    * @return Invoice $invoice
    */
@@ -138,6 +141,23 @@ class CourseInvoice
     $pivot->is_billed = 1;
     $pivot->save();
 
+    return $invoice;
+  }
+
+  /**
+   * Update an invoice
+   * 
+   * @param String $invoiceId
+   * @return Invoice $invoice
+   */
+  public function update($invoiceId)
+  {
+    // Get the invoice
+    $invoice = $this->invoice->findOrFail($invoiceId);
+    $invoice->date = $this->date;
+    $invoice->amount = $this->amount;
+    $invoice->file = $this->filename;
+    $invoice->save();
     return $invoice;
   }
 

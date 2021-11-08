@@ -135,10 +135,12 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('backoffice/course/event/add/student', 'Api\BackofficeController@addCourseEventStudent');
     Route::get('backoffice/invoices/{constraint?}', 'Api\InvoiceController@get');
     Route::get('backoffice/invoice/history/{invoice}', 'Api\InvoiceController@getHistory');
+    Route::get('backoffice/invoices', 'Api\InvoiceController@get');
     Route::get('backoffice/invoice/{invoice}', 'Api\InvoiceController@find');
     Route::put('backoffice/invoice/state/{invoice}', 'Api\InvoiceController@state');
     Route::put('backoffice/invoice/cancel/{invoice}', 'Api\InvoiceController@cancel');
     Route::get('backoffice/invoice/notice/{invoice}/{noticeType}', 'Api\InvoiceController@notice');
+    Route::post('backoffice/invoice/edit', 'Api\BackofficeController@editInvoice');
     Route::post('backoffice/invoice/store', 'Api\BackofficeController@createInvoice');
     Route::post('backoffice/invoice/manual/store', 'Api\BackofficeController@createManualInvoice');
     Route::post('backoffice/import', 'Api\BackofficeController@import');
