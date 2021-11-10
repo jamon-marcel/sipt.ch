@@ -5,9 +5,16 @@
 <section class="theme-light">
   <x-header title="Stelleninserate" />
   <article>
-    <a href="/storage/downloads/Stellenausschreibung-B3-Traumastation_-_Dipl.pdf" target="_blank" class="btn-download" title="Pflegefachperson HF / FH 80-100%">
-      <strong>Pflegefachperson HF / FH 80-100%</strong> [PDF, 53KB]
-    </a>
+    <p>
+      <a href="/storage/downloads/sipt-CLL_Dipl_Pflegefachperson_PanC.pdf" target="_blank" class="btn-download" title="Diplomierte Pflegefachperson 80 - 90%">
+        <strong>Diplomierte Pflegefachperson 80 - 90%</strong> [PDF, 87KB]
+      </a>
+    </p>
+    <p>
+      <a href="/storage/downloads/sipt-CLL_Psychologin_PuentSued.pdf" target="_blank" class="btn-download" title="Psychologin / Psychologen 80 - 100%">
+        <strong>Psychologin / Psychologen 80 - 100%</strong> [PDF, 85KB]
+      </a>
+    </p>
   </article>
 </section>
 @endsection

@@ -248,7 +248,7 @@ class BackofficeController extends Controller
       'amount' => $request->amount,
       'number' => $request->invoiceNumber,
       'client' => $student,
-      'booking_number' => $booking->booking_number,
+      'booking_number' => $booking ? $booking->booking_number : '',
       'course_event' => $courseEvent,
       'alt_address' => $request->address ? $request->address : false
     ]);
