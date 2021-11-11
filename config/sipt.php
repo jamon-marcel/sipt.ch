@@ -53,6 +53,9 @@ return [
   // ID for current symposium
   'symposium_id' => '644b0723-5c3a-45d3-800a-592876d90257',
 
+  // ID for 'CAS Zertifikatslehrgang FachberaterIn Psychotraumatologie'
+  'cas_consultant_psychotraumatology_id' => '44e470df-40ae-4eef-9aed-2788f563c626',
+
   // Quotes for training pages
   'quotes' => [
     'a7cfb68c-a8fe-4460-a804-e6b7b3489dd9' => [

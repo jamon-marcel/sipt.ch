@@ -8,6 +8,7 @@ class Specialisation extends Model
 	use SoftDeletes;
 	
 	protected $fillable = [
+		'slug',
 		'description',
 		'sort'
 	];
