@@ -80,7 +80,7 @@ class CourseInvoice
     $this->clientNumber = $data['client']->number;
     $this->bookingNumber = $data['booking_number'];
     $this->courseEvent = $data['course_event'];
-    $this->alt_address = $data['alt_address'];
+    $this->alt_address = isset($data['alt_address']) ? $data['alt_address'] : null;
   }
 
   /**

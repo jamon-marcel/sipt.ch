@@ -78,8 +78,11 @@
                   </a>
                 </div>
               @endforeach
-              @if ($specialisation->slug != 'kinder_jugendliche')
+              @if ($specialisation->slug == 'dissoziative_stoerungen')
                 <div><br>Das vierte Modul kann entsprechend der eigenen Berufssituation oder der eigenen Interessen gewählt werden.</div>
+              @endif
+              @if ($specialisation->slug == 'migration_flucht' || $specialisation->slug == 'trauma_alter')
+                <div><br>Das dritte und vierte Modul kann entsprechend der eigenen Berufssituation oder der eigenen Interessen gewählt werden.</div>
               @endif
             </div>
           </div>
