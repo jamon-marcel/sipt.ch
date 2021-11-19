@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Services\NewsletterPreferences;
 use App\Events\TutorStored;
 use App\Http\Requests\TutorStoreRequest;
+use App\Http\Requests\TutorUpdateRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -67,7 +68,7 @@ class TutorController extends Controller
    * @param  \Illuminate\Http\Request $request
    * @return \Illuminate\Http\Response
    */
-  public function update(Tutor $tutor, TutorStoreRequest $request)
+  public function update(Tutor $tutor, TutorUpdateRequest $request)
   {
     $tutor = auth()->user()->isAdmin()
               ? $this->tutor->with('user')->findOrFail($tutor->id)
