@@ -21,7 +21,7 @@
           </div>
           <div :class="[this.errors.email ? 'has-error' : '', 'form-row']">
             <label>E-Mail *</label>
-            <input type="text" v-model="tutor.user.email" :disabled="this.$props.type == 'edit' ? true : false">
+            <input type="text" v-model="tutor.email" :disabled="this.$props.type == 'edit' ? true : false">
             <label-required />
           </div>
           <div class="form-row">
@@ -195,9 +195,7 @@ export default {
         publications: null,
         is_published: 0,
         user_id: null,
-        user: {
-          email: null,
-        },
+        email: null,
         images: [],
       },
 
@@ -227,6 +225,7 @@ export default {
       let uri = `/api/tutor/${this.$route.params.id}`;
       this.axios.get(uri).then(response => {
         this.tutor = response.data;
+        this.tutor.email = response.data.user.email;
         this.isFetched = true;
       });
     }
@@ -256,14 +255,11 @@ export default {
       }
       else {
         this.isLoading = true;
-        this.axios.post('/api/user/tutor/register', this.tutor.user).then(response => {
-          this.tutor.user_id = response.data.userId;
-          this.axios.post('/api/tutor', this.tutor).then(response => {
-            this.$router.push({ name: "tutors" });
-            this.$notify({ type: "success", text: "Dozent erfasst!" });
-            this.isLoading = false;
-          });
-        })
+        this.axios.post('/api/tutor', this.tutor).then(response => {
+          this.$router.push({ name: "tutors" });
+          this.$notify({ type: "success", text: "Dozent erfasst!" });
+          this.isLoading = false;
+        });
       }
     },
 

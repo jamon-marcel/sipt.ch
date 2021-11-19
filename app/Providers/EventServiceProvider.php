@@ -20,7 +20,11 @@ class EventServiceProvider extends ServiceProvider
     ],
 
     'App\Events\StudentRegistered' => [
-      'App\Listeners\SendEmailVerification',
+      'App\Listeners\SendEmailVerificationStudent',
+    ],
+
+    'App\Events\TutorStored' => [
+      'App\Listeners\SendEmailVerificationTutor',
     ],
 
     'App\Events\SymposiumSubscription' => [

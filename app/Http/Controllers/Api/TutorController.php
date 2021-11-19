@@ -7,6 +7,7 @@ use App\Models\TutorImage;
 use App\Models\CourseEvent;
 use App\Models\User;
 use App\Services\NewsletterPreferences;
+use App\Events\TutorStored;
 use App\Http\Requests\TutorStoreRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -73,7 +74,7 @@ class TutorController extends Controller
               : $this->tutor->with('user')->authenticated(auth()->user()->id);
 
     // Save changes
-    $tutor->update($request->except('user.email'));
+    $tutor->update($request->except('email'));
     $tutor->save();
 
     // Update or add images
@@ -115,8 +116,43 @@ class TutorController extends Controller
    */
   public function store(TutorStoreRequest $request)
   {
-    $tutor = Tutor::create($request->except('user.email'));
+    // Create user
+    $pw   = Str::random(16);
+    $user = User::create([
+      'email' => $request->input('email'),
+      'email_verified_at' => \Carbon\Carbon::now(),
+      'password' => Hash::make($pw),
+      'role' => 'tutor'
+    ]);
+
+    $tutor = Tutor::create(array_merge($request->except('email'), ['user_id' => $user->id]));
     $tutor->save();
+
+    // Add image
+    if (!empty($request->images))
+    {
+      foreach($request->images as $i)
+      {
+        $image = TutorImage::updateOrCreate(
+          ['id' => $i['id']], 
+          [
+            'tutor_id'    => $tutor->id,
+            'name'        => $i['name'],
+            'caption'     => $i['caption'],
+            'coords_w'    => $i['coords_w'] ? round($i['coords_w'], 12) : NULL,
+            'coords_h'    => $i['coords_h'] ? round($i['coords_h'], 12) : NULL,
+            'coords_x'    => $i['coords_x'] ? round($i['coords_x'], 12) : NULL,
+            'coords_y'    => $i['coords_y'] ? round($i['coords_y'], 12) : NULL,
+            'publish'     => $i['publish'] ? $i['publish'] : 0,
+            'orientation' => $i['orientation'] ? $i['orientation'] : NULL,
+          ]
+        );
+      }
+    }
+
+    // Fire registered event
+    event(new TutorStored($user, ['password' => $pw]));
+
     return response()->json(['tutorId' => $tutor->id]);
   }
 

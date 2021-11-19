@@ -24,6 +24,7 @@ class TutorStoreRequest extends FormRequest
     return [
       'firstname' => 'required',
       'name' => 'required',
+      'email' => 'required|string|email|max:255|unique:users'
     ];
   }
 
@@ -42,6 +43,18 @@ class TutorStoreRequest extends FormRequest
       'name.required' => [
         'field' => 'name',
         'error' => 'Name wird benötigt!'
+      ],
+      'email.required' => [
+        'field' => 'email',
+        'error' => 'E-Mail wird benötigt!'
+      ],
+      'email.email' => [
+        'field' => 'email',
+        'error' => 'E-Mail ungültig!'
+      ],
+      'email.unique' => [
+        'field' => 'email',
+        'error' => 'E-Mail bereits vorhanden!'
       ],
     ];
   }

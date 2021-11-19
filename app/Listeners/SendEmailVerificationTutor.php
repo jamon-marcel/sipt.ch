@@ -1,12 +1,12 @@
 <?php
 namespace App\Listeners;
-use App\Events\StudentRegistered;
+use App\Events\TutorStored;
 use App\Mail\EmailVerification;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
-class SendEmailVerification
+class SendEmailVerificationTutor
 {
   /**
    * Create the event listener.
@@ -21,10 +21,10 @@ class SendEmailVerification
   /**
    * Handle the event.
    *
-   * @param  StudentRegistered  $event
+   * @param  TutorStored  $event
    * @return void
    */
-  public function handle(StudentRegistered $event)
+  public function handle(TutorStored $event)
   {
     $user = $event->user;
     $user_data = $event->user_data;
