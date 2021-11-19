@@ -105,7 +105,8 @@ Route::middleware('auth:sanctum', 'verified')->group(function() {
   // Downloads for students
   Route::get('/download/kursbestaetigung/{courseEvent}/{student?}', 'DownloadController@confirmation')->middleware('role:student');
   Route::get('/download/kurseinladung/{courseEvent}/{student?}', 'DownloadController@invitation')->middleware('role:student');
-  Route::get('/download/kursuebersicht/{student?}', 'DownloadController@overview')->middleware('role:student');
+  Route::get('/download/kursuebersicht-alle/{student?}', 'DownloadController@coursesOverview')->middleware('role:student');
+  Route::get('/download/kursuebersicht-absolviert/{student?}', 'DownloadController@coursesAttended')->middleware('role:student');
 
 
   // CatchAll: Dashboard Student

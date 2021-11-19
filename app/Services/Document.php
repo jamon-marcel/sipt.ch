@@ -215,13 +215,28 @@ class Document
    * @param $student
    * @return Array
    */
-  public function overview($student)
+  public function overview($student, $constraint = NULL)
   {
     // Create pdf
     $this->viewData['student'] = $student;
 
     // Get course events
-    $courses = $student->courseEvents()->with('course', 'location', 'dates.tutor')->where('course_event_student.is_cancelled', '=', 0)->get();
+    if ($constraint == 'attended')
+    {
+      $courses = $student->courseEvents('attended')
+                         ->with('course', 'location', 'dates.tutor')
+                         ->where('course_event_student.is_cancelled', '=', 0)
+                         ->where('course_event_student.has_attendance', '=', 1)
+                         ->get();
+    }
+    else
+    {
+      $courses = $student->courseEvents()
+                         ->with('course', 'location', 'dates.tutor')
+                         ->where('course_event_student.is_cancelled', '=', 0)
+                         ->get();
+    }
+
     $this->viewData['courseEvents'] = $courses->sortBy('courseNumber');
 
     // Load view

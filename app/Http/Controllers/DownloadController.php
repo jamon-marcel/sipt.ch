@@ -180,13 +180,13 @@ class DownloadController extends BaseController
   }
 
   /**
-   * Download course overview
+   * Download course overview (all courses)
    *
    * @param String $studentId
    * @return \Illuminate\Http\Response
    */
 
-  public function overview($studentId = NULL)
+  public function coursesOverview($studentId = NULL)
   {
     $student = auth()->user()->isAdmin()
                 ? $this->student->with('user')->findOrFail($studentId)
@@ -194,6 +194,24 @@ class DownloadController extends BaseController
     
     $file = new Document();
     $file = $file->overview($student);
+    return response()->download($file['path'], $file['name'], $this->headers);
+  }
+
+  /**
+   * Download course overview (attended courses)
+   *
+   * @param String $studentId
+   * @return \Illuminate\Http\Response
+   */
+
+  public function coursesAttended($studentId = NULL)
+  {
+    $student = auth()->user()->isAdmin()
+                ? $this->student->with('user')->findOrFail($studentId)
+                : $this->student->with('user')->authenticated(auth()->user()->id);
+    
+    $file = new Document();
+    $file = $file->overview($student, 'attended');
     return response()->download($file['path'], $file['name'], $this->headers);
   }
 

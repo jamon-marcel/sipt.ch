@@ -24,9 +24,14 @@
       <div class="content">
         <p>Eine Übersicht Ihrer bevorstehenden und absolvierten Module.</p>
         <p class="sa-md">
-          <a href="/download/kursuebersicht/" target="_blank" class="feather-icon feather-icon--prepend is-highlight">
+          <a href="/download/kursuebersicht-alle" target="_blank" class="feather-icon feather-icon--prepend is-highlight">
             <download-cloud-icon size="16"></download-cloud-icon>
-            <span>Download Kursübersicht</span>
+            <span>Download Kursübersicht (alle Kurse)</span>
+          </a>
+          <br>
+          <a href="/download/kursuebersicht-absolviert" target="_blank" class="feather-icon feather-icon--prepend is-highlight">
+            <download-cloud-icon size="16"></download-cloud-icon>
+            <span>Download Kursübersicht (nur absolvierte Kurse)</span>
           </a>
         </p>
         <template v-if="isFetchedCoursesBooked">
