@@ -7,11 +7,14 @@ use App\Models\Student;
 use App\Models\CourseEvent;
 use App\Models\CourseEventStudent;
 use App\Services\NewsletterPreferences;
+use App\Events\StudentRegistered;
 use App\Events\CourseEventBooked;
 use App\Events\CourseEventParticipantsChanged;
 use App\Events\CourseEventCancelled;
 use App\Events\CourseEventCancelledWithPenalty;
 use App\Services\Withdrawal;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 use App\Http\Requests\StudentStoreRequest;
 use App\Http\Requests\StudentStoreCourseEventRequest;
 use Illuminate\Http\Request;
@@ -97,6 +100,33 @@ class StudentController extends Controller
     }
 
     $student->save();
+    return response()->json('successfully updated');
+  }
+
+  /**
+   * Store a new student
+   *
+   * @param \Illuminate\Http\Request $request
+   * @return \Illuminate\Http\Response
+   */
+  public function store(StudentStoreRequest $request)
+  {
+    // Create user
+    $pw   = Str::random(16);
+    $user = User::create([
+      'email' => $request->input('user.email'),
+      'email_verified_at' => \Carbon\Carbon::now(),
+      'password' => Hash::make($pw),
+      'role' => 'student'
+    ]);
+
+    // Create Student
+    $student_number = Student::max('number') + 1;
+    $student = Student::create(array_merge($request->except('user.email'), ['user_id' => $user->id, 'number' => $student_number]));
+
+    // Fire registered event
+    event(new StudentRegistered($user, ['password' => $pw]));
+
     return response()->json('successfully updated');
   }
 

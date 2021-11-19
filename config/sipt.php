@@ -32,14 +32,14 @@ return [
 
   // E-Mail 
   'email_admin' => [
-    'admin@sipt.ch',
+    env('EMAIL_ADMIN', 'admin@sipt.ch'),
   ],
 
   // E-Mail carbon copy
   'email_copy' => [
-    // 'support@sipt.ch',
-    // 'r.barwinski@swissonline.ch',
-    // 'sekretariat@sipt.ch'
+    env('EMAIL_COPY_SUPPORT', 'support@sipt.ch'),
+    env('EMAIL_COPY_SECRETARY', 'sekretariat@sipt.ch'),
+    env('EMAIL_COPY_OWNER', 'r.barwinski@swissonline.ch')
   ],
 
   // Notice types

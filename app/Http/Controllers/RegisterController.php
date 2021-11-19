@@ -2,7 +2,6 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Student;
-
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Http\Requests\StudentStoreRequest;

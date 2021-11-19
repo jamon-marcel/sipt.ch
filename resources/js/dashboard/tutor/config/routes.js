@@ -6,6 +6,7 @@ import Home from '@/tutor/views/home/Index.vue';
 import ProfileIndex from '@/tutor/views/profile/Index.vue';
 import ProfileEdit from '@/tutor/views/profile/Form.vue';
 import ProfileChangeEmail from '@/global/components/UserChangeEmailForm.vue';
+import ProfileChangePassword from '@/global/components/UserChangePasswordForm.vue';
 
 import CourseEventsIndex from '@/tutor/views/course_events/Index.vue';
 import CourseEventsShow from '@/tutor/views/course_events/Show.vue';
@@ -43,6 +44,13 @@ const routes = [
     component: ProfileChangeEmail,
   },
 
+  // Profile - Change password
+  {
+    name: 'profile-change-password',
+    path: '/tutor/profile/change/password/:id',
+    component: ProfileChangePassword,
+  },
+  
   // Courses
   {
     name: 'courses',

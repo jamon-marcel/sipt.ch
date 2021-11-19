@@ -44,7 +44,7 @@ const routes = [
     component: ProfileChangeEmail,
   },
 
-  // Profile - Edit
+  // Profile - Change password
   {
     name: 'profile-change-password',
     path: '/student/profile/change/password/:id',

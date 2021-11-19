@@ -24,6 +24,7 @@ import StudentsIndex from '@/administration/views/student/Index.vue';
 import StudentCourseEvents from '@/administration/views/student/course_events/Index.vue';
 import StudentProfile from '@/administration/views/student/profile/Index.vue';
 import StudentProfileEdit from '@/administration/views/student/profile/Form.vue';
+import StudentCreate from '@/administration/views/student/Create.vue';
 
 import BackofficeModules from '@/administration/views/backoffice/Modules.vue';
 import BackofficeCourseEvent from '@/administration/views/backoffice/CourseEvent.vue';
@@ -148,7 +149,11 @@ const routes = [
     path: '/administration/student/courses/:id',
     component: StudentCourseEvents,
   },
-
+  {
+    name: 'student-create',
+    path: '/administration/student/create',
+    component: StudentCreate,
+  },
   // Backoffice
   {
     name: 'backoffice-modules',

@@ -26,6 +26,7 @@ Route::middleware('auth:sanctum')->group(function() {
   // Student routes
   Route::middleware('role:student')->group(function() {
     Route::get('students/{slim?}', 'Api\StudentController@get');
+    Route::post('student/store', 'Api\StudentController@store')->middleware('role:admin');
     Route::get('student/{student?}', 'Api\StudentController@find');
     Route::put('student/{student}', 'Api\StudentController@update');
     Route::delete('student/{student}', 'Api\StudentController@destroy')->middleware('role:admin');

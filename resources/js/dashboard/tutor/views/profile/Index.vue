@@ -16,9 +16,22 @@
             <label>E-Mail</label>
             {{ tutor.user.email }}
           </div>
-          <router-link :to="{name: 'profile-change-email', params: { id: tutor.id }}" class="btn-primary is-sm">
-            Bearbeiten
-          </router-link>
+          <div class="profile__item is-lg">
+            <router-link :to="{name: 'profile-change-email', params: { id: tutor.id }}" class="btn-primary is-sm">
+              Bearbeiten
+            </router-link>
+          </div>
+          <div class="profile__item">
+            <label>Passwort</label>
+            ******************
+          </div>
+          <div class="profile__item">
+            <router-link :to="{name: 'profile-change-password', params: { id: tutor.id }}" class="btn-primary is-sm">
+              Bearbeiten
+            </router-link>
+          </div>
+
+
         </div>
       </div>
     </div>

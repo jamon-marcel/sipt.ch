@@ -49,6 +49,10 @@
             <download-icon size="16"></download-icon>
             <span>Adressliste</span>
           </a>
+          <router-link :to="{ name: 'student-create' }" class="btn-primary has-icon">
+            <plus-icon size="16"></plus-icon>
+            <span>Hinzufügen</span>
+          </router-link>
         </div>
       </footer>
     </div>
@@ -70,7 +74,8 @@ import ListActions from "@/global/components/ui/ListActions.vue";
 export default {
   components: {
     ListActions,
-    DownloadIcon
+    DownloadIcon,
+    PlusIcon
   },
 
   mixins: [Helpers, DateTime, ErrorHandling],

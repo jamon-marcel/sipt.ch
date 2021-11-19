@@ -4,10 +4,6 @@
   <div :class="isFetched ? 'is-loaded' : 'is-loading'">
     <header class="content-header">
       <h1>Dozenten</h1>
-      <router-link :to="{ name: 'tutor-create' }" class="feather-icon feather-icon--prepend">
-        <plus-icon size="16"></plus-icon>
-        <span>Hinzufügen</span>
-      </router-link>
     </header>
     <div class="listing" v-if="tutors.length">
       <div
@@ -34,6 +30,10 @@
           <download-icon size="16"></download-icon>
           <span>Adressliste</span>
         </a>
+        <router-link :to="{ name: 'tutor-create' }" class="btn-primary has-icon">
+          <plus-icon size="16"></plus-icon>
+          <span>Hinzufügen</span>
+        </router-link>
       </div>
     </footer>
   </div>
