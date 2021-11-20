@@ -66,6 +66,16 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('training/state/{training}', 'Api\TrainingController@toggle');
   });
 
+  // Location routes
+  Route::middleware('role:admin')->group(function() {
+    Route::get('locations', 'Api\LocationController@get');
+    Route::get('location/{location}', 'Api\LocationController@find');
+    Route::post('location', 'Api\LocationController@store');
+    Route::put('location/{location}', 'Api\LocationController@update');
+    Route::delete('location/{location}', 'Api\LocationController@destroy');
+    Route::get('location/state/{location}', 'Api\LocationController@toggle');
+  });
+
   // Course routes
   Route::get('courses', 'Api\CourseController@get');
   Route::get('course/{course}', 'Api\CourseController@find');

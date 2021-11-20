@@ -20,6 +20,10 @@ import TutorsIndex from '@/administration/views/tutor/Index.vue';
 import TutorsCreate from '@/administration/views/tutor/Create.vue';
 import TutorsEdit from '@/administration/views/tutor/Edit.vue';
 
+import LocationIndex from '@/administration/views/location/Index.vue';
+import LocationCreate from '@/administration/views/location/Create.vue';
+import LocationEdit from '@/administration/views/location/Edit.vue';
+
 import StudentsIndex from '@/administration/views/student/Index.vue';
 import StudentCourseEvents from '@/administration/views/student/course_events/Index.vue';
 import StudentProfile from '@/administration/views/student/profile/Index.vue';
@@ -126,6 +130,23 @@ const routes = [
     name: 'tutor-edit',
     path: '/administration/tutor/edit/:id',
     component: TutorsEdit,
+  },
+
+  // Locations
+  {
+    name: 'locations',
+    path: '/administration/locations',
+    component: LocationIndex,
+  },
+  {
+    name: 'location-create',
+    path: '/administration/location/create',
+    component: LocationCreate,
+  },
+  {
+    name: 'location-edit',
+    path: '/administration/location/edit/:id',
+    component: LocationEdit,
   },
 
   // Students

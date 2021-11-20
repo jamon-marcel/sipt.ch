@@ -319,7 +319,7 @@ export default {
     storeFile(upload) {
       let file = {
         name: upload.name,
-        caption: null,
+        caption: upload.name,
         size: upload.size,
         type: upload.type,
         tutor_id: "",
@@ -400,7 +400,6 @@ export default {
     hideMessage() {
       this.hasMessageOverlay = false;
     },
-
 
     showAddStudentForm() {
       this.hasAddStudentOverlay = true;

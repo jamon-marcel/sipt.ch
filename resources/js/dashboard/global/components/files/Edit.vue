@@ -7,7 +7,8 @@
           v-for="file in files"
           :key="file.id"
         >
-          <input type="text" v-model="file.caption" :placeholder="file.name" />
+          <input type="text" v-model="file.caption" :placeholder="file.name" v-if="file.caption" />
+          <div v-else>{{file.name}}</div>
           <div class="upload__actions">
             <file-actions :file="file" :publish="file.publish" :hasEdit="false"></file-actions>
           </div>
