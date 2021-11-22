@@ -31,15 +31,18 @@ class Kernel extends ConsoleKernel
    */
   protected function schedule(Schedule $schedule)
   {
-    // $schedule->call(new CourseEventBills)->everyMinute();
-    // $schedule->call(new CourseEventInvitations)->everyMinute();
-    // $schedule->call(new CourseEventReminder)->everyMinute();
-    // $schedule->call(new Message)->everyMinute();
-    // $schedule->call(new SymposiumNews)->everyMinute();
-    // $schedule->call(new SymposiumBills)->everyMinute();
-    // $schedule->call(new Newsletter)->everyMinute();
-    // $schedule->call(new Advertisment)->everyMinute();
-    // $schedule->call(new ImportantNotice)->everyMinute();
+    if (App::environment('production'))
+    {
+      $schedule->call(new CourseEventBills)->everyMinute();
+      $schedule->call(new CourseEventInvitations)->everyMinute();
+      $schedule->call(new SymposiumBills)->everyMinute();
+      $schedule->call(new CourseEventReminder)->everyMinute();
+      $schedule->call(new Message)->everyMinute();
+      // $schedule->call(new Newsletter)->everyMinute();
+      // $schedule->call(new SymposiumNews)->everyMinute();
+      // $schedule->call(new Advertisment)->everyMinute();
+      // $schedule->call(new ImportantNotice)->everyMinute();
+    }
   }
 
   /**
