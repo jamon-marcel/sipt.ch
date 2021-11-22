@@ -19,7 +19,7 @@
       <br><a href="/bildungsangebot/modul/disputationen-und-sokratische-dialoge-in-der-traumatherapie-fakultativ/7cd75d97-1b30-4b8c-8093-a81791ec2145" class="icon-arrow-right">mehr erfahren</a>
     </p>
     <p>
-      <strong>Diagnostik: Der Körper als sichtbare Bühne, innere und äussere Prozesse</strong><br>Dozentin: Jutta Müllers<br>Termin: 24./25. September 2021
+      <strong>Diagnostik: Der Körper als sichtbare Bühne, innere und äussere Prozesse</strong><br>Dozentin: Jutta Müllers<br>Termin: 2./3. September 2022
       <br><a href="/bildungsangebot/modul/diagnostik-der-koerper-als-sichtbare-buehne-innere-und-aeussere-prozesse/e0efd94e-53b7-4df5-859d-6d4255b49f19" class="icon-arrow-right">mehr erfahren</a>
     </p>
   </article>
