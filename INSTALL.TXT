@@ -80,6 +80,8 @@ Create PW with tinker
 
 \Str::uuid();
 
+// Composer
+php composer.phar install --optimize-autoloader --no-dev
 
 // Shell
 ssh siptse9@psychotraumatologie-sipt.ch

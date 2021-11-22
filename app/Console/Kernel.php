@@ -38,7 +38,6 @@ class Kernel extends ConsoleKernel
       $schedule->call(new SymposiumBills)->everyMinute();
       $schedule->call(new CourseEventReminder)->everyMinute();
       $schedule->call(new Message)->everyMinute();
-
       // Newsletters, Advertisements, Notices
       // $schedule->call(new Newsletter)->everyMinute();
       // $schedule->call(new SymposiumNews)->everyMinute();
