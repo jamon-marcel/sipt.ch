@@ -6,8 +6,8 @@
   <section class="theme-light">
     <x-header title="Fehler 503" />
     <article>
-      <h2>Hoppla - Service unavailable</h2>
-      <p>Hoppla, etwas ist schiefgelaufen. Sollte das Problem weiterhin bestehen, wenden Sie sich an <a href="mailto:support@sipt.ch">support@sipt.ch</a>.</p>
+      <h2>Wartungsarbeiten - Service unavailable</h2>
+      <p>Wir überarbeiten zur Zeit unsere Website und sind gleich wieder da.</p>
     </article>
   </section>
 </main>
