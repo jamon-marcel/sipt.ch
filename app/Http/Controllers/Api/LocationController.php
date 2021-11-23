@@ -3,7 +3,6 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DataCollection;
 use App\Models\Location;
-use App\Models\LocationFile;
 use App\Http\Requests\LocationStoreRequest;
 use Illuminate\Http\Request;
 
@@ -33,7 +32,7 @@ class LocationController extends Controller
    */
   public function find(Location $location)
   {
-    return response()->json($this->location->with('file')->findOrFail($location->id));
+    return response()->json($this->location->findOrFail($location->id));
   }
 
   /**
@@ -44,8 +43,16 @@ class LocationController extends Controller
    */
   public function store(LocationStoreRequest $request)
   {
-    $location = Location::create($request->all());
+    $location = Location::create($request->except('maps_file'));
     $location->save();
+
+    if ($request->input('maps_file') && !empty($request->input('maps_file')))
+    {
+      $file = $request->input('maps_file');
+      $location->maps_file = isset($file[0]['name']) ? $file[0]['name'] : null;
+      $location->save();
+    }
+
     return response()->json(['locationId' => $location->id]);
   }
 

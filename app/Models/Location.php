@@ -17,9 +17,4 @@ class Location extends Model
     'maps_uri',
     'maps_file'
   ];
-
-	public function file()
-	{
-		return $this->hasOne('App\Models\LocationFile');
-	}
 }
