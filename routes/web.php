@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/das-sipt/ueber-uns', 'AboutController@about')->name('about_index');
 Route::get('/das-sipt/leitung-dozierende', 'AboutController@tutors')->name('about_tutors');
 Route::get('/das-sipt/dozent/{slug?}/{tutor}', 'AboutController@tutor')->name('about_tutor');
+Route::get('/datenschutz', 'AboutController@privacy')->name('about_privacy');
 
 // Bildungsangebot
 Route::get('/bildungsangebote/{slug?}/{trainingCategory}', 'TrainingController@trainingsByCategory')->name('training_category');
@@ -52,13 +53,14 @@ Route::get('/newsletter/import', 'NewsletterController@import')->name('newslette
 Route::get('/newsletter/test', 'NewsletterController@test')->name('newsletter_test');
 
 
-// TOC
+// TOC / Privacy
 Route::get('/agb', 'AboutController@toc')->name('about_toc');
+Route::get('/datenschutz', 'AboutController@privacy')->name('about_privacy');
 
 // Downloads
 Route::get('/downloads', 'DownloadController@index')->name('downloads_index');
 
-// 
+// Jobs
 Route::get('/stelleninserate', 'AboutController@jobs')->name('jobs_index');
 
 
@@ -73,6 +75,11 @@ Route::get('/bookings', 'BookingController@get');
 
 // Student Login
 Route::post('/auth/student/login', 'LoginController@login')->name('student_login');
+
+// Student register
+Route::get('/registration', 'RegisterController@index')->name('register_index');
+Route::post('/registrieren', 'RegisterController@store')->name('register_store');
+Route::get('/registration/abgeschlossen', 'RegisterController@registered')->name('register_done');
 
 /*
 |--------------------------------------------------------------------------
@@ -101,13 +108,11 @@ Route::middleware('auth:sanctum', 'verified')->group(function() {
   Route::get('/export/adressliste/dozenten', 'DownloadController@exportTutorAddresses')->middleware('role:admin');
   Route::get('/export/adressliste/vip', 'DownloadController@exportVipAddresses')->middleware('role:admin');
 
-
   // Downloads for students
   Route::get('/download/kursbestaetigung/{courseEvent}/{student?}', 'DownloadController@confirmation')->middleware('role:student');
   Route::get('/download/kurseinladung/{courseEvent}/{student?}', 'DownloadController@invitation')->middleware('role:student');
   Route::get('/download/kursuebersicht-alle/{student?}', 'DownloadController@coursesOverview')->middleware('role:student');
   Route::get('/download/kursuebersicht-absolviert/{student?}', 'DownloadController@coursesAttended')->middleware('role:student');
-
 
   // CatchAll: Dashboard Student
   Route::get('student/{any?}', function () {

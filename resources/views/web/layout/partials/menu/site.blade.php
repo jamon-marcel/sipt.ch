@@ -65,6 +65,9 @@
           <li>
             <a href="{{ route('login') }}">Login</a>
           </li>
+          <li>
+            <a href="{{ route('register_index') }}">Registrieren</a>
+          </li>
         @endguest
         @auth
           <li>
@@ -96,6 +99,9 @@
         </li>
         <li>
           <a href="{{ route('about_toc')}}" class="{{ request()->routeIs('about_toc') ? 'is-active' : '' }}">AGB</a>
+        </li>
+        <li>
+          <a href="{{ route('about_privacy')}}" class="{{ request()->routeIs('about_privacy') ? 'is-active' : '' }}">Datenschutz</a>
         </li>
       </ul>
     </div>

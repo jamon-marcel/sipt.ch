@@ -29,6 +29,18 @@ form.auth {
   }
 }
 
+// Register form
+form.auth--register {
+  max-width: 640px !important;
+  .form-group {
+    label {
+      @include bp-xl() {
+        flex: 0 0 235px;
+      }
+    }
+  }
+}
+
 // Sidebar form
 form.form-sidebar {
   .form-group {

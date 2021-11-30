@@ -81,7 +81,7 @@ class AboutController extends BaseController
   }
 
   /**
-   * Show the toc
+   * Show the toc page
    *
    * @return \Illuminate\Http\Response
    */
@@ -89,5 +89,16 @@ class AboutController extends BaseController
   public function toc()
   { 
     return view($this->viewPath . 'toc');
+  }
+
+  /**
+   * Show the privacy page
+   *
+   * @return \Illuminate\Http\Response
+   */
+
+  public function privacy()
+  { 
+    return view($this->viewPath . 'privacy');
   }
 }
