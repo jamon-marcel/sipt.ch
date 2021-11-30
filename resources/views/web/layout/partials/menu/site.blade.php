@@ -63,10 +63,10 @@
       <ul>
         @guest
           <li>
-            <a href="{{ route('login') }}">Login</a>
+            <a href="{{ route('login') }}" class="{{ request()->routeIs('login') ? 'is-active' : '' }}">Login</a>
           </li>
           <li>
-            <a href="{{ route('register_index') }}">Registrieren</a>
+            <a href="{{ route('register_index') }}" class="{{ request()->routeIs('register_index') ? 'is-active' : '' }}">Registrieren</a>
           </li>
         @endguest
         @auth
