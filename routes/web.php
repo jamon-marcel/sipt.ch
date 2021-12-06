@@ -78,7 +78,7 @@ Route::post('/auth/student/login', 'LoginController@login')->name('student_login
 
 // Student register
 Route::get('/registration', 'RegisterController@index')->name('register_index');
-Route::post('/registrieren', 'RegisterController@store')->name('register_store');
+Route::post('/registrieren', 'RegisterController@store')->middleware(ProtectAgainstSpam::class)->name('register_store');
 Route::get('/registration/abgeschlossen', 'RegisterController@registered')->name('register_done');
 
 /*

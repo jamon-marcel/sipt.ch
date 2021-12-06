@@ -12,6 +12,7 @@
       @endif
       <form method="POST" class="auth auth--register" action="{{ route('register_store') }}">
         @csrf
+        @honeypot
         <x-text-field label="Vorname" type="text" name="firstname" />
         <x-text-field label="Name" type="text" name="name" />
         <x-text-field label="Titel" type="text" name="title" placeholder="optional" />
