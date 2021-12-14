@@ -45,6 +45,7 @@ class CourseEventDate extends Model
 
   public function setTimeStartAttribute($value)
   {
+    $value = $value . '.00';
     $this->attributes['timeStart'] = \Carbon\Carbon::parse($value)->format('H:i:s');
   }
 
@@ -54,6 +55,7 @@ class CourseEventDate extends Model
 
   public function setTimeEndAttribute($value)
   {
+    $value = $value . '.00';
     $this->attributes['timeEnd'] = \Carbon\Carbon::parse($value)->format('H:i:s');
   }
 
