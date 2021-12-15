@@ -6,7 +6,7 @@ class Newsletter
   public function __invoke()
   {
     $subscribers = \App\Models\NewsletterSubscriber::where('is_done', '=', '0')->where('is_confirmed', '=', '1')->get();
-    $subscribers = collect($subscribers)->splice(0, \Config::get('sipt.cron_chunk_size'));
+    $subscribers = collect($subscribers)->splice(0, 3);
 
     foreach($subscribers->all() as $s)
     {
