@@ -114,7 +114,7 @@
           Clienia Gruppenpraxis Uster<br>
           Schachenweg 2<br>
           8610 Uster<br>
-          Tel. 044 905 50 00
+          Telefon: 044 905 50 00
         </p>
 
         <p><strong>lic. phil. Haeny, Christina</strong><br>
@@ -126,7 +126,7 @@
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
         <p>
-          <strong>Remo Hartmann</strong><br>Eidgenössisch anerkannter Psychotherapeut<br>Dufourstrasse 169<br>8008 Zürich<br>077 461 48 75
+          <strong>Remo Hartmann</strong><br>Eidgenössisch anerkannter Psychotherapeut<br>Dufourstrasse 169<br>8008 Zürich<br>Telefon: 077 461 48 75
         </p>
         <p><strong>Dr. phil. Holderegger, Hans</strong><br>
         Psychoanalytiker<br>
