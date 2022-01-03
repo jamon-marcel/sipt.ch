@@ -16,7 +16,7 @@
           v-for="(student, index) in results.students" 
           :key="index">
           <div class="listing__item-body">
-            {{student.firstname}} {{student.name}} <separator /> {{student.city}} <separator /> {{student.user.email}}
+            {{student.firstname}} {{student.name}} <separator /> {{student.city}} <separator /> {{student.user.email}} <separator /> {{student.user.id}}
             <div class="bubble bubble-info" v-if="student.is_active">Student (A)</div>
             <div class="bubble bubble-warning" v-else>Student (I)</div>
           </div>
@@ -39,7 +39,7 @@
           v-for="(tutor, index) in results.tutors" 
           :key="index">
           <div class="listing__item-body">
-            {{tutor.firstname}} {{tutor.name}} <separator /> {{tutor.city}} <separator /> {{tutor.user.email}}  <div class="bubble bubble-info">Dozent</div>
+            {{tutor.firstname}} {{tutor.name}} <separator /> {{tutor.city}} <separator /> {{tutor.user.email}} <separator /> {{tutor.user.id}} <div class="bubble bubble-info">Dozent</div>
           </div>
           <div class="listing__item-action">
             <div>
