@@ -25,7 +25,7 @@
                 <a
                   href="javascript:;"
                   class="feather-icon"
-                  @click.prevent="copy(student.firstname + ';' + student.name + ';' + student.city + ';' + student.user.email +  ';student;' + (student.is_active ? 'active' : 'inactive'))"
+                  @click.prevent="copy(student.user.id)"
                 >
                   <copy-icon size="18"></copy-icon>
                 </a>
@@ -46,7 +46,7 @@
                 <a
                   href="javascript:;"
                   class="feather-icon"
-                  @click.prevent="copy(tutor.firstname + ';' + tutor.name + ';' + tutor.city + ';' + tutor.user.email + ';' + 'tutor;')"
+                  @click.prevent="copy(tutor.user.id)"
                 >
                   <copy-icon size="18"></copy-icon>
                 </a>
