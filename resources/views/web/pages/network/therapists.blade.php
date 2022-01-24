@@ -126,7 +126,7 @@
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
         <p>
-          <strong>Remo Hartmann</strong><br>Eidgenössisch anerkannter Psychotherapeut<br>Dufourstrasse 169<br>8008 Zürich<br>Telefon: 077 461 48 75
+          <strong>Remo Hartmann</strong><br>Eidgenössisch anerkannter Psychotherapeut<br>Dufourstrasse 169<br>8008 Zürich<br>Telefon: 077 461 48 75<br><a href="mailto:remo.hartmann@fsp-hin.ch">remo.hartmann@fsp-hin.ch</a>
         </p>
         <p><strong>Dr. phil. Holderegger, Hans</strong><br>
         Psychoanalytiker<br>
