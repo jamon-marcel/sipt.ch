@@ -31,7 +31,7 @@ class DevController extends Controller
     $students = Student::get();
     foreach($students as $student)
     {
-      if (!$student->user)
+      if (!$student->user->email)
       {
         echo $student->name;
         echo '<br>';
