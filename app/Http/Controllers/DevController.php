@@ -30,7 +30,7 @@ class DevController extends Controller
   {
     $students = Student::get();
     $students_user = Student::with('user')->get();
-    dd($students, $students_user);
+    dd($students[67], $students_user[800]);
   }
 
   // public function maskUser()
