@@ -71,7 +71,7 @@ class User extends Authenticatable implements MustVerifyEmail
   
   public function student()
 	{
-    return $this->hasOne('App\Models\Student', 'user_id', 'id');
+    return $this->belongsTo('App\Models\Student');
   }
   
   public function administrator()
