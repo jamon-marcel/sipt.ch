@@ -88,7 +88,7 @@ Route::get('/registration/abgeschlossen', 'RegisterController@registered')->name
 |
 */
 
-Route::middleware('auth:sanctum')->group(function() {
+Route::middleware('auth:sanctum', 'verified')->group(function() {
 
   // Temp. Registration Symposium
   Route::get('/admin/jubilaeums-fachtagung-15-jahre-sipt', 'SymposiumController@anniversaryAdmin');
