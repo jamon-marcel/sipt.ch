@@ -43,10 +43,10 @@ class StudentController extends Controller
    */
   public function get($slim = false)
   { 
-    // if ($slim)
-    // {
-    //   new DataCollection($this->student->with('user')->orderBy('name')->get(['name', 'firstname', 'city', 'title', 'id', 'number']));
-    // }
+    if ($slim)
+    {
+      new DataCollection($this->student->with('user')->orderBy('name')->get(['name', 'firstname', 'city', 'title', 'id', 'number']));
+    }
     return new DataCollection($this->student->with('user')->orderBy('name')->get());
   }
 
