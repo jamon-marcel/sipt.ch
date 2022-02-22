@@ -35,12 +35,12 @@ class Student extends Model
 	];
 
 	protected $hidden = [
-    'user_id', 'created_at', 'updated_at'
+    'created_at', 'updated_at'
   ];
 	
 	public function user()
 	{
-		return $this->belongsTo('App\Models\User', 'user_id', 'id');
+		return $this->hasOne('App\Models\User', 'id', 'user_id');
 	}
 
 	public function invoices()
