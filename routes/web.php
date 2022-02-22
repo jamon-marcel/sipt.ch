@@ -14,6 +14,9 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 Auth::routes(['verify' => true, 'register' => false]);
 Route::get('/logout', 'Auth\LoginController@logout');
 
+// Test
+Route::get('/check-users', 'DevController@users');
+
 // Home
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');

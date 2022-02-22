@@ -2,6 +2,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Student;
 use App\Models\SymposiumSubscriber;
 use App\Models\ImportantNoticeSubscriber;
 use App\Models\AdvertismentSubscriber;
@@ -25,56 +26,62 @@ class DevController extends Controller
 
   }
 
-  public function maskUser()
+  public function users()
   {
-
-    // Users
-    $users = $this->user->get();
-    foreach($users as $u)
-    {
-      if ($u->role != 'admin')
-      {
-        $rand_user = \Str::random(8);
-        $u->email = strtolower($rand_user) . '@jamondigital.ch';
-        $u->save();
-      }
-    }
-
-    // Symposium subscribers
-    $symposiumSubscriber = $this->symposiumSubscriber->get();
-    foreach($symposiumSubscriber as $u)
-    {
-      $rand_user = \Str::random(8);
-      $u->email = strtolower($rand_user) . '@jamondigital.ch';
-      $u->save();
-    }
-
-    // Important notice subscribers
-    $importantNoticeSubscribers = $this->importantNoticeSubscriber->get();
-    foreach($importantNoticeSubscribers as $u)
-    {
-      $rand_user = \Str::random(8);
-      $u->email = strtolower($rand_user) . '@jamondigital.ch';
-      $u->save();
-    }
-
-    // Advertisement subscribers
-    $advertismentSubscribers = $this->advertismentSubscriber->get();
-    foreach($advertismentSubscribers as $u)
-    {
-      $rand_user = \Str::random(8);
-      $u->email = strtolower($rand_user) . '@jamondigital.ch';
-      $u->save();
-    }
-
-    // Newsletter subscribers
-    $newsletterSubscribers = $this->newsletterSubscriber->get();
-    foreach($newsletterSubscribers as $u)
-    {
-      $rand_user = \Str::random(8);
-      $u->email = strtolower($rand_user) . '@jamondigital.ch';
-      $u->save();
-    }
-
+    $students = Student::with('user')->get();
+    dd($students);
   }
+
+  // public function maskUser()
+  // {
+
+  //   // Users
+  //   $users = $this->user->get();
+  //   foreach($users as $u)
+  //   {
+  //     if ($u->role != 'admin')
+  //     {
+  //       $rand_user = \Str::random(8);
+  //       $u->email = strtolower($rand_user) . '@jamondigital.ch';
+  //       $u->save();
+  //     }
+  //   }
+
+  //   // Symposium subscribers
+  //   $symposiumSubscriber = $this->symposiumSubscriber->get();
+  //   foreach($symposiumSubscriber as $u)
+  //   {
+  //     $rand_user = \Str::random(8);
+  //     $u->email = strtolower($rand_user) . '@jamondigital.ch';
+  //     $u->save();
+  //   }
+
+  //   // Important notice subscribers
+  //   $importantNoticeSubscribers = $this->importantNoticeSubscriber->get();
+  //   foreach($importantNoticeSubscribers as $u)
+  //   {
+  //     $rand_user = \Str::random(8);
+  //     $u->email = strtolower($rand_user) . '@jamondigital.ch';
+  //     $u->save();
+  //   }
+
+  //   // Advertisement subscribers
+  //   $advertismentSubscribers = $this->advertismentSubscriber->get();
+  //   foreach($advertismentSubscribers as $u)
+  //   {
+  //     $rand_user = \Str::random(8);
+  //     $u->email = strtolower($rand_user) . '@jamondigital.ch';
+  //     $u->save();
+  //   }
+
+  //   // Newsletter subscribers
+  //   $newsletterSubscribers = $this->newsletterSubscriber->get();
+  //   foreach($newsletterSubscribers as $u)
+  //   {
+  //     $rand_user = \Str::random(8);
+  //     $u->email = strtolower($rand_user) . '@jamondigital.ch';
+  //     $u->save();
+  //   }
+
+  // }
 }
