@@ -29,14 +29,7 @@ class DevController extends Controller
   public function users()
   {
     $students = Student::get();
-    foreach($students as $student)
-    {
-      if (!$student->user->email)
-      {
-        echo $student->name;
-        echo '<br>';
-      }
-    }
+    dd($students);
   }
 
   // public function maskUser()
