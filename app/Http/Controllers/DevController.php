@@ -26,12 +26,12 @@ class DevController extends Controller
 
   }
 
-  public function users()
-  {
-    $students = Student::get();
-    $students_user = Student::with('user')->get();
-    dd($students[67], $students_user[800]);
-  }
+  // public function users()
+  // {
+  //   $students = Student::get();
+  //   $students_user = Student::with('user')->get();
+  //   dd($students[67], $students_user[800]);
+  // }
 
   // public function maskUser()
   // {
