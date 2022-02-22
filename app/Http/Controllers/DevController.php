@@ -28,8 +28,12 @@ class DevController extends Controller
 
   public function users()
   {
-    $students = Student::with('user')->get();
-    dd($students);
+    $students = Student::get();
+    foreach($students as $student)
+    {
+      echo $student->user_id;
+      echo '<br>';
+    }
   }
 
   // public function maskUser()
