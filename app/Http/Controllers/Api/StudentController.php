@@ -47,7 +47,7 @@ class StudentController extends Controller
     {
       new DataCollection($this->student->with('user')->orderBy('name')->get(['name', 'firstname', 'city', 'title', 'id', 'number']));
     }
-    return new DataCollection($this->student->with('user')->orderBy('name')->get());
+    return new DataCollection(Student::with('user')->get());
   }
 
   /**
