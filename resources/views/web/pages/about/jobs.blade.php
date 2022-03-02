@@ -6,6 +6,11 @@
   <x-header title="Stelleninserate" />
   <article>
     <p>
+      <a href="/storage/downloads/sipt-Inserat_Puent-Sued.pdf" target="_blank" class="btn-download" title="Diplomierte Pflegefachperson">
+        <strong>Diplomierte Pflegefachperson, Pünt Süd, Clienia</strong> [PDF, 102KB]
+      </a>
+    </p>
+    <p>
       <a href="/storage/downloads/sipt-CLL_Dipl_Pflegefachperson_PanC.pdf" target="_blank" class="btn-download" title="Diplomierte Pflegefachperson 80 - 90%">
         <strong>Diplomierte Pflegefachperson 80 - 90%</strong> [PDF, 87KB]
       </a>
