@@ -7,7 +7,7 @@
   <article>
     <p>
       <a href="/storage/downloads/sipt-Inserat_Puent-Sued.pdf" target="_blank" class="btn-download" title="Diplomierte Pflegefachperson">
-        <strong>Diplomierte Pflegefachperson, Pünt Süd, Clienia</strong> [PDF, 102KB]
+        <strong>Diplomierte Pflegefachperson</strong> [PDF, 102KB]
       </a>
     </p>
     <p>
