@@ -40,8 +40,9 @@
               <span v-if="invoice.symposium_subscriber">
                 {{invoice.symposium_subscriber.firstname}} {{invoice.symposium_subscriber.name}}, {{invoice.symposium_subscriber.city}}
               </span>
-              <span class="bubble-info">
-                {{invoice.cancel_reason | truncate('25', '...')}}
+              <span class="bubble-info" @mouseover.stop="toggleInfo($event)">
+                <div>{{invoice.cancel_reason | truncate('25', '...')}}</div>
+                <div style="display:none">{{invoice.cancel_reason}}</div>
               </span>
             </div>
             <div class="listing__item-action">
@@ -137,6 +138,14 @@ export default {
     hideHistory() {
       this.historyInvoice = null;
       this.hasHistoryOverlay = false;
+    },
+
+    toggleInfo(event) {
+      if (event.target.classList.contains('bubble-info')) {
+        event.target.style.cursor = 'pointer';
+        event.target.querySelector("div:first-child").style.display = "none";
+        event.target.querySelector("div:last-child").style.display = "block";
+      }
     },
   },
 };
