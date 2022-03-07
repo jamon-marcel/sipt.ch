@@ -290,7 +290,7 @@ export default {
 
     getTutorName(id) {
       const index = this.tutors.findIndex(x => x.id === id);
-      if (this.tutors[index].firstname && this.tutors[index].name) {
+      if (index > -1) {
         return this.tutors[index].firstname + " " + this.tutors[index].name;
       }
     }
