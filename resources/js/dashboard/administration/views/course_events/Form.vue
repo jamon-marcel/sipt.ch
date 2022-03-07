@@ -290,6 +290,7 @@ export default {
 
     getTutorName(id) {
       const index = this.tutors.findIndex(x => x.id === id);
+      console.log(index);
       return this.tutors[index].firstname + " " + this.tutors[index].name;
     }
   },
