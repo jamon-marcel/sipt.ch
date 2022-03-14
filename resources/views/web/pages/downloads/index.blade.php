@@ -11,17 +11,17 @@
     </a>
   </article>
   <article>
-    <a href="/storage/downloads/sipt-bildungsangebot-fuer-beraterinnen.pdf" target="_blank" class="btn-download" title="Bildungsangebot für BeraterInnen">
+    <a href="/storage/downloads/sipt-bildungsangebot-fuer-beraterinnen-2022.pdf" target="_blank" class="btn-download" title="Bildungsangebot für BeraterInnen">
       <strong>Bildungsangebot für BeraterInnen</strong> [PDF, 70KB]
     </a>
   </article>
   <article>
-    <a href="/storage/downloads/sipt-bildungsangebot-fuer-paedagoginnen.pdf" target="_blank" class="btn-download" title="Bildungsangebot für PädagogInnen">
+    <a href="/storage/downloads/sipt-bildungsangebot-fuer-paedagoginnen-2022.pdf" target="_blank" class="btn-download" title="Bildungsangebot für PädagogInnen">
       <strong>Bildungsangebot für PädagogInnen</strong> [PDF, 70KB]
     </a>
   </article>
   <article>
-    <a href="/storage/downloads/sipt-bildungsangebot-fuer-psychotherapeutinnen.pdf" target="_blank" class="btn-download" title="Bildungsangebot für Psychotherapeutinnen">
+    <a href="/storage/downloads/sipt-bildungsangebot-fuer-psychotherapeutinnen-2022.pdf" target="_blank" class="btn-download" title="Bildungsangebot für Psychotherapeutinnen">
       <strong>Bildungsangebot für PsychotherapeutInnen</strong> [PDF, 70KB]
     </a>
   </article>
