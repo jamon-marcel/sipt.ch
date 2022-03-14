@@ -50,7 +50,9 @@
             <td>{{$d->course->title}}</td>
             @if (count($d->dates) == 2)
               @foreach($d->dates as $date)
-                <td>{{$date->tutor->name}}</td>
+                @if ($date->tutor)
+                  <td>{{$date->tutor->name}}</td>
+                @endif
               @endforeach
             @else
               <td>{{ isset($d->dates[0]) ? $d->dates[0]->tutor->name : ''}}</td>
