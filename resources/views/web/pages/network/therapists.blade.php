@@ -43,12 +43,12 @@
         <a href="mailto:r.barwinski@swissonline.ch">r.barwinski@swissonline.ch</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
-        <p><strong>Beyer-Ihde, Brigitte</strong><br>
+        {{-- <p><strong>Beyer-Ihde, Brigitte</strong><br>
         Kunsttherapeutin<br>
         Traubenstrasse 19<br>
         9400 Wil<br>
         <a href="mailto:brigitte.beyer-ihde@gmx.de">brigitte.beyer-ihde@gmx.de</a><br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p>
+        (Kostenübernahme durch die Krankenkasse möglich)</p> --}}
         
         <p><strong>Bollok, Kathrin, lic. phil.</strong><br>
         Eidg. anerkannte Psychotherapeutin<br>
@@ -290,13 +290,13 @@
         <a href="mailto:brigitt.steinegger@hin.ch">brigitt.steinegger@hin.ch</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
-        <p><strong>lic. phil. Suter, Christian</strong><br>
+        {{-- <p><strong>lic. phil. Suter, Christian</strong><br>
         Praxis für Psychotherapie Dr. E. Möller<br>
         Löwenstrasse 5<br>
         9500 Wil<br>
         Telefon: 079 652 66 83<br>
         <a href="mailto:christian.suter@hin.ch">christian.suter@hin.ch</a><br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p>
+        (Kostenübernahme durch die Krankenkasse möglich)</p> --}}
         
         <p><strong>Triebing, Dodo</strong><br>
         MAS in klinischer Musiktherapie, Musiktherapeutin
