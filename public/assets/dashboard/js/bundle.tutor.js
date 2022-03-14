@@ -86187,7 +86187,7 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
     tutorsToString: function tutorsToString(data) {
       // filter out names, remove duplicates and create string
       return _toConsumableArray(new Set(_toConsumableArray(data.map(function (x) {
-        return x.tutor.name;
+        return x.tutor ? x.tutor.name : '';
       })))).join('/');
     },
 
