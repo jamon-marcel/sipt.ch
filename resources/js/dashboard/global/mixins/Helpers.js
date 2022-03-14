@@ -10,7 +10,8 @@ export default {
      */
     tutorsToString(data) {
       // filter out names, remove duplicates and create string
-      return [...new Set([...data.map(x => x.tutor.name || '')])].join('/');
+      console.log(data);
+      return [...new Set([...data.map(x => x.tutor.name)])].join('/');
     },
 
     /**
