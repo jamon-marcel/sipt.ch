@@ -180,12 +180,12 @@
         Telefon: 044 364 33 66<br>
         <a href="mailto:tanner.mohamed@bluewin.ch">tanner.mohamed@bluewin.ch</a></p>
         
-        <p><strong>Dr. med. Möller, Elisabeth</strong><br>
+        {{-- <p><strong>Dr. med. Möller, Elisabeth</strong><br>
         Fachärztin für Psychiatrie und Psychotherapie; Psychoanalytikerin
         Traubenstrasse 19<br>
         9400 Wil<br>
         <a href="mailto:Elisabeth.Moeller@clienia.ch">Elisabeth.Moeller@clienia.ch</a><br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p>
+        (Kostenübernahme durch die Krankenkasse möglich)</p> --}}
         
         <p><strong>Dr. med. Raich Morales, Monica</strong><br>
         Fachärztin für Psychiatrie und Psychoterapie; Psychoanalytikerin
@@ -290,13 +290,13 @@
         <a href="mailto:brigitt.steinegger@hin.ch">brigitt.steinegger@hin.ch</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
-        {{-- <p><strong>lic. phil. Suter, Christian</strong><br>
+        <p><strong>lic. phil. Suter, Christian</strong><br>
         Praxis für Psychotherapie Dr. E. Möller<br>
         Löwenstrasse 5<br>
         9500 Wil<br>
         Telefon: 079 652 66 83<br>
         <a href="mailto:christian.suter@hin.ch">christian.suter@hin.ch</a><br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p> --}}
+        (Kostenübernahme durch die Krankenkasse möglich)</p>
         
         <p><strong>Triebing, Dodo</strong><br>
         MAS in klinischer Musiktherapie, Musiktherapeutin
