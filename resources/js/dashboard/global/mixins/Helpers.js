@@ -10,7 +10,6 @@ export default {
      */
     tutorsToString(data) {
       // filter out names, remove duplicates and create string
-      if (data[0].tutor == undefined && data[1].tutor == undefined) return;
       return [...new Set([...data.map(x => x.tutor.name)])].join('/');
     },
 
