@@ -63,6 +63,9 @@ class AppHelper
   public static function tutorsToString($data, $filterDuplicates = FALSE)
   {
     $tutors = $data->pluck('tutor.fullName');
+    echo '<!--';
+    var_dump($tutors);
+    echo '-->';
 
     if ($filterDuplicates)
     {
