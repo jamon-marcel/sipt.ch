@@ -64,6 +64,10 @@ class AppHelper
   {
     $tutors = $data->pluck('tutor.fullName');
 
+    echo '<!--';
+    var_dump(collect($tutors)->unique());
+    echo '-->';
+
     if ($filterDuplicates)
     {
      return collect($tutors)->unique()->values()->first();
