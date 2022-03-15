@@ -9,7 +9,7 @@
     Ort: {{AppHelper::locationName($event->location_id, TRUE)}}
   </div>
   <div class="list__item">
-    DozentInnen: {{AppHelper::tutorsToString($event->dates, TRUE)}}
+    DozentInnen: {{AppHelper::tutorsToString($event->dates)}}
   </div>
   <div class="list__item">
     Kosten: CHF {{$course->cost}}

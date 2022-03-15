@@ -63,16 +63,13 @@ class AppHelper
   public static function tutorsToString($data, $filterDuplicates = FALSE)
   {
     $tutors = $data->pluck('tutor.fullName');
-    echo '<!--';
-    var_dump(collect($tutors)->unique()->values()->first());
-    echo '-->';
 
     if ($filterDuplicates)
     {
      return collect($tutors)->unique()->values()->first();
     }
 
-    return implode('/', $tutors); //collect($tutors)->implode('/');
+    return collect($tutors)->implode('/');
   }
 
   public static function locationName($data, $showCity = FALSE)
