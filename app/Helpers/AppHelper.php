@@ -72,7 +72,7 @@ class AppHelper
      return collect($tutors)->unique()->values()->first();
     }
 
-    return collect($tutors)->implode('/');
+    return implode('/', $tutors); //collect($tutors)->implode('/');
   }
 
   public static function locationName($data, $showCity = FALSE)
