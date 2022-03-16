@@ -13,10 +13,10 @@
   </article>
   <article>
     <h2>Neue Kursangebote</h2>
-    <p>Gerne weisen wir auf neue Kursangebote hin, die Sie unter „Spezielle Themen der Psychotraumatologie“ finden können:</p>
+    <p>Gerne weisen wir auf <strong>aktuelle</strong> Kursangebote hin, die Sie unter „Spezielle Themen der Psychotraumatologie“ finden können::</p>
     <p>
-      <strong>Diagnostik: Der Körper als sichtbare Bühne, innere und äussere Prozesse</strong><br>Dozentin: Jutta Müllers<br>Termin: 2./3. September 2022
-      <br><a href="/bildungsangebot/modul/diagnostik-der-koerper-als-sichtbare-buehne-innere-und-aeussere-prozesse/e0efd94e-53b7-4df5-859d-6d4255b49f19" class="icon-arrow-right">mehr erfahren</a>
+      <strong>Migration und Trauma – transkulturelle und traumatherapeutische Kompetenzen in der Behandlung und Beratung von Geflüchteten und Menschen mit Migrationshintergrund</strong><br>Dozentin: Oliver Schwald<br>Termin:  1./2. April 2022
+      <br><a href="/bildungsangebot/modul/migration-und-trauma-transkulturelle-und-traumatherapeutische-kompetenzen-in-der-behandlung-und-beratung-von-gefluechteten-und-menschen-mit-migrationshintergrund-fakultativ/a9690678-91f1-4531-8c49-e4ecec12d088" class="icon-arrow-right">mehr erfahren</a>
     </p>
   </article>
 </section>
