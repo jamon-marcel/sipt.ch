@@ -13,10 +13,15 @@
   </article>
   <article>
     <h2>Neue Kursangebote</h2>
-    <p>Gerne weisen wir auf <strong>aktuelle</strong> Kursangebote hin, die Sie unter „Spezielle Themen der Psychotraumatologie“ finden können::</p>
+    <p>Gerne weisen wir auf <strong>aktuelle</strong> Kursangebote hin, die Sie unter „Spezielle Themen der Psychotraumatologie“ finden können:</p>
     <p>
-      <strong>Migration und Trauma – transkulturelle und traumatherapeutische Kompetenzen in der Behandlung und Beratung von Geflüchteten und Menschen mit Migrationshintergrund</strong><br>Dozentin: Oliver Schwald<br>Termin:  1./2. April 2022
+      <strong>Migration und Trauma – transkulturelle und traumatherapeutische Kompetenzen in der Behandlung und Beratung von Geflüchteten und Menschen mit Migrationshintergrund</strong><br>Dozent: Oliver Schwald<br>Termin:  1./2. April 2022
       <br><a href="/bildungsangebot/modul/migration-und-trauma-transkulturelle-und-traumatherapeutische-kompetenzen-in-der-behandlung-und-beratung-von-gefluechteten-und-menschen-mit-migrationshintergrund-fakultativ/a9690678-91f1-4531-8c49-e4ecec12d088" class="icon-arrow-right">mehr erfahren</a>
+    </p>
+
+    <p>
+      <strong>Traumatisierte Flüchtlinge im Schulalltag</strong><br>Dozentin: Ruth Monstein<br>13./14. Mai 2022
+      <br><a href="/bildungsangebot/modul/traumatisierte-fluechtlinge-im-schulalltag/31a9bb59-80ef-4a12-8228-81ba17a061bd" class="icon-arrow-right">mehr erfahren</a>
     </p>
   </article>
 </section>
