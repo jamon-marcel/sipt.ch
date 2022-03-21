@@ -5,6 +5,35 @@
 <section class="theme-light order-1">
   <x-header title="Aktuell" />
   <article>
+    <h2>Trauma-Broschüren auf Ukrainisch und auf Russisch</h2>
+    <p>Die Traumabroschüren des ZTK (Leitung Thomas Weber) für Erwachsene und für Menschen, die mit traumatisierten Kindern und Jugendlichen zu tun haben – 16 – 20 Seiten) wurden auf <strong>Ukrainisch</strong> auf <strong>Russisch</strong> übersetzt. Diese können für die Arbeit mit Geflüchteten jederzeit kostenfrei über die folgenden Links heruntergeladen werden:</p>
+
+    <p>
+      <strong>Ukrainisch (für Erwachsene)</strong><br>
+      <a class="icon-arrow-right" href="https://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Erwachsene_2022_ukr_final.pdf" target="_blank" title="">
+        mehr erfahren
+      </a>
+    </p>
+    <p>
+      <strong>Ukrainisch (für Menschen, die mit traumatisierten Kindern und Jugendlichen zu tun haben)</strong><br>
+      <a class="icon-arrow-right" href="https://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Kinder_2022_ukr_final.pdf" target="_blank" title="">
+        mehr erfahren
+      </a>
+    </p>
+    <p>
+      <strong>Russisch (für Erwachsene)</strong><br>
+      <a class="icon-arrow-right" href="https://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Erwachsene_2022_rus_final.pdf" target="_blank" title="">
+        mehr erfahren
+      </a>
+    </p>
+    <p>
+      <strong>Russisch (für Menschen, die mit traumatisierten Kindern und Jugendlichen zu tun haben)</strong><br>
+      <a class="icon-arrow-right" href="https://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Kinder_2022_rus_final.pdf" target="_blank" title="">
+        mehr erfahren
+      </a>
+    </p>
+  </article>
+  <article>
     <h2>Neues Buch – Orientierung für den komplexen Prozess der Traumabehandlung</h2>
     <p>
       Gerne machen wir Sie auf folgendes Buch aufmerksam, welches bei Klett-Cotta erschienen ist.<br>
