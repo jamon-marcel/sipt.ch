@@ -19,6 +19,7 @@ class Portrait implements FilterInterface
     {
       return 
         $image->crop(floor($img->coords_w), floor($img->coords_h), floor($img->coords_x), floor($img->coords_y))
+              ->greyscale()
               ->resize($this->max_width, null, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
@@ -32,13 +33,13 @@ class Portrait implements FilterInterface
     // Resize landscape image
     if ($width > $height && $width >= $this->max_width)
     {
-      $image->fit($this->max_width, $this->max_height, function ($constraint) {
+      $image->greyscale()->fit($this->max_width, $this->max_height, function ($constraint) {
         return $constraint->aspectRatio();
       });
     }
     else if ($height >= $this->max_height)
     {
-      $image->fit($this->max_width, $this->max_height, function ($constraint) {
+      $image->greyscale()->fit($this->max_width, $this->max_height, function ($constraint) {
         return $constraint->aspectRatio();
       });
     }
