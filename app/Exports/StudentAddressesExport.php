@@ -30,7 +30,7 @@ class StudentAddressesExport implements FromCollection, WithHeadings
         'Telefon' => $s->phone,
         'Telefon G.' => $s->phone_business,
         'Mobile' => $s->mobile,
-        'E-Mail' => $s->user->email ? $s->user->email : '',
+        'E-Mail' => isset($s->user->email) ? $s->user->email : '',
         'Aktiv' => $active,
         'Newsletter' => $s->user->is_newsletter_subscriber
       ];
