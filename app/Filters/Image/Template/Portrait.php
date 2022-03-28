@@ -19,10 +19,10 @@ class Portrait implements FilterInterface
     {
       return 
         $image->crop(floor($img->coords_w), floor($img->coords_h), floor($img->coords_x), floor($img->coords_y))
-              ->greyscale()
-              ->resize($this->max_width, null, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
+          ->greyscale()
+          ->resize($this->max_width, null, function ($constraint) {
+            $constraint->aspectRatio();
+            $constraint->upsize();
         });
     }
 
