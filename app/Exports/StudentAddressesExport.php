@@ -30,9 +30,9 @@ class StudentAddressesExport implements FromCollection, WithHeadings
         'Telefon' => $s->phone,
         'Telefon G.' => $s->phone_business,
         'Mobile' => $s->mobile,
-        'E-Mail' => $s->user->email ? $s->user->email : '',
+        'E-Mail' => $s->user ? $s->user->email : '',
         'Aktiv' => $active,
-        'Newsletter' => $s->user->is_newsletter_subscriber ? $s->user->is_newsletter_subscriber : ''
+        'Newsletter' => $s->user ? $s->user->is_newsletter_subscriber : ''
       ];
     }
     return collect($data);
