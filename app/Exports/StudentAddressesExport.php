@@ -12,10 +12,13 @@ class StudentAddressesExport implements FromCollection, WithHeadings
   */
   public function collection()
   {
-    $students = Student::with('user')->orderBy('name')->get();
+    $students = Student::orderBy('name')->get();
     $data = [];
     foreach($students as $s)
     {
+      // Get user
+      $user = User::find($s->user->id);
+
       $active = $s->is_active ? 'ja' : 'nein';
       $data[] = [
         'Name' => $s->name,
@@ -30,9 +33,9 @@ class StudentAddressesExport implements FromCollection, WithHeadings
         'Telefon' => $s->phone,
         'Telefon G.' => $s->phone_business,
         'Mobile' => $s->mobile,
-        'E-Mail' => isset($s->user->email) ? $s->user->email : '',
+        'E-Mail' => $user ? $user->email : '',
         'Aktiv' => $active,
-        'Newsletter' => isset($s->user->is_newsletter_subscriber) ? $s->user->is_newsletter_subscriber : ''
+        'Newsletter' => $user ? $user->is_newsletter_subscriber : ''
       ];
     }
     return collect($data);
