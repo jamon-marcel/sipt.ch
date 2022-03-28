@@ -18,7 +18,6 @@ class StudentAddressesExport implements FromCollection, WithHeadings
     {
       // Get user
       $user = User::find($s->user->id);
-
       $active = $s->is_active ? 'ja' : 'nein';
       $data[] = [
         'Name' => $s->name,
@@ -35,7 +34,7 @@ class StudentAddressesExport implements FromCollection, WithHeadings
         'Mobile' => $s->mobile,
         'E-Mail' => $user ? $user->email : 'noemail',
         'Aktiv' => $active,
-        'Newsletter' => $user ? $user->is_newsletter_subscriber : 0
+        'Newsletter' => $user ? $user->is_newsletter_subscriber : '0'
       ];
     }
     return collect($data);
