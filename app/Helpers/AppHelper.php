@@ -38,6 +38,15 @@ class AppHelper
 
   public static function datesToString($data = NULL)
   {
+    if ($data && count($data) == 2)
+    {
+      $day1 = $data[0];
+      $day2 = $data[1];
+      if ($day1 == $day2)
+      {
+        return $day1;
+      }
+    }
     return $data->implode('date', '/');
   }
 
@@ -50,6 +59,12 @@ class AppHelper
     {
       $day1 = $start[0] . '–' . $end[0];
       $day2 = $start[1] . '–' . $end[1];
+
+      if ($day1 == $day2)
+      {
+        return $day1;
+      }
+
       return $day1 . '/' . $day2;
     }
     else if (count($start) == 1)
