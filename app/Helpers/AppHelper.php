@@ -40,8 +40,8 @@ class AppHelper
   {
     if ($data && count($data) == 2)
     {
-      $day1 = $data[0];
-      $day2 = $data[1];
+      $day1 = $data[0]->date;
+      $day2 = $data[1]->date;
       if ($day1 == $day2)
       {
         return $day1;
