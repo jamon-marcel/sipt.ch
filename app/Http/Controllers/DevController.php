@@ -26,18 +26,18 @@ class DevController extends Controller
 
   }
 
-  public function importUser()
-  {
-    $users = User::get();
-    foreach($users as $user)
-    {
-      ImportantNoticeSubscriber::create([
-        'email' => $user->email,
-        'is_done' => 1,
-        'is_failed' => 0
-      ]);
-    }
-  }
+  // public function importUser()
+  // {
+  //   $users = User::get();
+  //   foreach($users as $user)
+  //   {
+  //     ImportantNoticeSubscriber::create([
+  //       'email' => $user->email,
+  //       'is_done' => 1,
+  //       'is_failed' => 0
+  //     ]);
+  //   }
+  // }
 
   // public function users()
   // {
