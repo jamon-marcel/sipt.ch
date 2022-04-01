@@ -19,11 +19,7 @@
             </a>
           </div>
           @if ($category->id == 'f8397281-acc4-47a4-985e-b6515b433419')
-            <div class="list__item">
-              <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/trauma-basiswissen-modul-2-fuer-pflegende-und-andere-interessierte-berufsgruppen/c1b7f30d-3f22-404c-ab4e-6ec63383fad7" class="icon-arrow">
-              Trauma-Basiswissen (Modul 2) für Pflegende und andere interessierte Berufsgruppen
-              </a>
-            </div>
+
           @endif
         @endforeach
       </div>
