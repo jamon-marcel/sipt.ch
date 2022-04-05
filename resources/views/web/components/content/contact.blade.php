@@ -12,6 +12,8 @@
         Telefon: (0041) 52 – 213 41 12<br>
         E-Mail: <a href="mailto:rb@sipt.ch" target="_blank">rb@sipt.ch</a>
       </p>
+      <h2>Fragen zur Ausbildung im Kinder- und Jugendbereich</h2>
+      <p>Dr. phil. Maria Teresa Diez Grieser<br>E-Mail: <a href="mailto:mtdiez@bluewin.ch" target="_blank">mtdiez@bluewin.ch</a></p>
     </article>
     <article>
       <h2>Administrative Fragen</h2>
