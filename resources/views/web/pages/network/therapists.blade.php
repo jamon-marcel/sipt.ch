@@ -142,18 +142,18 @@
         <a href="mailto:stefan.ilg@gd-kpdw.sg.ch">stefan.ilg@gd-kpdw.sg.ch</a><br>
         (Kostenübernahme durch Krankenkasse möglich)</p>
         
-        <p><strong>Dr. med. Kollmann, Matthias</strong><br>
+        {{-- <p><strong>Dr. med. Kollmann, Matthias</strong><br>
         Oberarzt Traumastation Clienia Klinik Littenheid, Facharzt für Psychiatrie und Psychotherapie<br>
         Clienia Littenheid AG<br>
         9573 Littenheid<br>
         <a href="mailto:matthias.kollmann@clienia.ch">matthias.kollmann@clienia.ch</a><br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p>
+        (Kostenübernahme durch die Krankenkasse möglich)</p> --}}
         
-        <p><strong>Dr. med. Anna Kresser</strong><br>
+        {{-- <p><strong>Dr. med. Anna Kresser</strong><br>
         Clienia Littenheid AG<br>
         9573 Littenheid<br>
         <a href="mailto:anna.kresser@clienia.ch">anna.kresser@clienia.ch</a><br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p>
+        (Kostenübernahme durch die Krankenkasse möglich)</p> --}}
         
         <p><strong>Manuela Shirin Knapp</strong><br>
         Eidg. anerkannte Psychotherapeutin<br>
@@ -244,12 +244,12 @@
         <a href="mailto:ursula_schiess@yahoo.com">ursula_schiess@yahoo.com</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
-        <p><strong>Dr. med. Schlag, Katherine</strong><br>
+        {{-- <p><strong>Dr. med. Schlag, Katherine</strong><br>
         Oberärztin Traumaambulanz Clienia Klinik Littenheid, Fachärztin für Psychiatrie und Psychotherapie, Neurologie<br>
         Clienia Littenheid AG<br>
         9573 Littenheid<br>
         <a href="mailto:katherine.schlag@clienia.ch">katherine.schlag@clienia.ch</a><br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p>
+        (Kostenübernahme durch die Krankenkasse möglich)</p> --}}
         
         
         <p><strong>Dr. med. Schwald, Oliver</strong><br>
