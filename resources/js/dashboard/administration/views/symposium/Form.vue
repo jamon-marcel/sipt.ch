@@ -14,7 +14,7 @@
             v-for="s in students"
             :key="s.id"
             :value="s.id"
-          >{{ s.number }} - {{ s.name }} {{ s.firstname }}, {{ s.city }}, {{s.user.email}}</option>
+          >{{ s.number }} - {{ s.name }} {{ s.firstname }}, {{ s.city }}</option>
         </select>
       </div>
     </div>
