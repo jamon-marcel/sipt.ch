@@ -20,6 +20,17 @@
       <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">Schweiz</a>
     </h2>
     <div class="collapsible__content js-clpsbl-body" style="display:none">
+
+      <p><strong>Amdiy, Alena</strong><br>
+        Dipl. Ärztin<br>
+        Zentrum für Angst- und Depressionsbehandlung Zürich (ZADZ)<br>
+        Riesbachstrasse 61<br>
+        8008 Zürich<br>
+        044 386 66 00<br>
+        <a href="mailto:aamdiy@zadz.ch">aamdiy@zadz.ch</a><br>
+        <a href="https://zadz.ch/en/zadz-4/" target="_blank">https://zadz.ch/en/zadz-4/</a><br>
+        <a href="https://zadz.ch/alena-amdiy-dipl-aerztin/" target="_blank">zadz.ch/alena-amdiy-dipl-aerztin/</a></p>
+
       <p><strong>Astray, Ana, lic. phil.</strong><br>
         Fachpsychologin für Psychotherapie FSP<br>
         Eidg. anerkannte Psychotherapeutin<br>
@@ -37,18 +48,12 @@
         <a href="mailto:beatrice.abbuehl@psgn.ch">beatrice.abbuehl@psgn.ch</a></p>
         
         <p><strong>Prof. Dr. phil. habil. Barwinski, Rosmarie</strong><br>
-        Psychoanalytikerin
-        Neuwiesenstrasse 95
-        8400 Winterthur
+        Psychoanalytikerin<br>
+        Neuwiesenstrasse 95<br>
+        8400 Winterthur<br>
         <a href="mailto:r.barwinski@swissonline.ch">r.barwinski@swissonline.ch</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
-        
-        {{-- <p><strong>Beyer-Ihde, Brigitte</strong><br>
-        Kunsttherapeutin<br>
-        Traubenstrasse 19<br>
-        9400 Wil<br>
-        <a href="mailto:brigitte.beyer-ihde@gmx.de">brigitte.beyer-ihde@gmx.de</a><br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p> --}}
+
         
         <p><strong>Bollok, Kathrin, lic. phil.</strong><br>
         Eidg. anerkannte Psychotherapeutin<br>
@@ -58,7 +63,7 @@
         4600 Olten<br>
         Telefon: 079 678 89 09<br>
         <a href="mailto:k.bollok@hin.ch">k.bollok@hin.ch</a><br>
-        In Delegation arbeitende Psychotherapeutin (Kostenübernahme über die Grundversicherung der Krankenkasse möglich)</p>
+        In Delegation arbeitende Psychotherapeutin<br>(Kostenübernahme über die Grundversicherung der Krankenkasse möglich)</p>
         
         <p><strong>Buonvicini, Prisca</strong><br>
         Psychotherapeutin/Psychologin
@@ -66,7 +71,8 @@
         8008 Zürich<br>
         <a href="mailto:prisca.buonvicini@bluewin.ch">prisca.buonvicini@bluewin.ch</a></p>
         
-        <p><strong>Christen, Oliver, Facharzt FMH für Psychiatrie und Psychotherapie</strong><br>
+        <p><strong>Christen, Oliver</strong><br>
+        Facharzt FMH für Psychiatrie und Psychotherapie<br>
         Achtsamkeitspraxis<br>
         Widmannstrasse 12<br>
         4410 Liestal<br>
@@ -117,6 +123,16 @@
           Telefon: 044 905 50 00
         </p>
 
+        <p><strong>Dr. med. Galli, Serena</strong><br>
+          Psychoanalytische Psychotherapeutin<br>
+          Oberärztin Transkulturelle Sprechstunde<br>
+          Zentrum für Psychische Gesundheit Binningen (Psychiatrie Baselland)<br>
+          Hauptstrasse 34<br>
+          4102 Binningen<br>
+          061 553 57 57<br>
+          <a href="mailto:zpg.binningen@pbl.ch">zpg.binningen@pbl.ch</a><br>
+          <a href="https://www.pbl.ch/zentrum-fuer-psychische-gesundheit-binningen-4" target="_blank">pbl.ch</a></p>
+
         <p><strong>lic. phil. Haeny, Christina</strong><br>
         Fachpsychologin für Psychotherapie<br>
         Ambulatorium Barmelweid<br>
@@ -142,20 +158,16 @@
         <a href="mailto:stefan.ilg@gd-kpdw.sg.ch">stefan.ilg@gd-kpdw.sg.ch</a><br>
         (Kostenübernahme durch Krankenkasse möglich)</p>
         
-        {{-- <p><strong>Dr. med. Kollmann, Matthias</strong><br>
-        Oberarzt Traumastation Clienia Klinik Littenheid, Facharzt für Psychiatrie und Psychotherapie<br>
-        Clienia Littenheid AG<br>
-        9573 Littenheid<br>
-        <a href="mailto:matthias.kollmann@clienia.ch">matthias.kollmann@clienia.ch</a><br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p> --}}
-        
-        {{-- <p><strong>Dr. med. Anna Kresser</strong><br>
-        Clienia Littenheid AG<br>
-        9573 Littenheid<br>
-        <a href="mailto:anna.kresser@clienia.ch">anna.kresser@clienia.ch</a><br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p> --}}
-        
-        <p><strong>Manuela Shirin Knapp</strong><br>
+      
+        <p><strong>Kamm, Sibyl</strong><br>
+        Wermatswilerstrasse 4<br>
+        8610 Uster<br>
+        Telefon: 044 941 64 22<br>
+        Mobile: 078 846 93 51<br>
+        <a href="mailto:sibylkamm@bluewin.ch" target="_blank">sibylkamm@bluewin.ch</a><br>
+        <a href="https://www.sibyl-kamm.ch" target="_blank">sibyl-kamm.ch</a></p>
+
+        <p><strong>Shirin Knapp, Manuela</strong><br>
         Eidg. anerkannte Psychotherapeutin<br>
         Fachpsychotherapeutin für Psychotraumatologie SIPT<br>
         Vogelsangstrasse 52<br>
@@ -164,29 +176,14 @@
         <a href="http://www.psychotherapie-knapp.ch/" target="_blank" rel="noopener">hpsychotherapie-knapp.ch</a>
         </p>
 
-        <p><strong>Dr. med. Lechler, Beate</strong><br>
-        Ärztin und Coach<br>
-        Clienia Winterthur<br>
-        Konradstrasse 15<br>
-        8400 Winterthur<br>
-        Telefon: 052 269 02 10<br>
-        <a href="mailto:Beate.Lechler@clienia.ch">Beate.Lechler@clienia.ch</a><br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p>
-        
         <p><strong>Dipl. Psych. Mohamed, Amr</strong><br>
         Psychologe, Daseinsanalytiker<br>
         Rigistrasse 6<br>
         8006 Zürich<br>
         Telefon: 044 364 33 66<br>
         <a href="mailto:tanner.mohamed@bluewin.ch">tanner.mohamed@bluewin.ch</a></p>
-        
-        {{-- <p><strong>Dr. med. Möller, Elisabeth</strong><br>
-        Fachärztin für Psychiatrie und Psychotherapie; Psychoanalytikerin
-        Traubenstrasse 19<br>
-        9400 Wil<br>
-        <a href="mailto:Elisabeth.Moeller@clienia.ch">Elisabeth.Moeller@clienia.ch</a><br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p> --}}
-        
+       
+       
         <p><strong>Dr. med. Raich Morales, Monica</strong><br>
         Fachärztin für Psychiatrie und Psychoterapie; Psychoanalytikerin
         Olgastrasse 2<br>
@@ -210,6 +207,17 @@
         <a href="mailto:j.muellers@hin.ch">j.muellers@hin.ch</a><br>
         (Kostenübernahme durch die Krankenkasse möglich; im Bedarfsfall arbeitet das SIPT in medizinisch-medikamentösen Fragen mit Frau Jutta Müllers zusammen.)</p>
         
+        <p><strong>Dr. med. Reiter, Jutta</strong><br>
+          Leitende Ärztin<br>
+          St. Gallische Psychiatrie-Dienste Süd<br>
+          Psychiatrie-Zentrum Werdenberg-Sarganserland<br>
+          Hauptstrasse 27<br>
+          CH-9477 Trübbach<br>
+          Telefon Zentrale: +41 58 178 72 00<br>
+          <a href="mailto:jutta.reiter@psych.ch">jutta.reiter@psych.ch</a><br>
+          <a href="https://www.psych.ch" target="_blank">psych.ch</a><br> 
+          <a href="https://www.facebook.com/pdssg.info" target="_blank">facebook.com/pdssg.info</a></p>
+
         <p><strong>Paul, Anita</strong><br>
         Fachpsychotherapeutin für Psychotraumatologie SIPT/DIPT<br>
         Eidg. Dipl. KomplementärTherapeutin, Körpertherapeutin Methode Polarity inkl. Craniosacral, Paarberaterin ibp, systemische Therapeutin<br>
@@ -220,6 +228,15 @@
         <a href="mailto:anita.paul@lebeheute.ch">anita.paul@lebeheute.ch</a><br>
         (Krankenkassen anerkannt mit Zusatzversicherung)</p>
         
+        <p><strong>Pfister Sara (ehemals Graf)</strong><br>
+          Fachtherapeutin Traumatherapie (SHB)<br>
+          Interkultureller Coach (anerkannt durch das Europäische Netzwerk für Beratung, Psychologie & Therapie)<br>
+          Tätig als Member Care<br>
+          079 411 34 15<br>
+          Rathausplatz 4<br>
+          8500 Frauenfeld<br>
+          <a href="mailto:pfister.sara@gmx.ch">pfister.sara@gmx.ch</a></p>
+
         <p><strong>lic. phil. Rondez, Michèle</strong><br>
         Psychologin, Psychotherapeutin<br>
         Churerstrasse 47<br>
@@ -244,14 +261,14 @@
         <a href="mailto:ursula_schiess@yahoo.com">ursula_schiess@yahoo.com</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
-        {{-- <p><strong>Dr. med. Schlag, Katherine</strong><br>
-        Oberärztin Traumaambulanz Clienia Klinik Littenheid, Fachärztin für Psychiatrie und Psychotherapie, Neurologie<br>
-        Clienia Littenheid AG<br>
-        9573 Littenheid<br>
-        <a href="mailto:katherine.schlag@clienia.ch">katherine.schlag@clienia.ch</a><br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p> --}}
         
-        
+        <p><strong>Schönholzer, Melanie</strong><br>
+          Mainaustrasse 12<br>
+          8008 Zürich<br>
+          079 411 87 95<br>
+          <a href="mailto:melanie.schoenholzer@psychologie.ch">melanie.schoenholzer@psychologie.ch</a><br>
+          <a href="https://www.praxis-schoenholzer.com/" target="_blank">praxis-schoenholzer.com</a></p>
+
         <p><strong>Dr. med. Schwald, Oliver</strong><br>
         Facharzt für Psychiatrie und Psychotherapie; Psychoanalytiker<br>
         Sollievo.net – Interdisziplinäres Zentrum für psychische Gesundheit<br>
@@ -262,20 +279,14 @@
         <a href="mailto:oliver.schwald@gmail.com">oliver.schwald@gmail.com</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
-        <p><strong>M.Sc. Maya Schenkel</strong><br>
+        <p><strong>M.Sc. Schenkel, Maya</strong><br>
         Fachpsychologin für Psychotherapie ASP, eidgenössisch anerkannte Psychotherapeutin<br>
         Fachpsychotherapeutin für Psychotraumatologie, Gruppenanalytikerin SGAZ, Psychologin mit Führungsfunktion, Zentrum für Psychotherapie und Psychosomatik, Bereich Psychotraumatologie<br>
         Clienia Littenheid AG<br>
         9573 Littenheid<br>
         <a href="mailto:maya.schenkel@clienia.ch">maya.schenkel@clienia.ch</a></p>
 
-        <p><strong>proPsych</strong><br>
-        Silvia Pohl<br>
-        Sandbreitestrasse 18<br>
-        8280 Kreuzlingen<br>
-        <a href="mailto:Silvia.pohl@fsp-hin.ch">Silvia.pohl@fsp-hin.ch</a></p>
-
-        <p><strong>Tanya Squirrell</strong><br>
+        <p><strong>Squirrell, Tanya</strong><br>
         Kunsttherapeutin<br>
         Wettingerstrasse 17<br>
         5400 Baden<br>
@@ -290,6 +301,16 @@
         <a href="mailto:brigitt.steinegger@hin.ch">brigitt.steinegger@hin.ch</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
+        <p><strong>Saukalas, Nerijus</strong><br>
+        Clienia Dietikon – Gruppenpraxis für Psychiatrie und Psychotherapie<br>
+        Neumattstrasse 7<br>8953 Dietikon<br>Telefon: 044 744 77 00<br>
+        <a href="mailto:nerijus.saukalas@clienia.ch" target="_blank">nerijus.saukalas@clienia.ch</a><br>
+        <a href="https://www.clienia.ch/de/standorte/clienia-dietikon/" target="_blank">clienia.ch/de/standorte/clienia-dietikon/</a><br>
+        <a href="https://www.clienia.ch/de/aerzte-psychologen/nerijus-saukalas/" target="_blank">clienia.ch/de/aerzte-psychologen/nerijus-saukalas/</a>
+        </p>
+        
+
+
         <p><strong>lic. phil. Suter, Christian</strong><br>
         Praxis für Psychotherapie Dr. E. Möller<br>
         Löwenstrasse 5<br>
@@ -298,13 +319,18 @@
         <a href="mailto:christian.suter@hin.ch">christian.suter@hin.ch</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
-        <p><strong>Triebing, Dodo</strong><br>
+        <p><strong>Trieblnig, Dodo</strong><br>
         MAS in klinischer Musiktherapie, Musiktherapeutin
         Nägelseestrasse 22<br>
         8406 Winterthur<br>
         <a href="mailto:dodo.tri@bluewin.ch">dodo.tri@bluewin.ch</a><br>
         (Kostenübernahme durch die Krankenkasse zum Teil möglich)</p>
         
+        <p><strong>proPsych, Silvia Pohl</strong><br>
+          Sandbreitestrasse 18<br>
+          8280 Kreuzlingen<br>
+          <a href="mailto:Silvia.pohl@fsp-hin.ch">Silvia.pohl@fsp-hin.ch</a></p>
+
         <p><strong>lic. phil. Villiger, Isabelle</strong><br>
         Praxis Rapperswil<br>
         Kniestr. 10<br>
@@ -320,7 +346,7 @@
         <a href="mailto:dagmar.voellinger@zeprosenegg.ch">dagmar.voellinger@zeprosenegg.ch</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
-        <p><strong>Dr. med. Vrgoc-Mirkonc, Jokica</strong><br>
+        <p><strong>Dr. med. Vrgoc-Mirkovic, Jokica</strong><br>
         Fachärztin für Psychiatrie und Psychotherapie<br>
         Grubenwies 4<br>
         9523 Züberwangen<br>
@@ -357,23 +383,31 @@
         Verhaltenstherapie für Erwachsene, Jugendliche und Kinder<br>
         Rosgartenstrasse 10<br>
         D-78462 Konstanz<br>
-        Telefon: 0041 764 408 955<br>
+        Telefon: 0049 764 408 955<br>
         <a href="mailto:praxis.jaeger@gmx.net">praxis.jaeger@gmx.net</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
-        <p><strong>Katrin Kaupenjohann</strong><br>
+        <p><strong>Kaupenjohann, Katrin</strong><br>
         Kunsttherapeutin, Supervisorin & Coach (DGSv)<br>
         D-82057 Icking<br>
         <a href="mailto:authentiKK@gmx.de">authentiKK@gmx.de</a><br>
         <a href="https://www.authentikk.de" target="_blank">www.authentikk.de</a>
         </p>
         
-        <p><strong>Dipl. Psych. Trenkle, Barbara</strong><br>
-        Psychologin, Psychotherapeutin<br>
-        Lehener Strasse 48<br>
-        D-79106 Freiburg<br>
-        <a href="mailto:b.trenkle@trenkle-praxis.de">b.trenkle@trenkle-praxis.de</a><br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p>
+        <p><strong>Trenkle, Barbara</strong><br>
+          Diplom Psychologin<br>
+          Fachpsychologin für Verkehrspsychologie (BDP)<br>
+          Fachpsychotherapeutin für Psychotraumatologie (DIPT, SIPT)<br>
+          Familientherapeutin, systemische Therapeutin (DGSF)<br>
+          PSYCHOLOGISCHE PRAXIS – Einzel-/Paar-/Familienberatung<br>
+          Lehener Straße 48<br>
+          79106 Freiburg<br>
+          Telefon: 0049 761-15064889<br>
+          Fax: 0049 7664 - 611938<br>
+          Mobil: 0049 160 - 95645019<br>
+          <a href="mailto:b.trenkle@trenkle-praxis.de">b.trenkle@trenkle-praxis.de</a><br>
+          <a href="https://www.trenkle-praxis.de" target="_blank">trenkle-praxis.de</a>
+          (Kostenübernahme durch die Krankenkasse möglich)</p>
     </div>
   </article>
 </section>
