@@ -346,7 +346,7 @@
       <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">Deutschland</a>
     </h2>
     <div class="collapsible__content js-clpsbl-body" style="display:none">
-      <p><strong>Geith, Silke</strong><br>
+        <p><strong>Geith, Silke</strong><br>
         Kunsttherapeutin<br>
         Unnerweg 24<br>
         D-66459 Kirkel<br>
@@ -362,10 +362,11 @@
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
         <p><strong>Katrin Kaupenjohann</strong><br>
-        Kunsttherapeutin<br>
-        Kohlstattstrasse 21 ½<br>
-        D-83646 Bad Tölz<br>
-        <a href="mailto:k.kaupenjohann@gmx-topmail.de"></a></p>
+        Kunsttherapeutin, Supervisorin & Coach (DGSv)<br>
+        D-82057 Icking<br>
+        <a href="mailto:authentiKK@gmx.de">authentiKK@gmx.de</a><br>
+        <a href="https://www.authentikk.de" target="_blank">www.authentikk.de</a>
+        </p>
         
         <p><strong>Dipl. Psych. Trenkle, Barbara</strong><br>
         Psychologin, Psychotherapeutin<br>

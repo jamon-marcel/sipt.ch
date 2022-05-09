@@ -127,4 +127,5 @@
   <span class="payment-item payment-codeline">{{$payment_slip['esr_codeline_str']}}</span>
   <img src="{{ asset('/assets/img/einzahlungsschein.jpg') }}" width="100">
 </div>
+{{-- @include('pdf.bill.partials.qr-slip') --}}
 @include('pdf.partials.footer-portrait')
