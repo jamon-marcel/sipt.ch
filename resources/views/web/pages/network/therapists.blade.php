@@ -386,9 +386,12 @@
         Telefon: 0049 764 408 955<br>
         <a href="mailto:praxis.jaeger@gmx.net">praxis.jaeger@gmx.net</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
+
         <p><strong>Hanstein, Ulrike</strong><br>co-razon organisationsentwicklung<br>Fabrikstraße 7<br>76185 Karlsruhe<br>
           Telefon: 0049 721 841560<br>Mobile: 0049 171 5371443<br>
-          <a href="https://www.gutegestalten.de" target="_blank">gutegestalten.de</a>
+          <a href="mailto:ulrike.hanstein@gutegestalten.de">ulrike.hanstein@gutegestalten.de</a><br>
+          <a href="https://www.co-razon.de" target="_blank">www.co-razon.de</a><br>
+          <a href="https://www.gutegestalten.de" target="_blank">www.gutegestalten.de</a>
         </p>
           
         <p><strong>Kaupenjohann, Katrin</strong><br>
