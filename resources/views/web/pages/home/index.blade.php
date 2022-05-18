@@ -53,6 +53,7 @@
       <br><a href="/bildungsangebot/modul/traumatisierte-fluechtlinge-im-schulalltag-fakultativ/31a9bb59-80ef-4a12-8228-81ba17a061bd" class="icon-arrow-right">mehr erfahren</a>
     </p>
     <p>
+      
       <strong>Migration und Trauma – transkulturelle und traumatherapeutische Kompetenzen in der Behandlung und Beratung von Geflüchteten und Menschen mit Migrationshintergrund</strong><br>Dozentinnen: Oliver Schwald<br>2./3. Dezember 2022
       <br><a href="/bildungsangebot/modul/migration-und-trauma-transkulturelle-und-traumatherapeutische-kompetenzen-in-der-behandlung-und-beratung-von-gefluechteten-und-menschen-mit-migrationshintergrund-fakultativ/a9690678-91f1-4531-8c49-e4ecec12d088" class="icon-arrow-right">mehr erfahren</a>
     </p>
