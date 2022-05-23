@@ -1,20 +1,14 @@
 <style>
   .qr {
     border-top: .15mm dashed #222;
-    /* top: 172mm;
-    left: 0; */
+    bottom: 10mm;
+    left: 0;
     font-weight: 400;
     color: #000000;
-    /* height: 105mm;
-    position: absolute;
-    width: 210mm; */
-
     height: 105mm;
-    left: -20mm;
-    position: relative;
-    top: 30mm;
+    position: absolute;
     width: 210mm;
-
+    left: -20mm;
   }
   
   .qr * {
@@ -167,7 +161,7 @@
   
   </style>
   
-  {{-- <div class="page-break"></div> --}}
+  <div class="page-break"></div>
   <div class="qr cf">
     <div class="qr-item qr-item--receipt">
       <div class="qr-item--receipt__information">
@@ -175,38 +169,65 @@
         <div>
           <h2>Konto / Zahlbar an</h2>
           <p>
-            {{config('invoice.classic_iban')}}<br>
+            {{config('invoice.qr_iban')}}<br>
             {{config('invoice.beneficiary_name')}}<br>
             {{config('invoice.beneficiary_byline')}}<br>
             {{config('invoice.beneficiary_street')}}<br>
             {{config('invoice.beneficiary_city')}}<br>
           </p>
         </div>
-        {{-- <div>
+        <div>
           <h2>Referenz</h2>
-          <p>00 00000 00000 00000 00000 00011</p>
-        </div> --}}
+          <p>{{$payment_slip['reference_number']}}</p>
+        </div>
         <div>
           <h2>Zahlbar durch</h2>
           <p>
-            @if ($invoice['client_type'] == 'other')
-              {!! nl2br($invoice['client']) !!}
-            @elseif($invoice['client_type'] == 'tutor')
-              {{ $invoice['client']->fullName}}<br>
-              @if ($invoice['client']->title) {{ $invoice['client']->title}}<br> @endif
-              {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
-              {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
-            @elseif($invoice['client_type'] == 'student')
-              @if ($invoice['client']->has_alt_address)
-                {{ $invoice['client']->alt_company}}<br>
-                @if ($invoice['client']->alt_name) {{ $invoice['client']->alt_name}}<br> @endif
-                {{ $invoice['client']->alt_street}} {{ $invoice['client']->alt_street_no}}<br>
-                {{ $invoice['client']->alt_zip}} {{ $invoice['client']->alt_city}}
-              @else
+            @if (isset($invoice['client_type']))
+              @if ($invoice['client_type'] == 'other')
+                {!! nl2br($invoice['client']) !!}
+              @elseif($invoice['client_type'] == 'tutor')
                 {{ $invoice['client']->fullName}}<br>
                 @if ($invoice['client']->title) {{ $invoice['client']->title}}<br> @endif
                 {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
                 {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
+              @elseif($invoice['client_type'] == 'student')
+                @if ($invoice['client']->has_alt_address)
+                  {{ $invoice['client']->alt_company}}<br>
+                  @if ($invoice['client']->alt_name) {{ $invoice['client']->alt_name}}<br> @endif
+                  {{ $invoice['client']->alt_street}} {{ $invoice['client']->alt_street_no}}<br>
+                  {{ $invoice['client']->alt_zip}} {{ $invoice['client']->alt_city}}
+                @else
+                  {{ $invoice['client']->fullName}}<br>
+                  @if ($invoice['client']->title) {{ $invoice['client']->title}}<br> @endif
+                  {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
+                  {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
+                @endif
+              @endif
+            @elseif (isset($invoice['client']))
+              @if(isset($invoice['alt_address']))
+                {!! nl2br($invoice['alt_address']) !!}
+              @else
+                @if (isset($invoice['client']->has_alt_address))
+                  {{ $invoice['client']->alt_company}}<br>
+                  {{ $invoice['client']->alt_street}} {{ $invoice['client']->alt_street_no}}<br>
+                  {{ $invoice['client']->alt_zip}} {{ $invoice['client']->alt_city}}
+                @else
+                  {{ $invoice['client']->fullName}}<br>
+                  {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
+                  {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
+                @endif
+              @endif
+            @elseif (isset($invoice['student']))
+              @if ($invoice['student']->has_alt_address)
+                {{ $invoice['student']->alt_company}}<br>
+                {{ $invoice['student']->alt_name}}<br>
+                {{ $invoice['student']->alt_street}} {{ $invoice['student']->alt_street_no}}<br>
+                {{ $invoice['student']->alt_zip}} {{ $invoice['student']->alt_city}}
+              @else
+                {{ $invoice['student']->fullName}}<br>
+                {{ $invoice['student']->street}} {{ $invoice['student']->street_no}}<br>
+                {{ $invoice['student']->zip}} {{ $invoice['student']->city}}<br>
               @endif
             @endif
           </p>
@@ -230,7 +251,7 @@
       <div class="qr-item--payment__left">
         <h1>Zahlteil</h1>
         <div class="qr-item--payment__code">
-          <img src="{{$qr_code}}" height="100" width="100" style="">
+          <img src="{{$payment_slip['qr_code']}}" height="100" width="100" style="">
         </div>
         <div class="qr-item--payment__amount">
           <div class="currency">
@@ -248,38 +269,67 @@
           <div>
             <h2>Konto / Zahlbar an</h2>
             <p>
-              {{config('invoice.classic_iban')}}<br>
+              {{config('invoice.qr_iban')}}<br>
               {{config('invoice.beneficiary_name')}}<br>
               {{config('invoice.beneficiary_byline')}}<br>
               {{config('invoice.beneficiary_street')}}<br>
               {{config('invoice.beneficiary_city')}}<br>
             </p>
           </div>
-          {{-- <div>
+          <div>
             <h2>Referenz<h2>
-            <p>00 00000 00000 00000 00000 0001</p>
-          </div> --}}
+            <p>{{$payment_slip['reference_number']}}</p>
+          </div>
           <div>
             <h2>Zahlbar durch</h2>
             <p>
-              @if ($invoice['client_type'] == 'other')
-                {!! nl2br($invoice['client']) !!}
-              @elseif($invoice['client_type'] == 'tutor')
-                {{ $invoice['client']->fullName}}<br>
-                @if ($invoice['client']->title) {{ $invoice['client']->title}}<br> @endif
-                {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
-                {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
-              @elseif($invoice['client_type'] == 'student')
-                @if ($invoice['client']->has_alt_address)
-                  {{ $invoice['client']->alt_company}}<br>
-                  @if ($invoice['client']->alt_name) {{ $invoice['client']->alt_name}}<br> @endif
-                  {{ $invoice['client']->alt_street}} {{ $invoice['client']->alt_street_no}}<br>
-                  {{ $invoice['client']->alt_zip}} {{ $invoice['client']->alt_city}}
-                @else
+              @if (isset($invoice['client_type']))
+                @if ($invoice['client_type'] == 'other')
+                  {!! nl2br($invoice['client']) !!}
+                @elseif($invoice['client_type'] == 'tutor')
                   {{ $invoice['client']->fullName}}<br>
                   @if ($invoice['client']->title) {{ $invoice['client']->title}}<br> @endif
                   {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
                   {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
+                @elseif($invoice['client_type'] == 'student')
+                  @if ($invoice['client']->has_alt_address)
+                    {{ $invoice['client']->alt_company}}<br>
+                    @if ($invoice['client']->alt_name) {{ $invoice['client']->alt_name}}<br> @endif
+                    {{ $invoice['client']->alt_street}} {{ $invoice['client']->alt_street_no}}<br>
+                    {{ $invoice['client']->alt_zip}} {{ $invoice['client']->alt_city}}
+                  @else
+                    {{ $invoice['client']->fullName}}<br>
+                    @if ($invoice['client']->title) {{ $invoice['client']->title}}<br> @endif
+                    {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
+                    {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
+                  @endif
+                @endif
+              @elseif (isset($invoice['client']))
+                @if(isset($invoice['alt_address']))
+                  {!! nl2br($invoice['alt_address']) !!}
+                @else
+                  @if (isset($invoice['client']->has_alt_address))
+                    {{ $invoice['client']->alt_company}}<br>
+                    {{ $invoice['client']->alt_street}} {{ $invoice['client']->alt_street_no}}<br>
+                    {{ $invoice['client']->alt_zip}} {{ $invoice['client']->alt_city}}
+                  @else
+                    {{ $invoice['client']->fullName}}<br>
+                    {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
+                    {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
+                  @endif
+                @endif
+              @elseif (isset($invoice['student']))
+                @if ($invoice['student']->has_alt_address)
+                  {{ $invoice['student']->alt_company}}<br>
+                  @if ($invoice['student']->alt_name)
+                    {{ $invoice['student']->alt_name}}<br>
+                  @endif
+                  {{ $invoice['student']->alt_street}} {{ $invoice['student']->alt_street_no}}<br>
+                  {{ $invoice['student']->alt_zip}} {{ $invoice['student']->alt_city}}
+                @else
+                  {{ $invoice['student']->fullName}}<br>
+                  {{ $invoice['student']->street}} {{ $invoice['student']->street_no}}<br>
+                  {{ $invoice['student']->zip}} {{ $invoice['student']->city}}<br>
                 @endif
               @endif
             </p> 

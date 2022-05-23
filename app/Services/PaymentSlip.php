@@ -1,38 +1,117 @@
 <?php
 namespace App\Services;
+use Sprain\SwissQrBill as QrBill;
 
 class PaymentSlip
 {
-  protected $clientNumber;
-  protected $reservationNumber ;
   protected $invoiceNumber;
-  protected $invoiceAmount;
+  protected $clientNumber; 
+  protected $amount;
 
-  public function __construct($clientNumber, $reservationNumber, $invoiceNumber, $invoiceAmount)
+  public function __construct($invoiceNumber, $clientNumber, $amount)
   {
-    $this->clientNumber       = $clientNumber;
-    $this->reservationNumber  = $reservationNumber;
-    $this->invoiceNumber      = $invoiceNumber;
-    $this->invoiceAmount      = $invoiceAmount;
+    $this->invoiceNumber = $invoiceNumber;
+    $this->clientNumber = $clientNumber;
+    $this->amount = $amount;
   }
 
   public function get()
   {
-    $data = [
-      'client_no'           => $this->clientNumber,
-      'reservation_no'      => $this->reservationNumber,
-      'invoice_no'          => $this->invoiceNumber,
-      'invoice_amount'      => $this->invoiceAmount,
-      'invoice_amount_arr'  => $this->getAmountArray(),
-      'esr_invoice_no'      => $this->invoiceNumber,
-      'esr_reference_str'   => $this->referenceString(),
-      'esr_codeline_str'    => $this->referenceCodeLineString(),
+    return [
+      'reference_number' => $this->getReferenceNumberString(),
+      'qr_code' => $this->getQrCode(),
     ];
-
-    return $data;
   }
 
-  private function referenceInvoiceNumber()
+  /**
+   * Get reference number as padded string
+   * 
+   * @return String $referenceNumber
+   */
+  private function getReferenceNumberString()
+  {
+    $esr_customer_id = config('sipt.esr_customer_id');
+    $str = $esr_customer_id . ' 77170 ' . $this->getClientNumberString() . ' ' . $this->getInvoiceNumberString();
+    $str = $str . $this->getModulo10(str_replace(' ', '', $str));
+    return $str;
+  }
+
+  /**
+   * Get QR code
+   */
+  private function getQrCode()
+  {
+    // Create a new instance of QrBill, containing default headers with fixed values
+    $qrBill = QrBill\QrBill::create();
+
+    // Add creditor information
+    // Who will receive the payment and to which bank account?
+    $qrBill->setCreditor(
+      QrBill\DataGroup\Element\CombinedAddress::create(
+        config('invoice.beneficiary_name'),
+        config('invoice.beneficiary_street'),
+        config('invoice.beneficiary_city'),
+        config('invoice.beneficiary_country'),
+      )
+    );
+
+    $qrBill->setCreditorInformation(
+      QrBill\DataGroup\Element\CreditorInformation::create(
+        str_replace(' ', '', config('invoice.qr_iban'))
+      )
+    );
+
+    // Add payment amount information
+    // The currency must be defined.
+    $qrBill->setPaymentAmountInformation(
+      QrBill\DataGroup\Element\PaymentAmountInformation::create(
+        config('invoice.currency'),
+        $this->amount
+      )
+    );
+
+    // Add payment reference
+    // Explicitly define that no reference number will be used by setting TYPE_NON.
+    // $qrBill->setPaymentReference(
+    //   QrBill\DataGroup\Element\PaymentReference::create(
+    //     QrBill\DataGroup\Element\PaymentReference::TYPE_NON
+    //   )
+    // );
+
+
+    // Add payment reference
+    // This is what you will need to identify incoming payments.
+    $referenceNumber = QrBill\Reference\QrPaymentReferenceGenerator::generate(
+      config('sipt.esr_customer_id'),  // You receive this number from your bank (BESR-ID). Unless your bank is PostFinance, in that case use NULL.
+      $this->invoiceNumber // A number to match the payment with your internal data, e.g. an invoice number
+    );
+
+    $qrBill->setPaymentReference(
+      QrBill\DataGroup\Element\PaymentReference::create(
+          QrBill\DataGroup\Element\PaymentReference::TYPE_QR,
+          $referenceNumber
+      ));
+
+    // Optionally, add some human-readable information about what the bill is for.
+    $qrBill->setAdditionalInformation(
+      QrBill\DataGroup\Element\AdditionalInformation::create(
+        'Rechnung ' . $this->invoiceNumber
+      )
+    );
+
+    
+    // Return Data URI
+    return $qrBill->getQrCode()->writeDataUri();
+  }
+
+
+  /**
+   * Get invoice number as padded string
+   * 
+   * @return String $invoiceNumber
+   */
+
+  private function getInvoiceNumberString()
   {
     $str = '';
     switch(strlen($this->invoiceNumber))
@@ -53,67 +132,15 @@ class PaymentSlip
     return $str;
   }
 
-  private function referenceClientString()
+  /**
+   * Get client number as padded string
+   * 
+   * @return String $clientNumber
+   */
+
+  private function getClientNumberString()
   {
     return str_pad($this->clientNumber,  5, "0");
-  }
-
-  private function referenceString()
-  {
-    $esr_customer_id = \Config::get('sipt.esr_customer_id');
-    $str = $esr_customer_id . ' 00000 ' . $this->referenceClientString() . ' ' . $this->referenceInvoiceNumber();
-    $str = $str . $this->modulo10(str_replace(' ', '', $str));
-    return $str;
-  }
-
-  /**
-   * Get codeline string
-   * 
-   * @param mixed $amount
-   * @param mixed $reference_str
-   * @return string
-   */
-  private function referenceCodeLineString()
-  {
-    $esr_codeline_prefix = \Config::get('sipt.esr_codeline_prefix');
-    $esr_account_int     = \Config::get('sipt.esr_account_int');
-    $codeline            = '';
-    
-    // check for 'rappen'
-    $amount_array = $this->getAmountArray();
-
-    // pad amount to a 10 digit number
-    $amount_str = str_pad($amount_array[0] . $amount_array[1], 10, "0", STR_PAD_LEFT);
-
-    // calculate check digit with prefix + amount
-    $checkDigit = $this->modulo10($esr_codeline_prefix . $amount_str);
-
-    // build codeline
-    $codeline  = $esr_codeline_prefix . $amount_str . $checkDigit . '>';
-    $codeline .= str_replace(' ', '', $this->referenceString()) . '+';
-    $codeline .= ' ' . $esr_account_int;
-    $codeline .= '>';
-    
-    return $codeline;
-  }
-
-  /**
-   * Split amount into 'Franken' and 'Rappen'
-   * 
-   * @param mixed $amount
-   * @return array
-   */
-  private function getAmountArray()
-  {
-    $amount_array = explode('.', $this->invoiceAmount);
-
-    // add zeros if 'rappen' is missing
-    if (!isset($amount_array[1]))
-    {
-      $amount_array[1] = '00';
-    }
-
-    return $amount_array;
   }
 
   /**
@@ -122,7 +149,8 @@ class PaymentSlip
    * @param integer $number
    * @return integer
    */
-  private function modulo10($number)
+
+  private function getModulo10($number)
   {
     $table = array(0,9,4,6,8,2,7,1,3,5);
     $next = 0;

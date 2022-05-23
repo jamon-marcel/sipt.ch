@@ -104,7 +104,7 @@ class CourseInvoice
     ];
 
     // Set view data for payment slip
-    $this->viewData['payment_slip'] = $this->getPaymentSlip();
+    $this->viewData['payment_slip'] = (new PaymentSlip($this->number, $this->clientNumber, $this->amount))->get();
 
     // Get file name
     $this->filename = $this->getFilename();

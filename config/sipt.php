@@ -17,7 +17,7 @@ return [
 
   // Bank/ESR details
   'esr_codeline_prefix' => '01',
-  'esr_customer_id'     => '96 34990',
+  'esr_customer_id'     => '11 00491', // old value: 96 34990
   'esr_account_str'     => '01-200027-2',
   'esr_account_int'     => '012000272',
 

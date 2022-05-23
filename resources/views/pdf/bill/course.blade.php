@@ -86,46 +86,5 @@
     Kondition: zahlbar vor Kursbeginn<br>Bankverbindung für ausländische Teilnehmer:<br>BIC/SWIFT: ZKBKCHZZ80A, IBAN: CH98 0070 0110 0049 1771 7. Bitte Kursnummer vermerken.
   </div>
 </div>
-<div class="payment-slip">
-  <span class="payment-item payment-item__reference">{{$payment_slip['esr_reference_str']}}</span>
-  <span class="payment-item payment-item__reference-small">{{$payment_slip['esr_reference_str']}}</span>
-  <span class="payment-item payment-item__amount-left">{{$payment_slip['invoice_amount_arr'][0]}}</span>
-  <span class="payment-item payment-item__amount-left-cents">{{$payment_slip['invoice_amount_arr'][1]}}</span>
-  <span class="payment-item payment-item__amount-right">{{$payment_slip['invoice_amount_arr'][0]}}</span>
-  <span class="payment-item payment-item__amount-right-cents">{{$payment_slip['invoice_amount_arr'][1]}}</span>
-  <span class="payment-item payment-address-left">
-
-    @if($invoice['alt_address'])
-      {!! nl2br($invoice['alt_address']) !!}
-    @else
-      @if ($invoice['client']->has_alt_address)
-        {{ $invoice['client']->alt_company}}<br>
-        {{ $invoice['client']->alt_street}} {{ $invoice['client']->alt_street_no}}<br>
-        {{ $invoice['client']->alt_zip}} {{ $invoice['client']->alt_city}}
-      @else
-        {{ $invoice['client']->fullName}}<br>
-        {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
-        {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
-      @endif
-    @endif
-  </span>
-  <span class="payment-item payment-address-right">
-    @if($invoice['alt_address'])
-      {!! nl2br($invoice['alt_address']) !!}
-    @else
-      @if ($invoice['client']->has_alt_address)
-        {{ $invoice['client']->alt_company}}<br>
-        {{ $invoice['client']->alt_street}} {{ $invoice['client']->alt_street_no}}<br>
-        {{ $invoice['client']->alt_zip}} {{ $invoice['client']->alt_city}}
-      @else
-        {{ $invoice['client']->fullName}}<br>
-        {{ $invoice['client']->street}} {{ $invoice['client']->street_no}}<br>
-        {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
-      @endif
-    @endif
-  </span>
-  <span class="payment-item payment-codeline">{{$payment_slip['esr_codeline_str']}}</span>
-  <img src="{{ asset('/assets/img/einzahlungsschein.jpg') }}" width="100">
-</div>
-{{-- @include('pdf.bill.partials.qr-slip') --}}
+@include('pdf.bill.partials.qr-slip')
 @include('pdf.partials.footer-portrait')

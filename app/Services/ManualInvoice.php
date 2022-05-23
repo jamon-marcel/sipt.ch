@@ -3,7 +3,6 @@ namespace App\Services;
 use App\Models\Invoice;
 use App\Services\PaymentSlip;
 use PDF;
-use Sprain\SwissQrBill as QrBill;
 use Illuminate\Support\Facades\Storage;
 
 class ManualInvoice
@@ -97,7 +96,6 @@ class ManualInvoice
     {
       $this->clientNumber = $data['client']->number;
     }
-    
   }
 
   /**
@@ -122,8 +120,7 @@ class ManualInvoice
     ];
 
     // Set view data for payment slip
-    $this->viewData['payment_slip'] = $this->getPaymentSlip();
-    $this->viewData['qr_code'] = $this->getQrCode();
+    $this->viewData['payment_slip'] = (new PaymentSlip($this->number, $this->clientNumber, $this->amount))->get();
 
     // Get file name
     $this->filename = $this->getFilename();
@@ -166,67 +163,6 @@ class ManualInvoice
   {
     return \InvoiceHelper::getNumber();
   }
-
-  /**
-   * Get the payment slip data
-   */
-  private function getPaymentSlip()
-  {
-    $paymentSlip = new PaymentSlip(
-      $this->clientNumber,
-      NULL,
-      $this->number,
-      $this->amount
-    );
-    return $paymentSlip->get();
-  }
-
-  /**
-   * Get the qr payment slip data
-   */
-  private function getQrCode()
-  {
-    // Create a new instance of QrBill, containing default headers with fixed values
-    $qrBill = QrBill\QrBill::create();
-
-    // Add creditor information
-    // Who will receive the payment and to which bank account?
-    $qrBill->setCreditor(
-      QrBill\DataGroup\Element\CombinedAddress::create(
-        config('invoice.beneficiary_name'),
-        config('invoice.beneficiary_street'),
-        config('invoice.beneficiary_city'),
-        config('invoice.beneficiary_country'),
-      )
-    );
-
-    $qrBill->setCreditorInformation(
-      QrBill\DataGroup\Element\CreditorInformation::create(
-        str_replace(' ', '', config('invoice.classic_iban'))
-      )
-    );
-
-    // Add payment amount information
-    // The currency must be defined.
-    $qrBill->setPaymentAmountInformation(
-      QrBill\DataGroup\Element\PaymentAmountInformation::create(
-        config('invoice.currency'),
-        $this->amount
-      )
-    );
-
-    // Add payment reference
-    // Explicitly define that no reference number will be used by setting TYPE_NON.
-    $qrBill->setPaymentReference(
-      QrBill\DataGroup\Element\PaymentReference::create(
-        QrBill\DataGroup\Element\PaymentReference::TYPE_NON
-      )
-    );
-    
-    // Return Data URI
-    return $qrBill->getQrCode()->writeDataUri();
-  }
-
 
   /**
    * Get the file name
