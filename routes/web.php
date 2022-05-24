@@ -15,7 +15,7 @@ Auth::routes(['verify' => true, 'register' => false]);
 Route::get('/logout', 'Auth\LoginController@logout');
 
 // Test
-Route::get('/import-users', 'DevController@importUser');
+// Route::get('/import-users', 'DevController@importUser');
 
 // Home
 Route::get('/', 'HomeController@index')->name('home');
