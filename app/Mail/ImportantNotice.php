@@ -27,7 +27,7 @@ class ImportantNotice extends Mailable
    */
   public function build()
   {
-    $mail = $this->subject('SIPT – Neue Leitung des Bereichs Kinder und Jugendliche')->markdown('mails.important-notice.index');
+    $mail = $this->subject('SIPT – Fachtagung am 26./27.08.2022 in Köln')->markdown('mails.important-notice.index');
     return $mail;
   }
 }
