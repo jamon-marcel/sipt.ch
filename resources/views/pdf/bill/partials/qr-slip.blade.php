@@ -183,7 +183,6 @@
         <div>
           <h2>Zahlbar durch</h2>
           <p>
-            {{dd($invoice)}}
             @if (isset($invoice['client_type']))
               @if ($invoice['client_type'] == 'other')
                 {!! nl2br($invoice['client']) !!}
@@ -205,11 +204,11 @@
                   {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
                 @endif
               @endif
-            @elseif (isset($invoice['client']))
-              @if(isset($invoice['alt_address']))
+            @elseif ($invoice['client'])
+              @if($invoice['alt_address'])
                 {!! nl2br($invoice['alt_address']) !!}
               @else
-                @if (isset($invoice['client']->has_alt_address))
+                @if ($invoice['client']->has_alt_address)
                   {{ $invoice['client']->alt_company}}<br>
                   {{ $invoice['client']->alt_street}} {{ $invoice['client']->alt_street_no}}<br>
                   {{ $invoice['client']->alt_zip}} {{ $invoice['client']->alt_city}}
