@@ -183,6 +183,7 @@
         <div>
           <h2>Zahlbar durch</h2>
           <p>
+            {{dd($invoice)}}
             @if (isset($invoice['client_type']))
               @if ($invoice['client_type'] == 'other')
                 {!! nl2br($invoice['client']) !!}
