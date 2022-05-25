@@ -304,11 +304,11 @@
                     {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
                   @endif
                 @endif
-              @elseif (isset($invoice['client']))
-                @if(isset($invoice['alt_address']))
+              @elseif ($invoice['client'])
+                @if($invoice['alt_address'])
                   {!! nl2br($invoice['alt_address']) !!}
                 @else
-                  @if (isset($invoice['client']->has_alt_address))
+                  @if ($invoice['client']->has_alt_address)
                     {{ $invoice['client']->alt_company}}<br>
                     {{ $invoice['client']->alt_street}} {{ $invoice['client']->alt_street_no}}<br>
                     {{ $invoice['client']->alt_zip}} {{ $invoice['client']->alt_city}}
@@ -321,9 +321,7 @@
               @elseif (isset($invoice['student']))
                 @if ($invoice['student']->has_alt_address)
                   {{ $invoice['student']->alt_company}}<br>
-                  @if ($invoice['student']->alt_name)
-                    {{ $invoice['student']->alt_name}}<br>
-                  @endif
+                  {{ $invoice['student']->alt_name}}<br>
                   {{ $invoice['student']->alt_street}} {{ $invoice['student']->alt_street_no}}<br>
                   {{ $invoice['student']->alt_zip}} {{ $invoice['student']->alt_city}}
                 @else
