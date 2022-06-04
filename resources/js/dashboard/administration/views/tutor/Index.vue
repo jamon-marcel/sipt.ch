@@ -7,7 +7,7 @@
     </header>
     <div class="listing" v-if="tutors.length">
       <div
-        :class="[t.is_published == 0 ? 'is-disabled' : '', 'listing__item']"
+        :class="[t.is_published == 0 || t.is_visible == 0 ? 'is-disabled' : '', 'listing__item']"
         v-for="t in tutors"
         :key="t.id"
       >

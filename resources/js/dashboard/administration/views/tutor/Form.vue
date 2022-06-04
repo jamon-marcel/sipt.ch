@@ -88,12 +88,20 @@
         <div class="grid-column-sidebar">
           <div>
             <template v-if="isFetched">
-              <div class="form-row is-sm is-last">
+              <div class="form-row is-sm">
                 <radio-button 
-                  :label="'Publizieren?'"
+                  :label="'Aktiv?'"
                   v-bind:is_published.sync="tutor.is_published"
                   :model="tutor.is_published"
                   :name="'is_published'">
+                </radio-button>
+              </div>
+              <div class="form-row is-sm is-last">
+                <radio-button 
+                  :label="'Sichtbar?'"
+                  v-bind:is_visible.sync="tutor.is_visible"
+                  :model="tutor.is_visible"
+                  :name="'is_visible'">
                 </radio-button>
               </div>
             </template>
@@ -194,6 +202,7 @@ export default {
         emphasis: null,
         publications: null,
         is_published: 0,
+        is_visible: 0,
         user_id: null,
         email: null,
         images: [],

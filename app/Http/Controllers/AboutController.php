@@ -44,7 +44,7 @@ class AboutController extends BaseController
       view($this->viewPath . 'tutors', 
         [
           'leaders' => $this->tutor->leader()->get(),
-          'tutors' => $this->tutor->active()->where('is_leader', '=', 0)->get(),
+          'tutors' => $this->tutor->activeAndVisible()->where('is_leader', '=', 0)->get(),
         ]
       );
   }
@@ -62,9 +62,9 @@ class AboutController extends BaseController
     return 
       view($this->viewPath . 'tutor', 
         [
-          'tutor'   => $this->tutor->active()->with('images')->findOrFail($tutor->id),
+          'tutor'   => $this->tutor->activeAndVisible()->with('images')->findOrFail($tutor->id),
           'leaders' => $this->tutor->leader()->get(),
-          'tutors'  => $this->tutor->active()->where('is_leader', '=', 0)->get(),
+          'tutors'  => $this->tutor->activeAndVisible()->where('is_leader', '=', 0)->get(),
         ]
       );
   }

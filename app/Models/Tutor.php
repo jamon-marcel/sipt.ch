@@ -24,6 +24,7 @@ class Tutor extends Model
 		'image',
 		'is_leader',
     'is_published',
+    'is_visible',
 		'user_id',
 	];
 	
@@ -64,6 +65,19 @@ class Tutor extends Model
 	{
 		return $query->where('is_published', '=', 1)->orderBy('name');
 	}
+
+	/**
+	 * Scope a query to only active & published tutors.
+	 *
+	 * @param  \Illuminate\Database\Eloquent\Builder $query
+	 * @return \Illuminate\Database\Eloquent\Builder
+	 */
+
+	public function scopeActiveAndVisible($query)
+	{
+		return $query->where('is_published', '=', 1)->where('is_visible', '=', 1)->orderBy('name');
+	}
+	
 	
 	/**
 	 * Scope a query to only tutors marked as leader.
