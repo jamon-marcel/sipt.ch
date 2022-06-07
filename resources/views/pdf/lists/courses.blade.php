@@ -55,7 +55,7 @@
                 @endif
               @endforeach
             @else
-              <td>{{ isset($d->dates[0]) ? $d->dates[0]->tutor->name : ''}}</td>
+              <td>{{ isset($d->dates[0]) && isset($d->dates[0]->tutor) ? $d->dates[0]->tutor->name : ''}}</td>
               <td>-</td>
             @endif
             <td>{{\AppHelper::timesToString($d->dates)}}</td>
