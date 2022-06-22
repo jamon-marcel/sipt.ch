@@ -133,13 +133,24 @@
           <a href="mailto:zpg.binningen@pbl.ch">zpg.binningen@pbl.ch</a><br>
           <a href="https://www.pbl.ch/zentrum-fuer-psychische-gesundheit-binningen-4" target="_blank">pbl.ch</a></p>
 
+
+          <p>
+            <strong>Christina Haeny</strong><br>
+            Eidg. anerkannte Psychotherapeutin (FSP),<br>
+            Fachpsychologin für Psychotraumatologie (SIPT)<br>
+            Supervisorin (SuWe)<br>
+            Praxis für Psychotherapie<br>
+            Fröbelstrasse 33<br>
+            8032 Zürich<br>
+          </p>
+{{-- 
         <p><strong>lic. phil. Haeny, Christina</strong><br>
         Fachpsychologin für Psychotherapie<br>
         Ambulatorium Barmelweid<br>
         Ziegelrain 1<br>
         5000 Aarau<br>
         Telefon: 062 857 25 20<br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p>
+        (Kostenübernahme durch die Krankenkasse möglich)</p> --}}
         
         <p>
           <strong>Remo Hartmann</strong><br>Eidgenössisch anerkannter Psychotherapeut<br>Dufourstrasse 169<br>8008 Zürich<br>Telefon: 077 461 48 75<br><a href="mailto:remo.hartmann@fsp-hin.ch">remo.hartmann@fsp-hin.ch</a>
