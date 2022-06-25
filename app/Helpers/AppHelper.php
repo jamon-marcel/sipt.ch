@@ -15,10 +15,9 @@ class AppHelper
 
   public static function snippet($str = NULL)
   {
+    $cleanStr = str_replace(['&nbsp;'], [''], $str);
     $cleanStr = preg_replace('/<[^<]+?>/', ' ', $str);
-
     return substr($cleanStr, 0, 125) . '...';
-    
   }
 
   public static function nl2p($string = NULL)
