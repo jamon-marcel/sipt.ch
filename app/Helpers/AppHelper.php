@@ -13,6 +13,14 @@ class AppHelper
     return $slug;
   }
 
+  public static function snippet($str = NULL)
+  {
+    $cleanStr = preg_replace('/<[^<]+?>/', ' ', $str);
+
+    return substr($cleanStr, 0, 125) . '...';
+    
+  }
+
   public static function nl2p($string = NULL)
   {
     $string = nl2br($string, false);

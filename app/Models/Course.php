@@ -1,11 +1,12 @@
 <?php
 namespace App\Models;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Scout\Searchable;
 use GoldSpecDigital\LaravelEloquentUUID\Database\Eloquent\Model;
 
 class Course extends Model
 {
-	use SoftDeletes;
+	use SoftDeletes, Searchable;
 	
 	protected $fillable = [
 		'number',
@@ -18,6 +19,28 @@ class Course extends Model
     'is_published',
 	];
 	
+  /**
+   * Get the name of the index associated with the model.
+   *
+   * @return string
+   */
+  public function searchableAs()
+  {
+    return 'courses';
+  }
+
+// /**
+//  * Get the indexable data array for the model.
+//  *
+//  * @return array
+//  */
+// public function toSearchableArray()
+// {
+//     //$array = $this->toArray();
+//     $array = ['number', 'title', 'description']; 
+//     return $array;
+// }
+
 	/**
 	 * Relationship for trainings
 	 */

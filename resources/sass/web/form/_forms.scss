@@ -29,6 +29,23 @@ form.auth {
   }
 }
 
+// Search
+form.search {
+  margin-top: $space-md;
+  margin-bottom: $space-lg;
+  max-width: none;
+
+  input[type=text] {
+    background-color: $color-white;
+  }
+
+  > div {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+    grid-column-gap: $space-sm;
+  }
+}
+
 // Register form
 form.auth--register {
   max-width: 640px !important;
