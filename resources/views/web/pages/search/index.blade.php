@@ -20,7 +20,7 @@
       @foreach($results as $course)
         <div class="list__item">
           <a href="{{ route('course_show', ['slug' => AppHelper::slug($course->title), 'course' => $course->id]) }}" class="icon-arrow">
-            <strong>{{$course->title}}</strong> {!! AppHelper::snippet($course->description) !!}
+            <strong>{{$course->title}}</strong><br>{!! AppHelper::snippet($course->description) !!}
           </a>
         </div>
       @endforeach
