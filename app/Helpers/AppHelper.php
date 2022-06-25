@@ -16,7 +16,7 @@ class AppHelper
   public static function snippet($str = NULL)
   {
     $cleanStr = str_replace(['&nbsp;'], [''], $str);
-    $cleanStr = preg_replace('/<[^<]+?>/', ' ', $str);
+    $cleanStr = preg_replace('/<[^<]+?>/', ' ', $cleanStr);
     return substr($cleanStr, 0, 125) . '...';
   }
 
