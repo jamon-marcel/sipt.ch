@@ -15,9 +15,9 @@ class Newsletter
               new \App\Mail\Newsletter(
                 [
                   'subscriber'  => $s,
-                  'attachments' => [
-                    public_path() . '/storage/downloads/' . 'sipt-aufbau_07.pdf',
-                  ]
+                  // 'attachments' => [
+                  //   public_path() . '/storage/downloads/' . 'sipt-aufbau_07.pdf',
+                  // ]
                 ]
           )
       );

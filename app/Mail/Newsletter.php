@@ -28,13 +28,13 @@ class Newsletter extends Mailable
    */
   public function build()
   {
-    $mail = $this->subject('SIPT Aufbautipp Nr. 7/2022')
+    $mail = $this->subject('20 Jahre Zeitschrift Trauma')
                   ->with(
                     [
                       'subscriber' => $this->data['subscriber'],
                     ]
                   )
-                 ->markdown('mails.newsletter.index');
+                 ->markdown('mails.newsletter.book');
     
     if ($this->data['attachments'])
     {
