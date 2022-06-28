@@ -36,7 +36,7 @@ class Newsletter extends Mailable
                   )
                  ->markdown('mails.newsletter.book');
     
-    if ($this->data['attachments'])
+    if (isset($this->data['attachments']))
     {
       foreach($this->data['attachments'] as $file)
       {
