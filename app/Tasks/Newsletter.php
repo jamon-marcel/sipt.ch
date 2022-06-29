@@ -10,21 +10,26 @@ class Newsletter
 
     foreach($subscribers->all() as $s)
     {
-      \Mail::to($s->email)
-            ->send(
-              new \App\Mail\Newsletter(
-                [
-                  'subscriber'  => $s,
-                  // 'attachments' => [
-                  //   public_path() . '/storage/downloads/' . 'sipt-aufbau_07.pdf',
-                  // ]
-                ]
-          )
-      );
-
-      // Mark subscriber
-      $s->is_done = 1;
-      $s->save();
+      try {
+        \Mail::to($s->email)
+          ->send(
+            new \App\Mail\Newsletter(
+              [
+                'subscriber'  => $s,
+                // 'attachments' => [
+                //   public_path() . '/storage/downloads/' . 'sipt-aufbau_07.pdf',
+                // ]
+              ]
+              )
+            );
+        // Mark subscriber
+        $s->is_done = 1;
+        $s->save();
+      }
+      catch(\Throwable $e) {
+        $s->is_done = 1;
+        $s->delete();
+      }
     }
   }
 }
