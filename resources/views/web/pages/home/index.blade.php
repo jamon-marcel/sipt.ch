@@ -44,6 +44,14 @@
   <article>
     <h2>Neue Kursangebote</h2>
     <p>Gerne weisen wir auf <strong>aktuelle</strong> Kursangebote hin:</p>
+
+    <p>
+      <strong>Gruppendynamiken mit traumatisierten Kindern und Jugendlichen und die Schaffung eines pädagogischen Milieus</strong><br>Prof. Dr. David Zimmermann, Berlin<br>Es freut uns, dass wir mit David Zimmermann einen Pädagogen für die Durchführung des Kurses haben gewinnen können. David Zimmermann ist ein ausgewiesener Experte im Bereich der Traumapädagogik, der psychoanalytisches Denken und darauf aufbauende Handlungsansätze praxisnah vermitteln kann.<br>
+      <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/gruppendynamiken-mit-traumatisierten-kindern-und-jugendlichen-und-die-schaffung-eines-paedagogischen-milieus/31d5c9c2-4bf7-4a25-bc48-c458847b2ad7" class="icon-arrow-right">mehr erfahren</a>
+    </p>
+
+
+
     <p>
       <strong>Vulnerable Kinder und Jugendliche mit Migrationshintergrund kompetent begleiten und unterstützen</strong><br>Dozent: Silvan Holzer<br>Termin:  2./3. September 2022
       <br><a href="/bildungsangebot/modul/vulnerable-kinder-und-jugendliche-mit-migrationshintergrund-kompetent-begleiten-und-unterstuetzen-fakultativ/b3d6d972-5aa2-4f2d-a767-9f67e4b92b5b" class="icon-arrow-right">mehr erfahren</a>
