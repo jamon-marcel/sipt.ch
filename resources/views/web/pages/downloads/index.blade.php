@@ -11,7 +11,7 @@
     </a>
   </article>
   <article>
-    <a href="/storage/downloads/sipt-bildungsangebot-fuer-beraterinnen-2022.pdf" target="_blank" class="btn-download" title="Bildungsangebot für BeraterInnen">
+    <a href="/storage/downloads/sipt-bildungsangebot-fuer-beraterinnen-2022-v2.pdf" target="_blank" class="btn-download" title="Bildungsangebot für BeraterInnen">
       <strong>Bildungsangebot für BeraterInnen</strong> [PDF, 70KB]
     </a>
   </article>
