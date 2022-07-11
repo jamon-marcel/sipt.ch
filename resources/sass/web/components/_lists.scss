@@ -12,6 +12,11 @@
     @extend %line;
   }
 
+  .list__item.has-line-before {
+    @extend %line-before;
+    padding: 4px 0;
+  }
+
   .list__header {
     @extend %flex-space-between;
   }

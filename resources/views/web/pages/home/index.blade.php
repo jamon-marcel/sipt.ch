@@ -6,8 +6,7 @@
   <x-header title="Aktuell" />
   <article>
     <h2>Trauma-Broschüren auf Ukrainisch und auf Russisch</h2>
-    <p>Die Traumabroschüren des ZTK (Leitung Thomas Weber) für Erwachsene und für Menschen, die mit traumatisierten Kindern und Jugendlichen zu tun haben wurden auf <strong>Ukrainisch</strong> auf <strong>Russisch</strong> übersetzt. Diese können für die Arbeit mit Geflüchteten jederzeit kostenfrei über die folgenden Links heruntergeladen werden:</p>
-
+    <p>Die Traumabroschüren des ZTK (Leitung: Thomas Weber) für Erwachsene und für Menschen, die mit traumatisierten Kindern und Jugendlichen zu tun haben, wurden auf <strong>Ukrainisch</strong> auf und <strong>Russisch</strong> übersetzt. Diese können für die Arbeit mit Geflüchteten jederzeit kostenfrei über die folgenden Links heruntergeladen werden:</p>
     <p>
       <strong>Ukrainisch (für Erwachsene)</strong><br>
       <a class="icon-arrow-right" href="https://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Erwachsene_2022_ukr_final.pdf" target="_blank" title="">
@@ -46,7 +45,7 @@
     <p>Gerne weisen wir auf <strong>aktuelle</strong> Kursangebote hin:</p>
 
     <p>
-      <strong>Gruppendynamiken mit traumatisierten Kindern und Jugendlichen und die Schaffung eines pädagogischen Milieus</strong><br>Prof. Dr. David Zimmermann, Berlin<br>Es freut uns, dass wir mit David Zimmermann einen Pädagogen für die Durchführung des Kurses haben gewinnen können. David Zimmermann ist ein ausgewiesener Experte im Bereich der Traumapädagogik, der psychoanalytisches Denken und darauf aufbauende Handlungsansätze praxisnah vermitteln kann.<br>
+      <strong>Gruppendynamiken mit traumatisierten Kindern und Jugendlichen und die Schaffung eines pädagogischen Milieus</strong><br>Dozent: Prof. Dr. David Zimmermann, Berlin<br>Termin: 17./18.03.2023<br><br>Es freut uns, dass wir mit Prof. Dr. David Zimmermann aus Berlin einen Pädagogen für die Durchführung dieses Kurses haben gewinnen können. David Zimmermann ist ein ausgewiesener Experte im Bereich der Traumapädagogik, der psychoanalytisches Denken und darauf aufbauende Handlungsansätze praxisnah vermitteln kann.<br>
       <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/gruppendynamiken-mit-traumatisierten-kindern-und-jugendlichen-und-die-schaffung-eines-paedagogischen-milieus/31d5c9c2-4bf7-4a25-bc48-c458847b2ad7" class="icon-arrow-right">mehr erfahren</a>
     </p>
 

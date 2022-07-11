@@ -69,7 +69,7 @@ Route::get('/stelleninserate', 'AboutController@jobs')->name('jobs_index');
 // Downloads
 Route::get('/suche', 'SearchController@index')->name('search_index');
 Route::post('/suche', 'SearchController@index')->name('search_index');
-Route::get('/search/export', 'SearchController@export')->name('search_export');
+//Route::get('/search/export', 'SearchController@export')->name('search_export');
 
 // Bookings
 Route::get('/booking/{courseEvent}', 'BookingController@add');

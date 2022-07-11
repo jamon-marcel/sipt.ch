@@ -326,17 +326,7 @@
         <a href="https://www.clienia.ch/de/standorte/clienia-dietikon/" target="_blank">clienia.ch/de/standorte/clienia-dietikon/</a><br>
         <a href="https://www.clienia.ch/de/aerzte-psychologen/nerijus-saukalas/" target="_blank">clienia.ch/de/aerzte-psychologen/nerijus-saukalas/</a>
         </p>
-        
-
-
-        <p><strong>lic. phil. Suter, Christian</strong><br>
-        Praxis für Psychotherapie Dr. E. Möller<br>
-        Löwenstrasse 5<br>
-        9500 Wil<br>
-        Telefon: 079 652 66 83<br>
-        <a href="mailto:christian.suter@hin.ch">christian.suter@hin.ch</a><br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p>
-        
+       
         <p><strong>Trieblnig, Dodo</strong><br>
         MAS in klinischer Musiktherapie, Musiktherapeutin
         Nägelseestrasse 22<br>

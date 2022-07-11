@@ -26,6 +26,17 @@
             </a>
           </div>
         @endif
+        <br><br>
+        <div class="list__item">
+          <a 
+            href="{{ route('search_index') }}"
+            title="Bildungsangebot durchsuchen"
+            class="icon-arrow"
+          >
+            Bildungsangebot durchsuchen
+          </a>
+        </div>
+
       </div>
     </article>
     @if ($category->id != 'f8397281-acc4-47a4-985e-b6515b433419')

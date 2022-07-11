@@ -32,6 +32,11 @@
             </li>
           @endforeach
         @endif
+        <li>
+          <a href="{{ route('search_index') }}" class="{{ request()->routeIs('search_index') ? 'is-active' : '' }}">
+            Suche
+          </a>
+        </li>
       </ul>
       <h2>Beratung und Zertifizierung</h2>
       <ul>
