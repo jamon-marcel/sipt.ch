@@ -31,7 +31,7 @@
         mehr erfahren
       </a>
     </p>
-    <p>Eine erweiterte Fassung der Broschüren in Deutsch steht uns Online leider nicht zur Verfügung. Sie können die Broschüren in Papierform in Deutsch beim SIPT bestellen.</p>
+    <p>Eine erweiterte Fassung der Broschüren in Deutsch können Sie in Papierform beim SIPT bestellen.</p>
   </article>
   <article>
     <h2>Neues Buch – Orientierung für den komplexen Prozess der Traumabehandlung</h2>
@@ -61,7 +61,7 @@
     </p>
     <p>
       
-      <strong>Migration und Trauma – transkulturelle und traumatherapeutische Kompetenzen in der Behandlung und Beratung von Geflüchteten und Menschen mit Migrationshintergrund</strong><br>Dozentinnen: Oliver Schwald<br>2./3. Dezember 2022
+      <strong>Migration und Trauma – transkulturelle und traumatherapeutische Kompetenzen in der Behandlung und Beratung von Geflüchteten und Menschen mit Migrationshintergrund</strong><br>Dozent: Oliver Schwald<br>2./3. Dezember 2022
       <br><a href="/bildungsangebot/modul/migration-und-trauma-transkulturelle-und-traumatherapeutische-kompetenzen-in-der-behandlung-und-beratung-von-gefluechteten-und-menschen-mit-migrationshintergrund-fakultativ/a9690678-91f1-4531-8c49-e4ecec12d088" class="icon-arrow-right">mehr erfahren</a>
     </p>
   </article>
