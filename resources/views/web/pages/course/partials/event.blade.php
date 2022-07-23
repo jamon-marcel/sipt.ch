@@ -6,7 +6,11 @@
     Zeiten: {{AppHelper::timesToString($event->dates, TRUE)}} Uhr
   </div>
   <div class="list__item">
-    Ort: {{AppHelper::locationName($event->location_id, TRUE)}}
+    @if ($event->is_online)
+      Ort: Online
+    @else
+      Ort: {{AppHelper::locationName($event->location_id, TRUE)}}
+    @endif
   </div>
   <div class="list__item">
     DozentInnen: {{AppHelper::tutorsToString($event->dates, TRUE)}}
