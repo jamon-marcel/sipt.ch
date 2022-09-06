@@ -45,17 +45,6 @@
     <p>Gerne weisen wir auf <strong>aktuelle</strong> Kursangebote hin:</p>
 
     <p>
-      <strong>Gruppendynamiken mit traumatisierten Kindern und Jugendlichen und die Schaffung eines pädagogischen Milieus</strong><br>Dozent: David Zimmermann, Berlin<br>Termin: 17./18. März 2023<br><br>Es freut uns, dass wir mit Prof. Dr. David Zimmermann aus Berlin einen Pädagogen für die Durchführung dieses Kurses haben gewinnen können. David Zimmermann ist ein ausgewiesener Experte im Bereich der Traumapädagogik, der psychoanalytisches Denken und darauf aufbauende Handlungsansätze praxisnah vermitteln kann.<br>
-      <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/gruppendynamiken-mit-traumatisierten-kindern-und-jugendlichen-und-die-schaffung-eines-paedagogischen-milieus/31d5c9c2-4bf7-4a25-bc48-c458847b2ad7" class="icon-arrow-right">mehr erfahren</a>
-    </p>
-
-
-
-    <p>
-      <strong>Vulnerable Kinder und Jugendliche mit Migrationshintergrund kompetent begleiten und unterstützen</strong><br>Dozent: Silvan Holzer<br>Termin:  2./3. September 2022
-      <br><a href="/bildungsangebot/modul/vulnerable-kinder-und-jugendliche-mit-migrationshintergrund-kompetent-begleiten-und-unterstuetzen-fakultativ/b3d6d972-5aa2-4f2d-a767-9f67e4b92b5b" class="icon-arrow-right">mehr erfahren</a>
-    </p>
-    <p>
       <strong>Traumatisierte Flüchtlinge im Schulalltag</strong><br>Dozentin: Ruth Monstein<br>18./19. November 2022
       <br><a href="/bildungsangebot/modul/traumatisierte-fluechtlinge-im-schulalltag-fakultativ/31a9bb59-80ef-4a12-8228-81ba17a061bd" class="icon-arrow-right">mehr erfahren</a>
     </p>
@@ -66,6 +55,14 @@
     <p>
       <strong>Migration und Trauma – transkulturelle und traumatherapeutische Kompetenzen in der Behandlung und Beratung von Geflüchteten und Menschen mit Migrationshintergrund</strong><br>Dozent: Oliver Schwald<br>2./3. Dezember 2022
       <br><a href="/bildungsangebot/modul/migration-und-trauma-transkulturelle-und-traumatherapeutische-kompetenzen-in-der-behandlung-und-beratung-von-gefluechteten-und-menschen-mit-migrationshintergrund-fakultativ/a9690678-91f1-4531-8c49-e4ecec12d088" class="icon-arrow-right">mehr erfahren</a>
+    </p>
+    <p>
+      <strong>Gruppendynamiken mit traumatisierten Kindern und Jugendlichen und die Schaffung eines pädagogischen Milieus</strong><br>Dozent: David Zimmermann, Berlin<br>Termin: 17./18. März 2023<br><br>Es freut uns, dass wir mit Prof. Dr. David Zimmermann aus Berlin einen Pädagogen für die Durchführung dieses Kurses haben gewinnen können. David Zimmermann ist ein ausgewiesener Experte im Bereich der Traumapädagogik, der psychoanalytisches Denken und darauf aufbauende Handlungsansätze praxisnah vermitteln kann.<br>
+      <a href="/bildungsangebot/modul/gruppendynamiken-mit-traumatisierten-kindern-und-jugendlichen-und-die-schaffung-eines-paedagogischen-milieus/31d5c9c2-4bf7-4a25-bc48-c458847b2ad7" class="icon-arrow-right">mehr erfahren</a>
+    </p>
+    <p>
+      <strong>Vulnerable Kinder und Jugendliche mit Migrationshintergrund kompetent begleiten und unterstützen</strong><br>Dozent: Silvan Holzer<br>Termin:  7./8. April 2023<br><br>Silvan Holzer ist geschätzter Dozent für Migrations- und Traumathemen und schöpft dabei aus seinen vielfältigen, relevanten Berufserfahrungen. Er leitet den Fachbereich Traumafolgestörungen Kinder und Jugendliche am AFK in Bern sowie START, ein aufsuchendes, niederschwelliges Gruppenangebot für minderjährige Flüchtlinge. Weiter profitieren Kursteilnehmer von seiner langjährigen Praxistätigkeit als Kinder- und Jugendpsychotherapeut und seinen pädagogischen Kenntnissen als ehemalige Lehrperson verschiedener Schulstufen.<br>
+      <a href="/bildungsangebot/modul/vulnerable-kinder-und-jugendliche-mit-migrationshintergrund-kompetent-begleiten-und-unterstuetzen-fakultativ/b3d6d972-5aa2-4f2d-a767-9f67e4b92b5b" class="icon-arrow-right">mehr erfahren</a>
     </p>
   </article>
 </section>
