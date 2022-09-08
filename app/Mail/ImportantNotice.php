@@ -27,8 +27,8 @@ class ImportantNotice extends Mailable
    */
   public function build()
   {
-    $mail = $this->subject('SIPT – Fachtagung am 26./27.08.2022 in Köln')->markdown('mails.important-notice.index');
-    $mail->attach(public_path() . '/storage/downloads/' . 'Flyer-Fachtagung-2022.pdf', ['mime' => 'application/pdf']);
+    $mail = $this->subject('Neues Kursangebot "So vertiefen Sie Ihr psychodynamisches Fallverständnis"')->markdown('mails.important-notice.index');
+    //$mail->attach(public_path() . '/storage/downloads/' . 'Flyer-Fachtagung-2022.pdf', ['mime' => 'application/pdf']);
     return $mail;
   }
 }

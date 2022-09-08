@@ -1,9 +1,7 @@
 @component('mail::message')
-<p style="text-align:right">Winterthur, {{ date('d', time())}}. Mai 2022</p>
+<p style="text-align:right">Winterthur, {{ date('d', time())}}. September 2022</p>
 <p>Liebe Kolleginnen und Kollegen,</p>
-<p>Wir möchten Sie auf unsere Fachtagung am 26./27. August in Köln in diesem Jahr aufmerksam machen. An der Tagung wird ein grosser Teil der SIPT Dozentinnen und Dozenten referieren. Sie haben dort die Gelegenheit, sich mit ihnen näher auszutauschen oder diese erstmals kennenzulernen, da die Tagung in einem kleinen Rahmen stattfinden wird.</p>
-<p>Für unsere Planungssicherheit benötigen wir Ihre Anmeldung bis zum 01. Juli 2022. Die Anmeldung kann über den Link im Flyer erfolgen oder persönlich als Mail an Lea Fäh (Mitarbeiterin SIPT, <a href="mailto:lea.faeh@sipt.ch">lea.faeh@sipt.ch</a>) unter Angabe Ihrer Adresse und ob eine Teilnahme am geselligen Abend erwünscht ist.</p>
-<p>Wir würden uns freuen auf einen spannenden und interessanten Austausch im August.</p>
+<p>Gerne möchten wir Sie auf unser neues Kursangebot „So vertiefen Sie Ihr psychodynamisches Fallverständnis“ aufmerksam machen.<br>Mit Prof. Dr. phil. Dipl.-Psych. Ingo Jungclaussen konnten wir einen weiteren neuen Dozenten aus Deutschland engagieren, der im Arbeits- und Forschungsgebiet der neuen didaktischen Formen zur Vermittlung der psychodynamischen Psychotherapie besticht. PsychotherapeutInnen lernen in diesem Seminar praxisnah die drei Konflikt-, Struktur- und Trauma-Leitfäden sowie die psychogenetische Konflikttabelle kennen.<br><br>Weitere Informationen und den Link zur Buchung finden Sie hier auf der SIPT Website.<br><br>Wir hoffen auf Ihr Interesse und würden uns über Ihre Anmeldung freuen.<br><br>
 <p>Herzliche Grüsse</p>
-<p>Rosmarie Barwinski & Lea Fäh</p>
+<p>Rosmarie Barwinski</p>
 @endcomponent
