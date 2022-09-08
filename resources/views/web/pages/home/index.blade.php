@@ -48,7 +48,7 @@
       <a href="/bildungsangebot/modul/traumatisierte-fluechtlinge-im-schulalltag-fakultativ/31a9bb59-80ef-4a12-8228-81ba17a061bd" class="icon-arrow-right">mehr erfahren</a>
     </p>
     <p>
-      <strong>So vertiefen Sie Ihr psychodynamisches Fallverständnis (Praxisnahe Konflikt-, Struktur- und Trauma-Leitfäden inkl. psychogenetischer Konflikttabelle)</strong><br>Dozent: Ingo Jungclaussen, Köln<br>25./26. November 2022<br><br>Mit Prof. Dr. phil. Dipl.-Psych. Ingo Jungclaussen konnten wir einen weiteren neuen Dozenten aus Deutschland engagieren, der in der Didaktisierung und Konzeptualisierung der Psychodynamik als psychoanalytisch begründetes Störungsmodell sowie der modernen Vermittlung psychoanalytischer Metatheorien brilliert. PsychotherapeutInnen lernen in diesem Seminar praxisnah die drei Konflikt-, Struktur- und Trauma-Leitfäden sowie die psychogenetische Konflikttabelle kennen.<br>
+      <strong>So vertiefen Sie Ihr psychodynamisches Fallverständnis</strong><br>Dozent: Ingo Jungclaussen, Köln<br>25./26. November 2022<br><br>Mit Prof. Dr. phil. Dipl.-Psych. Ingo Jungclaussen konnten wir einen weiteren neuen Dozenten aus Deutschland engagieren, der in der Didaktisierung und Konzeptualisierung der Psychodynamik als psychoanalytisch begründetes Störungsmodell sowie der modernen Vermittlung psychoanalytischer Metatheorien brilliert. PsychotherapeutInnen lernen in diesem Seminar praxisnah die drei Konflikt-, Struktur- und Trauma-Leitfäden sowie die psychogenetische Konflikttabelle kennen.<br>
       <a href="/bildungsangebot/modul/so-vertiefen-sie-ihr-psychodynamisches-fallverstaendnis/469a8a6b-7963-4d47-858b-16498db0410f" class="icon-arrow-right">mehr erfahren</a>
     </p>
     <p>
