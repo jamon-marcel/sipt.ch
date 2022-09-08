@@ -43,18 +43,17 @@
   <article>
     <h2>Neue Kursangebote</h2>
     <p>Gerne weisen wir auf <strong>aktuelle</strong> Kursangebote hin:</p>
-
     <p>
-      <strong>Traumatisierte Flüchtlinge im Schulalltag</strong><br>Dozentin: Ruth Monstein<br>18./19. November 2022
-      <br><a href="/bildungsangebot/modul/traumatisierte-fluechtlinge-im-schulalltag-fakultativ/31a9bb59-80ef-4a12-8228-81ba17a061bd" class="icon-arrow-right">mehr erfahren</a>
+      <strong>Traumatisierte Flüchtlinge im Schulalltag</strong><br>Dozentin: Ruth Monstein<br>18./19. November 2022<br>
+      <a href="/bildungsangebot/modul/traumatisierte-fluechtlinge-im-schulalltag-fakultativ/31a9bb59-80ef-4a12-8228-81ba17a061bd" class="icon-arrow-right">mehr erfahren</a>
     </p>
     <p>
-      <strong>So vertiefen Sie Ihr psychodynamisches Fallverständnis (Praxisnahe Konflikt-, Struktur- und Trauma-Leitfäden inkl. psychogenetischer Konflikttabelle)</strong><br>Dozent: Ingo Jungclaussen, Köln<br>25./26. November 2022
-      <br><a href="/bildungsangebot/modul/so-vertiefen-sie-ihr-psychodynamisches-fallverstaendnis/469a8a6b-7963-4d47-858b-16498db0410f" class="icon-arrow-right">mehr erfahren</a>
+      <strong>So vertiefen Sie Ihr psychodynamisches Fallverständnis (Praxisnahe Konflikt-, Struktur- und Trauma-Leitfäden inkl. psychogenetischer Konflikttabelle)</strong><br>Dozent: Ingo Jungclaussen, Köln<br>25./26. November 2022<br><br>Mit Prof. Dr. phil. Dipl.-Psych. Ingo Jungclaussen konnten wir einen weiteren neuen Dozenten aus Deutschland engagieren, der in der Didaktisierung und Konzeptualisierung der Psychodynamik als psychoanalytisch begründetes Störungsmodell sowie der modernen Vermittlung psychoanalytischer Metatheorien brilliert. PsychotherapeutInnen lernen in diesem Seminar praxisnah die drei Konflikt-, Struktur- und Trauma-Leitfäden sowie die psychogenetische Konflikttabelle kennen.<br>
+      <a href="/bildungsangebot/modul/so-vertiefen-sie-ihr-psychodynamisches-fallverstaendnis/469a8a6b-7963-4d47-858b-16498db0410f" class="icon-arrow-right">mehr erfahren</a>
     </p>
     <p>
-      <strong>Migration und Trauma – transkulturelle und traumatherapeutische Kompetenzen in der Behandlung und Beratung von Geflüchteten und Menschen mit Migrationshintergrund</strong><br>Dozent: Oliver Schwald<br>2./3. Dezember 2022
-      <br><a href="/bildungsangebot/modul/migration-und-trauma-transkulturelle-und-traumatherapeutische-kompetenzen-in-der-behandlung-und-beratung-von-gefluechteten-und-menschen-mit-migrationshintergrund-fakultativ/a9690678-91f1-4531-8c49-e4ecec12d088" class="icon-arrow-right">mehr erfahren</a>
+      <strong>Migration und Trauma – transkulturelle und traumatherapeutische Kompetenzen in der Behandlung und Beratung von Geflüchteten und Menschen mit Migrationshintergrund</strong><br>Dozent: Oliver Schwald<br>2./3. Dezember 2022<br>
+      <a href="/bildungsangebot/modul/migration-und-trauma-transkulturelle-und-traumatherapeutische-kompetenzen-in-der-behandlung-und-beratung-von-gefluechteten-und-menschen-mit-migrationshintergrund-fakultativ/a9690678-91f1-4531-8c49-e4ecec12d088" class="icon-arrow-right">mehr erfahren</a>
     </p>
     <p>
       <strong>Gruppendynamiken mit traumatisierten Kindern und Jugendlichen und die Schaffung eines pädagogischen Milieus</strong><br>Dozent: David Zimmermann, Berlin<br>Termin: 17./18. März 2023<br><br>Es freut uns, dass wir mit Prof. Dr. David Zimmermann aus Berlin einen Pädagogen für die Durchführung dieses Kurses haben gewinnen können. David Zimmermann ist ein ausgewiesener Experte im Bereich der Traumapädagogik, der psychoanalytisches Denken und darauf aufbauende Handlungsansätze praxisnah vermitteln kann.<br>
