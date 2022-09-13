@@ -91,5 +91,31 @@ section.splash {
       max-width: 640px;
     }
   }
+  
+}
+
+section.visual {
+  position: relative;
+
+  .visual__container {
+    display: block;
+    position: absolute;
+    top: 100vh;
+    transform: translateY(-100%);
+
+    &.is-right {
+      right: 0;
+    }
+
+    &.has-max-w {
+      @include bp-md() {
+        max-width: 70%;
+      }
+      }
+
+    img {
+      @extend %is-responsive;
+    }
+  }
 }
 

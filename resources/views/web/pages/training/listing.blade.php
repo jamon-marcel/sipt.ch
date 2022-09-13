@@ -2,7 +2,7 @@
 @section('seo_title', 'Bildungsangebot')
 @section('seo_description', '')
 @section('section')
-<section class="theme-light">
+<section class="theme-light visual">
   <x-header title="Bildungsangebot" />
   @if ($trainings)
     <article>
@@ -47,6 +47,9 @@
       </article>
     @endif
   @endif
+  <div class="visual__container">
+    <img src="/assets/img/visual-2.png" width="3996" height="2896" alt="">
+  </div>
 </section>
 <x-quote size="is-sm" quote="{{$quote['quote']}}" author="{{$quote['author']}}" />
 @endsection
