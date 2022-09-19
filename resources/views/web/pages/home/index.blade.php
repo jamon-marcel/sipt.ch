@@ -67,9 +67,9 @@
 </section>
 <section class="theme-medium order-2 splash visual">
   <div class="splash__title">Willkommen im Schweizer Institut für Psychotraumatologie</div>
-  <div class="visual__container is-right has-max-w">
+  {{-- <div class="visual__container is-right has-max-w">
     <img src="/assets/img/visual-1.png" width="3996" height="2896" alt="">
-  </div>
+  </div> --}}
 
 </section>
 @endsection

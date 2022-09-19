@@ -47,9 +47,9 @@
       </article>
     @endif
   @endif
-  <div class="visual__container">
+  {{-- <div class="visual__container">
     <img src="/assets/img/visual-2.png" width="3996" height="2896" alt="">
-  </div>
+  </div> --}}
 </section>
 <x-quote size="is-sm" quote="{{$quote['quote']}}" author="{{$quote['author']}}" />
 @endsection
