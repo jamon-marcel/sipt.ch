@@ -108,12 +108,14 @@
         <a href="mailto:frank@bodenseepraxis.ch">frank@bodenseepraxis.ch</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
-        <p><strong>lic. phil. Martina Frei, MSc</strong><br>
+        <p>
+          <strong>Martina Frei Liebrich</strong><br>
           Eidg. anerkannte Psychotherapeutin<br>
-          Fachpsychotherapeutin für Psychotraumatologie <br>
-          Clienia Psychiatriezentrum Wetzikon<br>
-          Bahnhofstrasse 196, 8620 Wetzikon<br>
-          Telefon: 044 931 39 39
+          Praxis für Psychotherapie und Supervision<br>
+          Hittnauerstrasse 8<br>
+          8330 Pfäffikon<br>
+          Telefon: 076 441 67 22<br>
+          <a href="mailto:frei.liebrich@hin.ch">frei.liebrich@hin.ch</a>
         </p>
         <p>
           <strong>lic. phil. Ines Geitzsch</strong><br>
