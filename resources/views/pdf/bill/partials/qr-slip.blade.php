@@ -204,7 +204,7 @@
                   {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
                 @endif
               @endif
-            @elseif ($invoice['client'])
+            @elseif (isset($invoice['client']))
               @if($invoice['alt_address'])
                 {!! nl2br($invoice['alt_address']) !!}
               @else
@@ -304,7 +304,7 @@
                     {{ $invoice['client']->zip}} {{ $invoice['client']->city}}<br>
                   @endif
                 @endif
-              @elseif ($invoice['client'])
+              @elseif (isset($invoice['client']))
                 @if($invoice['alt_address'])
                   {!! nl2br($invoice['alt_address']) !!}
                 @else
