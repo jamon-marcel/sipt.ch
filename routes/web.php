@@ -29,7 +29,7 @@ Route::get('/datenschutz', 'AboutController@privacy')->name('about_privacy');
 
 // Bildungsangebot
 Route::get('/bildungsangebote/{slug?}/{trainingCategory}', 'TrainingController@trainingsByCategory')->name('training_category');
-Route::get('/bildungsangebot/{slug?}/{training}/{dev?}', 'TrainingController@show')->name('training_show');
+Route::get('/bildungsangebot/{slug?}/{training}', 'TrainingController@show')->name('training_show');
 Route::get('/bildungsangebot/modul/{slug?}/{course}/{redirect?}', 'CourseController@show')->name('course_show');
 
 // Beratung und Zertifizierung
