@@ -1,0 +1,22 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/icons/user
+ * -----------------------------------------------------------------------------
+ */
+
+.icon-social {
+  margin-top: 8px;
+  align-items: center;
+  display: flex;
+
+  span {
+    display: block;
+    margin-left: 8px;
+  }
+
+  svg {
+    display: block;
+    height: auto;
+    width: 24px;
+  }
+}
