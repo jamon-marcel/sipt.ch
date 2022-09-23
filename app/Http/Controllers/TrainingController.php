@@ -66,7 +66,10 @@ class TrainingController extends BaseController
 
       foreach($training->courses as $course)
       {
-        $data[] = $course->eventsUpcoming;
+        if ($course->eventsUpcoming)
+        {
+          $data[] = $course->eventsUpcoming;
+        }
       }
 
 
