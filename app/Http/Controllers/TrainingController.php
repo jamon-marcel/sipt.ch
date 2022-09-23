@@ -59,34 +59,34 @@ class TrainingController extends BaseController
     $training = $this->training->with('courses.specialisations', 'courses.eventsUpcoming.dates.tutor')->findOrFail($training->id);
     $specialisations = $this->specialisation->with('courses')->get();
 
-    if ($dev)
-    {
-      // Create pdf
-      $data = [];
+    // if ($dev)
+    // {
+    //   // Create pdf
+    //   $data = [];
 
-      foreach($training->courses as $course)
-      {
-        if ($course->eventsUpcoming)
-        {
-          $data[] = $course->eventsUpcoming;
-        }
-      }
+    //   foreach($training->courses as $course)
+    //   {
+    //     if ($course->eventsUpcoming)
+    //     {
+    //       $data[] = $course->eventsUpcoming;
+    //     }
+    //   }
 
 
-      $this->viewData['data'] = $data;
-      $pdf = PDF::loadView('pdf.lists.courses', $this->viewData);
+    //   $this->viewData['data'] = $data;
+    //   $pdf = PDF::loadView('pdf.lists.courses', $this->viewData);
 
-      // Set path & filename
-      $path = public_path() . '/storage/temp/';
-      $filename = 'sipt.ch-modulliste-' . date('dmY', time()) . '-' . \Str::random(8);
-      $file = $filename . '.pdf';
-      $pdf->save($path . $file);
+    //   // Set path & filename
+    //   $path = public_path() . '/storage/temp/';
+    //   $filename = 'sipt.ch-modulliste-' . date('dmY', time()) . '-' . \Str::random(8);
+    //   $file = $filename . '.pdf';
+    //   $pdf->save($path . $file);
 
-      return [
-        'path' => $path . $file,
-        'name' => $file
-      ];
-    }
+    //   return [
+    //     'path' => $path . $file,
+    //     'name' => $file
+    //   ];
+    // }
 
     return 
       view($this->viewPath . 'show', 
