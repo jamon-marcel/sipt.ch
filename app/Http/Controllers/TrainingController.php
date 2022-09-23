@@ -4,6 +4,8 @@ use App\Http\Controllers\BaseController;
 use App\Models\Training;
 use App\Models\TrainingCategory;
 use App\Models\Specialisation;
+use PDF;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 
 class TrainingController extends BaseController
@@ -52,10 +54,28 @@ class TrainingController extends BaseController
    * @return \Illuminate\Http\Response
    */
 
-  public function show($slug = NULL, Training $training)
+  public function show($slug = NULL, Training $training, $dev = null)
   { 
-    $training = $this->training->with('courses.specialisations')->findOrFail($training->id);
+    $training = $this->training->with('courses.specialisations', 'courses.eventsUpcoming.dates.tutor')->findOrFail($training->id);
     $specialisations = $this->specialisation->with('courses')->get();
+
+    if ($dev)
+    {
+      // Create pdf
+      $this->viewData['data'] = $training->courses[0]->eventsUpcoming;
+      $pdf = PDF::loadView('pdf.lists.courses', $this->viewData);
+
+      // Set path & filename
+      $path = public_path() . '/storage/temp/';
+      $filename = 'sipt.ch-modulliste-' . date('dmY', time()) . '-' . \Str::random(8);
+      $file = $filename . '.pdf';
+      $pdf->save($path . $file);
+
+      return [
+        'path' => $path . $file,
+        'name' => $file
+      ];
+    }
 
     return 
       view($this->viewPath . 'show', 
