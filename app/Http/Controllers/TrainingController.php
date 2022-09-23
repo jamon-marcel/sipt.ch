@@ -62,7 +62,15 @@ class TrainingController extends BaseController
     if ($dev)
     {
       // Create pdf
-      $this->viewData['data'] = $training->courses[0]->eventsUpcoming;
+      $data = [];
+
+      foreach($training->courses as $course)
+      {
+        $data[] = $course->eventsUpcoming;
+      }
+
+
+      $this->viewData['data'] = $data;
       $pdf = PDF::loadView('pdf.lists.courses', $this->viewData);
 
       // Set path & filename
