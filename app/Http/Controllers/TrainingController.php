@@ -106,7 +106,7 @@ class TrainingController extends BaseController
    * @return \Illuminate\Http\Response
    */
 
-  public function export($slug = NULL, Training $training, $export)
+  public function export($slug = NULL, Training $training)
   { 
     $training = $this->training->with('courses.specialisations', 'courses.eventsUpcoming.dates.tutor')->findOrFail($training->id);
     $specialisations = $this->specialisation->with('courses')->get();
