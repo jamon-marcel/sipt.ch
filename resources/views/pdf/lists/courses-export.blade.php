@@ -1,6 +1,6 @@
 @include('pdf.partials.header-landscape')
 @include('pdf.partials.css.views.course')
-<div class="content-header" style="top: -45mm">
+<div class="content-header" style="top: -43mm">
   <h1>{{ $data_title }}<br><div style="margin-top: 1mm">Modul-Liste ab {{date('d.m.Y', time())}}</div></h1>
 </div>
 <div class="content">
