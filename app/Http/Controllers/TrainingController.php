@@ -59,34 +59,33 @@ class TrainingController extends BaseController
     $training = $this->training->with('courses.specialisations', 'courses.eventsUpcoming.dates.tutor')->findOrFail($training->id);
     $specialisations = $this->specialisation->with('courses')->get();
 
-    // if ($dev)
-    // {
-    //   // Create pdf
-    //   $data = [];
+    /*
+    if (auth()->user()->isAdmin())
+    {
+      // Create pdf
+      $data = [];
 
-    //   foreach($training->courses as $course)
-    //   {
-    //     if ($course->eventsUpcoming)
-    //     {
-    //       $data[] = $course->eventsUpcoming;
-    //     }
-    //   }
+      foreach($training->courses as $course)
+      {
+        if ($course->eventsUpcoming)
+        {
+          foreach($course->eventsUpcoming as $event)
+          {
+            $data[] = $event;
+          }
+        }
+      }
 
+      $this->viewData['data'] = $data;
+      $pdf = PDF::loadView('pdf.lists.courses', $this->viewData);
 
-    //   $this->viewData['data'] = $data;
-    //   $pdf = PDF::loadView('pdf.lists.courses', $this->viewData);
-
-    //   // Set path & filename
-    //   $path = public_path() . '/storage/temp/';
-    //   $filename = 'sipt.ch-modulliste-' . date('dmY', time()) . '-' . \Str::random(8);
-    //   $file = $filename . '.pdf';
-    //   $pdf->save($path . $file);
-
-    //   return [
-    //     'path' => $path . $file,
-    //     'name' => $file
-    //   ];
-    // }
+      // Set path & filename
+      $path = public_path() . '/storage/temp/';
+      $filename = 'sipt.ch-modulliste-' . date('dmY', time()) . '-' . \Str::random(8);
+      $file = $filename . '.pdf';
+      return $pdf->download($file);
+    }
+    */
 
     return 
       view($this->viewPath . 'show', 
@@ -97,6 +96,46 @@ class TrainingController extends BaseController
           'activeCategory' => $training->category_id
         ]
       );
+  }
+
+  /**
+   * Export all courseEvents for a training by given training
+   *
+   * @param String $slug
+   * @param Training $training
+   * @return \Illuminate\Http\Response
+   */
+
+  public function export($slug = NULL, Training $training, $export)
+  { 
+    $training = $this->training->with('courses.specialisations', 'courses.eventsUpcoming.dates.tutor')->findOrFail($training->id);
+    $specialisations = $this->specialisation->with('courses')->get();
+
+    if (auth()->user()->isAdmin())
+    {
+      $data = [];
+      foreach($training->courses as $course)
+      {
+        if ($course->eventsUpcoming)
+        {
+          foreach($course->eventsUpcoming as $event)
+          {
+            $data[] = $event;
+          }
+        }
+      }
+
+      $this->viewData['data_title'] = $training->title;
+      $this->viewData['data'] = $data;
+      $pdf = PDF::loadView('pdf.lists.courses-export', $this->viewData);
+
+      // Set path & filename
+      $path = public_path() . '/storage/temp/';
+      $filename = 'sipt.ch-modulliste-' . $slug . '-' . date('dmY', time()) . '-' . \Str::random(8);
+      $file = $filename . '.pdf';
+      return $pdf->download($file);
+    }
+    
   }
 
 }

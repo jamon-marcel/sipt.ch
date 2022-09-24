@@ -14,9 +14,6 @@ use Spatie\Honeypot\ProtectAgainstSpam;
 Auth::routes(['verify' => true, 'register' => false]);
 Route::get('/logout', 'Auth\LoginController@logout');
 
-// Test
-Route::get('/import-users', 'DevController@importUser');
-
 // Home
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/home', 'HomeController@index')->name('home');
@@ -28,6 +25,7 @@ Route::get('/das-sipt/dozent/{slug?}/{tutor}', 'AboutController@tutor')->name('a
 Route::get('/datenschutz', 'AboutController@privacy')->name('about_privacy');
 
 // Bildungsangebot
+Route::get('/bildungsangebot/{slug?}/{training}/{export}', 'TrainingController@export')->name('training_export');
 Route::get('/bildungsangebote/{slug?}/{trainingCategory}', 'TrainingController@trainingsByCategory')->name('training_category');
 Route::get('/bildungsangebot/{slug?}/{training}', 'TrainingController@show')->name('training_show');
 Route::get('/bildungsangebot/modul/{slug?}/{course}/{redirect?}', 'CourseController@show')->name('course_show');
@@ -104,6 +102,8 @@ Route::middleware('auth:sanctum', 'verified')->group(function() {
 
   // Dev routes
   Route::get('/mask-user', 'DevController@maskUser');
+  Route::get('/import-users', 'DevController@importUser');
+
 
   // Downloads for tutors / admins
   Route::get('/download/modulliste', 'DownloadController@listCourses')->middleware('role:tutor');

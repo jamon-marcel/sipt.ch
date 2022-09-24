@@ -23,7 +23,6 @@ class DevController extends Controller
     $this->importantNoticeSubscriber = $importantNoticeSubscriber; 
     $this->advertismentSubscriber = $advertismentSubscriber; 
     $this->newsletterSubscriber = $newsletterSubscriber; 
-
   }
 
   public function importUser()
@@ -39,6 +38,26 @@ class DevController extends Controller
           'is_done' => 1,
           'is_failed' => 0
         ]);
+      }
+    }
+  }
+
+  public function maskUser()
+  {
+    $users = [
+      $this->user->get(),
+      $this->symposiumSubscriber->get(),
+      $this->importantNoticeSubscriber->get(),
+      $this->advertismentSubscriber->get(),
+      $this->newsletterSubscriber->get(),
+    ];
+
+    foreach($users as $user)
+    {
+      foreach($user as $u)
+      {
+        $u->email = \Str::random(16) . '@test.sipt.ch';
+        $u->save();
       }
     }
   }
