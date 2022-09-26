@@ -14,7 +14,7 @@
     @auth
       @if (auth()->user()->isAdmin())
         <article>
-          <a href="{{ route('training_export', ['slug' => AppHelper::slug($training->title), 'training' => $training->id, 'export' => 1]) }}" target="_blank" class="btn-download">Download Modulliste Grundausbildung</a>
+          <a href="{{ route('training_export', ['slug' => AppHelper::slug($training->title), 'training' => $training->id, 'export' => 1]) }}" target="_blank" class="btn-download">Download aktueller Kurskalende</a>
         </article>
       @endif
     @endauth
