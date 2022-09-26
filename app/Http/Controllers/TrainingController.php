@@ -126,7 +126,7 @@ class TrainingController extends BaseController
       }
 
       $this->viewData['data_title'] = $training->title;
-      $this->viewData['data'] = $data;
+      $this->viewData['data'] = collect($data)->sortBy('dateStartTimestamp');
       $pdf = PDF::loadView('pdf.lists.courses-export', $this->viewData);
 
       // Set path & filename

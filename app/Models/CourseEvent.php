@@ -20,7 +20,7 @@ class CourseEvent extends Model
 		'has_reminder',
 	];
 
-	protected $appends = ['courseNumber'];
+	protected $appends = ['courseNumber', 'dateStartTimestamp'];
 
 	public function dates()
 	{
@@ -176,6 +176,15 @@ class CourseEvent extends Model
   public function getDateStartAttribute($value)
   {
     return \Carbon\Carbon::parse($value)->format('d.m.Y');
+	}
+
+  /**
+   * Accessor 'getDateStartSort'
+   */
+
+  public function getDateStartTimestampAttribute($value)
+  {
+    return strtotime($this->dateStart);
 	}
 	
   /**
