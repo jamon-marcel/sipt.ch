@@ -11,15 +11,11 @@
       {!! $training->description_short !!}
     </article>
 
-    @auth
-      @if (auth()->user()->isAdmin())
-        <article>
-          <a href="{{ route('training_export', ['slug' => AppHelper::slug($training->title), 'training' => $training->id, 'export' => 1]) }}" target="_blank" class="btn-download">
-            Download aktueller Kurskalender
-          </a>
-        </article>
-      @endif
-    @endauth
+    <article>
+      <a href="{{ route('training_export', ['slug' => AppHelper::slug($training->title), 'training' => $training->id, 'export' => 1]) }}" target="_blank" class="btn-download">
+        Download aktueller Kurskalender
+      </a>
+    </article>
 
     @if ($training->description)
       <article class="collapsible js-clpsbl">
