@@ -26,6 +26,13 @@
             {{$tutor->description}}
           </article>
         @endif
+        @if ($tutor->media)
+          <div class="media">
+            {!! $tutor->media !!}
+          </div>
+        @endif
+
+
         @if ($tutor->emphasis)
           <article class="collapsible js-clpsbl">
             <h3>
@@ -46,6 +53,7 @@
             </div>
           </article>
         @endif
+
         </div>
     </div>
   </div>

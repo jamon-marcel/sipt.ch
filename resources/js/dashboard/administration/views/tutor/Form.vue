@@ -84,6 +84,10 @@
               v-model="tutor.publications"
             ></tinymce-editor>
           </div>
+          <div class="form-row">
+            <label>Medien (Youtube, Podcast etc.)</label>
+            <textarea v-model="tutor.media"></textarea>
+          </div>
         </div>
         <div class="grid-column-sidebar">
           <div>

@@ -21,6 +21,7 @@ class Tutor extends Model
 		'description',
 		'emphasis',
 		'publications',
+    'media',
 		'image',
 		'is_leader',
     'is_published',

@@ -85,6 +85,10 @@
                 v-model="tutor.publications"
               ></tinymce-editor>
             </div>
+            <div class="form-row">
+              <label>Medien (Youtube, Podcast etc.)</label>
+              <textarea v-model="tutor.media"></textarea>
+            </div>
             <div class="form-row is-sm is-last">
               <radio-button
                 :label="'Aufbautipp / Newsletter erhalten?'"
