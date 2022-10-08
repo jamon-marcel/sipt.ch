@@ -231,8 +231,8 @@
           Leitende Ärztin<br>
           St. Gallische Psychiatrie-Dienste Süd<br>
           Psychiatrie-Zentrum Werdenberg-Sarganserland<br>
-          Hauptstrasse 27<br>
-          CH-9477 Trübbach<br>
+          Tiefrietstrasse 18<br>
+          CH-7320 Sargans<br>
           Telefon Zentrale: +41 58 178 72 00<br>
           <a href="mailto:jutta.reiter@psych.ch">jutta.reiter@psych.ch</a><br>
           <a href="https://www.psych.ch" target="_blank">psych.ch</a><br> 
