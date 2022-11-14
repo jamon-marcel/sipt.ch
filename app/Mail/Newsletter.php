@@ -28,13 +28,13 @@ class Newsletter extends Mailable
    */
   public function build()
   {
-    $mail = $this->subject('20 Jahre Zeitschrift Trauma')
+    $mail = $this->subject('Aktuelles Kursangebot „Traumatisierte Flüchtlinge im Schulalltag“')
                   ->with(
                     [
                       'subscriber' => $this->data['subscriber'],
                     ]
                   )
-                 ->markdown('mails.newsletter.book');
+                 ->markdown('mails.newsletter.index');
     
     if (isset($this->data['attachments']))
     {
