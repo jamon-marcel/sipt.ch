@@ -35,7 +35,7 @@ Route::get('/beratung-und-zertifizierung-von-institutionen', 'ConsultingControll
 
 // Netzwerk
 Route::get('/netzwerk/sipt-therapeutinnen', 'NetworkController@therapists')->name('network_therapists');
-Route::get('/netzwerk/sipt-zertifizierte-kliniken', 'NetworkController@clinics')->name('network_clinics');
+// Route::get('/netzwerk/sipt-zertifizierte-kliniken', 'NetworkController@clinics')->name('network_clinics');
 Route::get('/netzwerk/partner-institutionen', 'NetworkController@partners')->name('network_partners');
 
 // Symposium

@@ -53,11 +53,11 @@
             SIPT TherapeutInnen
           </a>
         </li>
-        <li>
+        {{-- <li>
           <a href="{{ route('network_clinics') }}" class="{{ request()->routeIs('network_clinics') ? 'is-active' : '' }}">
             SIPT zertifizierte Kliniken
           </a>
-        </li>
+        </li> --}}
         <li>
           <a href="{{ route('network_partners') }}" class="{{ request()->routeIs('network_partners') ? 'is-active' : '' }}">
             Partner-Institutionen
