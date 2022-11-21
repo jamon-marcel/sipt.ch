@@ -70,28 +70,30 @@
 
     @if ($specialisations)
       @foreach($specialisations as $specialisation)
-        <article class="collapsible js-clpsbl">
-          <h2>
-            <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">Module Vertiefung: {{$specialisation->description}}</a>
-          </h2>
-          <div class="collapsible__content js-clpsbl-body" style="display:none">
-            <div class="list">
-              @foreach($specialisation->courses as $course)
-                <div class="list__item">
-                  <a href="{{ route('course_show', ['slug' => AppHelper::slug($course->title), 'course' => $course->id]) }}" class="icon-arrow">
-                    {{ $course->title }}
-                  </a>
-                </div>
-              @endforeach
-              @if ($specialisation->slug == 'dissoziative_stoerungen')
-                <div><br>Das vierte Modul kann entsprechend der eigenen Berufssituation oder der eigenen Interessen gewählt werden.</div>
-              @endif
-              @if ($specialisation->slug == 'migration_flucht' || $specialisation->slug == 'trauma_alter')
-                <div><br>Das dritte und vierte Modul kann entsprechend der eigenen Berufssituation oder der eigenen Interessen gewählt werden.</div>
-              @endif
+        @if ($specialisation->slug != 'dissoziative_stoerungen')
+          <article class="collapsible js-clpsbl">
+            <h2>
+              <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">Module Vertiefung: {{$specialisation->description}}</a>
+            </h2>
+            <div class="collapsible__content js-clpsbl-body" style="display:none">
+              <div class="list">
+                @foreach($specialisation->courses as $course)
+                  <div class="list__item">
+                    <a href="{{ route('course_show', ['slug' => AppHelper::slug($course->title), 'course' => $course->id]) }}" class="icon-arrow">
+                      {{ $course->title }}
+                    </a>
+                  </div>
+                @endforeach
+                @if ($specialisation->slug == 'dissoziative_stoerungen')
+                  <div><br>Das vierte Modul kann entsprechend der eigenen Berufssituation oder der eigenen Interessen gewählt werden.</div>
+                @endif
+                @if ($specialisation->slug == 'migration_flucht' || $specialisation->slug == 'trauma_alter')
+                  <div><br>Das dritte und vierte Modul kann entsprechend der eigenen Berufssituation oder der eigenen Interessen gewählt werden.</div>
+                @endif
+              </div>
             </div>
-          </div>
-        </article>
+          </article>
+        @endif
       @endforeach
     @endif
   @else
