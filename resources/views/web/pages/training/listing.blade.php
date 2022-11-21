@@ -9,15 +9,17 @@
       <h2>{{$category->name}}</h2>
       <div class="list">
         @foreach($trainings as $t)
-          <div class="list__item">
-            <a 
-              href="{{ route('training_show', ['slug' => AppHelper::slug($t->title), 'training' => $t->id]) }}"
-              title="{{ $t->title }}"
-              class="icon-arrow"
-            >
-              {{ $t->title }}
-            </a>
-          </div>
+          @if ($t->id !== 'a0d8c613-dfe4-47ff-8205-4ee1dd032e3a')
+            <div class="list__item">
+              <a 
+                href="{{ route('training_show', ['slug' => AppHelper::slug($t->title), 'training' => $t->id]) }}"
+                title="{{ $t->title }}"
+                class="icon-arrow"
+              >
+                {{ $t->title }}
+              </a>
+            </div>
+          @endif
         @endforeach
         @if ($category->id == 'f8397281-acc4-47a4-985e-b6515b433419')
           <div class="list__item">
