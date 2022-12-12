@@ -34,15 +34,6 @@
       <p>Die Krisenintervention Schweiz, eine zertifizierte Ausbildungs- und Einsatzorganisation NNPN, bietet in herausfordernden Situationen Beratungen für Teams, Führungs- und Privatpersonen an – sowohl in Betrieben als auch im pädagogischen Bereich. Neben dem Beratungsangebot in Krisen- und Notsituationen, stellt die Krisenintervention Schweiz auch Aus- und Fortbildungen in praxisbezogener Notfall-Psychologie für Peers und Caregiver bereit. (Teilnehmenden, die bei der Krisenintervention Schweiz eine Peer-/Careausbildung absolviert haben, werden beim SIPT die Module „Grundkurs“ und „Akute Traumatisierung“ angerechnet.)</p>
     </div>
   </article>
-  <article class="collapsible is-expanded js-clpsbl">
-    <h2>
-      <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">Marie Meierhofer Institut für das Kind (MMI)</a>
-    </h2>
-    <div class="collapsible__content js-clpsbl-body">
-      <p>Pfingstweidstrasse 16<br>8005 Zürich<br>Telefon: 044 205 52 20<br><a href="mailto:info@mmi.ch">info@mmi.ch</a><br><a href="https://www.mmi.ch/de-ch/" target="_blank">www.mmi.ch</a></p>
-      <p>Das Marie Meierhofer Institut (MMI) für das Kind ist eine unabhängige Fachinstitution für die frühe Kindheit. Im Zentrum der Tätigkeit steht das Kind: seine Entwicklung, seine Lebensumstände, seine Bedürfnisse und seine Rechte. Das MMI vereint entwicklungspsychologisches, frühpädagogisches und familiensoziologisches Wissen und sozialwissenschaftliche, beraterische, psychotherapeutische Kompetenzen. Es verbindet Praxis und Forschung in einer multi- und transdisziplinären Arbeitsweise. Es bietet Dienstleistungen an und setzt gesellschaftlich relevante Forschungs- und Praxisprojekte um. Aufgrund seiner Expertise und seiner Arbeitsweise ist das MMI auch ein assoziiertes Institut der Universität Zürich.</p>
-    </div>
-  </article>
   
   <article class="collapsible is-expanded js-clpsbl">
     <h2>
