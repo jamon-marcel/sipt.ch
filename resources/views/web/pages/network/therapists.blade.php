@@ -79,13 +79,6 @@
         <a href="mailto:oliver.christen@hin.ch">oliver.christen@hin.ch</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
-        <p><strong>lic. phil. Eckel, Dieter</strong><br>
-        Psychoanalytiker EFFPP, Psychotherapeut ASPV<br>
-        Minervastrasse 17<br>
-        8032 Zürich<br>
-        <a href="mailto:d.eckel@bluewin.ch">d.eckel@bluewin.ch</a><br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p>
-        
         <p><strong>Fioritto, Lucina</strong><br>
         Fachpsychologin für Psychotherapie FSP<br>
         Paradiesgasse 19<br>
@@ -388,14 +381,6 @@
         D-66459 Kirkel<br>
         <a href="mailto:sgeith@yahoo.com">sgeith@yahoo.com</a></p>
         
-        <p><strong>Jäger, Dagmar</strong><br>
-        Psychologische Psychotherapeutin<br>
-        Verhaltenstherapie für Erwachsene, Jugendliche und Kinder<br>
-        Rosgartenstrasse 10<br>
-        D-78462 Konstanz<br>
-        Telefon: 0049 764 408 955<br>
-        <a href="mailto:praxis.jaeger@gmx.net">praxis.jaeger@gmx.net</a><br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p>
 
         <p><strong>Hanstein, Ulrike</strong><br>co-razon organisationsentwicklung<br>Fabrikstraße 7<br>76185 Karlsruhe<br>
           Telefon: 0049 721 841560<br>Mobile: 0049 171 5371443<br>
