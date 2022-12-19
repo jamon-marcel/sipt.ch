@@ -28,7 +28,7 @@ class Newsletter extends Mailable
    */
   public function build()
   {
-    $mail = $this->subject('Aktuelles Kursangebot „Traumatisierte Flüchtlinge im Schulalltag“')
+    $mail = $this->subject('SIPT Aufbautipp Nr. 8/2022')
                   ->with(
                     [
                       'subscriber' => $this->data['subscriber'],
