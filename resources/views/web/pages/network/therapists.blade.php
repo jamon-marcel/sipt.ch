@@ -396,6 +396,22 @@
         <a href="https://www.authentikk.de" target="_blank">www.authentikk.de</a>
         </p>
         
+        <p><strong>Dr. Miriam Köhler (Dipl. Psych.)</strong><br>
+          Psychologische Psychotherapeutin<br>
+          Praxisanschrift:<br>
+          Edmund-Schiefeling-Platz 13<br>
+          51766 Engelskirchen<br>
+          Tel.: 02263/9511630<br>
+          <a href="https://www.psychotherapie-dr-koehler.de" target="_blank">www.psychotherapie-dr-koehler.de</a>
+        </p>
+
+        <p><strong>Rottländer, Markus</strong><br>
+          Bodelschwinghstraße 2<br>
+          50354 Hürth<br>
+          Telefon: +49 2233 9281462<br>
+          <a href="mailto:Markus.Rottlaender@gmx.de">Markus.Rottlaender@gmx.de</a>
+        </p>
+        
         <p><strong>Trenkle, Barbara</strong><br>
           Diplom Psychologin<br>
           Fachpsychologin für Verkehrspsychologie (BDP)<br>
@@ -410,6 +426,21 @@
           <a href="mailto:b.trenkle@trenkle-praxis.de">b.trenkle@trenkle-praxis.de</a><br>
           <a href="https://www.trenkle-praxis.de" target="_blank">trenkle-praxis.de</a>
           (Kostenübernahme durch die Krankenkasse möglich)</p>
+
+
+          <p><strong>Schilles, Sandra</strong><br> 
+          Luxemburger Str. 200<br> 
+          50937 Köln<br> 
+          <a href="mailto:sandraschilles@gmail.com">sandraschilles@gmail.com</a>
+        </p>
+
+          <p><strong>Wielandner, Katharina</strong><br>
+          Rethelstraße 20<br> 
+          40237 Düsseldorf<br> 
+          <a href="mailto:psychotherapie.wielandner@gmail.com">psychotherapie.wielandner@gmail.com</a>
+          </p>
+          
+
     </div>
   </article>
 </section>
