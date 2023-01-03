@@ -44,10 +44,6 @@
     <h2>Neue Kursangebote</h2>
     <p>Gerne weisen wir auf <strong>aktuelle</strong> Kursangebote hin:</p>
     <p>
-      <strong>Migration und Trauma – transkulturelle und traumatherapeutische Kompetenzen in der Behandlung und Beratung von Geflüchteten und Menschen mit Migrationshintergrund</strong><br>Dozent: Oliver Schwald<br>2./3. Dezember 2022<br>
-      <a href="/bildungsangebot/modul/migration-und-trauma-transkulturelle-und-traumatherapeutische-kompetenzen-in-der-behandlung-und-beratung-von-gefluechteten-und-menschen-mit-migrationshintergrund-fakultativ/a9690678-91f1-4531-8c49-e4ecec12d088" class="icon-arrow-right">mehr erfahren</a>
-    </p>
-    <p>
       <strong>Gruppendynamiken mit traumatisierten Kindern und Jugendlichen und die Schaffung eines pädagogischen Milieus</strong><br>Dozent: David Zimmermann, Berlin<br>Termin: 17./18. März 2023<br><br>Es freut uns, dass wir mit Prof. Dr. David Zimmermann aus Berlin einen Pädagogen für die Durchführung dieses Kurses haben gewinnen können. David Zimmermann ist ein ausgewiesener Experte im Bereich der Traumapädagogik, der psychoanalytisches Denken und darauf aufbauende Handlungsansätze praxisnah vermitteln kann.<br>
       <a href="/bildungsangebot/modul/gruppendynamiken-mit-traumatisierten-kindern-und-jugendlichen-und-die-schaffung-eines-paedagogischen-milieus/31d5c9c2-4bf7-4a25-bc48-c458847b2ad7" class="icon-arrow-right">mehr erfahren</a>
     </p>
