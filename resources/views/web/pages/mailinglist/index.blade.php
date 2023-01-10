@@ -8,6 +8,34 @@
     <h2>Aufbau-Tipp</h2>
     <p>Das SIPT wünscht Ihnen in Ihrer Tätigkeit viele kleine positive Momente – Momente, die wir alle brauchen, um die Belastungen unserer Tätigkeit, aber auch das aktuelle Zeitgeschehen zu verarbeiten. Mit kurzen „Aufbau-Tipps” will das SIPT in unregelmässigen Abständen zu solchen Momenten beitragen.</p>
   </article>
+
+  <article>
+    <a href="/storage/downloads/sipt-aufbau_08.pdf" target="_blank" class="btn-download" title="Download PDF">
+      <strong>Aufbau-Tipp Nr. 8 / Dezember 2022</strong> [PDF, 1.4MB]
+    </a>
+    <div class="list">
+      <div class="list__item">Vom barocken Kleinstort zum barocken Spektakel</div>
+      <div class="list__item">Eine Winter – Frühlings – Sommer – Herbst – Wanderung</div>
+    </div>
+  </article>
+  <article>
+    <a href="/storage/downloads/sipt-aufbau_07.pdf" target="_blank" class="btn-download" title="Download PDF">
+      <strong>Aufbau-Tipp Nr. 7 / Mai 2022</strong> [PDF, 1MB]
+    </a>
+    <div class="list">
+      <div class="list__item">Die Planstadt und das Blumendorf im Klettgau</div>
+      <div class="list__item">Eine Winter – Frühlings – Sommer – Herbst – Wanderung</div>
+    </div>
+  </article>
+  <article>
+    <a href="/storage/downloads/sipt-aufbau_06.pdf" target="_blank" class="btn-download" title="Download PDF">
+      <strong>Aufbau-Tipp Nr. 6 / Dezember 2021</strong> [PDF, 1MB]
+    </a>
+    <div class="list">
+      <div class="list__item">Im Murg-Auen-Park fühlen sich Mensch, Biber & Co. wohl</div>
+      <div class="list__item">Eine Winter – Frühlings – Sommer – Herbst – Wanderung</div>
+    </div>
+  </article>
   <article>
     <a href="/storage/downloads/sipt-aufbau_05.pdf" target="_blank" class="btn-download" title="Download PDF">
       <strong>Aufbau-Tipp Nr. 5 / Mai 2021</strong> [PDF, 4.1MB]

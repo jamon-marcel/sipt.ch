@@ -86,3 +86,6 @@ php composer.phar install --optimize-autoloader --no-dev
 // Shell
 ssh siptse9@psychotraumatologie-sipt.ch
 dOc!ir-Q]*20FPeBPXr+
+
+// Branch
+git push --set-upstream origin mailinglist
