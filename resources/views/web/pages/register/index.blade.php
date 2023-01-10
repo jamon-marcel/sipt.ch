@@ -29,6 +29,8 @@
         <div class="sb-md">
           <x-radio label="Ich bin mit den <a href='/agb'>AGBs</a> einverstanden" id="toc" name="toc" />
         </div>
+        <p class="sb-lg">Ja, ich möchte den SIPT Newsletter und Aufbau-Tipps per Mail erhalten.</p>
+        <x-mailinglists />
         <div class="form-buttons align-end">
           <x-button label="Registrieren" name="register" btnClass="btn-primary js-btn-loader" type="submit" />
         </div>

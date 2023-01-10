@@ -76,29 +76,14 @@
     @if ($errors->any())
       <x-alert type="danger" message="{{__('messages.general_error')}}" />
     @endif
-    <form method="POST" class="registration" action="{{ route('newsletter_register') }}">
+    <form method="POST" class="registration" action="{{ route('mailinglist_register') }}">
       @csrf
       @honeypot
-
-      <p>Es stehen folgende Newsletter / Mailinglisten zur Auswahl:</p>
-
-      @if ($mailinglists)
-        @foreach($mailinglists as $mailinglist)
-          <div class="form-group-checkbox @if ($errors->has($mailinglist->id)) has-error @endif">
-            <div>
-            <input type="checkbox" name="newsletter" value="{{ $mailinglist->id }}" id="{{ $mailinglist->id }}" checked="checked">
-              <div class="checkbox"><span></span></div>
-            </div>
-            <label for="newsletter">{{ $mailinglist->description }}</label>
-          </div>
-        @endforeach
-      @endif
-
-
+      <p>Es stehen folgende Newsletter zur Auswahl:</p>
+      <x-mailinglists />
       <div class="sb-lg">
         <x-text-field label="E-Mail" type="email" name="email" />
       </div>
-      
       <div class="form-buttons align-end">
         <x-button label="Anmelden" name="register" btnClass="btn-primary js-btn-loader" type="submit" />
       </div>

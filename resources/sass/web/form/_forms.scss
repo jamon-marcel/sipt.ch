@@ -10,12 +10,9 @@ form {
 
 // Registration form
 form.registration {
-  margin-top: $space-lg;
+  margin-top: $space-sm;
   position: relative;
-  
-  @include bp-lg() {
-    margin-top: $space-mega;
-  }
+
 }
 
 // Login form

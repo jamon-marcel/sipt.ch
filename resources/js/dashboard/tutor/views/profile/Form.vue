@@ -89,6 +89,9 @@
               <label>Medien (Youtube, Podcast etc.)</label>
               <textarea v-model="tutor.media"></textarea>
             </div>
+
+            <mailinglists :email="tutor.user.email" />
+
             <div class="form-row is-sm is-last">
               <radio-button
                 :label="'Aufbautipp / Newsletter erhalten?'"
@@ -159,6 +162,9 @@ import ImageEdit from "@/global/components/images/Edit.vue";
 // Tabs config
 import tabsConfig from "@/tutor/views/profile/config/tabs.js";
 
+import Mailinglists from "@/global/components/Mailinglists.vue";
+
+
 export default {
   components: {
     ToggleLeftIcon,
@@ -168,7 +174,8 @@ export default {
     LabelRequired,
     ImageUpload,
     ImageEdit,
-    Tabs
+    Tabs,
+    Mailinglists
   },
 
   mixins: [ErrorHandling],

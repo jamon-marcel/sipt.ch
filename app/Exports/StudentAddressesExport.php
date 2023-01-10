@@ -2,6 +2,7 @@
 namespace App\Exports;
 use App\Models\Student;
 use App\Models\User;
+use App\Models\MailinglistSubscriber;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
@@ -18,6 +19,7 @@ class StudentAddressesExport implements FromCollection, WithHeadings
     {
       // Get user
       $user = User::find($s->user->id);
+      $email = $user->email ? $user->email : 'noemail';
       $active = $s->is_active ? 'ja' : 'nein';
       $data[] = [
         'Name' => $s->name,
@@ -32,9 +34,9 @@ class StudentAddressesExport implements FromCollection, WithHeadings
         'Telefon' => $s->phone,
         'Telefon G.' => $s->phone_business,
         'Mobile' => $s->mobile,
-        'E-Mail' => $user->email ? $user->email : 'noemail',
+        'E-Mail' => $email,
         'Aktiv' => $active,
-        'Newsletter' => $user->is_newsletter_subscriber ? $user->is_newsletter_subscriber : '0'
+        'Newsletter' => MailinglistSubscriber::where('email', $email)->where('mailinglist_id', env('MAILINGLIST_NEWSLETTER'))->first() ? 1 : 0
       ];
     }
     return collect($data);

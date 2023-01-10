@@ -6,13 +6,15 @@ use App\Models\User;
 use App\Models\Student;
 use App\Models\CourseEvent;
 use App\Models\CourseEventStudent;
-use App\Services\NewsletterPreferences;
+use App\Models\Mailinglist;
 use App\Events\StudentRegistered;
 use App\Events\CourseEventBooked;
 use App\Events\CourseEventParticipantsChanged;
 use App\Events\CourseEventCancelled;
 use App\Events\CourseEventCancelledWithPenalty;
 use App\Services\Withdrawal;
+use App\Actions\Mailinglist\CreateSubscriber;
+use App\Actions\Mailinglist\UpdateEmailSubscriber;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Http\Requests\StudentStoreRequest;
@@ -25,14 +27,16 @@ class StudentController extends Controller
     Student $student, 
     CourseEvent $courseEvent,
     CourseEventStudent $courseEventStudent,
-    NewsletterPreferences $newsletterPreferences,
-    User $user)
+    User $user,
+    CreateSubscriber $createSubscriber,
+    UpdateEmailSubscriber $updateEmailSubscriber)
   {
     $this->user = $user;
     $this->student = $student;
     $this->courseEvent = $courseEvent;
     $this->courseEventStudent = $courseEventStudent;
-    $this->newsletterPreferences = $newsletterPreferences;
+    $this->createSubscriber = $createSubscriber;
+    $this->updateEmailSubscriber = $updateEmailSubscriber;
     $this->authorizeResource(Student::class, 'student');
   }
 
@@ -81,8 +85,13 @@ class StudentController extends Controller
 
       if ($user->email != $request->input('user.email'))
       {
+        // Update user email in Mailinglist
+        $this->updateEmailSubscriber->execute($user->email, $request->input('user.email'));
+
+        // Update user email
         $user->email = $request->input('user.email');
         $user->save();
+
       }
 
       // Update student data
@@ -91,12 +100,6 @@ class StudentController extends Controller
     else
     {
       $student->update($request->except('user.email'));
-
-      // Update the students' user newsletter preference
-      $this->newsletterPreferences->update(
-        $this->user->findOrFail($student->user->id),
-        $request->input('user.is_newsletter_subscriber')
-      );
     }
 
     $student->save();
@@ -126,6 +129,11 @@ class StudentController extends Controller
 
     // Fire registered event
     event(new StudentRegistered($user, ['password' => $pw]));
+
+    $subscriber = $this->createSubscriber->execute([
+      'mailinglist' => Mailinglist::find(env('MAILINGLIST_NEWSLETTER')),
+      'email' => $request->input('user.email')
+    ], TRUE);
 
     return response()->json('successfully updated');
   }

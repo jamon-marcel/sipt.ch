@@ -31,6 +31,12 @@ class AppServiceProvider extends ServiceProvider
   {
     setLocale(LC_ALL, 'de_CH.UTF-8');
     
+    // Set global mailto address
+    if ($this->app->environment('local') || $this->app->environment('staging'))
+    {
+      \Mail::alwaysTo('m@marceli.to');
+    }
+
     CourseEvent::observe(CourseEventObserver::class);
     Course::observe(CourseObserver::class);
     Training::observe(TrainingObserver::class);

@@ -6,10 +6,11 @@ use App\Models\Tutor;
 use App\Models\TutorImage;
 use App\Models\CourseEvent;
 use App\Models\User;
-use App\Services\NewsletterPreferences;
+use App\Models\Mailinglist;
 use App\Events\TutorStored;
 use App\Http\Requests\TutorStoreRequest;
 use App\Http\Requests\TutorUpdateRequest;
+use App\Actions\Mailinglist\CreateSubscriber;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -20,14 +21,14 @@ class TutorController extends Controller
     Tutor $tutor, 
     TutorImage $tutorImage, 
     CourseEvent $courseEvent, 
-    User $user, 
-    NewsletterPreferences $newsletterPreferences)
+    User $user,
+    CreateSubscriber $createSubscriber)
   {
     $this->tutor                 = $tutor;
     $this->tutorImage            = $tutorImage;
     $this->courseEvent           = $courseEvent;
     $this->user                  = $user;
-    $this->newsletterPreferences = $newsletterPreferences;
+    $this->createSubscriber      = $createSubscriber;
     $this->authorizeResource(Tutor::class, 'tutor');
   }
 
@@ -100,12 +101,6 @@ class TutorController extends Controller
       }
     }
 
-    // Update the tutors' user newsletter preference
-    $this->newsletterPreferences->update(
-      $this->user->findOrFail($tutor->user->id),
-      $request->input('user.is_newsletter_subscriber')
-    );
-
     return response()->json('successfully updated');
   }
 
@@ -150,6 +145,11 @@ class TutorController extends Controller
         );
       }
     }
+
+    $subscriber = $this->createSubscriber->execute([
+      'mailinglist' => Mailinglist::find(env('MAILINGLIST_NEWSLETTER')),
+      'email' => $request->input('email')
+    ], TRUE);
 
     // Fire registered event
     event(new TutorStored($user, ['password' => $pw]));

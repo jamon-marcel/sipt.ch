@@ -2,6 +2,7 @@
 namespace App\Exports;
 use App\Models\Tutor;
 use App\Models\User;
+use App\Models\MailinglistSubscriber;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
@@ -14,8 +15,11 @@ class TutorAddressesExport implements FromCollection, WithHeadings
   {
     $tutors = Tutor::with('user')->orderBy('name')->get();
     $data = [];
+
     foreach($tutors as $t)
     {
+      $email = $t->user->email ? $t->user->email : 'noemail';
+
       $data[] = [
         'Name' => $t->name,
         'Vorname' => $t->firstname,
@@ -27,8 +31,8 @@ class TutorAddressesExport implements FromCollection, WithHeadings
         'Land' => $t->country,
         'Telefon' => $t->phone,
         'Mobile' => $t->mobile,
-        'E-Mail' => $t->user->email,
-        'Newsletter' => $t->user->is_newsletter_subscriber
+        'E-Mail' => $email,
+        'Newsletter' => MailinglistSubscriber::where('email', $email)->where('mailinglist_id', env('MAILINGLIST_NEWSLETTER'))->first() ? 1 : 0
       ];
     }
     return collect($data);

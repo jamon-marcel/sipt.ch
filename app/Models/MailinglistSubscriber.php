@@ -1,0 +1,26 @@
+<?php
+namespace App\Models;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use GoldSpecDigital\LaravelEloquentUUID\Database\Eloquent\Model;
+
+class MailinglistSubscriber extends Model
+{
+  use SoftDeletes;
+
+  protected $table = 'mailinglist_subscriber';
+
+	protected $fillable = [
+    'mailinglist_id',
+    'email',
+    'description',
+    'error',
+    'is_processed',
+    'is_confirmed'
+	];
+
+	public function scopeActive($query)
+	{
+		return $query->where('is_processed', '=', '0')->where('is_confirmed', '=', '1')->whereNull('deleted_at');
+	}  
+
+}

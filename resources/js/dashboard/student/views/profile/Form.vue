@@ -136,6 +136,9 @@
                   :name="'needs_hours_confirmation'"
                 ></radio-button>
               </div>
+
+              <mailinglists :email="student.user.email" />
+
               <div class="form-row is-sm is-last">
                 <radio-button
                   :label="'Aufbautipp / Newsletter erhalten?'"
@@ -172,6 +175,7 @@ import ErrorHandling from "@/global/mixins/ErrorHandling";
 // Components
 import RadioButton from "@/global/components/ui/RadioButton.vue";
 import LabelRequired from "@/global/components/ui/LabelRequired.vue";
+import Mailinglists from "@/global/components/Mailinglists.vue";
 
 export default {
   components: {
@@ -179,6 +183,7 @@ export default {
     ToggleRightIcon,
     RadioButton,
     LabelRequired,
+    Mailinglists
   },
 
   mixins: [ErrorHandling],
@@ -191,6 +196,7 @@ export default {
           is_newsletter_subscriber: 0,
         },
         has_alt_address: false,
+        mailinglists: []
       },
 
       errors: {

@@ -17,7 +17,6 @@ class NewsletterController extends BaseController
     $this->user = $user;
   }
 
-
   /**
    * Show the newsletter index page
    *
@@ -98,48 +97,5 @@ class NewsletterController extends BaseController
     $newsletterSubscriber = $this->newsletterSubscriber->findOrFail($newsletterSubscriber->id);
     $newsletterSubscriber->delete();
     return view($this->viewPath . 'cancel');
-  }
-
-  /**
-   * Import addresses from users table
-   * 
-   * @return void
-   */
-  public function import()
-  {
-    $users = $this->user->where('is_newsletter_subscriber', '=', '1')->get();
-    if ($users)
-    {
-      foreach($users as $u)
-      {
-        $subscriber = $this->newsletterSubscriber->where('email', '=', $u->email)->get()->first();
-        if ($subscriber === null)
-        {
-          $data = [
-            'email' => $u->email,
-            'is_done' => 1,
-            'is_confirmed' => 1
-          ];
-          $newsletter_subscriber = NewsletterSubscriber::create($data);
-          $newsletter_subscriber->save();
-        }
-      }
-    }
-  }
-
-  public function test()
-  {
-    $s = $this->newsletterSubscriber->where('email', '=', 'm@marceli.to')->get()->first();
-    \Mail::to('marcel@jamon.digital')
-    ->send(
-      new \App\Mail\Newsletter(
-        [
-          'subscriber'  => $s,
-          'attachments' => [
-            public_path() . '/storage/downloads/' . 'sipt-aufbau_06.pdf',
-          ]
-        ]
-      )
-    );
   }
 }

@@ -70,6 +70,7 @@
 	}
 
 	label {
+    user-select: none;
 		a {
 			color: $color-orange;
 			&:hover {

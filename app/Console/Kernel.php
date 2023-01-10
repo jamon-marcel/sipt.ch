@@ -6,6 +6,7 @@ use App\Tasks\CourseEventReminder;
 use App\Tasks\SymposiumBills;
 use App\Tasks\Message;
 use App\Tasks\Newsletter;
+use App\Tasks\Mailing;
 use App\Tasks\Advertisment;
 use App\Tasks\SymposiumNews;
 use App\Tasks\ImportantNotice;
@@ -31,17 +32,20 @@ class Kernel extends ConsoleKernel
    */
   protected function schedule(Schedule $schedule)
   {
+    $schedule->call(new Mailing)->everyMinute();
+    
     if (\App::environment('production'))
     {
       $schedule->call(new CourseEventBills)->everyMinute();
       $schedule->call(new CourseEventInvitations)->everyMinute();
-      $schedule->call(new SymposiumBills)->everyMinute();
       $schedule->call(new CourseEventReminder)->everyMinute();
       $schedule->call(new Message)->everyMinute();
-      $schedule->call(new Newsletter)->everyMinute();
       $schedule->call(new ImportantNotice)->everyMinute();
+      $schedule->call(new Mailing)->everyMinute();
 
-      // Newsletters, Advertisements, Notices
+      // Newsletters, Advertisements, Notices, Symposion
+      // $schedule->call(new SymposiumBills)->everyMinute();
+      // $schedule->call(new Newsletter)->everyMinute();
       // $schedule->call(new SymposiumNews)->everyMinute();
       // $schedule->call(new Advertisment)->everyMinute();
     }

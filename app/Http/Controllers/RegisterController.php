@@ -4,6 +4,7 @@ use App\Http\Controllers\BaseController;
 use App\Models\User;
 use App\Models\Student;
 use App\Events\StudentRegistered;
+use App\Actions\Mailinglist\RegisterSubscriber;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Http\Requests\StudentRegisterRequest;
@@ -29,7 +30,7 @@ class RegisterController extends BaseController
    * @param  \Illuminate\Http\Request  $request
    * @return \Illuminate\Http\Response
    */
-  public function store(StudentRegisterRequest $request)
+  public function store(StudentRegisterRequest $request, RegisterSubscriber $registerSubscriber)
   {
     $pw   = Str::random(16);
     $user = User::create([
@@ -47,6 +48,12 @@ class RegisterController extends BaseController
 
     // Fire registered event
     event(new StudentRegistered($user, ['password' => $pw]));
+
+    // Handle mailinglist subscriptions
+    $registerSubscriber->execute(
+      $request->input('mailinglists'), 
+      $request->input('email')
+    );
 
     return redirect()->route('register_done');
   }

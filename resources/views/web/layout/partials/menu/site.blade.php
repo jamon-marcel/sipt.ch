@@ -94,7 +94,7 @@
           <a href="{{ route('jobs_index')}}" class="{{ request()->routeIs('jobs_index') ? 'is-active' : '' }}">Stelleninserate</a>
         </li>
         <li>
-          <a href="{{ route('newsletter_index')}}" class="{{ request()->routeIs('newsletter*') ? 'is-active' : '' }}">Newsletter</a>
+          <a href="{{ route('mailinglist_index')}}" class="{{ request()->routeIs('newsletter*') ? 'is-active' : '' }}">Newsletter</a>
         </li>
         <li>
           <a href="{{ route('downloads_index')}}" class="{{ request()->routeIs('downloads_index') ? 'is-active' : '' }}">Downloads</a>

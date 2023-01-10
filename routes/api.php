@@ -120,6 +120,12 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('settings/specialisations', 'Api\SettingsController@specialisations');
   });
 
+  // Mailinglists
+  Route::get('mailinglists', 'Api\MailinglistController@get');
+  Route::get('mailinglists/subscriptions/{email}', 'Api\MailinglistController@getSubscriptions');
+  Route::post('mailinglist', 'Api\MailinglistController@addSubscription');
+  Route::delete('mailinglist/{mailinglistSubscriber}', 'Api\MailinglistController@deleteSubscription');
+
   // Users
   Route::get('user/student', 'Api\UserController@student')->middleware('role:student');
   Route::get('user/tutor', 'Api\UserController@tutor')->middleware('role:tutor');

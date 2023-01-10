@@ -46,12 +46,16 @@ Route::get('/jubilaeums-fachtagung-15-jahre-sipt/abmeldung/{symposiumSubscriber}
 Route::get('/jubilaeums-fachtagung-15-jahre-sipt/abmeldung-erfolgreich', 'SymposiumController@cancelled')->name('symposium_cancelled');
 
 // Newsletter
-Route::get('/newsletter', 'NewsletterController@index')->name('newsletter_index');
-Route::post('/newsletter/anmelden', 'NewsletterController@register')->name('newsletter_register');
-Route::get('/newsletter/abbestellen/{newsletterSubscriber}', 'NewsletterController@cancel')->name('newsletter_cancel');
-Route::get('/newsletter/bestaetigung/{newsletterSubscriber}', 'NewsletterController@confirm')->name('newsletter_confirm');
-Route::get('/newsletter/import', 'NewsletterController@import')->name('newsletter_import');
-Route::get('/newsletter/test', 'NewsletterController@test')->name('newsletter_test');
+// Route::get('/newsletter', 'NewsletterController@index')->name('mailinglist_index');
+// Route::post('/newsletter/anmelden', 'NewsletterController@register')->name('newsletter_register');
+// Route::get('/newsletter/abbestellen/{newsletterSubscriber}', 'NewsletterController@cancel')->name('newsletter_cancel');
+// Route::get('/newsletter/bestaetigung/{newsletterSubscriber}', 'NewsletterController@confirm')->name('newsletter_confirm');
+
+// Mailinglist
+Route::get('/newsletter', 'MailinglistController@index')->name('mailinglist_index');
+Route::post('/newsletter/anmelden', 'MailinglistController@register')->name('mailinglist_register');
+Route::get('/newsletter/bestaetigung/{mailinglistSubscriber}', 'MailinglistController@confirm')->name('mailinglist_confirm');
+Route::get('/newsletter/abbestellen/{mailinglistSubscriber}', 'MailinglistController@cancel')->name('mailinglist_cancel');
 
 
 // TOC / Privacy
