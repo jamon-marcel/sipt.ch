@@ -7,6 +7,7 @@ use App\Models\SymposiumSubscriber;
 use App\Models\ImportantNoticeSubscriber;
 use App\Models\AdvertismentSubscriber;
 use App\Models\NewsletterSubscriber;
+use App\Models\MessageLog;
 
 class DevController extends Controller
 {
@@ -15,14 +16,16 @@ class DevController extends Controller
     SymposiumSubscriber $symposiumSubscriber,
     ImportantNoticeSubscriber $importantNoticeSubscriber,
     AdvertismentSubscriber $advertismentSubscriber,
-    NewsletterSubscriber $newsletterSubscriber
+    NewsletterSubscriber $newsletterSubscriber,
+    MessageLog $messageLog
   )
   {
     $this->user = $user; 
     $this->symposiumSubscriber = $symposiumSubscriber; 
     $this->importantNoticeSubscriber = $importantNoticeSubscriber; 
     $this->advertismentSubscriber = $advertismentSubscriber; 
-    $this->newsletterSubscriber = $newsletterSubscriber; 
+    $this->newsletterSubscriber = $newsletterSubscriber;
+    $this->messageLog = $messageLog;
   }
 
   public function importUser()
@@ -50,14 +53,18 @@ class DevController extends Controller
       $this->importantNoticeSubscriber->get(),
       $this->advertismentSubscriber->get(),
       $this->newsletterSubscriber->get(),
+      $this->messageLog->get()
     ];
 
     foreach($users as $user)
     {
       foreach($user as $u)
       {
-        $u->email = \Str::random(16) . '@test.sipt.ch';
-        $u->save();
+        if ($u->email != 'm@marceli.to')
+        {
+          $u->email = \Str::random(24) . '@test.sipt.ch';
+          $u->save();
+        }
       }
     }
   }
