@@ -22,7 +22,7 @@ class AnonymizeEmail extends Command
    *
    * @var string
    */
-  protected $description = 'Anonymizes all email addresses';
+  protected $description = 'Anonymizes all email addresses (doesnt work in production)';
 
   /**
    * Create a new command instance.
