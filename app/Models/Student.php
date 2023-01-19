@@ -81,7 +81,23 @@ class Student extends Model
 	public function scopeAuthenticated($query, $id)
 	{
 		return $query->where('user_id', '=', $id)->get()->first();
-	}  
+	}
+
+  /**
+   * Scope a query to search a student
+   *
+   * @param  \Illuminate\Database\Eloquent\Builder $query
+   * @return \Illuminate\Database\Eloquent\Builder
+   */
+
+   public function scopeSearch($query, $search)
+   {
+     return $query->where('name', 'LIKE', "%$search%")
+       ->orWhere('firstname', 'LIKE', "%$search%")
+       ->orWhere('street', 'LIKE', "%$search%")
+       ->orWhere('city', 'LIKE', "%$search%")
+       ->get();
+   }
 
   /**
    * Accessor 'getFullName'
