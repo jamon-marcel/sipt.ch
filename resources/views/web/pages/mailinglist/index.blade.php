@@ -71,7 +71,7 @@
   @else
     <article>
       <h2>Anmeldung Newsletter</h2>
-      <p>Ja, ich möchte den SIPT Newsletter und Aufbau-Tipps per Mail erhalten.</p>
+      <p>Ja, ich möchte den SIPT Newsletter und Aufbau-Tipps per Mail erhalten. Zusätzlich können fachbezogene Newsletter abonniert werden:</p>
     </article>
     @if ($errors->any())
       <x-alert type="danger" message="{{__('messages.general_error')}}" />
@@ -79,7 +79,6 @@
     <form method="POST" class="registration" action="{{ route('mailinglist_register') }}">
       @csrf
       @honeypot
-      <p>Es stehen folgende Newsletter zur Auswahl:</p>
       <x-mailinglists />
       <div class="sb-lg">
         <x-text-field label="E-Mail" type="email" name="email" />

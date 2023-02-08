@@ -6,6 +6,11 @@
   <x-header title="Stelleninserate" />
   <article>
     <p>
+      <a href="/storage/downloads/gravita-psychologischen-psychotherapeutin-psychotherapeuten-60-90.pdf" target="_blank" class="btn-download" title="Psychologische/n Psychotherapeutin / Psychotherapeuten 60 – 90 %">
+        <strong>Psychologische/n Psychotherapeutin / Psychotherapeuten 60 – 90 %</strong> [PDF, 119KB]
+      </a>
+    </p>
+    <p>
       <a href="/storage/downloads/sipt-Inserat_Puent-Sued.pdf" target="_blank" class="btn-download" title="Diplomierte Pflegefachperson">
         <strong>Diplomierte Pflegefachperson</strong> [PDF, 102KB]
       </a>
