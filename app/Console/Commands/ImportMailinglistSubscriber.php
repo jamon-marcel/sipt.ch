@@ -57,7 +57,24 @@ class ImportMailinglistSubscriber extends Command
     }
 
     // Loop over json files and add, if not already added
-    foreach($advertisment_subscribers_data as $user)
+    // foreach($advertisment_subscribers_data as $user)
+    // {
+    //   // Check if already added
+    //   $already_added = MailinglistSubscriber::where('email', $user['email'])->first();
+    //   if (!$already_added)
+    //   {
+    //     MailinglistSubscriber::create([
+    //       'description' => 'Newsletter/Aufbautipp',
+    //       'mailinglist_id' => env('MAILINGLIST_NEWSLETTER'),
+    //       'email' => $user['email'],
+    //       'is_processed' => 1,
+    //       'is_confirmed' => 1,
+    //     ]);
+    //   }
+    //   $this->info('added email: ' . $user['email'] . ' from advertisment_subscribers.json');
+    // }
+
+    foreach($important_notice_subscribers_data as $user)
     {
       // Check if already added
       $already_added = MailinglistSubscriber::where('email', $user['email'])->first();
@@ -73,38 +90,21 @@ class ImportMailinglistSubscriber extends Command
       }
       $this->info('added email: ' . $user['email'] . ' from advertisment_subscribers.json');
     }
-
-    // foreach($important_notice_subscribers_data as $user)
-    // {
-    //   // Check if already added
-    //   $already_added = MailinglistSubscriber::where('email', $user['email'])->first();
-    //   if (!$already_added)
-    //   {
-    //     MailinglistSubscriber::create([
-    //       'description' => 'Newsletter/Aufbautipp',
-    //       'mailinglist_id' => env('MAILINGLIST_NEWSLETTER'),
-    //       'email' => $user['email'],
-    //       'is_processed' => 1,
-    //       'is_confirmed' => 1,
-    //     ]);
-    //   }
-    //   $this->info('added email: ' + $user['email'] . ' from advertisment_subscribers.json');
-    // }
-    // foreach($newsletter_subscribers_data as $user)
-    // {
-    //   // Check if already added
-    //   $already_added = MailinglistSubscriber::where('email', $user['email'])->first();
-    //   if (!$already_added)
-    //   {
-    //     MailinglistSubscriber::create([
-    //       'description' => 'Newsletter/Aufbautipp',
-    //       'mailinglist_id' => env('MAILINGLIST_NEWSLETTER'),
-    //       'email' => $user['email'],
-    //       'is_processed' => 1,
-    //       'is_confirmed' => 1,
-    //     ]);
-    //   }
-    //   $this->info('added email: ' + $user['email'] . ' from advertisment_subscribers.json');
-    // }
+    foreach($newsletter_subscribers_data as $user)
+    {
+      // Check if already added
+      $already_added = MailinglistSubscriber::where('email', $user['email'])->first();
+      if (!$already_added)
+      {
+        MailinglistSubscriber::create([
+          'description' => 'Newsletter/Aufbautipp',
+          'mailinglist_id' => env('MAILINGLIST_NEWSLETTER'),
+          'email' => $user['email'],
+          'is_processed' => 1,
+          'is_confirmed' => 1,
+        ]);
+      }
+      $this->info('added email: ' . $user['email'] . ' from advertisment_subscribers.json');
+    }
   }
 }
