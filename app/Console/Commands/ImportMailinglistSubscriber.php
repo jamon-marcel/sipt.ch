@@ -65,7 +65,7 @@ class ImportMailinglistSubscriber extends Command
       {
         MailinglistSubscriber::create([
           'description' => 'Newsletter/Aufbautipp',
-          'mailinglist_id' => env('MAILINGLIST_ADVERTISMENT'),
+          'mailinglist_id' => env('MAILINGLIST_NEWSLETTER'),
           'email' => $user['email'],
           'is_processed' => 1,
           'is_confirmed' => 1,
@@ -82,7 +82,7 @@ class ImportMailinglistSubscriber extends Command
     //   {
     //     MailinglistSubscriber::create([
     //       'description' => 'Newsletter/Aufbautipp',
-    //       'mailinglist_id' => env('MAILINGLIST_ADVERTISMENT'),
+    //       'mailinglist_id' => env('MAILINGLIST_NEWSLETTER'),
     //       'email' => $user['email'],
     //       'is_processed' => 1,
     //       'is_confirmed' => 1,
@@ -98,7 +98,7 @@ class ImportMailinglistSubscriber extends Command
     //   {
     //     MailinglistSubscriber::create([
     //       'description' => 'Newsletter/Aufbautipp',
-    //       'mailinglist_id' => env('MAILINGLIST_ADVERTISMENT'),
+    //       'mailinglist_id' => env('MAILINGLIST_NEWSLETTER'),
     //       'email' => $user['email'],
     //       'is_processed' => 1,
     //       'is_confirmed' => 1,
