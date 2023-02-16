@@ -10,6 +10,7 @@ class MailinglistSubscriber extends Model
   protected $table = 'mailinglist_subscriber';
 
 	protected $fillable = [
+    'id',
     'mailinglist_id',
     'email',
     'description',
