@@ -38,45 +38,74 @@ class ImportMailinglistSubscriber extends Command
    */
   public function handle()
   {
-    $users = User::where('is_newsletter_subscriber', 1)->get();
+    $advertisment_subscribers_data = json_decode(file_get_contents(storage_path() . "/app/public/advertisment_subscribers.json"), true);
+    $important_notice_subscribers_data = json_decode(file_get_contents(storage_path() . "/app/public/important_notice_subscribers.json"), true);
+    $newsletter_subscribers_data = json_decode(file_get_contents(storage_path() . "/app/public/newsletter_subscribers.json"), true);
+
+    dd($advertisment_subscribers_data);
 
     // 1. Add all previous subscribers to the list "Newsletter/Aufbautipp"
-    $list_id = env('MAILINGLIST_NEWSLETTER');
+    // $users = User::where('is_newsletter_subscriber', 1)->get();
+    // $list_id = env('MAILINGLIST_NEWSLETTER');
+    // foreach($users as $user)
+    // {
+    //   MailinglistSubscriber::create([
+    //     'description' => 'Newsletter/Aufbautipp',
+    //     'mailinglist_id' => $list_id,
+    //     'email' => $user->email,
+    //     'is_processed' => 1,
+    //     'is_confirmed' => 1,
+    //   ]);
+    // }
 
-    // // 2. Randomly add other lists
-    // $list_ids = [
-    //   [
-    //     'id' => '0a53dcf2-d933-4cc5-bca7-69ab304d5543',
-    //     'description' => 'Fachbereich Berater',
-    //   ],
-    //   [
-    //     'id' => '43d4d3f8-546d-49fd-9515-84c67a8b5b92',
-    //     'description' => 'Fachbereich Pädagogen',
-    //   ],
-    //   [
-    //     'id' => '96313713-32b7-4f7e-8e20-64b34e0f8fb0',
-    //     'description' => 'Fachbereich Psychotherapeuten',
-    //   ],
-    // ];
-
-    foreach($users as $user)
-    {
-      MailinglistSubscriber::create([
-        'description' => 'Newsletter/Aufbautipp',
-        'mailinglist_id' => $list_id,
-        'email' => $user->email,
-        'is_processed' => 1,
-        'is_confirmed' => 1,
-      ]);
-
-      // $rand = mt_rand(0,2);
-      // MailinglistSubscriber::create([
-      //   'description' => $list_ids[$rand]['description'],
-      //   'mailinglist_id' => $list_ids[$rand]['id'],
-      //   'email' => $user->email,
-      //   'is_processed' => 1,
-      //   'is_confirmed' => 1,
-      // ]);
-    }
+    // Loop over json files and add, if not already added
+    // foreach($advertisment_subscribers_data as $user)
+    // {
+    //   // Check if already added
+    //   $already_added = MailinglistSubscriber::where('email', $user['email'])->first();
+    //   if (!$already_added)
+    //   {
+    //     MailinglistSubscriber::create([
+    //       'description' => 'Newsletter/Aufbautipp',
+    //       'mailinglist_id' => env('MAILINGLIST_ADVERTISMENT'),
+    //       'email' => $user['email'],
+    //       'is_processed' => 1,
+    //       'is_confirmed' => 1,
+    //     ]);
+    //   }
+    //   $this->info('added email: ' + $user['email']) . ' from advertisment_subscribers.json';
+    // }
+    // foreach($important_notice_subscribers_data as $user)
+    // {
+    //   // Check if already added
+    //   $already_added = MailinglistSubscriber::where('email', $user['email'])->first();
+    //   if (!$already_added)
+    //   {
+    //     MailinglistSubscriber::create([
+    //       'description' => 'Newsletter/Aufbautipp',
+    //       'mailinglist_id' => env('MAILINGLIST_ADVERTISMENT'),
+    //       'email' => $user['email'],
+    //       'is_processed' => 1,
+    //       'is_confirmed' => 1,
+    //     ]);
+    //   }
+    //   $this->info('added email: ' + $user['email']) . ' from advertisment_subscribers.json';
+    // }
+    // foreach($newsletter_subscribers_data as $user)
+    // {
+    //   // Check if already added
+    //   $already_added = MailinglistSubscriber::where('email', $user['email'])->first();
+    //   if (!$already_added)
+    //   {
+    //     MailinglistSubscriber::create([
+    //       'description' => 'Newsletter/Aufbautipp',
+    //       'mailinglist_id' => env('MAILINGLIST_ADVERTISMENT'),
+    //       'email' => $user['email'],
+    //       'is_processed' => 1,
+    //       'is_confirmed' => 1,
+    //     ]);
+    //   }
+    //   $this->info('added email: ' + $user['email']) . ' from advertisment_subscribers.json';
+    // }
   }
 }
