@@ -38,58 +38,58 @@ class ImportMailinglistSubscriber extends Command
    */
   public function handle()
   {
-    $advertisment_subscribers_data = json_decode(file_get_contents(storage_path() . "/app/public/advertisment_subscribers.json"), true);
-    $newsletter_subscribers_data = json_decode(file_get_contents(storage_path() . "/app/public/newsletter_subscribers.json"), true);
+    // $advertisment_subscribers_data = json_decode(file_get_contents(storage_path() . "/app/public/advertisment_subscribers.json"), true);
+    // $newsletter_subscribers_data = json_decode(file_get_contents(storage_path() . "/app/public/newsletter_subscribers.json"), true);
 
-    // 1. Add all previous subscribers to the list "Newsletter/Aufbautipp"
-    $users = User::where('is_newsletter_subscriber', 1)->get();
-    $list_id = env('MAILINGLIST_NEWSLETTER');
-    foreach($users as $user)
-    {
-      MailinglistSubscriber::create([
-        'description' => 'Newsletter/Aufbautipp',
-        'mailinglist_id' => $list_id,
-        'email' => $user->email,
-        'is_processed' => 1,
-        'is_confirmed' => 1,
-      ]);
-    }
+    // // 1. Add all previous subscribers to the list "Newsletter/Aufbautipp"
+    // $users = User::where('is_newsletter_subscriber', 1)->get();
+    // $list_id = env('MAILINGLIST_NEWSLETTER');
+    // foreach($users as $user)
+    // {
+    //   MailinglistSubscriber::create([
+    //     'description' => 'Newsletter/Aufbautipp',
+    //     'mailinglist_id' => $list_id,
+    //     'email' => $user->email,
+    //     'is_processed' => 1,
+    //     'is_confirmed' => 1,
+    //   ]);
+    // }
 
-    // Loop over json files and add, if not already added
-    foreach($advertisment_subscribers_data as $user)
-    {
-      // Check if already added
-      $already_added = MailinglistSubscriber::where('email', $user['email'])->first();
-      if (!$already_added)
-      {
-        MailinglistSubscriber::create([
-          'id' => \Str::uuid(),
-          'description' => 'Newsletter/Aufbautipp',
-          'mailinglist_id' => env('MAILINGLIST_NEWSLETTER'),
-          'email' => $user['email'],
-          'is_processed' => 1,
-          'is_confirmed' => 1,
-        ]);
-      }
-      $this->info('added email: ' . $user['email'] . ' from advertisment_subscribers.json');
-    }
+    // // Loop over json files and add, if not already added
+    // foreach($advertisment_subscribers_data as $user)
+    // {
+    //   // Check if already added
+    //   $already_added = MailinglistSubscriber::where('email', $user['email'])->first();
+    //   if (!$already_added)
+    //   {
+    //     MailinglistSubscriber::create([
+    //       'id' => \Str::uuid(),
+    //       'description' => 'Newsletter/Aufbautipp',
+    //       'mailinglist_id' => env('MAILINGLIST_NEWSLETTER'),
+    //       'email' => $user['email'],
+    //       'is_processed' => 1,
+    //       'is_confirmed' => 1,
+    //     ]);
+    //   }
+    //   $this->info('added email: ' . $user['email'] . ' from advertisment_subscribers.json');
+    // }
 
-    foreach($newsletter_subscribers_data as $user)
-    {
-      // Check if already added
-      $already_added = MailinglistSubscriber::where('email', $user['email'])->first();
-      if (!$already_added)
-      {
-        MailinglistSubscriber::create([
-          'id' => \Str::uuid(),
-          'description' => 'Newsletter/Aufbautipp',
-          'mailinglist_id' => env('MAILINGLIST_NEWSLETTER'),
-          'email' => $user['email'],
-          'is_processed' => 1,
-          'is_confirmed' => 1,
-        ]);
-      }
-      $this->info('added email: ' . $user['email'] . ' from advertisment_subscribers.json');
-    }
+    // foreach($newsletter_subscribers_data as $user)
+    // {
+    //   // Check if already added
+    //   $already_added = MailinglistSubscriber::where('email', $user['email'])->first();
+    //   if (!$already_added)
+    //   {
+    //     MailinglistSubscriber::create([
+    //       'id' => \Str::uuid(),
+    //       'description' => 'Newsletter/Aufbautipp',
+    //       'mailinglist_id' => env('MAILINGLIST_NEWSLETTER'),
+    //       'email' => $user['email'],
+    //       'is_processed' => 1,
+    //       'is_confirmed' => 1,
+    //     ]);
+    //   }
+    //   $this->info('added email: ' . $user['email'] . ' from advertisment_subscribers.json');
+    // }
   }
 }

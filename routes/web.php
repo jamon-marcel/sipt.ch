@@ -45,12 +45,6 @@ Route::get('/jubilaeums-fachtagung-15-jahre-sipt', 'SymposiumController@annivers
 Route::get('/jubilaeums-fachtagung-15-jahre-sipt/abmeldung/{symposiumSubscriber}', 'SymposiumSubscriberController@cancel')->name('symposium_cancel');
 Route::get('/jubilaeums-fachtagung-15-jahre-sipt/abmeldung-erfolgreich', 'SymposiumController@cancelled')->name('symposium_cancelled');
 
-// Newsletter
-// Route::get('/newsletter', 'NewsletterController@index')->name('mailinglist_index');
-// Route::post('/newsletter/anmelden', 'NewsletterController@register')->name('newsletter_register');
-// Route::get('/newsletter/abbestellen/{newsletterSubscriber}', 'NewsletterController@cancel')->name('newsletter_cancel');
-// Route::get('/newsletter/bestaetigung/{newsletterSubscriber}', 'NewsletterController@confirm')->name('newsletter_confirm');
-
 // Mailinglist
 Route::get('/newsletter', 'MailinglistController@index')->name('mailinglist_index');
 Route::post('/newsletter/anmelden', 'MailinglistController@register')->name('mailinglist_register');
