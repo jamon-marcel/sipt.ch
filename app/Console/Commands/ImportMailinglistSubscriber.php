@@ -71,7 +71,7 @@ class ImportMailinglistSubscriber extends Command
           'is_confirmed' => 1,
         ]);
       }
-      $this->info('added email: ' + $user['email'] . ' from advertisment_subscribers.json');
+      $this->info('added email: ' . $user['email'] . ' from advertisment_subscribers.json');
     }
 
     // foreach($important_notice_subscribers_data as $user)
