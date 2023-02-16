@@ -71,9 +71,9 @@ class ImportMailinglistSubscriber extends Command
           'is_confirmed' => 1,
         ]);
       }
-      $this->info('added email: ' + $user['email']) . ' from advertisment_subscribers.json';
+      $this->info('added email: ' + $user['email'] . ' from advertisment_subscribers.json');
     }
-    
+
     // foreach($important_notice_subscribers_data as $user)
     // {
     //   // Check if already added
@@ -88,7 +88,7 @@ class ImportMailinglistSubscriber extends Command
     //       'is_confirmed' => 1,
     //     ]);
     //   }
-    //   $this->info('added email: ' + $user['email']) . ' from advertisment_subscribers.json';
+    //   $this->info('added email: ' + $user['email'] . ' from advertisment_subscribers.json');
     // }
     // foreach($newsletter_subscribers_data as $user)
     // {
@@ -104,7 +104,7 @@ class ImportMailinglistSubscriber extends Command
     //       'is_confirmed' => 1,
     //     ]);
     //   }
-    //   $this->info('added email: ' + $user['email']) . ' from advertisment_subscribers.json';
+    //   $this->info('added email: ' + $user['email'] . ' from advertisment_subscribers.json');
     // }
   }
 }
