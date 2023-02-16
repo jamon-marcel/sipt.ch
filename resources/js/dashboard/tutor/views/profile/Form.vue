@@ -92,14 +92,6 @@
 
             <mailinglists :email="tutor.user.email" />
 
-            <div class="form-row is-sm is-last">
-              <radio-button
-                :label="'Aufbautipp / Newsletter erhalten?'"
-                v-bind:is_newsletter_subscriber.sync="tutor.user.is_newsletter_subscriber"
-                :model="tutor.user.is_newsletter_subscriber"
-                :name="'is_newsletter_subscriber'"
-              ></radio-button>
-            </div>
           </div>
         </div>
       </div>
