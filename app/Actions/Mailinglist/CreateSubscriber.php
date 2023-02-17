@@ -9,6 +9,7 @@ class CreateSubscriber
     return MailinglistSubscriber::create([
       'id' => \Str::uuid(),
       'email' => $data['email'],
+      'hash' => md5($data['email']),
       'mailinglist_id' => $data['mailinglist']->id,
       'description' => $data['mailinglist']->description,
       'is_processed' => 1,

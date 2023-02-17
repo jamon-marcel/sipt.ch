@@ -26,7 +26,7 @@ class RegisterSubscriber
       $subscriber = MailinglistSubscriber::withTrashed()->where('email', $email)->where('mailinglist_id', $mailinglist)->first();
       if ($subscriber)
       {
-        $this->activateSubscriber->execute($subscriber);
+        $this->activateSubscriber->execute($subscriber, $isConfirmed);
         $mustConfirmEmail = $subscriber->is_confirmed ? FALSE : TRUE;
       }
       else
@@ -34,7 +34,7 @@ class RegisterSubscriber
         $subscriber = $this->createSubscriber->execute([
           'mailinglist' => Mailinglist::find($mailinglist),
           'email' => $email
-        ]);
+        ], $isConfirmed);
       }
     }
 

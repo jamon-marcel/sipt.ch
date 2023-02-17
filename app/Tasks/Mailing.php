@@ -15,8 +15,9 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'SIPT Aufbautipp Nr. 8/2022',
-                'template' => 'newsletter',
+                'subject' => 'SIPT neue Newsletter',
+                // 'template' => 'newsletter',
+                'template' => 'manage-newsletter',
                 'subscriber'  => $s,
                 // 'attachments' => [
                 //   public_path() . '/storage/downloads/' . 'sipt-aufbau_08.pdf',
