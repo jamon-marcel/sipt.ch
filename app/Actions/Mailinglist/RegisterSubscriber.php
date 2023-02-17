@@ -18,7 +18,7 @@ class RegisterSubscriber
     $this->sendEmailConfirmation = $sendEmailConfirmation;
   }
 
-  public function execute($mailinglists = [], $email)
+  public function execute($mailinglists = [], $email, $isConfirmed = FALSE)
   {
     $mustConfirmEmail = TRUE;
     foreach($mailinglists as $mailinglist)
@@ -38,7 +38,7 @@ class RegisterSubscriber
       }
     }
 
-    if ($mustConfirmEmail)
+    if ($mustConfirmEmail && $isConfirmed === FALSE)
     {
       $this->sendEmailConfirmation->execute($subscriber);
     }

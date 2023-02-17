@@ -13,6 +13,7 @@ class MailinglistSubscriber extends Model
     'id',
     'mailinglist_id',
     'email',
+    'hash',
     'description',
     'error',
     'is_processed',

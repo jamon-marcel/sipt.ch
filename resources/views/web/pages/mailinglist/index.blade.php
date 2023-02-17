@@ -62,6 +62,12 @@
         <p>Vielen Dank für Ihre Anmeldung. Sie erhalten in den nächsten Minuten eine E-Mail mit einem Link zur Bestätigung Ihrer E-Mail-Adresse.</p>
       </article>
     @endif
+    @if ($message == 'lists_updated')
+      <article>
+        <h2>Abonnements aktualisiert</h2>
+        <p>Vielen Dank. Wir haben ihre Newsletter-Abonnements aktualisiert.</p>
+      </article>
+    @endif
     @if ($message == 'confirmed')
       <article>
         <h2>Anmeldung Newsletter</h2>

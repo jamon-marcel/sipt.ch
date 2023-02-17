@@ -14,13 +14,20 @@ class Mailinglists extends Component
   public $mailinglists;
 
   /**
+   * Subscriptions
+   *
+   * @var array
+   */
+  public $subscriptions;
+  /**
    * Create a new component instance.
    *
    * @return void
    */
-  public function __construct($mailinglists = NULL)
+  public function __construct($mailinglists = NULL, $subscriptions = NULL)
   {
     $this->mailinglists = MailinglistModel::orderBy('order')->get();
+    $this->subscriptions = $subscriptions;
   }
 
   /**

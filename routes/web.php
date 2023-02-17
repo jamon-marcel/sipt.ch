@@ -48,8 +48,10 @@ Route::get('/jubilaeums-fachtagung-15-jahre-sipt/abmeldung-erfolgreich', 'Sympos
 // Mailinglist
 Route::get('/newsletter', 'MailinglistController@index')->name('mailinglist_index');
 Route::post('/newsletter/anmelden', 'MailinglistController@register')->name('mailinglist_register');
+Route::post('/newsletter/aktualisieren', 'MailinglistController@update')->name('mailinglist_update');
 Route::get('/newsletter/bestaetigung/{mailinglistSubscriber}', 'MailinglistController@confirm')->name('mailinglist_confirm');
 Route::get('/newsletter/abbestellen/{mailinglistSubscriber}', 'MailinglistController@cancel')->name('mailinglist_cancel');
+Route::get('/newsletter/verwalten/{mailinglistSubscriber:hash}', 'MailinglistController@manage')->name('mailinglist_manage');
 
 
 // TOC / Privacy
