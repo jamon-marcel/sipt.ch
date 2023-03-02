@@ -209,7 +209,7 @@
         Bahnstrasse 18a<br>
         8603 Schwerzenbach<br>
         Telefon: 044 543 61 86<br>
-        <a href="mailto:info@praxis-dmoser.ch">info@praxis-dmoser.ch</a><br>
+        <a href="mailto:denise.moser@hin.ch">denise.moser@hin.ch</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
         
         <p><strong>med. pract. Müllers, Jutta</strong><br>
