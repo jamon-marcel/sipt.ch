@@ -376,7 +376,7 @@
         Tel. 052 267 59 59<br>
         Direkt  052 267 69 24<br>
         <a href="mailto:susan.wipf@win.ch">susan.wipf@win.ch</a><br>
-        <a href="https://www.sucht.winterthur.ch" target="_blank">www.sucht.winterthur.ch</a></p>
+        <a href="https://sucht.winterthur.ch" target="_blank">sucht.winterthur.ch</a></p>
     </div>
   </article>
   <article class="collapsible js-clpsbl">
