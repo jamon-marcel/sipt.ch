@@ -368,6 +368,15 @@
         <a href="mailto:norbert.wolff@gmail.com">norbert.wolff@gmail.com</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
 
+        <p><strong>lic. phil. Susan Wipf</strong><br>
+        Fachpsychologin für Psychotherapie FSP<br>
+        Integrierte Suchthilfe Winterthur<br>
+        Tösstalstrasse 53<br>
+        8403 Winterthur<br>
+        Tel. 052 267 59 59<br>
+        Direkt  052 267 69 24<br>
+        <a href="mailto:susan.wipf@win.ch">susan.wipf@win.ch</a><br>
+        <a href="https://www.sucht.winterthur.ch" target="_blank">www.sucht.winterthur.ch</a></p>
     </div>
   </article>
   <article class="collapsible js-clpsbl">
