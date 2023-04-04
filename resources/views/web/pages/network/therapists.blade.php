@@ -389,7 +389,6 @@
         Unnerweg 24<br>
         D-66459 Kirkel<br>
         <a href="mailto:sgeith@yahoo.com">sgeith@yahoo.com</a></p>
-        
 
         <p><strong>Hanstein, Ulrike</strong><br>co-razon organisationsentwicklung<br>Fabrikstraße 7<br>76185 Karlsruhe<br>
           Telefon: 0049 721 841560<br>Mobile: 0049 171 5371443<br>
