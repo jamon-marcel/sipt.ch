@@ -111,6 +111,7 @@ Route::middleware('auth:sanctum', 'verified')->group(function() {
   Route::get('/download/anwesenheitsliste/{courseEvent}', 'DownloadController@listAttendances')->middleware('role:tutor');
   Route::get('/download/fachtagung/teilnehmerliste', 'DownloadController@listSymposiumParticipants')->middleware('role:admin');
   Route::get('/export/fachtagung/teilnehmerliste', 'DownloadController@exportSymposiumParticipants')->middleware('role:admin');
+  Route::get('/export/adressliste/mailing', 'DownloadController@exportMailingAddresses')->middleware('role:admin');
   Route::get('/export/adressliste/studenten', 'DownloadController@exportStudentAddresses')->middleware('role:admin');
   Route::get('/export/adressliste/dozenten', 'DownloadController@exportTutorAddresses')->middleware('role:admin');
   Route::get('/export/adressliste/vip', 'DownloadController@exportVipAddresses')->middleware('role:admin');

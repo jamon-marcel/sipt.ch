@@ -5,6 +5,7 @@ use App\Models\CourseEvent;
 use App\Models\Student;
 use App\Exports\SymposiumSubscribersExport;
 use App\Exports\StudentAddressesExport;
+use App\Exports\MailingAddressesExport;
 use App\Exports\TutorAddressesExport;
 use App\Exports\VipAddressesExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -76,6 +77,17 @@ class DownloadController extends BaseController
     return Excel::download(new SymposiumSubscribersExport, 'symposium_subscribers.xlsx');
   }
   
+  /**
+   * Export the mailing address list (Tutors, Students)
+   *
+   * @return \Illuminate\Http\Response
+   */
+
+   public function exportMailingAddresses()
+   {
+     return Excel::download(new MailingAddressesExport, 'sipt-mailing_adressen.xlsx');
+   }
+
   /**
    * Export the students address list
    *
