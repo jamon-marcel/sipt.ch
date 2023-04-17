@@ -1,7 +1,6 @@
 @component('mail::message')
 <p>Liebe Kolleginnen und Kollegen</p>
-<p>Gerne machen wir Sie auf einige freie Plätze in unserem Grundkurs am 5./6. Mai 2023 aufmerksam.</p>
-<p>Unsere geschätzte Dozentin Christina Haeny wird die Teilnehmenden umfassend und praxisnah in die Psychotraumatologie einführen. Der Einstiegskurs eignet sich für alle Berufsgruppen und bildet Ausgangspunkt für sämtliche Fortbildungsrichtungen des SIPT. Sie möchten zentrales Grundwissen aufbauen oder auffrischen?<br>Gerne können Sie sich <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/grundkurs/0030bbce-8281-4d82-a306-f7905ccc7c6b" target="_blank" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a> anmelden.</p>
+<p>Gerne machen wir Sie auf einige freie Plätze in unserem Grundkurs am 5./6. Mai 2023 aufmerksam. Unsere geschätzte Dozentin Christina Haeny wird die Teilnehmenden umfassend und praxisnah in die Psychotraumatologie einführen. Der Einstiegskurs eignet sich für alle Berufsgruppen und bildet Ausgangspunkt für sämtliche Fortbildungsrichtungen des SIPT. Sie möchten zentrales Grundwissen aufbauen oder auffrischen?<br>Gerne können Sie sich <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/grundkurs/0030bbce-8281-4d82-a306-f7905ccc7c6b" target="_blank" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a> anmelden.</p>
 <p>Beste Grüsse<br>Rosmarie Barwinski</p><br>
 <p style="font-size: 14px; margin-bottom: 0">Sie möchten keine News vom SIPT mehr erhalten? Klicken Sie bitte <span class="break-all"><a href="{{ route('mailinglist_cancel', ['mailinglistSubscriber' => $subscriber->id]) }}" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</span></p>
 @endcomponent
