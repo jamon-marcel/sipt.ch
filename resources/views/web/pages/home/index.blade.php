@@ -38,6 +38,26 @@
       <a href="/bildungsangebot/modul/vulnerable-kinder-und-jugendliche-mit-migrationshintergrund-kompetent-begleiten-und-unterstuetzen-fakultativ/b3d6d972-5aa2-4f2d-a767-9f67e4b92b5b" class="icon-arrow-right">mehr erfahren</a>
     </p>
   </article>
+
+  <article>
+    <h2>Einblicke in die Traumakonfrontation mit NET</h2>
+    <p>DozentIn: N. N.<br>Termin: 15./16.09.2023</p>
+    <p>
+      In diesem Modul können PsychotherapeutInnen vertiefte Kenntnisse der Traumakonfrontation mit NET (Narrative Expositionstherapie) erlernen. Fallbeispiele werden diskutiert und das Wissen wird in einer praktischen Übung zu einem Lebensereignis umgesetzt.<br>
+      <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/einblicke-in-die-traumakonfrontation-mit-net/05f71d13-1f1f-4a84-9b1c-90b8ff3050a7" class="icon-arrow-right">mehr Erfahren</a>
+    </p>
+  </article>
+
+
+  <article>
+    <h2>Methoden der Traumakonfrontation</h2>
+    <p>DozentIn: N. N.<br>Termin: 13./14.10.2023</p>
+    <p>
+      Dieser Kurs führt PsychotherapeutInnen in die Traumakonfrontation ein. Wann ist sie sinnvoll? Wie viel Stabilität braucht es? Wie konfrontativ darf das Verfahren sein? TeilnehmerInnen erhalten einen Überblick über die unterschiedlichen Methoden, welche in weiteren Modulen vertieft werden können.<br>
+      <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/methoden-der-traumakonfrontation/956f0081-8f49-494f-86fc-00990f3404e5" class="icon-arrow-right">mehr Erfahren</a>
+    </p>
+  </article>
+  
 </section>
 <section class="theme-medium order-2 splash visual">
   <div class="splash__title">Willkommen im Schweizer Institut für Psychotraumatologie</div>
