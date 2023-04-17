@@ -15,9 +15,8 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'SIPT neue Newsletter',
-                // 'template' => 'newsletter',
-                'template' => 'manage-newsletter',
+                'subject' => 'SIPT – Einladung Grundkurs am 5./6. Mai 2023',
+                'template' => 'newsletter',
                 'subscriber'  => $s,
                 // 'attachments' => [
                 //   public_path() . '/storage/downloads/' . 'sipt-aufbau_08.pdf',
