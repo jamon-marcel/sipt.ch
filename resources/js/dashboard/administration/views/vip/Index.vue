@@ -118,10 +118,6 @@
             <download-icon size="16"></download-icon>
             <span>Export Studenten</span>
           </a>
-          <a :href="'/export/adressliste/mailing?v=' + randomString()" class="btn-primary has-icon" target="_blank">
-            <download-icon size="16"></download-icon>
-            <span>Export Mailing</span>
-          </a>
         </div>
         <div style="max-width: 360px; margin-left: 20px; width: 100%">
           <input type="text" placeholder="Suche nach Name" v-model="keyword" @blur="search()">
