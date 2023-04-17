@@ -23,13 +23,7 @@
       <a href="https://www.klett-cotta.de/buch/Trauma/Trauma_und_Gegenuebertragung/827446" target="_blank" class="icon-arrow-right">mehr erfahren</a>
     </p>
   </article>
-  <article>
-    <h2>Neues Buch – Orientierung für den komplexen Prozess der Traumabehandlung</h2>
-    <p>
-      Gerne machen wir Sie auf folgendes Buch aufmerksam, welches bei Klett-Cotta erschienen ist.<br>
-      <a href="https://www.klett-cotta.de/buch/Trauma/Steuerungsprozesse_in_der_Psychodynamischen_Traumatherapie/117369" target="_blank" class="icon-arrow-right">mehr erfahren</a>
-    </p>
-  </article>
+
   <article>
     <h2>Neue Kursangebote</h2>
     <p>Gerne weisen wir auf <strong>aktuelle</strong> Kursangebote hin:</p>
@@ -44,17 +38,16 @@
     <p>DozentIn: N. N.<br>Termin: 15./16.09.2023</p>
     <p>
       In diesem Modul können PsychotherapeutInnen vertiefte Kenntnisse der Traumakonfrontation mit NET (Narrative Expositionstherapie) erlernen. Fallbeispiele werden diskutiert und das Wissen wird in einer praktischen Übung zu einem Lebensereignis umgesetzt.<br>
-      <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/einblicke-in-die-traumakonfrontation-mit-net/05f71d13-1f1f-4a84-9b1c-90b8ff3050a7" class="icon-arrow-right">mehr Erfahren</a>
+      <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/einblicke-in-die-traumakonfrontation-mit-net/05f71d13-1f1f-4a84-9b1c-90b8ff3050a7" class="icon-arrow-right">mehr erfahren</a>
     </p>
   </article>
-
 
   <article>
     <h2>Methoden der Traumakonfrontation</h2>
     <p>DozentIn: N. N.<br>Termin: 13./14.10.2023</p>
     <p>
       Dieser Kurs führt PsychotherapeutInnen in die Traumakonfrontation ein. Wann ist sie sinnvoll? Wie viel Stabilität braucht es? Wie konfrontativ darf das Verfahren sein? TeilnehmerInnen erhalten einen Überblick über die unterschiedlichen Methoden, welche in weiteren Modulen vertieft werden können.<br>
-      <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/methoden-der-traumakonfrontation/956f0081-8f49-494f-86fc-00990f3404e5" class="icon-arrow-right">mehr Erfahren</a>
+      <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/methoden-der-traumakonfrontation/956f0081-8f49-494f-86fc-00990f3404e5" class="icon-arrow-right">mehr erfahren</a>
     </p>
   </article>
   
