@@ -13,8 +13,15 @@
     <p>
       <strong>Russisch</strong> (für die Arbeit mit <a href="ttps://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Erwachsene_2022_rus_final.pdf" target="_blank" title="">Erwachsenen</a> / <a href="https://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Kinder_2022_rus_final.pdf" target="_blank" title="">Kindern und Jugendlichen</a>
     </p>
-
     <p>Eine erweiterte Fassung der Broschüren in <strong>Deutsch</strong> können Sie in Papierform beim SIPT bestellen.</p>
+  </article>
+
+  <article>
+    <h2>Neues Buch – Trauma und Gegenübertragung: Den Stand der Traumaverarbeitung erkennen und Behandlungsschritte planen</h2>
+    <p>
+      Gerne machen wir auf folgendes Buch aufmerksam, welches neu bei Klett-Cotta erscheint.<br>
+      <a href="https://www.klett-cotta.de/buch/Trauma/Trauma_und_Gegenuebertragung/827446" target="_blank" class="icon-arrow-right">mehr erfahren</a>
+    </p>
   </article>
   <article>
     <h2>Neues Buch – Orientierung für den komplexen Prozess der Traumabehandlung</h2>
