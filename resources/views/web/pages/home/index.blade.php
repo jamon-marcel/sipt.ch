@@ -4,14 +4,15 @@
 @section('section')
 <section class="theme-light order-1">
   <x-header title="Aktuell" />
+  
   <article>
     <h2>Trauma-Broschüren</h2>
     <p>Die Trauma-Broschüren des Zentrum für Trauma- und Konfliktmanagement ZTK unter der Leitung von Thomas Weber wurden auf Ukrainisch und Russisch übersetzt. Diese können für die Arbeit mit Geflüchteten jederzeit kostenfrei über die folgenden Links heruntergeladen werden:</p>
     <p>
-      <strong>Ukrainisch</strong> (für die Arbeit mit <a href="https://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Erwachsene_2022_ukr_final.pdf" target="_blank" title="">Erwachsenen</a> / <a href="https://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Kinder_2022_ukr_final.pdf" target="_blank" title="">Kindern und Jugendlichen</a>
+      <strong>Ukrainisch</strong> (für die Arbeit mit <a href="https://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Erwachsene_2022_ukr_final.pdf" target="_blank" title="">Erwachsenen</a> / <a href="https://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Kinder_2022_ukr_final.pdf" target="_blank" title="">Kindern und Jugendlichen</a>)
     </p>
     <p>
-      <strong>Russisch</strong> (für die Arbeit mit <a href="ttps://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Erwachsene_2022_rus_final.pdf" target="_blank" title="">Erwachsenen</a> / <a href="https://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Kinder_2022_rus_final.pdf" target="_blank" title="">Kindern und Jugendlichen</a>
+      <strong>Russisch</strong> (für die Arbeit mit <a href="ttps://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Erwachsene_2022_rus_final.pdf" target="_blank" title="">Erwachsenen</a> / <a href="https://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Kinder_2022_rus_final.pdf" target="_blank" title="">Kindern und Jugendlichen</a>)
     </p>
     <p>Eine erweiterte Fassung der Broschüren in <strong>Deutsch</strong> können Sie in Papierform beim SIPT bestellen.</p>
   </article>
