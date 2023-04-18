@@ -15,7 +15,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'SIPT – Einladung Grundkurs am 5./6. Mai 2023',
+                'subject' => 'Aufbautipp',
                 'template' => 'newsletter',
                 'subscriber'  => $s,
                 // 'attachments' => [
@@ -44,7 +44,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'SIPT Newsletter Fachbereich Berater',
+                'subject' => 'SIPT – Vertiefungskurs Präverbale Traumata 23./24. Juni 2023',
                 'template' => 'consultants',
                 'subscriber'  => $s,
               ]
@@ -70,7 +70,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'SIPT Newsletter Fachbereich Pädagogen',
+                'subject' => 'SIPT – Vertiefungskurs Präverbale Traumata 23./24. Juni 2023',
                 'template' => 'educators',
                 'subscriber'  => $s,
               ]
@@ -96,7 +96,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'SIPT Newsletter Fachbereich Psychotherapeuten',
+                'subject' => 'SIPT – Vertiefungskurs Präverbale Traumata 23./24. Juni 2023',
                 'template' => 'psychotherapists',
                 'subscriber'  => $s
               ]
