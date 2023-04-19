@@ -83,6 +83,9 @@ Create PW with tinker
 // Composer
 php composer.phar install --optimize-autoloader --no-dev
 
+PHP:
+/usr/local/php81/bin/php
+
 // Shell
 ssh siptse9@psychotraumatologie-sipt.ch
 dOc!ir-Q]*20FPeBPXr+

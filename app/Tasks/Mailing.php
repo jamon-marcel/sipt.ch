@@ -70,7 +70,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'SIPT – Vertiefungskurs Präverbale Traumata 23./24. Juni 2023',
+                'subject' => 'SIPT – Einladung Traumatisierte Flüchtlinge im Schulalltag 2./3. Juni 2023',
                 'template' => 'educators',
                 'subscriber'  => $s,
               ]
