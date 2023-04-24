@@ -442,13 +442,21 @@
           <a href="mailto:sandraschilles@gmail.com">sandraschilles@gmail.com</a>
         </p>
 
-          <p><strong>Wielandner, Katharina</strong><br>
-          Rethelstraße 20<br> 
-          40237 Düsseldorf<br> 
-          <a href="mailto:psychotherapie.wielandner@gmail.com">psychotherapie.wielandner@gmail.com</a>
-          </p>
-          
-
+        <p><strong>Wielandner, Katharina</strong><br>
+        Rethelstraße 20<br> 
+        40237 Düsseldorf<br> 
+        <a href="mailto:psychotherapie.wielandner@gmail.com">psychotherapie.wielandner@gmail.com</a>
+        </p>
+        
+        <p><strong>Wittmann, Lutz, Prof. Dr. phil.</strong><br>
+          International Psychoanalytic University Berlin GmbH<br>
+          Stromstr. 1<br>
+          10555 Berlin<br>
+          Telefon: +49 30 300 117-810<br>
+          <a href="mailto:lutz.wittmann@ipu-berlin.de" target="_blank">lutz.wittmann@ipu-berlin.de</a><br>
+          <a href="https://www.ipu-berlin.de" target="_blank">www.ipu-berlin.de</a><br>
+          Sitz der Gesellschaft: Berlin, Amtsgericht Berlin-Charlottenburg<br>HRB 114412 B, Geschäftsführer: Dr. Rainer Kleinholz<br>
+        </p>
     </div>
   </article>
 </section>
