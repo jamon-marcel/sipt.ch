@@ -54,7 +54,7 @@
   
   <article>
     <h2>Traum und Trauma </h2>
-    <p>DozentIn: Lutz Wittmann<br>Termin: 9./10.02.2024</p>
+    <p>Dozent: Lutz Wittmann<br>Termin: 9./10.02.2024</p>
     <p>
       Prof. Dr. phil. Lutz Wittmann lehrt und forscht an der IPU Berlin in Klinischer Psychologie und Psychotherapie mit Schwerpunkten in der Psychodynamischen Psychotherapie, Psychotraumatologie und Empirischen Traumforschung. Im neuen Modul «Traum und Trauma» am SIPT vermittelt er Teilnehmenden in einem interaktiven Seminar einen Überblick über die massgebenden Theorien und Forschungsbefunde zu posttraumatischen Albträumen. Weiter lernen Sie klinische Modelle auf Traumberichte traumatisierter Patienten anzuwenden, um Rückschlüsse für das therapeutische Vorgehen zu erarbeiten.<br>
       <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/traum-und-trauma-fakultativ/2058beb2-2ab8-4ce9-b0df-28d257498635" class="icon-arrow-right">mehr erfahren</a>
