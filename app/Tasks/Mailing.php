@@ -96,7 +96,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'SIPT – Vertiefungskurs Präverbale Traumata 23./24. Juni 2023',
+                'subject' => 'SIPT –  freie Plätze im Kurs «Konflikt, Trauma und Symbolisierungsstörung» am 30.6./1.7.2023',
                 'template' => 'psychotherapists',
                 'subscriber'  => $s
               ]
