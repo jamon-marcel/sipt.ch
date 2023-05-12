@@ -26,9 +26,46 @@
     <h2>Aufbau-Tipp</h2>
     <p>Das SIPT wünscht Ihnen in Ihrer Tätigkeit viele kleine positive Momente – Momente, die wir alle brauchen, um die Belastungen unserer Tätigkeit, aber auch das aktuelle Zeitgeschehen zu verarbeiten. Mit kurzen „Aufbau-Tipps” will das SIPT in unregelmässigen Abständen zu solchen Momenten beitragen.</p>
   </article>
+
+  <article>
+    <a href="/storage/downloads/sipt-aufbau_09.pdf" target="_blank" class="btn-download" title="Download PDF">
+      <strong>Aufbau-Tipp Nr. 9 / Mai 2023</strong>
+    </a>
+    <div class="list">
+      <div class="list__item">Eine ausgezeichnete Landschaft</div>
+      <div class="list__item">Eine Winter – Frühlings – Sommer – Herbst – Wanderung</div>
+    </div>
+  </article>
+  <article>
+    <a href="/storage/downloads/sipt-aufbau_08.pdf" target="_blank" class="btn-download" title="Download PDF">
+      <strong>Aufbau-Tipp Nr. 8 / Dezember 2022</strong>
+    </a>
+    <div class="list">
+      <div class="list__item">Vom barocken Kleinstort zum barocken Spektakel</div>
+      <div class="list__item">Eine Winter – Frühlings – Sommer – Herbst – Wanderung</div>
+    </div>
+  </article>
+  <article>
+    <a href="/storage/downloads/sipt-aufbau_07.pdf" target="_blank" class="btn-download" title="Download PDF">
+      <strong>Aufbau-Tipp Nr. 7 / Mai 2022</strong>
+    </a>
+    <div class="list">
+      <div class="list__item">Die Planstadt und das Blumendorf im Klettgau</div>
+      <div class="list__item">Eine Winter – Frühlings – Sommer – Herbst – Wanderung</div>
+    </div>
+  </article>
+  <article>
+    <a href="/storage/downloads/sipt-aufbau_06.pdf" target="_blank" class="btn-download" title="Download PDF">
+      <strong>Aufbau-Tipp Nr. 6 / Dezember 2021</strong>
+    </a>
+    <div class="list">
+      <div class="list__item">Im Murg-Auen-Park fühlen sich Mensch, Biber & Co. wohl</div>
+      <div class="list__item">Eine Winter – Frühlings – Sommer – Herbst – Wanderung</div>
+    </div>
+  </article>
   <article>
     <a href="/storage/downloads/sipt-aufbau_05.pdf" target="_blank" class="btn-download" title="Download PDF">
-      <strong>Aufbau-Tipp Nr. 5 / Mai 2021</strong> [PDF, 4.1MB]
+      <strong>Aufbau-Tipp Nr. 5 / Mai 2021</strong>
     </a>
     <div class="list">
       <div class="list__item">Wie aus Abfall ein Paradies entsteht</div>
@@ -37,7 +74,7 @@
   </article>
   <article>
     <a href="/storage/downloads/sipt-aufbau_04.pdf" target="_blank" class="btn-download" title="Download PDF">
-      <strong>Aufbau-Tipp Nr. 4 / Januar 2021</strong> [PDF, 1.8MB]
+      <strong>Aufbau-Tipp Nr. 4 / Januar 2021</strong>
     </a>
     <div class="list">
       <div class="list__item">Eine Waldkathedrale mit Aussicht</div>
@@ -46,7 +83,7 @@
   </article>
   <article>
     <a href="/storage/downloads/sipt-aufbau_03.pdf" target="_blank" class="btn-download" title="Download PDF">
-      <strong>Aufbau-Tipp Nr. 3 / Januar 2020</strong> [PDF, 1.9MB]
+      <strong>Aufbau-Tipp Nr. 3 / Januar 2020</strong>
     </a>
     <div class="list">
       <div class="list__item">Tosende Wasser und die grosse Ruhe</div>
@@ -55,7 +92,7 @@
   </article>
   <article>
     <a href="/storage/downloads/sipt-aufbau_02.pdf" target="_blank" class="btn-download" title="Download PDF">
-      <strong>Aufbau-Tipp Nr. 2 / Juli 2019</strong> [PDF, 1.2MB]
+      <strong>Aufbau-Tipp Nr. 2 / Juli 2019</strong>
     </a>
     <div class="list">
       <div class="list__item">Von Revolutionärinnnen & Nonnen, Kunst & Natur</div>
@@ -64,7 +101,7 @@
   </article>
   <article>
     <a href="/storage/downloads/sipt-aufbau_01.pdf" target="_blank" class="btn-download" title="Download PDF">
-      <strong>Aufbau-Tipp Nr. 1 / Januar 2019</strong> [PDF, 840KB]
+      <strong>Aufbau-Tipp Nr. 1 / Januar 2019</strong>
     </a>
     <div class="list">
       <div class="list__item">„Bachtel du Riese, breit hin gelagerter nebelumwallter Götterberg“</div>
