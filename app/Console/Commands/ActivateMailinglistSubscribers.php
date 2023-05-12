@@ -11,7 +11,7 @@ class ActivateMailinglistSubscribers extends Command
    *
    * @var string
    */
-  protected $signature = 'activate:mailinglist {listUuid}';
+  protected $signature = 'activate:mailinglist';
 
   /**
    * The console command description.
@@ -37,14 +37,20 @@ class ActivateMailinglistSubscribers extends Command
    */
   public function handle()
   {
-    $listUuid = $this->argument('listUuid');
+    // Get all mailinglists
+    $mailinglists = Mailinglist::all();
 
-    $list = Mailinglist::find($listUuid);
-    if ($list)
+    // Ask the user to select a mailinglist
+    $mailinglist = $this->choice('Which mailinglist?', $mailinglists->pluck('description')->all());
+
+    // find mailinglist by description
+    $mailinglist = Mailinglist::where('description', $mailinglist)->first();
+
+    if ($mailinglist)
     {
-      if ($this->confirm('Do you wish to activate all users form the list "' . $list->description . '"?'))
+      if ($this->confirm('Do you wish to activate all users form the list "' . $mailinglist->description . '"?'))
       {
-        MailinglistSubscriber::where('mailinglist_id', $list->id)->update(['is_processed' => 0]);
+        MailinglistSubscriber::where('mailinglist_id', $mailinglist->id)->update(['is_processed' => 0]);
       }
     }
   }
