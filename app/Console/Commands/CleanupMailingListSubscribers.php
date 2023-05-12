@@ -38,10 +38,11 @@ class CleanupMailingListSubscribers extends Command
    */
   public function handle()
   {
-    $subscribers = MailinglistSubscriber::all();
+    // Get all subscribers with an email like @yahoo
+    $subscribers = MailinglistSubscriber::where('email', 'like', '%@yahoo%')->get();
     foreach($subscribers as $subscriber)
     {
-      $user = User::where('email', '%@yahoo%', $subscriber->email)->first();
+      $user = User::where('email', $subscriber->email)->first();
       if (!$user)
       {
         $this->info('No user found with email: ' . $subscriber->email);
