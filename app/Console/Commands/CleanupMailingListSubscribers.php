@@ -46,6 +46,8 @@ class CleanupMailingListSubscribers extends Command
       if (!$user)
       {
         $this->info('No user found with email: ' . $subscriber->email);
+        $this->info('Deleting user...');
+        $subscriber->delete();
       }
       else {
         $this->info('User found with email: ' . $subscriber->email);
