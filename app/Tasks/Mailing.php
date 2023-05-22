@@ -44,7 +44,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'SIPT – Vertiefungskurs Präverbale Traumata 23./24. Juni 2023',
+                'subject' => 'SIPT – neuer Kurs für BeraterInnen',
                 'template' => 'consultants',
                 'subscriber'  => $s,
               ]
@@ -96,7 +96,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Neuen Kurs für PsychotherapeutInnen',
+                'subject' => 'SIPT – neuer Kurs für PsychotherapeutInnen',
                 'template' => 'psychotherapists',
                 'subscriber'  => $s
               ]
