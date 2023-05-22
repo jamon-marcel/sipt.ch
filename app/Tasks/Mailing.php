@@ -96,7 +96,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Einladung «Konflikt, Trauma und Symbolisierungsstörung» am 30.6/1.7 2023',
+                'subject' => 'Neuen Kurs für PsychotherapeutInnen',
                 'template' => 'psychotherapists',
                 'subscriber'  => $s
               ]
