@@ -1,6 +1,7 @@
 @component('mail::message')
 <p>Liebe Kolleginnen und Kollegen</p>
-<p>Gerne machen wir Sie auf das Vertiefungsseminar zu Präverbalen Traumata aufmerksam, welches am 23./24. Juni 2023 stattfindet.<br>Unsere erfahrene Dozentin Natascha Unfried wird Ihnen detaillierte Kenntnisse darüber vermitteln, wie früh erlebte Traumata in die nächste Generation weitergegeben werden. Sie lernen insbesondere die erste Phase unserer Biographie im Mutterleib, der Geburt und der frühen nachgeburtlichen Zeit als eine folgenreiche Wirklichkeit zu verstehen. Sie möchten die pädagogischen und therapeutischen Interventionen zur Verbindung in die Gegenwart kennenlernen?<br>Wir freuen uns über Ihre Anmeldung <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/vertiefung-praeverbale-traumata-fakultativ/1e227aca-8be3-4ad9-80db-3f189416cc1e" target="_blank" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</p>
+<p>Wir bieten folgenden neuen Kurse für BeraterInnen an:</p>
+<p><a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/einfuehrung-in-die-beratungssituation-mit-komplextraumatisierten-patient-innen/9b14eb73-1309-487a-a03a-42860e521d2d" target="_blank" class="anchor" style="color: #ff7a00; text-decoration: none;">Einführung in die Beratungssituation mit komplextraumatisierten Patient/-innen</a>, (Dozentin: Maya Schenkel)</p>
 <p>Beste Grüsse<br>Rosmarie Barwinski</p><br>
 <p style="font-size: 14px; margin-bottom: 0">Sie möchten keine News vom SIPT mehr erhalten? Klicken Sie bitte <span class="break-all"><a href="{{ route('mailinglist_cancel', ['mailinglistSubscriber' => $subscriber->id]) }}" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</span></p>
 @endcomponent
