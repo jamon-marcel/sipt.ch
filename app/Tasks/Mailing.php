@@ -96,7 +96,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'SIPT – neuer Kurs für PsychotherapeutInnen',
+                'subject' => 'SIPT – neue Kurse für PsychotherapeutInnen',
                 'template' => 'psychotherapists',
                 'subscriber'  => $s
               ]
