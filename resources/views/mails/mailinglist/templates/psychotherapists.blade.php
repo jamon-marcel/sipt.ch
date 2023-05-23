@@ -3,7 +3,7 @@
 <p>Wir bieten folgende neuen Kurse für PsychotherapeutInnen an:</p>
 <p><a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/integration-einer-traumaverarbeitenden-behandlung-mit-emdr-in-ein-psychodynamisches-behandlungskonzept/5cd19b28-f7ca-4d0f-90fc-9ff8ce2b10ea" target="_blank" class="anchor" style="color: #ff7a00; text-decoration: none;">Integration einer traumaverarbeitenden Behandlung mit EMDR in ein psychodynamisches Behandlungskonzept</a><br>Dozentin: Dr. med. Sabine Röcker</p>
 <p>Am Beispiel von EMDR, einer weltweit anerkannten Methode der Traumakonfrontation, wird aufgezeigt, wie die Arbeit mit einer traumaverarbeitenden Methode in eine psychodynamische Psychotherapie eingebettet werden kann.</p>
-<p>Inhalte des Kurses sind u.a. Folgende Fragen:</p>
+<p>Inhalte des Kurses sind u.a. folgende Fragen:</p>
 <ul>
 <li>Wie eine Behandlung mit EMDR vorbereitet werden kann: vorbereitende Übungen werden im Kurs demonstriert, bzw. miteinander geübt</li>
 <li>Die Bedeutung von Stabilisierung und Ressourcenaktivierung</li>

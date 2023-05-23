@@ -1,8 +1,9 @@
 @component('mail::message')
 <p>Liebe Kolleginnen und Kollegen</p>
-<p>Wir bieten folgenden neuen Kurse für BeraterInnen an:</p>
+<p>Wir bieten folgenden neuen Kurs für BeraterInnen an:</p>
 <p><a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/einfuehrung-in-die-beratungssituation-mit-komplextraumatisierten-patient-innen/9b14eb73-1309-487a-a03a-42860e521d2d" target="_blank" class="anchor" style="color: #ff7a00; text-decoration: none;">Einführung in die Beratungssituation mit komplextraumatisierten Patient/-innen</a><br>Dozentin: lic. phil. Maya Schenkel</p>
 <p>Neben den meist vorhandenen komorbiden psychischen und psychiatrischen Störungen ergeben sich bei Menschen, die an einer komplexen Traumafolgestörung leiden, zusätzlich eine Vielfalt von anderen Problemen. Aus der Praxis erwies sich ein Abstimmen und Einstimmen auf die aktuelle Gesamtsituation der Patienten als förderlich. Bei Vorliegen einer dissoziativen Persönlichkeitsstruktur muss diese Ausprägung berücksichtigt und aktiv in die Behandlungs- und Beratungssituation mit einbezogen werden.<br>Es bietet sich die Gelegenheit, die Spezifität des eigenen Vorgehens mit einem störungsspezifischen Ansatz zu erweitern und die Möglichkeit der Reflexion der eigenen professionellen Haltung zuzulassen. Die Themen werden praxisnah von lic. phil. Maya Schenkel vermittelt, Fallbeispiele sind willkommen.</p>
+<p>Weitere Informationen finden Sie auf unserer Homepage.</p>
 <p>Beste Grüsse<br>Rosmarie Barwinski</p><br>
 <p style="font-size: 14px; margin-bottom: 0">Sie möchten keine News vom SIPT mehr erhalten? Klicken Sie bitte <span class="break-all"><a href="{{ route('mailinglist_cancel', ['mailinglistSubscriber' => $subscriber->id]) }}" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</span></p>
 @endcomponent
