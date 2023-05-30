@@ -19,7 +19,7 @@ table.invoice-meta-data td:first-child {
   width: 30mm;
 }
 
-table.invoice-positions thead td {
+table.invoice-positions tr:first-child td {
   border-bottom: .15mm solid #000000;
   font-weight: 700;
   padding-bottom: 3mm;

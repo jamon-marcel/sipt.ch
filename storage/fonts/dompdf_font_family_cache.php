@@ -1,4 +1,5 @@
-<?php return array (
+<?php return function ($fontDir, $rootDir) {
+return array (
   'sans-serif' => array(
     'normal' => $rootDir . '/lib/fonts/Helvetica',
     'bold' => $rootDir . '/lib/fonts/Helvetica-Bold',
@@ -78,6 +79,7 @@
     'normal' => $rootDir . '/lib/fonts/DejaVuSerif',
   ),
   'ocrbregular' => array(
-    'normal' => $fontDir . '/ocrbregular-normal_52b74ff25e66b8272cd810f48714ec8a',
+    'normal' => $fontDir . '/ocrbregular_normal_52b74ff25e66b8272cd810f48714ec8a',
   ),
-) ?>
+);
+}; ?>
