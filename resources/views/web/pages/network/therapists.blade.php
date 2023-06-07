@@ -138,14 +138,6 @@
             Fröbelstrasse 33<br>
             8032 Zürich<br>
           </p>
-{{-- 
-        <p><strong>lic. phil. Haeny, Christina</strong><br>
-        Fachpsychologin für Psychotherapie<br>
-        Ambulatorium Barmelweid<br>
-        Ziegelrain 1<br>
-        5000 Aarau<br>
-        Telefon: 062 857 25 20<br>
-        (Kostenübernahme durch die Krankenkasse möglich)</p> --}}
         
         <p>
           <strong>Remo Hartmann</strong><br>
@@ -179,6 +171,15 @@
         Mobile: 078 846 93 51<br>
         <a href="mailto:sibylkamm@bluewin.ch" target="_blank">sibylkamm@bluewin.ch</a><br>
         <a href="https://www.sibyl-kamm.ch" target="_blank">sibyl-kamm.ch</a></p>
+
+        <p><strong>Keller-Ruckstuhl, Lea</strong><br>
+          Praxis am Weberweg<br>
+          Weberweg 5<br>
+          8620 Wetzikon<br>
+          Tel. 044 933 01 33 (Praxis)<br>
+          Tel. 044 933 01 31 (direkt)<br>
+          <a href="https://www.praxisamweberweg.ch" target="_blank">www.praxisamweberweg.ch</a>
+          </p>
 
         <p><strong>Shirin Knapp, Manuela</strong><br>
         Eidg. anerkannte Psychotherapeutin<br>
