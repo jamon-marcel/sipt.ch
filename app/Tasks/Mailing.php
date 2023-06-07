@@ -44,7 +44,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'SIPT – neuer Kurs für BeraterInnen',
+                'subject' => 'Einladung «PTBS, Somatische Belastungsstörungen und Schmerz» am 7./8. Juli 2023',
                 'template' => 'consultants',
                 'subscriber'  => $s,
               ]
@@ -70,7 +70,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'SIPT – Einladung Traumatisierte Flüchtlinge im Schulalltag 2./3. Juni 2023',
+                'subject' => 'Einladung «PTBS, Somatische Belastungsstörungen und Schmerz» am 7./8. Juli 2023',
                 'template' => 'educators',
                 'subscriber'  => $s,
               ]
@@ -96,7 +96,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'SIPT – neue Kurse für PsychotherapeutInnen',
+                'subject' => 'Einladung «PTBS, Somatische Belastungsstörungen und Schmerz» am 7./8. Juli 2023',
                 'template' => 'psychotherapists',
                 'subscriber'  => $s
               ]
