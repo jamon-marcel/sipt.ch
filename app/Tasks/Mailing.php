@@ -44,7 +44,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Einladung «PTBS, Somatische Belastungsstörungen und Schmerz» am 7./8. Juli 2023',
+                'subject' => 'Einladung «Akute Traumatisierung» am 21./22. Juli 2023',
                 'template' => 'consultants',
                 'subscriber'  => $s,
               ]
@@ -70,7 +70,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Einladung «PTBS, Somatische Belastungsstörungen und Schmerz» am 7./8. Juli 2023',
+                'subject' => 'Einladung «Akute Traumatisierung» am 21./22. Juli 2023',
                 'template' => 'educators',
                 'subscriber'  => $s,
               ]
@@ -96,7 +96,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Einladung «PTBS, Somatische Belastungsstörungen und Schmerz» am 7./8. Juli 2023',
+                'subject' => 'Einladung «Akute Traumatisierung» am 21./22. Juli 2023',
                 'template' => 'psychotherapists',
                 'subscriber'  => $s
               ]
