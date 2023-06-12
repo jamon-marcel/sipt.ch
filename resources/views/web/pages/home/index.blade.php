@@ -32,6 +32,7 @@
 
   <article>
     <h2>Integration einer traumaverarbeitenden Behandlung mit EMDR in ein psychodynamisches Behandlungskonzept</h2>
+    <p>Dr. med. Sabine Röcker ist Leitende Ärztin und Leiterin des Kompetenz-Teams für Traumabehandlung in der Privatklinik Hohenegg. Ihre therapeutische Ausrichtung ist integrativ und beziehungsorientiert. Am Beispiel von EMDR, einer weltweit anerkannten Methode der Traumakonfrontation, zeigt sie Teilnehmenden dieses neuen Moduls auf, wie die Arbeit mit einer traumaverarbeitenden Methode in eine psychodynamische Psychotherapie eingebettet werden kann.</p>
     <p>Dozentin: Sabine Röcker<br>Termin: 8./9.12.2023<br><a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/integration-einer-traumaverarbeitenden-behandlung-mit-emdr-in-ein-psychodynamisches-behandlungskonzep/5cd19b28-f7ca-4d0f-90fc-9ff8ce2b10ea" class="icon-arrow-right">mehr erfahren</a></p>
   </article>
 
