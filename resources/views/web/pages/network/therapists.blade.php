@@ -308,6 +308,14 @@
         <a href="mailto:info@artandflow.ch">info@artandflow.ch</a><br>
         (Krankenkasse Anerkennung mit Zusatzversicherung)</p>
         
+        <p><strong>Schnellmann, Eliana</strong><br>
+        Psychotherapeutische Psychologie MSc</strong><br>
+        Eidg. anerkannte Psychotherapeutin</strong><br>
+        Fachpsychotherapeutin für Psychotraumatologie SIPT</p>
+        <p>Die Psychologinnen<br>c/o Eliana Schnellmann<br>Dufourstrasse 161<br>8008 Zürich<br>Telefon: 077 / 465 98 67<br>
+        <a href="mailto:e.schnellmann@asp-hin.ch">e.schnellmann@asp-hin.ch</a><br>
+        (Kostenübernahme über die Grundversicherung der Krankenkasse möglich)</p>
+
         <p><strong>Dr. med. Steinegger, Brigitt</strong><br>
         Fachärztin für Psychiatrie und Psychotherapie; Psychoanalytikerin
         Technikumstr. 98<br>
