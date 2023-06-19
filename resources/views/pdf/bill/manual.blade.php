@@ -52,7 +52,6 @@
     </tr>
   </table>
   <table class="invoice-positions">
-    <thead>
       <tr>
         <td class="qty">Menge</td>
         <td class="unit">Einheit</td>
@@ -60,15 +59,16 @@
         <td class="description">Bezeichnung</td>
         <td class="price">Preis</td>
       </tr>
-    <thead>
     <tbody>
-      <td class="qty">1</td>
-      <td class="unit">Modul</td>
-      <td class="number">–</td>
-      <td class="description">
-        {{$invoice['description']}}
-      </td>
-      <td class="price">CHF {{$invoice['invoice_amount']}}</td>
+      <tr>
+        <td class="qty">1</td>
+        <td class="unit">Modul</td>
+        <td class="number">–</td>
+        <td class="description">
+          {{$invoice['description']}}
+        </td>
+        <td class="price">CHF {{$invoice['invoice_amount']}}</td>
+      </tr>
     </tbody>
   </table>
   <table class="invoice-total">
