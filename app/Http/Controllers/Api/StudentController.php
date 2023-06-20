@@ -57,13 +57,13 @@ class StudentController extends Controller
   /**
    * Get a single student for a given student or an authenticated student
    * 
-   * @param Student $student
+   * @param $studentId
    * @return \Illuminate\Http\Response
    */
-  public function find(Student $student)
+  public function find($studentId = NULL)
   {
     $student = auth()->user()->isAdmin()
-                ? $this->student->with('user')->findOrFail($student->id)
+                ? $this->student->with('user')->findOrFail($studentId)
                 : $this->student->with('user')->authenticated(auth()->user()->id);
 
     return response()->json($student);
@@ -155,14 +155,14 @@ class StudentController extends Controller
    * 
    * @param String $type
    * @param Integer $limit
-   * @param Student $student
+   * @param $studentId
    * @return \Illuminate\Http\Response
    */
-  public function getEvents($type = NULL, $limit = 1, Student $student)
+  public function getEvents($type = NULL, $limit = 1, $studentId = NULL)
   {
     // Get student by logged in user
     $student = auth()->user()->isAdmin()
-                ? $this->student->with('user')->findOrFail($student->id)
+                ? $this->student->with('user')->findOrFail($studentId)
                 : $this->student->with('user')->authenticated(auth()->user()->id);
 
     // Get events by type
@@ -217,14 +217,14 @@ class StudentController extends Controller
    * Get a course event for a given student or an authenticated student
    *
    * @param CourseEvent $courseEvent
-   * @param Student $student
+   * @param $studentId
    * @return \Illuminate\Http\Response
    */
-  public function getEvent(CourseEvent $courseEvent, Student $student)
+  public function getEvent(CourseEvent $courseEvent, $studentId = NULL)
   { 
     // Get student by logged in user
     $student = auth()->user()->isAdmin()
-                ? $this->student->with('user')->findOrFail($student->id)
+                ? $this->student->with('user')->findOrFail($studentId)
                 : $this->student->with('user')->authenticated(auth()->user()->id);
 
     // Get courseEvent with all related data
@@ -238,16 +238,16 @@ class StudentController extends Controller
   /**
    * Store a course event for given student or an authenticated user
    *
-   * @param Student $student
+   * @param $studentId
    * @param \Illuminate\Http\Request $request
    * @return \Illuminate\Http\Response
    */
 
-  public function storeEvent(StudentStoreCourseEventRequest $request, Student $student)
+  public function storeEvent(StudentStoreCourseEventRequest $request, $studentId = NULL)
   {
     // Get student
     $student = auth()->user()->isAdmin()
-                ? $this->student->with('user')->findOrFail($student->id)
+                ? $this->student->with('user')->findOrFail($studentId)
                 : $this->student->with('user')->authenticated(auth()->user()->id);
 
     // Create Course Event
@@ -277,13 +277,13 @@ class StudentController extends Controller
    * Remove a course event for given student or an authenticated user
    *
    * @param CourseEvent $courseEvent
-   * @param Student $student
+   * @param $studentId
    * @return \Illuminate\Http\Response
    */
-  public function destroyEvent(CourseEvent $courseEvent, Student $student)
+  public function destroyEvent(CourseEvent $courseEvent, $studentId = NULL)
   {
     $student = auth()->user()->isAdmin()
-                ? $this->student->findOrFail($student->id)
+                ? $this->student->findOrFail($studentId)
                 : $this->student->authenticated(auth()->user()->id);
 
     // Get record
