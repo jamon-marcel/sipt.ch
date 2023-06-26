@@ -37,6 +37,12 @@
   </article>
 
   <article>
+    <h2>Narrative Expositionstherapie NET</h2>
+    <p>Dr. rer. nat. M.A./MPH Elisabeth Kaiser ist im Leitenden Ausschuss und doziert an der Akademie für wissenschaftliche Weiterbildung der Universität Konstanz, wo sie auch in Klinischer Psychologie promoviert hat. Sie ist Expertin für Public Mental Health, spezialisiert auf den Bereich Psychotraumatologie und die psychologische Rehabilitation von schwerst-multiplen und komplex Traumatisierten. Seit 25 Jahren ist sie im Einsatz in Kriegs- und Krisengebieten zur wissenschaftlich-begleiteten Dissemination der Narrativen Expositionstherapie NET. Ihr Erfahrungen teilt sie im neuen Modul zur Einführung in die NET in ihren drei Schritten. Das Seminar bietet Möglichkeiten zum Austausch, Live-Anwendungen zu beobachten und zur Diskussion technisch-methodischer Fragestellungen.</p>
+    <p>Dozentin: Elisabeth Kaiser<br>Termin: 19./20.01.2024<br><a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/narrative-expositionstherapie-net/da683964-dcc0-43f0-abbe-532845a12b66" class="icon-arrow-right">mehr erfahren</a></p>
+  </article>
+
+  <article>
     <h2>Traum und Trauma </h2>
     <p>Dozent: Lutz Wittmann<br>Termin: 9./10.02.2024</p>
     <p>
