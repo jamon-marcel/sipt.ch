@@ -44,7 +44,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Einladung «Akute Traumatisierung» am 21./22. Juli 2023',
+                'subject' => 'Einladung «Narrative Expositionstherapie NET» am 19./20.01.2024',
                 'template' => 'consultants',
                 'subscriber'  => $s,
               ]
@@ -70,7 +70,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Einladung «Akute Traumatisierung» am 21./22. Juli 2023',
+                'subject' => 'Einladung «Narrative Expositionstherapie NET» am 19./20.01.2024',
                 'template' => 'educators',
                 'subscriber'  => $s,
               ]
@@ -96,7 +96,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Einladung «Akute Traumatisierung» am 21./22. Juli 2023',
+                'subject' => 'Einladung «Narrative Expositionstherapie NET» am 19./20.01.2024',
                 'template' => 'psychotherapists',
                 'subscriber'  => $s
               ]
