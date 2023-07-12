@@ -65,6 +65,21 @@ class DatabaseBackup extends Command
     // execute the command
     exec($command);
 
+    // delete all files in this folder that are older than 1 week
+    $files = glob($backup_folder . '/*');
+    $now   = time();
+
+    foreach ($files as $file)
+    {
+      if (is_file($file))
+      {
+        if ($now - filemtime($file) >= 60) // 60 * 60 * 24 * 7
+        {
+          unlink($file);
+        }
+      }
+    }
+
     // return success
     return self::SUCCESS;
 
