@@ -35,9 +35,6 @@ class DatabaseBackup extends Command
    */
   public function handle(): int
   {
-    // get the current time
-    $now = now();
-
     // get the database name
     $database = env('DB_DATABASE');
 
@@ -60,10 +57,10 @@ class DatabaseBackup extends Command
     }
 
     // create the file name
-    $file_name = $backup_folder . '/' . $now->format('Y-m-d-H-i-s') . '.sql';
+    $filename =  $backup_folder . '/' . "sipt-db-backup-" . Carbon::now()->format('Y-m-d') . ".gz";
 
     // create the command
-    $command = sprintf('mysqldump -u%s -p%s -h%s %s > %s', $username, $password, $host, $database, $file_name);
+    $command = "mysqldump --user=" . $username ." --password=" . $password . " --host=" . $host . " " . $database . "  | gzip > " . $filename;
 
     // execute the command
     exec($command);
