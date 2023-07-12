@@ -4,6 +4,7 @@ use App\Tasks\CourseEventBills;
 use App\Tasks\CourseEventInvitations;
 use App\Tasks\CourseEventReminder;
 use App\Tasks\Message;
+use App\Tasks\DatabaseBackup;
 use App\Tasks\Mailing;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -27,6 +28,8 @@ class Kernel extends ConsoleKernel
    */
   protected function schedule(Schedule $schedule)
   {
+    // $schedule->call(new DatabaseBackup)->everyHour();
+
     if (\App::environment('production'))
     {
       $schedule->call(new CourseEventBills)->everyMinute();
@@ -34,6 +37,7 @@ class Kernel extends ConsoleKernel
       $schedule->call(new CourseEventReminder)->everyMinute();
       $schedule->call(new Message)->everyMinute();
       $schedule->call(new Mailing)->everyMinute();
+      $schedule->call(new DatabaseBackup)->everyHour();
     }
   }
 
