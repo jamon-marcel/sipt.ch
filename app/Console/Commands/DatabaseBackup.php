@@ -57,7 +57,7 @@ class DatabaseBackup extends Command
     }
 
     // create the file name
-    $filename =  $backup_folder . '/' . "sipt-db-backup-" . Carbon::now()->format('Y-m-d') . ".gz";
+    $filename =  $backup_folder . '/' . "sipt-db-backup-" . \Carbon\Carbon::now()->format('Y-m-d') . ".gz";
 
     // create the command
     $command = "mysqldump --user=" . $username ." --password=" . $password . " --host=" . $host . " " . $database . "  | gzip > " . $filename;
