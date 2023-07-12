@@ -73,7 +73,7 @@ class DatabaseBackup extends Command
     {
       if (is_file($file))
       {
-        if ($now - filemtime($file) >= 60) // 60 * 60 * 24 * 7
+        if ($now - filemtime($file) >= 60 * 60 * 24 * 7)
         {
           unlink($file);
         }
