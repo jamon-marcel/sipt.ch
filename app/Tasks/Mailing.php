@@ -96,7 +96,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Einladung Grundkurs am 25./26. August 2023',
+                'subject' => 'Einladung «Einführung in MPTT» am 22./23. September 2023',
                 'template' => 'psychotherapists',
                 'subscriber'  => $s
               ]
