@@ -70,7 +70,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Vorbestellung offen für neues Buch «Trauma und Gegenübertragung»',
+                'subject' => 'Einladung «Kognitive, psychische und körperliche Beeinträchtigung – ein Einblick in die Traumapädagogik und Traumatherapie» am 13./14. Oktober 2023',
                 'template' => 'educators',
                 'subscriber'  => $s,
               ]
@@ -96,7 +96,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Vorbestellung offen für neues Buch «Trauma und Gegenübertragung»',
+                'subject' => 'Einladung «Methoden der Traumakonfrontation» am 13./14. Oktober 2023',
                 'template' => 'psychotherapists',
                 'subscriber'  => $s
               ]
