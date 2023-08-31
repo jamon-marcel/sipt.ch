@@ -6,4 +6,71 @@
   <x-header title="Das SIPT" />
   @include('web.pages.about.partials.list')
 </section>
+<section class="theme-medium">
+  <h3>Podcasts</h3>
+  <div class="sa-lg">
+    Erleben Sie unsere Dozierenden live.
+  </div>
+  <div class="sa-lg">
+    <strong>Podcast "Kurze Einführung"</strong><br>
+    <audio controls class="sb-sm">
+      <source src="/storage/audio/Podcast_Kurze_Einfuehrung.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+  <div class="sa-lg">
+    <strong>Interview mit Bea Götz</strong><br>
+    <audio controls class="sb-sm">
+      <source src="/storage/audio/Interview_Bea_Goetz.wav" type="audio/wav">
+    </audio>
+  </div>
+  <div class="sa-lg">
+    <strong>Interview mit Damir Del Monte </strong><br>
+    <audio controls class="sb-sm">
+      <source src="/storage/audio/Interview_Damir_Del_Monte.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+  <div class="sa-lg">
+    <strong>Interview mit Franz Holderegger</strong><br>
+    <audio controls class="sb-sm">
+      <source src="/storage/audio/Interview_Franz_Holderegger.wav" type="audio/wav">
+    </audio>
+  </div>
+  <div class="sa-lg">
+    <strong>Interview mit Maria Teresa Diez Grieser</strong><br>
+    <audio controls class="sb-sm">
+      <source src="/storage/audio/Interview_Maria_Teresa_Diez_Grieser.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+  <div class="sa-lg">
+    <strong>Interview mit Markus Rachl</strong><br>
+    <audio controls class="sb-sm">
+      <source src="/storage/audio/Interview_Markus_Rachl.wav" type="audio/wav">
+    </audio>
+  </div>
+  <div class="sa-lg">
+    <strong>Interview mit Prof. Dr. David Zimmermann</strong><br>
+    <audio controls class="sb-sm">
+      <source src="/storage/audio/Interview_Prof._Dr._David_Zimmermann.wav" type="audio/wav">
+    </audio>
+  </div>
+  <div class="sa-lg">
+    <strong>Interview mit Prof. Rosmarie Barwinski</strong><br>
+    <audio controls class="sb-sm">
+      <source src="/storage/audio/Interview_Prof._Rosmarie_Barwinki.wav" type="audio/wav">
+    </audio>
+  </div>
+  <div class="sa-lg">
+    <strong>Interview mit Ruth Monstein</strong><br>
+    <audio controls class="sb-sm">
+      <source src="/storage/audio/Interview_Ruth_Monstein.mp3" type="audio/mpeg">
+    </audio>
+  </div>
+  <div class="sa-lg">
+    <strong>Interview mit Thomas Weber</strong><br>
+    <audio controls class="sb-sm">
+      <source src="/storage/audio/Interview_Thomas_Weber.wav" type="audio/wav">
+    </audio>
+  </div>
+</section>
+
 @endsection
