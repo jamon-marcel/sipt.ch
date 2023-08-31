@@ -26,6 +26,13 @@
   </article>
 
   <article>
+    <h2>Podcasts</h2>
+    <p>Einige unserer Dozierenden können Sie neu im persönlichen Gespräch kennenlernen.<br>
+      <a href="{{ route('about_tutors') }}" class="icon-arrow-right">mehr erfahren</a>
+    </p>
+  </article>
+
+  <article>
     <h2>Neue Kursangebote</h2>
     <p>Gerne weisen wir auf <strong>aktuelle</strong> Kursangebote hin:</p>
   </article>
