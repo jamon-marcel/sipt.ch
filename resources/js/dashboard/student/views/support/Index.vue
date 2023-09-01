@@ -17,7 +17,7 @@
       </p>
       <p>
         <strong>Sekretariat</strong><br>
-        Beatrice Roncoroni und Nadine Raue<br>
+        Beatrice Roncoroni<br>
         E-Mail: <a href="mailto:r.barwinski@swissonline.ch">sekretariat@sipt.ch</a><br>
         Telefon: 071 886 48 24
       </p>

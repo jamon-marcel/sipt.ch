@@ -18,7 +18,7 @@
     <article>
       <h2>Administrative Fragen</h2>
       <p>
-        Beatrice Roncoroni und Nadine Raue<br>
+        Beatrice Roncoroni<br>
         Telefon: (0041) 071 – 886 48 24<br>
         E-Mail: <a href="mailto:sekretariat@sipt.ch" target="_blank">sekretariat@sipt.ch</a>
       </p>
