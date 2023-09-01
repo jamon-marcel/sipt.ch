@@ -51,15 +51,13 @@
     </tr>
   </table>
   <table class="invoice-positions">
-    <thead>
-      <tr>
-        <td class="qty">Menge</td>
-        <td class="unit">Einheit</td>
-        <td class="number">Kurs-Nr.</td>
-        <td class="description">Bezeichnung</td>
-        <td class="price">Preis</td>
-      </tr>
-    <thead>
+    <tr>
+      <td class="qty">Menge</td>
+      <td class="unit">Einheit</td>
+      <td class="number">Kurs-Nr.</td>
+      <td class="description">Bezeichnung</td>
+      <td class="price">Preis</td>
+    </tr>
     <tbody>
       <td class="qty">1</td>
       <td class="unit">Modul</td>
