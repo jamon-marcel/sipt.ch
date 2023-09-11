@@ -8,10 +8,27 @@
     <h2>Datenschutzbestimmungen des SIPT Schweizer Institut für Psychotraumatologie (nachfolgend SIPT)</h2>
     <p>Das SIPT freut sich über Ihr Interesse an unserer Website. Der Schutz Ihrer Personendaten bei der Erhebung, Verarbeitung und Nutzung anlässlich Ihres Besuchs auf unserer Website ist uns ein wichtiges Anliegen. Deshalb betreiben wir die Web-Aktivitäten in Übereinstimmung mit den Gesetzen zum Datenschutz und zur Datensicherheit. Damit das SIPT ihre Dienstleistungen kundenorientiert und sachgemäss zur Verfügung stellen kann, ist sie darauf angewiesen, Nutzerdaten erheben und nutzen zu dürfen.</p>
     <p>Mit der Nutzung unserer Website www.psychotraumatologie-sipt.ch und/oder mit der Anmeldung oder Annahme unserer Offerte akzeptieren Sie die nachfolgend beschriebene Datenbearbeitung von das SIPT.</p>
-    <h2>Erhebung und Verarbeitung von Daten</h2>
+    {{-- <h2>Erhebung und Verarbeitung von Daten</h2>
     <p>Das SIPT erfasst mit Hilfe üblicher Tools zur Datenerfassung, beispielsweise Cookies, Informationen über Besucher der Website. Jeder Zugriff auf die Website und jeder Abruf einer auf der Website hinterlegten Datei werden protokolliert. Die Speicherung dient internen systembezogenen und statistischen Zwecken. Protokolliert werden z.B. Name der abgerufenen Datei, Datum und Uhrzeit des Abrufs, übertragene Datenmenge, Meldung über erfolgreichen Abruf, Webbrowser und anfragende Domain. Zusätzlich werden die IP-Adressen der anfragenden Rechner protokolliert.</p>
     <h2>Welche Personendaten werden gesammelt</h2>
     <p>Personendaten werden nur erfasst, wenn Sie diese Angaben freiwillig machen, etwa wenn Sie sich für einen Kurs oder für ein mydigicomp-Konto registrieren. das SIPT fragt auch bei anderen Gelegenheiten nach persönlichen Informationen, z.B. wenn Sie an Gewinnspielen teilnehmen, Zusatzangebote nutzen oder wenn Sie das SIPT ein Anliegen mitteilen. das SIPT bewahrt ihre Korrespondenz auf.&nbsp;das SIPT speichert und verarbeitet persönliche Daten wie Vor - und Nachnamen,&nbsp; E-Mail Adressen, Zustell - und Rechnungsadressen und Telefonnummern.&nbsp;Ihre Daten werden solange aufbewahrt, wie sie dem Zweck der Leistungserfüllung dienen und unter Berücksichtigung von gesetzlichen Vorgaben wie namentlich Revisionspflichten.</p>
+     --}}
+    <h2>Erfassen von allgemeinen Daten und Informationen</h2>
+    <p>Mit jedem Aufruf unserer Webseite werden eine Reihe von allgemeinen Daten und Informationen erfasst, auch solche, die einen Personenbezug haben. Diese Daten und Informationen
+    werden in den Logfiles des Servers gespeichert. Erfasst werden können die verwendeten Browsertypen und Versionen, das vom zugreifenden System verwendete Betriebssystem, die
+    Webseite, von welcher ein zugreifendes System auf unsere Website gelangt (sogenannte Referrer), die Unterwebseiten, welche über ein zugreifendes System auf unserer Webseite angesteuert werden, das Datum und die Uhrzeit eines Zugriffs auf die Website, eine Internet-Protokoll-Adresse (IP-Adresse), der Internet -Service-Provider des zugreifenden Systems und sonstige
+    ähnliche Daten und Informationen, die der Gefahrenabwehr im Falle von Angriffen auf unsere IT-Infrastruktur dienen.</p>
+    <h2>Personendaten</h2>
+    <p>Personendaten sind Angaben, die sich auf bestimmte oder bestimmbare Personen beziehen. Die Bearbeitung umfasst jeden Umgang mit Personendaten, insbesondere das Aufbewahren,
+    Bekanntgeben, Beschaffen, Erheben, Löschen, Speichern, Verändern, Vernichten und Verwenden.</p>
+    
+    <h2>Art, Zweck und Umfang der Bearbeitung</h2>
+    <p>Mit der Nutzung dieser Webseite erklären Sie sich mit der Bearbeitung Ihrer Personendaten gemäss der vorliegenden Datenschutzerklärung einverstanden. Es werden nur solche Personendaten bearbeitet, die notwendig sind, um die Inhalte der Webseite korrekt darzustellen, die Inhalte der Webseite zu optimieren, die dauerhafte Funktionsfähigkeit der IT-Infrastruktur und der Technik der Webseite zu gewährleisten sowie um im Falle eines Cyberangriffs den Strafverfolgungsbehörden die notwendigen Informationen bereitzustellen. Die Personendaten werden für die Dauer bearbeitet, die für den eben erwähnten Zweck erforderlich ist. Personendaten, deren Bearbeitung nicht mehr erforderlich ist, werden anonymisiert oder gelöscht.</p>
+    
+    <h2>Datensicherheit und Haftung</h2>
+    <p>Es werden angemessene sowie geeignete technische und organisatorische Massnahmen getroffen, um den Datenschutz und die Datensicherheit zu gewährleisten. Trotz solcher Massnahmen kann es bei der Bearbeitung von Personendaten im Internet zu Verletzungen des Datenschutzes kommen. Daher können wir keine absolute Datensicherheit gewährleisten und lehnen jegliche Haftung bei der Nutzung dieser Webseite ab (auch für verlinkte Webseiten).</p>
+    
+    
     <h2>Nutzung und Weitergabe von Personendaten</h2>
     <p>Das SIPT erhebt und bearbeitet Personendaten und teilweise Daten zu Ihrem Lernerfolg, um ihre Leistungen kunden-orientiert und sachgemäss zur Verfügung stellen zu können. das SIPT speichert Personendaten insbesondere zu Identifikations-, Abrechnungs- und Marketingzwecken. Marketingzwecke schliessen Ankündigungen von Events, Wettbewerben und Umfragen sowie Informationen über Dienstleistungen und Produkte der das SIPT und ihrer Partner ein.</p>
     <p>Ihre Personendaten und teilweise Daten zu Ihrem Lernerfolg werden an Dritte, insbesondere an Cloud-Anbieter weitergegeben, wenn dies zum Zwecke der Kurs- und Vertragsabwicklung, der Abrechnung, der Identifikation oder des kundenorientierten Marketings erforderlich ist.</p>
