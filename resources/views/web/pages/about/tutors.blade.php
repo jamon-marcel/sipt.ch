@@ -48,13 +48,13 @@
     </audio>
   </div>
   <div class="sa-lg">
-    <strong>Interview mit Prof. Dr. David Zimmermann</strong><br>
+    <strong>Interview mit David Zimmermann</strong><br>
     <audio controls class="sb-sm">
       <source src="/storage/audio/Interview_Prof._Dr._David_Zimmermann.wav" type="audio/wav">
     </audio>
   </div>
   <div class="sa-lg">
-    <strong>Interview mit Prof. Rosmarie Barwinski</strong><br>
+    <strong>Interview mit Rosmarie Barwinski</strong><br>
     <audio controls class="sb-sm">
       <source src="/storage/audio/Interview_Prof._Rosmarie_Barwinki.wav" type="audio/wav">
     </audio>
