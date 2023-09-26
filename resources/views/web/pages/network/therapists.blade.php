@@ -377,6 +377,14 @@
         <a href="mailto:norbert.wolff@gmail.com">norbert.wolff@gmail.com</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
 
+        <p><strong>Lic. phil. Wälchli, Bettina</strong><br>
+        Fachpsychologin für Psychotherapie FSP<br>
+        WePractice<br>
+        Marktgasse 58<br>
+        8400 Winterthur<br> 
+        <a href="mailto:bettina.waelchli@psychologie.ch">bettina.waelchli@psychologie.ch</a><br>
+        +41 76 363 75 75</p>
+
         <p><strong>lic. phil. Susan Wipf</strong><br>
         Fachpsychologin für Psychotherapie FSP<br>
         Integrierte Suchthilfe Winterthur<br>
