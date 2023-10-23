@@ -60,6 +60,7 @@ class Mailing
       catch(\Throwable $e) {
         $s->error = $e;
         $s->is_processed = 1;
+        $s->save();
         $s->delete();
       }
     }
@@ -90,6 +91,7 @@ class Mailing
       catch(\Throwable $e) {
         $s->error = $e;
         $s->is_processed = 1;
+        $s->save();
         $s->delete();
       }
     }
@@ -120,6 +122,7 @@ class Mailing
       catch(\Throwable $e) {
         $s->error = $e;
         $s->is_processed = 1;
+        $s->save();
         $s->delete();
       }
     }
