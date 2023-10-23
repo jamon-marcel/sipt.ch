@@ -1,10 +1,6 @@
 @component('mail::message')
-<p>Liebe Kolleginnen und Kollegen</p>
-<p>Gerne machen wir Sie darauf aufmerksam, dass das neue <a href="https://bit.ly/3GIttK7" target="_blank" class="anchor" style="color: #ff7a00; text-decoration: none;">Buch</a> von SIPT Leiterin Rosmarie Barwinski bei Klett-Cotta nun publiziert wurde und bestellt werden kann.</p>
-<p>«Trauma und Gegenübertragung: Den Stand der Traumaverarbeitung erkennen und Behandlungsschritte planen» ist ein praxisnaher Leitfaden für alle PsychotherapeutInnen und andere Berufsgruppen, die mit traumatisierten Menschen arbeiten.</p>
-<p>Das Phänomen der Gegenübertragung kann dazu genutzt werden, die therapeutische Beziehung entwicklungsfördernd zu gestalten und den Verarbeitungsgrad traumatischer Ereignisse einzuschätzen. Wie, das stellt Rosmarie Barwinski konkret anhand verschiedener Methoden vor. So ist ein systematisches Vorgehen in dieser komplexen Problematik möglich.</p>
-<p>Mehr erfahren und bestellen: <a href="https://bit.ly/3GIttK7" target="_blank" class="anchor" style="color: #ff7a00; text-decoration: none;">https://bit.ly/3GIttK7 </a></p>
-<p>Beste Grüsse<br>SIPT</p><br>
+<p>Gerne machen wir Sie auf folgende Tagung aufmerksam, die unsere Dozentin Dr. rer. nat. Birgit Mayer mitorganisiert hat:</p>
+<p><strong>Trauma und Traumafolgestörung bei Menschen mit Beeinträchtigung Diagnostik, Therapie und Begleitung</strong></p>
+<p>Herzliche Grüsse<br>Prof. em. Dr. Rosmarie Barwinski<br>Leitung SIPT</p><br>
 <p style="font-size: 14px; margin-bottom: 0">Sie möchten keine News vom SIPT mehr erhalten? Klicken Sie bitte <span class="break-all"><a href="{{ route('mailinglist_cancel', ['mailinglistSubscriber' => $subscriber->id]) }}" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</span></p>
 @endcomponent
-

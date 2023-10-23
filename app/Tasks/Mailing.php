@@ -44,9 +44,13 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Publikation neues Buch «Trauma und Gegenübertragung»',
+                'subject' => '6. Impulstagung Trauma 09. November 2023 in Illnau',
                 'template' => 'consultants',
                 'subscriber'  => $s,
+                'attachments' => [
+                  public_path() . '/storage/downloads/' . 'sipt.ch-Flyer_6._Impulstagung_Trauma_09.11.23.pdf',
+                  public_path() . '/storage/downloads/' . 'sipt.ch-Informationen_zu_den_Beiträgen_und_den_Referenten.pdf',
+                ]
               ]
               )
             );
@@ -70,9 +74,13 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Publikation neues Buch «Trauma und Gegenübertragung»',
+                'subject' => '6. Impulstagung Trauma 09. November 2023 in Illnau',
                 'template' => 'educators',
                 'subscriber'  => $s,
+                'attachments' => [
+                  public_path() . '/storage/downloads/' . 'sipt.ch-Flyer_6._Impulstagung_Trauma_09.11.23.pdf',
+                  public_path() . '/storage/downloads/' . 'sipt.ch-Informationen_zu_den_Beiträgen_und_den_Referenten.pdf',
+                ]
               ]
             )
         );
@@ -96,9 +104,13 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Publikation neues Buch «Trauma und Gegenübertragung»',
+                'subject' => '6. Impulstagung Trauma 09. November 2023 in Illnau',
                 'template' => 'psychotherapists',
-                'subscriber'  => $s
+                'subscriber'  => $s,
+                'attachments' => [
+                  public_path() . '/storage/downloads/' . 'sipt.ch-Flyer_6._Impulstagung_Trauma_09.11.23.pdf',
+                  public_path() . '/storage/downloads/' . 'sipt.ch-Informationen_zu_den_Beiträgen_und_den_Referenten.pdf',
+                ]
               ]
             )
         );
