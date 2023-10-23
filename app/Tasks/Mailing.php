@@ -49,7 +49,7 @@ class Mailing
                 'subscriber'  => $s,
                 'attachments' => [
                   public_path() . '/storage/downloads/' . 'sipt.ch-Flyer_6._Impulstagung_Trauma_09.11.23.pdf',
-                  public_path() . '/storage/downloads/' . 'sipt.ch-Informationen_zu_den_Beiträgen_und_den_Referenten.pdf',
+                  public_path() . '/storage/downloads/' . 'sipt.ch-Informationen_zu_den_Beitraegen_und_den_Referenten.pdf',
                 ]
               ]
               )
@@ -80,7 +80,7 @@ class Mailing
                 'subscriber'  => $s,
                 'attachments' => [
                   public_path() . '/storage/downloads/' . 'sipt.ch-Flyer_6._Impulstagung_Trauma_09.11.23.pdf',
-                  public_path() . '/storage/downloads/' . 'sipt.ch-Informationen_zu_den_Beiträgen_und_den_Referenten.pdf',
+                  public_path() . '/storage/downloads/' . 'sipt.ch-Informationen_zu_den_Beitraegen_und_den_Referenten.pdf',
                 ]
               ]
             )
@@ -111,7 +111,7 @@ class Mailing
                 'subscriber'  => $s,
                 'attachments' => [
                   public_path() . '/storage/downloads/' . 'sipt.ch-Flyer_6._Impulstagung_Trauma_09.11.23.pdf',
-                  public_path() . '/storage/downloads/' . 'sipt.ch-Informationen_zu_den_Beiträgen_und_den_Referenten.pdf',
+                  public_path() . '/storage/downloads/' . 'sipt.ch-Informationen_zu_den_Beitraegen_und_den_Referenten.pdf',
                 ]
               ]
             )
