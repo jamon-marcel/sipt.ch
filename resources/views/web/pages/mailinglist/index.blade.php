@@ -6,23 +6,6 @@
   <x-header title="Newsletter & Aktuelles" />
 
   <article>
-    <h2>Haltung und Stellungnahme des SIPT zum Untersuchungsbericht der Clienia Littenheid AG vom 27.10.2022 </h2>
-    <p>Das SIPT hat mehrfach zum Untersuchungsbericht zur Clienia Littenheid AG vom 27.10.2022 Stellung gegenüber dem Gesundheitsamt des Kantons Thurgau bezogen. Bisher wurden alle Anfragen zur Korrektur faktenwidriger und irreführender Ausführungen bezüglich des SIPT mit sehr oberflächlichen und unbegründeten Argumenten zurückgewiesen. Um unsere Sicht darzustellen, haben wir uns dazu entschlossen, unsere Bemühungen zur Richtigstellung der offensichtlich faktenwidrigen Aussagen auf unserer Homepage für unsere FortbildungsteilnehmerInnen zugänglich zu machen.</p>
-    <a href="/storage/downloads/sipt-Haltung-und-Stellungnahme-des-SIPT-zum-Untersuchungsbericht-der-Clienia-Littenheid-AG-vom-27.10.2022.pdf" target="_blank" class="btn-download" title="Download PDF">
-      <strong>Stellungnahme zum Untersuchungsbericht</strong> [PDF, 69 KB]
-    </a>
-  </article>
-
-  <article>
-    <h2>Stellungnahme des SIPT zu Medienberichten zum Thema rituelle Gewalt</h2>
-    <p>In den vergangenen Monaten haben verschiedene Medienberichte wichtige Fragen zum Thema rituelle Gewalt aufgeworfen. Gerne nehmen wir dazu Stellung.<br>SIPT grenzt sich klar von jeglichen Verschwörungstheorien von ritueller Gewalt und den in diesem Zusammenhang propagieren Methoden ab. Das SIPT setzt sich für Anliegen von Traumaopfern ein und bietet Fortbildungen für verschiedene Berufsgruppen an, die in ihrer Arbeit mit traumatisierten Menschen konfrontiert sind. Im Fortbildungsangebot des SIPT stehen psychodynamische Konzepte im Vordergrund.</p>
-    <a href="/storage/downloads/sipt-Stellungnahme-des-SIPT-zu-Medienberichten-zum-Thema-rituelle-Gewalt.pdf" target="_blank" class="btn-download" title="Download PDF">
-      <strong>Stellungnahme zu Medienberichten</strong> [PDF, 55 KB]
-    </a>
-  </article>
-
-
-  <article>
     <h2>Aufbau-Tipp</h2>
     <p>Das SIPT wünscht Ihnen in Ihrer Tätigkeit viele kleine positive Momente – Momente, die wir alle brauchen, um die Belastungen unserer Tätigkeit, aber auch das aktuelle Zeitgeschehen zu verarbeiten. Mit kurzen „Aufbau-Tipps” will das SIPT in unregelmässigen Abständen zu solchen Momenten beitragen.</p>
   </article>
