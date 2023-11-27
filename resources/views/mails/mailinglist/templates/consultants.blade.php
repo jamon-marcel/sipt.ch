@@ -1,7 +1,10 @@
 @component('mail::message')
 <p>Liebe Kolleginnen und Kollegen</p>
-<p>Gerne machen wir Sie auf folgende Tagung aufmerksam, die unsere Dozentin Dr. rer. nat. Birgit Mayer mitorganisiert hat:</p>
-<p><strong>Trauma und Traumafolgestörung bei Menschen mit Beeinträchtigung Diagnostik, Therapie und Begleitung</strong></p>
-<p>Herzliche Grüsse<br>Prof. em. Dr. Rosmarie Barwinski<br>Leitung SIPT</p><br>
+<p>Gerne machen wir Sie auf das Modul <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/migration-und-trauma-transkulturelle-und-traumatherapeutische-kompetenzen-in-der-behandlung-und-beratung-von-gefluechteten-und-menschen-mit-migrationshintergrund-fakultativ/a9690678-91f1-4531-8c49-e4ecec12d088" class="anchor" style="color: #ff7a00; text-decoration: none;">«Migration und Trauma»</a> aufmerksam, welches dieses Jahr noch am 1./2. Dezember 2023 stattfindet.</p>
+<p>SIPT-Dozent und erfahrener psychoanalytischer Psychotherapeut Oliver Schwald wird Ihre Handlungskompetenz im Kontakt mit Menschen mit Migrationshintergrund stärken und eine transkulturelle Perspektive ermöglichen.</p>
+<p>Lösungen werden erarbeitet, die Sie in Ihren Arbeitsfeldern unterstützen, speziell im Umgang mit der sogenannten vierten traumatischen Sequenz, in der sich Geflüchtete befinden, solange das Asylverfahren nicht abgeschlossen ist. Diese Phase erzeugt einen besonders grossen Handlungsdruck. Sie üben Traumafolgen einzuordnen, Distanzierungstechniken und andere Interventionen für den Vertrauensaufbau kennen.</p>
+Sie möchten ein traumainformiertes Vorgehen abgestimmt auf Ihren jeweiligen Arbeitskontext erlernen?</p>
+<p>Wir freuen uns über Ihre Anmeldung <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/migration-und-trauma-transkulturelle-und-traumatherapeutische-kompetenzen-in-der-behandlung-und-beratung-von-gefluechteten-und-menschen-mit-migrationshintergrund-fakultativ/a9690678-91f1-4531-8c49-e4ecec12d088" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</p>
+<p>Beste Grüsse<br>Rosmarie Barwinski</p><br>
 <p style="font-size: 14px; margin-bottom: 0">Sie möchten keine News vom SIPT mehr erhalten? Klicken Sie bitte <span class="break-all"><a href="{{ route('mailinglist_cancel', ['mailinglistSubscriber' => $subscriber->id]) }}" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</span></p>
 @endcomponent
