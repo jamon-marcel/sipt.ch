@@ -20,7 +20,7 @@ class StudentAddressesExport implements FromCollection, WithHeadings
       // Get user
       $user = User::find($s->user->id);
       $email = $user->email ? $user->email : 'noemail';
-      $active = $s->is_active ? 'ja' : 'nein';
+      $active = $s->is_active ? '1' : '0';
       $data[] = [
         'Name' => $s->name,
         'Vorname' => $s->firstname,
