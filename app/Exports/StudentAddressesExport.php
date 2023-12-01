@@ -36,8 +36,8 @@ class StudentAddressesExport implements FromCollection, WithHeadings
         'Mobile' => $s->mobile,
         'E-Mail' => $email,
         'Aktiv' => $active,
-        'Newsletter' => MailinglistSubscriber::where('email', $email)->where('mailinglist_id', env('MAILINGLIST_NEWSLETTER'))->first() ? 1 : 0,
-        'Aufbautipp' => $user->is_newsletter_subscriber ? 1 : 0
+        'Newsletter' => MailinglistSubscriber::where('email', $email)->where('mailinglist_id', env('MAILINGLIST_NEWSLETTER'))->first() ? '1' : '0',
+        'Aufbautipp' => $user->is_newsletter_subscriber ? '1' : '0'
       ];
     }
     return collect($data);
@@ -60,7 +60,8 @@ class StudentAddressesExport implements FromCollection, WithHeadings
       'Mobile',
       'E-Mail',
       'Aktiv',
-      'Newsletter'
+      'Newsletter',
+      'Aufbautipp'
     ];
   }
 }
