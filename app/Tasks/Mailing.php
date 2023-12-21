@@ -15,7 +15,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'SIPT Aufbautipp Nr. 9/2023',
+                'subject' => 'SIPT Aufbautipp Nr. 10/2023',
                 'template' => 'newsletter',
                 'subscriber'  => $s,
                 'attachments' => [
