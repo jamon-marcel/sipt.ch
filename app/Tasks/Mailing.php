@@ -19,7 +19,7 @@ class Mailing
                 'template' => 'newsletter',
                 'subscriber'  => $s,
                 'attachments' => [
-                  public_path() . '/storage/downloads/' . 'sipt-aufbau_09.pdf',
+                  public_path() . '/storage/downloads/' . 'sipt-aufbau_10.pdf',
                 ]
               ]
               )
