@@ -38,15 +38,10 @@
   </article>
 
   <article>
-    <h2>Integration einer traumaverarbeitenden Behandlung mit EMDR in ein psychodynamisches Behandlungskonzept</h2>
-    <p>Dr. med. Sabine Röcker ist Leitende Ärztin und Leiterin des Kompetenz-Teams für Traumabehandlung in der Privatklinik Hohenegg. Ihre therapeutische Ausrichtung ist integrativ und beziehungsorientiert. Am Beispiel von EMDR, einer weltweit anerkannten Methode der Traumakonfrontation, zeigt sie Teilnehmenden dieses neuen Moduls auf, wie die Arbeit mit einer traumaverarbeitenden Methode in eine psychodynamische Psychotherapie eingebettet werden kann.</p>
-    <p>Dozentin: Sabine Röcker<br>Termin: 8./9.12.2023<br><a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/integration-einer-traumaverarbeitenden-behandlung-mit-emdr-in-ein-psychodynamisches-behandlungskonzep/5cd19b28-f7ca-4d0f-90fc-9ff8ce2b10ea" class="icon-arrow-right">mehr erfahren</a></p>
-  </article>
-
-  <article>
-    <h2>Narrative Expositionstherapie NET</h2>
-    <p>Dr. rer. nat. M.A./MPH Elisabeth Kaiser ist im Leitenden Ausschuss und doziert an der Akademie für wissenschaftliche Weiterbildung der Universität Konstanz, wo sie auch in Klinischer Psychologie promoviert hat. Sie ist Expertin für Public Mental Health, spezialisiert auf den Bereich Psychotraumatologie und die psychologische Rehabilitation von schwerst-multiplen und komplex Traumatisierten. Seit 25 Jahren ist sie im Einsatz in Kriegs- und Krisengebieten zur wissenschaftlich-begleiteten Dissemination der Narrativen Expositionstherapie NET. Ihre Erfahrungen teilt sie im neuen Modul zur Einführung in die NET in ihren drei Schritten. Das Seminar bietet Möglichkeiten zum Austausch, Live-Anwendungen zu beobachten und zur Diskussion technisch-methodischer Fragestellungen.</p>
-    <p>Dozentin: Elisabeth Kaiser<br>Termin: 19./20.01.2024<br><a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/narrative-expositionstherapie-net/da683964-dcc0-43f0-abbe-532845a12b66" class="icon-arrow-right">mehr erfahren</a></p>
+    <h2>„Das Monster in mir“ – eine Aussage eines 8 j. Jungen</h2>
+    <p>Der Kampf zwischen dem „Ich von Heute und Hier“ und den Täterintrojekten aus den traumatischen Situationen von damals und dort stehen im Mittelpunkt des Seminars.</p>
+    <p>Die Begriffe: Täterintrojekt und täterinfizierte Anteile werden anhand von Fallbeispielen diskutiert.<br>Schwerpunkte werden der Umgang im pädagogischen Alltag und in der Therapie sowie der Schutz vor Eskalation sein. Die bösartigen Introjekte und deren selbstzerstörerische Wirkungen zu erkennen und zu begrenzen ist ebenfalls Inhalt des Seminars.<br>Eigene Beispiele der Teilnehmer*innen sind sehr willkommen.</p>
+    <p>Dozentin: Natascha Unfried<br>Termin: 4./5.10.2024<br><a href="" class="icon-arrow-right">mehr erfahren</a></p>
   </article>
 
   <article>
@@ -57,7 +52,6 @@
       <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/traum-und-trauma-fakultativ/2058beb2-2ab8-4ce9-b0df-28d257498635" class="icon-arrow-right">mehr erfahren</a>
     </p>
   </article>
-  
 
 </section>
 <section class="theme-medium order-2 splash visual">
