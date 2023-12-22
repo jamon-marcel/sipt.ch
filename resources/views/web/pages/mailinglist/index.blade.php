@@ -11,6 +11,16 @@
   </article>
 
   <article>
+    <a href="/storage/downloads/sipt-aufbau_10.pdf" target="_blank" class="btn-download" title="Download PDF">
+      <strong>Aufbau-Tipp Nr. 10 / Dezember 2023</strong>
+    </a>
+    <div class="list">
+      <div class="list__item">Eulenhäuser und Stadtumbau am Rhein</div>
+      <div class="list__item">Eine Winter – Frühlings – Sommer – Herbst – Wanderungg</div>
+    </div>
+  </article>
+
+  <article>
     <a href="/storage/downloads/sipt-aufbau_09.pdf" target="_blank" class="btn-download" title="Download PDF">
       <strong>Aufbau-Tipp Nr. 9 / Mai 2023</strong>
     </a>
