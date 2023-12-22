@@ -37,11 +37,12 @@
     <p>Gerne weisen wir auf <strong>aktuelle</strong> Kursangebote hin:</p>
   </article>
 
+
   <article>
     <h2>„Das Monster in mir“ – eine Aussage eines 8 j. Jungen</h2>
+    <p>Dozentin: Natascha Unfried<br>Termin: 4./5.10.2024</p>
     <p>Der Kampf zwischen dem „Ich von Heute und Hier“ und den Täterintrojekten aus den traumatischen Situationen von damals und dort stehen im Mittelpunkt des Seminars.</p>
-    <p>Die Begriffe: Täterintrojekt und täterinfizierte Anteile werden anhand von Fallbeispielen diskutiert.<br>Schwerpunkte werden der Umgang im pädagogischen Alltag und in der Therapie sowie der Schutz vor Eskalation sein. Die bösartigen Introjekte und deren selbstzerstörerische Wirkungen zu erkennen und zu begrenzen ist ebenfalls Inhalt des Seminars.<br>Eigene Beispiele der Teilnehmer*innen sind sehr willkommen.</p>
-    <p>Dozentin: Natascha Unfried<br>Termin: 4./5.10.2024<br><a href="" class="icon-arrow-right">mehr erfahren</a></p>
+    <p>Die Begriffe: Täterintrojekt und täterinfizierte Anteile werden anhand von Fallbeispielen diskutiert.<br>Schwerpunkte werden der Umgang im pädagogischen Alltag und in der Therapie sowie der Schutz vor Eskalation sein. Die bösartigen Introjekte und deren selbstzerstörerische Wirkungen zu erkennen und zu begrenzen ist ebenfalls Inhalt des Seminars.<br>Eigene Beispiele der Teilnehmer*innen sind sehr willkommen.<br><a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/das-monster-in-mir-eine-aussage-eines-8-j-jungen/3f48de9f-b735-4773-914d-776e16f29fa0" class="icon-arrow-right">mehr erfahren</a></p>
   </article>
 
   <article>
@@ -52,6 +53,7 @@
       <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/traum-und-trauma-fakultativ/2058beb2-2ab8-4ce9-b0df-28d257498635" class="icon-arrow-right">mehr erfahren</a>
     </p>
   </article>
+  
 
 </section>
 <section class="theme-medium order-2 splash visual">
