@@ -104,7 +104,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Einladung «Traum und Trauma» am 9./10. Februar 2024',
+                'subject' => 'Einladung «Stabilisierung in der Traumatherapie» am 26./27. Januar 2024',
                 'template' => 'psychotherapists',
                 'subscriber'  => $s,
                 // 'attachments' => [
