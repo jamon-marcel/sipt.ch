@@ -44,7 +44,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Einladung «Migration und Trauma» am 1./2. Dezember 2023',
+                'subject' => 'Einladung «Sucht und Trauma» am 23./24. Februar 2024',
                 'template' => 'consultants',
                 'subscriber'  => $s,
                 // 'attachments' => [
@@ -74,7 +74,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Einladung «Migration und Trauma» am 1./2. Dezember 2023',
+                'subject' => 'Einladung «Sucht und Trauma» am 23./24. Februar 2024',
                 'template' => 'educators',
                 'subscriber'  => $s,
                 // 'attachments' => [
@@ -104,7 +104,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Einladung «Stabilisierung in der Traumatherapie» am 26./27. Januar 2024',
+                'subject' => 'Einladung «Sucht und Trauma» am 23./24. Februar 2024',
                 'template' => 'psychotherapists',
                 'subscriber'  => $s,
                 // 'attachments' => [
