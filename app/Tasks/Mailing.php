@@ -74,7 +74,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Einladung «Sucht und Trauma» am 23./24. Februar 2024',
+                'subject' => '«Spezielle Psychotraumatologie der Entwicklung: Vernachlässigung und Misshandlung in der Familie» am 2./3. Februar 2024',
                 'template' => 'educators',
                 'subscriber'  => $s,
                 // 'attachments' => [
