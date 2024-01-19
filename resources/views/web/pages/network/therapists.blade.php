@@ -128,6 +128,15 @@
           <a href="mailto:zpg.binningen@pbl.ch">zpg.binningen@pbl.ch</a><br>
           <a href="https://www.pbl.ch/zentrum-fuer-psychische-gesundheit-binningen-4" target="_blank">pbl.ch</a></p>
 
+        <p><strong>Gossweiler, Daniela</strong><br>
+          Eidg. anerkannte Psychotherapeutin<br>
+          Leitende Psychologin Psychologische Beratung und Begleitung<br>
+          PsychoSozialer Dienst AOZ <br>
+          Eggbühlstrasse 15<br>
+          8050 Zürich<br>
+          044 415 66 99<br>
+          <a href="mailto:daniela.gossweiler@aoz.ch" target="_blank">daniela.gossweiler@aoz.ch</a>
+        </p>
 
           <p>
             <strong>Christina Haeny</strong><br>
