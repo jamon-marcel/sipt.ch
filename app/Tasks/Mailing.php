@@ -44,7 +44,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Einladung «Vertiefungsmodul: Therapie mit komplextraumatisierten PatientInnen», 15./16. März 2024',
+                'subject' => 'Einladung «So vertiefen Sie Ihr psychodynamisches Fallverständnis», 14./15. Juni 2024',
                 'template' => 'consultants',
                 'subscriber'  => $s,
                 // 'attachments' => [
@@ -74,7 +74,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Einladung «Vertiefungsmodul: Therapie mit komplextraumatisierten PatientInnen», 15./16. März 2024',
+                'subject' => 'Einladung «So vertiefen Sie Ihr psychodynamisches Fallverständnis», 14./15. Juni 2024',
                 'template' => 'educators',
                 'subscriber'  => $s,
                 // 'attachments' => [
@@ -104,7 +104,7 @@ class Mailing
           ->send(
             new \App\Mail\Mailing(
               [
-                'subject' => 'Einladung «Vertiefungsmodul: Therapie mit komplextraumatisierten PatientInnen», 15./16. März 2024',
+                'subject' => 'Einladung «So vertiefen Sie Ihr psychodynamisches Fallverständnis», 14./15. Juni 2024',
                 'template' => 'psychotherapists',
                 'subscriber'  => $s,
                 // 'attachments' => [
