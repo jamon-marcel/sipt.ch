@@ -5,5 +5,5 @@
 <p>Sie möchten die eigenen Kompetenzen für die Psychotherapie komplextraumatisierter Menschen erweitern?</p>
 <p>Wir freuen uns über Ihre Anmeldung <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/vertiefungsmodul-therapie-mit-komplextraumatisierten-patient-innen/8cbc21b6-2be7-4a8b-aab6-6d56fa6f0bc6" target="_blank" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</p>
 <p>Beste Grüsse<br>Rosmarie Barwinski</p><br>
-<p style="font-size: 14px; margin-bottom: 0">Sie erhalten diese Mail, da Sie die den Newseltter «Fachbereich Psychotherapeuten» abonniert haben. Sie möchten keine News vom SIPT mehr erhalten? Klicken Sie bitte <span class="break-all"><a href="{{ route('mailinglist_cancel', ['mailinglistSubscriber' => $subscriber->id]) }}" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</span></p>
+<p style="font-size: 14px; margin-bottom: 0">Sie erhalten diese Mail, da Sie die den Newsletter «Fachbereich Psychotherapeuten» abonniert haben. Sie möchten keine News vom SIPT mehr erhalten? Klicken Sie bitte <span class="break-all"><a href="{{ route('mailinglist_cancel', ['mailinglistSubscriber' => $subscriber->id]) }}" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</span></p>
 @endcomponent

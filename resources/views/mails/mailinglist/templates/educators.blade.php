@@ -5,5 +5,5 @@
 <p>Sie möchten insbesondere auch Ihre Absprachefähigkeit mit den jeweiligen Behandelnden in Ambulatorien und von Akutstationen erhöhen?</p>
 <p>Wir freuen uns über Ihre Anmeldung <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/umgang-mit-traumatisierten-patienten-mit-akuter-selbstverletzungsuizidalitaet-im-ambulanten-und-stationaeren-setting-fakultativ/42a3a809-c607-43f3-8d6a-15e702f4120b" target="_blank" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</p>
 <p>Beste Grüsse<br>Rosmarie Barwinski</p><br>
-<p style="font-size: 14px; margin-bottom: 0">Sie möchten keine News vom SIPT mehr erhalten? Klicken Sie bitte <span class="break-all"><a href="{{ route('mailinglist_cancel', ['mailinglistSubscriber' => $subscriber->id]) }}" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</span></p>
+<p style="font-size: 14px; margin-bottom: 0">Sie erhalten diese Mail, da Sie die den Newsletter «Fachbereich Pädagogen» abonniert haben. Sie möchten keine News vom SIPT mehr erhalten? Klicken Sie bitte <span class="break-all"><a href="{{ route('mailinglist_cancel', ['mailinglistSubscriber' => $subscriber->id]) }}" class="anchor" style="color: #ff7a00; text-decoration: none;">hier</a>.</span></p>
 @endcomponent
