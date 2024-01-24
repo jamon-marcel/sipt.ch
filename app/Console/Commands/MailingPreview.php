@@ -47,7 +47,9 @@ class MailingPreview extends Command
     $mailinglist = Mailinglist::where('description', $mailinglist)->first();
 
     // ask for email address
-    $email = $this->ask('Email address?');
+    // $email = $this->ask('Email address?');
+
+    $email = $this->choice('Email address?', ['m@marceli.to', 'faehlea@gmail.com']);
 
     // find subscriber by email address
     $subscriber = MailinglistSubscriber::where('email', $email)->where('mailinglist_id', $mailinglist->id)->first();
