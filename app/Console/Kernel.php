@@ -6,6 +6,7 @@ use App\Tasks\CourseEventReminder;
 use App\Tasks\Message;
 use App\Tasks\DatabaseBackup;
 use App\Tasks\Mailing;
+use App\Tasks\MailingQueue;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -28,6 +29,8 @@ class Kernel extends ConsoleKernel
    */
   protected function schedule(Schedule $schedule)
   {
+    $schedule->call(new MailingQueue)->everyMinute();
+
     if (\App::environment('production'))
     {
       $schedule->call(new CourseEventBills)->everyMinute();

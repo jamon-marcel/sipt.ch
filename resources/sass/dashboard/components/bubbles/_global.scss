@@ -44,15 +44,36 @@
   opacity: 1 !important;
 }
 
-.bubble-info {
+.bubble-info,
+.bubble-mailing,
+.bubble-mailing-process {
   @extend %bubble;
   background-color: $color-info;
   margin-left: 10px;
   opacity: 1 !important;
 }
 
+.bubble-mailing,
+.bubble-mailing-process {
+  background-color: $color-info;
+  font-size: 12px;
+  margin-left: 0;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.bubble-mailing-process {
+  background-color: $color-warning;
+  margin-left: -5px;
+
+  &.is-done {
+    background-color: $color-success;
+  }
+}
+
 .bubble-success {
   @extend %bubble;
+
   background-color: $color-green;
   margin-left: 10px;
   opacity: 1 !important;

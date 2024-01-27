@@ -20,6 +20,7 @@
 .sa-md  { @include responsive-prop('margin-bottom', $space-md); }
 .sa-lg  { @include responsive-prop('margin-bottom', $space-lg); }
 .sa-xl  { @include responsive-prop('margin-bottom', $space-xl); }
+.sb-none { margin-bottom: 0 !important; }
 
 .sb-xxs { @include responsive-prop('margin-top', $space-xxs); }
 .sb-xs  { @include responsive-prop('margin-top', $space-xs); }
@@ -27,8 +28,19 @@
 .sb-md  { @include responsive-prop('margin-top', $space-md); }
 .sb-lg  { @include responsive-prop('margin-top', $space-lg); }
 .sb-xl  { @include responsive-prop('margin-top', $space-xl); }
+.sb-none { margin-top: 0 !important; }
+
+.pt-sm  { @include responsive-prop('padding-top', $space-sm); }
 
 .color-success { color: $color-success; }
 .color-info { color: $color-info; }
 .color-warning { color: $color-warning; }
 .color-danger { color: $color-danger; }
+
+.border-top {
+  border-top: 1px solid $color-primary;
+}
+
+.border-top-2 {
+  border-top: 2px solid $color-light;
+}

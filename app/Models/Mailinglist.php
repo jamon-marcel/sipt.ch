@@ -6,6 +6,16 @@ class Mailinglist extends Model
 {
   protected $fillable = [
     'description',
-    'order'
+    'order',
 	];
+
+  public function mailings()
+  {
+    return $this->belongsToMany(Mailing::class, 'mailing_mailinglist');
+  }
+
+  public function subscribers()
+  {
+    return $this->hasMany(MailinglistSubscriber::class);
+  }
 }

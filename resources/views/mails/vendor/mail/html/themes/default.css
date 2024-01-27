@@ -262,3 +262,8 @@ a.anchor {
   text-align: left;
   vertical-align: top
 }
+
+.content-cell a {
+  color: #ff7a00 !important; 
+  text-decoration: none !important;
+}

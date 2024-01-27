@@ -16,6 +16,10 @@
 	&.is-sm {
 		@include responsive-prop('margin-bottom', $space-sm);
 	}
+
+	&.is-xs {
+		@include responsive-prop('margin-bottom', $space-xs);
+	}
 }
 
 .form-row-grid {

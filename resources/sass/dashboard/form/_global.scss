@@ -50,6 +50,11 @@
  
  textarea {
 	 height: 150px;
+
+   &.small {
+     min-height: 100px;
+     height: auto;
+   }
  }
  
  select {

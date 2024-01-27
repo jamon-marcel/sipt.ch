@@ -1,0 +1,27 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/alert/global
+ * -----------------------------------------------------------------------------
+ */
+
+.alert {
+  border: 2px solid $color-danger;
+  background-color: rgba(218, 44, 56, .15);
+  border-radius: 2px;
+  @include responsive-prop('padding', $space-xs); 
+  @include responsive-prop('padding-bottom', $space-sm); 
+
+  h2 {
+    text-transform: uppercase;
+    @include responsive-prop('margin-bottom', $space-xxs); 
+  }
+
+  .btn-primary {
+    background-color: $color-danger !important;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: darken($color-danger, 10%) !important;
+    }
+  }
+}

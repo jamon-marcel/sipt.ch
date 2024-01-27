@@ -11,9 +11,17 @@ use Illuminate\Http\Request;
 
 class MailinglistController extends Controller
 {
-  public function get()
+  public function get($subscriberCount = FALSE)
   {
-    return new DataCollection(Mailinglist::orderBy('order')->get());
+    if ($subscriberCount)
+    {
+      return new DataCollection(
+        Mailinglist::withCount('subscribers')->orderBy('order')->get()
+      );
+    }
+    return new DataCollection(
+      Mailinglist::orderBy('order')->get()
+    );
   }
 
   public function getSubscriptions($email = NULL, GetSubscriptions $getSubscriptions)

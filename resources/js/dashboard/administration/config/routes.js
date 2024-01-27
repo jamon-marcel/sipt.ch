@@ -24,6 +24,11 @@ import LocationIndex from '@/administration/views/location/Index.vue';
 import LocationCreate from '@/administration/views/location/Create.vue';
 import LocationEdit from '@/administration/views/location/Edit.vue';
 
+import MailingIndex from '@/administration/views/mailing/Index.vue';
+import MailingCreate from '@/administration/views/mailing/Create.vue';
+import MailingEdit from '@/administration/views/mailing/Edit.vue';
+import MailingQueue from '@/administration/views/mailing/Queue.vue';
+
 import StudentsIndex from '@/administration/views/student/Index.vue';
 import StudentCourseEvents from '@/administration/views/student/course_events/Index.vue';
 import StudentProfile from '@/administration/views/student/profile/Index.vue';
@@ -147,6 +152,28 @@ const routes = [
     name: 'location-edit',
     path: '/administration/location/edit/:id',
     component: LocationEdit,
+  },
+
+  // Mailings
+  {
+    name: 'mailings',
+    path: '/administration/mailings',
+    component: MailingIndex,
+  },
+  {
+    name: 'mailing-create',
+    path: '/administration/mailing/create',
+    component: MailingCreate,
+  },
+  {
+    name: 'mailing-edit',
+    path: '/administration/mailing/edit/:id',
+    component: MailingEdit,
+  },
+  {
+    name: 'mailing-queue',
+    path: '/administration/mailing/queue/:id',
+    component: MailingQueue,
   },
 
   // Students

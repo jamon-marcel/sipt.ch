@@ -76,6 +76,29 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('location/state/{location}', 'Api\LocationController@toggle');
   });
 
+  // Mailing routes
+  Route::middleware('role:admin')->group(function() {
+    Route::get('mailings', 'Api\MailingController@get');
+    Route::get('mailing/{mailing}', 'Api\MailingController@find');
+    Route::post('mailing', 'Api\MailingController@store');
+    Route::put('mailing/{mailing}', 'Api\MailingController@update');
+    Route::delete('mailing/{mailing}', 'Api\MailingController@destroy');
+
+    // MailingQueue
+    Route::get('mailingqueue/{mailing}', 'Api\MailingQueueController@get');
+    Route::post('mailingqueue/preview', 'Api\MailingQueueController@preview');
+    Route::post('mailingqueue/store', 'Api\MailingQueueController@store');
+    Route::delete('mailingqueue/entry/{mailingQueue}', 'Api\MailingQueueController@destroyEntry');
+    Route::delete('mailingqueue/list/{mailingId}/{mailingListId}', 'Api\MailingQueueController@destroyList');
+
+    // Mailinglists
+    Route::get('mailinglists/{subscriberCount?}', 'Api\MailinglistController@get');
+    Route::get('mailinglists/subscriptions/{email}', 'Api\MailinglistController@getSubscriptions');
+    Route::post('mailinglist', 'Api\MailinglistController@addSubscription');
+    Route::delete('mailinglist/{mailinglistSubscriber}', 'Api\MailinglistController@deleteSubscription');
+
+  });
+
   // Course routes
   Route::get('courses', 'Api\CourseController@get');
   Route::get('course/{course}', 'Api\CourseController@find');
@@ -119,12 +142,6 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('settings/training/categories', 'Api\SettingsController@trainingCategories');
     Route::get('settings/specialisations', 'Api\SettingsController@specialisations');
   });
-
-  // Mailinglists
-  Route::get('mailinglists', 'Api\MailinglistController@get');
-  Route::get('mailinglists/subscriptions/{email}', 'Api\MailinglistController@getSubscriptions');
-  Route::post('mailinglist', 'Api\MailinglistController@addSubscription');
-  Route::delete('mailinglist/{mailinglistSubscriber}', 'Api\MailinglistController@deleteSubscription');
 
   // Users
   Route::get('user/student', 'Api\UserController@student')->middleware('role:student');

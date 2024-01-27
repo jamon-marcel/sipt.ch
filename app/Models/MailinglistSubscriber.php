@@ -14,15 +14,12 @@ class MailinglistSubscriber extends Model
     'mailinglist_id',
     'email',
     'hash',
-    'description',
-    'error',
-    'is_processed',
     'is_confirmed'
 	];
 
 	public function scopeActive($query)
 	{
-		return $query->where('is_processed', '=', '0')->where('is_confirmed', '=', '1')->whereNull('deleted_at');
+    return $query->where('is_confirmed', '=', '1')->whereNull('deleted_at');
 	}  
 
 }

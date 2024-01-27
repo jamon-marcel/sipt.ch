@@ -1,6 +1,24 @@
 <template>
   <div class="listing__item-action">
 
+    <div v-if="hasMailingQueue">
+      <router-link
+        :to="{name: routes.queue, params: { id: id }}"
+        class="feather-icon"
+      >
+        <users-icon size="18"></users-icon>
+      </router-link>
+    </div>
+
+    <div v-if="hasMailingActivate">
+      <a href="" 
+        class="feather-icon" 
+        title="Versand starten"
+        @click.prevent="$emit('activate', $event)">
+        <mail-icon size="18"></mail-icon>
+      </a>
+    </div>
+
     <div v-if="hasInvitation">
       <span v-if="student">
         <a :href="routes.invitation + '/' + student" target="_blank" class="feather-icon" title="Kurseinladung herunterladen">
@@ -109,7 +127,9 @@ import {
   CalendarIcon,
   UserIcon,
   ArrowUpRightIcon,
-  DownloadCloudIcon
+  DownloadCloudIcon,
+  MailIcon,
+  UsersIcon
 } from 'vue-feather-icons';
 
 export default {
@@ -122,7 +142,9 @@ export default {
     CalendarIcon,
     UserIcon,
     ArrowUpRightIcon,
-    DownloadCloudIcon
+    DownloadCloudIcon,
+    MailIcon,
+    UsersIcon
   },
 
   props: {
@@ -178,7 +200,17 @@ export default {
     },
 
     hasAttendance: {
-      typoe: Boolean,
+      type: Boolean,
+      default: false,
+    },
+
+    hasMailingActivate: {
+      type: Boolean,
+      default: false,
+    },
+
+    hasMailingQueue: {
+      type: Boolean,
       default: false,
     },
 
@@ -196,7 +228,11 @@ export default {
 
     destroy(id,$event) {
       this.$parent.destroy(id,$event);
-    }
+    },
+
+    activate($event) {
+      this.$parent.activate($event);
+    },
   },
 
   computed: {

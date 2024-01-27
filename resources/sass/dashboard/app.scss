@@ -28,6 +28,7 @@
 @import 'typo/helpers'; 
 
 // Components
+@import 'components/alert/global';
 @import 'components/animations';
 @import 'components/blocks';
 @import 'components/boxes/global';
@@ -64,6 +65,7 @@
 @import 'form/label';
 @import 'form/layout';
 @import 'form/placeholder';
+@import 'form/checkbox';
 @import 'form/select';
 @import 'form/validation';
 
