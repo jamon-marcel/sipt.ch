@@ -59,7 +59,7 @@
   font-size: 12px;
   margin-left: 0;
   margin-right: 10px;
-  margin-top: 10px;
+  margin-top: 5px;
 }
 
 .bubble-mailing-process {
@@ -73,7 +73,6 @@
 
 .bubble-success {
   @extend %bubble;
-
   background-color: $color-green;
   margin-left: 10px;
   opacity: 1 !important;

@@ -41,6 +41,14 @@
   align-items: center !important;
 }
 
+.items-start {
+  align-items: flex-start !important;
+}
+
+.items-end {
+  align-items: flex-end !important;
+}
+
 .flex-sb {
   display: flex;
   justify-content: space-between !important;

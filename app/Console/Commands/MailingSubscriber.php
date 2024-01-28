@@ -46,7 +46,6 @@ class MailingSubscriber extends Command
 
     // add to list
     $subscriber = MailinglistSubscriber::firstOrCreate([
-      'id' => \Str::uuid(),
       'email' => $email,
       'hash' => md5($email),
       'is_confirmed' => 1,

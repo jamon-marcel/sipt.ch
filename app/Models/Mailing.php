@@ -20,7 +20,9 @@ class Mailing extends Model
 
   public function mailinglists()
   {
-    return $this->belongsToMany(Mailinglist::class, 'mailing_mailinglist');
+    return $this->belongsToMany(Mailinglist::class, 'mailing_mailinglist')->withPivot([
+      'batch_id'
+    ]);
   }
 
   public function attachments()

@@ -7,6 +7,7 @@ class MailingQueue extends Model
   protected $table = 'mailing_queue';
 
   protected $fillable = [
+    'batch_id',
     'email',
     'hash',
     'error',

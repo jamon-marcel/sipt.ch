@@ -6,7 +6,7 @@
         :to="{name: routes.queue, params: { id: id }}"
         class="feather-icon"
       >
-        <users-icon size="18"></users-icon>
+        <activity-icon size="18"></activity-icon>
       </router-link>
     </div>
 
@@ -129,7 +129,8 @@ import {
   ArrowUpRightIcon,
   DownloadCloudIcon,
   MailIcon,
-  UsersIcon
+  UsersIcon,
+  ActivityIcon
 } from 'vue-feather-icons';
 
 export default {
@@ -144,7 +145,8 @@ export default {
     ArrowUpRightIcon,
     DownloadCloudIcon,
     MailIcon,
-    UsersIcon
+    UsersIcon,
+    ActivityIcon
   },
 
   props: {

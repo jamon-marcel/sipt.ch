@@ -4,11 +4,26 @@
  * -----------------------------------------------------------------------------
  */
 
- .btn-tertiary {
+.btn-tertiary {
   @extend %btn-primary;
   background-color: $color-dark;
   color: $color-white;
+
 	&:hover {
 		background-color: lighten($color-dark, 20);
+	}
+
+	&.is-sm {
+		padding: 8px 16px;
+	}
+
+	&.has-icon {
+		align-items: center;
+		display: inline-flex;
+		padding-left: 10px;
+
+		span {
+			display: block;
+		}
 	}
 }

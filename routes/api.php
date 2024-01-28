@@ -89,7 +89,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('mailingqueue/preview', 'Api\MailingQueueController@preview');
     Route::post('mailingqueue/store', 'Api\MailingQueueController@store');
     Route::delete('mailingqueue/entry/{mailingQueue}', 'Api\MailingQueueController@destroyEntry');
-    Route::delete('mailingqueue/list/{mailingId}/{mailingListId}', 'Api\MailingQueueController@destroyList');
+    Route::delete('mailingqueue/batch/{batchId}', 'Api\MailingQueueController@destroyBatch');
 
     // Mailinglists
     Route::get('mailinglists/{subscriberCount?}', 'Api\MailinglistController@get');

@@ -7,6 +7,7 @@ class MailingMailinglist extends Model
   protected $table = 'mailing_mailinglist';
 
   protected $fillable = [
+    'batch_id',
     'mailing_id',
     'mailinglist_id',
   ];

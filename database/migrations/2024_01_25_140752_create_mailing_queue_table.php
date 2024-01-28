@@ -15,16 +15,9 @@ class CreateMailingQueueTable extends Migration
   {
     Schema::create('mailing_queue', function (Blueprint $table) {
       $table->uuid('id')->primary();
-      $table->string('email');
-      $table->string('hash');
-      $table->text('error')->nullable();
       $table->tinyInteger('processed')->default(0);
       $table->uuid('mailing_id');
       $table->foreign('mailing_id')->references('id')->on('mailings');
-      $table->uuid('mailinglist_id')->nullable();
-      $table->foreign('mailinglist_id')->references('id')->on('mailinglists');
-      $table->uuid('mailinglist_subscriber_id')->nullable();
-      $table->foreign('mailinglist_subscriber_id')->references('id')->on('mailinglist_subscriber');
       $table->timestamps();
     });
   }
