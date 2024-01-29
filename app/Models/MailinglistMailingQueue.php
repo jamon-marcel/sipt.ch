@@ -2,19 +2,18 @@
 namespace App\Models;
 use GoldSpecDigital\LaravelEloquentUUID\Database\Eloquent\Model;
 
-class MailingMailinglist extends Model
+class MailinglistMailingQueue extends Model
 {
-  protected $table = 'mailing_mailinglist';
+  protected $table = 'mailinglist_mailing_queue';
 
   protected $fillable = [
-    'batch_id',
-    'mailing_id',
+    'mailing_queue_id',
     'mailinglist_id',
   ];
 
-  public function mailing()
+  public function mailingQueue()
   {
-    return $this->belongsTo(Mailing::class);
+    return $this->belongsTo(MailingQueue::class);
   }
 
   public function mailinglist()

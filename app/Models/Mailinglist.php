@@ -5,13 +5,14 @@ use GoldSpecDigital\LaravelEloquentUUID\Database\Eloquent\Model;
 class Mailinglist extends Model
 {
   protected $fillable = [
+    'short_description',
     'description',
     'order',
 	];
 
-  public function mailings()
+  public function mailingQueue()
   {
-    return $this->belongsToMany(Mailing::class, 'mailing_mailinglist');
+    return $this->belongsToMany(MailingQueue::class, 'mailinglist_mailing_queue');
   }
 
   public function subscribers()

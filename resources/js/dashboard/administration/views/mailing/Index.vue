@@ -17,14 +17,14 @@
       >
         <div class="listing__item-body">
           <div>{{ m.subject | truncate(100, '...') }}<br>
-            <template v-if="m.mailinglists.length">
+            <!-- <template v-if="m.mailinglists.length">
               <span class="bubble bubble-mailing">
                 {{ m.mailinglists.map(ml => ml.description.replace('Fachbereich', '')).join(', ') }}
               </span>
-            </template>
-            <template v-if="m.queued">
+            </template> -->
+            <template v-if="m.queue.length">
               <span :class="[m.processed == m.queued ? 'is-done' : '', 'bubble bubble-mailing-process']">
-                {{ m.processed }}/{{ m.queued }}
+                Versand: {{ m.processed }}/{{ m.queued }}
               </span>
             </template>
           </div>
@@ -34,7 +34,7 @@
           :record="m"
           :hasToggle="false"
           :hasMailingActivate="true"
-          :hasMailingQueue="m.queued > 0 ? true : false"
+          :hasMailingQueue="m.queue.length ? true : false"
           :routes="{edit: 'mailing-edit', 'queue': 'mailing-queue'}"
           @activate="activate(m.id)">
         </list-actions>

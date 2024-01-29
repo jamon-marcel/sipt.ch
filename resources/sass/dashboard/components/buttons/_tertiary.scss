@@ -17,13 +17,18 @@
 		padding: 8px 16px;
 	}
 
+  &.is-tiny {
+    @include font-size($fs-sm);
+    padding: 6px 9px;
+  }
+
 	&.has-icon {
 		align-items: center;
 		display: inline-flex;
-		padding-left: 10px;
 
 		span {
 			display: block;
+      padding-left: 6px;
 		}
 	}
 }

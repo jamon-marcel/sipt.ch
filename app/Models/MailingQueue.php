@@ -7,15 +7,23 @@ class MailingQueue extends Model
   protected $table = 'mailing_queue';
 
   protected $fillable = [
-    'batch_id',
-    'email',
-    'hash',
-    'error',
     'processed',
     'mailing_id',
-    'mailinglist_id',
-    'mailinglist_subscriber_id'
   ];
+
+  protected $casts = [
+    'created_at' => 'datetime:d.m.Y H:i:s',
+  ];
+
+  public function items()
+  {
+    return $this->hasMany(MailingQueueItem::class);
+  }
+
+  public function notProcessedItems()
+  {
+    return $this->hasMany(MailingQueueItem::class)->where('processed', 0);
+  }
 
   public function mailing()
   {
@@ -24,12 +32,7 @@ class MailingQueue extends Model
 
   public function mailinglist()
   {
-    return $this->belongsTo(Mailinglist::class);
-  }
-
-  public function mailinglistSubscriber()
-  {
-    return $this->belongsTo(MailinglistSubscriber::class);
+    return $this->belongsToMany(Mailinglist::class, 'mailinglist_mailing_queue');
   }
 
   public function scopeNotProcessed($query)

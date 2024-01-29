@@ -28,11 +28,11 @@ class Mailing extends Mailable
    */
   public function build()
   {
-    $mail = $this->subject($this->data['mailing']['subject'])
+    $mail = $this->subject($this->data['mailing']->subject)
               ->with([
-                'salutation' => $this->data['mailing']['salutation'],
-                'body' => $this->data['mailing']['body'],
-                'greetings' => $this->data['mailing']['greetings'],
+                'salutation' => $this->data['mailing']->salutation,
+                'body' => $this->data['mailing']->body,
+                'greetings' => $this->data['mailing']->greetings,
                 'subscriber' => $this->data['subscriber'] ?? null,
               ])
               ->markdown('mails.mailinglist.templates.mailing');

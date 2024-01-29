@@ -594,6 +594,10 @@ footer.page-footer > div, .pagination a,
   justify-content: space-between !important;
 }
 
+.justify-end {
+  justify-content: flex-end !important;
+}
+
 .items-center {
   align-items: center !important;
 }
@@ -1941,13 +1945,36 @@ header.page-header > div, main.site > div, footer.module-footer > div, footer.pa
 .btn-tertiary.is-sm {
   padding: 8px 16px;
 }
+.btn-tertiary.is-tiny {
+  font-size: 15px;
+  line-height: 1.45;
+  padding: 6px 9px;
+}
+@media screen and (min-width: 768px) {
+  .btn-tertiary.is-tiny {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .btn-tertiary.is-tiny {
+    font-size: 16px;
+    line-height: 1.45;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .btn-tertiary.is-tiny {
+    font-size: 16px;
+    line-height: 1.45;
+  }
+}
 .btn-tertiary.has-icon {
   align-items: center;
   display: inline-flex;
-  padding-left: 10px;
 }
 .btn-tertiary.has-icon span {
   display: block;
+  padding-left: 6px;
 }
 
 /**

@@ -5,33 +5,34 @@
     <header class="content-header">
       <h1>Warteschlange für Mailing <strong>{{ mailing.subject }}</strong></h1>
     </header>
-    <div class="listing sb-lg" v-for="(queue_item, index) in queue">
-      <div class="flex justify-between items-end sa-sm">
+    <div class="listing sb-lg" v-for="(batch, index) in batches">
+      <div class="flex items-center justify-between sa-sm">
         <div>
           <h2 class="sb-none sa-none">
-            Batch vom {{ queue_item.date_time }}
+            Versand vom {{ batch.created_at }}
           </h2>
-          <span class="bubble bubble-mailing" v-for="(list, index) in queue_item.mailinglists">
-            {{ list }}
+          <span class="bubble bubble-mailing" v-for="(list, index) in batch.mailinglist">
+            {{ list.short_description }}
           </span>
         </div>
-        <a 
-          href="" 
-          class="feather-icon feather-icon--prepend" 
-          style="margin-right: 7px"
-          @click.prevent="destroyBatch(queue_item.batch_id)">
-          <trash2-icon size="18"></trash2-icon>
-          <span>Batch löschen</span>
-        </a>
-      </div>
+        <div v-if="batch.processed == 0">
+          <a 
+            href="" 
+            class="btn-tertiary is-tiny has-icon"
+            @click.prevent="destroyBatch(batch.id)">
+            <trash2-icon size="16"></trash2-icon>
+            <span>Löschen</span>
+          </a>
+        </div>
+        </div>
       <div
         class="listing__item is-narrow"
-        v-for="item in queue_item.items"
+        v-for="item in batch.items"
         :key="item.id"
       >
         <div class="listing__item-body">
           <div class="display: flex; align-items: center;">
-            {{ item.email }}
+            {{ item.subscriber.email }}
             <span class="bubble bubble-success" v-if="item.processed">Versendet</span>
           </div>
         </div>
@@ -73,7 +74,7 @@ data() {
     isLoading: false,
     isFetched: false,
     mailing: {},
-    queue: [],
+    batches: [],
   };
 },
 
@@ -87,7 +88,7 @@ methods: {
     this.isLoading = true;
     this.axios.get(`/api/mailingqueue/${this.$route.params.id}`).then(response => {
       this.mailing = response.data.mailing;
-      this.queue = response.data.queue;
+      this.batches = response.data.batches;
       this.isFetched = true;
       this.isLoading = false;
     });

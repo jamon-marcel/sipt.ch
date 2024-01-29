@@ -13,12 +13,12 @@ class CreateMailingMailinglistTable extends Migration
      */
     public function up()
     {
-      Schema::create('mailing_mailinglist', function (Blueprint $table) {
+      Schema::create('mailinglist_mailing_queue', function (Blueprint $table) {
         $table->uuid('id')->primary();
-        $table->uuid('mailing_id');
-        $table->foreign('mailing_id')->references('id')->on('mailings');
         $table->uuid('mailinglist_id');
         $table->foreign('mailinglist_id')->references('id')->on('mailinglists');
+        $table->uuid('mailing_queue_id');
+        $table->foreign('mailing_queue_id')->references('id')->on('mailing_queue');
         $table->timestamps();
       });
     }

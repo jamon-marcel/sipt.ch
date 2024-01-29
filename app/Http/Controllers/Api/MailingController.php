@@ -23,7 +23,7 @@ class MailingController extends Controller
    */
   public function get()
   {
-    return new DataCollection($this->mailing->with('mailinglists')->orderBy('created_at', 'DESC')->get());
+    return new DataCollection($this->mailing->with('queue')->orderBy('created_at', 'DESC')->get());
   }
 
   /**
@@ -100,7 +100,6 @@ class MailingController extends Controller
    */
   public function destroy(Mailing $mailing)
   {
-    $mailing->mailinglists()->detach();
     $mailing->queue()->delete();
     $mailing->attachments()->delete();
     $mailing->delete();

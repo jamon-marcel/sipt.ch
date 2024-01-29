@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterMailingMailinglistTableAddBatchId extends Migration
+class AlterMailingQueueItemsTableAddHash extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AlterMailingMailinglistTableAddBatchId extends Migration
      */
     public function up()
     {
-      Schema::table('mailing_mailinglist', function (Blueprint $table) {
-        $table->integer('batch_id')->after('id');
+      // Add hash column to mailing_queue_items table
+      Schema::table('mailing_queue_items', function (Blueprint $table) {
+        $table->string('hash')->nullable()->after('id');
       });
     }
 
@@ -25,9 +26,6 @@ class AlterMailingMailinglistTableAddBatchId extends Migration
      */
     public function down()
     {
-      // drop the column
-      Schema::table('mailing_mailinglist', function (Blueprint $table) {
-        $table->dropColumn('batch_id');
-      });
+        //
     }
 }

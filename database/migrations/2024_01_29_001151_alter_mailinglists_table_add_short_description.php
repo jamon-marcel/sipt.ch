@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AlterMailingQueueTableAddBatchId extends Migration
+class AlterMailinglistsTableAddShortDescription extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,9 @@ class AlterMailingQueueTableAddBatchId extends Migration
      */
     public function up()
     {
-      Schema::table('mailing_queue', function (Blueprint $table) {
-        $table->integer('batch_id')->after('id');
+      // Add short_description column to mailinglists table
+      Schema::table('mailinglists', function (Blueprint $table) {
+        $table->string('short_description')->nullable()->after('description');
       });
     }
 

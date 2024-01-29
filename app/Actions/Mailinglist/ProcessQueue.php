@@ -9,17 +9,25 @@ class ProcessQueue
 {
   public function execute()
   {
-    $mailingQueue = MailingQueue::with('mailinglist')->notProcessed()->limit(3)->get();
+    $mailingQueue = MailingQueue::notProcessed()->with('mailing.attachments', 'notProcessedItems.subscriber.mailinglist')->first();
 
-    foreach($mailingQueue->all() as $mq)
+    // abort if there are no notProcessedItems
+    if(!$mailingQueue || $mailingQueue->notProcessedItems->count() == 0)
     {
-      $mailing = Mailing::with('attachments')->findOrFail($mq->mailing_id);
+      $mailingQueue->processed = 1;
+      $mailingQueue->save();
+      return;
+    }
+
+    $mailingQueue->notProcessedItems = $mailingQueue->notProcessedItems->take(2);
+    foreach($mailingQueue->notProcessedItems as $mq)
+    {
       try {
-        \Mail::to($mq->email)
+        \Mail::to($mq->subscriber->email)
         ->send(
           new \App\Mail\Mailing([
-            'mailing' => $mailing,
-            'subscriber'  => $mq,
+            'mailing' => $mailingQueue->mailing,
+            'subscriber'  => $mq->subscriber,
           ])
         );
         $mq->processed = 1;
@@ -31,5 +39,6 @@ class ProcessQueue
         $mq->save();
       }
     }
+
   }
 }

@@ -18,13 +18,6 @@ class Mailing extends Model
     'attachment_array'
   ];
 
-  public function mailinglists()
-  {
-    return $this->belongsToMany(Mailinglist::class, 'mailing_mailinglist')->withPivot([
-      'batch_id'
-    ]);
-  }
-
   public function attachments()
   {
     return $this->hasMany(MailingAttachment::class);
@@ -37,12 +30,12 @@ class Mailing extends Model
 
   public function getQueuedAttribute()
   {
-    return MailingQueue::where('mailing_id', $this->id)->count();
+    return MailingQueue::with('items')->where('mailing_id', $this->id)->count();
   }
 
   public function getProcessedAttribute()
   {
-    return MailingQueue::where('mailing_id', $this->id)->where('processed', 1)->count();
+    return MailingQueue::with('items')->where('mailing_id', $this->id)->where('processed', 1)->count();
   }
 
   public function getAttachmentArrayAttribute()
