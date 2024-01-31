@@ -25,6 +25,11 @@ class MailingQueue extends Model
     return $this->hasMany(MailingQueueItem::class)->where('processed', 0);
   }
 
+  public function processedItems()
+  {
+    return $this->hasMany(MailingQueueItem::class)->where('processed', 1);
+  }
+
   public function mailing()
   {
     return $this->belongsTo(Mailing::class);

@@ -78,11 +78,7 @@ class EventServiceProvider extends ServiceProvider
     'App\Events\CourseEventParticipantsChanged' => [
       'App\Listeners\CourseEventCheckMaxParticipants',
     ],
-
-    'App\Events\MailingQueueItemRemoved' => [
-      'App\Listeners\MailingListObserve',
-    ],
-    
+   
   ];
 
   /**

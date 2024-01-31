@@ -7,8 +7,6 @@ use App\Models\MailingQueueItem;
 use App\Models\MailingList;
 use App\Models\MailinglistSubscriber;
 use App\Models\MailinglistMailingQueue;
-
-use App\Events\MailingQueueItemRemoved;
 use Illuminate\Http\Request;
 
 class MailingQueueController extends Controller
@@ -21,8 +19,19 @@ class MailingQueueController extends Controller
 
   public function destroyEntry(MailingQueueItem $mailingQueueItem)
   {
-    $mailingQueueItem->delete();
-    event(new MailingQueueItemRemoved($mailingQueue->mailing, $mailingQueue->mailinglist));
+    // check if this is the last item in the queue
+    $mailingQueue = MailingQueue::with('items')->findOrFail($mailingQueueItem->mailing_queue_id);
+    if($mailingQueue->items()->count() == 1)
+    {
+      $this->destroyBatch($mailingQueue);
+    }
+    else
+    {
+      $mailingQueueItem->delete();
+      return response()->json([
+        'message' => 'Queue list deleted'
+      ]);
+    }
 
     return response()->json([
       'message' => 'Queue entry deleted'
@@ -31,6 +40,19 @@ class MailingQueueController extends Controller
 
   public function destroyBatch(MailingQueue $mailingQueue)
   {
+    // If there are already processed items, we can't delete the batch but only the non-processed items
+    if ($mailingQueue->processedItems()->count() > 0)
+    {
+      $mailingQueue->items()->where('processed', 0)->delete();
+      $mailingQueue->processed = 1;
+      $mailingQueue->save();
+
+      return response()->json([
+        'message' => 'Queue list deleted'
+      ]);
+    }
+
+    // Otherwise fully delete the mailing queue
     $mailingQueue->mailinglist()->detach();
     $mailingQueue->items()->delete();
     $mailingQueue->delete();

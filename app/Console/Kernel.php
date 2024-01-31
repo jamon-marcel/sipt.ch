@@ -29,7 +29,7 @@ class Kernel extends ConsoleKernel
    */
   protected function schedule(Schedule $schedule)
   {
-    $schedule->call(new MailingQueue)->everyMinute();
+    // $schedule->call(new MailingQueue)->everyMinute();
 
     if (\App::environment('production'))
     {

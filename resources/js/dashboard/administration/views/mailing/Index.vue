@@ -17,11 +17,6 @@
       >
         <div class="listing__item-body">
           <div>{{ m.subject | truncate(100, '...') }}<br>
-            <!-- <template v-if="m.mailinglists.length">
-              <span class="bubble bubble-mailing">
-                {{ m.mailinglists.map(ml => ml.description.replace('Fachbereich', '')).join(', ') }}
-              </span>
-            </template> -->
             <template v-if="m.queue.length">
               <span :class="[m.processed == m.queued ? 'is-done' : '', 'bubble bubble-mailing-process']">
                 Versand: {{ m.processed }}/{{ m.queued }}
@@ -32,6 +27,7 @@
         <list-actions 
           :id="m.id" 
           :record="m"
+          :hasDestroy="m.queue.length ? false : true"
           :hasToggle="false"
           :hasMailingActivate="true"
           :hasMailingQueue="m.queue.length ? true : false"

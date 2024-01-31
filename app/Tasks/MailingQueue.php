@@ -2,7 +2,7 @@
 namespace App\Tasks;
 use App\Actions\Mailinglist\ProcessQueue;
 
-class Mailing
+class MailingQueue
 {
   public function __invoke()
   {
