@@ -37,7 +37,7 @@ class Kernel extends ConsoleKernel
       $schedule->call(new CourseEventInvitations)->everyMinute();
       $schedule->call(new CourseEventReminder)->everyMinute();
       $schedule->call(new Message)->everyMinute();
-      $schedule->call(new Mailing)->everyMinute();
+      // $schedule->call(new Mailing)->everyMinute();
       $schedule->call(new DatabaseBackup)->daily();
     }
   }
