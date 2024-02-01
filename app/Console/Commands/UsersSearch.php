@@ -44,7 +44,6 @@ class UsersSearch extends Command
     $tutors   = Tutor::with('user')->search($searchTerm);
 
     $rows = [];
-
     $rows[] = $students->map(fn (Student $student): array => [
       $student->firstname,
       $student->name,
@@ -53,7 +52,7 @@ class UsersSearch extends Command
       $student->user->email,
       $student->user->id,
       $student->user->is_newsletter_subscriber,
-      'is_student',
+      $student->user->role,
     ])->all();
 
     $rows[] = $tutors->map(fn (Tutor $tutor): array => [
@@ -64,7 +63,7 @@ class UsersSearch extends Command
       $tutor->user->email,
       $tutor->user->id,
       $tutor->user->is_newsletter_subscriber,
-      'is_tutor',
+      $tutor->user->role,
     ])->all();
 
     $this->info('Found '.count($rows).' entries');
