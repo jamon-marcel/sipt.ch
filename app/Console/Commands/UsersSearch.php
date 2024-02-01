@@ -40,19 +40,34 @@ class UsersSearch extends Command
     $searchTerm = $this->ask('Search term: ');
 
     $students = Student::with('user')->search($searchTerm);
+    $tutors   = Tutor::with('user')->search($searchTerm);
 
-    $rows = $students->map(fn (Student $student): array => [
+    $rows = [];
+
+    $rows[] = $students->map(fn (Student $student): array => [
       $student->firstname,
       $student->name,
       $student->street,
       $student->city,
       $student->user->email,
       $student->user->id,
-      $student->user->is_newsletter_subscriber
+      $student->user->is_newsletter_subscriber,
+      'is_student',
     ])->all();
 
-    $this->info('Found '.count($students).' students');
-    $this->table(['Firstname', 'Name', 'Street', 'City', 'Email', 'UserId', 'Subscribed'], $rows);
+    $rows[] = $tutors->map(fn (Tutor $tutor): array => [
+      $tutor->firstname,
+      $tutor->name,
+      $tutor->street,
+      $tutor->city,
+      $tutor->user->email,
+      $tutor->user->id,
+      $tutor->user->is_newsletter_subscriber,
+      'is_tutor',
+    ])->all();
+
+    $this->info('Found '.count($rows).' entries');
+    $this->table(['Firstname', 'Name', 'Street', 'City', 'Email', 'UserId', 'Subscribed', 'Type'], $rows);
 
     return self::SUCCESS;
   }
