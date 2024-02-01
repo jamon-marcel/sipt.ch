@@ -2,6 +2,7 @@
 namespace App\Console\Commands;
 use App\Models\User;
 use App\Models\Student;
+use App\Models\Tutor;
 use Illuminate\Console\Command;
 
 class UsersSearch extends Command
