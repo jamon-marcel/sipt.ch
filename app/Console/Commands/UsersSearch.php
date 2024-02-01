@@ -43,8 +43,7 @@ class UsersSearch extends Command
     $students = Student::with('user')->search($searchTerm);
     $tutors   = Tutor::with('user')->search($searchTerm);
 
-    $rows = [];
-    $rows[] = $students->map(fn (Student $student): array => [
+    $student_rows[] = $students->map(fn (Student $student): array => [
       $student->firstname,
       $student->name,
       $student->street,
@@ -55,7 +54,7 @@ class UsersSearch extends Command
       $student->user->role,
     ])->all();
 
-    $rows[] = $tutors->map(fn (Tutor $tutor): array => [
+    $tutor_rows[] = $tutors->map(fn (Tutor $tutor): array => [
       $tutor->firstname,
       $tutor->name,
       $tutor->street,
@@ -65,6 +64,9 @@ class UsersSearch extends Command
       $tutor->user->is_newsletter_subscriber,
       $tutor->user->role,
     ])->all();
+
+    // merge the two arrays into $rows
+    $rows = array_merge($student_rows, $tutor_rows);
 
     $this->info('Found '.count($rows).' entries');
     $this->table(['Firstname', 'Name', 'Street', 'City', 'Email', 'UserId', 'Subscribed', 'Type'], $rows);
