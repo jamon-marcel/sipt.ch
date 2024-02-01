@@ -6,8 +6,8 @@
   <x-header title="Stelleninserate" />
   <article>
     <p>
-      <a href="https://jobs.aoz.ch/aoz/job/details/3296624/" target="_blank" class="btn-download" title="Psycholog*in 60-80%">
-        <strong>Psycholog*in 60 – 80%</strong>
+      <a href="https://jobs.aoz.ch/aoz/job/details/3476172/" target="_blank" class="btn-download" title="Psychotherapeut*in 60-80%">
+        <strong>Psychotherapeut*in 60-80%</strong>
       </a>
     </p>
     <p>
