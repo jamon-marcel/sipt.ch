@@ -39,6 +39,5 @@ class ProcessQueue
         $mq->save();
       }
     }
-
   }
 }

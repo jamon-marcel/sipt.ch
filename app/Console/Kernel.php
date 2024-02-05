@@ -29,14 +29,13 @@ class Kernel extends ConsoleKernel
    */
   protected function schedule(Schedule $schedule)
   {
-    // $schedule->call(new MailingQueue)->everyMinute();
-
     if (\App::environment('production'))
     {
       $schedule->call(new CourseEventBills)->everyMinute();
       $schedule->call(new CourseEventInvitations)->everyMinute();
       $schedule->call(new CourseEventReminder)->everyMinute();
       $schedule->call(new Message)->everyMinute();
+      $schedule->call(new MailingQueue)->everyMinute();
       // $schedule->call(new Mailing)->everyMinute();
       $schedule->call(new DatabaseBackup)->daily();
     }
