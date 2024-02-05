@@ -27,7 +27,7 @@
           </div>
           <div v-if="canSend" class="alert">
             <h2>Versand bestätigen</h2>
-            <p>Bitte Versand an <strong>{{ list_subscriber_count }} Abonnenten</strong> bestätigen. Die E-Mail-Adressen der Abonnenten werden in die Warteschlange eingereiht und im Minutentakt versendet.</p>
+            <p>Bitte Versand an <strong>{{ active_subscribers_count }} Abonnenten</strong> bestätigen. Die E-Mail-Adressen der Abonnenten werden in die Warteschlange eingereiht und im Minutentakt versendet.</p>
             <button class="btn-primary" @click="store()" :disabled="isLoading ? true : false">
               <strong>Versand starten</strong>
             </button>
@@ -57,7 +57,7 @@ export default {
       mailing_id: null,
       list_ids: [],
       lists: [],
-      list_subscriber_count: 0,
+      active_subscribers_count: 0,
 
       isLoading: false,
       isOpen: false,
@@ -99,7 +99,7 @@ export default {
     reset() {
       this.email = null;
       this.list_ids = [];
-      this.list_subscriber_count = 0;
+      this.active_subscribers_count = 0;
       this.canSend = false;
     },
 
@@ -144,10 +144,10 @@ export default {
       val.forEach(id => {
         let list = this.lists.find(l => l.id == id);
         if (list) {
-          count += list.subscribers_count;
+          count += list.active_subscribers_count;
         }
       });
-      this.list_subscriber_count = count;
+      this.active_subscribers_count = count;
     }
   }
 }
