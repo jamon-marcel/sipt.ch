@@ -19,4 +19,9 @@ class Mailinglist extends Model
   {
     return $this->hasMany(MailinglistSubscriber::class);
   }
+
+  public function activeSubscribers()
+  {
+    return $this->hasMany(MailinglistSubscriber::class)->where('is_confirmed', 1)->whereNull('deleted_at');
+  }
 }

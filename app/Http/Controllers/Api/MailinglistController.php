@@ -16,7 +16,7 @@ class MailinglistController extends Controller
     if ($subscriberCount)
     {
       return new DataCollection(
-        Mailinglist::withCount('subscribers')->orderBy('order')->get()
+        Mailinglist::withCount('activeSubscribers')->orderBy('order')->get()
       );
     }
     return new DataCollection(
