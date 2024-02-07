@@ -6,6 +6,7 @@ export default {
   external_plugins: {
     link: '/assets/dashboard/js/tinymce/plugins/link/plugin.min.js',
   },
+  document_base_url : "https://psychotraumatologie-sipt.ch",
   relative_urls : false,
   plugins: ["lists"],
   toolbar: 'undo redo | bold | bullist | link | superscript | removeformat | styleselect',
