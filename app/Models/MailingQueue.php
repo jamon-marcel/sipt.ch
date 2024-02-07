@@ -22,7 +22,7 @@ class MailingQueue extends Model
 
   public function notProcessedItems()
   {
-    return $this->hasMany(MailingQueueItem::class)->where('processed', 0);
+    return $this->hasMany(MailingQueueItem::class)->where('processed', 0)->where('created_at', '<', now()->subMinutes(5));
   }
 
   public function processedItems()
