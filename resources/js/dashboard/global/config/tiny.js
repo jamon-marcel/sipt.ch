@@ -7,7 +7,7 @@ export default {
     link: '/assets/dashboard/js/tinymce/plugins/link/plugin.min.js',
   },
   plugins: ["lists"],
-  toolbar: 'undo redo | bold | bullist | link | superscript | removeformat | styleselect',
+  toolbar: 'undo redo | bold | bullist | link | superscript | removeformat | styleselect',
   paste_as_text: true,
   height: "320px",
   style_formats_merge: false,
