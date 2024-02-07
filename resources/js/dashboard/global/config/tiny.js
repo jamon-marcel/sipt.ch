@@ -6,6 +6,7 @@ export default {
   external_plugins: {
     link: '/assets/dashboard/js/tinymce/plugins/link/plugin.min.js',
   },
+  relative_urls : false,
   plugins: ["lists"],
   toolbar: 'undo redo | bold | bullist | link | superscript | removeformat | styleselect',
   paste_as_text: true,
