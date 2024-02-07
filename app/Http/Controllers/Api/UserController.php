@@ -70,7 +70,7 @@ class UserController extends Controller
     $administrator = $this->administrator->with('user')
                                          ->where('user_id', '=', auth()->user()->id)
                                          ->first();
-    return response()->json(['firstname' => $administrator->firstname, 'name' => $administrator->name]);
+    return response()->json(['firstname' => $administrator->firstname, 'name' => $administrator->name, 'email' => $administrator->user->email]);
   }
 
   /**

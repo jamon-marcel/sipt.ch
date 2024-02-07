@@ -13,7 +13,7 @@
             <label>Mailing als Test an:</label>
             <input type="text" v-model="email">
           </div>
-          <div class="form-row" v-if="validEmail()">
+          <div class="form-row" v-if="hasPreviewUser">
             <button class="btn-primary" @click="preview()">Testmail senden</button>
           </div>
         </div>
@@ -61,6 +61,7 @@ export default {
 
       isLoading: false,
       isOpen: false,
+      hasPreviewUser: false,
       canSend: false,
     }
   },
@@ -73,9 +74,17 @@ export default {
     }
     document.addEventListener('keydown', onEscape);
     this.fetchLists();
+    this.fetchUser();
   },
 
   methods: {
+
+    fetchUser() {
+      this.axios.get(`/api/user/admin`).then(response => {
+        this.email = response.data.email;
+        this.hasPreviewUser = true;
+      });
+    },
 
     fetchLists() {
       this.isFetched = false;
