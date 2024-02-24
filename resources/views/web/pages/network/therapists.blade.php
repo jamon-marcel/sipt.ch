@@ -260,6 +260,17 @@
           8500 Frauenfeld<br>
           <a href="mailto:pfister.sara@gmx.ch">pfister.sara@gmx.ch</a></p>
 
+        <p>
+          <strong>Praxis am Zug</strong><br>
+          Sabrina Aisslinger<br>
+          Lic. phil.<br>
+          Eidg. anerkannte Psychotherapeutin<br>
+          Bergstrasse 2<br>
+          8712 Stäfa<br>
+          Telefon: 076 629 57 10<br>
+          <a href="mailto:sabrina.aisslinger@psychologie.ch">sabrina.aisslinger@psychologie.ch</a>
+        </p>
+
         <p><strong>lic. phil. Rondez, Michèle</strong><br>
         Psychologin, Psychotherapeutin<br>
         Churerstrasse 47<br>
