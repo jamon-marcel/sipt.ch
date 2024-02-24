@@ -10,8 +10,8 @@
     </a>
   </article>
   <article>
-    <a href="/storage/downloads/sipt-bildungsangebot-fuer-beraterinnen-2024.pdf" target="_blank" class="btn-download" title="Bildungsangebot für BeraterInnen">
-      <strong>Bildungsangebot für BeraterInnen</strong> [PDF, 70KB]
+    <a href="/storage/downloads/sipt-bildungsangebot-fuer-beraterinnen-02-2024.pdf" target="_blank" class="btn-download" title="Bildungsangebot für BeraterInnen">
+      <strong>Bildungsangebot für BeraterInnen</strong> [PDF, 540KB]
     </a>
   </article>
   <article>
