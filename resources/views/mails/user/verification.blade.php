@@ -3,7 +3,7 @@
 <p>Vielen Dank für Ihre Registration beim SIPT.</p>
 <p>Um Ihre Registration abzuschliessen, müssen Sie ihre E-Mail-Adresse bestätigen, klicken Sie bitte auf folgenden Button:</p>
 <br>
-<p><a href="{{ $verifyUrl }}" class="button button-primary">E-Mail Bestätigen</a></p>
+<p><a href="{{ $verifyUrl }}" class="button button-primary" style="color: white">E-Mail Bestätigen</a></p>
 <br>
 <p>Sobald Ihre E-Mail-Adresse bestätigt ist, können Sie sich mit untenstehenden Zugangsdaten einloggen:</p>
 <table class="content-table" cellpadding="0" cellspacing="0" style="max-width: 400px">
