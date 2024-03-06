@@ -6,6 +6,11 @@
   <x-header title="Stelleninserate" />
   <article>
     <p>
+      <a href="/storage/downloads/sipt-Dipl.-Pflegefachperson-HF_FH-80_2024.pdf" target="_blank" class="btn-download" title="Dipl. Pflegefachperson HF/FH 80%">
+        <strong>Dipl. Pflegefachperson HF/FH 80%</strong>
+      </a>
+    </p>
+    <p>
       <a href="https://jobs.aoz.ch/aoz/job/details/3476172/" target="_blank" class="btn-download" title="Psychotherapeut*in 60-80%">
         <strong>Psychotherapeut*in 60-80%</strong>
       </a>
