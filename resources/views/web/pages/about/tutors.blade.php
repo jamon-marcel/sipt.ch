@@ -24,6 +24,12 @@
     </audio>
   </div>
   <div class="sa-lg">
+    <strong>Interview Birgit Meyer</strong><br>
+    <audio controls class="sb-sm">
+      <source src="/storage/audio/Interview_Birgit_Meyer.wav" type="audio/wav">
+    </audio>
+  </div>
+  <div class="sa-lg">
     <strong>Interview mit Damir Del Monte </strong><br>
     <audio controls class="sb-sm">
       <source src="/storage/audio/Interview_Damir_Del_Monte.mp3" type="audio/mpeg">
@@ -45,6 +51,12 @@
     <strong>Interview mit Markus Rachl</strong><br>
     <audio controls class="sb-sm">
       <source src="/storage/audio/Interview_Markus_Rachl.wav" type="audio/wav">
+    </audio>
+  </div>
+  <div class="sa-lg">
+    <strong>Interview Natascha Unfried</strong><br> 
+    <audio controls class="sb-sm">
+      <source src="/storage/audio/Interview_Natascha_Unfried.wav" type="audio/wav">
     </audio>
   </div>
   <div class="sa-lg">
