@@ -18,27 +18,30 @@ class StudentAddressesExport implements FromCollection, WithHeadings
     foreach($students as $s)
     {
       // Get user
-      $user = User::find($s->user->id);
-      $email = $user->email ? $user->email : 'noemail';
-      $active = $s->is_active ? '1' : '0';
-      $data[] = [
-        'Name' => $s->name,
-        'Vorname' => $s->firstname,
-        'Titel' => $s->title,
-        'Ausbildung' => $s->qualifications,
-        'Strasse' => $s->street,
-        'Nr' => $s->street_no,
-        'PLZ' => $s->zip,
-        'Ort' => $s->city,
-        'Land' => $s->country,
-        'Telefon' => $s->phone,
-        'Telefon G.' => $s->phone_business,
-        'Mobile' => $s->mobile,
-        'E-Mail' => $email,
-        'Aktiv' => $active,
-        'Newsletter' => MailinglistSubscriber::where('email', $email)->where('mailinglist_id', env('MAILINGLIST_NEWSLETTER'))->first() ? '1' : '0',
-        'Aufbautipp' => $user->is_newsletter_subscriber ? '1' : '0'
-      ];
+      if ($s->user)
+      {
+        $user = User::find($s->user->id);
+        $email = $user->email ? $user->email : 'noemail';
+        $active = $s->is_active ? '1' : '0';
+        $data[] = [
+          'Name' => $s->name,
+          'Vorname' => $s->firstname,
+          'Titel' => $s->title,
+          'Ausbildung' => $s->qualifications,
+          'Strasse' => $s->street,
+          'Nr' => $s->street_no,
+          'PLZ' => $s->zip,
+          'Ort' => $s->city,
+          'Land' => $s->country,
+          'Telefon' => $s->phone,
+          'Telefon G.' => $s->phone_business,
+          'Mobile' => $s->mobile,
+          'E-Mail' => $email,
+          'Aktiv' => $active,
+          'Newsletter' => MailinglistSubscriber::where('email', $email)->where('mailinglist_id', env('MAILINGLIST_NEWSLETTER'))->first() ? '1' : '0',
+          'Aufbautipp' => $user->is_newsletter_subscriber ? '1' : '0'
+        ];
+      }
     }
     return collect($data);
   }
