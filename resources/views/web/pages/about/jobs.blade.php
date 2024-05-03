@@ -6,6 +6,11 @@
   <x-header title="Stelleninserate" />
   <article>
     <p>
+      <a href="https://jobs.aoz.ch/aoz/job/details/3558601/" target="_blank" class="btn-download" title="Psychotherapeut*in 60-90%">
+        <strong>Psychotherapeut*in 60-90%</strong>
+      </a>
+    </p>
+    <p>
       <a href="/storage/downloads/sipt-Psychologe_Psychologin-60-Mutterschaftsvertretung-vom 01.07.2024_-_31.12.pdf" target="_blank" class="btn-download" title="
       Psycholog:in 60% für unsere Fachstelle Sucht">
         <strong>Psycholog:in 60% für unsere Fachstelle Sucht</strong>
@@ -14,11 +19,6 @@
     <p>
       <a href="/storage/downloads/sipt-Dipl.-Pflegefachperson-HF_FH-80_2024.pdf" target="_blank" class="btn-download" title="Dipl. Pflegefachperson HF/FH 80%">
         <strong>Dipl. Pflegefachperson HF/FH 80%</strong>
-      </a>
-    </p>
-    <p>
-      <a href="https://jobs.aoz.ch/aoz/job/details/3476172/" target="_blank" class="btn-download" title="Psychotherapeut*in 60-80%">
-        <strong>Psychotherapeut*in 60-80%</strong>
       </a>
     </p>
     <p>
