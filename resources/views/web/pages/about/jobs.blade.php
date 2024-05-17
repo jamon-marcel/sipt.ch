@@ -11,12 +11,6 @@
       </a>
     </p>
     <p>
-      <a href="/storage/downloads/sipt-Psychologe_Psychologin-60-Mutterschaftsvertretung-vom 01.07.2024_-_31.12.pdf" target="_blank" class="btn-download" title="
-      Psycholog:in 60% für unsere Fachstelle Sucht">
-        <strong>Psycholog:in 60% für unsere Fachstelle Sucht</strong>
-      </a>
-    </p>
-    <p>
       <a href="/storage/downloads/sipt-Dipl.-Pflegefachperson-HF_FH-80_2024.pdf" target="_blank" class="btn-download" title="Dipl. Pflegefachperson HF/FH 80%">
         <strong>Dipl. Pflegefachperson HF/FH 80%</strong>
       </a>
