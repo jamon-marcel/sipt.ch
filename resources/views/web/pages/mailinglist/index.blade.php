@@ -11,7 +11,7 @@
   </article>
 
   <article>
-    <a href="/storage/downloads/sipt-aufbau_10.pdf" target="_blank" class="btn-download" title="Download PDF">
+    <a href="/storage/downloads/sipt-aufbau_11.pdf" target="_blank" class="btn-download" title="Download PDF">
       <strong>Aufbau-Tipp Nr. 11 / Mai 2024</strong>
     </a>
     <div class="list">
