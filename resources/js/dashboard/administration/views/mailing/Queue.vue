@@ -32,7 +32,7 @@
           :key="item.id"
         >
           <div class="listing__item-body">
-            <div class="display: flex; align-items: center;">
+            <div class="display: flex; align-items: center;" v-if="item.subscriber.email">
               {{ item.subscriber.email }}
               <span class="bubble bubble-success" v-if="item.processed">Versendet</span>
             </div>
