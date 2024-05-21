@@ -118,7 +118,10 @@ class TrainingController extends BaseController
       {
         foreach($course->eventsUpcoming as $event)
         {
-          $data[] = $event;
+          if ($event->is_published)
+          {
+            $data[] = $event;
+          }
         }
       }
     }
