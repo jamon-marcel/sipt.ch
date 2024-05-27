@@ -76,12 +76,12 @@ class Document
 
     if (isset($opts['dateStart']) || isset($opts['dateEnd']))
     {
-      $courseEvents = CourseEvent::with('course', 'students', 'dates.tutor')->orderBy('dateStart')->byPeriode($opts);
+      $courseEvents = CourseEvent::with('course', 'students', 'dates.tutor')->orderBy('dateStart')->where('is_published', 1)->byPeriode($opts);
       $this->viewData['opts'] = $opts;
     }
     else
     {
-      $courseEvents = CourseEvent::with('course', 'students', 'dates.tutor')->orderBy('dateStart')->upcoming();
+      $courseEvents = CourseEvent::with('course', 'students', 'dates.tutor')->orderBy('dateStart')->where('is_published', 1)->upcoming();
     }
 
     // Create pdf
