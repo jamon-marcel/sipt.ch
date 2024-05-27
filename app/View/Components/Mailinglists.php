@@ -26,7 +26,7 @@ class Mailinglists extends Component
    */
   public function __construct($mailinglists = NULL, $subscriptions = NULL)
   {
-    $this->mailinglists = MailinglistModel::orderBy('order')->get();
+    $this->mailinglists = MailinglistModel::public()->orderBy('order')->get();
     $this->subscriptions = $subscriptions;
   }
 

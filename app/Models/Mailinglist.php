@@ -8,6 +8,7 @@ class Mailinglist extends Model
     'short_description',
     'description',
     'order',
+    'public'
 	];
 
   public function mailingQueue()
@@ -23,5 +24,10 @@ class Mailinglist extends Model
   public function activeSubscribers()
   {
     return $this->hasMany(MailinglistSubscriber::class)->where('is_confirmed', 1)->whereNull('deleted_at');
+  }
+
+  public function scopePublic($query)
+  {
+    return $query->where('public', 1);
   }
 }
