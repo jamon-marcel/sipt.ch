@@ -111,10 +111,11 @@
           <a href="mailto:frei.liebrich@hin.ch">frei.liebrich@hin.ch</a>
         </p>
         <p>
-          <strong>lic. phil. Ines Geitzsch</strong><br>
-          Clienia Gruppenpraxis Uster<br>
-          Schachenweg 2<br>
-          8610 Uster<br>
+          <strong>Ines Gaitzsch</strong><br>
+          Psychologin FSP<br>Eidgenössisch anerkannte Psychotherapeutin<br>
+          Psychotherapie Endingen - Praxis am Hügel<br>
+          Roosweg 1<br>
+          5304 Endingen<br>
           Telefon: 044 905 50 00
         </p>
 
