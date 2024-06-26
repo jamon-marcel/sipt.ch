@@ -9,7 +9,7 @@ export default {
   // },
   document_base_url : "https://psychotraumatologie-sipt.ch",
   convert_urls : false,
-  plugins: ["lists"],
+  plugins: ["lists", "link"],
   toolbar: 'undo redo | bold | bullist | link | superscript | removeformat | styles',
   paste_as_text: true,
   height: "320px",
