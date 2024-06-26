@@ -72,7 +72,6 @@
             <div class="form-row">
               <label>Themenschwerpunkte</label>
               <tinymce-editor
-                :api-key="tinyApiKey"
                 :init="tinyConfig"
                 v-model="tutor.emphasis"
               ></tinymce-editor>
@@ -80,7 +79,6 @@
             <div class="form-row">
               <label>Veröffentlichungen</label>
               <tinymce-editor
-                :api-key="tinyApiKey"
                 :init="tinyConfig"
                 v-model="tutor.publications"
               ></tinymce-editor>

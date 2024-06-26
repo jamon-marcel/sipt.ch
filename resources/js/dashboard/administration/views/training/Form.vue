@@ -17,7 +17,6 @@
             <div :class="[this.errors.description_short ? 'has-error' : '', 'form-row']">
               <label>Kurzbeschreibung *</label>
               <tinymce-editor
-                :api-key="tinyApiKey"
                 :init="tinyConfig"
                 v-model="training.description_short"
               ></tinymce-editor>
@@ -26,7 +25,6 @@
             <div :class="[this.errors.description ? 'has-error' : '', 'form-row']">
               <label>Beschreibung *</label>
               <tinymce-editor
-                :api-key="tinyApiKey"
                 :init="tinyConfig"
                 v-model="training.description"
               ></tinymce-editor>
@@ -39,7 +37,6 @@
             <div class="form-row">
               <label>Supervision</label>
               <tinymce-editor
-                :api-key="tinyApiKey"
                 :init="tinyConfigSmall"
                 v-model="training.supervision"
               ></tinymce-editor>
@@ -47,7 +44,6 @@
             <div class="form-row">
               <label>Abschlussarbeit</label>
               <tinymce-editor
-                :api-key="tinyApiKey"
                 :init="tinyConfigSmall"
                 v-model="training.thesis"
               ></tinymce-editor>
@@ -55,7 +51,6 @@
             <div class="form-row">
               <label>Zertifizierung</label>
               <tinymce-editor
-                :api-key="tinyApiKey"
                 :init="tinyConfig"
                 v-model="training.certification"
               ></tinymce-editor>
@@ -67,7 +62,6 @@
             <div class="form-row">
               <label>Unterrichtszeiten</label>
               <tinymce-editor
-                :api-key="tinyApiKey"
                 :init="tinyConfigSmall"
                 v-model="training.time"
                 :initial-value="'Freitag: 18.00 bis 21.15 Uhr (4 Unterrichts-Einheiten)<br>Samstag: 09.00 bis 16.30 Uhr (8 Unterrichts-Einheiten)'"

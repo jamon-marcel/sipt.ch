@@ -22,7 +22,6 @@
           <div :class="[this.errors.body ? 'has-error' : '', 'form-row']">
             <label>Inhalt *</label>
             <tinymce-editor
-              :api-key="tinyApiKey"
               :init="tinyConfig"
               v-model="mailing.body"
             ></tinymce-editor>
