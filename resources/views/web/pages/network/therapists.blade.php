@@ -159,10 +159,6 @@
           <a href="https://www.remohartmann.ch/" target="_blank">www.remohartmann.ch</a><br>
           Kostenübernahme über die Grundversicherung der Krankenkasse möglich (im Rahmen des Anordnungsmodells)
         </p>
-        <p><strong>Dr. phil. Holderegger, Hans</strong><br>
-        Psychoanalytiker<br>
-        Haldenbachstrasse 2<br>
-        8006 Zürich</p>
         
         <p><strong>Ilg, Stefan, lic. phil.</strong><br>
         Fachpsychologe für Psychotherapie FSP<br>
