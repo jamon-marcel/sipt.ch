@@ -15,6 +15,7 @@
 <link rel="dns-prefetch" href="//fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 <link href="{{ mix('assets/dashboard/css/app.css') }}" rel="stylesheet">
+<script src="{{ mix('assets/dashboard/js/tinymce/tinymce.min.js') }}"></script>
 </head>
 <body>
 <div id="app-tutor">
