@@ -286,13 +286,12 @@
         <p><strong>lic. phil. Schiess, Ursula</strong><br>
         Psychologin, Psychotherapeutin<br>
         Gemeinschaftspraxis Quellen<br>
-        Quellenstrasse 4<br>
+        Loren-Allee 22<br>
         8610 Uster<br>
-        Telefon: 079 750 46 14<br>
-        <a href="mailto:ursula_schiess@yahoo.com">ursula_schiess@yahoo.com</a><br>
+        Telefon: 076 834 64 20<br>
+        <a href="mailto:u.schiess@hin.ch">u.schiess@hin.ch</a><br>
         (Kostenübernahme durch die Krankenkasse möglich)</p>
-        
-        
+                
         <p><strong>Schönholzer, Melanie</strong><br>
           Mainaustrasse 12<br>
           8008 Zürich<br>
