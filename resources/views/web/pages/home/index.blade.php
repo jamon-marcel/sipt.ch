@@ -4,25 +4,16 @@
 @section('section')
 <section class="theme-light order-1">
   <x-header title="Aktuell" />
-  
+
   <article>
-    <h2>Trauma-Broschüren</h2>
-    <p>Die Trauma-Broschüren des Zentrum für Trauma- und Konfliktmanagement ZTK unter der Leitung von Thomas Weber wurden auf Ukrainisch und Russisch übersetzt. Diese können für die Arbeit mit Geflüchteten jederzeit kostenfrei über die folgenden Links heruntergeladen werden:</p>
-    <p>
-      <strong>Ukrainisch</strong> (für die Arbeit mit <a href="https://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Erwachsene_2022_ukr_final.pdf" target="_blank" title="">Erwachsenen</a> / <a href="https://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Kinder_2022_ukr_final.pdf" target="_blank" title="">Kindern und Jugendlichen</a>)
-    </p>
-    <p>
-      <strong>Russisch</strong> (für die Arbeit mit <a href="ttps://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Erwachsene_2022_rus_final.pdf" target="_blank" title="">Erwachsenen</a> / <a href="https://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Kinder_2022_rus_final.pdf" target="_blank" title="">Kindern und Jugendlichen</a>)
-    </p>
-    <p>Eine erweiterte Fassung der Broschüren in <strong>Deutsch</strong> können Sie in Papierform beim SIPT bestellen.</p>
+    <h2>Veranstaltungshinweis</h2>
+    <p class="word-break">An der <a href="/storage/downloads/sipt-Psychosomatik_Traumafolgestoerungen.pdf" target="_blank">Rheinfelder Tagung zu Traumafolgestörungen</a> am 24./25. Oktober 2024 wird Prof. Dr. phil. Rosmarie Barwinski das Eröffnungsreferat sowie ein Intensiv-Seminar zur Gegenübertragungsanalyse halten.<br>Weitere spannende Referate und Workshops erwarten Sie unter anderem auch von Dr. med. Beate Immel, Leiterin Ambulatorium und Stv. Chefärztin Klinik Schützen Rheinfelden, sowie den leitenden Ärztinnen Klinik Schützen Rheinfelden Dr. med. Daniela Wetzel-Richter und Dr. med. Tanja Krügers. Das gesamte Programm finden Sie <a href="/storage/downloads/sipt-Psychosomatik_Traumafolgestoerungen.pdf" target="_blank">hier</a>.</p>
   </article>
 
   <article>
-    <h2>Neues Buch – Trauma und Gegenübertragung: Den Stand der Traumaverarbeitung erkennen und Behandlungsschritte planen</h2>
-    <p>
-      Gerne machen wir auf folgendes Buch aufmerksam, welches neu bei Klett-Cotta erscheint.<br>
-      <a href="https://www.klett-cotta.de/buch/Trauma/Trauma_und_Gegenuebertragung/827446" target="_blank" class="icon-arrow-right">mehr erfahren</a>
-    </p>
+    <h2>Literaturempfehlung</h2>
+    <p>In <a href="https://psychosozial-verlag.de/programm/1330/6000/3298-detail" target="_blank" title="«Das Trauma der anderen», Dr. rer. nat. Pia Andreatta">«Das Trauma der anderen»</a> beleuchtet Univ.-Prof. Dr. rer. nat. Pia Andreatta die sekundäre Traumatisierung in helfenden Berufen und hinterfragt kritisch bestehende Erklärungsansätze sowie die Engführung des Konzepts als klinische Diagnose.</p>
+    <p><a href="https://www.klett-cotta.de/produkt/trauma-und-gegenuebertragung-9783608980981-t-8362" target="_blank" title="«Trauma und Gegenübertragung: Den Stand der Traumaverarbeitung erkennen und Behandlungsschritte planen»">«Trauma und Gegenübertragung: Den Stand der Traumaverarbeitung erkennen und Behandlungsschritte planen»</a> ist ein praxisnaher Leitfaden von Prof. Dr. phil. Rosmarie Barwinski für alle PsychotherapeutInnen und andere Berufsgruppen, die mit traumatisierten Menschen arbeiten.</p>
   </article>
 
   <article>
@@ -36,7 +27,6 @@
     <h2>Neue Kursangebote</h2>
     <p>Gerne weisen wir auf <strong>aktuelle</strong> Kursangebote hin:</p>
   </article>
-
 
   <article>
     <h2>„Das Monster in mir“ – eine Aussage eines Achtjährigen</h2>
@@ -53,6 +43,18 @@
     </p>
   </article>
   
+  <article>
+    <h2>Weitere Hinweise</h2>
+    <h3>Trauma-Broschüren</h3>
+    <p>Die Trauma-Broschüren des Zentrum für Trauma- und Konfliktmanagement ZTK unter der Leitung von Thomas Weber wurden auf Ukrainisch und Russisch übersetzt. Diese können für die Arbeit mit Geflüchteten jederzeit kostenfrei über die folgenden Links heruntergeladen werden:</p>
+    <p>
+      <strong>Ukrainisch</strong> (für die Arbeit mit <a href="https://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Erwachsene_2022_ukr_final.pdf" target="_blank" title="">Erwachsenen</a> / <a href="https://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Kinder_2022_ukr_final.pdf" target="_blank" title="">Kindern und Jugendlichen</a>)
+    </p>
+    <p>
+      <strong>Russisch</strong> (für die Arbeit mit <a href="ttps://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Erwachsene_2022_rus_final.pdf" target="_blank" title="">Erwachsenen</a> / <a href="https://www.unfallkasse-berlin.de/fileadmin/user_data/informationenfuer/Hilfeleistende/UKB_Broschuere_Trauma-Kinder_2022_rus_final.pdf" target="_blank" title="">Kindern und Jugendlichen</a>)
+    </p>
+    <p>Eine erweiterte Fassung der Broschüren in <strong>Deutsch</strong> können Sie in Papierform beim SIPT bestellen.</p>
+  </article>
 
 </section>
 <section class="theme-medium order-2 splash visual">
@@ -60,6 +62,5 @@
   {{-- <div class="visual__container is-right has-max-w">
     <img src="/assets/img/visual-1.png" width="3996" height="2896" alt="">
   </div> --}}
-
 </section>
 @endsection
