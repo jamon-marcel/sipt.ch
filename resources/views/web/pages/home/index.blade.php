@@ -8,11 +8,8 @@
   <article>
     <h2>Veranstaltungshinweis</h2>
     <p class="word-break">An der <a href="/storage/downloads/sipt-Psychosomatik_Traumafolgestoerungen.pdf" target="_blank">Rheinfelder Tagung zu Traumafolgestörungen</a> am 24./25. Oktober 2024 wird Prof. Dr. phil. Rosmarie Barwinski das Eröffnungsreferat sowie ein Intensiv-Seminar zur Gegenübertragungsanalyse halten.<br>Weitere spannende Referate und Workshops erwarten Sie unter anderem auch von Dr. med. Beate Immel, Leiterin Ambulatorium und Stv. Chefärztin Klinik Schützen Rheinfelden, sowie den leitenden Ärztinnen Klinik Schützen Rheinfelden Dr. med. Daniela Wetzel-Richter und Dr. med. Tanja Krügers. Das gesamte Programm finden Sie <a href="/storage/downloads/sipt-Psychosomatik_Traumafolgestoerungen.pdf" target="_blank">hier</a>.</p>
-  </article>
-
-  <article>
-    <h2>International Congress of Psychoanalysis</h2>
-    <p>Der <a href="/storage/downloads/sipt-Poster_International Congress_Switzerland.pdf" target="_blank">International Congress of Psychoanalysis"</a> zum Thema "Children, War and Persecutions" findet in Maputo, Mosambik, im Sommer 2025 statt. Unter den Referenten sind Prof. Dr. phil. Rosmarie Barwinski, Dr. phil. Marianne Rauwald, Dr. med. Hubertus Adam und Dr. phil. Boia Efraim. Detailliertes Programm folgt.</p>
+    <h3>International Congress of Psychoanalysis</h3>
+    <p>Der <a href="/storage/downloads/sipt-Poster_International Congress_Switzerland.pdf" target="_blank">International Congress of Psychoanalysis</a> zum Thema "Children, War and Persecutions" findet in Maputo, Mosambik, im Sommer 2025 statt. Unter den Referenten sind Prof. Dr. phil. Rosmarie Barwinski, Dr. phil. Marianne Rauwald, Dr. med. Hubertus Adam und Dr. phil. Boia Efraim. Detailliertes Programm folgt.</p>
   </article>
 
   <article>
