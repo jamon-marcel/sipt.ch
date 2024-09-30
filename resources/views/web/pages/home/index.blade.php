@@ -11,10 +11,16 @@
   </article>
 
   <article>
+    <h2>International Congress of Psychoanalysis</h2>
+    <p>Der <a href="/storage/downloads/sipt-Poster_International Congress_Switzerland.pdf" target="_blank">International Congress of Psychoanalysis"</a> zum Thema "Children, War and Persecutions" findet in Maputo, Mosambik, im Sommer 2025 statt. Unter den Referenten sind Prof. Dr. phil. Rosmarie Barwinski, Dr. phil. Marianne Rauwald, Dr. med. Hubertus Adam und Dr. phil. Boia Efraim. Detailliertes Programm folgt.</p>
+  </article>
+
+  <article>
     <h2>Literaturempfehlung</h2>
     <p>In <a href="https://psychosozial-verlag.de/programm/1330/6000/3298-detail" target="_blank" title="«Das Trauma der anderen», Dr. rer. nat. Pia Andreatta">«Das Trauma der anderen»</a> beleuchtet Univ.-Prof. Dr. rer. nat. Pia Andreatta die sekundäre Traumatisierung in helfenden Berufen und hinterfragt kritisch bestehende Erklärungsansätze sowie die Engführung des Konzepts als klinische Diagnose.</p>
     <p><a href="https://www.klett-cotta.de/produkt/trauma-und-gegenuebertragung-9783608980981-t-8362" target="_blank" title="«Trauma und Gegenübertragung: Den Stand der Traumaverarbeitung erkennen und Behandlungsschritte planen»">«Trauma und Gegenübertragung: Den Stand der Traumaverarbeitung erkennen und Behandlungsschritte planen»</a> ist ein praxisnaher Leitfaden von Prof. Dr. phil. Rosmarie Barwinski für alle PsychotherapeutInnen und andere Berufsgruppen, die mit traumatisierten Menschen arbeiten.</p>
   </article>
+
 
   <article>
     <h2>Podcasts</h2>
