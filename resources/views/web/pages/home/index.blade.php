@@ -6,14 +6,13 @@
   <x-header title="Aktuell" />
 
   <article>
-    <h2>Veranstaltungshinweis</h2>
+    <h2>Veranstaltungshinweise</h2>
     <p class="word-break">An der <a href="/storage/downloads/sipt-Psychosomatik_Traumafolgestoerungen.pdf" target="_blank">Rheinfelder Tagung zu Traumafolgestörungen</a> am 24./25. Oktober 2024 wird Prof. Dr. phil. Rosmarie Barwinski das Eröffnungsreferat sowie ein Intensiv-Seminar zur Gegenübertragungsanalyse halten.<br>Weitere spannende Referate und Workshops erwarten Sie unter anderem auch von Dr. med. Beate Immel, Leiterin Ambulatorium und Stv. Chefärztin Klinik Schützen Rheinfelden, sowie den leitenden Ärztinnen Klinik Schützen Rheinfelden Dr. med. Daniela Wetzel-Richter und Dr. med. Tanja Krügers. Das gesamte Programm finden Sie <a href="/storage/downloads/sipt-Psychosomatik_Traumafolgestoerungen.pdf" target="_blank">hier</a>.</p>
-    <h3>International Congress of Psychoanalysis</h3>
-    <p>Der <a href="/storage/downloads/sipt-Poster_International Congress_Switzerland.pdf" target="_blank">International Congress of Psychoanalysis</a> zum Thema "Children, War and Persecutions" findet in Maputo, Mosambik, im Sommer 2025 statt. Unter den Referenten sind Prof. Dr. phil. Rosmarie Barwinski, Dr. phil. Marianne Rauwald, Dr. med. Hubertus Adam und Dr. phil. Boia Efraim. Detailliertes Programm folgt.</p>
+    <p class="word-break">Der <a href="/storage/downloads/sipt-Poster_International Congress_Switzerland.pdf" target="_blank">International Congress of Psychoanalysis</a> zum Thema "Children, War and Persecutions" findet in Maputo, Mosambik, im Sommer 2025 statt. Unter den Referenten sind Prof. Dr. phil. Rosmarie Barwinski, Dr. phil. Marianne Rauwald, Dr. med. Hubertus Adam und Dr. phil. Boia Efraim. Detailliertes Programm folgt.</p>
   </article>
 
   <article>
-    <h2>Literaturempfehlung</h2>
+    <h2>Literaturempfehlungen</h2>
     <p>In <a href="https://psychosozial-verlag.de/programm/1330/6000/3298-detail" target="_blank" title="«Das Trauma der anderen», Dr. rer. nat. Pia Andreatta">«Das Trauma der anderen»</a> beleuchtet Univ.-Prof. Dr. rer. nat. Pia Andreatta die sekundäre Traumatisierung in helfenden Berufen und hinterfragt kritisch bestehende Erklärungsansätze sowie die Engführung des Konzepts als klinische Diagnose.</p>
     <p><a href="https://www.klett-cotta.de/produkt/trauma-und-gegenuebertragung-9783608980981-t-8362" target="_blank" title="«Trauma und Gegenübertragung: Den Stand der Traumaverarbeitung erkennen und Behandlungsschritte planen»">«Trauma und Gegenübertragung: Den Stand der Traumaverarbeitung erkennen und Behandlungsschritte planen»</a> ist ein praxisnaher Leitfaden von Prof. Dr. phil. Rosmarie Barwinski für alle PsychotherapeutInnen und andere Berufsgruppen, die mit traumatisierten Menschen arbeiten.</p>
   </article>
