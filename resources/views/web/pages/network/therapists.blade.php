@@ -58,12 +58,10 @@
         <p><strong>Bollok, Kathrin, lic. phil.</strong><br>
         Eidg. anerkannte Psychotherapeutin<br>
         Fachpsychologin für Psychotraumatologie SIPT/DIPT<br>
-        Psychologisch-Medizinisches Zentrums<br>
         Laurenzentorgasse 7<br>
         5000 Aarau<br>
         Telefon: 078 265 81 60<br>
         <a href="mailto:k.bollok@hin.ch">k.bollok@hin.ch</a><br>
-        In Delegation arbeitende Psychotherapeutin<br>(Kostenübernahme über die Grundversicherung der Krankenkasse möglich)</p>
         
         <p><strong>Buonvicini, Prisca</strong><br>
         Psychotherapeutin/Psychologin
