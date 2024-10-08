@@ -32,7 +32,7 @@
 
   <article>
     <h2>„Das Monster in mir“ – eine Aussage eines Achtjährigen</h2>
-    <p>Dozentin: Natascha Unfried<br>Termin: 4./5.10.2024</p>
+    <p>Dozentin: Natascha Unfried<br>Termin: 7./8.11.2025</p>
     <p>Dr. med. Natascha Unfried diskutiert mit den Teilnehmenden die Begriffe «Täterintrojekt» und «täterinfizierte Anteile» anhand von Fallbeispielen. Schwerpunkte werden der Umgang im pädagogischen Alltag und in der Therapie sowie der Schutz vor Eskalation sein. Die bösartigen Introjekte und deren selbstzerstörerische Wirkungen zu erkennen und zu begrenzen ist ebenfalls Inhalt des Seminars. Eigene Fallbeispiele der TeilnehmerInnen sind sehr willkommen.<br><a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/das-monster-in-mir-eine-aussage-eines-8-j-jungen/3f48de9f-b735-4773-914d-776e16f29fa0" class="icon-arrow-right">mehr erfahren</a></p>
   </article>
 
