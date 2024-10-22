@@ -11,7 +11,7 @@
       </a>
     </p>
     <p>
-      <a href="/storage/downloads/sipt-PsychotherapeutIn-80" target="_blank" class="btn-download" title="Psychotherapeut:in 80% (Standort Bülach und Kloten)">
+      <a href="/storage/downloads/sipt-PsychotherapeutIn-80.pdf" target="_blank" class="btn-download" title="Psychotherapeut:in 80% (Standort Bülach und Kloten)">
         <strong>Psychotherapeut:in 80% (Standorte Bülach und Kloten)<br></strong>
       </a>
     </p>
