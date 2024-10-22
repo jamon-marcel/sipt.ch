@@ -6,6 +6,17 @@
   <x-header title="Stelleninserate" />
   <article>
     <p>
+      <a href="/storage/downloads/PsychotherapeutIn_Kinder-_und_Jugendbereich_60.pdf" target="_blank" class="btn-download" title="Psychotherapeut:in mit Schwerpunkt Kinder und Jugendliche, 60%">
+        <strong>Psychotherapeut:in mit Schwerpunkt Kinder und Jugendliche, 60%</strong>
+      </a>
+    </p>
+    <p>
+      <a href="/storage/downloads/PsychotherapeutIn-80" target="_blank" class="btn-download" title="Psychotherapeut:in 80% (Standort Bülach und Kloten)">
+        <strong>Psychotherapeut:in 80% (Standorte Bülach und Kloten)<br></strong>
+      </a>
+    </p>
+
+    <p>
       <a href="https://jobs.aoz.ch/aoz/job/details/3558601/" target="_blank" class="btn-download" title="Psychotherapeut*in 60-90%">
         <strong>Psychotherapeut*in 60-90%</strong>
       </a>
