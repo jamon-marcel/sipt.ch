@@ -5,7 +5,10 @@
 <section class="theme-light order-1">
   <x-header title="Aktuell" />
 
-
+  <article>
+    <h2>Veranstaltungshinweise</h2>
+    <p class="word-break">Der <a href="/storage/downloads/sipt-Poster_International Congress_Switzerland.pdf" target="_blank">International Congress of Psychoanalysis</a> zum Thema «Children, War and Persecutions» findet vom 14.-17. Mai 2025 in Maputo, Mosambik, statt. Unter den Referenten sind Prof. Dr. phil. Rosmarie Barwinski, Dr. phil. Marianne Rauwald, Dr. med. Hubertus Adam und Dr. phil. Boia Efraim. Bei Interesse melden Sie sich gerne unter <a href="mailto:congressmaputo@gmail.com">congressmaputo@gmail.com</a>. Website und detailliertes Programm folgen.</p>
+  </article>
 
   <article>
     <h2>Literaturempfehlungen</h2>
