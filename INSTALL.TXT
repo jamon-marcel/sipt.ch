@@ -7,3 +7,6 @@ PHP:
 // Shell
 ssh siptse9@psychotraumatologie-sipt.ch
 dOc!ir-Q]*20FPeBPXr+
+
+// Github token
+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
