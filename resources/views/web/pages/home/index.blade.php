@@ -6,10 +6,46 @@
   <x-header title="Aktuell" />
 
   <article>
+    <h2>Neue Kursangebote</h2>
+    <p>Gerne weisen wir auf <strong>aktuelle</strong> Kursangebote hin:</p>
+  </article>
+  <article>
+    <h2>Traum und Trauma </h2>
+    <p>Dozent: Lutz Wittmann<br>Termin: 7./8.2.2025</p>
+    <p>
+      Prof. Dr. phil. Lutz Wittmann lehrt und forscht an der IPU Berlin in Klinischer Psychologie und Psychotherapie mit Schwerpunkten in der Psychodynamischen Psychotherapie, Psychotraumatologie und Empirischen Traumforschung. Im neuen Modul «Traum und Trauma» am SIPT vermittelt er Teilnehmenden in einem interaktiven Seminar einen Überblick über die massgebenden Theorien und Forschungsbefunde zu posttraumatischen Albträumen. Weiter lernen Sie klinische Modelle auf Traumberichte traumatisierter Patienten anzuwenden, um Rückschlüsse für das therapeutische Vorgehen zu erarbeiten.<br>
+      <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/traum-und-trauma-fakultativ/2058beb2-2ab8-4ce9-b0df-28d257498635" class="icon-arrow-right">mehr erfahren</a>
+    </p>
+  </article>
+  <article>
+    <h2>Trauma und Familie: Arbeit mit traumatisierten Eltern</h2>
+    <p>Dozentin: Jennifer Hofmann <br>Termin: 16./17.5.2025</p>
+    <p>Anhand von Fallbeispielen wird die Anwendung der NET und der Lifeline als ein Element dieser Methode der Traumakonfrontation im Rahmen der traumatherapeutischen Behandlung aufgezeigt. Med. pract. Jennifer Hofmann vermittelt Ihnen für eine optimale Behandlungsplanung, welche Massnahmen in der Therapie zu welchem Zeitpunkt indiziert sind.<br><a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/traumaexposition-mittels-narrativer-expositions-therapie-net-im-rahmen-einer-traumatherapie-fakultativ/da683964-dcc0-43f0-abbe-532845a12b66" class="icon-arrow-right">mehr erfahren</a></p>
+  </article>
+  <article>
+    <h2>Trauma und Familie: Arbeit mit traumatisierten Eltern</h2>
+    <p>Dozentin: Barbara Bösiger<br>Termin: 4./5.7.2025</p>
+    <p>Dipl. Sozialpädagogin Barbara Bösiger vermittelt Ihnen Möglichkeiten im Umgang mit selbst traumatisierten und zugleich selber traumatisierenden Eltern, die sich durch psychotraumatologische Perspektiven eröffnen. Das Stärken der elterlichen Kompetenzen und das Fördern von Selbstreflexion und der Mentalisierungsfähigkeit stehen im Fokus. Neben fachlichen Inputs werden konkrete Fallbeispiele in Gruppen besprochen.<br><a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/trauma-und-familie-arbeit-mit-traumatisierten-eltern/e1308277-7a4f-4313-94f0-9eea7ca1276d" class="icon-arrow-right">mehr erfahren</a></p>
+  </article>
+  <article>
+    <h2>Traumasensible Achtsamkeit – Stabilisierung und Regulierung bei traumatisierten Kindern und Jugendlichen</h2>
+    <p>Dozentin: Ruth Monstein<br>Termin: 19./20.9.2025</p>
+    <p>Traumatisierte Kinder und Jugendliche können durch Psychoedukation und das Anwenden von stabilisierenden Achtsamkeitsübungen lernen, sich selbst zu regulieren. Die begleitenden Fachpersonen müssen allerdings um die Entstehung und Wirksamkeit von Traumatas Bescheid wissen, damit keine Retraumatisierungen entstehen. Sie lernen eine traumasensible Herangehensweise und bekommen Achtsamkeitstools für die Umsetzung im Praxisalltag an die Hand.<br><a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/traumasensible-achtsamkeit-achtsamkeitstraining-binja-stabilisierung-und-regulierung-bei-traumatisierten-kindern-und-jugendlichen-fakultativ/a2f02504-4ba2-4135-8720-80cb1a28b5d9" class="icon-arrow-right">mehr erfahren</a></p>
+  </article>
+  <article>
+    <h2>«Das Monster in mir» – eine Aussage eines Achtjährigen</h2>
+    <p>Dozentin: Natascha Unfried<br>Termin: 7./8.11.2025</p>
+    <p>Dr. med. Natascha Unfried diskutiert mit den Teilnehmenden die Begriffe «Täterintrojekt» und «täterinfizierte Anteile» anhand von Fallbeispielen. Schwerpunkte werden der Umgang im pädagogischen Alltag und in der Therapie sowie der Schutz vor Eskalation sein. Die bösartigen Introjekte und deren selbstzerstörerische Wirkungen zu erkennen und zu begrenzen ist ebenfalls Inhalt des Seminars. Eigene Fallbeispiele sind sehr willkommen.<br><a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/das-monster-in-mir-eine-aussage-eines-8-j-jungen/3f48de9f-b735-4773-914d-776e16f29fa0" class="icon-arrow-right">mehr erfahren</a></p>
+  </article>
+  <article>
+    <h2>Traumasensible Elterngespräche</h2>
+    <p>Dozentin: Ruth Monstein<br>Termin: 12./13.12.2025</p>
+    <p>In diesem Kurs lernen Sie das praktische Gestalten von Gesprächen mit Eltern traumatisierter Kinder und Jugendliche. Denn oft können Eltern nicht nachvollziehen, warum ihre Kinder Verhaltensauffälligkeiten haben und es kommt zu Schuldzuweisungen gegenüber den sozialpädagogischen Einrichtungen. Ruth Monstein vermittelt Ihnen, wie Traumatas in Familiensystemen weitergegeben werden und wie ein fachliches Unterstützungssystem aufgebaut werden kann.<br><a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/traumasensible-elterngespraeche-fakultativ/8e34ccca-51a8-4a63-a503-21dcc89d55e7" class="icon-arrow-right">mehr erfahren</a></p>
+  </article>
+  <article>
     <h2>Veranstaltungshinweise</h2>
     <p class="word-break">Der <a href="/storage/downloads/sipt-Poster_International Congress_Switzerland.pdf" target="_blank">International Congress of Psychoanalysis</a> zum Thema «Children, War and Persecutions» findet vom 14.-17. Mai 2025 in Maputo, Mosambik, statt. Unter den Referenten sind Prof. Dr. phil. Rosmarie Barwinski, Dr. phil. Marianne Rauwald, Dr. med. Hubertus Adam und Dr. phil. Boia Efraim. Bei Interesse melden Sie sich gerne unter <a href="mailto:congressmaputo@gmail.com">congressmaputo@gmail.com</a>. Website und detailliertes Programm folgen.</p>
   </article>
-
   <article>
     <h2>Literaturempfehlungen</h2>
     <p>In <a href="https://psychosozial-verlag.de/programm/1330/6000/3298-detail" target="_blank" title="«Das Trauma der anderen», Dr. rer. nat. Pia Andreatta">«Das Trauma der anderen»</a> beleuchtet Univ.-Prof. Dr. rer. nat. Pia Andreatta die sekundäre Traumatisierung in helfenden Berufen und hinterfragt kritisch bestehende Erklärungsansätze sowie die Engführung des Konzepts als klinische Diagnose.</p>
@@ -21,26 +57,6 @@
     <h2>Podcasts</h2>
     <p>Einige unserer Dozierenden können Sie neu im persönlichen Gespräch kennenlernen.<br>
       <a href="{{ route('about_tutors') }}" class="icon-arrow-right">mehr erfahren</a>
-    </p>
-  </article>
-
-  <article>
-    <h2>Neue Kursangebote</h2>
-    <p>Gerne weisen wir auf <strong>aktuelle</strong> Kursangebote hin:</p>
-  </article>
-
-  <article>
-    <h2>„Das Monster in mir“ – eine Aussage eines Achtjährigen</h2>
-    <p>Dozentin: Natascha Unfried<br>Termin: 7./8.11.2025</p>
-    <p>Dr. med. Natascha Unfried diskutiert mit den Teilnehmenden die Begriffe «Täterintrojekt» und «täterinfizierte Anteile» anhand von Fallbeispielen. Schwerpunkte werden der Umgang im pädagogischen Alltag und in der Therapie sowie der Schutz vor Eskalation sein. Die bösartigen Introjekte und deren selbstzerstörerische Wirkungen zu erkennen und zu begrenzen ist ebenfalls Inhalt des Seminars. Eigene Fallbeispiele der TeilnehmerInnen sind sehr willkommen.<br><a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/das-monster-in-mir-eine-aussage-eines-8-j-jungen/3f48de9f-b735-4773-914d-776e16f29fa0" class="icon-arrow-right">mehr erfahren</a></p>
-  </article>
-
-  <article>
-    <h2>Traum und Trauma </h2>
-    <p>Dozent: Lutz Wittmann<br>Termin: 7./8.2.2025</p>
-    <p>
-      Prof. Dr. phil. Lutz Wittmann lehrt und forscht an der IPU Berlin in Klinischer Psychologie und Psychotherapie mit Schwerpunkten in der Psychodynamischen Psychotherapie, Psychotraumatologie und Empirischen Traumforschung. Im neuen Modul «Traum und Trauma» am SIPT vermittelt er Teilnehmenden in einem interaktiven Seminar einen Überblick über die massgebenden Theorien und Forschungsbefunde zu posttraumatischen Albträumen. Weiter lernen Sie klinische Modelle auf Traumberichte traumatisierter Patienten anzuwenden, um Rückschlüsse für das therapeutische Vorgehen zu erarbeiten.<br>
-      <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/traum-und-trauma-fakultativ/2058beb2-2ab8-4ce9-b0df-28d257498635" class="icon-arrow-right">mehr erfahren</a>
     </p>
   </article>
   
