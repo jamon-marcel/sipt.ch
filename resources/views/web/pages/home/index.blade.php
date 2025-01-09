@@ -18,8 +18,8 @@
     </p>
   </article>
   <article>
-    <h2>Trauma und Familie: Arbeit mit traumatisierten Eltern</h2>
-    <p>Dozentin: Jennifer Hofmann <br>Termin: 16./17.5.2025</p>
+    <h2>Traumaexposition mittels NET in der Traumatherapie</h2>
+    <p>Dozentin: Jennifer Hofmann<br>Termin: 16./17.5.2025</p>
     <p>Anhand von Fallbeispielen wird die Anwendung der NET und der Lifeline als ein Element dieser Methode der Traumakonfrontation im Rahmen der traumatherapeutischen Behandlung aufgezeigt. Med. pract. Jennifer Hofmann vermittelt Ihnen für eine optimale Behandlungsplanung, welche Massnahmen in der Therapie zu welchem Zeitpunkt indiziert sind.<br><a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/traumaexposition-mittels-narrativer-expositions-therapie-net-im-rahmen-einer-traumatherapie-fakultativ/da683964-dcc0-43f0-abbe-532845a12b66" class="icon-arrow-right">mehr erfahren</a></p>
   </article>
   <article>
