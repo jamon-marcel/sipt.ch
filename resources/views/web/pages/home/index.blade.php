@@ -10,14 +10,6 @@
     <p>Gerne weisen wir auf <strong>aktuelle</strong> Kursangebote hin:</p>
   </article>
   <article>
-    <h2>Traum und Trauma </h2>
-    <p>Dozent: Lutz Wittmann<br>Termin: 7./8.2.2025</p>
-    <p>
-      Prof. Dr. phil. Lutz Wittmann lehrt und forscht an der IPU Berlin in Klinischer Psychologie und Psychotherapie mit Schwerpunkten in der Psychodynamischen Psychotherapie, Psychotraumatologie und Empirischen Traumforschung. Im neuen Modul «Traum und Trauma» am SIPT vermittelt er Teilnehmenden in einem interaktiven Seminar einen Überblick über die massgebenden Theorien und Forschungsbefunde zu posttraumatischen Albträumen. Weiter lernen Sie klinische Modelle auf Traumberichte traumatisierter Patienten anzuwenden, um Rückschlüsse für das therapeutische Vorgehen zu erarbeiten.<br>
-      <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/traum-und-trauma-fakultativ/2058beb2-2ab8-4ce9-b0df-28d257498635" class="icon-arrow-right">mehr erfahren</a>
-    </p>
-  </article>
-  <article>
     <h2>Traumaexposition mittels NET in der Traumatherapie</h2>
     <p>Dozentin: Jennifer Hofmann<br>Termin: 16./17.5.2025</p>
     <p>Anhand von Fallbeispielen wird die Anwendung der NET und der Lifeline als ein Element dieser Methode der Traumakonfrontation im Rahmen der traumatherapeutischen Behandlung aufgezeigt. Med. pract. Jennifer Hofmann vermittelt Ihnen für eine optimale Behandlungsplanung, welche Massnahmen in der Therapie zu welchem Zeitpunkt indiziert sind.<br><a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/traumaexposition-mittels-narrativer-expositions-therapie-net-im-rahmen-einer-traumatherapie-fakultativ/da683964-dcc0-43f0-abbe-532845a12b66" class="icon-arrow-right">mehr erfahren</a></p>
@@ -41,6 +33,14 @@
     <h2>Traumasensible Elterngespräche</h2>
     <p>Dozentin: Ruth Monstein<br>Termin: 12./13.12.2025</p>
     <p>In diesem Kurs lernen Sie das praktische Gestalten von Gesprächen mit Eltern traumatisierter Kinder und Jugendliche. Denn oft können Eltern nicht nachvollziehen, warum ihre Kinder Verhaltensauffälligkeiten haben und es kommt zu Schuldzuweisungen gegenüber den sozialpädagogischen Einrichtungen. Ruth Monstein vermittelt Ihnen, wie Traumatas in Familiensystemen weitergegeben werden und wie ein fachliches Unterstützungssystem aufgebaut werden kann.<br><a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/traumasensible-elterngespraeche-fakultativ/8e34ccca-51a8-4a63-a503-21dcc89d55e7" class="icon-arrow-right">mehr erfahren</a></p>
+  </article>
+  <article>
+    <h2>Traum und Trauma </h2>
+    <p>Dozent: Lutz Wittmann<br>Termin: Datum folgt</p>
+    <p>
+      Prof. Dr. phil. Lutz Wittmann lehrt und forscht an der IPU Berlin in Klinischer Psychologie und Psychotherapie mit Schwerpunkten in der Psychodynamischen Psychotherapie, Psychotraumatologie und Empirischen Traumforschung. Im neuen Modul «Traum und Trauma» am SIPT vermittelt er Teilnehmenden in einem interaktiven Seminar einen Überblick über die massgebenden Theorien und Forschungsbefunde zu posttraumatischen Albträumen. Weiter lernen Sie klinische Modelle auf Traumberichte traumatisierter Patienten anzuwenden, um Rückschlüsse für das therapeutische Vorgehen zu erarbeiten.<br>
+      <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/traum-und-trauma-fakultativ/2058beb2-2ab8-4ce9-b0df-28d257498635" class="icon-arrow-right">mehr erfahren</a>
+    </p>
   </article>
   <article>
     <h2>Veranstaltungshinweise</h2>
