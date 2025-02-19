@@ -194,6 +194,16 @@
         <a href="http://www.psychotherapie-knapp.ch/" target="_blank" rel="noopener">hpsychotherapie-knapp.ch</a>
         </p>
 
+        <p>
+          <strong>Maurer, Matthias</strong><br>
+          eidg. anerkannter Psychotherapeut<br>          
+          Praxisgemeinschaft Bettlistrasse<br>       
+          Bettlistrasse 20<br>
+          8600 Dübendorf<br>
+          Tel 043 543 11 00 <br>
+          <a href="https://www.praxis-bettlistrasse.ch" target="_blank">www.praxis-bettlistrasse.ch</a>
+        </p>
+
         <p><strong>Dipl. Psych. Mohamed, Amr</strong><br>
         Psychologe, Daseinsanalytiker<br>
         Rigistrasse 6<br>
