@@ -4,7 +4,6 @@
 @section('section')
 <section class="theme-light order-1">
   <x-header title="Aktuell" />
-
   <article>
     <h2>Neue Kursangebote</h2>
     <p>Gerne weisen wir auf <strong>aktuelle</strong> Kursangebote hin:</p>
@@ -43,23 +42,16 @@
     </p>
   </article>
   <article>
-    <h2>Veranstaltungshinweise</h2>
-    <p class="word-break">Der <a href="/storage/downloads/sipt-Poster_International Congress_Switzerland.pdf" target="_blank">International Congress of Psychoanalysis</a> zum Thema «Children, War and Persecutions» findet vom 14.-17. Mai 2025 in Maputo, Mosambik, statt. Unter den Referenten sind Prof. Dr. phil. Rosmarie Barwinski, Dr. phil. Marianne Rauwald, Dr. med. Hubertus Adam und Dr. phil. Boia Efraim. Bei Interesse melden Sie sich gerne unter <a href="mailto:congressmaputo@gmail.com">congressmaputo@gmail.com</a>. Website und detailliertes Programm folgen.</p>
-  </article>
-  <article>
     <h2>Literaturempfehlungen</h2>
     <p>In <a href="https://psychosozial-verlag.de/programm/1330/6000/3298-detail" target="_blank" title="«Das Trauma der anderen», Dr. rer. nat. Pia Andreatta">«Das Trauma der anderen»</a> beleuchtet Univ.-Prof. Dr. rer. nat. Pia Andreatta die sekundäre Traumatisierung in helfenden Berufen und hinterfragt kritisch bestehende Erklärungsansätze sowie die Engführung des Konzepts als klinische Diagnose.</p>
     <p><a href="https://www.klett-cotta.de/produkt/trauma-und-gegenuebertragung-9783608980981-t-8362" target="_blank" title="«Trauma und Gegenübertragung: Den Stand der Traumaverarbeitung erkennen und Behandlungsschritte planen»">«Trauma und Gegenübertragung: Den Stand der Traumaverarbeitung erkennen und Behandlungsschritte planen»</a> ist ein praxisnaher Leitfaden von Prof. Dr. phil. Rosmarie Barwinski für alle PsychotherapeutInnen und andere Berufsgruppen, die mit traumatisierten Menschen arbeiten.</p>
   </article>
-
-
   <article>
     <h2>Podcasts</h2>
     <p>Einige unserer Dozierenden können Sie neu im persönlichen Gespräch kennenlernen.<br>
       <a href="{{ route('about_tutors') }}" class="icon-arrow-right">mehr erfahren</a>
     </p>
   </article>
-  
   <article>
     <h2>Weitere Hinweise</h2>
     <h3>Trauma-Broschüren</h3>
@@ -72,7 +64,6 @@
     </p>
     <p>Eine erweiterte Fassung der Broschüren in <strong>Deutsch</strong> können Sie in Papierform beim SIPT bestellen.</p>
   </article>
-
 </section>
 <section class="theme-medium order-2 splash visual">
   <div class="splash__title">Willkommen im Schweizer Institut für Psychotraumatologie</div>
