@@ -15,7 +15,7 @@
         "cross-env": "^7.0",
         "jquery": "^3.2",
         "laravel-mix": "^5.0.1",
-        "lodash": "^4.17.13",
+        "lodash": "^4.17.21",
         "popper.js": "^1.12",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.26.7",
@@ -26,7 +26,7 @@
     "dependencies": {
         "@tinymce/tinymce-vue": "^3.2.2",
         "cleave.js": "^1.6.0",
-        "moment": "^2.26.0",
+        "moment": "^2.30.1",
         "vue-advanced-cropper": "^0.16.5",
         "vue-axios": "^2.1.5",
         "vue-axios-interceptors": "^0.3.1",

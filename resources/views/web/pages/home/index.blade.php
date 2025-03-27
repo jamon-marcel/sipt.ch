@@ -41,6 +41,16 @@
       <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/traum-und-trauma-fakultativ/2058beb2-2ab8-4ce9-b0df-28d257498635" class="icon-arrow-right">mehr erfahren</a>
     </p>
   </article>
+
+  <article>
+    <h2>
+      <a href="https://www.fondation-sne.ch/de/news-partner/veranstaltungen/methoden-fuer-den-umgang-mit-der-gegenuebertragung" target="_blank">
+        Methoden für den Umgang mit der Gegenübertragung
+      </a>
+    </h2>
+    <p>Im Seminar "Methoden für den Umgang mit der Gegenübertragung" der Stiftung Naturheilkunde und Erfahrungsmedizin (SNE) stellt Prof. Dr. phil. Rosmarie Barwinski ein Vorgehen vor, wie die Gegenübertragung förderlich in der Traumatherapie genutzt werden kann.<br><a href="https://www.fondation-sne.ch/de/news-partner/veranstaltungen/methoden-fuer-den-umgang-mit-der-gegenuebertragung" class="icon-arrow-right" target="_blank">mehr erfahren</a></p>
+  </article>
+
   <article>
     <h2>Literaturempfehlungen</h2>
     <p>In <a href="https://psychosozial-verlag.de/programm/1330/6000/3298-detail" target="_blank" title="«Das Trauma der anderen», Dr. rer. nat. Pia Andreatta">«Das Trauma der anderen»</a> beleuchtet Univ.-Prof. Dr. rer. nat. Pia Andreatta die sekundäre Traumatisierung in helfenden Berufen und hinterfragt kritisch bestehende Erklärungsansätze sowie die Engführung des Konzepts als klinische Diagnose.</p>
