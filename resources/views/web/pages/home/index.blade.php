@@ -44,7 +44,7 @@
 
   <article>
     <h2>Veranstaltungshinweise</h2>
-    <p>Im Seminar <a href="https://www.fondation-sne.ch/de/news-partner/veranstaltungen/methoden-fuer-den-umgang-mit-der-gegenuebertragung" target="_blank">"Methoden für den Umgang mit der Gegenübertragung"</a> der Stiftung Naturheilkunde und Erfahrungsmedizin (SNE) stellt Prof. Dr. phil. Rosmarie Barwinski ein Vorgehen vor, wie die Gegenübertragung förderlich in der Traumatherapie genutzt werden kann.<br>mehr erfahren</a></p>
+    <p>Im Seminar <a href="https://www.fondation-sne.ch/de/news-partner/veranstaltungen/methoden-fuer-den-umgang-mit-der-gegenuebertragung" target="_blank">"Methoden für den Umgang mit der Gegenübertragung"</a> der Stiftung Naturheilkunde und Erfahrungsmedizin (SNE) stellt Prof. Dr. phil. Rosmarie Barwinski ein Vorgehen vor, wie die Gegenübertragung förderlich in der Traumatherapie genutzt werden kann.</p>
   </article>
 
   <article>
