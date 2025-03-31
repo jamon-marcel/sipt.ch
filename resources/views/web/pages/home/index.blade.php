@@ -35,7 +35,7 @@
   </article>
   <article>
     <h2>Traum und Trauma </h2>
-    <p>Dozent: Lutz Wittmann<br>Termin: Datum folgt</p>
+    <p>Dozent: Lutz Wittmann<br>Termin: 6./7.2.2026</p>
     <p>
       Prof. Dr. phil. Lutz Wittmann lehrt und forscht an der IPU Berlin in Klinischer Psychologie und Psychotherapie mit Schwerpunkten in der Psychodynamischen Psychotherapie, Psychotraumatologie und Empirischen Traumforschung. Im neuen Modul «Traum und Trauma» am SIPT vermittelt er Teilnehmenden in einem interaktiven Seminar einen Überblick über die massgebenden Theorien und Forschungsbefunde zu posttraumatischen Albträumen. Weiter lernen Sie klinische Modelle auf Traumberichte traumatisierter Patienten anzuwenden, um Rückschlüsse für das therapeutische Vorgehen zu erarbeiten.<br>
       <a href="https://psychotraumatologie-sipt.ch/bildungsangebot/modul/traum-und-trauma-fakultativ/2058beb2-2ab8-4ce9-b0df-28d257498635" class="icon-arrow-right">mehr erfahren</a>
@@ -44,7 +44,8 @@
 
   <article>
     <h2>Veranstaltungshinweise</h2>
-    <p>Im Seminar <a href="https://www.fondation-sne.ch/de/news-partner/veranstaltungen/methoden-fuer-den-umgang-mit-der-gegenuebertragung" target="_blank">"Methoden für den Umgang mit der Gegenübertragung"</a> der Stiftung Naturheilkunde und Erfahrungsmedizin (SNE) stellt Prof. Dr. phil. Rosmarie Barwinski ein Vorgehen vor, wie die Gegenübertragung förderlich in der Traumatherapie genutzt werden kann.</p>
+    <p>Im Ganztagesseminar <a href="https://www.fondation-sne.ch/de/news-partner/veranstaltungen/methoden-fuer-den-umgang-mit-der-gegenuebertragung" target="_blank">«Methoden für den Umgang mit der Gegenübertragung»</a> der Stiftung Naturheilkunde und Erfahrungsmedizin (SNE) am 8. April 2025 stellt Prof. Dr. phil. Rosmarie Barwinski ein Vorgehen vor, wie die Gegenübertragung förderlich in der Traumatherapie genutzt werden kann.</p>
+    <p>Prof. Dr. phil. Rosmarie Barwinski vermittelt Ihnen am 11./12. Juli 2025 in einem interaktiven Workshop alles zum Thema Trauma und Gegenübertragung. Die Veranstaltung ist öffentlich und findet in der <a href="https://www.psychoanalyse-muenchen.de/oeffentliche-veranstaltungen/trauma-und-gegenuebertragung-interaktiver-workshop-mit-rosemarie-barwinski" target="_blank">Akademie München</a> statt.</p>
   </article>
 
   <article>
