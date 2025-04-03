@@ -6,7 +6,6 @@
   <x-header title="Aktuell" />
   <article>
     <h2>Neue Kursangebote</h2>
-    <p>Gerne weisen wir auf <strong>aktuelle</strong> Kursangebote hin:</p>
   </article>
   <article>
     <h2>Traumaexposition mittels NET in der Traumatherapie</h2>
@@ -49,7 +48,7 @@
   </article>
 
   <article>
-    <h2>Literaturempfehlungen</h2>
+    <h2>Empfehlungen (Literatur, Lehrvideos)</h2>
     <p>In <a href="https://psychosozial-verlag.de/programm/1330/6000/3298-detail" target="_blank" title="«Das Trauma der anderen», Dr. rer. nat. Pia Andreatta">«Das Trauma der anderen»</a> beleuchtet Univ.-Prof. Dr. rer. nat. Pia Andreatta die sekundäre Traumatisierung in helfenden Berufen und hinterfragt kritisch bestehende Erklärungsansätze sowie die Engführung des Konzepts als klinische Diagnose.</p>
     <p><a href="https://www.klett-cotta.de/produkt/trauma-und-gegenuebertragung-9783608980981-t-8362" target="_blank" title="«Trauma und Gegenübertragung: Den Stand der Traumaverarbeitung erkennen und Behandlungsschritte planen»">«Trauma und Gegenübertragung: Den Stand der Traumaverarbeitung erkennen und Behandlungsschritte planen»</a> ist ein praxisnaher Leitfaden von Prof. Dr. phil. Rosmarie Barwinski für alle PsychotherapeutInnen und andere Berufsgruppen, die mit traumatisierten Menschen arbeiten.</p>
   </article>
