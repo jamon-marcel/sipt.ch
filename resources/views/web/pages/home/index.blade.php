@@ -49,10 +49,6 @@
     <p>Im Ganztagesseminar <a href="https://www.fondation-sne.ch/de/news-partner/veranstaltungen/methoden-fuer-den-umgang-mit-der-gegenuebertragung" title="«Methoden für den Umgang mit der Gegenübertragung»" target="_blank">«Methoden für den Umgang mit der Gegenübertragung»</a> der Stiftung Naturheilkunde und Erfahrungsmedizin (SNE) am 8. April 2025 stellt Prof. Dr. phil. Rosmarie Barwinski ein Vorgehen vor, wie die Gegenübertragung förderlich in der Traumatherapie genutzt werden kann.</p>
     <p>Prof. Dr. phil. Rosmarie Barwinski vermittelt Ihnen am 11./12. Juli 2025 in einem interaktiven Workshop alles zum Thema Trauma und Gegenübertragung. Die Veranstaltung ist öffentlich und findet in der <a href="https://www.psychoanalyse-muenchen.de/oeffentliche-veranstaltungen/trauma-und-gegenuebertragung-interaktiver-workshop-mit-rosemarie-barwinski" title="Akademie München" target="_blank">Akademie München</a> statt.</p>
   </article>
-  <article>
-    <p>Im Ganztagesseminar <a href="https://www.fondation-sne.ch/de/news-partner/veranstaltungen/methoden-fuer-den-umgang-mit-der-gegenuebertragung" target="_blank">«Methoden für den Umgang mit der Gegenübertragung»</a> der Stiftung Naturheilkunde und Erfahrungsmedizin (SNE) am 8. April 2025 stellt Prof. Dr. phil. Rosmarie Barwinski ein Vorgehen vor, wie die Gegenübertragung förderlich in der Traumatherapie genutzt werden kann.</p>
-    <p>Prof. Dr. phil. Rosmarie Barwinski vermittelt Ihnen am 11./12. Juli 2025 in einem interaktiven Workshop alles zum Thema Trauma und Gegenübertragung. Die Veranstaltung ist öffentlich und findet in der <a href="https://www.psychoanalyse-muenchen.de/oeffentliche-veranstaltungen/trauma-und-gegenuebertragung-interaktiver-workshop-mit-rosemarie-barwinski" target="_blank">Akademie München</a> statt.</p>
-  </article>
 
   <article>
     <h2>Empfehlungen (Literatur, Lehrvideos)</h2>
