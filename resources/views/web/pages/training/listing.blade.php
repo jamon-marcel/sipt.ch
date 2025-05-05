@@ -21,13 +21,13 @@
             </div>
           @endif
         @endforeach
-        @if ($category->id == 'f8397281-acc4-47a4-985e-b6515b433419')
+        {{-- @if ($category->id == 'f8397281-acc4-47a4-985e-b6515b433419')
           <div class="list__item">
             <a href="/bildungsangebot/modul/online-seminar-einfuehrung-in-die-psychotraumatologie-und-traumapaedagogik/ef5f55f7-23c4-4a49-9f91-e8749793707c" class="icon-arrow">
               Online-Seminar: Einführung in die Psychotraumatologie und Traumapädagogik
             </a>
           </div>
-        @endif
+        @endif --}}
         <br><br>
         <div class="list__item">
           <a 
