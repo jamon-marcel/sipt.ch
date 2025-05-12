@@ -1,8 +1,5 @@
-// Composer
-php composer.phar install --optimize-autoloader --no-dev
-
 PHP:
-/usr/local/php81/bin/php
+/usr/local/php82/bin/php
 
 // Shell
 ssh siptse9@psychotraumatologie-sipt.ch

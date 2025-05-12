@@ -197,6 +197,20 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::delete('vip-address/{vipAddress}', 'Api\VipAddressController@destroy');
   });
 
+  // News routes
+  Route::middleware('role:admin')->group(function() {
+    Route::get('news/articles', 'Api\NewsArticleController@get');
+    Route::get('news/article/{newsArticle}', 'Api\NewsArticleController@find');
+    Route::post('news/article', 'Api\NewsArticleController@store');
+    Route::put('news/article/{newsArticle}', 'Api\NewsArticleController@update');
+    Route::delete('news/article/{newsArticle}', 'Api\NewsArticleController@destroy');
+
+    Route::get('news/categories', 'Api\NewsCategoryController@get');
+    Route::post('news/category', 'Api\NewsCategoryController@store');
+    Route::put('news/category/{newsCategory}', 'Api\NewsCategoryController@update');
+    Route::delete('news/category/{newsCategory}', 'Api\NewsCategoryController@destroy');
+  });
+
   // Search address routes
   Route::middleware('role:admin')->group(function() {
     Route::post('search-address', 'Api\SearchAddressController@search');

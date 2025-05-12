@@ -5,9 +5,9 @@
 </template>
 <script>
 import MailingForm from '@/administration/views/mailing/form.vue';
-  export default {
-    components: {
-      MailingForm
-    }
+export default {
+  components: {
+    MailingForm
   }
+}
 </script>

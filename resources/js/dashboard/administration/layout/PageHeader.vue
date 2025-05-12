@@ -25,6 +25,11 @@
     </header>
     <ul>
       <li>
+        <router-link :to="{name: 'news-articles'}">
+          <span>Aktuelles</span>
+        </router-link>
+      </li>
+      <li>
         <router-link :to="{name: 'trainings'}">
           <span>Fortbildungen</span>
         </router-link>
@@ -62,11 +67,6 @@
       <li>
         <router-link :to="{name: 'vip-addresses'}">
           <span>VIP Adressen</span>
-        </router-link>
-      </li>
-      <li>
-        <router-link :to="{name: 'symposium'}">
-          <span>Fachtagung</span>
         </router-link>
       </li>
     </ul>

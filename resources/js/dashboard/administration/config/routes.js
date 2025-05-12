@@ -52,6 +52,10 @@ import VipAddressesIndex from '@/administration/views/vip/Index.vue';
 import VipAddressesCreate from '@/administration/views/vip/Create.vue';
 import VipAddressesEdit from '@/administration/views/vip/Edit.vue';
 
+import NewsArticleIndex from '@/administration/views/news/article/Index.vue';
+import NewsArticleCreate from '@/administration/views/news/article/Create.vue';
+import NewsArticleEdit from '@/administration/views/news/article/Edit.vue';
+
 const routes = [
 
   // Home
@@ -278,6 +282,22 @@ const routes = [
     component: VipAddressesEdit,
   },
 
+  // News
+  {
+    name: 'news-articles',
+    path: '/administration/news/articles',
+    component: NewsArticleIndex,
+  },
+  {
+    name: 'news-article-create',
+    path: '/administration/news/article/create',
+    component: NewsArticleCreate,
+  },
+  {
+    name: 'news-article-edit',
+    path: '/administration/news/article/edit/:id',
+    component: NewsArticleEdit,
+  },
   
   // Authorization
   {
