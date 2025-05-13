@@ -10,6 +10,7 @@ class NewsArticle extends Model
     'text',
     'link',
     'order',
+    'is_published',
     'tutor_id',
     'category_id'
   ];
@@ -23,4 +24,9 @@ class NewsArticle extends Model
   {
     return $this->belongsTo(Tutor::class);
   }
+
+  public function scopeActive($query)
+	{
+		return $query->where('is_published', '=', 1);
+	}
 }

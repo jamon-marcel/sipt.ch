@@ -216,6 +216,11 @@ export default {
       default: false,
     },
 
+    isDraggable: {
+      type: Boolean,
+      default: false,
+    },
+
     studentId: null,
 
     routes: Object,
@@ -225,7 +230,12 @@ export default {
   methods: {
 
     toggle(id,$event) {
-      this.$parent.toggle(id,$event);
+      if (this.isDraggable) {
+        this.$parent.$parent.toggle(id,$event);
+      }
+      else {
+        this.$parent.toggle(id,$event);
+      }
     },
 
     destroy(id,$event) {

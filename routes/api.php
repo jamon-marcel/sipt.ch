@@ -200,13 +200,17 @@ Route::middleware('auth:sanctum')->group(function() {
   // News routes
   Route::middleware('role:admin')->group(function() {
     Route::get('news/articles', 'Api\NewsArticleController@get');
+    Route::put('/news/articles/order/{category}', 'Api\NewsArticleController@order');
     Route::get('news/article/{newsArticle}', 'Api\NewsArticleController@find');
     Route::post('news/article', 'Api\NewsArticleController@store');
+    Route::get('news/article/state/{newsArticle}', 'Api\NewsArticleController@toggle');
     Route::put('news/article/{newsArticle}', 'Api\NewsArticleController@update');
     Route::delete('news/article/{newsArticle}', 'Api\NewsArticleController@destroy');
 
     Route::get('news/categories', 'Api\NewsCategoryController@get');
     Route::post('news/category', 'Api\NewsCategoryController@store');
+    Route::post('news/categories/order', 'Api\NewsCategoryController@order');
+    Route::get('news/category/state/{newsCategory}', 'Api\NewsCategoryController@toggle');
     Route::put('news/category/{newsCategory}', 'Api\NewsCategoryController@update');
     Route::delete('news/category/{newsCategory}', 'Api\NewsCategoryController@destroy');
   });

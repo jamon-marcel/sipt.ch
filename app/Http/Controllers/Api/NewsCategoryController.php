@@ -10,7 +10,7 @@ class NewsCategoryController extends Controller
 {
   public function get()
   {
-    return new DataCollection(NewsCategory::all());
+    return new DataCollection(NewsCategory::orderBy('order')->get());
   }
 
   public function store(NewsCategoryStoreRequest $request)
@@ -23,6 +23,25 @@ class NewsCategoryController extends Controller
   {
     $newsCategory->update($request->all());
     return response()->json($newsCategory);
+  }
+
+  public function toggle(NewsCategory $newsCategory)
+  {
+    $newsCategory->is_published = $newsCategory->is_published == 0 ? 1 : 0;
+    $newsCategory->save();
+    return response()->json($newsCategory->is_published);
+  }
+
+  public function order(Request $request)
+  {
+    $ids = $request->ids;
+    foreach ($ids as $index => $id)
+    {
+      $newsCategory = NewsCategory::find($id);
+      $newsCategory->order = $index;
+      $newsCategory->save();
+    }
+    return response()->json('successfully ordered');
   }
 
   public function destroy(NewsCategory $newsCategory)

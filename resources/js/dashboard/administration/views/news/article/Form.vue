@@ -6,6 +6,21 @@
         <h1>{{ title }}</h1>
       </header>
       <div>
+
+        <div :class="[this.errors.category_id ? 'has-error' : '', 'form-row']">
+          <label>Kategorie</label>
+          <div class="select-wrapper is-wide">
+            <select v-model="article.category_id">
+              <option value="null">Bitte wählen...</option>
+              <option
+                v-for="c in categories"
+                :key="c.id"
+                :value="c.id"
+              >{{ c.title }}</option>
+            </select>
+          </div>
+        </div>
+
         <div class="form-row">
           <label>Titel</label>
           <input type="text" v-model="article.title">
@@ -38,18 +53,10 @@
           ></tinymce-editor>
           <label-required/>
         </div>
-        <div :class="[this.errors.category_id ? 'has-error' : '', 'form-row']">
-          <label>Kategorie</label>
-          <div class="select-wrapper is-wide">
-            <select v-model="article.category_id">
-              <option value="null">Bitte wählen...</option>
-              <option
-                v-for="c in categories"
-                :key="c.id"
-                :value="c.id"
-              >{{ c.title }}</option>
-            </select>
-          </div>
+        <div class="form-row">
+          <label>Link</label>
+          <input type="text" v-model="article.link">
+          <label-info text="Nur für Kursangebote"></label-info>
         </div>
       </div>
       <footer class="module-footer">
@@ -97,7 +104,8 @@ export default {
         date: '',
         text: '',
         link: '',
-        tutor_id: '',
+        is_published: 1,
+        tutor_id: null,
         category_id: null
       },
 
@@ -180,7 +188,7 @@ export default {
 
   computed: {
     title: function() {
-      return this.$props.type == "edit" ? "News-Artikel bearbeiten" : "News-Artikel hinzufügen";
+      return this.$props.type == "edit" ? "Artikel bearbeiten" : "Artikel hinzufügen";
     }
   }
 };

@@ -16,6 +16,8 @@ class CreateNewsCategoriesTable extends Migration
         Schema::create('news_categories', function (Blueprint $table) {
           $table->uuid('id')->primary();
           $table->string('title');
+          $table->integer('order')->default(-1);
+          $table->tinyInteger('is_published')->default(0);
           $table->timestamps();
         });
     }

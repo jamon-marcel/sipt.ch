@@ -56,6 +56,10 @@ import NewsArticleIndex from '@/administration/views/news/article/Index.vue';
 import NewsArticleCreate from '@/administration/views/news/article/Create.vue';
 import NewsArticleEdit from '@/administration/views/news/article/Edit.vue';
 
+import NewsCategoryIndex from '@/administration/views/news/category/Index.vue';
+import NewsCategoryCreate from '@/administration/views/news/category/Create.vue';
+import NewsCategoryEdit from '@/administration/views/news/category/Edit.vue';
+
 const routes = [
 
   // Home
@@ -297,6 +301,21 @@ const routes = [
     name: 'news-article-edit',
     path: '/administration/news/article/edit/:id',
     component: NewsArticleEdit,
+  },
+  {
+    name: 'news-categories',
+    path: '/administration/news/categories',
+    component: NewsCategoryIndex,
+  },
+  {
+    name: 'news-category-create',
+    path: '/administration/news/category/create',
+    component: NewsCategoryCreate,
+  },
+  {
+    name: 'news-category-edit',
+    path: '/administration/news/category/edit/:id',
+    component: NewsCategoryEdit,
   },
   
   // Authorization

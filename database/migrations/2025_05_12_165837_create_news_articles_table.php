@@ -20,6 +20,7 @@ class CreateNewsArticlesTable extends Migration
           $table->text('text');
           $table->string('link')->nullable();
           $table->integer('order')->nullable()->default(-1);
+          $table->tinyInteger('is_published')->default(0);
           $table->uuid('tutor_id')->nullable();
           $table->foreign('tutor_id')->references('id')->on('tutors');
           $table->uuid('category_id');

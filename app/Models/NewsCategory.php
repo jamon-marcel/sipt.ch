@@ -5,11 +5,18 @@ use GoldSpecDigital\LaravelEloquentUUID\Database\Eloquent\Model;
 class NewsCategory extends Model
 {
   protected $fillable = [
-    'title'
+    'title',
+    'order',
+    'is_published'
   ];
 
   public function articles()
   {
-    return $this->hasMany(NewsArticle::class);
+    return $this->hasMany(NewsArticle::class, 'category_id', 'id')->orderBy('order');
   }
+
+  public function scopeActive($query)
+	{
+		return $query->where('is_published', '=', 1);
+	}
 }
