@@ -1,10 +1,12 @@
 const mix = require('laravel-mix');
 
+// Configure Vue 2 for Laravel Mix v6
+mix.vue({ version: 2 });
+
 mix.webpackConfig({
     resolve: {
-        extensions: ['.js', '.vue', '.json'],
+        extensions: ['*', '.wasm', '.mjs', '.js', '.jsx', '.json', '.vue'],
         alias: {
-            //'vue$': 'vue/dist/vue.esm.js',
             '@': __dirname + '/resources/js/dashboard/'
         },
     },

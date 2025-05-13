@@ -239,7 +239,12 @@ export default {
     },
 
     destroy(id,$event) {
-      this.$parent.destroy(id,$event);
+      if (this.isDraggable) {
+        this.$parent.$parent.destroy(id,$event);
+      }
+      else {
+        this.$parent.destroy(id,$event);
+      }
     },
 
     activate($event) {

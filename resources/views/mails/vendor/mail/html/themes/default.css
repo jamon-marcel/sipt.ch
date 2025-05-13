@@ -207,6 +207,7 @@ img {
   border-left: 8px solid #ff7a00;
   border-right: 8px solid #ff7a00;
   border-top: 8px solid #ff7a00;
+  color: #ffffff !important;
 }
 
 .button-green,

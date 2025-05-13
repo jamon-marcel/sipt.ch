@@ -1,9 +1,10 @@
 require('../bootstrap');
 
-// Vue
-window.Vue = require('vue');
+// Vue - import the full build with the compiler
+import Vue from 'vue';
+window.Vue = Vue;
 
-// Axios Interceptors
+// Require vue-axios-interceptors after Vue
 require('vue-axios-interceptors');
 
 // Axios, Vue-Axios
