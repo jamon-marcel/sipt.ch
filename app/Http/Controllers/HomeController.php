@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\BaseController;
 use Illuminate\Http\Request;
+use App\Models\NewsArticle;
+use App\Models\NewsCategory;
 
 class HomeController extends BaseController
 {
@@ -20,7 +22,15 @@ class HomeController extends BaseController
 
   public function index()
   { 
-    return view($this->viewPath);
+
+    $news = NewsCategory::active()
+      ->whereHas('publishedArticles') // only categories with published articles
+      ->with(['publishedArticles' => function ($query) {
+        $query->orderBy('order');
+      }])
+      ->orderBy('order')
+      ->get();
+    return view($this->viewPath, compact('news'));
   }
 
   public function login()

@@ -50,6 +50,9 @@ return [
     3 => '3. Mahnung'
   ],
 
+  // ID for 'Kursangebote'
+  'news_courses_id' => env('NEWS_COURSES_ID', '4f400707-ff45-4bea-86fd-0842fce71438'),
+
   // ID for current symposium
   'symposium_id' => '644b0723-5c3a-45d3-800a-592876d90257',
 

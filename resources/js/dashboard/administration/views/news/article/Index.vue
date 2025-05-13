@@ -147,7 +147,13 @@ export default {
 
     truncate(text, length = 100, suffix = "...") {
       if (!text) return '';
-      return text.length > length ? text.substring(0, length) + suffix : text;
+
+      // Remove HTML tags using a regular expression
+      const strippedText = text.replace(/<[^>]*>/g, '');
+
+      return strippedText.length > length
+        ? strippedText.substring(0, length) + suffix
+        : strippedText;
     },
 
     onDragEnd(categoryId) {
