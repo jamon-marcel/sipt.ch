@@ -56,7 +56,6 @@
         <div class="form-row">
           <label>Link</label>
           <input type="text" v-model="article.link">
-          <label-info text="Nur für Kursangebote"></label-info>
         </div>
       </div>
       <footer class="module-footer">
