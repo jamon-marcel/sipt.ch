@@ -2,9 +2,10 @@
 namespace App\Console\Commands;
 use App\Models\User;
 use App\Models\SymposiumSubscriber;
-use App\Models\ImportantNoticeSubscriber;
-use App\Models\AdvertismentSubscriber;
-use App\Models\NewsletterSubscriber;
+use App\Models\MailingListSubscriber;
+// use App\Models\ImportantNoticeSubscriber;
+// use App\Models\AdvertismentSubscriber;
+// use App\Models\NewsletterSubscriber;
 use App\Models\MessageLog;
 use Illuminate\Console\Command;
 
@@ -46,9 +47,7 @@ class AnonymizeEmail extends Command
       $users = [
         User::withTrashed()->get(),
         SymposiumSubscriber::withTrashed()->get(),
-        ImportantNoticeSubscriber::withTrashed()->get(),
-        AdvertismentSubscriber::withTrashed()->get(),
-        NewsletterSubscriber::withTrashed()->get(),
+        MailingListSubscriber::withTrashed()->get(),
         MessageLog::get()
       ];
   

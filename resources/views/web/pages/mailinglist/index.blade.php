@@ -11,6 +11,26 @@
   </article>
 
   <article>
+    <a href="/storage/downloads/sipt-aufbau_13.pdf" target="_blank" class="btn-download" title="Download PDF">
+      <strong>Aufbau-Tipp Nr. 13 / Mai 2025</strong>
+    </a>
+    <div class="list">
+      <div class="list__item">Eine Schweizer Exklusivität: die Grengjer-Tulpe</div>
+      <div class="list__item">Eine Winter – Frühlings – Sommer – Herbst – Wanderung</div>
+    </div>
+  </article>
+
+  <article>
+    <a href="/storage/downloads/sipt-aufbau_12.pdf" target="_blank" class="btn-download" title="Download PDF">
+      <strong>Aufbau-Tipp Nr. 12 / November 2024</strong>
+    </a>
+    <div class="list">
+      <div class="list__item">Die Singschwäne und ihr magisches Spektakel</div>
+      <div class="list__item">Eine Winter – Frühlings – Sommer – Herbst – Wanderung</div>
+    </div>
+  </article>
+
+  <article>
     <a href="/storage/downloads/sipt-aufbau_11.pdf" target="_blank" class="btn-download" title="Download PDF">
       <strong>Aufbau-Tipp Nr. 11 / Mai 2024</strong>
     </a>
