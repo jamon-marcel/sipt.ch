@@ -11,6 +11,11 @@ class ProcessQueue
   {
     $mailingQueue = MailingQueue::notProcessed()->with('mailing.attachments', 'notProcessedItems.subscriber.mailinglist', 'processedItems', 'items')->first();
 
+    // No unprocessed mailing queue found, so nothing to do
+    if (!$mailingQueue) {
+      return;
+    }
+
     // If there is no mailing queue to process because all are processed, set the mailing queue as processed and return
     if(
       $mailingQueue->items && $mailingQueue->processedItems &&
