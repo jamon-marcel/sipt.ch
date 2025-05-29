@@ -7,3 +7,7 @@ dOc!ir-Q]*20FPeBPXr+
 
 // Github token
 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
+
+
+/usr/local/php82/bin/php
+

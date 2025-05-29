@@ -12,7 +12,11 @@ class ProcessQueue
     $mailingQueue = MailingQueue::notProcessed()->with('mailing.attachments', 'notProcessedItems.subscriber.mailinglist', 'processedItems', 'items')->first();
 
     // If there is no mailing queue to process because all are processed, set the mailing queue as processed and return
-    if($mailingQueue->items->count() > 0 && ($mailingQueue->items->count() == $mailingQueue->processedItems->count()))
+    if(
+      $mailingQueue->items && $mailingQueue->processedItems &&
+      $mailingQueue->items->count() > 0 &&
+      $mailingQueue->items->count() == $mailingQueue->processedItems->count()
+    )
     {
       $mailingQueue->processed = 1;
       $mailingQueue->save();

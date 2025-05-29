@@ -12,7 +12,7 @@ class CreateSubscriber
       'hash' => md5($data['email']),
       'mailinglist_id' => $data['mailinglist']->id,
       'description' => $data['mailinglist']->description,
-      'is_processed' => 1,
+      // 'is_processed' => 1,
       'is_confirmed' => $confirmed ? 1 : 0
     ]);
   }
