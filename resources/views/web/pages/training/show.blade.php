@@ -163,7 +163,7 @@
 
   @if ($training->is_cas)
     <article>
-      <a href="/storage/downloads/sipt-anmeldung-zertifikatsstudium-CAS-2024.pdf" target="_blank" class="btn-download" title="Download Anmeldung Zertifikatsstudium CAS">
+      <a href="/storage/downloads/sipt-anmeldung-zertifikatsstudium-CAS-2025.pdf" target="_blank" class="btn-download" title="Download Anmeldung Zertifikatsstudium CAS">
         <strong>Anmeldeformular CAS</strong> [PDF, 264KB]
       </a>
     </article>
