@@ -6,6 +6,13 @@
   <x-header title="Stelleninserate" />
   <article>
     <p>
+      <a href="/storage/downloads/sipt-PsychotherapeutIn-60-80.pdf" target="_blank" class="btn-download" title="Psychotherapeut:in mit Schwerpunkt Kinder und Jugendliche, 60%">
+        <strong>
+          Psychotherapeut:in 60-80% (Standort Bülach)
+        </strong>
+      </a>
+    </p>
+    <p>
       <a href="/storage/downloads/sipt-PsychotherapeutIn_Kinder-_und_Jugendbereich_60.pdf" target="_blank" class="btn-download" title="Psychotherapeut:in mit Schwerpunkt Kinder und Jugendliche, 60%">
         <strong>Psychotherapeut:in mit Schwerpunkt Kinder und Jugendliche, 60%</strong>
       </a>
