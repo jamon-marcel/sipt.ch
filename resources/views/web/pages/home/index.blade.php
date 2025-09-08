@@ -13,7 +13,15 @@
       @foreach ($category->publishedArticles as $article)
         <article>
           <h2>{{ $article->title }}</h2>
-          @if ($article->tutor)
+          @if ($article->tutors)
+          <p>
+            Dozent/innen: {{ $article->tutors }}
+            @if ($article->date)
+              <br>
+              Termin: {{ $article->date }}
+            @endif
+          </p>
+          @elseif ($article->tutor)
             <p>
               Dozent/in: {{ $article->tutor->fullName }}
               @if ($article->date)
@@ -21,15 +29,15 @@
                 Termin: {{ $article->date }}
               @endif
             </p>
-            <div class="news-article-text">
-              @if ($article->text)
-                {!! $article->text !!}
-              @endif
-              @if ($article->link)
-                <a href="{{ $article->link }}" class="icon-arrow-right">mehr erfahren</a>
-              @endif
-            </div>
           @endif
+          <div class="news-article-text">
+            @if ($article->text)
+              {!! $article->text !!}
+            @endif
+            @if ($article->link)
+              <a href="{{ $article->link }}" class="icon-arrow-right">mehr erfahren</a>
+            @endif
+          </div>
         </article>
       @endforeach
     @else

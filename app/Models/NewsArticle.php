@@ -12,6 +12,7 @@ class NewsArticle extends Model
     'order',
     'is_published',
     'tutor_id',
+    'tutors',
     'category_id'
   ];
 

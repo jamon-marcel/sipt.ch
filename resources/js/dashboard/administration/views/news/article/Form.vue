@@ -27,7 +27,7 @@
           <label-info text="Nur für Kursangebote"></label-info>
         </div>
         <div class="form-row">
-          <label>Dozent/in</label>
+          <label>Dozent:in</label>
           <div class="select-wrapper is-wide">
             <select v-model="article.tutor_id">
               <option value="null">Bitte wählen...</option>
@@ -39,6 +39,11 @@
             </select>
           </div>
           <label-info text="Nur für Kursangebote"></label-info>
+        </div>
+        <div class="form-row">
+          <label>Dozent:innen</label>
+          <input type="text" v-model="article.tutors" />
+          <label-info text="Mehrere Dozent:innen / Nur für Kursangebote"></label-info>
         </div>
         <div class="form-row">
           <label>Datum</label>
@@ -105,6 +110,7 @@ export default {
         link: '',
         is_published: 1,
         tutor_id: null,
+        tutors: '',
         category_id: null
       },
 

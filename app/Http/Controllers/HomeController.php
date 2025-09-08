@@ -22,7 +22,6 @@ class HomeController extends BaseController
 
   public function index()
   { 
-
     $news = NewsCategory::active()
       ->whereHas('publishedArticles') // only categories with published articles
       ->with(['publishedArticles' => function ($query) {
