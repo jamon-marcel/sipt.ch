@@ -159,7 +159,7 @@ return [
         'Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException' => 'warning',
 
         // 405 Method Not Allowed
-        'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException' => 'info',
+        'Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException' => 'skip',
 
         // 422 Unprocessable Entity
         'Symfony\Component\HttpKernel\Exception\UnprocessableEntityHttpException' => 'skip',
