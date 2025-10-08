@@ -53,11 +53,11 @@
   
   <article class="collapsible is-expanded js-clpsbl">
     <h2>
-      <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">Gesundheits-Campus der St. Elisabeth Universität (SEU)</a>
+      <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">Swiss Campus - Internationales Institut für Gesundheit, Kommunikation und Entwicklung</a>
     </h2>
     <div class="collapsible__content js-clpsbl-body">
-      <p>Bratislava, mit Sitz in Luzern<br><a href="https://gesundheits-campus.org/91/kontakt" target="_blank">gesundheits-campus.org/91/kontakt</a></p>
-      <p>Die St. Elisabeth Universität (SEU) ist eine staatlich anerkannte H+ Hochschule in Bratislava mit privater Trägerschaft. Die SEU bietet zielgruppenspezifische Studiengänge, Weiterbildungen (CAS, DAS, MAS) und Doktoratsstudienprogramme (PhD) für Gesundheits- und Sozialberufe an. Der Gesundheits-Campus mit Sitz in Ebikon/Luzern (CH) kann sowohl auf die bereits akkreditierten Studiengänge (Bachelor- und Masterstudiengänge) und Doktoratsstudienprogramme (PhD) der SEU zurückgreifen, als auch eigene Weiterbildungsstudiengänge im Rahmen „Gesundheit und Soziales“ entwerfen. Diese neuen Bildungsmöglichkeiten werden durch die SEU akkreditiert/genehmigt, und durch den Gesundheits-Campus im deutschsprachigen Europa (Schweiz, Deutschland, Österreich, Liechtenstein und Luxemburg) angeboten. Der Gesundheits-Campus der SEU ist die offizielle und anerkannte Außenstelle für das deutschsprachige Europa.</p>
+      <p><a href="mailto:urs.gruber@swiss-campus.ch" target="_blank">Kontakt</a></p>
+      <p>Die Swiss Campus - Internationales Institut für Gesundheit, Kommunikation und Entwicklung ist eine staatlich anerkannte H+ Hochschule in Bratislava mit privater Trägerschaft. Sie bietet zielgruppenspezifische Studiengänge, Weiterbildungen (CAS, DAS, MAS) und Doktoratsstudienprogramme (PhD) für Gesundheits- und Sozialberufe an. Der Campus mit Sitz in Ebikon/Luzern (CH) kann sowohl auf die bereits akkreditierten Studiengänge (Bachelor- und Masterstudiengänge) und Doktoratsstudienprogramme (PhD) des Swiss Campus zurückgreifen, als auch eigene Weiterbildungsstudiengänge im Rahmen „Gesundheit und Soziales“ entwerfen. Diese neuen Bildungsmöglichkeiten werden durch den Swiss Campus akkreditiert/genehmigt, und durch den Gesundheits-Campus im deutschsprachigen Europa (Schweiz, Deutschland, Österreich, Liechtenstein und Luxemburg) angeboten. Der Gesundheits-Campus des Swiss Campus ist die offizielle und anerkannte Außenstelle für das deutschsprachige Europa.</p>
     </div>
   </article>
 </section>

@@ -7,7 +7,7 @@
   <article>
     <h2>Über uns</h2>
     <p>Das SIPT setzt sich für Anliegen von Traumaopfern ein und bietet Fortbildungen für verschiedene Berufsgruppen an, die in ihrer Arbeit mit traumatisierten Menschen konfrontiert sind. Im Fortbildungsangebot des SIPT stehen psychodynamische Konzepte im Vordergrund.</p>
-    <p>Die Fortbildungen des SIPT werden zertifiziert durch die Schweizer Charta für Psychotherapie sowie das DIPT. Zudem besteht die Möglichkeit, über die Fortbildungen des SIPT einen CAS in Psychotraumatologie des Gesundheits-Campus der St. Elisabeth Universität, Bratislava, mit Sitz in Luzern zu erlangen.</p>
+    <p>Die Fortbildungen des SIPT werden zertifiziert durch die Schweizer Charta für Psychotherapie sowie das DIPT. Zudem besteht die Möglichkeit, über die Fortbildungen des SIPT einen CAS in Psychotraumatologie des Swiss Campus - Internationales Institut für Gesundheit, Kommunikation und Entwicklung zu erlangen.</p>
   </article>
   <article class="collapsible js-clpsbl">
     <h2>
