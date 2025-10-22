@@ -25,6 +25,8 @@ use App\Http\Controllers\Api\BackofficeController;
 use App\Http\Controllers\Api\InvoiceController;
 use App\Http\Controllers\Api\SymposiumSubscriberController;
 use App\Http\Controllers\Api\VipAddressController;
+use App\Http\Controllers\Api\DownloadController;
+use App\Http\Controllers\Api\DownloadFileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -241,6 +243,19 @@ Route::middleware('auth:sanctum')->group(function() {
   // Search address routes
   Route::middleware('role:admin')->group(function() {
     Route::post('search-address', [App\Http\Controllers\Api\SearchAddressController::class, 'search']);
+  });
+
+  // Downloads routes
+  Route::middleware('role:admin')->group(function() {
+    Route::get('downloads', [DownloadController::class, 'get']);
+    Route::get('download/{download}', [DownloadController::class, 'find']);
+    Route::post('download', [DownloadController::class, 'store']);
+    Route::put('download/{download}', [DownloadController::class, 'update']);
+    Route::put('downloads/order', [DownloadController::class, 'order']);
+    Route::get('download/state/{download}', [DownloadController::class, 'toggle']);
+    Route::delete('download/{download}', [DownloadController::class, 'destroy']);
+    Route::delete('download/file/temp', [DownloadFileController::class, 'deleteUpload']);
+    Route::delete('download/file/{download}', [DownloadFileController::class, 'delete']);
   });
 
 });

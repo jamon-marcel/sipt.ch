@@ -56,8 +56,14 @@
       <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">Swiss Campus - Internationales Institut für Gesundheit, Kommunikation und Entwicklung</a>
     </h2>
     <div class="collapsible__content js-clpsbl-body">
-      <p><a href="mailto:urs.gruber@swiss-campus.ch" target="_blank">Kontakt</a></p>
-      <p>Die Swiss Campus - Internationales Institut für Gesundheit, Kommunikation und Entwicklung ist eine staatlich anerkannte H+ Hochschule in Bratislava mit privater Trägerschaft. Sie bietet zielgruppenspezifische Studiengänge, Weiterbildungen (CAS, DAS, MAS) und Doktoratsstudienprogramme (PhD) für Gesundheits- und Sozialberufe an. Der Campus mit Sitz in Ebikon/Luzern (CH) kann sowohl auf die bereits akkreditierten Studiengänge (Bachelor- und Masterstudiengänge) und Doktoratsstudienprogramme (PhD) des Swiss Campus zurückgreifen, als auch eigene Weiterbildungsstudiengänge im Rahmen „Gesundheit und Soziales“ entwerfen. Diese neuen Bildungsmöglichkeiten werden durch den Swiss Campus akkreditiert/genehmigt, und durch den Gesundheits-Campus im deutschsprachigen Europa (Schweiz, Deutschland, Österreich, Liechtenstein und Luxemburg) angeboten. Der Gesundheits-Campus des Swiss Campus ist die offizielle und anerkannte Außenstelle für das deutschsprachige Europa.</p>
+      <p>
+        Mettlenstrasse 3<br>6363 Fürigen<br>
+        <a href="mailto:urs.gruber@swiss-campus.ch" target="_blank">urs.gruber@swiss-campus.ch</a>
+      </p>
+      <p>
+        Swiss Campus ist ein Unternehmen, das sich der Bildung, Beratung, Qualitätssicherung (Zertifizierung) und Forschung in den Bereichen Medizin, Gesundheit, Kommunikation und Entwicklung sowie einer übergeordneten Heilkultur widmet. Als An-Institut des DTMD Institut Supérieur de Formation Continue, bzw der DTMD Hochschule (mit Sitz in Luxemburg) lassen wir uns von den Inhalten des Brügge-Kopenhagen-Prozess der Europäischen Union leiten.<br>
+        Der Brügge-Kopenhagen-Prozess hat der beruflichen Bildung innerhalb der EU-Bildungskooperation einen neuen Stellenwert gegeben, so dass wir in der Lage sind, auch Personen aus der Berufsbildung ein akademisches Studium zu ermöglichen. Als akademisches Weiterbildungsinstitut haben wir im gesamten deutschsprachigen Raum qualifizierte Partner.
+      </p>
     </div>
   </article>
 </section>

@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Services\Document;
 use App\Models\CourseEvent;
 use App\Models\Student;
+use App\Models\Download;
 use App\Exports\SymposiumSubscribersExport;
 use App\Exports\StudentAddressesExport;
 use App\Exports\TutorAddressesExport;
@@ -29,14 +30,15 @@ class DownloadController extends BaseController
   }
 
   /**
-   * Show the about page
+   * Show the downloads page
    *
    * @return \Illuminate\Http\Response
    */
-   
+
   public function index()
   {
-    return view($this->viewPath . 'index');
+    $downloads = Download::active()->orderBy('order')->get();
+    return view($this->viewPath . 'index', ['downloads' => $downloads]);
   }
 
   /**

@@ -60,6 +60,10 @@ import NewsCategoryIndex from '@/administration/views/news/category/Index.vue';
 import NewsCategoryCreate from '@/administration/views/news/category/Create.vue';
 import NewsCategoryEdit from '@/administration/views/news/category/Edit.vue';
 
+import DownloadIndex from '@/administration/views/downloads/Index.vue';
+import DownloadCreate from '@/administration/views/downloads/Create.vue';
+import DownloadEdit from '@/administration/views/downloads/Edit.vue';
+
 const routes = [
 
   // Home
@@ -317,7 +321,24 @@ const routes = [
     path: '/administration/news/category/edit/:id',
     component: NewsCategoryEdit,
   },
-  
+
+  // Downloads
+  {
+    name: 'downloads',
+    path: '/administration/downloads',
+    component: DownloadIndex,
+  },
+  {
+    name: 'download-create',
+    path: '/administration/download/create',
+    component: DownloadCreate,
+  },
+  {
+    name: 'download-edit',
+    path: '/administration/download/edit/:id',
+    component: DownloadEdit,
+  },
+
   // Authorization
   {
     name: 'forbidden',

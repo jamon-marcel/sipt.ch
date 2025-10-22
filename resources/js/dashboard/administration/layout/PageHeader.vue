@@ -29,6 +29,11 @@
           <span>Aktuelles</span>
         </router-link>
       </li>
+      <!-- <li>
+        <router-link :to="{name: 'downloads'}">
+          <span>Downloads</span>
+        </router-link>
+      </li> -->
       <li>
         <router-link :to="{name: 'trainings'}">
           <span>Fortbildungen</span>
