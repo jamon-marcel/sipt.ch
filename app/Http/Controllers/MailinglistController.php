@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 use App\Models\MailinglistSubscriber;
 use App\Models\Mailinglist;
 use App\Models\MailinglistSubscriberLog;
+use App\Models\ResilienceTip;
 use App\Models\User;
 use App\Actions\Mailinglist\RegisterSubscriber;
 use App\Actions\Mailinglist\ConfirmSubscriber;
@@ -28,8 +29,9 @@ class MailinglistController extends BaseController
    */
 
   public function index()
-  { 
-    return view($this->viewPath . 'index');
+  {
+    $resilienceTips = ResilienceTip::active()->orderBy('order')->get();
+    return view($this->viewPath . 'index', ['resilienceTips' => $resilienceTips]);
   }
 
   /**
@@ -42,10 +44,11 @@ class MailinglistController extends BaseController
   public function register(MailinglistSubscriberStoreRequest $request, RegisterSubscriber $registerSubscriber)
   {
     $registerSubscriber->execute(
-      $request->input('mailinglists'), 
+      $request->input('mailinglists'),
       $request->input('email')
     );
-    return view($this->viewPath . 'index', ['message' => 'pending_confirmation']);
+    $resilienceTips = ResilienceTip::active()->orderBy('order')->get();
+    return view($this->viewPath . 'index', ['resilienceTips' => $resilienceTips, 'message' => 'pending_confirmation']);
   }
 
   /**
@@ -56,9 +59,10 @@ class MailinglistController extends BaseController
    */
 
   public function confirm(MailinglistSubscriber $mailinglistSubscriber, ConfirmSubscriber $confirmSubscriber)
-  { 
+  {
     $confirmSubscriber->execute($mailinglistSubscriber);
-    return view($this->viewPath . 'index', ['message' => 'confirmed']);
+    $resilienceTips = ResilienceTip::active()->orderBy('order')->get();
+    return view($this->viewPath . 'index', ['resilienceTips' => $resilienceTips, 'message' => 'confirmed']);
   }
 
   /**
@@ -123,6 +127,7 @@ class MailinglistController extends BaseController
         'is_user' => $user ? 1 : 0
       ]);
 
-      return view($this->viewPath . 'index', ['message' => 'lists_updated']);
+      $resilienceTips = ResilienceTip::active()->orderBy('order')->get();
+      return view($this->viewPath . 'index', ['resilienceTips' => $resilienceTips, 'message' => 'lists_updated']);
    }
 }

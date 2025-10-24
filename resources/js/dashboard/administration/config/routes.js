@@ -68,6 +68,10 @@ import PartnerIndex from '@/administration/views/partners/Index.vue';
 import PartnerCreate from '@/administration/views/partners/Create.vue';
 import PartnerEdit from '@/administration/views/partners/Edit.vue';
 
+import ResilienceTipIndex from '@/administration/views/resilience-tips/Index.vue';
+import ResilienceTipCreate from '@/administration/views/resilience-tips/Create.vue';
+import ResilienceTipEdit from '@/administration/views/resilience-tips/Edit.vue';
+
 const routes = [
 
   // Home
@@ -358,6 +362,23 @@ const routes = [
     name: 'partner-edit',
     path: '/administration/partner/edit/:id',
     component: PartnerEdit,
+  },
+
+  // Resilience Tips
+  {
+    name: 'resilience-tips',
+    path: '/administration/resilience-tips',
+    component: ResilienceTipIndex,
+  },
+  {
+    name: 'resilience-tip-create',
+    path: '/administration/resilience-tip/create',
+    component: ResilienceTipCreate,
+  },
+  {
+    name: 'resilience-tip-edit',
+    path: '/administration/resilience-tip/edit/:id',
+    component: ResilienceTipEdit,
   },
 
   // Authorization

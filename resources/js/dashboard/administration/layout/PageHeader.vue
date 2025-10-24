@@ -36,6 +36,11 @@
             </router-link>
           </li>
           <li>
+            <router-link :to="{name: 'resilience-tips'}">
+              <span>Aufbau-Tipps</span>
+            </router-link>
+          </li>
+          <li>
             <router-link :to="{name: 'downloads'}">
               <span>Downloads</span>
             </router-link>

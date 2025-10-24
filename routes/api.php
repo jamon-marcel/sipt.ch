@@ -29,6 +29,8 @@ use App\Http\Controllers\Api\DownloadController;
 use App\Http\Controllers\Api\DownloadFileController;
 use App\Http\Controllers\Api\FaqBotController;
 use App\Http\Controllers\Api\PartnerInstitutionController;
+use App\Http\Controllers\Api\ResilienceTipController;
+use App\Http\Controllers\Api\ResilienceTipFileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -272,6 +274,19 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::put('partner-institutions/order', [PartnerInstitutionController::class, 'order']);
     Route::get('partner-institution/state/{partnerInstitution}', [PartnerInstitutionController::class, 'toggle']);
     Route::delete('partner-institution/{partnerInstitution}', [PartnerInstitutionController::class, 'destroy']);
+  });
+
+  // Resilience Tips routes
+  Route::middleware('role:admin')->group(function() {
+    Route::get('resilience-tips', [ResilienceTipController::class, 'get']);
+    Route::get('resilience-tip/{resilienceTip}', [ResilienceTipController::class, 'find']);
+    Route::post('resilience-tip', [ResilienceTipController::class, 'store']);
+    Route::put('resilience-tip/{resilienceTip}', [ResilienceTipController::class, 'update']);
+    Route::put('resilience-tips/order', [ResilienceTipController::class, 'order']);
+    Route::get('resilience-tip/state/{resilienceTip}', [ResilienceTipController::class, 'toggle']);
+    Route::delete('resilience-tip/{resilienceTip}', [ResilienceTipController::class, 'destroy']);
+    Route::delete('resilience-tip/file/temp', [ResilienceTipFileController::class, 'deleteUpload']);
+    Route::delete('resilience-tip/file/{resilienceTip}', [ResilienceTipFileController::class, 'delete']);
   });
 
 });
