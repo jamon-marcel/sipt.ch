@@ -25,19 +25,32 @@
     </header>
     <ul>
       <li>
-        <router-link :to="{name: 'news-articles'}">
-          <span>Aktuelles</span>
-        </router-link>
-      </li>
-      <li>
-        <router-link :to="{name: 'downloads'}">
-          <span>Downloads</span>
-        </router-link>
-      </li>
-      <li>
-        <router-link :to="{name: 'partners'}">
-          <span>Partner-Institutionen</span>
-        </router-link>
+        <a href="javascript:;" @click="toggleSeiteninhalte()" class="nav-parent">
+          <span>Seiteninhalte</span>
+          <chevron-down-icon size="24" :class="[contentVisible ? 'is-rotated' : '']"></chevron-down-icon>
+        </a>
+        <ul v-show="contentVisible" class="nav-children">
+          <li>
+            <router-link :to="{name: 'news-articles'}">
+              <span>Aktuelles</span>
+            </router-link>
+          </li>
+          <li>
+            <router-link :to="{name: 'downloads'}">
+              <span>Downloads</span>
+            </router-link>
+          </li>
+          <li>
+            <router-link :to="{name: 'partners'}">
+              <span>Partner-Institutionen</span>
+            </router-link>
+          </li>
+          <li>
+            <router-link :to="{name: 'locations'}">
+              <span>Veranstaltungsorte</span>
+            </router-link>
+          </li>
+        </ul>
       </li>
       <li>
         <router-link :to="{name: 'trainings'}">
@@ -65,11 +78,6 @@
         </router-link>
       </li>
       <li>
-        <router-link :to="{name: 'locations'}">
-          <span>Veranstaltungsorte</span>
-        </router-link>
-      </li>
-      <li>
         <router-link :to="{name: 'backoffice-invoices'}">
           <span>Buchhaltung</span>
         </router-link>
@@ -86,7 +94,7 @@
 <script>
 
 // Icons
-import { ArrowRightIcon, MenuIcon, LogOutIcon } from 'vue-feather-icons';
+import { ArrowRightIcon, MenuIcon, LogOutIcon, ChevronDownIcon } from 'vue-feather-icons';
 
 // Theme
 import Logo from '@/global/components/theme/Logo.vue';
@@ -97,6 +105,7 @@ export default {
     ArrowRightIcon,
     MenuIcon,
     LogOutIcon,
+    ChevronDownIcon,
   },
 
   props: {
@@ -105,13 +114,17 @@ export default {
 
 	data() {
 		return {
-			menuVisible: false
+			menuVisible: false,
+			contentVisible: false
 		}
   },
-  
+
 	methods: {
 		toggleMenu() {
 			this.menuVisible = this.menuVisible ? false : true;
+		},
+		toggleSeiteninhalte() {
+			this.contentVisible = !this.contentVisible;
 		}
   },
 
@@ -122,3 +135,38 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.nav-parent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  padding-right: 20px;
+}
+
+.nav-parent svg {
+  transition: transform 0.2s ease;
+}
+
+.nav-parent svg.is-rotated {
+  transform: rotate(180deg);
+}
+
+.nav-children {
+  border-top: none !important;
+  list-style: none;
+  margin-left: 0;
+}
+
+.nav-children li {
+  margin: 0;
+}
+
+/* Override dashboard nav styles to match parent item height */
+.nav-children ::v-deep a {
+  padding-left: 30px !important;
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+}
+</style>
