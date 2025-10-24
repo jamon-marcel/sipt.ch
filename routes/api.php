@@ -31,6 +31,8 @@ use App\Http\Controllers\Api\FaqBotController;
 use App\Http\Controllers\Api\PartnerInstitutionController;
 use App\Http\Controllers\Api\ResilienceTipController;
 use App\Http\Controllers\Api\ResilienceTipFileController;
+use App\Http\Controllers\Api\TherapistController;
+use App\Http\Controllers\Api\TherapistIntroController;
 
 /*
 |--------------------------------------------------------------------------
@@ -287,6 +289,21 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::delete('resilience-tip/{resilienceTip}', [ResilienceTipController::class, 'destroy']);
     Route::delete('resilience-tip/file/temp', [ResilienceTipFileController::class, 'deleteUpload']);
     Route::delete('resilience-tip/file/{resilienceTip}', [ResilienceTipFileController::class, 'delete']);
+  });
+
+  // Therapists routes
+  Route::middleware('role:admin')->group(function() {
+    Route::get('therapists', [TherapistController::class, 'get']);
+    Route::get('therapist/{therapist}', [TherapistController::class, 'find']);
+    Route::post('therapist', [TherapistController::class, 'store']);
+    Route::put('therapist/{therapist}', [TherapistController::class, 'update']);
+    Route::put('therapists/order', [TherapistController::class, 'order']);
+    Route::get('therapist/state/{therapist}', [TherapistController::class, 'toggle']);
+    Route::delete('therapist/{therapist}', [TherapistController::class, 'destroy']);
+
+    Route::get('therapist-intro', [TherapistIntroController::class, 'get']);
+    Route::put('therapist-intro', [TherapistIntroController::class, 'update']);
+    Route::get('therapist-intro/state', [TherapistIntroController::class, 'toggle']);
   });
 
 });

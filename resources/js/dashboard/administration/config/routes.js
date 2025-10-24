@@ -72,6 +72,11 @@ import ResilienceTipIndex from '@/administration/views/resilience-tips/Index.vue
 import ResilienceTipCreate from '@/administration/views/resilience-tips/Create.vue';
 import ResilienceTipEdit from '@/administration/views/resilience-tips/Edit.vue';
 
+import TherapistIndex from '@/administration/views/therapists/Index.vue';
+import TherapistCreate from '@/administration/views/therapists/Create.vue';
+import TherapistEdit from '@/administration/views/therapists/Edit.vue';
+import TherapistIntroEdit from '@/administration/views/therapists/intro/Edit.vue';
+
 const routes = [
 
   // Home
@@ -379,6 +384,28 @@ const routes = [
     name: 'resilience-tip-edit',
     path: '/administration/resilience-tip/edit/:id',
     component: ResilienceTipEdit,
+  },
+
+  // Therapists
+  {
+    name: 'therapists',
+    path: '/administration/therapists',
+    component: TherapistIndex,
+  },
+  {
+    name: 'therapist-intro-edit',
+    path: '/administration/therapist/intro/edit',
+    component: TherapistIntroEdit,
+  },
+  {
+    name: 'therapist-create',
+    path: '/administration/therapist/create',
+    component: TherapistCreate,
+  },
+  {
+    name: 'therapist-edit',
+    path: '/administration/therapist/edit/:id',
+    component: TherapistEdit,
   },
 
   // Authorization
