@@ -27,6 +27,7 @@ use App\Http\Controllers\Api\SymposiumSubscriberController;
 use App\Http\Controllers\Api\VipAddressController;
 use App\Http\Controllers\Api\DownloadController;
 use App\Http\Controllers\Api\DownloadFileController;
+use App\Http\Controllers\Api\FaqBotController;
 use App\Http\Controllers\Api\PartnerInstitutionController;
 
 /*
@@ -43,6 +44,9 @@ use App\Http\Controllers\Api\PartnerInstitutionController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
   return $request->user();
 });
+
+// Public FAQ bot endpoint (no authentication required)
+Route::post('faqbot', [FaqBotController::class, 'handle']);
 
 Route::middleware('auth:sanctum')->group(function() {
 
