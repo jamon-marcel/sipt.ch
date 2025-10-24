@@ -12,7 +12,6 @@
           group="institutions"
           handle=".drag-handle"
           :element="'div'"
-          :options="{ animation: 200 }"
           @end="onDragEnd"
         >
           <div

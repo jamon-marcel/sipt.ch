@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 use App\Http\Controllers\BaseController;
 use App\Models\PartnerInstitution;
+use App\Models\Therapist;
+use App\Models\TherapistIntro;
 use Illuminate\Http\Request;
 
 class NetworkController extends BaseController
@@ -20,8 +22,12 @@ class NetworkController extends BaseController
    */
 
   public function therapists()
-  { 
-    return view($this->viewPath . 'therapists');
+  {
+    $intro = TherapistIntro::first();
+    $germanyTherapists = Therapist::active()->byCountry('Germany')->orderBy('order')->get();
+    $switzerlandTherapists = Therapist::active()->byCountry('Switzerland')->orderBy('order')->get();
+
+    return view($this->viewPath . 'therapists', compact('intro', 'germanyTherapists', 'switzerlandTherapists'));
   }
 
   /**

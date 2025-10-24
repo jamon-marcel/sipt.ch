@@ -18,7 +18,6 @@
             :group="`articles-${cat.id}`"
             handle=".drag-handle"
             :element="'div'"
-            :options="{ animation: 200 }"
             @end="() => onDragEnd(cat.id)"
           >
             <div
