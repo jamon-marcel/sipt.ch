@@ -29,11 +29,16 @@
           <span>Aktuelles</span>
         </router-link>
       </li>
-      <!-- <li>
+      <li>
         <router-link :to="{name: 'downloads'}">
           <span>Downloads</span>
         </router-link>
-      </li> -->
+      </li>
+      <li>
+        <router-link :to="{name: 'partners'}">
+          <span>Partner-Institutionen</span>
+        </router-link>
+      </li>
       <li>
         <router-link :to="{name: 'trainings'}">
           <span>Fortbildungen</span>
@@ -62,11 +67,6 @@
       <li>
         <router-link :to="{name: 'locations'}">
           <span>Veranstaltungsorte</span>
-        </router-link>
-      </li>
-      <li>
-        <router-link :to="{name: 'partners'}">
-          <span>Partner-Institutionen</span>
         </router-link>
       </li>
       <li>

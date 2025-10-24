@@ -37,9 +37,8 @@ class DownloadController extends BaseController
 
   public function index()
   {
-    // $downloads = Download::active()->orderBy('order')->get();
-    // return view($this->viewPath . 'index', ['downloads' => $downloads]);
-    return view($this->viewPath . 'index');
+    $downloads = Download::active()->orderBy('order')->get();
+    return view($this->viewPath . 'index', ['downloads' => $downloads]);
   }
 
   /**

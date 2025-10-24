@@ -25,11 +25,6 @@
               </div>
               <div>
                 <strong>{{ d.title }}</strong>
-                <template v-if="d.file_type || d.formatted_file_size">
-                  <separator/>
-                  <span v-if="d.file_type" class="file-type-badge">{{ d.file_type.toUpperCase() }}</span>
-                  <span v-if="d.formatted_file_size">{{ d.formatted_file_size }}</span>
-                </template>
               </div>
             </div>
             <list-actions

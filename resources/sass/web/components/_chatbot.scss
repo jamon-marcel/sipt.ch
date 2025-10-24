@@ -1,0 +1,280 @@
+/**
+ * -----------------------------------------------------------------------------
+ * File: components/chatbot
+ * -----------------------------------------------------------------------------
+ */
+
+.faq-chatbot {
+  position: fixed;
+  bottom: $space-md;
+  right: $space-md;
+  width: 480px;
+  max-width: calc(100vw - #{$space-lg});
+  font-size: 15px;
+  z-index: 50;
+
+  @include bp-sm {
+    bottom: $space-lg;
+    right: $space-lg;
+  }
+
+  &__toggle {
+    border-radius: 50px;
+    @include box-shadow(0, 4px, 12px, 0, rgba(0, 0, 0, 0.15));
+    padding: $space-xs $space-md;
+    background-color: $color-primary;
+    color: $color-white;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    @include transition(all, 0.2s, ease-out);
+
+    &:hover {
+      @include box-shadow(0, 6px, 16px, 0, rgba(0, 0, 0, 0.2));
+      @include transform(translateY(-1px));
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__panel {
+    margin-top: $space-xs;
+    border-radius: $space-xs;
+    @include box-shadow(0, 8px, 24px, 0, rgba(0, 0, 0, 0.15));
+    background-color: $color-white;
+    border: 1px solid $color-grey;
+    overflow: hidden;
+  }
+
+  &__header {
+    padding: $space-sm $space-md;
+    border-bottom: 1px solid $color-grey;
+    background-color: $color-white;
+  }
+
+  &__title {
+    font-weight: 600;
+    margin: 0;
+    color: $color-black;
+    font-size: 16px;
+  }
+
+  &__subtitle {
+    font-size: 13px;
+    color: $color-dark-grey;
+    margin: $space-xxs 0 0 0;
+    line-height: 1.4;
+  }
+
+  &__messages {
+    padding: $space-md;
+    padding-bottom: 0;
+    max-height: 400px;
+    overflow-y: auto;
+    background-color: #fafafa;
+
+    @include scrollbar(6px, $color-dark-grey);
+  }
+
+  &__welcome {
+    margin-bottom: $space-sm;
+  }
+
+  &__hint {
+    font-size: 15px;
+    margin-bottom: $space-xs;
+    color: $color-dark-grey;
+  }
+
+  &__topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-xxs;
+  }
+
+  &__topic-btn {
+    font-size: 14px;
+    color: $color-black;
+    padding: $space-xxs $space-xs;
+    border-radius: 20px;
+    border: 1px solid $color-grey;
+    background-color: $color-white;
+    cursor: pointer;
+    @include transition(all, 0.15s, ease-out);
+
+    &:hover {
+      background-color: $color-grey;
+      border-color: darken($color-grey, 5%);
+    }
+  }
+
+  &__message {
+    margin-bottom: $space-sm;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &--user {
+      align-items: flex-end;
+    }
+  }
+
+  &__message-bubble {
+    max-width: 85%;
+    padding: $space-xs $space-sm;
+    border-radius: $space-xs;
+    font-size: 15px;
+    line-height: 1.5;
+    word-wrap: break-word;
+    @extend %word-break;
+
+    .faq-chatbot__message--user & {
+      background-color: $color-primary;
+      color: $color-white;
+      border-bottom-right-radius: 4px;
+    }
+
+    .faq-chatbot__message--bot & {
+      background-color: $color-white;
+      color: $color-black;
+      border-bottom-left-radius: 4px;
+      border: 1px solid $color-grey;
+    }
+
+    strong {
+      font-weight: 600;
+    }
+
+    ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-top: $space-xxs;
+      margin-bottom: 0;
+    }
+
+    li {
+      margin-bottom: $space-tiny;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      text-decoration: underline;
+      color: inherit;
+      @include transition(opacity, 0.15s, ease-out);
+
+      &:hover {
+        @include opacity(0.8, 80);
+      }
+
+      .faq-chatbot__message--user & {
+        color: $color-white;
+      }
+
+      .faq-chatbot__message--bot & {
+        color: $color-primary;
+      }
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__form {
+    display: flex;
+    gap: $space-xxs;
+    padding: $space-sm;
+    border-top: 1px solid $color-grey;
+    background-color: $color-white;
+  }
+
+  &__input {
+    flex: 1;
+    border-radius: $space-xxs;
+    border: 1px solid $color-grey;
+    padding: $space-xs $space-sm;
+    font-size: 15px;
+    font-family: inherit;
+    @include transition(border-color, 0.15s, ease-out);
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+    }
+
+    &::placeholder {
+      color: lighten($color-dark-grey, 20%);
+    }
+  }
+
+  &__submit {
+    border-radius: $space-xxs;
+    background-color: $color-primary;
+    color: $color-white;
+    padding: $space-xs $space-sm;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    @include transition(background-color, 0.15s, ease-out);
+
+    &:hover {
+      background-color: darken($color-primary, 5%);
+    }
+
+    &:active {
+      @include transform(scale(0.98));
+    }
+  }
+
+  &__disclaimer {
+    padding: $space-xs $space-sm;
+    font-size: 11px;
+    color: $color-dark-grey;
+    line-height: 1.4;
+    background-color: #fafafa;
+  }
+
+  &__suggestion-buttons {
+    margin-top: $space-xs;
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-xxs;
+  }
+
+  &__suggestion-btn {
+    font-size: 13px;
+    padding: $space-xxs $space-xs;
+    border-radius: 16px;
+    border: 1px solid $color-grey;
+    background-color: $color-white;
+    cursor: pointer;
+    @include transition(all, 0.15s, ease-out);
+
+    &:hover {
+      background-color: $color-grey;
+      border-color: darken($color-grey, 5%);
+    }
+  }
+
+  &__contact-link {
+    margin-top: $space-xs;
+    font-size: 14px;
+
+    a {
+      text-decoration: underline;
+      color: $color-primary;
+      @include transition(opacity, 0.15s, ease-out);
+
+      &:hover {
+        @include opacity(0.8, 80);
+      }
+    }
+  }
+}

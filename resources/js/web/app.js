@@ -1,6 +1,11 @@
 // Load dependencies
 require('./bootstrap');
 
+// Alpine.js
+import Alpine from 'alpinejs';
+window.Alpine = Alpine;
+Alpine.start();
+
 // Plugins and libraries
 require('./vendor/simplebar.js');
 
