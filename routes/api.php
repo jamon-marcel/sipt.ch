@@ -27,6 +27,7 @@ use App\Http\Controllers\Api\SymposiumSubscriberController;
 use App\Http\Controllers\Api\VipAddressController;
 use App\Http\Controllers\Api\DownloadController;
 use App\Http\Controllers\Api\DownloadFileController;
+use App\Http\Controllers\Api\PartnerInstitutionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -256,6 +257,17 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::delete('download/{download}', [DownloadController::class, 'destroy']);
     Route::delete('download/file/temp', [DownloadFileController::class, 'deleteUpload']);
     Route::delete('download/file/{download}', [DownloadFileController::class, 'delete']);
+  });
+
+  // Partner Institutions routes
+  Route::middleware('role:admin')->group(function() {
+    Route::get('partner-institutions', [PartnerInstitutionController::class, 'get']);
+    Route::get('partner-institution/{partnerInstitution}', [PartnerInstitutionController::class, 'find']);
+    Route::post('partner-institution', [PartnerInstitutionController::class, 'store']);
+    Route::put('partner-institution/{partnerInstitution}', [PartnerInstitutionController::class, 'update']);
+    Route::put('partner-institutions/order', [PartnerInstitutionController::class, 'order']);
+    Route::get('partner-institution/state/{partnerInstitution}', [PartnerInstitutionController::class, 'toggle']);
+    Route::delete('partner-institution/{partnerInstitution}', [PartnerInstitutionController::class, 'destroy']);
   });
 
 });

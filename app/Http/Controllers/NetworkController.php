@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 use App\Http\Controllers\BaseController;
+use App\Models\PartnerInstitution;
 use Illuminate\Http\Request;
 
 class NetworkController extends BaseController
@@ -35,13 +36,14 @@ class NetworkController extends BaseController
   }
 
   /**
-   * Show the therapists page
+   * Show the partner institutions page
    *
    * @return \Illuminate\Http\Response
    */
 
   public function partners()
-  { 
-    return view($this->viewPath . 'partners');
+  {
+    $partners = PartnerInstitution::active()->ordered()->get();
+    return view($this->viewPath . 'partners', compact('partners'));
   }
 }

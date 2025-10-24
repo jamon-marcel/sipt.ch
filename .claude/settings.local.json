@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(php /Users/marceli.to/Jamon.digital/Webroot/sipt.ch/artisan make:migration create_downloads_table)",
-      "Bash(php artisan:*)"
+      "Bash(php artisan:*)",
+      "Bash(xargs:*)",
+      "Bash(awk:*)",
+      "Bash(npm run dev:*)"
     ],
     "deny": [],
     "ask": []

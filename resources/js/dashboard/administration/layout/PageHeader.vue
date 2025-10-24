@@ -65,6 +65,11 @@
         </router-link>
       </li>
       <li>
+        <router-link :to="{name: 'partners'}">
+          <span>Partner-Institutionen</span>
+        </router-link>
+      </li>
+      <li>
         <router-link :to="{name: 'backoffice-invoices'}">
           <span>Buchhaltung</span>
         </router-link>

@@ -64,6 +64,10 @@ import DownloadIndex from '@/administration/views/downloads/Index.vue';
 import DownloadCreate from '@/administration/views/downloads/Create.vue';
 import DownloadEdit from '@/administration/views/downloads/Edit.vue';
 
+import PartnerIndex from '@/administration/views/partners/Index.vue';
+import PartnerCreate from '@/administration/views/partners/Create.vue';
+import PartnerEdit from '@/administration/views/partners/Edit.vue';
+
 const routes = [
 
   // Home
@@ -337,6 +341,23 @@ const routes = [
     name: 'download-edit',
     path: '/administration/download/edit/:id',
     component: DownloadEdit,
+  },
+
+  // Partner Institutions
+  {
+    name: 'partners',
+    path: '/administration/partners',
+    component: PartnerIndex,
+  },
+  {
+    name: 'partner-create',
+    path: '/administration/partner/create',
+    component: PartnerCreate,
+  },
+  {
+    name: 'partner-edit',
+    path: '/administration/partner/edit/:id',
+    component: PartnerEdit,
   },
 
   // Authorization
