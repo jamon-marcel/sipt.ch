@@ -3,7 +3,7 @@
     <loading-indicator v-if="isLoading"></loading-indicator>
     <div :class="isFetched ? 'is-loaded' : 'is-loading'">
       <header class="content-header">
-        <h1>SIPT zertifizierte TherapeutInnen</h1>
+        <h1>SIPT zertifizierte Therapeut:innen</h1>
       </header>
 
       <!-- Intro Text Record -->
@@ -109,7 +109,7 @@
         <div>
           <router-link :to="{ name: 'therapist-create' }" class="btn-primary has-icon">
             <plus-icon size="16"></plus-icon>
-            <span>Psychotherapeut hinzufügen</span>
+            <span>Hinzufügen</span>
           </router-link>
         </div>
       </footer>

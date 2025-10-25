@@ -51,13 +51,13 @@
             </router-link>
           </li>
           <li>
-            <router-link :to="{name: 'locations'}">
-              <span>Veranstaltungsorte</span>
+            <router-link :to="{name: 'therapists'}">
+              <span>Therapeut:innen</span>
             </router-link>
           </li>
           <li>
-            <router-link :to="{name: 'therapists'}">
-              <span>Psychotherapeuten</span>
+            <router-link :to="{name: 'locations'}">
+              <span>Veranstaltungsorte</span>
             </router-link>
           </li>
         </ul>

@@ -3,7 +3,7 @@
     <loading-indicator v-if="isLoading"></loading-indicator>
     <form @submit.prevent="submit">
       <header class="content-header">
-        <h1>Introtext «SIPT zertifizierte TherapeutInnen» bearbeiten</h1>
+        <h1>Introtext «SIPT zertifizierte Therapeut:innen» bearbeiten</h1>
       </header>
       <div>
 
