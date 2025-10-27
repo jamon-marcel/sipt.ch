@@ -55,7 +55,7 @@
                 <move-icon size="16"></move-icon>
               </div>
               <div>
-                <strong>{{ therapist.name }}, {{ therapist.firstname }} </strong>
+                <strong>{{ therapist.title ? therapist.title + ' ' : '' }}{{ therapist.name }}, {{ therapist.firstname }} </strong>
               </div>
             </div>
             <list-actions
@@ -86,7 +86,7 @@
                 <move-icon size="16"></move-icon>
               </div>
               <div>
-                <strong>{{ therapist.name }}, {{ therapist.firstname }}</strong>
+                <strong>{{ therapist.title ? therapist.title + ' ' : '' }}{{ therapist.name }}, {{ therapist.firstname }}</strong>
               </div>
             </div>
             <list-actions

@@ -5,7 +5,9 @@
       "Bash(php artisan:*)",
       "Bash(xargs:*)",
       "Bash(awk:*)",
-      "Bash(npm run dev:*)"
+      "Bash(npm run dev:*)",
+      "Bash(git add:*)",
+      "Bash(npm run prod:*)"
     ],
     "deny": [],
     "ask": []

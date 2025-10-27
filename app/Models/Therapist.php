@@ -7,6 +7,7 @@ use GoldSpecDigital\LaravelEloquentUUID\Database\Eloquent\Model;
 class Therapist extends Model
 {
 	protected $fillable = [
+		'title',
 		'firstname',
 		'name',
 		'country',

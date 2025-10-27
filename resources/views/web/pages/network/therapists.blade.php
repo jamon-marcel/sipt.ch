@@ -19,7 +19,7 @@
     <div class="collapsible__content js-clpsbl-body" style="display:none">
       @if($switzerlandTherapists && $switzerlandTherapists->count() > 0)
         @foreach($switzerlandTherapists as $therapist)
-          <strong>{{ $therapist->name }}, {{ $therapist->firstname }}</strong><br>
+          <strong>{{ $therapist->title ? $therapist->title . ' ' : '' }}{{ $therapist->firstname }} {{ $therapist->name }}</strong><br>
           {!! $therapist->description !!}
         @endforeach
       @endif
@@ -33,7 +33,7 @@
     <div class="collapsible__content js-clpsbl-body" style="display:none">
       @if($germanyTherapists && $germanyTherapists->count() > 0)
         @foreach($germanyTherapists as $therapist)
-          <strong>{{ $therapist->name }}, {{ $therapist->firstname }}</strong><br>
+          <strong>{{ $therapist->title ? $therapist->title . ' ' : '' }}{{ $therapist->firstname }} {{ $therapist->name }}</strong><br>
           {!! $therapist->description !!}
         @endforeach
       @endif

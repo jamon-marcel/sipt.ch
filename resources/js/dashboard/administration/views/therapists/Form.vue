@@ -7,6 +7,11 @@
       </header>
       <div>
 
+        <div :class="[this.errors.title ? 'has-error' : '', 'form-row']">
+          <label>Titel</label>
+          <input type="text" v-model="therapist.title">
+        </div>
+
         <div :class="[this.errors.firstname ? 'has-error' : '', 'form-row']">
           <label>Vorname</label>
           <input type="text" v-model="therapist.firstname">
@@ -78,6 +83,7 @@ export default {
     return {
       // Model
       therapist: {
+        title: '',
         firstname: '',
         name: '',
         country: '',
@@ -87,6 +93,7 @@ export default {
 
       // Validation
       errors: {
+        title: false,
         firstname: false,
         name: false,
         country: false,
@@ -108,6 +115,7 @@ export default {
       let uri = `/api/therapist/${this.$route.params.id}`;
       this.axios.get(uri).then(response => {
         this.therapist = {
+          title: response.data.title,
           firstname: response.data.firstname,
           name: response.data.name,
           country: response.data.country,

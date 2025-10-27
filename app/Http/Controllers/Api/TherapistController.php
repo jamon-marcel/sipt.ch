@@ -23,12 +23,13 @@ class TherapistController extends Controller
 	public function store(Request $request)
 	{
 		$request->validate([
+			'title' => 'nullable|string|max:255',
 			'firstname' => 'required|string|max:255',
 			'name' => 'required|string|max:255',
 			'country' => 'required|in:Germany,Switzerland',
 		]);
 
-		$data = $request->only(['firstname', 'name', 'country', 'description', 'is_published']);
+		$data = $request->only(['title', 'firstname', 'name', 'country', 'description', 'is_published']);
 
 		$therapist = Therapist::create($data);
 		return response()->json($therapist);
@@ -37,12 +38,13 @@ class TherapistController extends Controller
 	public function update(Request $request, Therapist $therapist)
 	{
 		$request->validate([
+			'title' => 'nullable|string|max:255',
 			'firstname' => 'required|string|max:255',
 			'name' => 'required|string|max:255',
 			'country' => 'required|in:Germany,Switzerland',
 		]);
 
-		$data = $request->only(['firstname', 'name', 'country', 'description', 'is_published']);
+		$data = $request->only(['title', 'firstname', 'name', 'country', 'description', 'is_published']);
 
 		$therapist->update($data);
 		return response()->json($therapist);
