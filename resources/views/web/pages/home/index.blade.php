@@ -5,6 +5,11 @@
 <section class="theme-light order-1">
   <x-header title="Aktuell" />
 
+  <article>
+    <h2>Veranstaltungshinweise</h2>
+    <p>Das SIPT feiert nächstes Jahr sein 20-jähriges Bestehen! Aus diesem Anlass laden wir Sie herzlich zu unserer zweitägigen Fachtagung ein: «Rückblick und neue Perspektiven: Soziale Traumata und deren Auswirkungen in der Praxis». Die Tagung findet am Freitag, 21. und Samstag, 22. August 2026 in der Alten Kaserne in Winterthur statt. Gerne dürfen Sie sich diesen Termin bereits vormerken. Das detaillierte Programm lassen wir Ihnen in den kommenden Wochen zukommen.</p>
+  </article>
+
   @foreach ($news as $category)
     @if ($category->id == config('sipt.news_courses_id'))
       <article>
