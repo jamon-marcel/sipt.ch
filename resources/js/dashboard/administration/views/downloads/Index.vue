@@ -46,7 +46,7 @@
         <div>
           <router-link :to="{ name: 'download-create' }" class="btn-primary has-icon">
             <plus-icon size="16"></plus-icon>
-            <span>Download hinzufügen</span>
+            <span>Hinzufügen</span>
           </router-link>
         </div>
       </footer>

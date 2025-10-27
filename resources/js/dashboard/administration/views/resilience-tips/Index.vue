@@ -49,7 +49,7 @@
         <div>
           <router-link :to="{ name: 'resilience-tip-create' }" class="btn-primary has-icon">
             <plus-icon size="16"></plus-icon>
-            <span>Aufbau-Tipp hinzufügen</span>
+            <span>Hinzufügen</span>
           </router-link>
         </div>
       </footer>

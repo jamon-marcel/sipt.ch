@@ -161,7 +161,7 @@ export default {
 
   computed: {
     title: function() {
-      return this.$props.type == "edit" ? "Psychotherapeut bearbeiten" : "Psychotherapeut hinzufügen";
+      return this.$props.type == "edit" ? "Therapeut:in bearbeiten" : "Therapeut:in hinzufügen";
     },
   }
 };
