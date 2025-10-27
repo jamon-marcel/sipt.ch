@@ -9,7 +9,6 @@
       <h2>Fragen zur Ausbildung</h2>
       <p>
         Prof. Dr. phil. habil. Rosmarie Barwinski<br>
-        Telefon: (0041) 52 – 213 41 12<br>
         E-Mail: <a href="mailto:rb@sipt.ch" target="_blank">rb@sipt.ch</a>
       </p>
     </article>
