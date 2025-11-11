@@ -36,7 +36,17 @@ class MailingProcess extends Command
    */
   public function handle(): int
   {
-    (new ProcessQueue())->execute();
+    $this->info('Starting mailing queue processing...');
+
+    $action = new ProcessQueue();
+    $result = $action->execute();
+
+    if ($result === null) {
+      $this->warn('No unprocessed mailing queues found or all items already processed.');
+      return self::SUCCESS;
+    }
+
+    $this->info('Mailing queue processed successfully!');
     return self::SUCCESS;
   }
 }
