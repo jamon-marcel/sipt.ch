@@ -66,14 +66,7 @@ class FaqBotController extends Controller
             return response()->json([
                 'status' => 'fallback',
                 'message' => $kb['fallback'],
-                'topics' => collect($kb['intents'])->map(fn ($i) => [
-                    'id' => $i['id'], 'label' => $i['label']
-                ])->values(),
-                'contact' => [
-                    'text' => $kb['escalation'],
-                    'email' => 'info@sipt.ch',
-                    'url' => '/kontakt',
-                ],
+                'escalation' => $kb['escalation'],
             ]);
         }
 

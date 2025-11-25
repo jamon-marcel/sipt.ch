@@ -9,25 +9,34 @@
   bottom: $space-md;
   right: $space-md;
   width: 480px;
-  max-width: calc(100vw - #{$space-lg});
+  // max-width: calc(100vw - #{$space-lg});
   font-size: 15px;
-  z-index: 50;
+  z-index: 1500;
 
   @include bp-sm {
     bottom: $space-lg;
     right: $space-lg;
   }
 
+  @include bp-lg {
+    width: 540px;
+  }
+
+
   &__toggle {
-    border-radius: 50px;
+    border-radius: 10px;
     @include box-shadow(0, 4px, 12px, 0, rgba(0, 0, 0, 0.15));
     padding: $space-xs $space-md;
-    background-color: $color-primary;
+    background-color: $color-black;
     color: $color-white;
     border: none;
     cursor: pointer;
-    font-size: 15px;
-    font-weight: 600;
+    @include font-size($fs-md);
+    @include font-bold();
+    position: fixed;
+    right: $space-lg;
+    bottom: $space-lg;
+    z-index: 1000;
     @include transition(all, 0.2s, ease-out);
 
     &:hover {
@@ -53,6 +62,10 @@
     padding: $space-sm $space-md;
     border-bottom: 1px solid $color-grey;
     background-color: $color-white;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: $space-sm;
   }
 
   &__title {
@@ -67,6 +80,34 @@
     color: $color-dark-grey;
     margin: $space-xxs 0 0 0;
     line-height: 1.4;
+  }
+
+  &__close {
+    flex-shrink: 0;
+    background: none !important;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: $color-black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    @include transition(color, 0.15s, ease-out);
+
+    // &:hover {
+    //   color: $color-black;
+    // }
+
+    &:focus {
+      outline: none;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
   }
 
   &__messages {
@@ -150,12 +191,17 @@
 
     ul {
       list-style-type: disc;
-      padding-left: 20px;
+      padding-left: 16px;
       margin-top: $space-xxs;
       margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      gap: $space-xxs;
     }
 
     li {
+      display: list-item;
+      list-style-type: disc;
       margin-bottom: $space-tiny;
 
       &:last-child {
@@ -182,7 +228,18 @@
     }
 
     p {
-      margin: 0;
+      margin: 0 0 $space-xs 0;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    ol {
+      list-style-type: decimal;
+      padding-left: 20px;
+      margin-top: $space-xxs;
+      margin-bottom: 0;
     }
   }
 
@@ -192,11 +249,14 @@
     padding: $space-sm;
     border-top: 1px solid $color-grey;
     background-color: $color-white;
+    max-width: none !important;
+    width: 100%;
   }
 
   &__input {
     flex: 1;
-    border-radius: $space-xxs;
+    background-color: #f9f9f9 !important;
+    border-radius: 5px !important;
     border: 1px solid $color-grey;
     padding: $space-xs $space-sm;
     font-size: 15px;
@@ -241,31 +301,8 @@
     background-color: #fafafa;
   }
 
-  &__suggestion-buttons {
-    margin-top: $space-xs;
-    display: flex;
-    flex-wrap: wrap;
-    gap: $space-xxs;
-  }
-
-  &__suggestion-btn {
-    font-size: 13px;
-    padding: $space-xxs $space-xs;
-    border-radius: 16px;
-    border: 1px solid $color-grey;
-    background-color: $color-white;
-    cursor: pointer;
-    @include transition(all, 0.15s, ease-out);
-
-    &:hover {
-      background-color: $color-grey;
-      border-color: darken($color-grey, 5%);
-    }
-  }
-
   &__contact-link {
-    margin-top: $space-xs;
-    font-size: 14px;
+    margin-top: 20px !important;
 
     a {
       text-decoration: underline;
@@ -276,5 +313,44 @@
         @include opacity(0.8, 80);
       }
     }
+  }
+
+  &__typing {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 0;
+
+    span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: $color-dark-grey;
+      animation: typing 1.4s infinite;
+      @include opacity(0.6, 60);
+
+      &:nth-child(1) {
+        animation-delay: 0s;
+      }
+
+      &:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      &:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+    }
+  }
+}
+
+@keyframes typing {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.6;
+  }
+  30% {
+    transform: translateY(-10px);
+    opacity: 1;
   }
 }
