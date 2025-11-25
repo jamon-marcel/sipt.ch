@@ -35,4 +35,4 @@
 <x-bookings />
 <x-contact />
 <x-loader />
-@include('web.components.widgets.faq')
+{{-- @include('web.components.widgets.faq') --}}
