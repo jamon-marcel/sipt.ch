@@ -35,4 +35,8 @@
 <x-bookings />
 <x-contact />
 <x-loader />
-{{-- @include('web.components.widgets.faq') --}}
+@auth
+@if (auth()->user()->isAdmin())
+  @include('web.components.widgets.faq')
+@endif
+@endauth

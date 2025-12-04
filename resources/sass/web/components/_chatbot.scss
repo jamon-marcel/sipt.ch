@@ -6,46 +6,65 @@
 
 .faq-chatbot {
   position: fixed;
-  bottom: $space-md;
-  right: $space-md;
-  width: 480px;
-  // max-width: calc(100vw - #{$space-lg});
+  bottom: 10px;
+  right: 10px;
+  width: calc(100% - 20px);
   font-size: 15px;
   z-index: 1500;
 
   @include bp-sm {
     bottom: $space-lg;
     right: $space-lg;
+    width: 480px;
   }
 
   @include bp-lg {
     width: 540px;
   }
 
-
   &__toggle {
     border-radius: 10px;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 7px;
     @include box-shadow(0, 4px, 12px, 0, rgba(0, 0, 0, 0.15));
-    padding: $space-xs $space-md;
-    background-color: $color-black;
+    padding: $space-xs $space-sm;
+    background-color: $color-black !important;
     color: $color-white;
     border: none;
     cursor: pointer;
     @include font-size($fs-md);
     @include font-bold();
+    line-height: 1 !important;
     position: fixed;
-    right: $space-lg;
-    bottom: $space-lg;
+    bottom: 10px;
+    right: 10px;
+    width: auto;
     z-index: 1000;
     @include transition(all, 0.2s, ease-out);
 
+    svg {
+      display: block;
+      flex-shrink: 0;
+      height: auto;
+      width: 26px;
+    }
+
     &:hover {
       @include box-shadow(0, 6px, 16px, 0, rgba(0, 0, 0, 0.2));
+      color: $color-primary;
       @include transform(translateY(-1px));
     }
 
     &:focus {
       outline: none;
+    }
+
+    @include bp-sm {
+      padding: $space-xs $space-xs;
+      bottom: $space-lg;
+      right: $space-lg;
     }
   }
 
