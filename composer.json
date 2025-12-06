@@ -25,7 +25,9 @@
         "marceli-to/wiretap": "^1.4",
         "nesbot/carbon": "^2.36",
         "spatie/laravel-honeypot": "^4.0",
-        "sprain/swiss-qr-bill": "^3.2"
+        "sprain/swiss-qr-bill": "^3.2",
+        "symfony/css-selector": "^7.4",
+        "symfony/dom-crawler": "^7.4"
     },
     "require-dev": {
         "spatie/laravel-ignition": "^2.0",
