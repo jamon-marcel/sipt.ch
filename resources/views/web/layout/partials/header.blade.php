@@ -38,6 +38,7 @@
 @auth
 @if (auth()->user()->isAdmin())
   @include('web.components.widgets.faq')
+  {{-- @include('web.components.widgets.chatbot') --}}
 @endif
 @endauth
-@include('web.components.widgets.chatbot')
+

@@ -363,6 +363,29 @@
   }
 }
 
+.faq-chatbot.is-ai {
+  left: 10px;
+  right: auto;
+
+  @include bp-sm {
+    left: $space-lg;
+    right: auto;
+  }
+}
+
+.is-ai {
+
+  .faq-chatbot__toggle {
+    left: 10px !important;
+    right: auto;
+
+    @include bp-sm {
+      left: $space-lg !important;
+      right: auto;
+    }
+  }
+}
+
 @keyframes typing {
   0%, 60%, 100% {
     transform: translateY(0);

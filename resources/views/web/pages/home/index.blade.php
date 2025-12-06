@@ -10,6 +10,28 @@
     <p>Das SIPT feiert nächstes Jahr sein 20-jähriges Bestehen! Aus diesem Anlass laden wir Sie herzlich zu unserer zweitägigen Fachtagung ein: «Rückblick und neue Perspektiven: Soziale Traumata und deren Auswirkungen in der Praxis». Die Tagung findet am Freitag, 21. und Samstag, 22. August 2026 in der Alten Kaserne in Winterthur statt. Gerne dürfen Sie sich diesen Termin bereits vormerken. Das detaillierte Programm lassen wir Ihnen in den kommenden Wochen zukommen.</p>
   </article>
 
+  <article>
+    <h2>FSP-Anerkennung und Anrechnung für Fachtitel</h2>
+    <p>Die SIPT-Weiterbildungen CAS Zertifikatslehrgang Traumatherapie und FachpsychotherapeutIn für Psychotraumatologie sind von der Föderation der Schweizer Psychologinnen und Psychologen (FSP) anerkannt. Besonders wertvoll für Ihre Laufbahn: Die in diesen Lehrgängen absolvierten Einheiten können bei der Beantragung eines FSP-Titels angerechnet werden.</p>
+    <p>Und diese beiden bei den entsprechenden Fortbildungen?</p>
+    <p>
+      <strong>
+        <a href="https://www.psychologie.ch/de/formapsy/019ab55e-4ebd-71c1-b7f0-2eb6b312af38" target="_blank">
+          CAS Zertifikatslehrgang Traumatherapie:
+        </a>
+      </strong>
+    </p>
+    <p>Dieser Lehrgang ist von der Föderation der Schweizer Psychologinnen und Psychologen (FSP) anerkannt. PsychotherapeutInnen können die im Rahmen des CAS absolvierten Einheiten bei der Beantragung eines FSP-Titels geltend machen. Die Anrechnung erfolgt dabei individuell auf der Grundlage der vom SIPT gelieferten Teilnahme- und Abschlussnachweise.</p>
+    <p>
+      <strong>
+        <a href="https://www.psychologie.ch/de/formapsy/019ab55f-f385-70c5-894d-ac777ae54264" target="_blank">
+          FachpsychotherapeutIn für Psychotraumatologie:
+        </a>
+      </strong>
+    </p>
+    <p>Die Weiterbildung zum/r FachpsychotherapeutIn für Psychotraumatologie ist durch die Föderation der Schweizer Psychologinnen und Psychologen (FSP) anerkannt. Die Fortbildungseinheiten dieser Ausbildung können Sie sich bei der Beantragung eines FSP-Titels anrechnen lassen. Dies geschieht individuell auf Basis Ihrer SIPT-Nachweise, die Ihre erbrachten Leistungen dokumentieren.</p>
+  </article>
+
   @foreach ($news as $category)
     @if ($category->id == config('sipt.news_courses_id'))
       <article>

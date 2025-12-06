@@ -1,16 +1,16 @@
-<div x-data="chatbot()" class="faq-chatbot">
+<div x-data="chatbot()" class="faq-chatbot is-ai">
   <button @click="open = !open" x-show="!open" class="faq-chatbot__toggle">
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
       <path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
     </svg>
-    <span>AI Assistent</span>
+    <span>Chatbot</span>
   </button>
 
   <div x-show="open" x-transition class="faq-chatbot__panel">
     <div class="faq-chatbot__header">
       <div>
         <p class="faq-chatbot__title">SIPT Assistent</p>
-        <p class="faq-chatbot__subtitle">KI-gestützte Antworten zu Kursen, Anmeldung & mehr</p>
+        <p class="faq-chatbot__subtitle">Schnelle Antworten zu Kursen, Anmeldung, Kosten.</p>
       </div>
       <button @click="reset()" class="faq-chatbot__close">
         <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -73,9 +73,10 @@
       <button class="faq-chatbot__submit" :disabled="loading || !question.trim()">Senden</button>
     </form>
 
-    <div class="faq-chatbot__disclaimer">
+    {{-- <div class="faq-chatbot__disclaimer">
       <span>KI-generierte Antworten. Angaben ohne Gewähr.</span>
-    </div>
+    </div> --}}
+
   </div>
 </div>
 
