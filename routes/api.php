@@ -28,6 +28,7 @@ use App\Http\Controllers\Api\VipAddressController;
 use App\Http\Controllers\Api\DownloadController;
 use App\Http\Controllers\Api\DownloadFileController;
 use App\Http\Controllers\Api\FaqBotController;
+use App\Http\Controllers\Api\ChatbotController;
 use App\Http\Controllers\Api\PartnerInstitutionController;
 use App\Http\Controllers\Api\ResilienceTipController;
 use App\Http\Controllers\Api\ResilienceTipFileController;
@@ -51,6 +52,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // Public FAQ bot endpoint (no authentication required)
 Route::post('faqbot', [FaqBotController::class, 'handle']);
+
+// RAG Chatbot endpoints
+Route::post('chatbot', [ChatbotController::class, 'query']);
+Route::get('chatbot/health', [ChatbotController::class, 'health']);
 
 Route::middleware('auth:sanctum')->group(function() {
 

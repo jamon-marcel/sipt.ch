@@ -40,3 +40,4 @@
   @include('web.components.widgets.faq')
 @endif
 @endauth
+@include('web.components.widgets.chatbot')
