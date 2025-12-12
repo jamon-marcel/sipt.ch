@@ -13,7 +13,6 @@
   <article>
     <h2>FSP-Anerkennung und Anrechnung für Fachtitel</h2>
     <p>Die SIPT-Weiterbildungen CAS Zertifikatslehrgang Traumatherapie und FachpsychotherapeutIn für Psychotraumatologie sind von der Föderation der Schweizer Psychologinnen und Psychologen (FSP) anerkannt. Besonders wertvoll für Ihre Laufbahn: Die in diesen Lehrgängen absolvierten Einheiten können bei der Beantragung eines FSP-Titels angerechnet werden.</p>
-    <p>Und diese beiden bei den entsprechenden Fortbildungen?</p>
     <p>
       <strong>
         <a href="https://www.psychologie.ch/de/formapsy/019ab55e-4ebd-71c1-b7f0-2eb6b312af38" target="_blank">
