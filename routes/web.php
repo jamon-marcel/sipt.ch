@@ -42,6 +42,7 @@ Route::get('/das-sipt/ueber-uns', [AboutController::class, 'about'])->name('abou
 Route::get('/das-sipt/leitung-dozierende', [AboutController::class, 'tutors'])->name('about_tutors');
 Route::get('/das-sipt/dozent/{slug?}/{tutor}', [AboutController::class, 'tutor'])->name('about_tutor');
 Route::get('/datenschutz', [AboutController::class, 'privacy'])->name('about_privacy');
+Route::get('/faq', [AboutController::class, 'faq'])->name('about_faq');
 
 // Bildungsangebot
 Route::get('/export/bildungsangebot/{slug?}/{training}', [TrainingController::class, 'export'])->name('training_export');

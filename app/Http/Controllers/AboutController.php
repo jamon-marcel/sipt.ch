@@ -81,6 +81,18 @@ class AboutController extends BaseController
   }
 
   /**
+   * Show the faq page
+   *
+   * @return \Illuminate\Http\Response
+   */
+
+  public function faq()
+  { 
+    return view($this->viewPath . 'faq');
+  }
+
+
+  /**
    * Show the toc page
    *
    * @return \Illuminate\Http\Response

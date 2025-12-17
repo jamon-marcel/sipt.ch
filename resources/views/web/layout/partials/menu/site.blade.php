@@ -91,6 +91,9 @@
           </li>
         @endauth
         <li>
+          <a href="{{ route('about_faq')}}" class="{{ request()->routeIs('about_faq') ? 'is-active' : '' }}">FAQ</a>
+        </li>
+        <li>
           <a href="{{ route('jobs_index')}}" class="{{ request()->routeIs('jobs_index') ? 'is-active' : '' }}">Stelleninserate</a>
         </li>
         <li>

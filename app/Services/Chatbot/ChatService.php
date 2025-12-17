@@ -70,9 +70,10 @@ KONTEXT:
 
 WICHTIG:
 - Antworte nur basierend auf dem gegebenen Kontext
-- Halte Antworten kurz und prägnant (max 2-3 Sätze wenn möglich)
+– Antworten sollen so ausführlich wie möglich sein
 - Verwende eine freundliche, professionelle Sprache
 - Bei Unsicherheit: Empfehle Kontakt zum Sekretariat
+- Wenn im Kontext Links im Format [Text](/url) vorhanden sind, übernimm diese EXAKT in deine Antwort
 PROMPT;
     }
 }
