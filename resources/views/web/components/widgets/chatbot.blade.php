@@ -89,9 +89,9 @@ function chatbot() {
     history: [],
     loading: false,
     suggestions: [
-      'Was kostet eine Weiterbildung?',
+      'Mit welchen Kosten muss ich rechnen?',
       'Wie melde ich mich an?',
-      'Was ist der CAS Abschluss?',
+      'Was unterscheidet FachberaterIn vom CAS?',
       'Welche Kurse gibt es?'
     ],
 

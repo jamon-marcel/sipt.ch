@@ -37,8 +37,6 @@
 <x-loader />
 @auth
 @if (auth()->user()->isAdmin())
-  {{-- @include('web.components.widgets.faq') --}}
   @include('web.components.widgets.chatbot')
 @endif
 @endauth
-
