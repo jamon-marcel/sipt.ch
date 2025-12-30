@@ -35,8 +35,5 @@
 <x-bookings />
 <x-contact />
 <x-loader />
-@auth
-@if (auth()->user()->isAdmin())
-  @include('web.components.widgets.chatbot')
-@endif
-@endauth
+@include('web.components.widgets.chatbot')
+
