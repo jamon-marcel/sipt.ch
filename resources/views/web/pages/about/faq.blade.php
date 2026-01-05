@@ -15,8 +15,10 @@
     <div class="collapsible__content js-clpsbl-body" style="display: none">
       <p>Die Ausbildungen am SIPT zeichnen sich durch ein flexibles Baukastensystem aus, das speziell für Berufstätige konzipiert ist. Beginnend mit dem Grundkurs können danach die Pflichtmodule sowie Wahlmodule besucht werden. Der Grundkurs ist die Voraussetzung für alle weiteren Module. Nach diesem Einstieg entscheiden Sie sich für eine Fachrichtung (z. B. Fachberatung, Traumapädagogik oder Traumatherapie). Das System ist modular: Sie buchen und bezahlen in der Regel Kurs für Kurs.</p>
       <ul>
-        <li><strong>FachberaterIn:</strong> 11 Module + 4 Supervisionen + Abschlussarbeit.</li>
+        <li><strong>FachberaterIn für Psychotraumatologie und FachpädagogIn für Psychotraumatologie:</strong> 11 Module + 4 Supervisionen + Abschlussarbeit.</li>
         <li><strong>CAS (Certificate of Advanced Studies):</strong> 15 Module + 5 Supervisionen + Selbststudium + Diplomarbeit (umfassender).</li>
+        <li><strong>FachpsychotherapeutIn für Psychotraumatologie:</strong> 11 Module + 4 Supervisionen + Abschlussarbeit.</li>
+        <li><strong>CAS (Certificate of Advanced Studies):</strong> 12 Module + 5 Supervisionen + Selbststudium + Diplomarbeit (umfassender).</li>
       </ul>
     </div>
   </article>
@@ -53,7 +55,7 @@
       <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">Darf ich Wahlmodule aus verschiedenen Fachrichtungen belegen?</a>
     </h2>
     <div class="collapsible__content js-clpsbl-body" style="display: none">
-      <p>Im Prinzip ja. Viele Module sind interdisziplinär offen. Es gibt jedoch spezifische Module, die nur für zugelassene Psychotherapeuten (Fachrichtung Psychotraumatherapie) reserviert sind (z. B. bestimmte vertiefte Behandlungstechniken). Für den Abschluss zur FachberaterIn für Psychotraumatologie oder FachpädagogIn für Psychotraumatologie können Sie jedoch aus einem breiten Angebot auch themenverwandter Module wählen, sofern diese für Ihr Berufsbild relevant sind.</p>
+      <p>Im Prinzip ja. Viele Module sind interdisziplinär offen. Es gibt jedoch spezifische Module, die nur für zugelassene Psychotherapeuten (Fachrichtung Traumatherapie) reserviert sind, wie beispielsweise bestimmte traumakonfrontierende Behandlungstechniken. Für den Abschluss zur FachberaterIn für Psychotraumatologie oder FachpädagogIn für Psychotraumatologie können Sie jedoch aus einem breiten Angebot auch themenverwandter Module wählen, sofern diese für Ihr Berufsbild relevant sind.</p>
     </div>
   </article>
   <article class="collapsible js-clpsbl">
@@ -66,7 +68,7 @@
   </article>
   <article class="collapsible js-clpsbl">
     <h2>
-      <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">Was unterscheidet den Abschluss «FachberaterIn» vom «CAS-Zertifikat»?</a>
+      <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">Was unterscheidet den Abschluss «FachberaterIn/-pädagogIn» vom «CAS-Zertifikat»?</a>
     </h2>
     <div class="collapsible__content js-clpsbl-body" style="display: none">
       <ol>
@@ -127,7 +129,7 @@
       <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">Erhalte ich die Kursunterlagen vorab?</a>
     </h2>
     <div class="collapsible__content js-clpsbl-body" style="display: none">
-      <p>Ja, die Skripte und Materialien werden Ihnen ca. eine Woche vor Kursbeginn per E-Mail zugesendet. Es wird empfohlen, diese (digital oder ausgedruckt) zum Kurs mitzubringen.</p>
+      <p>Die Kursunterlagen, einschliesslich Skripte und Materialien, können Sie ca. eine Woche vor Kursbeginn von unserer Homepage herunterladen. Es wird empfohlen, diese Unterlagen (digital oder ausgedruckt) zum Kurs mitzubringen.</p>
     </div>
   </article>
   <article class="collapsible js-clpsbl">

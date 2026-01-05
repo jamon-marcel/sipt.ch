@@ -91,7 +91,7 @@ function chatbot() {
     suggestions: [
       'Mit welchen Kosten muss ich rechnen?',
       'Wie melde ich mich an?',
-      'Was unterscheidet FachberaterIn vom CAS?',
+      'Was unterscheidet FachberaterIn/-pädagogIn vom CAS?',
       'Welche Kurse gibt es?'
     ],
 
