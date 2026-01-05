@@ -39,8 +39,11 @@ class ChatbotController extends Controller
         $history = $request->input('history', []);
 
         try {
+            // Preprocess: expand single-word queries for better semantic matching
+            $searchQuery = $this->expandQuery($question);
+
             // 1. Generate embedding for the question
-            $questionVector = $this->embedding->embed($question);
+            $questionVector = $this->embedding->embed($searchQuery);
 
             // 2. Search for relevant documents in Qdrant
             $results = $this->qdrant->search(
@@ -107,7 +110,7 @@ class ChatbotController extends Controller
     {
         try {
             $info = $this->qdrant->getCollectionInfo();
-            
+
             return response()->json([
                 'status' => 'ok',
                 'qdrant' => $info ? 'connected' : 'not configured',
@@ -120,5 +123,21 @@ class ChatbotController extends Controller
                 'message' => $e->getMessage(),
             ], 500);
         }
+    }
+
+    /**
+     * Expand short/single-word queries for better semantic matching
+     */
+    protected function expandQuery(string $question): string
+    {
+        $question = trim($question);
+        $wordCount = str_word_count($question);
+
+        // If it's a single word or very short query without question mark, expand it
+        if ($wordCount <= 2 && !str_contains($question, '?')) {
+            return "Was sind die Informationen zu {$question}?";
+        }
+
+        return $question;
     }
 }

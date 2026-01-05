@@ -25,7 +25,7 @@ return [
     |--------------------------------------------------------------------------
     */
     'search_limit' => env('CHATBOT_SEARCH_LIMIT', 5),
-    'score_threshold' => env('CHATBOT_SCORE_THRESHOLD', 0.4),
+    'score_threshold' => env('CHATBOT_SCORE_THRESHOLD', 0.3),
 
     /*
     |--------------------------------------------------------------------------
