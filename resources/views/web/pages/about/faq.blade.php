@@ -83,7 +83,7 @@
     </h2>
     <div class="collapsible__content js-clpsbl-body" style="display: none">
       <ul>
-        <li><strong>Fachberatung vs. Traumapädagogik:</strong> Die Inhalte überschneiden sich stark (ca. 60%). Der Unterschied liegt im Fokus der Abschlussarbeit und spezifischen Wahlmodulen (z. B. Fokus Schule/Jugendhilfe bei Pädagogik vs. Beratung von Erwachsenen bei der Fachberatung).</li>
+        <li><strong>Fachpädagogik vs. Traumapädagogik:</strong> Die Inhalte überschneiden sich stark (ca. 60%). Der Unterschied liegt im Fokus der Abschlussarbeit und spezifischen Wahlmodulen (z. B. Fokus Schule/Jugendhilfe bei Pädagogik vs. Beratung von Erwachsenen bei der Fachberatung).</li>
         <li><strong>Fachberatung vs. Traumatherapie:</strong> Die Therapie-Weiterbildung richtet sich ausschliesslich an approbierte Psychotherapeuten und Ärzte. Sie beinhaltet klinische Diagnostik und Behandlungstechniken, die in der Beratung nicht angewendet werden. Die Beratung fokussiert auf Stabilisierung, Psychoedukation und Begleitung im sozialen Kontext.</li>
       </ul>
     </div>

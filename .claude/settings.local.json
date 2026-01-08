@@ -7,7 +7,8 @@
       "Bash(awk:*)",
       "Bash(npm run dev:*)",
       "Bash(git add:*)",
-      "Bash(npm run prod:*)"
+      "Bash(npm run prod:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
