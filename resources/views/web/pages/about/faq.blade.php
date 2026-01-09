@@ -72,7 +72,7 @@
     </h2>
     <div class="collapsible__content js-clpsbl-body" style="display: none">
       <ol>
-        <li><strong>FachberaterIn (Zertifikat SIPT/DIPT):</strong> Dies ist der institutsinterne Abschluss. Er erfordert weniger Module (11) und ist kostengünstiger. Er ist ideal für die direkte Anwendung in der Praxis ohne akademischen Anspruch.</li>
+        <li><strong>FachberaterIn/-pädagogIn (Zertifikat SIPT/DIPT):</strong> Dies ist der institutsinterne Abschluss. Er erfordert weniger Module (11) und ist kostengünstiger. Er ist ideal für die direkte Anwendung in der Praxis ohne akademischen Anspruch.</li>
         <li><strong>CAS (Certificate of Advanced Studies):</strong> Dies ist ein Hochschulzertifikat (in Kooperation mit einer Universität, z. B. des Swiss Campus). Der CAS erfordert mehr Module (15), mehr Supervision (5 statt 4), einen höheren akademischen Arbeitsaufwand (ECTS-Punkte) und ist teurer (Immatrikulationsgebühren). Er ist international akademisch anerkannt.</li>
       </ol>
     </div>
