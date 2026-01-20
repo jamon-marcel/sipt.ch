@@ -27,7 +27,7 @@ export default {
 
     moneyFormat(amount) {
       if (amount) {
-        return amount.toFixed(2);
+        return parseFloat(amount).toFixed(2);
       }
       return 0;
     },

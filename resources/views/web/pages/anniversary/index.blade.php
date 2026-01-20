@@ -10,8 +10,6 @@
     <h2>20 Jahre SIPT</h2>
     <p>Das SIPT wird dieses Jahr 20 Jahre alt! Dies möchten wir mit einer zweitägigen Fachtagung feiern und laden Sie herzlich dazu ein. Gemeinsam widmen wir uns dem Thema <strong>«Soziale Traumata und deren Auswirkungen in der Praxis»</strong>.</p>
     <p>Die aktuelle politische Weltlage, Kriege und der Klimawandel haben zunehmend Auswirkungen auf das psychische Befinden unserer PatientInnen in der Psychotherapie und Beratung, aber vor allem auch im pädagogischen Bereich. Mit unserer Tagung wollen wir einen Diskussionsraum öffnen, um Folgen sozialer Traumata aufzuzeigen und Probleme zu benennen, ohne in eine Polarisierung abzugleiten. Wir möchten nach Lösungen suchen, die einen hoffnungsvollen Blick in die Zukunft ermöglichen.</p>
-  </article>
-  <article>
     <div class="list">
       <div class="list__item">
         <strong>Datum:</strong> Freitag, 21. und Samstag, 22. August 2026
@@ -194,67 +192,98 @@
       <label class="is-required">Ticketauswahl</label>
     </div>
     <div class="ticket-buttons">
-      <label class="ticket-button">
-        <input type="radio" name="ticket_type" value="both_days" {{ old('ticket_type') == 'both_days' ? 'checked' : '' }} required>
-        <span class="ticket-button__content">
-          <strong>Beide Tage (Fr + Sa)</strong>
-          <span>CHF 350.–* / CHF 390.–</span>
-        </span>
-      </label>
-      <label class="ticket-button">
-        <input type="radio" name="ticket_type" value="friday_only" {{ old('ticket_type') == 'friday_only' ? 'checked' : '' }}>
-        <span class="ticket-button__content">
-          <strong>Nur Freitag, 21.8.26</strong>
-          <span>CHF 150.–</span>
-        </span>
-      </label>
-      <label class="ticket-button">
-        <input type="radio" name="ticket_type" value="saturday_only" {{ old('ticket_type') == 'saturday_only' ? 'checked' : '' }}>
-        <span class="ticket-button__content">
-          <strong>Nur Samstag, 22.8.26</strong>
-          <span>CHF 250.–</span>
-        </span>
-      </label>
+      {{-- Both Days --}}
+      <div class="ticket-button">
+        <label class="ticket-button__header">
+          <input type="radio" name="ticket_type" value="both_days" {{ old('ticket_type') == 'both_days' ? 'checked' : '' }} required>
+          <span class="ticket-button__content">
+            <strong>Beide Tage (Fr + Sa)</strong>
+            <span>CHF 350.–* / CHF 390.–</span>
+          </span>
+        </label>
+        <div class="ticket-button__options js-ticket-options">
+          <div class="ticket-option">
+            <span class="ticket-option__label">Apéro – Freitag, 21.8.26</span>
+            <div class="ticket-option__radios">
+              <label class="ticket-option__radio">
+                <input type="radio" name="apero_friday" value="1" {{ old('apero_friday') == '1' ? 'checked' : '' }}>
+                <span>Ja, ich nehme teil</span>
+              </label>
+              <label class="ticket-option__radio">
+                <input type="radio" name="apero_friday" value="0" {{ old('apero_friday') == '0' ? 'checked' : '' }}>
+                <span>Nein, ich nehme nicht teil</span>
+              </label>
+            </div>
+          </div>
+          <div class="ticket-option">
+            <span class="ticket-option__label">Mittagessen – Samstag, 22.8.26</span>
+            <div class="ticket-option__radios">
+              <label class="ticket-option__radio">
+                <input type="radio" name="lunch_saturday" value="1" {{ old('lunch_saturday') == '1' ? 'checked' : '' }}>
+                <span>Ja, ich nehme teil</span>
+              </label>
+              <label class="ticket-option__radio">
+                <input type="radio" name="lunch_saturday" value="0" {{ old('lunch_saturday') == '0' ? 'checked' : '' }}>
+                <span>Nein, ich nehme nicht teil</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{-- Friday Only --}}
+      <div class="ticket-button">
+        <label class="ticket-button__header">
+          <input type="radio" name="ticket_type" value="friday_only" {{ old('ticket_type') == 'friday_only' ? 'checked' : '' }}>
+          <span class="ticket-button__content">
+            <strong>Nur Freitag, 21.8.26</strong>
+            <span>CHF 150.–</span>
+          </span>
+        </label>
+        <div class="ticket-button__options js-ticket-options">
+          <div class="ticket-option">
+            <span class="ticket-option__label">Apéro – Freitag, 21.8.26</span>
+            <div class="ticket-option__radios">
+              <label class="ticket-option__radio">
+                <input type="radio" name="apero_friday" value="1">
+                <span>Ja, ich nehme teil</span>
+              </label>
+              <label class="ticket-option__radio">
+                <input type="radio" name="apero_friday" value="0">
+                <span>Nein, ich nehme nicht teil</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {{-- Saturday Only --}}
+      <div class="ticket-button">
+        <label class="ticket-button__header">
+          <input type="radio" name="ticket_type" value="saturday_only" {{ old('ticket_type') == 'saturday_only' ? 'checked' : '' }}>
+          <span class="ticket-button__content">
+            <strong>Nur Samstag, 22.8.26</strong>
+            <span>CHF 250.–</span>
+          </span>
+        </label>
+        <div class="ticket-button__options js-ticket-options">
+          <div class="ticket-option">
+            <span class="ticket-option__label">Mittagessen – Samstag, 22.8.26</span>
+            <div class="ticket-option__radios">
+              <label class="ticket-option__radio">
+                <input type="radio" name="lunch_saturday" value="1">
+                <span>Ja, ich nehme teil</span>
+              </label>
+              <label class="ticket-option__radio">
+                <input type="radio" name="lunch_saturday" value="0">
+                <span>Nein, ich nehme nicht teil</span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <p class="form-hint"><small>* Frühbucherrabatt gilt bis 30.05.2026</small></p>
-
-    {{-- Conditional: Apéro Friday --}}
-    <div class="form-group js-apero-section" style="display: none;">
-      <label>Apéro – Freitag, 21.8.26</label>
-      <div class="form-group-radio">
-        <div>
-          <input type="radio" name="apero_friday" value="1" id="apero_yes" {{ old('apero_friday') == '1' ? 'checked' : '' }}>
-          <div class="radio"><span></span></div>
-        </div>
-        <label for="apero_yes">Ja, ich nehme teil</label>
-      </div>
-      <div class="form-group-radio">
-        <div>
-          <input type="radio" name="apero_friday" value="0" id="apero_no" {{ old('apero_friday') == '0' ? 'checked' : '' }}>
-          <div class="radio"><span></span></div>
-        </div>
-        <label for="apero_no">Nein, ich nehme nicht teil</label>
-      </div>
-    </div>
-
-    {{-- Conditional: Lunch Saturday --}}
-    <div class="form-group js-lunch-section" style="display: none;">
-      <label>Mittagessen – Samstag, 22.8.26</label>
-      <div class="form-group-radio">
-        <div>
-          <input type="radio" name="lunch_saturday" value="1" id="lunch_yes" {{ old('lunch_saturday') == '1' ? 'checked' : '' }}>
-          <div class="radio"><span></span></div>
-        </div>
-        <label for="lunch_yes">Ja, ich nehme teil</label>
-      </div>
-      <div class="form-group-radio">
-        <div>
-          <input type="radio" name="lunch_saturday" value="0" id="lunch_no" {{ old('lunch_saturday') == '0' ? 'checked' : '' }}>
-          <div class="radio"><span></span></div>
-        </div>
-        <label for="lunch_no">Nein, ich nehme nicht teil</label>
-      </div>
-    </div>
 
     <div class="sb-md">
       <x-radio label="Ich bin mit den %toc% einverstanden" id="toc" name="toc" />
@@ -268,40 +297,37 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   const ticketRadios = document.querySelectorAll('input[name="ticket_type"]');
-  const aperoSection = document.querySelector('.js-apero-section');
-  const lunchSection = document.querySelector('.js-lunch-section');
+  const ticketButtons = document.querySelectorAll('.ticket-button');
 
-  function updateConditionalSections() {
-    const selectedTicket = document.querySelector('input[name="ticket_type"]:checked');
-    if (!selectedTicket) {
-      aperoSection.style.display = 'none';
-      lunchSection.style.display = 'none';
-      return;
-    }
+  function updateTicketOptions() {
+    ticketButtons.forEach(function(button) {
+      const radio = button.querySelector('input[name="ticket_type"]');
+      const options = button.querySelector('.js-ticket-options');
+      const optionRadios = button.querySelectorAll('.ticket-option__radio input[type="radio"]');
 
-    const ticketType = selectedTicket.value;
-
-    // Show apéro section for both_days or friday_only
-    if (ticketType === 'both_days' || ticketType === 'friday_only') {
-      aperoSection.style.display = 'block';
-    } else {
-      aperoSection.style.display = 'none';
-    }
-
-    // Show lunch section for both_days or saturday_only
-    if (ticketType === 'both_days' || ticketType === 'saturday_only') {
-      lunchSection.style.display = 'block';
-    } else {
-      lunchSection.style.display = 'none';
-    }
+      if (radio.checked) {
+        button.classList.add('is-selected');
+        if (options) options.style.display = 'block';
+        // Enable radios in this button
+        optionRadios.forEach(function(r) { r.disabled = false; });
+      } else {
+        button.classList.remove('is-selected');
+        if (options) options.style.display = 'none';
+        // Disable radios in other buttons and clear selection
+        optionRadios.forEach(function(r) {
+          r.disabled = true;
+          r.checked = false;
+        });
+      }
+    });
   }
 
   ticketRadios.forEach(function(radio) {
-    radio.addEventListener('change', updateConditionalSections);
+    radio.addEventListener('change', updateTicketOptions);
   });
 
   // Initialize on page load
-  updateConditionalSections();
+  updateTicketOptions();
 });
 </script>
 
@@ -317,10 +343,27 @@ document.addEventListener('DOMContentLoaded', function() {
 .ticket-button {
   display: block;
   width: 100%;
+  border: 1px solid #ddd;
+  background: #fff;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.ticket-button.is-selected {
+  border-color: #ff7a00;
+}
+
+.ticket-button:hover {
+  border-color: #ff7a00;
+}
+
+.ticket-button__header {
+  display: block;
+  width: 100%;
   cursor: pointer;
 }
 
-.ticket-button input[type="radio"] {
+.ticket-button__header input[type="radio"] {
   position: absolute;
   opacity: 0;
   width: 0;
@@ -328,12 +371,11 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .ticket-button__content {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   width: 100%;
-  padding: 15px 20px;
-  border: 1px solid #ddd;
-  background: #fff;
-  transition: all 0.2s ease;
+  padding: 12px 15px;
   box-sizing: border-box;
 }
 
@@ -342,22 +384,60 @@ document.addEventListener('DOMContentLoaded', function() {
   margin-bottom: 3px;
 }
 
-.ticket-button__content span {
+.ticket-button__content > span {
   font-size: 0.9em;
   color: #666;
 }
 
-.ticket-button input[type="radio"]:checked + .ticket-button__content {
-  border-color: #ff7a00;
-  background: #fff8f2;
+@media (min-width: 2049px) {
+  .ticket-button__content {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .ticket-button__content strong {
+    margin-bottom: 0;
+  }
 }
 
-.ticket-button:hover .ticket-button__content {
-  border-color: #ff7a00;
+.ticket-button__options {
+  display: none;
+  padding: 15px;
 }
 
-.ticket-button input[type="radio"]:focus + .ticket-button__content {
-  box-shadow: 0 0 0 3px rgba(255, 122, 0, 0.2);
+.ticket-option {
+  margin-bottom: 20px;
+}
+
+.ticket-option:last-child {
+  margin-bottom: 0;
+}
+
+.ticket-option__label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.ticket-option__radios {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ticket-option__radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+}
+
+.ticket-option__radio input[type="radio"] {
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  accent-color: #000;
 }
 
 .form-hint {
@@ -378,8 +458,8 @@ document.addEventListener('DOMContentLoaded', function() {
 }
 
 .table-default td {
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 4px;
+  padding-bottom: 4px;
 }
 
 .table-default td:first-child {

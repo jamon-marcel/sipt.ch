@@ -22,7 +22,6 @@ class AnniversaryRegistrationsExport implements FromCollection, WithHeadingRow
         'saturday_only' => 'Nur Samstag',
       ];
       $data[] = [
-        'Kunden-Nr.' => $r->number,
         'Name' => $r->fullName,
         'Strasse' => $r->street . ' ' . $r->street_number,
         'PLZ' => $r->zip,

@@ -92489,7 +92489,7 @@ function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length)
     },
     moneyFormat: function moneyFormat(amount) {
       if (amount) {
-        return amount.toFixed(2);
+        return parseFloat(amount).toFixed(2);
       }
       return 0;
     },

@@ -8,7 +8,6 @@ class AnniversaryRegistration extends Model
   use SoftDeletes;
 
   protected $fillable = [
-    'number',
     'booking_number',
     'salutation',
     'firstname',
@@ -25,23 +24,18 @@ class AnniversaryRegistration extends Model
     'apero_friday',
     'lunch_saturday',
     'is_early_bird',
-    'is_billed',
-    'is_paid',
     'is_cancelled',
-    'user_id',
     'created_at'
   ];
 
   protected $hidden = [
-    'user_id', 'updated_at'
+    'updated_at'
   ];
 
   protected $casts = [
     'apero_friday' => 'boolean',
     'lunch_saturday' => 'boolean',
     'is_early_bird' => 'boolean',
-    'is_billed' => 'boolean',
-    'is_paid' => 'boolean',
     'is_cancelled' => 'boolean',
   ];
 
@@ -60,7 +54,7 @@ class AnniversaryRegistration extends Model
    */
   public function scopeBillable($query)
   {
-    return $query->where('is_billed', '=', 0)->where('is_cancelled', '=', 0)->where('cost', '>', 0)->get();
+    return $query->where('is_cancelled', '=', 0)->where('cost', '>', 0)->get();
   }
 
   /**

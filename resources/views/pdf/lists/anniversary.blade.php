@@ -10,7 +10,6 @@
   @if ($registrations)
     <table class="list list-symposium-participants" cellspacing="0" cellpadding="0">
       <tr style="font-weight: bold; border-bottom: 1px solid #000;">
-        <td>Nr.</td>
         <td>Name</td>
         <td>Ort</td>
         <td>E-Mail</td>
@@ -22,7 +21,6 @@
       </tr>
       @foreach($registrations as $registration)
         <tr>
-          <td>{{$registration->number}}</td>
           <td>{{$registration->fullName}}</td>
           <td>{{$registration->city}}</td>
           <td>{{$registration->email}}</td>
@@ -44,7 +42,7 @@
         </tr>
       @endforeach
       <tr>
-        <td colspan="9" style="width: 100%">Anzahl TeilnehmerInnen: {{count($registrations)}}</td>
+        <td colspan="8" style="width: 100%">Anzahl TeilnehmerInnen: {{count($registrations)}}</td>
       </tr>
     </table>
   @endif

@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 use App\Models\AnniversaryRegistration;
-use App\Models\User;
 use App\Events\AnniversaryRegistration as AnniversaryRegistrationEvent;
 use App\Http\Requests\AnniversaryRegistrationStoreRequest;
 use Illuminate\Http\Request;
@@ -9,13 +8,6 @@ use Carbon\Carbon;
 
 class AnniversaryRegistrationController extends Controller
 {
-  protected $user;
-
-  public function __construct(User $user)
-  {
-    $this->user = $user;
-  }
-
   /**
    * Store a newly created registration
    *
@@ -27,17 +19,8 @@ class AnniversaryRegistrationController extends Controller
     // Get request data
     $data = $request->all();
 
-    // Check for existing user and add 'user_id'
-    $user = $this->user->where('email', '=', $request->input('email'))->get()->first();
-    if ($user) {
-      $data['user_id'] = $user->id;
-    }
-
     // Create booking number
     $data['booking_number'] = \BookingHelper::getNumber();
-
-    // Client number
-    $data['number'] = \StudentHelper::getNumber();
 
     // Determine if early bird (before 30.05.2026)
     $earlyBirdDeadline = Carbon::create(2026, 5, 30, 23, 59, 59);

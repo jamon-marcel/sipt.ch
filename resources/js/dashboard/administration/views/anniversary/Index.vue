@@ -16,27 +16,15 @@
           :key="r.id"
         >
           <div class="listing__item-body">
-            {{ r.booking_number }}
-            <separator/>
-            {{ r.salutation }} {{ r.firstname }} {{ r.name }}
+            {{ r.firstname }} {{ r.name }}
             <separator/>
             {{ r.city }}
             <separator/>
             {{ r.email }}
             <separator/>
             {{ ticketLabel(r.ticket_type) }}
-            <separator/>
-            {{ dateFormat(r.created_at, 'DD.MM.YYYY') }}
-            <separator/>
-            {{ moneyFormat(r.cost) }}
-            <span v-if="r.is_early_bird" class="bubble-info">
+            <span v-if="r.is_early_bird" class="bubble-success">
               Frühbucher
-            </span>
-            <span v-if="r.is_billed" class="bubble-success">
-              Rechnung gestellt
-            </span>
-            <span v-if="r.is_paid" class="bubble-success">
-              Bezahlt
             </span>
           </div>
           <div class="listing__item-action">
