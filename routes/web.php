@@ -138,6 +138,8 @@ Route::middleware('auth:sanctum', 'verified')->group(function() {
   Route::get('/download/anwesenheitsliste/{courseEvent}', [DownloadController::class, 'listAttendances'])->middleware('role:tutor');
   Route::get('/download/fachtagung/teilnehmerliste', [DownloadController::class, 'listSymposiumParticipants'])->middleware('role:admin');
   Route::get('/export/fachtagung/teilnehmerliste', [DownloadController::class, 'exportSymposiumParticipants'])->middleware('role:admin');
+  Route::get('/download/20-jahre-sipt/teilnehmerliste', [DownloadController::class, 'listAnniversaryParticipants'])->middleware('role:admin');
+  Route::get('/export/20-jahre-sipt/teilnehmerliste', [DownloadController::class, 'exportAnniversaryParticipants'])->middleware('role:admin');
   Route::get('/export/adressliste/studenten', [DownloadController::class, 'exportStudentAddresses'])->middleware('role:admin');
   Route::get('/export/adressliste/dozenten', [DownloadController::class, 'exportTutorAddresses'])->middleware('role:admin');
   Route::get('/export/adressliste/vip', [DownloadController::class, 'exportVipAddresses'])->middleware('role:admin');

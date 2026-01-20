@@ -3,6 +3,7 @@ namespace App\Services;
 use PDF;
 use App\Models\CourseEvent;
 use App\Models\SymposiumSubscriber;
+use App\Models\AnniversaryRegistration;
 use Illuminate\Support\Facades\Storage;
 
 class Document
@@ -173,6 +174,32 @@ class Document
     // Set path & filename
     $path = public_path() . '/storage/temp/';
     $filename = 'sipt.ch-teilnehmerliste-fachtagung-100.101020' . '-' . \Str::random(8);
+    $file = $filename . '.pdf';
+    $pdf->save($path . $file);
+
+    return [
+      'path' => $path . $file,
+      'name' => $file
+    ];
+  }
+
+  /**
+   * Create a participant list for anniversary registrations
+   *
+   * @return Array
+   */
+
+  public function anniversaryParticipantList()
+  {
+    $registrations = AnniversaryRegistration::with('invoice')->orderBy('created_at', 'DESC')->where('is_cancelled', '=', 0)->get();
+
+    // Create pdf
+    $this->viewData['registrations'] = $registrations;
+    $pdf = PDF::loadView('pdf.lists.anniversary', $this->viewData);
+
+    // Set path & filename
+    $path = public_path() . '/storage/temp/';
+    $filename = 'sipt.ch-teilnehmerliste-20-jahre-sipt-' . date('dmY', time()) . '-' . \Str::random(8);
     $file = $filename . '.pdf';
     $pdf->save($path . $file);
 

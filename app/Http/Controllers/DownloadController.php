@@ -5,6 +5,7 @@ use App\Models\CourseEvent;
 use App\Models\Student;
 use App\Models\Download;
 use App\Exports\SymposiumSubscribersExport;
+use App\Exports\AnniversaryRegistrationsExport;
 use App\Exports\StudentAddressesExport;
 use App\Exports\TutorAddressesExport;
 use App\Exports\VipAddressesExport;
@@ -77,7 +78,31 @@ class DownloadController extends BaseController
   {
     return Excel::download(new SymposiumSubscribersExport, 'symposium_subscribers.xlsx');
   }
-  
+
+  /**
+   * Download the anniversary participant list (PDF)
+   *
+   * @return \Illuminate\Http\Response
+   */
+
+  public function listAnniversaryParticipants()
+  {
+    $file = new Document();
+    $file = $file->anniversaryParticipantList();
+    return response()->download($file['path'], $file['name'], $this->headers);
+  }
+
+  /**
+   * Export the anniversary participant list (Excel)
+   *
+   * @return \Illuminate\Http\Response
+   */
+
+  public function exportAnniversaryParticipants()
+  {
+    return Excel::download(new AnniversaryRegistrationsExport, 'sipt_20-jahre-teilnehmerliste.xlsx');
+  }
+
   /**
    * Export the students address list
    *
