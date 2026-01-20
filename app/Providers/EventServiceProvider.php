@@ -78,7 +78,11 @@ class EventServiceProvider extends ServiceProvider
     'App\Events\CourseEventParticipantsChanged' => [
       'App\Listeners\CourseEventCheckMaxParticipants',
     ],
-   
+
+    'App\Events\AnniversaryRegistration' => [
+      'App\Listeners\AnniversaryConfirmRegistration',
+    ],
+
   ];
 
   /**

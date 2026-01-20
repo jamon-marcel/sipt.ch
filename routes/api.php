@@ -33,6 +33,7 @@ use App\Http\Controllers\Api\ResilienceTipController;
 use App\Http\Controllers\Api\ResilienceTipFileController;
 use App\Http\Controllers\Api\TherapistController;
 use App\Http\Controllers\Api\TherapistIntroController;
+use App\Http\Controllers\Api\AnniversaryRegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -221,6 +222,15 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('symposium/subscribe', [SymposiumSubscriberController::class, 'store']);
     Route::put('symposium/{symposiumSubscriber}', [SymposiumSubscriberController::class, 'update']);
     Route::delete('symposium/{symposiumSubscriber}', [SymposiumSubscriberController::class, 'cancel']);
+  });
+
+  // Anniversary (20 Jahre SIPT) routes
+  Route::middleware('role:admin')->group(function() {
+    Route::get('anniversary/registrations', [AnniversaryRegistrationController::class, 'get']);
+    Route::get('anniversary/{registration?}', [AnniversaryRegistrationController::class, 'find']);
+    Route::post('anniversary/register', [AnniversaryRegistrationController::class, 'store']);
+    Route::put('anniversary/{registration}', [AnniversaryRegistrationController::class, 'update']);
+    Route::delete('anniversary/{registration}', [AnniversaryRegistrationController::class, 'cancel']);
   });
 
   // Vip address routes

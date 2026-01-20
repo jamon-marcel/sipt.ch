@@ -48,6 +48,9 @@ import BackofficeImport from '@/administration/views/backoffice/Import.vue';
 import Symposium from '@/administration/views/symposium/Index.vue';
 import SymposiumSubscriberCreate from '@/administration/views/symposium/Form.vue';
 
+import Anniversary from '@/administration/views/anniversary/Index.vue';
+import AnniversaryRegistrationCreate from '@/administration/views/anniversary/Form.vue';
+
 import VipAddressesIndex from '@/administration/views/vip/Index.vue';
 import VipAddressesCreate from '@/administration/views/vip/Create.vue';
 import VipAddressesEdit from '@/administration/views/vip/Edit.vue';
@@ -284,6 +287,18 @@ const routes = [
     name: 'symposium-subscriber-create',
     path: '/administration/symposium/create',
     component: SymposiumSubscriberCreate,
+  },
+
+  // Anniversary (20 Jahre SIPT)
+  {
+    name: 'anniversary',
+    path: '/administration/anniversary',
+    component: Anniversary,
+  },
+  {
+    name: 'anniversary-registration-create',
+    path: '/administration/anniversary/create',
+    component: AnniversaryRegistrationCreate,
   },
 
   // VIP Addresses

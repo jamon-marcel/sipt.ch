@@ -97,6 +97,11 @@
           <span>VIP Adressen</span>
         </router-link>
       </li>
+      <li>
+        <router-link :to="{name: 'anniversary'}">
+          <span>20 Jahre SIPT</span>
+        </router-link>
+      </li>
     </ul>
   </nav>
 </div>

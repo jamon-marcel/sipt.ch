@@ -21,6 +21,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\DevController;
 use App\Http\Controllers\Auth\LoginController as AuthLoginController;
+use App\Http\Controllers\AnniversaryController;
+use App\Http\Controllers\AnniversaryRegistrationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -64,6 +66,11 @@ Route::get('/jubilaeums-fachtagung-15-jahre-sipt', [SymposiumController::class, 
 // Route::get('/jubilaeums-fachtagung-15-jahre-sipt/anmeldung-erfolgreich', [SymposiumController::class, 'registered'])->name('symposium_register_success');
 Route::get('/jubilaeums-fachtagung-15-jahre-sipt/abmeldung/{symposiumSubscriber}', [SymposiumSubscriberController::class, 'cancel'])->name('symposium_cancel');
 Route::get('/jubilaeums-fachtagung-15-jahre-sipt/abmeldung-erfolgreich', [SymposiumController::class, 'cancelled'])->name('symposium_cancelled');
+
+// 20 Jahre SIPT Anniversary
+Route::get('/20-jahre-sipt', [AnniversaryController::class, 'index'])->name('anniversary_index');
+Route::post('/20-jahre-sipt/registration', [AnniversaryRegistrationController::class, 'store'])->middleware(ProtectAgainstSpam::class)->name('anniversary_register');
+Route::get('/20-jahre-sipt/anmeldung-erfolgreich', [AnniversaryController::class, 'registered'])->name('anniversary_register_success');
 
 // Mailinglist
 Route::get('/newsletter', [MailinglistController::class, 'index'])->name('mailinglist_index');

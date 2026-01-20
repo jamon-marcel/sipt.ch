@@ -30,6 +30,7 @@ class Invoice extends Model
     'tutor_id',
     'symposium_subscriber_id',
     'symposium_id',
+    'anniversary_registration_id',
     'user_id',
   ];
 
@@ -82,6 +83,15 @@ class Invoice extends Model
 	public function symposium()
 	{
 		return $this->belongsTo('App\Models\Symposium', 'symposium_id', 'id');
+  }
+
+  /**
+	 * Relationship for anniversaryRegistration
+	 */
+
+	public function anniversaryRegistration()
+	{
+		return $this->belongsTo('App\Models\AnniversaryRegistration', 'anniversary_registration_id', 'id');
   }
 
 	/**
