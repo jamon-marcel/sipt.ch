@@ -5,7 +5,9 @@
  */
 
 .is-required {
-
+  &::after {
+    content: ' *';
+  }
 }
 
 .has-error {

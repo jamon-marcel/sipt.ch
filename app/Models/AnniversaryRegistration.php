@@ -71,7 +71,7 @@ class AnniversaryRegistration extends Model
   public function getTicketTypeLabelAttribute()
   {
     $labels = [
-      'both_days' => 'Beide Tage (Fr + Sa)',
+      'both_days' => 'Beide Tage (Freitag und Samstag)',
       'friday_only' => 'Nur Freitag, 21.8.26',
       'saturday_only' => 'Nur Samstag, 22.8.26',
     ];

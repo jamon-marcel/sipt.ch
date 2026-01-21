@@ -1,0 +1,188 @@
+/**
+ * Anniversary page styles
+ */
+
+// Spacer
+.spacer-form {
+  margin-top: 20px;
+
+  @media (min-width: 1024px) {
+    margin-top: 40px;
+  }
+}
+
+// Ticket buttons
+.ticket-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: $space-xs;
+  margin-bottom: $space-xs;
+  width: 100%;
+}
+
+.ticket-button {
+  display: block;
+  width: 100%;
+  background: $color-grey;
+  border: 1px solid transparent;
+  transition: border-color 0.12s ease-out, background-color 0.12s ease-out;
+  box-sizing: border-box;
+
+  &.is-selected {
+    border-color: $color-primary;
+    background-color: lighten($color-primary, 35%);
+  }
+
+  &:hover {
+    border-color: $color-primary;
+  }
+}
+
+.ticket-button__header {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  cursor: pointer;
+  padding: 10px 12px;
+
+  input[type="radio"] {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    margin-top: 5px;
+    margin-right: 10px;
+    accent-color: $color-black;
+  }
+}
+
+.ticket-button__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+  padding-top: 2px;
+
+  strong {
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  > span {
+    font-size: 0.9em;
+    color: $color-black;
+  }
+
+  small {
+    display: block;
+    font-size: 0.8em;
+    margin-top: 4px;
+  }
+}
+
+.ticket-options-container {
+  margin-bottom: $space-xs;
+}
+
+// Ticket options
+.ticket-option {
+  margin-bottom: $space-sm;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.ticket-option__label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+.ticket-option__radios {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ticket-option__radio {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+
+  input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    accent-color: $color-black;
+  }
+}
+
+// Form elements
+.form-hint {
+  margin-top: 5px;
+  margin-bottom: 20px;
+}
+
+.form-error {
+  display: block;
+  color: $color-danger;
+  font-size: 0.85em;
+  margin-top: 5px;
+}
+
+// Table
+.table-default {
+  margin-top: 20px;
+
+  th {
+    text-align: left;
+  }
+
+  tr {
+    border-bottom: 1px solid #000;
+  }
+
+  td {
+    padding-top: 4px;
+    padding-bottom: 4px;
+
+    &:first-child {
+      padding-right: 60px;
+    }
+  }
+}
+
+// Collapsible content
+.collapsible__content h3:first-child {
+  margin-top: 20px;
+}
+
+// Program
+.program {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.program__item {
+  display: flex;
+  gap: 20px;
+  padding: 4px 0;
+  border-bottom: 1px solid #000;
+}
+
+.program__time {
+  flex-shrink: 0;
+  width: 180px;
+}
+
+.program__desc {
+  flex: 1;
+
+  em {
+    display: block;
+    margin-top: 3px;
+  }
+}

@@ -1,9 +1,6 @@
 <template>
   <div>
     <loading-indicator v-if="isLoading"></loading-indicator>
-    <div v-if="hasOverlay">
-      <cost-form :subscriber="registration" @save="saveAmount" @close="hideOverlay"></cost-form>
-    </div>
     <div :class="isFetched ? 'is-loaded' : 'is-loading'">
       <header class="content-header">
         <h1>20 Jahre SIPT – Fachtagung</h1>
@@ -29,13 +26,12 @@
           </div>
           <div class="listing__item-action">
             <div>
-              <a
-                href="javascript:;"
+              <router-link
+                :to="{ name: 'anniversary-registration-edit', params: { id: r.id } }"
                 class="feather-icon"
-                @click.prevent="showOverlay(r.id)"
               >
                 <edit-icon size="18"></edit-icon>
-              </a>
+              </router-link>
             </div>
             <div>
               <a
@@ -52,10 +48,6 @@
       <footer class="module-footer">
         <div class="flex-sb flex-sb">
           <div>
-            <a :href="'/download/20-jahre-sipt/teilnehmerliste?v=' + randomString()" class="btn-primary has-icon" target="_blank">
-              <download-icon size="16"></download-icon>
-              <span>Teilnehmerliste (PDF)</span>
-            </a>
             <a :href="'/export/20-jahre-sipt/teilnehmerliste?v=' + randomString()" class="btn-primary has-icon" target="_blank">
               <download-icon size="16"></download-icon>
               <span>Teilnehmerliste (XLS)</span>
@@ -80,9 +72,6 @@ import Helpers from "@/global/mixins/Helpers";
 import DateTime from "@/global/mixins/DateTime";
 import ErrorHandling from "@/global/mixins/ErrorHandling";
 
-// Components
-import CostForm from "@/administration/views/backoffice/components/CostForm.vue";
-
 export default {
 
   components: {
@@ -90,7 +79,6 @@ export default {
     DownloadIcon,
     Trash2Icon,
     EditIcon,
-    CostForm
   },
 
   mixins: [Helpers, DateTime, ErrorHandling],
@@ -99,9 +87,7 @@ export default {
     return {
       isFetched: false,
       isLoading: false,
-      hasOverlay: false,
       registrations: [],
-      registration: null,
     };
   },
 
@@ -137,29 +123,6 @@ export default {
           this.isLoading = false;
         });
       }
-    },
-
-    saveAmount(registration, amount) {
-      let data = { 'cost': amount };
-      let uri = `/api/anniversary/${registration}`;
-      this.isLoading = true;
-      this.axios.put(uri, data).then(response => {
-        const idx = this.registrations.findIndex(x => x.id === registration);
-        this.registrations[idx].cost = parseFloat(amount);
-        this.hideOverlay();
-        this.isLoading = false;
-        this.$notify({ type: "success", text: "Betrag geändert!" });
-      });
-    },
-
-    showOverlay(registration) {
-      this.hasOverlay = true;
-      this.registration = registration;
-    },
-
-    hideOverlay() {
-      this.hasOverlay = false;
-      this.registration = null;
     },
   },
 };

@@ -3,7 +3,7 @@
     <loading-indicator v-if="isLoading"></loading-indicator>
     <div :class="isFetched ? 'is-loaded' : 'is-loading'">
       <header class="content-header">
-        <h1>Anmeldung hinzufügen</h1>
+        <h1>{{ isEdit ? 'Anmeldung bearbeiten' : 'Anmeldung hinzufügen' }}</h1>
       </header>
       <form @submit.prevent="submit" class="form-grid">
         <div :class="[this.errors.salutation ? 'has-error' : '', 'form-row']">
@@ -63,7 +63,7 @@
           <label>Ticket *</label>
           <select v-model="registration.ticket_type">
             <option value="">Bitte wählen</option>
-            <option value="both_days">Beide Tage (Fr + Sa)</option>
+            <option value="both_days">Beide Tage (Freitag und Samstag)</option>
             <option value="friday_only">Nur Freitag, 21.8.26</option>
             <option value="saturday_only">Nur Samstag, 22.8.26</option>
           </select>
@@ -83,26 +83,39 @@
             <option :value="0">Nein, nimmt nicht teil</option>
           </select>
         </div>
-        <div class="form-buttons align-end">
-          <router-link :to="{ name: 'anniversary' }" class="btn-secondary">Abbrechen</router-link>
-          <button type="submit" class="btn-primary">Speichern</button>
+        <div class="form-row" v-if="isEdit">
+          <label>Betrag (CHF)</label>
+          <input type="number" step="0.01" v-model="registration.cost">
         </div>
       </form>
+      <footer class="module-footer">
+        <div class="flex-sb">
+          <router-link :to="{ name: 'anniversary' }" class="btn-secondary">Abbrechen</router-link>
+          <button type="submit" class="btn-primary" @click="submit">Speichern</button>
+        </div>
+      </footer>
     </div>
   </div>
 </template>
 <script>
+
+// Components
+import LabelRequired from "@/global/components/ui/LabelRequired.vue";
 
 // Mixins
 import ErrorHandling from "@/global/mixins/ErrorHandling";
 
 export default {
 
+  components: {
+    LabelRequired,
+  },
+
   mixins: [ErrorHandling],
 
   data() {
     return {
-      isFetched: true,
+      isFetched: false,
       isLoading: false,
       registration: {
         salutation: '',
@@ -118,6 +131,7 @@ export default {
         ticket_type: '',
         apero_friday: 0,
         lunch_saturday: 0,
+        cost: 0,
       },
       errors: {
         salutation: false,
@@ -133,7 +147,18 @@ export default {
     };
   },
 
+  created() {
+    if (this.isEdit) {
+      this.fetch();
+    } else {
+      this.isFetched = true;
+    }
+  },
+
   computed: {
+    isEdit() {
+      return this.$route.params.id !== undefined;
+    },
     showApero() {
       return this.registration.ticket_type === 'both_days' || this.registration.ticket_type === 'friday_only';
     },
@@ -143,6 +168,17 @@ export default {
   },
 
   methods: {
+    fetch() {
+      this.isLoading = true;
+      this.axios.get(`/api/anniversary/${this.$route.params.id}`).then(response => {
+        this.registration = response.data;
+        this.registration.apero_friday = this.registration.apero_friday ? 1 : 0;
+        this.registration.lunch_saturday = this.registration.lunch_saturday ? 1 : 0;
+        this.isFetched = true;
+        this.isLoading = false;
+      });
+    },
+
     submit() {
       // Reset errors
       Object.keys(this.errors).forEach(key => {
@@ -165,6 +201,15 @@ export default {
       }
 
       this.isLoading = true;
+
+      if (this.isEdit) {
+        this.update();
+      } else {
+        this.store();
+      }
+    },
+
+    store() {
       let uri = `/api/anniversary/register`;
       this.axios.post(uri, { registration: this.registration }).then(response => {
         this.isLoading = false;
@@ -177,6 +222,18 @@ export default {
         } else {
           this.$notify({ type: "error", text: "Fehler beim Speichern!" });
         }
+      });
+    },
+
+    update() {
+      let uri = `/api/anniversary/${this.$route.params.id}`;
+      this.axios.put(uri, this.registration).then(response => {
+        this.isLoading = false;
+        this.$notify({ type: "success", text: "Anmeldung aktualisiert!" });
+        this.$router.push({ name: 'anniversary' });
+      }).catch(error => {
+        this.isLoading = false;
+        this.$notify({ type: "error", text: "Fehler beim Speichern!" });
       });
     },
   },

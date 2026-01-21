@@ -28,8 +28,15 @@ class AnniversaryRegistrationConfirmation extends Mailable
    */
   public function build()
   {
-    return $this->subject('Bestätigung Anmeldung – 20 Jahre SIPT Fachtagung')
-                ->with(['registration' => $this->data['registration']])
-                ->markdown('mails.anniversary.confirmation');
+    $mail = $this->subject('Bestätigung Anmeldung – 20 Jahre SIPT Fachtagung')
+                 ->with(['registration' => $this->data['registration']])
+                 ->markdown('mails.anniversary.confirmation');
+
+    if (isset($this->data['attachment']) && $this->data['attachment'])
+    {
+      $mail->attach($this->data['attachment'], ['mime' => 'application/pdf']);
+    }
+
+    return $mail;
   }
 }

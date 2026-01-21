@@ -3,6 +3,7 @@ namespace App\Listeners;
 use App\Events\AnniversaryRegistration;
 use App\Mail\AnniversaryRegistrationConfirmation;
 use App\Mail\AnniversaryRegistrationNotification;
+use App\Services\AnniversaryInvoice;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
@@ -29,12 +30,23 @@ class AnniversaryConfirmRegistration
   {
     $registration = $event->registration;
 
-    // Send confirmation to registrant
+    // Create invoice
+    $invoiceService = new AnniversaryInvoice();
+    $invoiceService->create([
+      'date' => date('d.m.Y'),
+      'amount' => $registration->cost,
+      'registration' => $registration,
+    ]);
+    $invoiceService->write();
+    $invoiceService->store();
+
+    // Send confirmation with invoice to registrant
     Mail::to($registration->email)
           ->bcc(\Config::get('sipt.email_copy'))
           ->send(
               new AnniversaryRegistrationConfirmation([
                 'registration' => $registration,
+                'attachment' => $invoiceService->getFilePath(),
               ])
           );
 

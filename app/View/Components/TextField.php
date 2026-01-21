@@ -55,6 +55,20 @@ class TextField extends Component
   public $autocomplete;
 
   /**
+   * Value
+   *
+   * @var string
+   */
+  public $value;
+
+  /**
+   * Show Required (asterisk only, no validation)
+   *
+   * @var boolean
+   */
+  public $showRequired;
+
+  /**
    * Create a new component instance.
    *
    * @param $name
@@ -63,10 +77,13 @@ class TextField extends Component
    * @param $placeholder
    * @param $required
    * @param $css
+   * @param $autocomplete
+   * @param $value
+   * @param $showRequired
    * 
    * @return void
    */
-  public function __construct($name, $type = 'text', $label = NULL, $placeholder = NULL, $required = FALSE, $css = NULL, $autocomplete = TRUE)
+  public function __construct($name, $type = 'text', $label = NULL, $placeholder = NULL, $required = FALSE, $css = NULL, $autocomplete = TRUE, $value = NULL, $showRequired = FALSE)
   {
     $this->name = $name;
     $this->type = $type;
@@ -75,6 +92,8 @@ class TextField extends Component
     $this->required = $required;
     $this->css = $css;
     $this->autocomplete = $autocomplete;
+    $this->value = $value;
+    $this->showRequired = $showRequired;
   }
 
   /**

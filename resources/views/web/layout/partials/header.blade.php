@@ -35,5 +35,7 @@
 <x-bookings />
 <x-contact />
 <x-loader />
-@include('web.components.widgets.chatbot')
+@if (!in_array(Route::currentRouteName(), ['anniversary_index', 'anniversary_register_success', 'course_show']))
+  @include('web.components.widgets.chatbot')
+@endif
 

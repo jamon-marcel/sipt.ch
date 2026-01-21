@@ -49,7 +49,7 @@ import Symposium from '@/administration/views/symposium/Index.vue';
 import SymposiumSubscriberCreate from '@/administration/views/symposium/Form.vue';
 
 import Anniversary from '@/administration/views/anniversary/Index.vue';
-import AnniversaryRegistrationCreate from '@/administration/views/anniversary/Form.vue';
+import AnniversaryRegistrationForm from '@/administration/views/anniversary/Form.vue';
 
 import VipAddressesIndex from '@/administration/views/vip/Index.vue';
 import VipAddressesCreate from '@/administration/views/vip/Create.vue';
@@ -298,7 +298,12 @@ const routes = [
   {
     name: 'anniversary-registration-create',
     path: '/administration/anniversary/create',
-    component: AnniversaryRegistrationCreate,
+    component: AnniversaryRegistrationForm,
+  },
+  {
+    name: 'anniversary-registration-edit',
+    path: '/administration/anniversary/edit/:id',
+    component: AnniversaryRegistrationForm,
   },
 
   // VIP Addresses
