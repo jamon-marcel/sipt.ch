@@ -42,6 +42,10 @@
                 <separator/>
                 100.101020
               </span>
+              <span v-else-if="invoice.anniversary_registration">
+                <separator/>
+                20 Jahre SIPT
+              </span>
               <separator/>
               {{moneyFormat(invoice.amount)}}
               <separator/>
@@ -58,6 +62,9 @@
               </span>
               <span v-if="invoice.recipient">
                 {{invoice.recipient}}
+              </span>
+              <span v-if="invoice.anniversary_registration">
+                {{invoice.anniversary_registration.firstname}} {{invoice.anniversary_registration.name}}, {{invoice.anniversary_registration.city}}
               </span>
               <span v-if="invoice.state != null && invoice.is_paid == 0">
                 <separator/>
