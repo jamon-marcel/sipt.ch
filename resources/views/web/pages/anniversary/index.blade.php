@@ -228,12 +228,15 @@
     </div>
 
     {{-- Ticket Options (shown based on ticket selection) --}}
-    <div class="form-group" id="js-ticket-options" style="{{ old('ticket_type') ? '' : 'display: none;' }}">
-      <label>Inklusivleistungen</label>
+    <div class="form-group" id="js-ticket-options" style="{{ old('ticket_type') ? 'margin-top: 25px' : 'display: none; margin-top: 25px' }}">
+      <div>
+        <label style="margin-bottom: 10px">Inklusivleistungen</label>
+        <div class="small">Bitte wählen Sie die Leistungen aus, die im Rahmen Ihrer Ticketbuchung inklusive sind.</div>
+      </div>
     </div>
     <div class="ticket-options-container" id="js-ticket-options-content" style="{{ old('ticket_type') ? '' : 'display: none;' }}">
       <div class="ticket-option" id="js-apero-option" style="{{ in_array(old('ticket_type'), ['both_days', 'friday_only']) ? '' : 'display: none;' }}">
-        <span class="ticket-option__label">Apéro – Freitag, 21.8.26</span>
+        <span class="ticket-option__label">Apéro (Freitag, 21.8.26)</span>
         <div class="ticket-option__radios">
           <label class="ticket-option__radio">
             <input type="radio" name="apero_friday" value="1" {{ old('apero_friday') == '1' ? 'checked' : '' }}>
@@ -246,7 +249,7 @@
         </div>
       </div>
       <div class="ticket-option" id="js-lunch-option" style="{{ in_array(old('ticket_type'), ['both_days', 'saturday_only']) ? '' : 'display: none;' }}">
-        <span class="ticket-option__label">Mittagessen – Samstag, 22.8.26</span>
+        <span class="ticket-option__label">Mittagessen (Samstag, 22.8.26)</span>
         <div class="ticket-option__radios">
           <label class="ticket-option__radio">
             <input type="radio" name="lunch_saturday" value="1" {{ old('lunch_saturday') == '1' ? 'checked' : '' }}>

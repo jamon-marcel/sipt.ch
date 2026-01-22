@@ -19,7 +19,6 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
-use App\Http\Controllers\DevController;
 use App\Http\Controllers\Auth\LoginController as AuthLoginController;
 use App\Http\Controllers\AnniversaryController;
 use App\Http\Controllers\AnniversaryRegistrationController;
@@ -126,11 +125,6 @@ Route::middleware('auth:sanctum', 'verified')->group(function() {
   Route::get('/admin/jubilaeums-fachtagung-15-jahre-sipt', [SymposiumController::class, 'anniversaryAdmin']);
   Route::post('/admin/jubilaeums-fachtagung-15-jahre-sipt/registration', [SymposiumSubscriberController::class, 'store'])->middleware(ProtectAgainstSpam::class)->name('symposium_register');
   Route::get('/admin/jubilaeums-fachtagung-15-jahre-sipt/anmeldung-erfolgreich', [SymposiumController::class, 'registered'])->name('symposium_register_success');
-
-  // Dev routes
-  Route::get('/mask-user', [DevController::class, 'maskUser']);
-  Route::get('/import-users', [DevController::class, 'importUser']);
-
 
   // Downloads for tutors / admins
   Route::get('/download/modulliste', [DownloadController::class, 'listCourses'])->middleware('role:tutor');

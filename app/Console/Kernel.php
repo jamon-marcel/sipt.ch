@@ -5,7 +5,6 @@ use App\Tasks\CourseEventInvitations;
 use App\Tasks\CourseEventReminder;
 use App\Tasks\Message;
 use App\Tasks\DatabaseBackup;
-use App\Tasks\Mailing;
 use App\Tasks\MailingQueue;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
