@@ -42,6 +42,9 @@ return [
     env('EMAIL_COPY_OWNER', 'r.barwinski@swissonline.ch')
   ],
 
+  // E-Mail for anniversary registration notifications
+  'anniversary_notification_email' => env('ANNIVERSARY_NOTIFICATION_EMAIL', 'sekretariat@sipt.ch'),
+
   // Notice types
   'notice_types' => [
     0 => 'Zahlungserinnerung',
