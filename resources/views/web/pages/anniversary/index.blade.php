@@ -108,6 +108,58 @@
     </div>
   </article>
 
+  {{-- Collapsible: Referenten & Abstracts --}}
+  <article class="collapsible js-clpsbl">
+    <h2>
+      <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">Referentenporträts und Abstracts</a>
+    </h2>
+    <div class="collapsible__content js-clpsbl-body" style="display: none">
+
+      <div class="speaker">
+        <p><strong>«Trauma – zwischen individuellem Leid und gesellschaftlicher Realität»</strong></p>
+        <p><strong>Prof. Dr. phil. Lutz Wittmann (IPU Berlin)</strong></p>
+        <p class="speaker__bio"><em>Zur Person:</em> Lutz Wittmann ist Professor für klinische Psychologie und Psychotherapie an der International Psychoanalytic University Berlin. Als profilierter Psychotraumatologe forscht er zu den psychosozialen Dimensionen von Traumata und der Verbindung zwischen individueller Psyche und sozialem Kontext.</p>
+        <p class="speaker__abstract"><em>Abstract:</em> Längst haben wir das Paradigma einer Einpersonenpsychologie hinter uns gelassen und kontextualisieren menschliches Erleben in interpersonellen Zusammenhängen. Die aktuelle Weltlage gibt einmal mehr Anlass, die Interaktion individueller Psychopathologie und gesellschaftlicher Realität zu fokussieren. In diesem Beitrag werden das Prozesshafte des traumatischen Geschehens sowie seine sozialen Dimensionen herausgearbeitet und klinisch veranschaulicht. Dabei werden die Bedeutung und die Begrenztheit individueller wie kollektiver Traumakonzepte gleichermassen kritisch beleuchtet.</p>
+      </div>
+
+      <div class="speaker">
+        <p><strong>«Wenn das Soziale zur Morphologie wird – Traumata aus neurobiologischer Sicht»</strong></p>
+        <p><strong>Dr. scient. med. Dr. phil. Damir del Monte (PMU Salzburg)</strong></p>
+        <p class="speaker__bio"><em>Zur Person:</em> Damir del Monte ist Neurowissenschaftler und Psychologe mit Schwerpunkt in der Depressions-, Trauma- und Schmerzforschung. Er lehrt an verschiedenen europäischen Universitäten und ist international dafür bekannt, komplexe neurobiologische Zusammenhänge verständlich und begeisternd zu vermitteln.</p>
+        <p class="speaker__abstract"><em>Abstract:</em> Soziale Erfahrungen – insbesondere jene, die mit Unsicherheit, Ausgrenzung oder Gewalt einhergehen – hinterlassen im Gehirn nicht nur Spuren des Erlebten, sondern formen es buchstäblich um. Der Vortrag widmet sich der zentralen These, dass das Soziale morphologisch wird: Zwischenmenschliche Erfahrungen schreiben sich über neuroplastische Prozesse tief in die Struktur des Gehirns ein und beeinflussen dessen funktionelle Architektur nachhaltig. Der Beitrag schlägt eine Brücke zwischen sozialer Erfahrung und neurobiologischer Realität und lädt zur interdisziplinären Reflexion über ein zentrales Prinzip der menschlichen Existenz ein: Beziehung formt Biologie.</p>
+      </div>
+
+      <div class="speaker">
+        <p><strong>«Ethik versus Kritik: Ein Blick in die Reparaturkiste mit der Aufschrift «Ethik»»</strong></p>
+        <p><strong>PD Dr. phil. Thomas Kesselring (Universität Bern)</strong></p>
+        <p class="speaker__bio"><em>Zur Person:</em> Thomas Kesselring ist Privatdozent für Philosophie an der Universität Bern mit Schwerpunkten in der Erkenntnistheorie und Ethik. Er zeichnet sich durch seine Fähigkeit aus, philosophische Grundsatzfragen mit aktuellen gesellschaftlichen Herausforderungen und psychologischen Aspekten zu verknüpfen.</p>
+        <p class="speaker__abstract"><em>Abstract:</em> Wir leben in unsicheren Zeiten. Das belastet die Psyche und erschwert die politischen Entscheidungen. Die Frage, was wesentlich ist und was unwesentlich, wird kaum noch diskutiert. Wie konnte es so weit kommen? Nach einer hypothetischen Diagnose einiger Ursachen will ich ein paar ethische «Essentials» in Erinnerung rufen, die früher mal galten: Kooperation, statt nur immer Wettbewerb; Autonomie statt Manipulation; gegenseitige Achtung statt Ausgrenzung; Dezentrierung statt Zentrierung auf's Ego, die 'Identität', Partei, Nation usw. (Wie) lassen sich solche «Essentials» zurückgewinnen?</p>
+      </div>
+
+      <div class="speaker">
+        <p><strong>«Kollektive Traumata, Schuld und Scham im Israel-Palästina-Konflikt»</strong></p>
+        <p><strong>Prof. Dr. José Brunner (Universität Tel Aviv)</strong></p>
+        <p class="speaker__bio"><em>Zur Person:</em> José Brunner ist emeritierter Professor an der Universität Tel Aviv und Experte für die politische Geschichte der Psychologie und des Traumas. Seine Arbeit befasst sich intensiv mit dem Zusammenspiel von Recht, Politik und psychischen Belastungen in hochgradig konfliktbehafteten Gesellschaften.</p>
+        <p class="speaker__abstract"><em>Abstract:</em> Im Israel-Palästina-Konflikt prallen zwei Kollektive aufeinander, deren Identitäten eng an historische Traumata – Holocaust und Nakba – geknüpft sind. Der Vortrag zeigt, dass die langfristige Wirkung dieser Traumata auf Dynamiken kollektiver Schuld, Scham und deren Abwehr zurückzuführen ist, die Gewalt fördern. Untersucht werden die Ausdrucksformen dieser Dynamiken in beiden Gesellschaften. Diese sind sowohl Resultat des massiven Machtgefälles in diesem asymmetrischen Konflikt als auch der unterschiedlichen kulturellen Rahmenbedingungen, die beide Seiten prägen.</p>
+      </div>
+
+      <div class="speaker">
+        <p><strong>«Psychotherapie mit ehemaligen Kindersoldaten in Mozambique – Zyklen der Gewalt durchbrechen»</strong></p>
+        <p><strong>Dr. phil. Boia Efraime Junior (Universität Maputo, Mozambique)</strong></p>
+        <p class="speaker__bio"><em>Zur Person:</em> Boia Efraime Junior ist ein führender mosambikanischer Psychologe und Experte für die Rehabilitation von Kindersoldaten. Er leitet innovative Projekte in Maputo, die traditionelle Heilmethoden mit westlicher Psychotherapie verbinden, um transgenerationale Gewaltzyklen nachhaltig zu durchbrechen.</p>
+        <p class="speaker__abstract"><em>Abstract:</em> Mosambik ist geprägt von transgenerationalen Gewaltzyklen, die von der Kolonialzeit bis in aktuelle Konflikte reichen. Besonders die Rekrutierung von Kindersoldaten hinterlässt tiefe Spuren in der Psyche und Sozialstruktur. Dieser Beitrag analysiert die Folgen dieser Traumata, wie den Verlust familiärer Autoritäten. Vorgestellt wird ein psychotherapeutischer Ansatz, der durch die Anpassung psychoanalytischer Theorie sichere Gruppenräume schafft. Mittels traditionellen Storytellings werden alternative Identifikationsmodelle entwickelt, um Empathie zu stärken und Gewaltzyklen zu stoppen.</p>
+      </div>
+
+      <div class="speaker">
+        <p><strong>«Hilfe für verletzte Seelen – Beziehungsgestaltung im Rahmen der psychosozialen Traumaarbeit»</strong></p>
+        <p><strong>Prof. Dr. phil. habil. Silke Birgitta Gahleitner (ASH Berlin) & Angela Marquardt (UBSKM)</strong></p>
+        <p class="speaker__bio"><em>Zu den Personen:</em> Silke Birgitta Gahleitner ist Professorin für Klinische Psychologie und Sozialarbeit an der Alice Salomon Hochschule in Berlin, langjährig als Sozialarbeiterin und Psychotherapeutin tätig. Seit 2022 ist sie Mitglied der Unabhängigen Aufarbeitungskommission zur Aufarbeitung sexuellen Kindesmissbrauchs. Angela Marquardt ist Diplom-Politologin und Referentin bei der Bundesbeauftragten für den Datenschutz und die Informationsfreiheit sowie Mitglied im Betroffenenrat bei der Unabhängigen Beauftragten für Fragen des sexuellen Kindesmissbrauchs. Die Autorin setzte sich unter anderem in ihrem Buch «Vater, Mutter, Stasi» intensiv mit ihrer Biografie im Überwachungsstaat der DDR auseinander.</p>
+        <p class="speaker__abstract"><em>Abstract:</em> Traumatische Erschütterungen führen oft zu einer Fokussierung auf Schäden und Pathologien. Dabei wird übersehen, dass Betroffene oft enorme Überlebensleistungen erbringen. Eine rein symptomorientierte Sichtweise ignoriert diese Kraft und erschwert die konstruktive Bewältigung. Passfähige Unterstützung hängt primär von einer authentischen, emotional tragfähigen und fachlich reflexiven Beziehungsgestaltung ab. Der Vortrag vereint wissenschaftliche und erfahrungsorientierte Perspektiven zur Frage, wie Fachkräfte diesen Prozess der Bewältigung wirksam unterstützen können.</p>
+      </div>
+
+    </div>
+  </article>
+
   {{-- Collapsible: Tagungsgebühren --}}
   <article class="collapsible js-clpsbl">
     <h2>
