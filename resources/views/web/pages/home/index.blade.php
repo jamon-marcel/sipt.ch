@@ -71,4 +71,57 @@
 <section class="theme-medium order-2 splash visual">
   <div class="splash__title">Willkommen im Schweizer Institut für Psychotraumatologie</div>
 </section>
+
+<!-- Anniversary Lightbox -->
+<div class="anniversary-lightbox" id="anniversaryLightbox">
+  <div class="anniversary-lightbox__backdrop"></div>
+  <div class="anniversary-lightbox__content">
+    <button class="anniversary-lightbox__close" aria-label="Schliessen">&times;</button>
+    <h2>20 Jahre SIPT</h2>
+    <p>Das SIPT feiert dieses Jahr sein 20-jähriges Bestehen! Aus diesem Anlass laden wir Sie herzlich zu unserer zweitägigen Fachtagung ein: «Soziale Traumata und deren Auswirkungen in der Praxis».</p>
+    <p>Die Tagung findet am Freitag, 21. und Samstag, 22. August 2026 in der Alten Kaserne in Winterthur statt.</p>
+    <a href="{{ route('anniversary_index') }}" class="anniversary-lightbox__btn">Zum Programm & Anmeldung</a>
+  </div>
+</div>
+
+<script>
+(function() {
+  var lightbox = document.getElementById('anniversaryLightbox');
+  var storageKey = 'anniversary_lightbox_seen';
+  
+  if (!lightbox) return;
+  
+  // Check if already seen this session
+  // TODO: Re-enable before go-live
+  // if (sessionStorage.getItem(storageKey)) {
+  //   lightbox.remove();
+  //   return;
+  // }
+  
+  // Show lightbox
+  setTimeout(function() {
+    lightbox.classList.add('is-visible');
+  }, 500);
+  
+  function closeLightbox() {
+    lightbox.classList.remove('is-visible');
+    // TODO: Re-enable before go-live
+    // sessionStorage.setItem(storageKey, '1');
+    setTimeout(function() {
+      lightbox.remove();
+    }, 300);
+  }
+  
+  // Close on backdrop click
+  lightbox.querySelector('.anniversary-lightbox__backdrop').addEventListener('click', closeLightbox);
+  
+  // Close on button click
+  lightbox.querySelector('.anniversary-lightbox__close').addEventListener('click', closeLightbox);
+  
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();
+</script>
 @endsection
