@@ -92,11 +92,10 @@
   if (!lightbox) return;
   
   // Check if already seen this session
-  // TODO: Re-enable before go-live
-  // if (sessionStorage.getItem(storageKey)) {
-  //   lightbox.remove();
-  //   return;
-  // }
+  if (sessionStorage.getItem(storageKey)) {
+    lightbox.remove();
+    return;
+  }
   
   // Show lightbox
   setTimeout(function() {
@@ -105,8 +104,7 @@
   
   function closeLightbox() {
     lightbox.classList.remove('is-visible');
-    // TODO: Re-enable before go-live
-    // sessionStorage.setItem(storageKey, '1');
+    sessionStorage.setItem(storageKey, '1');
     setTimeout(function() {
       lightbox.remove();
     }, 300);
