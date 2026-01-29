@@ -274,3 +274,12 @@
     margin-top: 3px;
   }
 }
+
+// Speaker entries
+.speaker {
+  margin-bottom: $space-xl;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
