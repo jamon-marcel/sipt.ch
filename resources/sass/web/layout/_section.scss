@@ -105,8 +105,11 @@ section.splash {
         width: 500px;
         height: 431px;
         top: calc(100vh - 431px);
-        margin-left: -36px;
         margin-bottom: -431px;
+      }
+
+      @include bp-xl() {
+        margin-left: -36px;
       }
     }
   }
