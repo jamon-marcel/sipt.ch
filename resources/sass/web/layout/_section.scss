@@ -67,40 +67,52 @@ section {
 section.splash {
   
   &.splash--anniversary {
+    position: relative;
+    
     &::before {
       content: '';
-      position: fixed;
+      position: absolute;
       left: 0;
-      top: calc(100vh - 259px);
+      bottom: 0;
       width: 300px;
       height: 259px;
       background-image: url($url-images + 'logo-sipt-anniversary.svg');
       background-size: contain;
       background-repeat: no-repeat;
       pointer-events: none;
+      opacity: 0;
+      animation: fadeInLogo 0.3s ease-out 0.1s forwards;
 
       @include bp-sm() {
-        // grid: auto 1fr 2fr - column 3 starts after menu + 1fr
-        // assume menu ~20%, then 1fr ~27%, so column 3 starts ~47%
-        left: calc(100vw / 3);
+        position: sticky;
+        display: block;
+        bottom: auto;
+        top: calc(100vh - 345px);
         width: 400px;
         height: 345px;
-        top: calc(100vh - 345px);
+        margin-left: -18px;
+        margin-bottom: -345px;
       }
 
       @include bp-md() {
-        // grid: 1fr 1fr 2fr - column 3 starts at 50%
-        left: 50%;
         width: 400px;
         height: 345px;
         top: calc(100vh - 345px);
+        margin-bottom: -345px;
       }
 
       @include bp-lg() {
         width: 500px;
         height: 431px;
         top: calc(100vh - 431px);
+        margin-bottom: -431px;
       }
+    }
+  }
+
+  @keyframes fadeInLogo {
+    to {
+      opacity: 1;
     }
   }
 
