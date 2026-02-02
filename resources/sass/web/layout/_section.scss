@@ -67,17 +67,40 @@ section {
 section.splash {
   
   &.splash--anniversary {
-    @include background-default();
-    background-image: url($url-images + 'logo-sipt-anniversary.svg');
-    background-size: 300px 259px;
-    background-position: left bottom;
-  
-    @include bp-sm() {
-      background-size: 400px 345px;
-    }
-  
-    @include bp-md() {
-      background-size: 500px 431px;
+    &::before {
+      content: '';
+      position: fixed;
+      left: 0;
+      top: calc(100vh - 259px);
+      width: 300px;
+      height: 259px;
+      background-image: url($url-images + 'logo-sipt-anniversary.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      pointer-events: none;
+
+      @include bp-sm() {
+        // grid: auto 1fr 2fr - column 3 starts after menu + 1fr
+        // assume menu ~20%, then 1fr ~27%, so column 3 starts ~47%
+        left: calc(100vw / 3);
+        width: 400px;
+        height: 345px;
+        top: calc(100vh - 345px);
+      }
+
+      @include bp-md() {
+        // grid: 1fr 1fr 2fr - column 3 starts at 50%
+        left: 50%;
+        width: 400px;
+        height: 345px;
+        top: calc(100vh - 345px);
+      }
+
+      @include bp-lg() {
+        width: 500px;
+        height: 431px;
+        top: calc(100vh - 431px);
+      }
     }
   }
 

@@ -68,7 +68,7 @@
   @endforeach
 
 </section>
-<section class="theme-medium order-2 splash visual">
+<section class="theme-medium order-2 splash splash--anniversary visual">
   <div class="splash__title">Willkommen im Schweizer Institut für Psychotraumatologie</div>
 </section>
 
