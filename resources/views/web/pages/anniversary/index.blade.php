@@ -90,7 +90,7 @@
         </div>
         <div class="program__item">
           <div class="program__time">14.30 Uhr</div>
-          <div class="program__desc"><strong>Referat 6:</strong> «Hilfe für verletzte Seelen – Beziehungsgestaltung im Rahmen der psychosozialen Traumaarbeit»<br><em>Prof. Dr. phil. habil. Silke Birgitta Gahleitner (ASH Berlin)</em></div>
+          <div class="program__desc"><strong>Referat 6:</strong> «Hilfe für verletzte Seelen – Beziehungsgestaltung im Rahmen der psychosozialen Traumaarbeit»<br><em>Prof. Dr. phil. habil. Silke Birgitta Gahleitner (ASH Berlin) & Angela Marquardt (UBSKM)</em></div>
         </div>
         <div class="program__item">
           <div class="program__time">15.30 – 16.00 Uhr</div>
