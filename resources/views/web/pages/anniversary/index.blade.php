@@ -17,6 +17,9 @@
       <div class="list__item">
         <strong>Ort:</strong> Alte Kaserne, Technikumstrasse 8, 8403 Winterthur
       </div>
+      <div class="list__item">
+        <strong>Anerkennung & Credits:</strong> SIPT-Teilnahmebestätigung, FSP-Fortbildungseinheiten, FMH-Zertifizierung in Planung
+      </div>
     </div>
   </article>
 
