@@ -7,7 +7,7 @@
 
   <article>
     <h2>20 Jahre SIPT</h2>
-    <p>Das SIPT feiert dieses Jahr sein 20-jähriges Bestehen! Aus diesem Anlass laden wir Sie herzlich zu unserer zweitägigen Fachtagung ein: «Soziale Traumata und deren Auswirkungen in der Praxis». Die Tagung findet am Freitag, 21. und Samstag, 22. August 2026 in der Alten Kaserne in Winterthur statt. Unter folgendem Link können Sie das Tagungsprogramm abrufen und sich anmelden: <a href="{{ route('anniversary_index') }}">Anmeldeformular</a>.<br><br>Hinweis: SIPT-Teilnahmebestätigung, FSP-Fortbildungseinheiten, FMH-Zertifizierung in Planung.</p>
+    <p>Das SIPT feiert dieses Jahr sein 20-jähriges Bestehen! Aus diesem Anlass laden wir Sie herzlich zu unserer zweitägigen Fachtagung ein: «Soziale Traumata und deren Auswirkungen in der Praxis». Die Tagung findet am Freitag, 21. und Samstag, 22. August 2026 in der Alten Kaserne in Winterthur statt. Unter folgendem Link können Sie das Tagungsprogramm abrufen und sich anmelden: <a href="{{ route('anniversary_index') }}">Anmeldeformular</a>.<br><br><em>Hinweis: SIPT-Teilnahmebestätigung, FSP-Fortbildungseinheiten, FMH-Zertifizierung in Planung.</em></p>
   </article>
 
   <article>

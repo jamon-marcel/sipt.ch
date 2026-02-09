@@ -30,6 +30,10 @@ strong, b {
 	@include font-bold();
 }
 
+em, i {
+  font-style: italic;
+}
+
 p {
 	margin-bottom: $space-md;
 	
