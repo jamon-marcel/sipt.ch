@@ -185,14 +185,6 @@
             <td>Beide Tage (Freitag und Samstag) – Normaltarif</td>
             <td>CHF 390.–</td>
           </tr>
-          <tr>
-            <td>Nur Freitag, 21.8.26</td>
-            <td>CHF 150.–</td>
-          </tr>
-          <tr>
-            <td>Nur Samstag, 22.8.26</td>
-            <td>CHF 250.–</td>
-          </tr>
         </tbody>
       </table>
       <p class="form-hint"><small>* Frühbucherrabatt gilt bis 30.05.2026</small></p>
@@ -259,30 +251,9 @@
         </label>
       </div>
 
-      {{-- Friday Only --}}
-      <div class="ticket-button" data-ticket="friday_only">
-        <label class="ticket-button__header">
-          <input type="radio" name="ticket_type" value="friday_only" {{ old('ticket_type') == 'friday_only' ? 'checked' : '' }}>
-          <span class="ticket-button__content">
-            <strong>Nur Freitag, 21.8.26</strong>
-            <span>CHF 150.–</span>
-          </span>
-        </label>
-      </div>
-
-      {{-- Saturday Only --}}
-      <div class="ticket-button" data-ticket="saturday_only">
-        <label class="ticket-button__header">
-          <input type="radio" name="ticket_type" value="saturday_only" {{ old('ticket_type') == 'saturday_only' ? 'checked' : '' }}>
-          <span class="ticket-button__content">
-            <strong>Nur Samstag, 22.8.26</strong>
-            <span>CHF 250.–</span>
-          </span>
-        </label>
-      </div>
     </div>
 
-    {{-- Ticket Options (shown based on ticket selection) --}}
+    {{-- Ticket Options (shown once both_days is selected) --}}
     <div class="form-group" id="js-ticket-options" style="{{ old('ticket_type') ? 'margin-top: 25px' : 'display: none; margin-top: 25px' }}">
       <div>
         <label style="margin-bottom: 10px">Inklusivleistungen</label>
@@ -290,7 +261,7 @@
       </div>
     </div>
     <div class="ticket-options-container" id="js-ticket-options-content" style="{{ old('ticket_type') ? '' : 'display: none;' }}">
-      <div class="ticket-option" id="js-apero-option" style="{{ in_array(old('ticket_type'), ['both_days', 'friday_only']) ? '' : 'display: none;' }}">
+      <div class="ticket-option" id="js-apero-option">
         <span class="ticket-option__label">Apéro (Freitag, 21.8.26)</span>
         <div class="ticket-option__radios">
           <label class="ticket-option__radio">
@@ -303,7 +274,7 @@
           </label>
         </div>
       </div>
-      <div class="ticket-option" id="js-lunch-option" style="{{ in_array(old('ticket_type'), ['both_days', 'saturday_only']) ? '' : 'display: none;' }}">
+      <div class="ticket-option" id="js-lunch-option">
         <span class="ticket-option__label">Mittagessen (Samstag, 22.8.26)</span>
         <div class="ticket-option__radios">
           <label class="ticket-option__radio">
@@ -336,12 +307,10 @@ document.addEventListener('DOMContentLoaded', function() {
   var ticketButtons = document.querySelectorAll('.ticket-button');
   var optionsTitle = document.getElementById('js-ticket-options');
   var optionsContainer = document.getElementById('js-ticket-options-content');
-  var aperoOption = document.getElementById('js-apero-option');
-  var lunchOption = document.getElementById('js-lunch-option');
 
   function updateTicketOptions() {
     var selectedTicket = document.querySelector('input[name="ticket_type"]:checked');
-    
+
     ticketButtons.forEach(function(button) {
       var radio = button.querySelector('input[name="ticket_type"]');
       if (radio.checked) {
@@ -354,10 +323,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (selectedTicket) {
       optionsTitle.style.display = 'flex';
       optionsContainer.style.display = 'block';
-      var ticketType = selectedTicket.value;
-      
-      aperoOption.style.display = (ticketType === 'both_days' || ticketType === 'friday_only') ? 'block' : 'none';
-      lunchOption.style.display = (ticketType === 'both_days' || ticketType === 'saturday_only') ? 'block' : 'none';
     } else {
       optionsTitle.style.display = 'none';
       optionsContainer.style.display = 'none';

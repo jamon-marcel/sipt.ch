@@ -30,20 +30,12 @@ class AnniversaryRegistrationStoreRequest extends FormRequest
       'street_no' => 'required',
       'zip' => 'required',
       'city' => 'required',
-      'ticket_type' => 'required|in:both_days,friday_only,saturday_only',
+      'ticket_type' => 'required|in:both_days',
       'toc' => 'required',
     ];
 
-    $ticketType = $this->input('ticket_type');
-
-    if ($ticketType === 'both_days') {
-      $rules['apero_friday'] = 'required|in:0,1';
-      $rules['lunch_saturday'] = 'required|in:0,1';
-    } elseif ($ticketType === 'friday_only') {
-      $rules['apero_friday'] = 'required|in:0,1';
-    } elseif ($ticketType === 'saturday_only') {
-      $rules['lunch_saturday'] = 'required|in:0,1';
-    }
+    $rules['apero_friday'] = 'required|in:0,1';
+    $rules['lunch_saturday'] = 'required|in:0,1';
 
     return $rules;
   }
