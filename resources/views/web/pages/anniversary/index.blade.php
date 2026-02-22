@@ -236,7 +236,7 @@
 
     {{-- Ticket Selection: Stacked Buttons --}}
     <div class="form-group @if ($errors->has('ticket_type')) has-error @endif">
-      <label class="is-required">Ticketauswahl</label>
+      <label class="is-required">Ticketkauf</label>
     </div>
     <div class="ticket-buttons">
       {{-- Both Days --}}
@@ -244,7 +244,6 @@
         <label class="ticket-button__header">
           <input type="radio" name="ticket_type" value="both_days" {{ old('ticket_type') == 'both_days' ? 'checked' : '' }}>
           <span class="ticket-button__content">
-            <strong>Beide Tage (Freitag und Samstag)</strong>
             <span>CHF 350.–/CHF 390.–</span>
             <small>Frühbucherrabatt gilt bis 30.05.2026</small>
           </span>
