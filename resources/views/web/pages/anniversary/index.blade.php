@@ -169,7 +169,7 @@
       <a href="javascript:;" class="btn-collapsible js-clpsbl-btn">Tagungsgebühren</a>
     </h2>
     <div class="collapsible__content js-clpsbl-body" style="display: none">
-      <table class="table-default">
+      <table class="table-default" style="width: 100%; max-width: 640px;">
         <thead>
           <tr>
             <th>Ticket</th>
