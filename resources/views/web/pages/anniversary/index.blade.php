@@ -178,11 +178,11 @@
         </thead>
         <tbody>
           <tr>
-            <td>Beide Tage (Freitag und Samstag) – Frühbuchertarif*</td>
+            <td>Frühbuchertarif*</td>
             <td>CHF 350.–</td>
           </tr>
           <tr>
-            <td>Beide Tage (Freitag und Samstag) – Normaltarif</td>
+            <td>Normaltarif</td>
             <td>CHF 390.–</td>
           </tr>
         </tbody>
