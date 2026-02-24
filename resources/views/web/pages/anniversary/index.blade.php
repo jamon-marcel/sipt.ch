@@ -8,7 +8,7 @@
   <x-header title="Fachtagung" />
   <article>
     <h2>20 Jahre SIPT</h2>
-    <p>Das SIPT wird dieses Jahr 20 Jahre alt! Dies möchten wir mit einer zweitägigen Fachtagung feiern und laden Sie herzlich dazu ein. Gemeinsam widmen wir uns dem Thema <strong>«Soziale Traumata und deren Auswirkungen in der Praxis»</strong>.</p>
+    <p>Das SIPT wird dieses Jahr 20 Jahre alt! Dies möchten wir mit einer zweitägigen Fachtagung feiern und laden Sie herzlich dazu ein. Gemeinsam widmen wir uns dem Thema <a href="{{ asset('storage/downloads/sipt-tagung-2026.pdf') }}" target="_blank"><strong>«Soziale Traumata und deren Auswirkungen in der Praxis»</strong></a>.</p>
     <p>Die aktuelle politische Weltlage, Kriege und der Klimawandel haben zunehmend Auswirkungen auf das psychische Befinden unserer PatientInnen in der Psychotherapie und Beratung, aber vor allem auch im pädagogischen Bereich. Mit unserer Tagung wollen wir einen Diskussionsraum öffnen, um Folgen sozialer Traumata aufzuzeigen und Probleme zu benennen, ohne in eine Polarisierung abzugleiten. Wir möchten nach Lösungen suchen, die einen hoffnungsvollen Blick in die Zukunft ermöglichen.</p>
     <div class="list">
       <div class="list__item">
