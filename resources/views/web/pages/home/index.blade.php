@@ -78,7 +78,7 @@
   <div class="anniversary-lightbox__content">
     <button class="anniversary-lightbox__close" aria-label="Schliessen">&times;</button>
     <h2>20 Jahre SIPT</h2>
-    <p>Das SIPT feiert dieses Jahr sein 20-jähriges Bestehen! Aus diesem Anlass laden wir Sie herzlich zu unserer zweitägigen Fachtagung ein: <a href="/20-jahre-sipt" target="_blank">«Soziale Traumata und deren Auswirkungen in der Praxis»</a>.</p>
+    <p>Das SIPT feiert dieses Jahr sein 20-jähriges Bestehen! Aus diesem Anlass laden wir Sie herzlich zu unserer zweitägigen Fachtagung ein: <a href="{{ route('anniversary_index') }}" target="_blank">«Soziale Traumata und deren Auswirkungen in der Praxis»</a>.</p>
     <p>Die Tagung findet am Freitag, 21. und Samstag, 22. August 2026 in der Alten Kaserne in Winterthur statt.</p>
     <a href="{{ route('anniversary_index') }}" class="anniversary-lightbox__btn">Zum Programm & Anmeldung</a>
   </div>
