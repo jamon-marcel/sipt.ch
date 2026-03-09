@@ -56,7 +56,7 @@ class ChatbotController extends Controller
             if (empty($results)) {
                 return response()->json([
                     'status' => 'fallback',
-                    'answer' => 'Leider konnte ich keine passende Antwort finden. Bitte kontaktieren Sie unser Sekretariat für weitere Informationen.',
+                    'answer' => 'Leider konnte ich keine passende Antwort finden. Bitte kontaktieren Sie unser Sekretariat unter sekretariat@sipt.ch für weitere Informationen.',
                     'sources' => [],
                 ]);
             }
