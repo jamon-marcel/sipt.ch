@@ -6,6 +6,13 @@
   <x-header title="Stelleninserate" />
   <article>
     <p>
+      <a href="https://schulemitperspektive.ch/stellen-2/" target="_blank" class="btn-download" title="Psychotherapeut:in mit Schwerpunkt Kinder und Jugendliche, 60%">
+        <strong>
+          Sekundarlehrperson, 80% (SOMOSA-Schule, W/M)
+        </strong>
+      </a> 
+    </p>
+    <p>
       <a href="/storage/downloads/sipt-PsychotherapeutIn-60-80.pdf" target="_blank" class="btn-download" title="Psychotherapeut:in mit Schwerpunkt Kinder und Jugendliche, 60%">
         <strong>
           Psychotherapeut:in 60-80% (Standort Bülach)
