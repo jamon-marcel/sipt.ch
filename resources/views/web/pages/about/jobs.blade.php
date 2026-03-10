@@ -6,6 +6,16 @@
   <x-header title="Stelleninserate" />
   <article>
     <p>
+      <a href="https://jobs.aoz.ch/aoz/job/details/3962128/" target="_blank" class="btn-download" title="Psychotherapeut*in 60-90%">
+        <strong>Psychotherapeut*in 60-90% (AOZ)</strong>
+      </a>
+    </p>
+    <p>
+      <a href="https://jobs.aoz.ch/aoz/job/details/3962122/" target="_blank" class="btn-download" title="Psychotherapeut*in 60-80%, Bereich Jugendliche & junge Erwachsene">
+        <strong>Psychotherapeut*in 60-80%, Bereich Jugendliche &amp; junge Erwachsene (AOZ)</strong>
+      </a>
+    </p>
+    <p>
       <a href="https://schulemitperspektive.ch/stellen-2/" target="_blank" class="btn-download" title="Psychotherapeut:in mit Schwerpunkt Kinder und Jugendliche, 60%">
         <strong>
           Sekundarlehrperson, 80% (SOMOSA-Schule, W/M)
