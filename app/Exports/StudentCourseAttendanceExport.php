@@ -15,7 +15,7 @@ class StudentCourseAttendanceExport implements FromCollection, WithHeadings
     $threeYearsAgo = date('Y.m.d', strtotime('-3 years'));
 
     // Get all students who have attended a course event in the last 3 years
-    $studentIds = CourseEventStudent::where('is_cancelled', 0)
+    $studentIds = CourseEventStudent::where('course_event_student.is_cancelled', 0)
       ->whereHas('courseEvent', function ($query) use ($threeYearsAgo) {
         $query->where('dateStart', '>=', $threeYearsAgo);
       })
@@ -32,7 +32,7 @@ class StudentCourseAttendanceExport implements FromCollection, WithHeadings
     {
       // Get the most recent course event date for this student
       $lastAttendance = CourseEventStudent::where('student_id', $s->id)
-        ->where('is_cancelled', 0)
+        ->where('course_event_student.is_cancelled', 0)
         ->whereHas('courseEvent', function ($query) use ($threeYearsAgo) {
           $query->where('dateStart', '>=', $threeYearsAgo);
         })
