@@ -27,6 +27,11 @@ class CourseEventStudent extends Model
 		return $this->hasOne('App\Models\Course');
 	}
 
+	public function courseEvent()
+	{
+		return $this->belongsTo('App\Models\CourseEvent');
+	}
+
   /**
    * Mutator 'setDate'
    */
