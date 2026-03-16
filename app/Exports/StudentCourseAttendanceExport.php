@@ -14,11 +14,15 @@ class StudentCourseAttendanceExport implements FromCollection, WithHeadings
   {
     $threeYearsAgo = date('Y.m.d', strtotime('-3 years'));
 
-    // Get all students who have attended a course event in the last 3 years
+    $attendanceScope = function ($query) use ($threeYearsAgo) {
+      $query->where('is_cancelled', 0)
+        ->where('dateStart', '>=', $threeYearsAgo);
+    };
+
+    // Get all students who have actually attended a course event in the last 3 years
     $studentIds = CourseEventStudent::where('course_event_student.is_cancelled', 0)
-      ->whereHas('courseEvent', function ($query) use ($threeYearsAgo) {
-        $query->where('dateStart', '>=', $threeYearsAgo);
-      })
+      ->where('has_attendance', 1)
+      ->whereHas('courseEvent', $attendanceScope)
       ->pluck('student_id')
       ->unique();
 
@@ -30,15 +34,22 @@ class StudentCourseAttendanceExport implements FromCollection, WithHeadings
     $data = [];
     foreach ($students as $s)
     {
-      // Get the most recent course event date for this student
-      $lastAttendance = CourseEventStudent::where('student_id', $s->id)
+      // Get the most recent attended course event for this student
+      $lastEvent = CourseEventStudent::where('student_id', $s->id)
         ->where('course_event_student.is_cancelled', 0)
-        ->whereHas('courseEvent', function ($query) use ($threeYearsAgo) {
-          $query->where('dateStart', '>=', $threeYearsAgo);
+        ->where('has_attendance', 1)
+        ->whereHas('courseEvent', $attendanceScope)
+        ->with('courseEvent')
+        ->get()
+        ->sortByDesc(function ($entry) {
+          return $entry->courseEvent->getAttributes()['dateStart'];
         })
-        ->join('course_events', 'course_events.id', '=', 'course_event_student.course_event_id')
-        ->orderBy('course_events.dateStart', 'DESC')
-        ->value('course_events.dateStart');
+        ->first();
+
+      $lastDate = '';
+      if ($lastEvent && $lastEvent->courseEvent) {
+        $lastDate = $lastEvent->courseEvent->dateStart;
+      }
 
       $email = $s->user ? $s->user->email : '';
 
@@ -49,7 +60,7 @@ class StudentCourseAttendanceExport implements FromCollection, WithHeadings
         'PLZ' => $s->zip,
         'Ort' => $s->city,
         'E-Mail' => $email,
-        'Letzter Kursbesuch' => $lastAttendance ? \Carbon\Carbon::parse($lastAttendance)->format('d.m.Y') : '',
+        'Letzter Kursbesuch' => $lastDate,
       ];
     }
 
