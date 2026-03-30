@@ -140,7 +140,7 @@ class PaymentSlip
 
   private function getClientNumberString()
   {
-    return str_pad($this->clientNumber,  5, "0");
+    return str_pad(substr($this->clientNumber, -5),  5, "0");
   }
 
   /**
