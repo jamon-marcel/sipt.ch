@@ -24,6 +24,7 @@ class VipAddress extends Model
     'phone',
     'email',
     'mobile',
+    'is_invalid_address',
 	];
 	
   protected $appends = ['fullName'];

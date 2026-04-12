@@ -34,6 +34,7 @@ use App\Http\Controllers\Api\ResilienceTipFileController;
 use App\Http\Controllers\Api\TherapistController;
 use App\Http\Controllers\Api\TherapistIntroController;
 use App\Http\Controllers\Api\AnniversaryRegistrationController;
+use App\Http\Controllers\Api\InvalidateAddressController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // RAG Chatbot endpoints
 Route::post('chatbot', [ChatbotController::class, 'query']);
 Route::get('chatbot/health', [ChatbotController::class, 'health']);
+
+// Invalidate address (token-based auth via X-Api-Token header)
+Route::post('invalidate-address', [InvalidateAddressController::class, 'invalidate']);
 
 Route::middleware('auth:sanctum')->group(function() {
 

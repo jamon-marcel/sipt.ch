@@ -32,6 +32,7 @@ class TutorAddressesExport implements FromCollection, WithHeadings
         'Telefon' => $t->phone,
         'Mobile' => $t->mobile,
         'E-Mail' => $email,
+        'Adresse ungültig' => $t->is_invalid_address ? '1' : '0',
         'Newsletter' => MailinglistSubscriber::where('email', $email)->where('mailinglist_id', env('MAILINGLIST_NEWSLETTER'))->first() ? '1' : '0',
         'Aufbautipp' => $t->user->is_newsletter_subscriber ? '1' : '0'
       ];
@@ -53,6 +54,7 @@ class TutorAddressesExport implements FromCollection, WithHeadings
       'Telefon',
       'Mobile',
       'E-Mail',
+      'Adresse ungültig',
       'Newsletter',
       'Aufbautipp'
     ];

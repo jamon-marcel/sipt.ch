@@ -31,6 +31,7 @@ class Student extends Model
 		'needs_hours_confirmation',
 		'has_alt_address',
 		'is_active',
+		'is_invalid_address',
 		'user_id',
 	];
 

@@ -26,6 +26,7 @@ class Tutor extends Model
 		'is_leader',
     'is_published',
     'is_visible',
+    'is_invalid_address',
 		'user_id',
 	];
 	

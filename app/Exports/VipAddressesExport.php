@@ -32,6 +32,7 @@ class VipAddressesExport implements FromCollection, WithHeadings
         'Telefon' => $a->phone,
         'Mobile' => $a->mobile,
         'E-Mail' => $a->email,
+        'Adresse ungültig' => $a->is_invalid_address ? '1' : '0',
       ];
     }
     return collect($data);
@@ -56,6 +57,7 @@ class VipAddressesExport implements FromCollection, WithHeadings
       'Telefon',
       'Mobile',
       'E-Mail',
+      'Adresse ungültig',
     ];
   }
 }
