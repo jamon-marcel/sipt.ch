@@ -6,6 +6,11 @@
   <x-header title="Stelleninserate" />
   <article>
     <p>
+      <a href="/storage/downloads/sipt-psychotherapeutIn-60_-_80.pdf" target="_blank" class="btn-download" title="Psychotherapeut:in 60-80% (Standort Bülach)">
+        <strong>Psychotherapeut:in 60-80% (Standort Bülach)</strong>
+      </a>
+    </p>
+    <p>
       <a href="https://jobs.aoz.ch/aoz/job/details/3962128/" target="_blank" class="btn-download" title="Psychotherapeut*in 60-90%">
         <strong>Psychotherapeut*in 60-90% (AOZ)</strong>
       </a>
