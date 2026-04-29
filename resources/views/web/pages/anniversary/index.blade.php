@@ -18,7 +18,7 @@
         <strong>Ort:</strong> Alte Kaserne, Technikumstrasse 8, 8403 Winterthur
       </div>
       <div class="list__item">
-        <strong>Anerkennung & Credits:</strong> SIPT-Teilnahmebestätigung, FSP-Fortbildungseinheiten, FMH-Zertifizierung in Planung
+        <strong>Anerkennung & Credits:</strong> SIPT-Teilnahmebestätigung, FSP-Fortbildungseinheiten, <a href="/storage/downloads/fb_veranstaltungen_2026-v1.pdf" target="_blank" aria-label="Link zur SIWF-Anerkennung" class="underline">SIWF-anerkannte Fortbildungsveranstaltung (13 Credits im Rahmen der erweiterten Fortbildung in allen Fachgebieten von Ärztinnen und Ärzten)</a>
       </div>
     </div>
   </article>

@@ -28,6 +28,14 @@
       &:hover {
         color: $color-orange;
       }
+
+      &.underline {
+        text-decoration: underline;
+        &:hover {
+          color: $color-black;
+          text-decoration: none;
+        }
+      }
     }
   }
 
