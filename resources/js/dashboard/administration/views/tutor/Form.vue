@@ -261,7 +261,7 @@ export default {
           this.$router.push({ name: "tutors" });
           this.$notify({ type: "success", text: "Dozent erfasst!" });
           this.isLoading = false;
-        });
+        }).catch(() => {});
       }
       else {
         this.isLoading = true;
@@ -269,7 +269,7 @@ export default {
           this.$router.push({ name: "tutors" });
           this.$notify({ type: "success", text: "Dozent erfasst!" });
           this.isLoading = false;
-        });
+        }).catch(() => {});
       }
     },
 
@@ -280,7 +280,7 @@ export default {
         this.$router.push({ name: "tutors" });
         this.$notify({ type: "success", text: "Änderungen gespeichert!" });
         this.isLoading = false;
-      });
+      }).catch(() => {});
     },
 
     // Store uploaded image

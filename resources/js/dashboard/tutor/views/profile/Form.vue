@@ -54,10 +54,9 @@
             </div>
             <div class="form-row">
               <div class="grid grid-1-1">
-                <div :class="[this.errors.phone ? 'has-error' : '', 'form-row-grid']">
+                <div class="form-row-grid">
                   <label>Telefon</label>
                   <input type="text" v-model="tutor.phone">
-                  <label-required />
                 </div>
                 <div class="form-row-grid">
                   <label>Mobile</label>
@@ -222,7 +221,7 @@ export default {
         this.$router.push({ name: "profile" });
         this.$notify({ type: "success", text: "Änderungen gespeichert!" });
         this.isLoading = false;
-      });
+      }).catch(() => {});
     },
 
     // Store uploaded image

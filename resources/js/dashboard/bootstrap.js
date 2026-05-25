@@ -18,7 +18,8 @@ try {
  * CSRF token as a header based on the value of the "XSRF" token cookie.
  */
 
-window.axios = require('axios');
+import axios from 'axios';
+window.axios = axios;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
@@ -34,3 +35,15 @@ if (token) {
 } else {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
+
+window.axios.interceptors.response.use(
+    response => response,
+    error => {
+        if (error.response && error.response.status === 422 && error.response.data && error.response.data.errors) {
+            window.dispatchEvent(new CustomEvent('axios:validation-failed', {
+                detail: { errors: error.response.data.errors }
+            }));
+        }
+        return Promise.reject(error);
+    }
+);

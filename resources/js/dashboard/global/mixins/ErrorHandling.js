@@ -1,12 +1,17 @@
 export default {
 
   data() {
-    return { 
+    return {
       errors: null,
     }
   },
-  
+
   mounted() {
+
+    this.$_onValidationFailed = (event) => {
+      this.validationError(event.detail.errors);
+    };
+    window.addEventListener('axios:validation-failed', this.$_onValidationFailed);
 
     window.intercepted.$on('response:401', data => {
       this.unauthorized(data);
@@ -24,10 +29,6 @@ export default {
       this.notAllowed(data);
     });
 
-    window.intercepted.$on('response:422', data => {
-      this.validationError(data);
-    });
-
     window.intercepted.$on('response:500', data => {
       this.serverError(data);
     });
@@ -35,22 +36,22 @@ export default {
   },
 
   beforeDestroy(){
+    window.removeEventListener('axios:validation-failed', this.$_onValidationFailed);
     window.intercepted.$off('response:401', this.listener);
     window.intercepted.$off('response:403', this.listener);
     window.intercepted.$off('response:404', this.listener);
     window.intercepted.$off('response:405', this.listener);
-    window.intercepted.$off('response:422', this.listener);
     window.intercepted.$off('response:500', this.listener);
   },
 
   methods: {
 
-    validationError(data) {
-      let errors = {};
-      data.body.forEach(function(key) {
-        errors[key.field] = true;
+    validationError(errors) {
+      const next = {};
+      Object.keys(errors).forEach(field => {
+        next[field] = true;
       });
-      this.errors = errors;
+      this.errors = { ...(this.errors || {}), ...next };
       this.isLoading = false;
       this.$notify({ type: "error", text: `Bitte alle mit * markierten Felder prüfen!`});
     },
