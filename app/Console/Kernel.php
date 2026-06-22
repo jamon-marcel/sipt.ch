@@ -6,6 +6,7 @@ use App\Tasks\CourseEventReminder;
 use App\Tasks\Message;
 use App\Tasks\DatabaseBackup;
 use App\Tasks\MailingQueue;
+use App\Tasks\QdrantKeepAlive;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -36,6 +37,7 @@ class Kernel extends ConsoleKernel
       $schedule->call(new Message)->everyMinute();
       $schedule->call(new MailingQueue)->everyMinute();
       $schedule->call(new DatabaseBackup)->daily();
+      $schedule->call(new QdrantKeepAlive)->dailyAt('06:00');
     }
   }
 
