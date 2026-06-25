@@ -7,6 +7,8 @@
 @endslot
 
 {{-- Body --}}
+@include('mails.partials.html.noreply')
+
 {{ $slot }}
 
 {{-- Subcopy --}}
