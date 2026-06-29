@@ -3,6 +3,7 @@ namespace App\Listeners;
 use App\Models\Invoice;
 use App\Models\Student;
 use App\Models\SymposiumSubscriber;
+use App\Models\AnniversaryRegistration;
 use App\Mail\InvoiceSendReminder;
 use PDF;
 use Illuminate\Support\Facades\Mail;
@@ -18,11 +19,12 @@ class InvoiceCreateSendReminder
    *
    * @return void
    */
-  public function __construct(Student $student, Invoice $invoice, SymposiumSubscriber $subscriber)
+  public function __construct(Student $student, Invoice $invoice, SymposiumSubscriber $subscriber, AnniversaryRegistration $anniversaryRegistration)
   {
     $this->student = $student;
     $this->invoice = $invoice;
     $this->subscriber = $subscriber;
+    $this->anniversaryRegistration = $anniversaryRegistration;
   }
 
   /**
@@ -44,6 +46,11 @@ class InvoiceCreateSendReminder
     else if ($invoice->symposium_subscriber_id)
     {
       $recipient = $this->subscriber->find($invoice->symposium_subscriber_id);
+      $recipient_email = $recipient->email;
+    }
+    else if ($invoice->anniversary_registration_id)
+    {
+      $recipient = $this->anniversaryRegistration->find($invoice->anniversary_registration_id);
       $recipient_email = $recipient->email;
     }
 
