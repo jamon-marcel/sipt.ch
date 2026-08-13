@@ -7,7 +7,7 @@
   <article>
     <p>
       <a href="https://recruitingapp-2912.umantis.com/Vacancies/470/Description/1" target="_blank" class="btn-download" title="Dipl. Pflegefachperson HF/FH oder MPA mit Weiterbildung (w/m/d), 60%">
-        <strong>Dipl. Pflegefachperson HF/FH oder MPA mit Weiterbildung, 60% (Klinik Im Hasel AG)</strong>
+        <strong>Dipl. Pflegefachperson HF/FH oder MPA mit Weiterbildung 60% (Klinik Im Hasel AG)</strong>
       </a>
     </p>
     <p>
