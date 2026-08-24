@@ -40,7 +40,7 @@
             <div class="sa-sm">
               <div class="form-row">
                 <file-upload
-                  :restrictions="'pdf, ppt, pptx, doc, docx | max. 16 MB'"
+                  :restrictions="'pdf, ppt, pptx, doc, docx | max. 8 MB'"
                   :maxFiles="1"
                   :maxFilesize="8"
                   :acceptedFiles="'.pdf,.ppt,.pptx,.doc,.docx'"

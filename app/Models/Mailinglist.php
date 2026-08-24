@@ -8,7 +8,8 @@ class Mailinglist extends Model
     'short_description',
     'description',
     'order',
-    'public'
+    'public',
+    'footer_text'
 	];
 
   public function mailingQueue()

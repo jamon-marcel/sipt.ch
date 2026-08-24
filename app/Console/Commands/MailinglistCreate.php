@@ -16,7 +16,8 @@ class MailinglistCreate extends Command
                             {--short_description= : Short description of the mailing list}
                             {--description= : Full description of the mailing list}
                             {--order=-1 : Order/position of the mailing list}
-                            {--public=0 : Whether the mailing list is public (1) or private (0)}';
+                            {--public=0 : Whether the mailing list is public (1) or private (0)}
+                            {--footer_text= : Custom footer text, replaces the newsletter notice in the mailing}';
 
     /**
      * The console command description.
@@ -34,6 +35,7 @@ class MailinglistCreate extends Command
         $description = $this->option('description') ?: $this->ask('Enter a full description for the mailing list');
         $order = $this->option('order');
         $public = $this->option('public');
+        $footerText = $this->option('footer_text');
 
         if (!$shortDescription) {
             $this->error('Short description is required.');
@@ -45,6 +47,7 @@ class MailinglistCreate extends Command
             'description' => $description,
             'order' => $order,
             'public' => $public,
+            'footer_text' => $footerText ?: NULL,
         ]);
 
         $this->info("Mailing list created successfully!");
