@@ -6,11 +6,6 @@
   <x-header title="Aktuell" />
 
   <article>
-    <h2>20 Jahre SIPT</h2>
-    <p>Das SIPT feiert dieses Jahr sein 20-jähriges Bestehen! Aus diesem Anlass laden wir Sie herzlich zu unserer zweitägigen Fachtagung ein: <a href="{{ asset('storage/downloads/sipt-tagung-2026-v2.pdf') }}" target="_blank">«Soziale Traumata und deren Auswirkungen in der Praxis»</a>. Die Tagung findet am Freitag, 21. und Samstag, 22. August 2026 in der Alten Kaserne in Winterthur statt. Unter folgendem Link können Sie das Tagungsprogramm abrufen und sich anmelden: <a href="{{ route('anniversary_index') }}">Anmeldeformular</a>.<br><br><em>Hinweis: SIPT-Teilnahmebestätigung, FSP-Fortbildungseinheiten, <a href="/storage/downloads/fb_veranstaltungen_2026-v1.pdf" target="_blank" aria-label="Link zur SIWF-Anerkennung">SIWF-anerkannt (13 Credits)</a>.</em></p>
-  </article>
-
-  <article>
     <h2>FSP-Anerkennung und Anrechnung für Fachtitel</h2>
     <p>Die SIPT-Weiterbildungen CAS Zertifikatslehrgang Traumatherapie und FachpsychotherapeutIn für Psychotraumatologie sind von der Föderation der Schweizer Psychologinnen und Psychologen (FSP) anerkannt. Besonders wertvoll für Ihre Laufbahn: Die in diesen Lehrgängen absolvierten Einheiten können bei der Beantragung eines FSP-Titels angerechnet werden.</p>
   </article>
@@ -71,55 +66,4 @@
 <section class="theme-medium order-2 splash splash--anniversary visual">
   <div class="splash__title">Willkommen im Schweizer Institut für Psychotraumatologie</div>
 </section>
-
-<!-- Anniversary Lightbox -->
-<div class="anniversary-lightbox" id="anniversaryLightbox">
-  <div class="anniversary-lightbox__backdrop"></div>
-  <div class="anniversary-lightbox__content">
-    <button class="anniversary-lightbox__close" aria-label="Schliessen">&times;</button>
-    <h2>20 Jahre SIPT</h2>
-    <p>Das SIPT feiert dieses Jahr sein 20-jähriges Bestehen! Aus diesem Anlass laden wir Sie herzlich zu unserer zweitägigen Fachtagung ein: <a href="{{ route('anniversary_index') }}" target="_blank">«Soziale Traumata und deren Auswirkungen in der Praxis»</a>.</p>
-    <p>Die Tagung findet am Freitag, 21. und Samstag, 22. August 2026 in der Alten Kaserne in Winterthur statt.</p>
-    <a href="{{ route('anniversary_index') }}" class="anniversary-lightbox__btn">Zum Programm & Anmeldung</a>
-  </div>
-</div>
-
-<script>
-(function() {
-  var lightbox = document.getElementById('anniversaryLightbox');
-  var storageKey = 'anniversary_lightbox_seen';
-  
-  if (!lightbox) return;
-  
-  // Check if already seen this session
-  if (sessionStorage.getItem(storageKey)) {
-    lightbox.remove();
-    return;
-  }
-  
-  // Show lightbox
-  setTimeout(function() {
-    lightbox.classList.add('is-visible');
-  }, 500);
-  
-  function closeLightbox() {
-    lightbox.classList.remove('is-visible');
-    sessionStorage.setItem(storageKey, '1');
-    setTimeout(function() {
-      lightbox.remove();
-    }, 300);
-  }
-  
-  // Close on backdrop click
-  lightbox.querySelector('.anniversary-lightbox__backdrop').addEventListener('click', closeLightbox);
-  
-  // Close on button click
-  lightbox.querySelector('.anniversary-lightbox__close').addEventListener('click', closeLightbox);
-  
-  // Close on Escape key
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeLightbox();
-  });
-})();
-</script>
 @endsection

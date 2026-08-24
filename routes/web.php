@@ -67,9 +67,13 @@ Route::get('/jubilaeums-fachtagung-15-jahre-sipt/abmeldung/{symposiumSubscriber}
 Route::get('/jubilaeums-fachtagung-15-jahre-sipt/abmeldung-erfolgreich', [SymposiumController::class, 'cancelled'])->name('symposium_cancelled');
 
 // 20 Jahre SIPT Anniversary
-Route::get('/20-jahre-sipt', [AnniversaryController::class, 'index'])->name('anniversary_index');
-Route::post('/20-jahre-sipt/registration', [AnniversaryRegistrationController::class, 'store'])->middleware(ProtectAgainstSpam::class)->name('anniversary_register');
-Route::get('/20-jahre-sipt/anmeldung-erfolgreich', [AnniversaryController::class, 'registered'])->name('anniversary_register_success');
+// Tagung vom 21./22.08.2026 durchgefuehrt, Seite per 24.08.2026 ausgeblendet.
+// Daten, Auswertungen und Downloads im Admin bleiben unveraendert bestehen.
+Route::redirect('/20-jahre-sipt', '/');
+Route::redirect('/20-jahre-sipt/anmeldung-erfolgreich', '/');
+// Route::get('/20-jahre-sipt', [AnniversaryController::class, 'index'])->name('anniversary_index');
+// Route::post('/20-jahre-sipt/registration', [AnniversaryRegistrationController::class, 'store'])->middleware(ProtectAgainstSpam::class)->name('anniversary_register');
+// Route::get('/20-jahre-sipt/anmeldung-erfolgreich', [AnniversaryController::class, 'registered'])->name('anniversary_register_success');
 
 // Mailinglist
 Route::get('/newsletter', [MailinglistController::class, 'index'])->name('mailinglist_index');
