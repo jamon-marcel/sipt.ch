@@ -53,7 +53,7 @@ class CourseEventCancelWithPenalty
     $this->viewData['invoice'] = $data;
 
     // Get payment slip data
-    $paymentSlip = new PaymentSlip($data['client_number'], $data['booking_number'], $data['invoice_number'], $data['invoice_amount']);
+    $paymentSlip = new PaymentSlip($data['invoice_number'], $data['client_number'], $data['invoice_amount']);
     $this->viewData['payment_slip'] =  $paymentSlip->get();
           
     // Load pdf view
