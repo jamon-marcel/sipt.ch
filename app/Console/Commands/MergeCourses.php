@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 use App\Models\Course;
 use App\Models\CourseEvent;
 use Illuminate\Console\Command;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
@@ -15,6 +16,28 @@ class MergeCourses extends Command
     {--dry-run : Preview the merge without making any changes}';
 
   protected $description = 'Merge two courses by moving all events, bookings and relations from one to another';
+
+  /**
+   * Tables that simply follow their course event, including their deleted rows.
+   */
+  protected array $eventTables = [
+    'invoices' => 'invoices',
+    'messages' => 'messages',
+    'documents' => 'course_event_files',
+  ];
+
+  /**
+   * Values that are compared between two events merged into each other.
+   */
+  protected array $comparedAttributes = [
+    'max_participants',
+    'location_id',
+    'is_online',
+    'is_bookable',
+    'is_published',
+    'is_cancelled',
+    'is_closed',
+  ];
 
   public function handle(): int
   {
@@ -82,22 +105,21 @@ class MergeCourses extends Command
       );
     }
 
-    // Warn about events on the same start date - possible duplicates that should be cleaned up by hand
-    $targetDates = CourseEvent::withTrashed()
-      ->where('course_id', $target->id)
-      ->pluck('dateStart', 'id')
-      ->map(fn ($date) => (string) $date);
+    // A course must not end up with two active events on the same date, so events
+    // sharing a start date are merged into a single one
+    $groups = $this->collectMergeGroups($source, $target);
+    $mergeGroups = $groups->where('fromSource', true)->values();
+    $existingGroups = $groups->where('fromSource', false)->values();
 
-    $collisions = $events->filter(
-      fn ($event) => $targetDates->contains((string) $event->dateStart)
-    );
+    if ($mergeGroups->isNotEmpty()) {
+      $this->info("\n=== Events on the same date (will be merged) ===");
+      $this->previewMergeGroups($mergeGroups, $source);
+    }
 
-    if ($collisions->isNotEmpty()) {
-      $this->warn("\n  Attention: the target course already has events starting on the same date:");
-      foreach ($collisions as $event) {
-        $this->warn('    ' . $event->getRawOriginal('dateStart') . ' (event ' . $event->id . ')');
-      }
-      $this->warn('  Both events are kept - check afterwards whether one of them should be removed.');
+    if ($existingGroups->isNotEmpty()) {
+      $this->info("\n=== Events of #{$target->number} that already share a date ===");
+      $this->line('  They are not part of the merge, but can be merged in the same go.');
+      $this->previewMergeGroups($existingGroups, $source);
     }
 
     // Relations
@@ -130,6 +152,15 @@ class MergeCourses extends Command
     $adoptFields = [];
 
     if (!$isDryRun) {
+      if ($existingGroups->isNotEmpty()) {
+        $question = 'Merge the ' . $existingGroups->count()
+          . " date(s) of #{$target->number} listed above as well?";
+
+        if ($this->confirm("\n" . $question, false)) {
+          $mergeGroups = $mergeGroups->concat($existingGroups);
+        }
+      }
+
       $this->info("\n=== Title and description ===");
       $this->line("  Target #{$target->number}: {$target->title}");
       $this->line("  Source #{$source->number}: {$source->title}");
@@ -167,6 +198,24 @@ class MergeCourses extends Command
         ->where('course_id', $source->id)
         ->update(['course_id' => $target->id]);
 
+      // Merge the events that share a start date into the event that is kept
+      $mergedEvents = 0;
+      $mergeTotals = array_fill_keys(array_keys($this->emptyResult()), 0);
+
+      foreach ($mergeGroups as $group) {
+        foreach ($group['merge'] as $event) {
+          $counts = $this->mergeEvent($event, $group['keep'], true);
+
+          foreach ($counts as $key => $count) {
+            $mergeTotals[$key] += $count;
+          }
+
+          // The CourseEventObserver soft-deletes the dates that stayed behind
+          $event->delete();
+          $mergedEvents++;
+        }
+      }
+
       // Move relations, skipping the ones the target already has
       foreach ($newTrainings as $trainingId) {
         DB::table('course_training')->insert([
@@ -201,6 +250,24 @@ class MergeCourses extends Command
 
       $this->info("\n✓ Merge completed!");
       $this->info("  - Moved {$events->count()} course event(s) to #{$target->number}");
+
+      if ($mergedEvents) {
+        $this->info("  - Merged {$mergedEvents} event(s) into the event of the same date");
+        $this->info('    Moved along: ' . $mergeTotals['bookings'] . ' booking(s), '
+          . $mergeTotals['invoices'] . ' invoice(s), '
+          . $mergeTotals['dates'] . ' date(s), '
+          . $mergeTotals['messages'] . ' message(s), '
+          . $mergeTotals['documents'] . ' document(s)');
+
+        if ($mergeTotals['duplicates']) {
+          $this->warn('    Removed ' . $mergeTotals['duplicates'] . ' duplicate booking(s) of students booked on both events');
+        }
+
+        if ($mergeTotals['billedDuplicates']) {
+          $this->warn('    ' . $mergeTotals['billedDuplicates'] . ' of them were already billed - check their invoices');
+        }
+      }
+
       $this->info('  - Added ' . $newTrainings->count() . ' training relation(s)');
       $this->info('  - Added ' . $newSpecialisations->count() . ' specialisation relation(s)');
 
@@ -217,6 +284,250 @@ class MergeCourses extends Command
       $this->error('Merge failed: ' . $e->getMessage());
       return self::FAILURE;
     }
+  }
+
+  /**
+   * Group the active events of both courses by start date. Groups that hold more
+   * than one event end up with two events on the same date and are merged into a
+   * single one. Groups without an event of the source course already exist on the
+   * target and are only merged on demand, the merge must not silently clean up
+   * dates it does not touch. Trashed events are history and may share a date.
+   */
+  protected function collectMergeGroups(Course $source, Course $target): Collection
+  {
+    $events = CourseEvent::whereIn('course_id', [$target->id, $source->id])
+      ->orderBy('created_at')
+      ->get();
+
+    // The event with the most active bookings survives, because it carries the
+    // capacity, location and flags that were actually used. Events of the course
+    // that is kept win a tie, followed by the older one.
+    $bookings = DB::table('course_event_student')
+      ->whereIn('course_event_id', $events->pluck('id'))
+      ->whereNull('deleted_at')
+      ->where('is_cancelled', 0)
+      ->groupBy('course_event_id')
+      ->pluck(DB::raw('count(*)'), 'course_event_id');
+
+    $ranking = fn ($event) => [
+      $bookings->get($event->id, 0),
+      $event->course_id === $target->id,
+    ];
+
+    return $events
+      ->groupBy(fn ($event) => $event->getRawOriginal('dateStart'))
+      ->filter(fn ($group) => $group->count() > 1)
+      ->sortKeys()
+      ->map(function ($group, $date) use ($ranking, $source) {
+        $fromSource = $group->contains(fn ($event) => $event->course_id === $source->id);
+        $group = $group->sort(fn ($a, $b) => $ranking($b) <=> $ranking($a))->values();
+
+        return [
+          'date' => $date,
+          'fromSource' => $fromSource,
+          'keep' => $group->first(),
+          'merge' => $group->slice(1)->values(),
+        ];
+      })
+      ->values();
+  }
+
+  /**
+   * Show per date which event survives and what is moved into it.
+   */
+  protected function previewMergeGroups(Collection $mergeGroups, Course $source): void
+  {
+    foreach ($mergeGroups as $group) {
+      $keep = $group['keep'];
+
+      $this->line("\n  {$group['date']}");
+      $this->line('    Kept:   ' . $keep->id . ' (' . $this->eventOrigin($keep, $source) . ')');
+
+      $bookings = DB::table('course_event_student')
+        ->where('course_event_id', $keep->id)
+        ->whereNull('deleted_at')
+        ->where('is_cancelled', 0)
+        ->count();
+
+      foreach ($group['merge'] as $event) {
+        $counts = $this->mergeEvent($event, $keep, false);
+        $bookings += $counts['activeBookings'];
+
+        $this->line('    Merged: ' . $event->id . ' (' . $this->eventOrigin($event, $source) . ')');
+        $this->line('      Moved: ' . $counts['bookings'] . ' booking(s), '
+          . $counts['invoices'] . ' invoice(s), '
+          . $counts['dates'] . ' date(s), '
+          . $counts['messages'] . ' message(s), '
+          . $counts['documents'] . ' document(s)');
+
+        if ($counts['duplicates']) {
+          $this->warn('      ' . $counts['duplicates'] . ' student(s) booked on both events - the duplicate booking is removed');
+        }
+
+        if ($counts['billedDuplicates']) {
+          $this->warn('      ' . $counts['billedDuplicates'] . ' removed booking(s) were already billed - check their invoices');
+        }
+
+        $differences = $this->attributeDifferences($keep, $event);
+
+        if ($differences) {
+          $this->warn('      Values kept from the surviving event: ' . implode(', ', $differences));
+        }
+      }
+
+      if ($keep->max_participants && $bookings > $keep->max_participants) {
+        $this->warn("      Attention: {$bookings} bookings exceed the maximum of {$keep->max_participants} participants");
+      }
+    }
+  }
+
+  /**
+   * Move everything that belongs to $from over to $into. Nothing is written with
+   * $apply = false, the result then only tells what the merge would move.
+   */
+  protected function mergeEvent(CourseEvent $from, CourseEvent $into, bool $apply): array
+  {
+    $result = $this->emptyResult();
+
+    $existing = DB::table('course_event_student')->where('course_event_id', $into->id)->get();
+    $existingActive = $existing->whereNull('deleted_at')->keyBy('student_id');
+    $existingRows = $existing->map(fn ($booking) => $booking->student_id . '|' . $booking->deleted_at);
+
+    $bookings = DB::table('course_event_student')
+      ->where('course_event_id', $from->id)
+      ->orderBy('created_at')
+      ->get();
+
+    foreach ($bookings as $booking) {
+      // Deleted bookings are history and just follow their event
+      if ($booking->deleted_at) {
+        if (!$existingRows->contains($booking->student_id . '|' . $booking->deleted_at)) {
+          $this->moveBooking($booking->id, $into->id, $apply);
+          $result['deletedBookings']++;
+        }
+
+        continue;
+      }
+
+      $duplicate = $existingActive->get($booking->student_id);
+
+      if (!$duplicate) {
+        $this->moveBooking($booking->id, $into->id, $apply);
+        $result['bookings']++;
+        $result['activeBookings'] += $booking->is_cancelled ? 0 : 1;
+        continue;
+      }
+
+      // The student is booked on both events, which ces_unique_constraint forbids.
+      // A cancelled booking gives way to an active one, otherwise the booking of
+      // the surviving event is kept.
+      $result['duplicates']++;
+
+      if ($duplicate->is_cancelled && !$booking->is_cancelled) {
+        $this->dropBooking($duplicate->id, $apply);
+        $this->moveBooking($booking->id, $into->id, $apply);
+        $result['bookings']++;
+        $result['activeBookings']++;
+        continue;
+      }
+
+      $result['billedDuplicates'] += $booking->is_billed ? 1 : 0;
+      $this->dropBooking($booking->id, $apply);
+    }
+
+    // Dates: identical ones are dropped with the merged event, additional days are kept
+    $existingDates = DB::table('course_event_dates')
+      ->where('course_event_id', $into->id)
+      ->whereNull('deleted_at')
+      ->get()
+      ->map(fn ($date) => $date->date . '|' . $date->timeStart . '|' . $date->timeEnd);
+
+    $dates = DB::table('course_event_dates')
+      ->where('course_event_id', $from->id)
+      ->whereNull('deleted_at')
+      ->get();
+
+    foreach ($dates as $date) {
+      if ($existingDates->contains($date->date . '|' . $date->timeStart . '|' . $date->timeEnd)) {
+        continue;
+      }
+
+      if ($apply) {
+        DB::table('course_event_dates')->where('id', $date->id)->update([
+          'course_event_id' => $into->id,
+          'updated_at' => now(),
+        ]);
+      }
+
+      $result['dates']++;
+    }
+
+    foreach ($this->eventTables as $key => $table) {
+      $query = DB::table($table)->where('course_event_id', $from->id);
+
+      $result[$key] = $apply
+        ? $query->update(['course_event_id' => $into->id, 'updated_at' => now()])
+        : $query->count();
+    }
+
+    return $result;
+  }
+
+  protected function emptyResult(): array
+  {
+    return [
+      'bookings' => 0,
+      'activeBookings' => 0,
+      'deletedBookings' => 0,
+      'duplicates' => 0,
+      'billedDuplicates' => 0,
+      'dates' => 0,
+      'invoices' => 0,
+      'messages' => 0,
+      'documents' => 0,
+    ];
+  }
+
+  protected function moveBooking(string $id, string $eventId, bool $apply): void
+  {
+    if ($apply) {
+      DB::table('course_event_student')->where('id', $id)->update([
+        'course_event_id' => $eventId,
+        'updated_at' => now(),
+      ]);
+    }
+  }
+
+  protected function dropBooking(string $id, bool $apply): void
+  {
+    if ($apply) {
+      DB::table('course_event_student')->where('id', $id)->update([
+        'deleted_at' => now(),
+        'updated_at' => now(),
+      ]);
+    }
+  }
+
+  /**
+   * Values that differ between two merged events - the surviving event keeps its
+   * own, so they are reported for a manual check.
+   */
+  protected function attributeDifferences(CourseEvent $keep, CourseEvent $merged): array
+  {
+    $differences = [];
+
+    foreach ($this->comparedAttributes as $attribute) {
+      if ($keep->$attribute != $merged->$attribute) {
+        $differences[] = $attribute . ': ' . $keep->$attribute . ' (instead of ' . $merged->$attribute . ')';
+      }
+    }
+
+    return $differences;
+  }
+
+  protected function eventOrigin(CourseEvent $event, Course $source): string
+  {
+    return $event->course_id === $source->id ? 'source' : 'target';
   }
 
   /**
